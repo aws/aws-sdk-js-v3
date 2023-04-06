@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteBlueprintRequest, DeleteBlueprintResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteBlueprintCommand,
-  serializeAws_json1_1DeleteBlueprintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBlueprintCommand, se_DeleteBlueprintCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteBlueprintCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBlueprintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBlueprintCommand(input, context);
+    return se_DeleteBlueprintCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBlueprintCommandOutput> {
-    return deserializeAws_json1_1DeleteBlueprintCommand(output, context);
+    return de_DeleteBlueprintCommand(output, context);
   }
 
   // Start section: command_body_extra

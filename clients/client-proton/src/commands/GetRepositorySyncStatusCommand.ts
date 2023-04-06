@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRepositorySyncStatusCommand,
-  serializeAws_json1_0GetRepositorySyncStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetRepositorySyncStatusCommand, se_GetRepositorySyncStatusCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -145,14 +142,14 @@ export class GetRepositorySyncStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRepositorySyncStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRepositorySyncStatusCommand(input, context);
+    return se_GetRepositorySyncStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositorySyncStatusCommandOutput> {
-    return deserializeAws_json1_0GetRepositorySyncStatusCommand(output, context);
+    return de_GetRepositorySyncStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

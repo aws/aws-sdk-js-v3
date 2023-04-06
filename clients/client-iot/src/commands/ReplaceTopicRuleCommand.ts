@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ReplaceTopicRuleRequest } from "../models/models_2";
-import {
-  deserializeAws_restJson1ReplaceTopicRuleCommand,
-  serializeAws_restJson1ReplaceTopicRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReplaceTopicRuleCommand, se_ReplaceTopicRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -550,14 +547,14 @@ export class ReplaceTopicRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReplaceTopicRuleCommand(input, context);
+    return se_ReplaceTopicRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceTopicRuleCommandOutput> {
-    return deserializeAws_restJson1ReplaceTopicRuleCommand(output, context);
+    return de_ReplaceTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

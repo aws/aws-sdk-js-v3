@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { RetryDataReplicationRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RetryDataReplicationCommand,
-  serializeAws_restJson1RetryDataReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RetryDataReplicationCommand, se_RetryDataReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class RetryDataReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: RetryDataReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RetryDataReplicationCommand(input, context);
+    return se_RetryDataReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryDataReplicationCommandOutput> {
-    return deserializeAws_restJson1RetryDataReplicationCommand(output, context);
+    return de_RetryDataReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

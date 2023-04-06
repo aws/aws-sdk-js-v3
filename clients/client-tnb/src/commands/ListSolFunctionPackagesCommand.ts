@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSolFunctionPackagesInput, ListSolFunctionPackagesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolFunctionPackagesCommand,
-  serializeAws_restJson1ListSolFunctionPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSolFunctionPackagesCommand, se_ListSolFunctionPackagesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListSolFunctionPackagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSolFunctionPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolFunctionPackagesCommand(input, context);
+    return se_ListSolFunctionPackagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolFunctionPackagesCommandOutput> {
-    return deserializeAws_restJson1ListSolFunctionPackagesCommand(output, context);
+    return de_ListSolFunctionPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

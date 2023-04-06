@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCacheClusterCommand,
-  serializeAws_queryDeleteCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteCacheClusterCommand, se_DeleteCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -220,14 +217,14 @@ export class DeleteCacheClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCacheClusterCommand(input, context);
+    return se_DeleteCacheClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheClusterCommandOutput> {
-    return deserializeAws_queryDeleteCacheClusterCommand(output, context);
+    return de_DeleteCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { UpdateRecipeJobRequest, UpdateRecipeJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRecipeJobCommand,
-  serializeAws_restJson1UpdateRecipeJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRecipeJobCommand, se_UpdateRecipeJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class UpdateRecipeJobCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRecipeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecipeJobCommand(input, context);
+    return se_UpdateRecipeJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecipeJobCommandOutput> {
-    return deserializeAws_restJson1UpdateRecipeJobCommand(output, context);
+    return de_UpdateRecipeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

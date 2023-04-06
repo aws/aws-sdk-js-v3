@@ -19,8 +19,8 @@ import {
   DeleteNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
-  serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  de_DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  se_DeleteNetworkInsightsAccessScopeAnalysisCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
+    return se_DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
+    return de_DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

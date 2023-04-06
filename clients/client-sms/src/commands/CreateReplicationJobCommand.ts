@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateReplicationJobRequest, CreateReplicationJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationJobCommand,
-  serializeAws_json1_1CreateReplicationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateReplicationJobCommand, se_CreateReplicationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -159,14 +156,14 @@ export class CreateReplicationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationJobCommand(input, context);
+    return se_CreateReplicationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationJobCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationJobCommand(output, context);
+    return de_CreateReplicationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

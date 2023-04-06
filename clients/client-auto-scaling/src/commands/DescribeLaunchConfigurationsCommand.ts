@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLaunchConfigurationsCommand,
-  serializeAws_queryDescribeLaunchConfigurationsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeLaunchConfigurationsCommand, se_DescribeLaunchConfigurationsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLaunchConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLaunchConfigurationsCommand(input, context);
+    return se_DescribeLaunchConfigurationsCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchConfigurationsCommandOutput> {
-    return deserializeAws_queryDescribeLaunchConfigurationsCommand(output, context);
+    return de_DescribeLaunchConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

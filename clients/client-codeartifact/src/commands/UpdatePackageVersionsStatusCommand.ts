@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdatePackageVersionsStatusCommand,
-  serializeAws_restJson1UpdatePackageVersionsStatusCommand,
+  de_UpdatePackageVersionsStatusCommand,
+  se_UpdatePackageVersionsStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -166,7 +166,7 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePackageVersionsStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePackageVersionsStatusCommand(input, context);
+    return se_UpdatePackageVersionsStatusCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePackageVersionsStatusCommandOutput> {
-    return deserializeAws_restJson1UpdatePackageVersionsStatusCommand(output, context);
+    return de_UpdatePackageVersionsStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

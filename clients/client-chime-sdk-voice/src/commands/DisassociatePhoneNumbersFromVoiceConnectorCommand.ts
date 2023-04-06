@@ -21,8 +21,8 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
-  serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  de_DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  se_DisassociatePhoneNumbersFromVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand(input, context);
+    return se_DisassociatePhoneNumbersFromVoiceConnectorCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand(output, context);
+    return de_DisassociatePhoneNumbersFromVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

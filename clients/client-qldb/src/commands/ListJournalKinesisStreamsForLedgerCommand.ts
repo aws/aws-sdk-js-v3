@@ -18,8 +18,8 @@ import {
   ListJournalKinesisStreamsForLedgerResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
-  serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
+  de_ListJournalKinesisStreamsForLedgerCommand,
+  se_ListJournalKinesisStreamsForLedgerCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
@@ -147,7 +147,7 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     input: ListJournalKinesisStreamsForLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(input, context);
+    return se_ListJournalKinesisStreamsForLedgerCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> {
-    return deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(output, context);
+    return de_ListJournalKinesisStreamsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

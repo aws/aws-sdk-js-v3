@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { SearchAddressBooksRequest, SearchAddressBooksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchAddressBooksCommand,
-  serializeAws_json1_1SearchAddressBooksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchAddressBooksCommand, se_SearchAddressBooksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class SearchAddressBooksCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchAddressBooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchAddressBooksCommand(input, context);
+    return se_SearchAddressBooksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchAddressBooksCommandOutput> {
-    return deserializeAws_json1_1SearchAddressBooksCommand(output, context);
+    return de_SearchAddressBooksCommand(output, context);
   }
 
   // Start section: command_body_extra

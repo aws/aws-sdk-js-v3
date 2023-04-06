@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import { ListEnvironmentVpcsRequest, ListEnvironmentVpcsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEnvironmentVpcsCommand,
-  serializeAws_restJson1ListEnvironmentVpcsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEnvironmentVpcsCommand, se_ListEnvironmentVpcsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListEnvironmentVpcsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnvironmentVpcsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnvironmentVpcsCommand(input, context);
+    return se_ListEnvironmentVpcsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentVpcsCommandOutput> {
-    return deserializeAws_restJson1ListEnvironmentVpcsCommand(output, context);
+    return de_ListEnvironmentVpcsCommand(output, context);
   }
 
   // Start section: command_body_extra

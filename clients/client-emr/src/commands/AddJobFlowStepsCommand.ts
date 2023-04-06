@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddJobFlowStepsCommand,
-  serializeAws_json1_1AddJobFlowStepsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddJobFlowStepsCommand, se_AddJobFlowStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class AddJobFlowStepsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddJobFlowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddJobFlowStepsCommand(input, context);
+    return se_AddJobFlowStepsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddJobFlowStepsCommandOutput> {
-    return deserializeAws_json1_1AddJobFlowStepsCommand(output, context);
+    return de_AddJobFlowStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

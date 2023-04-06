@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { ListAppsRequest, ListAppsResult, ListAppsResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppsCommand,
-  serializeAws_restJson1ListAppsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListAppsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_restJson1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

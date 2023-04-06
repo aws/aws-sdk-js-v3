@@ -19,8 +19,8 @@ import {
   GetInterpolatedAssetPropertyValuesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
-  serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
+  de_GetInterpolatedAssetPropertyValuesCommand,
+  se_GetInterpolatedAssetPropertyValuesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -173,7 +173,7 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     input: GetInterpolatedAssetPropertyValuesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand(input, context);
+    return se_GetInterpolatedAssetPropertyValuesCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> {
-    return deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand(output, context);
+    return de_GetInterpolatedAssetPropertyValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

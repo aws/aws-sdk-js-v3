@@ -19,10 +19,7 @@ import {
   CreateWorkerConfigurationRequestFilterSensitiveLog,
   CreateWorkerConfigurationResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkerConfigurationCommand,
-  serializeAws_restJson1CreateWorkerConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkerConfigurationCommand, se_CreateWorkerConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,7 +154,7 @@ export class CreateWorkerConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkerConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkerConfigurationCommand(input, context);
+    return se_CreateWorkerConfigurationCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class CreateWorkerConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWorkerConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateWorkerConfigurationCommand(output, context);
+    return de_CreateWorkerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

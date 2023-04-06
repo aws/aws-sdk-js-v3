@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { UpdateBuildInput, UpdateBuildOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBuildCommand,
-  serializeAws_json1_1UpdateBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateBuildCommand, se_UpdateBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateBuildCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBuildCommand(input, context);
+    return se_UpdateBuildCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBuildCommandOutput> {
-    return deserializeAws_json1_1UpdateBuildCommand(output, context);
+    return de_UpdateBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

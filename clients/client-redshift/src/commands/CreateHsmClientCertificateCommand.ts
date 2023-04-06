@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateHsmClientCertificateMessage, CreateHsmClientCertificateResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateHsmClientCertificateCommand,
-  serializeAws_queryCreateHsmClientCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_CreateHsmClientCertificateCommand, se_CreateHsmClientCertificateCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -149,7 +146,7 @@ export class CreateHsmClientCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateHsmClientCertificateCommand(input, context);
+    return se_CreateHsmClientCertificateCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class CreateHsmClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryCreateHsmClientCertificateCommand(output, context);
+    return de_CreateHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

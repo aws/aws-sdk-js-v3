@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { StartMulticastGroupSessionRequest, StartMulticastGroupSessionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartMulticastGroupSessionCommand,
-  serializeAws_restJson1StartMulticastGroupSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartMulticastGroupSessionCommand, se_StartMulticastGroupSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class StartMulticastGroupSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMulticastGroupSessionCommand(input, context);
+    return se_StartMulticastGroupSessionCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class StartMulticastGroupSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMulticastGroupSessionCommandOutput> {
-    return deserializeAws_restJson1StartMulticastGroupSessionCommand(output, context);
+    return de_StartMulticastGroupSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

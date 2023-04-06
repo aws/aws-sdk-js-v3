@@ -16,8 +16,8 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
-  serializeAws_json1_1UpdateColumnStatisticsForTableCommand,
+  de_UpdateColumnStatisticsForTableCommand,
+  se_UpdateColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -199,7 +199,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     input: UpdateColumnStatisticsForTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateColumnStatisticsForTableCommand(input, context);
+    return se_UpdateColumnStatisticsForTableCommand(input, context);
   }
 
   /**
@@ -209,7 +209,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1UpdateColumnStatisticsForTableCommand(output, context);
+    return de_UpdateColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

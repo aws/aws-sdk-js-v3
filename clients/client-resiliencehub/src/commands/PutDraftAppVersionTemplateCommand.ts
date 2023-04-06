@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutDraftAppVersionTemplateRequest, PutDraftAppVersionTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDraftAppVersionTemplateCommand,
-  serializeAws_restJson1PutDraftAppVersionTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDraftAppVersionTemplateCommand, se_PutDraftAppVersionTemplateCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -145,7 +142,7 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDraftAppVersionTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDraftAppVersionTemplateCommand(input, context);
+    return se_PutDraftAppVersionTemplateCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDraftAppVersionTemplateCommandOutput> {
-    return deserializeAws_restJson1PutDraftAppVersionTemplateCommand(output, context);
+    return de_PutDraftAppVersionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

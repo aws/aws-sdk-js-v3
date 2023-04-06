@@ -18,8 +18,8 @@ import {
   ListPermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPermissionSetProvisioningStatusCommand,
-  serializeAws_json1_1ListPermissionSetProvisioningStatusCommand,
+  de_ListPermissionSetProvisioningStatusCommand,
+  se_ListPermissionSetProvisioningStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -151,7 +151,7 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     input: ListPermissionSetProvisioningStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPermissionSetProvisioningStatusCommand(input, context);
+    return se_ListPermissionSetProvisioningStatusCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPermissionSetProvisioningStatusCommandOutput> {
-    return deserializeAws_json1_1ListPermissionSetProvisioningStatusCommand(output, context);
+    return de_ListPermissionSetProvisioningStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

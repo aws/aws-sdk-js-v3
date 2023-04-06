@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DescribeEngineVersionsRequest, DescribeEngineVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEngineVersionsCommand,
-  serializeAws_json1_1DescribeEngineVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEngineVersionsCommand, se_DescribeEngineVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeEngineVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEngineVersionsCommand(input, context);
+    return se_DescribeEngineVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngineVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeEngineVersionsCommand(output, context);
+    return de_DescribeEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

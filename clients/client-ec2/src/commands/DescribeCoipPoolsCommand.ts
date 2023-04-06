@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeCoipPoolsCommand,
-  serializeAws_ec2DescribeCoipPoolsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeCoipPoolsCommand, se_DescribeCoipPoolsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeCoipPoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCoipPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeCoipPoolsCommand(input, context);
+    return se_DescribeCoipPoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCoipPoolsCommandOutput> {
-    return deserializeAws_ec2DescribeCoipPoolsCommand(output, context);
+    return de_DescribeCoipPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

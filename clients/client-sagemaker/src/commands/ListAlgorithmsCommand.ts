@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAlgorithmsInput, ListAlgorithmsOutput } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListAlgorithmsCommand,
-  serializeAws_json1_1ListAlgorithmsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAlgorithmsCommand, se_ListAlgorithmsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,14 +123,14 @@ export class ListAlgorithmsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAlgorithmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAlgorithmsCommand(input, context);
+    return se_ListAlgorithmsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlgorithmsCommandOutput> {
-    return deserializeAws_json1_1ListAlgorithmsCommand(output, context);
+    return de_ListAlgorithmsCommand(output, context);
   }
 
   // Start section: command_body_extra

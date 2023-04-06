@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { GetFacetRequest, GetFacetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFacetCommand,
-  serializeAws_restJson1GetFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFacetCommand, se_GetFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetFacetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFacetCommand(input, context);
+    return se_GetFacetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFacetCommandOutput> {
-    return deserializeAws_restJson1GetFacetCommand(output, context);
+    return de_GetFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

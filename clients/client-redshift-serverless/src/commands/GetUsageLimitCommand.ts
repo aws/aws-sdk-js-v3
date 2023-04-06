@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetUsageLimitRequest, GetUsageLimitResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUsageLimitCommand,
-  serializeAws_json1_1GetUsageLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetUsageLimitCommand, se_GetUsageLimitCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -134,14 +131,14 @@ export class GetUsageLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUsageLimitCommand(input, context);
+    return se_GetUsageLimitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageLimitCommandOutput> {
-    return deserializeAws_json1_1GetUsageLimitCommand(output, context);
+    return de_GetUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

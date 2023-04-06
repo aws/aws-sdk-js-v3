@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetMatchesRequest, GetMatchesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMatchesCommand,
-  serializeAws_restJson1GetMatchesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMatchesCommand, se_GetMatchesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class GetMatchesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMatchesCommand(input, context);
+    return se_GetMatchesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchesCommandOutput> {
-    return deserializeAws_restJson1GetMatchesCommand(output, context);
+    return de_GetMatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

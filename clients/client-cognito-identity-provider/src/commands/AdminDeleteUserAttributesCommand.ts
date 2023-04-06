@@ -24,10 +24,7 @@ import {
   AdminDeleteUserAttributesRequestFilterSensitiveLog,
   AdminDeleteUserAttributesResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminDeleteUserAttributesCommand,
-  serializeAws_json1_1AdminDeleteUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminDeleteUserAttributesCommand, se_AdminDeleteUserAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,7 +154,7 @@ export class AdminDeleteUserAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminDeleteUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminDeleteUserAttributesCommand(input, context);
+    return se_AdminDeleteUserAttributesCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminDeleteUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminDeleteUserAttributesCommand(output, context);
+    return de_AdminDeleteUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

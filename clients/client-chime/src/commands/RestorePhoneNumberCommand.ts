@@ -19,10 +19,7 @@ import {
   RestorePhoneNumberResponse,
   RestorePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1RestorePhoneNumberCommand,
-  serializeAws_restJson1RestorePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RestorePhoneNumberCommand, se_RestorePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class RestorePhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: RestorePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RestorePhoneNumberCommand(input, context);
+    return se_RestorePhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestorePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1RestorePhoneNumberCommand(output, context);
+    return de_RestorePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

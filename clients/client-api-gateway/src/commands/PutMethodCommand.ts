@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Method, PutMethodRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutMethodCommand,
-  serializeAws_restJson1PutMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutMethodCommand, se_PutMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class PutMethodCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMethodCommand(input, context);
+    return se_PutMethodCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMethodCommandOutput> {
-    return deserializeAws_restJson1PutMethodCommand(output, context);
+    return de_PutMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

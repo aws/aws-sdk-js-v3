@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteTransitGatewayConnectRequest, DeleteTransitGatewayConnectResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteTransitGatewayConnectCommand,
-  serializeAws_ec2DeleteTransitGatewayConnectCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteTransitGatewayConnectCommand, se_DeleteTransitGatewayConnectCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,7 +119,7 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTransitGatewayConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayConnectCommand(input, context);
+    return se_DeleteTransitGatewayConnectCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayConnectCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayConnectCommand(output, context);
+    return de_DeleteTransitGatewayConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

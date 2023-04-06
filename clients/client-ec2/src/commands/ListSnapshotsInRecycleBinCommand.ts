@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ListSnapshotsInRecycleBinRequest, ListSnapshotsInRecycleBinResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ListSnapshotsInRecycleBinCommand,
-  serializeAws_ec2ListSnapshotsInRecycleBinCommand,
-} from "../protocols/Aws_ec2";
+import { de_ListSnapshotsInRecycleBinCommand, se_ListSnapshotsInRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSnapshotsInRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ListSnapshotsInRecycleBinCommand(input, context);
+    return se_ListSnapshotsInRecycleBinCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSnapshotsInRecycleBinCommandOutput> {
-    return deserializeAws_ec2ListSnapshotsInRecycleBinCommand(output, context);
+    return de_ListSnapshotsInRecycleBinCommand(output, context);
   }
 
   // Start section: command_body_extra

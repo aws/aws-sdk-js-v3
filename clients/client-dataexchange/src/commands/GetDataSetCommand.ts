@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { GetDataSetRequest, GetDataSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataSetCommand,
-  serializeAws_restJson1GetDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataSetCommand, se_GetDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetDataSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataSetCommand(input, context);
+    return se_GetDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetCommandOutput> {
-    return deserializeAws_restJson1GetDataSetCommand(output, context);
+    return de_GetDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

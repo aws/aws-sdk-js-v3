@@ -19,8 +19,8 @@ import {
   DescribeTransitGatewayConnectPeersResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayConnectPeersCommand,
-  serializeAws_ec2DescribeTransitGatewayConnectPeersCommand,
+  de_DescribeTransitGatewayConnectPeersCommand,
+  se_DescribeTransitGatewayConnectPeersCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
     input: DescribeTransitGatewayConnectPeersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayConnectPeersCommand(input, context);
+    return se_DescribeTransitGatewayConnectPeersCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayConnectPeersCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayConnectPeersCommand(output, context);
+    return de_DescribeTransitGatewayConnectPeersCommand(output, context);
   }
 
   // Start section: command_body_extra

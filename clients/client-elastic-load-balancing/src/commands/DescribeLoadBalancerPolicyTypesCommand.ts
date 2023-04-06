@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { DescribeLoadBalancerPolicyTypesInput, DescribeLoadBalancerPolicyTypesOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand,
-  serializeAws_queryDescribeLoadBalancerPolicyTypesCommand,
+  de_DescribeLoadBalancerPolicyTypesCommand,
+  se_DescribeLoadBalancerPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -171,7 +171,7 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     input: DescribeLoadBalancerPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(input, context);
+    return se_DescribeLoadBalancerPolicyTypesCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand(output, context);
+    return de_DescribeLoadBalancerPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

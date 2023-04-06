@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeCustomMetricRequest, DescribeCustomMetricResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeCustomMetricCommand,
-  serializeAws_restJson1DescribeCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCustomMetricCommand, se_DescribeCustomMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeCustomMetricCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCustomMetricCommand(input, context);
+    return se_DescribeCustomMetricCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomMetricCommandOutput> {
-    return deserializeAws_restJson1DescribeCustomMetricCommand(output, context);
+    return de_DescribeCustomMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

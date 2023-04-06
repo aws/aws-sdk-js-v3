@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePermissionSetRequest, CreatePermissionSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePermissionSetCommand,
-  serializeAws_json1_1CreatePermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePermissionSetCommand, se_CreatePermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -162,14 +159,14 @@ export class CreatePermissionSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePermissionSetCommand(input, context);
+    return se_CreatePermissionSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionSetCommandOutput> {
-    return deserializeAws_json1_1CreatePermissionSetCommand(output, context);
+    return de_CreatePermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

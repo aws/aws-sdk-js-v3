@@ -19,8 +19,8 @@ import {
   DisassociateWirelessGatewayFromThingResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommand,
-  serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand,
+  de_DisassociateWirelessGatewayFromThingCommand,
+  se_DisassociateWirelessGatewayFromThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     input: DisassociateWirelessGatewayFromThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand(input, context);
+    return se_DisassociateWirelessGatewayFromThingCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessGatewayFromThingCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommand(output, context);
+    return de_DisassociateWirelessGatewayFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

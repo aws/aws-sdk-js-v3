@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccessLogSubscriptionRequest, GetAccessLogSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccessLogSubscriptionCommand,
-  serializeAws_restJson1GetAccessLogSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAccessLogSubscriptionCommand, se_GetAccessLogSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -136,14 +133,14 @@ export class GetAccessLogSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccessLogSubscriptionCommand(input, context);
+    return se_GetAccessLogSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessLogSubscriptionCommandOutput> {
-    return deserializeAws_restJson1GetAccessLogSubscriptionCommand(output, context);
+    return de_GetAccessLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

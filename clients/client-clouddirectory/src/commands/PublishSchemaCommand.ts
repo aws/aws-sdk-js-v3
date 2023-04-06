@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { PublishSchemaRequest, PublishSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishSchemaCommand,
-  serializeAws_restJson1PublishSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishSchemaCommand, se_PublishSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PublishSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishSchemaCommand(input, context);
+    return se_PublishSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishSchemaCommandOutput> {
-    return deserializeAws_restJson1PublishSchemaCommand(output, context);
+    return de_PublishSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

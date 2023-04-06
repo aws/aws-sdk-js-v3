@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { DescribeApplicationSnapshotRequest, DescribeApplicationSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationSnapshotCommand,
-  serializeAws_json1_1DescribeApplicationSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeApplicationSnapshotCommand, se_DescribeApplicationSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DescribeApplicationSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationSnapshotCommand(input, context);
+    return se_DescribeApplicationSnapshotCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DescribeApplicationSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationSnapshotCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationSnapshotCommand(output, context);
+    return de_DescribeApplicationSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

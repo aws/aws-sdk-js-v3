@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePatchGroupsRequest, DescribePatchGroupsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribePatchGroupsCommand,
-  serializeAws_json1_1DescribePatchGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePatchGroupsCommand, se_DescribePatchGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribePatchGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePatchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePatchGroupsCommand(input, context);
+    return se_DescribePatchGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribePatchGroupsCommand(output, context);
+    return de_DescribePatchGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   TestFunctionResult,
   TestFunctionResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlTestFunctionCommand,
-  serializeAws_restXmlTestFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_TestFunctionCommand, se_TestFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class TestFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: TestFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTestFunctionCommand(input, context);
+    return se_TestFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFunctionCommandOutput> {
-    return deserializeAws_restXmlTestFunctionCommand(output, context);
+    return de_TestFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobDefinitionsCommand,
-  serializeAws_restJson1DescribeJobDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobDefinitionsCommand, se_DescribeJobDefinitionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class DescribeJobDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobDefinitionsCommand(input, context);
+    return se_DescribeJobDefinitionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobDefinitionsCommandOutput> {
-    return deserializeAws_restJson1DescribeJobDefinitionsCommand(output, context);
+    return de_DescribeJobDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

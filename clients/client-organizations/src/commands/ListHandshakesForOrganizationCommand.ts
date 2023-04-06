@@ -20,8 +20,8 @@ import {
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListHandshakesForOrganizationCommand,
-  serializeAws_json1_1ListHandshakesForOrganizationCommand,
+  de_ListHandshakesForOrganizationCommand,
+  se_ListHandshakesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -377,7 +377,7 @@ export class ListHandshakesForOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHandshakesForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHandshakesForOrganizationCommand(input, context);
+    return se_ListHandshakesForOrganizationCommand(input, context);
   }
 
   /**
@@ -387,7 +387,7 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHandshakesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForOrganizationCommand(output, context);
+    return de_ListHandshakesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

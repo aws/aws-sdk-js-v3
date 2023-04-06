@@ -15,8 +15,8 @@ import {
 
 import { DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,
+  de_DescribeMaintenanceWindowScheduleCommand,
+  se_DescribeMaintenanceWindowScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -153,7 +153,7 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     input: DescribeMaintenanceWindowScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand(input, context);
+    return se_DescribeMaintenanceWindowScheduleCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand(output, context);
+    return de_DescribeMaintenanceWindowScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

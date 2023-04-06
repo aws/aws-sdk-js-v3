@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFolderMembershipRequest, DeleteFolderMembershipResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFolderMembershipCommand,
-  serializeAws_restJson1DeleteFolderMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFolderMembershipCommand, se_DeleteFolderMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,14 +144,14 @@ export class DeleteFolderMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFolderMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderMembershipCommand(input, context);
+    return se_DeleteFolderMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderMembershipCommand(output, context);
+    return de_DeleteFolderMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

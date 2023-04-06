@@ -19,10 +19,7 @@ import {
   QueryAssistantResponse,
   QueryAssistantResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1QueryAssistantCommand,
-  serializeAws_restJson1QueryAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_QueryAssistantCommand, se_QueryAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -139,14 +136,14 @@ export class QueryAssistantCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1QueryAssistantCommand(input, context);
+    return se_QueryAssistantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryAssistantCommandOutput> {
-    return deserializeAws_restJson1QueryAssistantCommand(output, context);
+    return de_QueryAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

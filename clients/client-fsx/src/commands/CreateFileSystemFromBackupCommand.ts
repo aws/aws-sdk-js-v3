@@ -19,10 +19,7 @@ import {
   CreateFileSystemFromBackupRequestFilterSensitiveLog,
   CreateFileSystemFromBackupResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFileSystemFromBackupCommand,
-  serializeAws_json1_1CreateFileSystemFromBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -351,7 +348,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFileSystemFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFileSystemFromBackupCommand(input, context);
+    return se_CreateFileSystemFromBackupCommand(input, context);
   }
 
   /**
@@ -361,7 +358,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFileSystemFromBackupCommandOutput> {
-    return deserializeAws_json1_1CreateFileSystemFromBackupCommand(output, context);
+    return de_CreateFileSystemFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyClientPropertiesRequest, ModifyClientPropertiesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyClientPropertiesCommand,
-  serializeAws_json1_1ModifyClientPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyClientPropertiesCommand, se_ModifyClientPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -133,14 +130,14 @@ export class ModifyClientPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyClientPropertiesCommand(input, context);
+    return se_ModifyClientPropertiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClientPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyClientPropertiesCommand(output, context);
+    return de_ModifyClientPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

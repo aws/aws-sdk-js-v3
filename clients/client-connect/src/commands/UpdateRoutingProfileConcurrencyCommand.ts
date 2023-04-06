@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
-  serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
+  de_UpdateRoutingProfileConcurrencyCommand,
+  se_UpdateRoutingProfileConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     input: UpdateRoutingProfileConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand(input, context);
+    return se_UpdateRoutingProfileConcurrencyCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingProfileConcurrencyCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand(output, context);
+    return de_UpdateRoutingProfileConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

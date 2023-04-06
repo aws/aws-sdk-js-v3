@@ -19,8 +19,8 @@ import {
   DescribeReplicationConfigurationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeReplicationConfigurationsCommand,
-  serializeAws_restJson1DescribeReplicationConfigurationsCommand,
+  de_DescribeReplicationConfigurationsCommand,
+  se_DescribeReplicationConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     input: DescribeReplicationConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReplicationConfigurationsCommand(input, context);
+    return se_DescribeReplicationConfigurationsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DescribeReplicationConfigurationsCommand(output, context);
+    return de_DescribeReplicationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

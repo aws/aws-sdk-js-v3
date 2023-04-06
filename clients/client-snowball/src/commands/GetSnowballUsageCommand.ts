@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnowballUsageCommand,
-  serializeAws_json1_1GetSnowballUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSnowballUsageCommand, se_GetSnowballUsageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetSnowballUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSnowballUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnowballUsageCommand(input, context);
+    return se_GetSnowballUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnowballUsageCommandOutput> {
-    return deserializeAws_json1_1GetSnowballUsageCommand(output, context);
+    return de_GetSnowballUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

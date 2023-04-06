@@ -15,10 +15,7 @@ import {
 
 import { StopSolutionVersionCreationRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StopSolutionVersionCreationCommand,
-  serializeAws_json1_1StopSolutionVersionCreationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopSolutionVersionCreationCommand, se_StopSolutionVersionCreationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class StopSolutionVersionCreationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopSolutionVersionCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSolutionVersionCreationCommand(input, context);
+    return se_StopSolutionVersionCreationCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class StopSolutionVersionCreationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSolutionVersionCreationCommandOutput> {
-    return deserializeAws_json1_1StopSolutionVersionCreationCommand(output, context);
+    return de_StopSolutionVersionCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

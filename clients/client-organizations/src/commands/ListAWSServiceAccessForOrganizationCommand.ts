@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
-  serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
+  de_ListAWSServiceAccessForOrganizationCommand,
+  se_ListAWSServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -463,7 +463,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     input: ListAWSServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(input, context);
+    return se_ListAWSServiceAccessForOrganizationCommand(input, context);
   }
 
   /**
@@ -473,7 +473,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(output, context);
+    return de_ListAWSServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

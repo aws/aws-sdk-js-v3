@@ -15,8 +15,8 @@ import {
 
 import { ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1ListResourceComplianceSummariesCommand,
-  serializeAws_json1_1ListResourceComplianceSummariesCommand,
+  de_ListResourceComplianceSummariesCommand,
+  se_ListResourceComplianceSummariesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -146,7 +146,7 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     input: ListResourceComplianceSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceComplianceSummariesCommand(input, context);
+    return se_ListResourceComplianceSummariesCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceComplianceSummariesCommandOutput> {
-    return deserializeAws_json1_1ListResourceComplianceSummariesCommand(output, context);
+    return de_ListResourceComplianceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

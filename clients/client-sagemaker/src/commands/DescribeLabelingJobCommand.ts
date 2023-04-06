@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeLabelingJobCommand,
-  serializeAws_json1_1DescribeLabelingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLabelingJobCommand, se_DescribeLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeLabelingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLabelingJobCommand(input, context);
+    return se_DescribeLabelingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelingJobCommandOutput> {
-    return deserializeAws_json1_1DescribeLabelingJobCommand(output, context);
+    return de_DescribeLabelingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

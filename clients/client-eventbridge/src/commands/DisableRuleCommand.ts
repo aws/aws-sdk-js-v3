@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DisableRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableRuleCommand,
-  serializeAws_json1_1DisableRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableRuleCommand, se_DisableRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DisableRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableRuleCommand(input, context);
+    return se_DisableRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRuleCommandOutput> {
-    return deserializeAws_json1_1DisableRuleCommand(output, context);
+    return de_DisableRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

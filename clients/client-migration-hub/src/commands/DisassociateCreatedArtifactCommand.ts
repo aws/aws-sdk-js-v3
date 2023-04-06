@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DisassociateCreatedArtifactRequest, DisassociateCreatedArtifactResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateCreatedArtifactCommand,
-  serializeAws_json1_1DisassociateCreatedArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateCreatedArtifactCommand, se_DisassociateCreatedArtifactCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,7 +170,7 @@ export class DisassociateCreatedArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateCreatedArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateCreatedArtifactCommand(input, context);
+    return se_DisassociateCreatedArtifactCommand(input, context);
   }
 
   /**
@@ -183,7 +180,7 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCreatedArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateCreatedArtifactCommand(output, context);
+    return de_DisassociateCreatedArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

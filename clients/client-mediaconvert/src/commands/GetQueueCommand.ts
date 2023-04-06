@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { GetQueueRequest, GetQueueResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1GetQueueCommand,
-  serializeAws_restJson1GetQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetQueueCommand, se_GetQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQueueCommand(input, context);
+    return se_GetQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueCommandOutput> {
-    return deserializeAws_restJson1GetQueueCommand(output, context);
+    return de_GetQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

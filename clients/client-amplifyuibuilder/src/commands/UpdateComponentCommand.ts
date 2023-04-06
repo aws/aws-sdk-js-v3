@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { UpdateComponentRequest, UpdateComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateComponentCommand,
-  serializeAws_restJson1UpdateComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateComponentCommand, se_UpdateComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -344,14 +341,14 @@ export class UpdateComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateComponentCommand(input, context);
+    return se_UpdateComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
-    return deserializeAws_restJson1UpdateComponentCommand(output, context);
+    return de_UpdateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

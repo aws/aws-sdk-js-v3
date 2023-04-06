@@ -15,7 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetBlobInput, GetBlobOutput } from "../models/models_0";
-import { deserializeAws_json1_1GetBlobCommand, serializeAws_json1_1GetBlobCommand } from "../protocols/Aws_json1_1";
+import { de_GetBlobCommand, se_GetBlobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +159,14 @@ export class GetBlobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlobCommand(input, context);
+    return se_GetBlobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlobCommandOutput> {
-    return deserializeAws_json1_1GetBlobCommand(output, context);
+    return de_GetBlobCommand(output, context);
   }
 
   // Start section: command_body_extra

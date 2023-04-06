@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { RevokeRevisionRequest, RevokeRevisionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeRevisionCommand,
-  serializeAws_restJson1RevokeRevisionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RevokeRevisionCommand, se_RevokeRevisionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class RevokeRevisionCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeRevisionCommand(input, context);
+    return se_RevokeRevisionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeRevisionCommandOutput> {
-    return deserializeAws_restJson1RevokeRevisionCommand(output, context);
+    return de_RevokeRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

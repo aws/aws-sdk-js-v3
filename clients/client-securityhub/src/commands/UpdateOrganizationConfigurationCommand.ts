@@ -15,8 +15,8 @@ import {
 
 import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
-  serializeAws_restJson1UpdateOrganizationConfigurationCommand,
+  de_UpdateOrganizationConfigurationCommand,
+  se_UpdateOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -141,7 +141,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     input: UpdateOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOrganizationConfigurationCommand(input, context);
+    return se_UpdateOrganizationConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateOrganizationConfigurationCommand(output, context);
+    return de_UpdateOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

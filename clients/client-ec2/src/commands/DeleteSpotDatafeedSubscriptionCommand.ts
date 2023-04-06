@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
-  serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
+  de_DeleteSpotDatafeedSubscriptionCommand,
+  se_DeleteSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -132,7 +132,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     input: DeleteSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(input, context);
+    return se_DeleteSpotDatafeedSubscriptionCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(output, context);
+    return de_DeleteSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

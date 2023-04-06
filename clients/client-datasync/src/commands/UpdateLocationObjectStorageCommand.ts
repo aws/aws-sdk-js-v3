@@ -19,10 +19,7 @@ import {
   UpdateLocationObjectStorageRequestFilterSensitiveLog,
   UpdateLocationObjectStorageResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateLocationObjectStorageCommand,
-  serializeAws_json1_1UpdateLocationObjectStorageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLocationObjectStorageCommand, se_UpdateLocationObjectStorageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class UpdateLocationObjectStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLocationObjectStorageCommand(input, context);
+    return se_UpdateLocationObjectStorageCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class UpdateLocationObjectStorageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLocationObjectStorageCommandOutput> {
-    return deserializeAws_json1_1UpdateLocationObjectStorageCommand(output, context);
+    return de_UpdateLocationObjectStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
 } from "../models/models_3";
-import {
-  deserializeAws_restJson1GetSessionEmbedUrlCommand,
-  serializeAws_restJson1GetSessionEmbedUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSessionEmbedUrlCommand, se_GetSessionEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -188,14 +185,14 @@ export class GetSessionEmbedUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSessionEmbedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionEmbedUrlCommand(input, context);
+    return se_GetSessionEmbedUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionEmbedUrlCommandOutput> {
-    return deserializeAws_restJson1GetSessionEmbedUrlCommand(output, context);
+    return de_GetSessionEmbedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

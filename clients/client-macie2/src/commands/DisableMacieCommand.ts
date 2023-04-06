@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DisableMacieRequest, DisableMacieResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableMacieCommand,
-  serializeAws_restJson1DisableMacieCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableMacieCommand, se_DisableMacieCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DisableMacieCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableMacieCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableMacieCommand(input, context);
+    return se_DisableMacieCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableMacieCommandOutput> {
-    return deserializeAws_restJson1DisableMacieCommand(output, context);
+    return de_DisableMacieCommand(output, context);
   }
 
   // Start section: command_body_extra

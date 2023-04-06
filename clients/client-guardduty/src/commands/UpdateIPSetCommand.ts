@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateIPSetCommand,
-  serializeAws_restJson1UpdateIPSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateIPSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIPSetCommand(input, context);
+    return se_UpdateIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
-    return deserializeAws_restJson1UpdateIPSetCommand(output, context);
+    return de_UpdateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

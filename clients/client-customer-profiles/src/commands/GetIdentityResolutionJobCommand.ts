@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetIdentityResolutionJobRequest, GetIdentityResolutionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIdentityResolutionJobCommand,
-  serializeAws_restJson1GetIdentityResolutionJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIdentityResolutionJobCommand, se_GetIdentityResolutionJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetIdentityResolutionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIdentityResolutionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIdentityResolutionJobCommand(input, context);
+    return se_GetIdentityResolutionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityResolutionJobCommandOutput> {
-    return deserializeAws_restJson1GetIdentityResolutionJobCommand(output, context);
+    return de_GetIdentityResolutionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { ListResourceEvaluationsRequest, ListResourceEvaluationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceEvaluationsCommand,
-  serializeAws_json1_1ListResourceEvaluationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListResourceEvaluationsCommand, se_ListResourceEvaluationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListResourceEvaluationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceEvaluationsCommand(input, context);
+    return se_ListResourceEvaluationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceEvaluationsCommandOutput> {
-    return deserializeAws_json1_1ListResourceEvaluationsCommand(output, context);
+    return de_ListResourceEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AcceptReservedNodeExchangeInputMessage, AcceptReservedNodeExchangeOutputMessage } from "../models/models_0";
-import {
-  deserializeAws_queryAcceptReservedNodeExchangeCommand,
-  serializeAws_queryAcceptReservedNodeExchangeCommand,
-} from "../protocols/Aws_query";
+import { de_AcceptReservedNodeExchangeCommand, se_AcceptReservedNodeExchangeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -147,7 +144,7 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptReservedNodeExchangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAcceptReservedNodeExchangeCommand(input, context);
+    return se_AcceptReservedNodeExchangeCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptReservedNodeExchangeCommandOutput> {
-    return deserializeAws_queryAcceptReservedNodeExchangeCommand(output, context);
+    return de_AcceptReservedNodeExchangeCommand(output, context);
   }
 
   // Start section: command_body_extra

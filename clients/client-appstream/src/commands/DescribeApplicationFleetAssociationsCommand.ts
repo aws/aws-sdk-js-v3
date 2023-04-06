@@ -19,8 +19,8 @@ import {
   DescribeApplicationFleetAssociationsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
-  serializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
+  de_DescribeApplicationFleetAssociationsCommand,
+  se_DescribeApplicationFleetAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     input: DescribeApplicationFleetAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationFleetAssociationsCommand(input, context);
+    return se_DescribeApplicationFleetAssociationsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationFleetAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand(output, context);
+    return de_DescribeApplicationFleetAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { AddTagsToOnPremisesInstancesInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
-  serializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
+  de_AddTagsToOnPremisesInstancesCommand,
+  se_AddTagsToOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsToOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToOnPremisesInstancesCommand(input, context);
+    return se_AddTagsToOnPremisesInstancesCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddTagsToOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand(output, context);
+    return de_AddTagsToOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

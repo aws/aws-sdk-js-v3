@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { NullAndEmptyHeadersIO } from "../models/models_0";
-import {
-  deserializeAws_restJson1NullAndEmptyHeadersClientCommand,
-  serializeAws_restJson1NullAndEmptyHeadersClientCommand,
-} from "../protocols/Aws_restJson1";
+import { de_NullAndEmptyHeadersClientCommand, se_NullAndEmptyHeadersClientCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -111,7 +108,7 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
    * @internal
    */
   private serialize(input: NullAndEmptyHeadersClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1NullAndEmptyHeadersClientCommand(input, context);
+    return se_NullAndEmptyHeadersClientCommand(input, context);
   }
 
   /**
@@ -121,7 +118,7 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NullAndEmptyHeadersClientCommandOutput> {
-    return deserializeAws_restJson1NullAndEmptyHeadersClientCommand(output, context);
+    return de_NullAndEmptyHeadersClientCommand(output, context);
   }
 
   // Start section: command_body_extra

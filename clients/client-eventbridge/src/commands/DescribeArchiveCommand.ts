@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DescribeArchiveRequest, DescribeArchiveResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeArchiveCommand,
-  serializeAws_json1_1DescribeArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeArchiveCommand, se_DescribeArchiveCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DescribeArchiveCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeArchiveCommand(input, context);
+    return se_DescribeArchiveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeArchiveCommandOutput> {
-    return deserializeAws_json1_1DescribeArchiveCommand(output, context);
+    return de_DescribeArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

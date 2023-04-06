@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateComputeEnvironmentCommand,
-  serializeAws_restJson1UpdateComputeEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateComputeEnvironmentCommand, se_UpdateComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class UpdateComputeEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateComputeEnvironmentCommand(input, context);
+    return se_UpdateComputeEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateComputeEnvironmentCommand(output, context);
+    return de_UpdateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

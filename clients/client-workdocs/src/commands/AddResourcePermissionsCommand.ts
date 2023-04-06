@@ -19,10 +19,7 @@ import {
   AddResourcePermissionsResponse,
   AddResourcePermissionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddResourcePermissionsCommand,
-  serializeAws_restJson1AddResourcePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddResourcePermissionsCommand, se_AddResourcePermissionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -156,14 +153,14 @@ export class AddResourcePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddResourcePermissionsCommand(input, context);
+    return se_AddResourcePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1AddResourcePermissionsCommand(output, context);
+    return de_AddResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { AssociateApiRequest, AssociateApiResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateApiCommand,
-  serializeAws_restJson1AssociateApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateApiCommand, se_AssociateApiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class AssociateApiCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateApiCommand(input, context);
+    return se_AssociateApiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApiCommandOutput> {
-    return deserializeAws_restJson1AssociateApiCommand(output, context);
+    return de_AssociateApiCommand(output, context);
   }
 
   // Start section: command_body_extra

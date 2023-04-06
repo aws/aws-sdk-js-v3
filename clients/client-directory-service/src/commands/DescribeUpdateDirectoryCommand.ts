@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeUpdateDirectoryRequest, DescribeUpdateDirectoryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUpdateDirectoryCommand,
-  serializeAws_json1_1DescribeUpdateDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUpdateDirectoryCommand, se_DescribeUpdateDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DescribeUpdateDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUpdateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUpdateDirectoryCommand(input, context);
+    return se_DescribeUpdateDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateDirectoryCommandOutput> {
-    return deserializeAws_json1_1DescribeUpdateDirectoryCommand(output, context);
+    return de_DescribeUpdateDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

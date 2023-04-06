@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountAttributesMessage, DescribeAccountAttributesMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAccountAttributesCommand,
-  serializeAws_queryDescribeAccountAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -55,13 +52,94 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list account attributes
+ * @example To describe account attributes
  * ```javascript
- * // This example lists account attributes.
+ * // The following example retrieves the attributes for the current AWS account.
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
- * await client.send(command);
- * // example id: describe-account-attributes-683d3ff7-5524-421a-8da5-e88f1ea2222b
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountQuotas": [
+ *     {
+ *       "AccountQuotaName": "DBInstances",
+ *       "Max": 40,
+ *       "Used": 4
+ *     },
+ *     {
+ *       "AccountQuotaName": "ReservedDBInstances",
+ *       "Max": 40,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "AllocatedStorage",
+ *       "Max": 100000,
+ *       "Used": 40
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBSecurityGroups",
+ *       "Max": 25,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "AuthorizationsPerDBSecurityGroup",
+ *       "Max": 20,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBParameterGroups",
+ *       "Max": 50,
+ *       "Used": 1
+ *     },
+ *     {
+ *       "AccountQuotaName": "ManualSnapshots",
+ *       "Max": 100,
+ *       "Used": 3
+ *     },
+ *     {
+ *       "AccountQuotaName": "EventSubscriptions",
+ *       "Max": 20,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBSubnetGroups",
+ *       "Max": 50,
+ *       "Used": 1
+ *     },
+ *     {
+ *       "AccountQuotaName": "OptionGroups",
+ *       "Max": 20,
+ *       "Used": 1
+ *     },
+ *     {
+ *       "AccountQuotaName": "SubnetsPerDBSubnetGroup",
+ *       "Max": 20,
+ *       "Used": 6
+ *     },
+ *     {
+ *       "AccountQuotaName": "ReadReplicasPerMaster",
+ *       "Max": 5,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBClusters",
+ *       "Max": 40,
+ *       "Used": 1
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBClusterParameterGroups",
+ *       "Max": 50,
+ *       "Used": 0
+ *     },
+ *     {
+ *       "AccountQuotaName": "DBClusterRoles",
+ *       "Max": 5,
+ *       "Used": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-account-attributes-1680210466935
  * ```
  *
  */
@@ -128,7 +206,7 @@ export class DescribeAccountAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
   /**
@@ -138,7 +216,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_queryDescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

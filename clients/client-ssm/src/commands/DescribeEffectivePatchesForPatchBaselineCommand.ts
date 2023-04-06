@@ -18,8 +18,8 @@ import {
   DescribeEffectivePatchesForPatchBaselineResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
-  serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
+  de_DescribeEffectivePatchesForPatchBaselineCommand,
+  se_DescribeEffectivePatchesForPatchBaselineCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -154,7 +154,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     input: DescribeEffectivePatchesForPatchBaselineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(input, context);
+    return se_DescribeEffectivePatchesForPatchBaselineCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(output, context);
+    return de_DescribeEffectivePatchesForPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

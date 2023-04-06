@@ -15,10 +15,7 @@ import {
 
 import { UpdateGcmChannelRequest, UpdateGcmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateGcmChannelCommand,
-  serializeAws_restJson1UpdateGcmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGcmChannelCommand, se_UpdateGcmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateGcmChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGcmChannelCommand(input, context);
+    return se_UpdateGcmChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGcmChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateGcmChannelCommand(output, context);
+    return de_UpdateGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

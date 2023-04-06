@@ -21,10 +21,7 @@ import {
   GetObjectTorrentOutputFilterSensitiveLog,
   GetObjectTorrentRequest,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectTorrentCommand,
-  serializeAws_restXmlGetObjectTorrentCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectTorrentCommand, se_GetObjectTorrentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -166,7 +163,7 @@ export class GetObjectTorrentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectTorrentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectTorrentCommand(input, context);
+    return se_GetObjectTorrentCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class GetObjectTorrentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectTorrentCommandOutput> {
-    return deserializeAws_restXmlGetObjectTorrentCommand(output, context);
+    return de_GetObjectTorrentCommand(output, context);
   }
 
   // Start section: command_body_extra

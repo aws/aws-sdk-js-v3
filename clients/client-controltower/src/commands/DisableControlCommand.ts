@@ -15,10 +15,7 @@ import {
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { DisableControlInput, DisableControlOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableControlCommand,
-  serializeAws_restJson1DisableControlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableControlCommand, se_DisableControlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DisableControlCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableControlCommand(input, context);
+    return se_DisableControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableControlCommandOutput> {
-    return deserializeAws_restJson1DisableControlCommand(output, context);
+    return de_DisableControlCommand(output, context);
   }
 
   // Start section: command_body_extra

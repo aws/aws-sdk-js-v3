@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ClearDefaultAuthorizerCommand,
-  serializeAws_restJson1ClearDefaultAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ClearDefaultAuthorizerCommand, se_ClearDefaultAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ClearDefaultAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: ClearDefaultAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClearDefaultAuthorizerCommand(input, context);
+    return se_ClearDefaultAuthorizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClearDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1ClearDefaultAuthorizerCommand(output, context);
+    return de_ClearDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

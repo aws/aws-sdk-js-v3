@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { DeleteMembershipInput, DeleteMembershipOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMembershipCommand,
-  serializeAws_restJson1DeleteMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMembershipCommand, se_DeleteMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMembershipCommand(input, context);
+    return se_DeleteMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteMembershipCommand(output, context);
+    return de_DeleteMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

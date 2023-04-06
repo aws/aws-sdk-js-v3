@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterCommand,
-  serializeAws_json1_1UpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class UpdateClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

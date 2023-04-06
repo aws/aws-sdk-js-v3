@@ -20,7 +20,7 @@ import {
   InvocationResponse,
   InvocationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_restJson1InvokeCommand, serializeAws_restJson1InvokeCommand } from "../protocols/Aws_restJson1";
+import { de_InvokeCommand, se_InvokeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -245,14 +245,14 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
    * @internal
    */
   private serialize(input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeCommand(input, context);
+    return se_InvokeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> {
-    return deserializeAws_restJson1InvokeCommand(output, context);
+    return de_InvokeCommand(output, context);
   }
 
   // Start section: command_body_extra

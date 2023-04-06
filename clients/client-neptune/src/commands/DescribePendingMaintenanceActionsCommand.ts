@@ -16,8 +16,8 @@ import {
 import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDescribePendingMaintenanceActionsCommand,
-  serializeAws_queryDescribePendingMaintenanceActionsCommand,
+  de_DescribePendingMaintenanceActionsCommand,
+  se_DescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -139,7 +139,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePendingMaintenanceActionsCommand(input, context);
+    return se_DescribePendingMaintenanceActionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(output, context);
+    return de_DescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

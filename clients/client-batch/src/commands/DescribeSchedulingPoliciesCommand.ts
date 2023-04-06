@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DescribeSchedulingPoliciesRequest, DescribeSchedulingPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSchedulingPoliciesCommand,
-  serializeAws_restJson1DescribeSchedulingPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSchedulingPoliciesCommand, se_DescribeSchedulingPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSchedulingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSchedulingPoliciesCommand(input, context);
+    return se_DescribeSchedulingPoliciesCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSchedulingPoliciesCommandOutput> {
-    return deserializeAws_restJson1DescribeSchedulingPoliciesCommand(output, context);
+    return de_DescribeSchedulingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StartImportLabelsTaskRunCommand,
-  serializeAws_json1_1StartImportLabelsTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartImportLabelsTaskRunCommand, se_StartImportLabelsTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class StartImportLabelsTaskRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImportLabelsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartImportLabelsTaskRunCommand(input, context);
+    return se_StartImportLabelsTaskRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportLabelsTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartImportLabelsTaskRunCommand(output, context);
+    return de_StartImportLabelsTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

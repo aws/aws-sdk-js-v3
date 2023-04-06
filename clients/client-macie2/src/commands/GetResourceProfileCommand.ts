@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetResourceProfileRequest, GetResourceProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceProfileCommand,
-  serializeAws_restJson1GetResourceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourceProfileCommand, se_GetResourceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetResourceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceProfileCommand(input, context);
+    return se_GetResourceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceProfileCommandOutput> {
-    return deserializeAws_restJson1GetResourceProfileCommand(output, context);
+    return de_GetResourceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

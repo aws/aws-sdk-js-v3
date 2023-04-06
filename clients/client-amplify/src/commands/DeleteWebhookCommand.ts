@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { DeleteWebhookRequest, DeleteWebhookResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWebhookCommand,
-  serializeAws_restJson1DeleteWebhookCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWebhookCommand, se_DeleteWebhookCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteWebhookCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWebhookCommand(input, context);
+    return se_DeleteWebhookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
-    return deserializeAws_restJson1DeleteWebhookCommand(output, context);
+    return de_DeleteWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

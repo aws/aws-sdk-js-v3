@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_queryUntagResourceCommand,
-  serializeAws_queryUntagResourceCommand,
-} from "../protocols/Aws_query";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UntagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_queryUntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

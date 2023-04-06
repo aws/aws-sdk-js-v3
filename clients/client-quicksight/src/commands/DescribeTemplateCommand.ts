@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTemplateRequest, DescribeTemplateResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeTemplateCommand,
-  serializeAws_restJson1DescribeTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTemplateCommand, se_DescribeTemplateCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -153,14 +150,14 @@ export class DescribeTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplateCommand(input, context);
+    return se_DescribeTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateCommand(output, context);
+    return de_DescribeTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

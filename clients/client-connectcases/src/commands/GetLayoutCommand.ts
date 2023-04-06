@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { GetLayoutRequest, GetLayoutResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayoutCommand,
-  serializeAws_restJson1GetLayoutCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLayoutCommand, se_GetLayoutCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetLayoutCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayoutCommand(input, context);
+    return se_GetLayoutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayoutCommandOutput> {
-    return deserializeAws_restJson1GetLayoutCommand(output, context);
+    return de_GetLayoutCommand(output, context);
   }
 
   // Start section: command_body_extra

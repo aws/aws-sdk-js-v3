@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { CreateInputRequest, CreateInputResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateInputCommand,
-  serializeAws_restJson1CreateInputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateInputCommand, se_CreateInputCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class CreateInputCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInputCommand(input, context);
+    return se_CreateInputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInputCommandOutput> {
-    return deserializeAws_restJson1CreateInputCommand(output, context);
+    return de_CreateInputCommand(output, context);
   }
 
   // Start section: command_body_extra

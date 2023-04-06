@@ -15,8 +15,8 @@ import {
 
 import { GetFirewallRuleGroupAssociationRequest, GetFirewallRuleGroupAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand,
-  serializeAws_json1_1GetFirewallRuleGroupAssociationCommand,
+  de_GetFirewallRuleGroupAssociationCommand,
+  se_GetFirewallRuleGroupAssociationCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -137,7 +137,7 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command<
     input: GetFirewallRuleGroupAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallRuleGroupAssociationCommand(input, context);
+    return se_GetFirewallRuleGroupAssociationCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFirewallRuleGroupAssociationCommandOutput> {
-    return deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand(output, context);
+    return de_GetFirewallRuleGroupAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

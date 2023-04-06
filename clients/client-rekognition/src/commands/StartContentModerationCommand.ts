@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartContentModerationRequest, StartContentModerationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartContentModerationCommand,
-  serializeAws_json1_1StartContentModerationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartContentModerationCommand, se_StartContentModerationCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -176,14 +173,14 @@ export class StartContentModerationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartContentModerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartContentModerationCommand(input, context);
+    return se_StartContentModerationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentModerationCommandOutput> {
-    return deserializeAws_json1_1StartContentModerationCommand(output, context);
+    return de_StartContentModerationCommand(output, context);
   }
 
   // Start section: command_body_extra

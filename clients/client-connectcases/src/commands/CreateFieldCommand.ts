@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { CreateFieldRequest, CreateFieldResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFieldCommand,
-  serializeAws_restJson1CreateFieldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFieldCommand, se_CreateFieldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CreateFieldCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFieldCommand(input, context);
+    return se_CreateFieldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFieldCommandOutput> {
-    return deserializeAws_restJson1CreateFieldCommand(output, context);
+    return de_CreateFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

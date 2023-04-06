@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminDeleteUserRequest, AdminDeleteUserRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminDeleteUserCommand,
-  serializeAws_json1_1AdminDeleteUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminDeleteUserCommand, se_AdminDeleteUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class AdminDeleteUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminDeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminDeleteUserCommand(input, context);
+    return se_AdminDeleteUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminDeleteUserCommandOutput> {
-    return deserializeAws_json1_1AdminDeleteUserCommand(output, context);
+    return de_AdminDeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

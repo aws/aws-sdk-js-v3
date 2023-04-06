@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutMessageCommand,
-  serializeAws_restJson1BatchPutMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchPutMessageCommand, se_BatchPutMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class BatchPutMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutMessageCommand(input, context);
+    return se_BatchPutMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
-    return deserializeAws_restJson1BatchPutMessageCommand(output, context);
+    return de_BatchPutMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

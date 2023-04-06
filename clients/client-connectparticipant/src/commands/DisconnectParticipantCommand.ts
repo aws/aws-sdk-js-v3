@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectParticipantCommand,
-  serializeAws_restJson1DisconnectParticipantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisconnectParticipantCommand, se_DisconnectParticipantCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DisconnectParticipantCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectParticipantCommand(input, context);
+    return se_DisconnectParticipantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectParticipantCommandOutput> {
-    return deserializeAws_restJson1DisconnectParticipantCommand(output, context);
+    return de_DisconnectParticipantCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateQueueNameRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQueueNameCommand,
-  serializeAws_restJson1UpdateQueueNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateQueueNameCommand, se_UpdateQueueNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateQueueNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateQueueNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueNameCommand(input, context);
+    return se_UpdateQueueNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueNameCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueNameCommand(output, context);
+    return de_UpdateQueueNameCommand(output, context);
   }
 
   // Start section: command_body_extra

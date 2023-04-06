@@ -19,10 +19,7 @@ import {
   CreatePricingRuleInputFilterSensitiveLog,
   CreatePricingRuleOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePricingRuleCommand,
-  serializeAws_restJson1CreatePricingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePricingRuleCommand, se_CreatePricingRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class CreatePricingRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePricingRuleCommand(input, context);
+    return se_CreatePricingRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingRuleCommandOutput> {
-    return deserializeAws_restJson1CreatePricingRuleCommand(output, context);
+    return de_CreatePricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeletePublicKeyRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeletePublicKeyCommand,
-  serializeAws_restXmlDeletePublicKeyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeletePublicKeyCommand, se_DeletePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeletePublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeletePublicKeyCommand(input, context);
+    return se_DeletePublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicKeyCommandOutput> {
-    return deserializeAws_restXmlDeletePublicKeyCommand(output, context);
+    return de_DeletePublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

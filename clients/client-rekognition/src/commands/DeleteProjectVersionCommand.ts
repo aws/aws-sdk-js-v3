@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectVersionCommand,
-  serializeAws_json1_1DeleteProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProjectVersionCommand, se_DeleteProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -150,14 +147,14 @@ export class DeleteProjectVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectVersionCommand(input, context);
+    return se_DeleteProjectVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectVersionCommand(output, context);
+    return de_DeleteProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

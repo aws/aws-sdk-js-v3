@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetInstanceSnapshotsRequest, GetInstanceSnapshotsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceSnapshotsCommand,
-  serializeAws_json1_1GetInstanceSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceSnapshotsCommand, se_GetInstanceSnapshotsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetInstanceSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceSnapshotsCommand(input, context);
+    return se_GetInstanceSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceSnapshotsCommand(output, context);
+    return de_GetInstanceSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

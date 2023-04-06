@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketAclRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketAclCommand,
-  serializeAws_restXmlPutBucketAclCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketAclCommand, se_PutBucketAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -363,14 +360,14 @@ export class PutBucketAclCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAclCommand(input, context);
+    return se_PutBucketAclCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketAclCommandOutput> {
-    return deserializeAws_restXmlPutBucketAclCommand(output, context);
+    return de_PutBucketAclCommand(output, context);
   }
 
   // Start section: command_body_extra

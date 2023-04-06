@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchDeleteDetectorRequest, BatchDeleteDetectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteDetectorCommand,
-  serializeAws_restJson1BatchDeleteDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteDetectorCommand, se_BatchDeleteDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class BatchDeleteDetectorCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDetectorCommand(input, context);
+    return se_BatchDeleteDetectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDetectorCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDetectorCommand(output, context);
+    return de_BatchDeleteDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

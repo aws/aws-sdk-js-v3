@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SyncDeploymentJobRequest, SyncDeploymentJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SyncDeploymentJobCommand,
-  serializeAws_restJson1SyncDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SyncDeploymentJobCommand, se_SyncDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -150,14 +147,14 @@ export class SyncDeploymentJobCommand extends $Command<
    * @internal
    */
   private serialize(input: SyncDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SyncDeploymentJobCommand(input, context);
+    return se_SyncDeploymentJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SyncDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1SyncDeploymentJobCommand(output, context);
+    return de_SyncDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
-  serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
+  de_UpdateConfigurationSetReputationMetricsEnabledCommand,
+  se_UpdateConfigurationSetReputationMetricsEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -150,7 +150,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(input, context);
+    return se_UpdateConfigurationSetReputationMetricsEnabledCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(output, context);
+    return de_UpdateConfigurationSetReputationMetricsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListAppliedSchemaArnsRequest, ListAppliedSchemaArnsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppliedSchemaArnsCommand,
-  serializeAws_restJson1ListAppliedSchemaArnsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppliedSchemaArnsCommand, se_ListAppliedSchemaArnsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListAppliedSchemaArnsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppliedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppliedSchemaArnsCommand(input, context);
+    return se_ListAppliedSchemaArnsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppliedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListAppliedSchemaArnsCommand(output, context);
+    return de_ListAppliedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

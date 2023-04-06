@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetGroupCertificateConfigurationRequest, GetGroupCertificateConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetGroupCertificateConfigurationCommand,
-  serializeAws_restJson1GetGroupCertificateConfigurationCommand,
+  de_GetGroupCertificateConfigurationCommand,
+  se_GetGroupCertificateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -131,7 +131,7 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     input: GetGroupCertificateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCertificateConfigurationCommand(input, context);
+    return se_GetGroupCertificateConfigurationCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupCertificateConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetGroupCertificateConfigurationCommand(output, context);
+    return de_GetGroupCertificateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

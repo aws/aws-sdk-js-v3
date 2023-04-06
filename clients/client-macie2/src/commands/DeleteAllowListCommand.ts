@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DeleteAllowListRequest, DeleteAllowListResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAllowListCommand,
-  serializeAws_restJson1DeleteAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAllowListCommand, se_DeleteAllowListCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteAllowListCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAllowListCommand(input, context);
+    return se_DeleteAllowListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAllowListCommandOutput> {
-    return deserializeAws_restJson1DeleteAllowListCommand(output, context);
+    return de_DeleteAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

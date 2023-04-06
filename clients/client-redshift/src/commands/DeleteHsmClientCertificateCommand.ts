@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHsmClientCertificateMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteHsmClientCertificateCommand,
-  serializeAws_queryDeleteHsmClientCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteHsmClientCertificateCommand, se_DeleteHsmClientCertificateCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -128,7 +125,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteHsmClientCertificateCommand(input, context);
+    return se_DeleteHsmClientCertificateCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryDeleteHsmClientCertificateCommand(output, context);
+    return de_DeleteHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

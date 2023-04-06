@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteFrameworkInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFrameworkCommand,
-  serializeAws_restJson1DeleteFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFrameworkCommand, se_DeleteFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteFrameworkCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFrameworkCommand(input, context);
+    return se_DeleteFrameworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFrameworkCommandOutput> {
-    return deserializeAws_restJson1DeleteFrameworkCommand(output, context);
+    return de_DeleteFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

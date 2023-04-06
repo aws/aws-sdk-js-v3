@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListDistributionsByCachePolicyIdRequest, ListDistributionsByCachePolicyIdResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByCachePolicyIdCommand,
-  serializeAws_restXmlListDistributionsByCachePolicyIdCommand,
+  de_ListDistributionsByCachePolicyIdCommand,
+  se_ListDistributionsByCachePolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -142,7 +142,7 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     input: ListDistributionsByCachePolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByCachePolicyIdCommand(input, context);
+    return se_ListDistributionsByCachePolicyIdCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByCachePolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByCachePolicyIdCommand(output, context);
+    return de_ListDistributionsByCachePolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

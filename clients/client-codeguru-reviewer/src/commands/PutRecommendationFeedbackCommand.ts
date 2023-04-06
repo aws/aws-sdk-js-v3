@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRecommendationFeedbackCommand,
-  serializeAws_restJson1PutRecommendationFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRecommendationFeedbackCommand, se_PutRecommendationFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class PutRecommendationFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRecommendationFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRecommendationFeedbackCommand(input, context);
+    return se_PutRecommendationFeedbackCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class PutRecommendationFeedbackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRecommendationFeedbackCommandOutput> {
-    return deserializeAws_restJson1PutRecommendationFeedbackCommand(output, context);
+    return de_PutRecommendationFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

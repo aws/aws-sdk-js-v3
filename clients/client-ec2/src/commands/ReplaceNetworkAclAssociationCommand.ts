@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceNetworkAclAssociationCommand,
-  serializeAws_ec2ReplaceNetworkAclAssociationCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReplaceNetworkAclAssociationCommand, se_ReplaceNetworkAclAssociationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceNetworkAclAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceNetworkAclAssociationCommand(input, context);
+    return se_ReplaceNetworkAclAssociationCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceNetworkAclAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(output, context);
+    return de_ReplaceNetworkAclAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

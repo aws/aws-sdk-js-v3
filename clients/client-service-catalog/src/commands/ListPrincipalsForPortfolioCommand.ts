@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPrincipalsForPortfolioInput, ListPrincipalsForPortfolioOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPrincipalsForPortfolioCommand,
-  serializeAws_json1_1ListPrincipalsForPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPrincipalsForPortfolioCommand, se_ListPrincipalsForPortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -129,7 +126,7 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPrincipalsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPrincipalsForPortfolioCommand(input, context);
+    return se_ListPrincipalsForPortfolioCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPrincipalsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListPrincipalsForPortfolioCommand(output, context);
+    return de_ListPrincipalsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

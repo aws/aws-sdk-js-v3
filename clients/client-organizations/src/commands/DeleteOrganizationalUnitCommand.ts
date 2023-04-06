@@ -15,10 +15,7 @@ import {
 
 import { DeleteOrganizationalUnitRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeleteOrganizationalUnitCommand,
-  serializeAws_json1_1DeleteOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteOrganizationalUnitCommand, se_DeleteOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -273,14 +270,14 @@ export class DeleteOrganizationalUnitCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationalUnitCommand(input, context);
+    return se_DeleteOrganizationalUnitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationalUnitCommand(output, context);
+    return de_DeleteOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

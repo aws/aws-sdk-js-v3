@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDatalakeAutoEnableRequest, DeleteDatalakeAutoEnableResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatalakeAutoEnableCommand,
-  serializeAws_restJson1DeleteDatalakeAutoEnableCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDatalakeAutoEnableCommand, se_DeleteDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -150,14 +147,14 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeAutoEnableCommand(input, context);
+    return se_DeleteDatalakeAutoEnableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeAutoEnableCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeAutoEnableCommand(output, context);
+    return de_DeleteDatalakeAutoEnableCommand(output, context);
   }
 
   // Start section: command_body_extra

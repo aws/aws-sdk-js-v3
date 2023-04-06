@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0UpdateEventDestinationCommand,
-  serializeAws_json1_0UpdateEventDestinationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateEventDestinationCommand, se_UpdateEventDestinationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class UpdateEventDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEventDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEventDestinationCommand(input, context);
+    return se_UpdateEventDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventDestinationCommandOutput> {
-    return deserializeAws_json1_0UpdateEventDestinationCommand(output, context);
+    return de_UpdateEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

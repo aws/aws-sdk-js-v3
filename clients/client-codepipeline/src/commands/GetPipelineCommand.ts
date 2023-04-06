@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { GetPipelineInput, GetPipelineOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPipelineCommand,
-  serializeAws_json1_1GetPipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPipelineCommand, se_GetPipelineCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetPipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPipelineCommand(input, context);
+    return se_GetPipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineCommandOutput> {
-    return deserializeAws_json1_1GetPipelineCommand(output, context);
+    return de_GetPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

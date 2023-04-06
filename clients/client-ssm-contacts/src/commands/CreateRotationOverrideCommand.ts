@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRotationOverrideRequest, CreateRotationOverrideResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRotationOverrideCommand,
-  serializeAws_json1_1CreateRotationOverrideCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRotationOverrideCommand, se_CreateRotationOverrideCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -145,14 +142,14 @@ export class CreateRotationOverrideCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRotationOverrideCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRotationOverrideCommand(input, context);
+    return se_CreateRotationOverrideCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRotationOverrideCommandOutput> {
-    return deserializeAws_json1_1CreateRotationOverrideCommand(output, context);
+    return de_CreateRotationOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

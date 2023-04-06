@@ -16,8 +16,8 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { GetLambdaFunctionRecommendationsRequest, GetLambdaFunctionRecommendationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
-  serializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
+  de_GetLambdaFunctionRecommendationsCommand,
+  se_GetLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -169,7 +169,7 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     input: GetLambdaFunctionRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetLambdaFunctionRecommendationsCommand(input, context);
+    return se_GetLambdaFunctionRecommendationsCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLambdaFunctionRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand(output, context);
+    return de_GetLambdaFunctionRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

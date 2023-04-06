@@ -18,8 +18,8 @@ import {
   DescribeAccountAssignmentDeletionStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand,
-  serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand,
+  de_DescribeAccountAssignmentDeletionStatusCommand,
+  se_DescribeAccountAssignmentDeletionStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -153,7 +153,7 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     input: DescribeAccountAssignmentDeletionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand(input, context);
+    return se_DescribeAccountAssignmentDeletionStatusCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAssignmentDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand(output, context);
+    return de_DescribeAccountAssignmentDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

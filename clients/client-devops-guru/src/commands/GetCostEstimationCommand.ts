@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { GetCostEstimationRequest, GetCostEstimationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCostEstimationCommand,
-  serializeAws_restJson1GetCostEstimationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCostEstimationCommand, se_GetCostEstimationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetCostEstimationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCostEstimationCommand(input, context);
+    return se_GetCostEstimationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimationCommandOutput> {
-    return deserializeAws_restJson1GetCostEstimationCommand(output, context);
+    return de_GetCostEstimationCommand(output, context);
   }
 
   // Start section: command_body_extra

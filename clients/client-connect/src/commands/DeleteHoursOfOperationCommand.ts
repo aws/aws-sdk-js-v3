@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteHoursOfOperationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteHoursOfOperationCommand,
-  serializeAws_restJson1DeleteHoursOfOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteHoursOfOperationCommand, se_DeleteHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteHoursOfOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteHoursOfOperationCommand(input, context);
+    return se_DeleteHoursOfOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHoursOfOperationCommandOutput> {
-    return deserializeAws_restJson1DeleteHoursOfOperationCommand(output, context);
+    return de_DeleteHoursOfOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

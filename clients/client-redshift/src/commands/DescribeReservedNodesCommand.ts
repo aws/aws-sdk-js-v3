@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeReservedNodesCommand,
-  serializeAws_queryDescribeReservedNodesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeReservedNodesCommand, se_DescribeReservedNodesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -129,14 +126,14 @@ export class DescribeReservedNodesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReservedNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedNodesCommand(input, context);
+    return se_DescribeReservedNodesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservedNodesCommandOutput> {
-    return deserializeAws_queryDescribeReservedNodesCommand(output, context);
+    return de_DescribeReservedNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

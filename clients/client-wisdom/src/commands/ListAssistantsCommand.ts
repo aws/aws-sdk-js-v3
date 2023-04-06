@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAssistantsRequest, ListAssistantsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssistantsCommand,
-  serializeAws_restJson1ListAssistantsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAssistantsCommand, se_ListAssistantsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -127,14 +124,14 @@ export class ListAssistantsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssistantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssistantsCommand(input, context);
+    return se_ListAssistantsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssistantsCommandOutput> {
-    return deserializeAws_restJson1ListAssistantsCommand(output, context);
+    return de_ListAssistantsCommand(output, context);
   }
 
   // Start section: command_body_extra

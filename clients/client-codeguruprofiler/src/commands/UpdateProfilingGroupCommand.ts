@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { UpdateProfilingGroupRequest, UpdateProfilingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProfilingGroupCommand,
-  serializeAws_restJson1UpdateProfilingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateProfilingGroupCommand, se_UpdateProfilingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateProfilingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProfilingGroupCommand(input, context);
+    return se_UpdateProfilingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateProfilingGroupCommand(output, context);
+    return de_UpdateProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

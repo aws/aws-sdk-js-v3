@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import {
-  deserializeAws_json1_1HostWithPathOperationCommand,
-  serializeAws_json1_1HostWithPathOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -82,14 +79,14 @@ export class HostWithPathOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: HostWithPathOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1HostWithPathOperationCommand(input, context);
+    return se_HostWithPathOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HostWithPathOperationCommandOutput> {
-    return deserializeAws_json1_1HostWithPathOperationCommand(output, context);
+    return de_HostWithPathOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

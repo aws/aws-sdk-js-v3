@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_1";
-import {
-  deserializeAws_queryResetDBClusterParameterGroupCommand,
-  serializeAws_queryResetDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -101,16 +98,21 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             this state.</p>
  *
  *
- * @example To reset the values of a DB cluster parameter group
+ * @example To reset all parameters to their default values
  * ```javascript
- * // This example resets all parameters for the specified DB cluster parameter group to their default values.
+ * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DBClusterParameterGroupName": "mydbclpg",
  *   "ResetAllParameters": true
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: reset-db-cluster-parameter-group-b04aeaf7-7f73-49e1-9bb4-857573ea3ee4
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroupName": "mydbclpg"
+ * }
+ * *\/
+ * // example id: to-reset-all-parameters-to-their-default-values-1680070254216
  * ```
  *
  */
@@ -177,7 +179,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
+    return se_ResetDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -187,7 +189,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
+    return de_ResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

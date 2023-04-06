@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateActionRequest, UpdateActionResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateActionCommand,
-  serializeAws_json1_1UpdateActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateActionCommand, se_UpdateActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -133,14 +130,14 @@ export class UpdateActionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateActionCommand(input, context);
+    return se_UpdateActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionCommandOutput> {
-    return deserializeAws_json1_1UpdateActionCommand(output, context);
+    return de_UpdateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

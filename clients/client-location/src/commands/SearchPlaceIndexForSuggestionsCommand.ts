@@ -21,8 +21,8 @@ import {
   SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommand,
-  serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand,
+  de_SearchPlaceIndexForSuggestionsCommand,
+  se_SearchPlaceIndexForSuggestionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -169,7 +169,7 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     input: SearchPlaceIndexForSuggestionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand(input, context);
+    return se_SearchPlaceIndexForSuggestionsCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchPlaceIndexForSuggestionsCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommand(output, context);
+    return de_SearchPlaceIndexForSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

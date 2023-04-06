@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListIdentityPoliciesRequest, ListIdentityPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListIdentityPoliciesCommand,
-  serializeAws_queryListIdentityPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_ListIdentityPoliciesCommand, se_ListIdentityPoliciesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -149,14 +146,14 @@ export class ListIdentityPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListIdentityPoliciesCommand(input, context);
+    return se_ListIdentityPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityPoliciesCommandOutput> {
-    return deserializeAws_queryListIdentityPoliciesCommand(output, context);
+    return de_ListIdentityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

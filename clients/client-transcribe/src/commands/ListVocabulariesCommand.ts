@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListVocabulariesRequest, ListVocabulariesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVocabulariesCommand,
-  serializeAws_json1_1ListVocabulariesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListVocabulariesCommand, se_ListVocabulariesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListVocabulariesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVocabulariesCommand(input, context);
+    return se_ListVocabulariesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVocabulariesCommandOutput> {
-    return deserializeAws_json1_1ListVocabulariesCommand(output, context);
+    return de_ListVocabulariesCommand(output, context);
   }
 
   // Start section: command_body_extra

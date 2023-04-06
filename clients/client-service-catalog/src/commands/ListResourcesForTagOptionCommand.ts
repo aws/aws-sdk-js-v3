@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourcesForTagOptionInput, ListResourcesForTagOptionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesForTagOptionCommand,
-  serializeAws_json1_1ListResourcesForTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListResourcesForTagOptionCommand, se_ListResourcesForTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -134,7 +131,7 @@ export class ListResourcesForTagOptionCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourcesForTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesForTagOptionCommand(input, context);
+    return se_ListResourcesForTagOptionCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class ListResourcesForTagOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesForTagOptionCommandOutput> {
-    return deserializeAws_json1_1ListResourcesForTagOptionCommand(output, context);
+    return de_ListResourcesForTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

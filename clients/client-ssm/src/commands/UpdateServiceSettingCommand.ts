@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateServiceSettingRequest, UpdateServiceSettingResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateServiceSettingCommand,
-  serializeAws_json1_1UpdateServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateServiceSettingCommand, se_UpdateServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -144,14 +141,14 @@ export class UpdateServiceSettingCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceSettingCommand(input, context);
+    return se_UpdateServiceSettingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSettingCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceSettingCommand(output, context);
+    return de_UpdateServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateOpsMetadataRequest, CreateOpsMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOpsMetadataCommand,
-  serializeAws_json1_1CreateOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOpsMetadataCommand, se_CreateOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -149,14 +146,14 @@ export class CreateOpsMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOpsMetadataCommand(input, context);
+    return se_CreateOpsMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1CreateOpsMetadataCommand(output, context);
+    return de_CreateOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

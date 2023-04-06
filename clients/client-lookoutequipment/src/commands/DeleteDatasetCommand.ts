@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DeleteDatasetRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteDatasetCommand,
-  serializeAws_json1_0DeleteDatasetCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteDatasetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteDatasetCommand(input, context);
+    return se_DeleteDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
-    return deserializeAws_json1_0DeleteDatasetCommand(output, context);
+    return de_DeleteDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListInvalidationsRequest, ListInvalidationsResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListInvalidationsCommand,
-  serializeAws_restXmlListInvalidationsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListInvalidationsCommand, se_ListInvalidationsCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListInvalidationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInvalidationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListInvalidationsCommand(input, context);
+    return se_ListInvalidationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvalidationsCommandOutput> {
-    return deserializeAws_restXmlListInvalidationsCommand(output, context);
+    return de_ListInvalidationsCommand(output, context);
   }
 
   // Start section: command_body_extra

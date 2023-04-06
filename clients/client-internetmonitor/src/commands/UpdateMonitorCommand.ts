@@ -15,10 +15,7 @@ import {
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { UpdateMonitorInput, UpdateMonitorOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMonitorCommand,
-  serializeAws_restJson1UpdateMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMonitorCommand, se_UpdateMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMonitorCommand(input, context);
+    return se_UpdateMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitorCommandOutput> {
-    return deserializeAws_restJson1UpdateMonitorCommand(output, context);
+    return de_UpdateMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

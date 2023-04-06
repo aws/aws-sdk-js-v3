@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFastSnapshotRestoresCommand,
-  serializeAws_ec2DescribeFastSnapshotRestoresCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeFastSnapshotRestoresCommand, se_DescribeFastSnapshotRestoresCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFastSnapshotRestoresCommand(input, context);
+    return se_DescribeFastSnapshotRestoresCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFastSnapshotRestoresCommandOutput> {
-    return deserializeAws_ec2DescribeFastSnapshotRestoresCommand(output, context);
+    return de_DescribeFastSnapshotRestoresCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowOutputCommand,
-  serializeAws_restJson1RemoveFlowOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveFlowOutputCommand, se_RemoveFlowOutputCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RemoveFlowOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveFlowOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowOutputCommand(input, context);
+    return se_RemoveFlowOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowOutputCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowOutputCommand(output, context);
+    return de_RemoveFlowOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

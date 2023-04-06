@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { ListCodeSigningConfigsRequest, ListCodeSigningConfigsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCodeSigningConfigsCommand,
-  serializeAws_restJson1ListCodeSigningConfigsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCodeSigningConfigsCommand, se_ListCodeSigningConfigsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListCodeSigningConfigsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCodeSigningConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCodeSigningConfigsCommand(input, context);
+    return se_ListCodeSigningConfigsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeSigningConfigsCommandOutput> {
-    return deserializeAws_restJson1ListCodeSigningConfigsCommand(output, context);
+    return de_ListCodeSigningConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,10 +23,7 @@ import {
   UploadDocumentsRequestFilterSensitiveLog,
   UploadDocumentsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UploadDocumentsCommand,
-  serializeAws_restJson1UploadDocumentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UploadDocumentsCommand, se_UploadDocumentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UploadDocumentsCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadDocumentsCommand(input, context);
+    return se_UploadDocumentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadDocumentsCommandOutput> {
-    return deserializeAws_restJson1UploadDocumentsCommand(output, context);
+    return de_UploadDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

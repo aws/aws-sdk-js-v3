@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PublishBatchInput, PublishBatchResponse } from "../models/models_0";
-import { deserializeAws_queryPublishBatchCommand, serializeAws_queryPublishBatchCommand } from "../protocols/Aws_query";
+import { de_PublishBatchCommand, se_PublishBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -223,14 +223,14 @@ export class PublishBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPublishBatchCommand(input, context);
+    return se_PublishBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishBatchCommandOutput> {
-    return deserializeAws_queryPublishBatchCommand(output, context);
+    return de_PublishBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

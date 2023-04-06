@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1GetEnabledStandardsCommand,
-  serializeAws_restJson1GetEnabledStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEnabledStandardsCommand, se_GetEnabledStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetEnabledStandardsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEnabledStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnabledStandardsCommand(input, context);
+    return se_GetEnabledStandardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnabledStandardsCommandOutput> {
-    return deserializeAws_restJson1GetEnabledStandardsCommand(output, context);
+    return de_GetEnabledStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateEncryptionConfigCommand,
-  serializeAws_restJson1AssociateEncryptionConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateEncryptionConfigCommand, se_AssociateEncryptionConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class AssociateEncryptionConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateEncryptionConfigCommand(input, context);
+    return se_AssociateEncryptionConfigCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class AssociateEncryptionConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1AssociateEncryptionConfigCommand(output, context);
+    return de_AssociateEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

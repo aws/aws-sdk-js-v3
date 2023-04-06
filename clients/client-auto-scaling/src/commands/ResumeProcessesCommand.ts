@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ScalingProcessQuery } from "../models/models_0";
-import {
-  deserializeAws_queryResumeProcessesCommand,
-  serializeAws_queryResumeProcessesCommand,
-} from "../protocols/Aws_query";
+import { de_ResumeProcessesCommand, se_ResumeProcessesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ResumeProcessesCommand extends $Command<
    * @internal
    */
   private serialize(input: ResumeProcessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResumeProcessesCommand(input, context);
+    return se_ResumeProcessesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeProcessesCommandOutput> {
-    return deserializeAws_queryResumeProcessesCommand(output, context);
+    return de_ResumeProcessesCommand(output, context);
   }
 
   // Start section: command_body_extra

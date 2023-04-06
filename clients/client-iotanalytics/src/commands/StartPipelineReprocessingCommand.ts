@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartPipelineReprocessingCommand,
-  serializeAws_restJson1StartPipelineReprocessingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartPipelineReprocessingCommand, se_StartPipelineReprocessingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class StartPipelineReprocessingCommand extends $Command<
    * @internal
    */
   private serialize(input: StartPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPipelineReprocessingCommand(input, context);
+    return se_StartPipelineReprocessingCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class StartPipelineReprocessingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1StartPipelineReprocessingCommand(output, context);
+    return de_StartPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

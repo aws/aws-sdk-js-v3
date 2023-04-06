@@ -15,10 +15,7 @@ import {
 
 import { ListCatalogItemsInput, ListCatalogItemsOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListCatalogItemsCommand,
-  serializeAws_restJson1ListCatalogItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCatalogItemsCommand, se_ListCatalogItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListCatalogItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCatalogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCatalogItemsCommand(input, context);
+    return se_ListCatalogItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCatalogItemsCommandOutput> {
-    return deserializeAws_restJson1ListCatalogItemsCommand(output, context);
+    return de_ListCatalogItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

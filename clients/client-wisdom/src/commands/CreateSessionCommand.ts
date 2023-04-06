@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSessionCommand,
-  serializeAws_restJson1CreateSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSessionCommand, se_CreateSessionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -138,14 +135,14 @@ export class CreateSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSessionCommand(input, context);
+    return se_CreateSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSessionCommandOutput> {
-    return deserializeAws_restJson1CreateSessionCommand(output, context);
+    return de_CreateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

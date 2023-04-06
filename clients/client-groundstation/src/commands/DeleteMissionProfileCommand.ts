@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMissionProfileCommand,
-  serializeAws_restJson1DeleteMissionProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMissionProfileCommand, se_DeleteMissionProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteMissionProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMissionProfileCommand(input, context);
+    return se_DeleteMissionProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMissionProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteMissionProfileCommand(output, context);
+    return de_DeleteMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

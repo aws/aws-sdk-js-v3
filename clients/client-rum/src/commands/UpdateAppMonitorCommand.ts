@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAppMonitorRequest, UpdateAppMonitorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppMonitorCommand,
-  serializeAws_restJson1UpdateAppMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAppMonitorCommand, se_UpdateAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
@@ -172,14 +169,14 @@ export class UpdateAppMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppMonitorCommand(input, context);
+    return se_UpdateAppMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppMonitorCommandOutput> {
-    return deserializeAws_restJson1UpdateAppMonitorCommand(output, context);
+    return de_UpdateAppMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

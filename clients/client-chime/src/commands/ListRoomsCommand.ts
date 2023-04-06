@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoomsCommand,
-  serializeAws_restJson1ListRoomsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRoomsCommand, se_ListRoomsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListRoomsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRoomsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoomsCommand(input, context);
+    return se_ListRoomsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomsCommandOutput> {
-    return deserializeAws_restJson1ListRoomsCommand(output, context);
+    return de_ListRoomsCommand(output, context);
   }
 
   // Start section: command_body_extra

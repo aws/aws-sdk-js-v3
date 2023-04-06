@@ -18,10 +18,7 @@ import {
   DeleteServiceTemplateOutput,
   DeleteServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteServiceTemplateCommand,
-  serializeAws_json1_0DeleteServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteServiceTemplateCommand, se_DeleteServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -143,14 +140,14 @@ export class DeleteServiceTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceTemplateCommand(input, context);
+    return se_DeleteServiceTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceTemplateCommand(output, context);
+    return de_DeleteServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

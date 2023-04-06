@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RegisterImageRequest, RegisterImageResult } from "../models/models_6";
-import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
+import { de_RegisterImageCommand, se_RegisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -198,14 +198,14 @@ export class RegisterImageCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterImageCommand(input, context);
+    return se_RegisterImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterImageCommandOutput> {
-    return deserializeAws_ec2RegisterImageCommand(output, context);
+    return de_RegisterImageCommand(output, context);
   }
 
   // Start section: command_body_extra

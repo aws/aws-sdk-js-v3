@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventSubscriptionsCommand,
-  serializeAws_queryDescribeEventSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventSubscriptionsCommand, se_DescribeEventSubscriptionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -71,15 +68,33 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *  <p>The subscription name does not exist.</p>
  *
  *
- * @example To list information about DB event notification subscriptions
+ * @example To describe event subscriptions
  * ```javascript
- * // This example lists information for the specified DB event notification subscription.
- * const input = {
- *   "SubscriptionName": "mymysqleventsubscription"
- * };
+ * // This example describes all of the Amazon RDS event subscriptions for the current AWS account.
+ * const input = {};
  * const command = new DescribeEventSubscriptionsCommand(input);
- * await client.send(command);
- * // example id: describe-event-subscriptions-11184a82-e58a-4d0c-b558-f3a7489e0850
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscriptionsList": [
+ *     {
+ *       "CustSubscriptionId": "my-instance-events",
+ *       "CustomerAwsId": "123456789012",
+ *       "Enabled": true,
+ *       "EventCategoriesList": [
+ *         "backup",
+ *         "recovery"
+ *       ],
+ *       "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *       "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *       "SourceType": "db-instance",
+ *       "Status": "creating",
+ *       "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-event-subscriptions-1680281683538
  * ```
  *
  */
@@ -146,7 +161,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
+    return se_DescribeEventSubscriptionsCommand(input, context);
   }
 
   /**
@@ -156,7 +171,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
+    return de_DescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { DeleteAppRequest, DeleteAppResult, DeleteAppResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppCommand,
-  serializeAws_restJson1DeleteAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteAppCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppCommand(input, context);
+    return se_DeleteAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
-    return deserializeAws_restJson1DeleteAppCommand(output, context);
+    return de_DeleteAppCommand(output, context);
   }
 
   // Start section: command_body_extra

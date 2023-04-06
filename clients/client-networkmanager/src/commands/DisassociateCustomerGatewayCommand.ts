@@ -16,8 +16,8 @@ import {
 import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DisassociateCustomerGatewayCommand,
-  serializeAws_restJson1DisassociateCustomerGatewayCommand,
+  de_DisassociateCustomerGatewayCommand,
+  se_DisassociateCustomerGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class DisassociateCustomerGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateCustomerGatewayCommand(input, context);
+    return se_DisassociateCustomerGatewayCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1DisassociateCustomerGatewayCommand(output, context);
+    return de_DisassociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { GetRepositoryEndpointRequest, GetRepositoryEndpointResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRepositoryEndpointCommand,
-  serializeAws_restJson1GetRepositoryEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRepositoryEndpointCommand, se_GetRepositoryEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class GetRepositoryEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRepositoryEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRepositoryEndpointCommand(input, context);
+    return se_GetRepositoryEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryEndpointCommandOutput> {
-    return deserializeAws_restJson1GetRepositoryEndpointCommand(output, context);
+    return de_GetRepositoryEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

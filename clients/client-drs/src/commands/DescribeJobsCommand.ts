@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { DescribeJobsRequest, DescribeJobsResponse, DescribeJobsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobsCommand,
-  serializeAws_restJson1DescribeJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobsCommand, se_DescribeJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobsCommand(input, context);
+    return se_DescribeJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobsCommandOutput> {
-    return deserializeAws_restJson1DescribeJobsCommand(output, context);
+    return de_DescribeJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

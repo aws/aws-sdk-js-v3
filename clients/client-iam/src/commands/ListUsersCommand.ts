@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
-import { deserializeAws_queryListUsersCommand, serializeAws_queryListUsersCommand } from "../protocols/Aws_query";
+import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -156,14 +156,14 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
    * @internal
    */
   private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListUsersCommand(input, context);
+    return se_ListUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return deserializeAws_queryListUsersCommand(output, context);
+    return de_ListUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

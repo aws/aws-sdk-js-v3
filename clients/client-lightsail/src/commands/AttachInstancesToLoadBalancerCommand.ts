@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachInstancesToLoadBalancerCommand,
-  serializeAws_json1_1AttachInstancesToLoadBalancerCommand,
+  de_AttachInstancesToLoadBalancerCommand,
+  se_AttachInstancesToLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -160,7 +160,7 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachInstancesToLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(input, context);
+    return se_AttachInstancesToLoadBalancerCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachInstancesToLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(output, context);
+    return de_AttachInstancesToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

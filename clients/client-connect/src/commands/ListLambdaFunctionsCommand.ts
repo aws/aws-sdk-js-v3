@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListLambdaFunctionsCommand,
-  serializeAws_restJson1ListLambdaFunctionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLambdaFunctionsCommand, se_ListLambdaFunctionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListLambdaFunctionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLambdaFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLambdaFunctionsCommand(input, context);
+    return se_ListLambdaFunctionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLambdaFunctionsCommandOutput> {
-    return deserializeAws_restJson1ListLambdaFunctionsCommand(output, context);
+    return de_ListLambdaFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

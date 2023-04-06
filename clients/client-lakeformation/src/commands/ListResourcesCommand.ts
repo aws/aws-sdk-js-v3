@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourcesCommand,
-  serializeAws_restJson1ListResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResourcesCommand, se_ListResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourcesCommand(input, context);
+    return se_ListResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
-    return deserializeAws_restJson1ListResourcesCommand(output, context);
+    return de_ListResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateReplicationSetInput, UpdateReplicationSetOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateReplicationSetCommand,
-  serializeAws_restJson1UpdateReplicationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateReplicationSetCommand, se_UpdateReplicationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -152,14 +149,14 @@ export class UpdateReplicationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReplicationSetCommand(input, context);
+    return se_UpdateReplicationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReplicationSetCommandOutput> {
-    return deserializeAws_restJson1UpdateReplicationSetCommand(output, context);
+    return de_UpdateReplicationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

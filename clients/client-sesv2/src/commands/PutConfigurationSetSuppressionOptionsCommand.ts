@@ -18,8 +18,8 @@ import {
   PutConfigurationSetSuppressionOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,
+  de_PutConfigurationSetSuppressionOptionsCommand,
+  se_PutConfigurationSetSuppressionOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -141,7 +141,7 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     input: PutConfigurationSetSuppressionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand(input, context);
+    return se_PutConfigurationSetSuppressionOptionsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand(output, context);
+    return de_PutConfigurationSetSuppressionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

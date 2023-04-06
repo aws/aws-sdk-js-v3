@@ -24,7 +24,7 @@ import {
   GetUserResponse,
   GetUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_json1_1GetUserCommand, serializeAws_json1_1GetUserCommand } from "../protocols/Aws_json1_1";
+import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +154,14 @@ export class GetUserCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserCommand(input, context);
+    return se_GetUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
-    return deserializeAws_json1_1GetUserCommand(output, context);
+    return de_GetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlWriteGetObjectResponseCommand,
-  serializeAws_restXmlWriteGetObjectResponseCommand,
-} from "../protocols/Aws_restXml";
+import { de_WriteGetObjectResponseCommand, se_WriteGetObjectResponseCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -209,14 +206,14 @@ export class WriteGetObjectResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: WriteGetObjectResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlWriteGetObjectResponseCommand(input, context);
+    return se_WriteGetObjectResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteGetObjectResponseCommandOutput> {
-    return deserializeAws_restXmlWriteGetObjectResponseCommand(output, context);
+    return de_WriteGetObjectResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

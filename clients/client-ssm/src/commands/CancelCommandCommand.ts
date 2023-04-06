@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelCommandRequest, CancelCommandResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelCommandCommand,
-  serializeAws_json1_1CancelCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelCommandCommand, se_CancelCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -151,14 +148,14 @@ export class CancelCommandCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelCommandCommand(input, context);
+    return se_CancelCommandCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelCommandCommandOutput> {
-    return deserializeAws_json1_1CancelCommandCommand(output, context);
+    return de_CancelCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

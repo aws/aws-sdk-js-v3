@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateEventConfigurationsCommand,
-  serializeAws_restJson1UpdateEventConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEventConfigurationsCommand, se_UpdateEventConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class UpdateEventConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventConfigurationsCommand(input, context);
+    return se_UpdateEventConfigurationsCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class UpdateEventConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1UpdateEventConfigurationsCommand(output, context);
+    return de_UpdateEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

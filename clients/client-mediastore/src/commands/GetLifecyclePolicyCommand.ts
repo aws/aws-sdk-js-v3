@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { GetLifecyclePolicyInput, GetLifecyclePolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLifecyclePolicyCommand,
-  serializeAws_json1_1GetLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLifecyclePolicyCommand, se_GetLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetLifecyclePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLifecyclePolicyCommand(input, context);
+    return se_GetLifecyclePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1GetLifecyclePolicyCommand(output, context);
+    return de_GetLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

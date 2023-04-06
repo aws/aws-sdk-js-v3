@@ -22,10 +22,7 @@ import {
   StartConversationResponse,
   StartConversationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartConversationCommand,
-  serializeAws_restJson1StartConversationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartConversationCommand, se_StartConversationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -347,7 +344,7 @@ export class StartConversationCommand extends $Command<
     input: StartConversationCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConversationCommand(input, context);
+    return se_StartConversationCommand(input, context);
   }
 
   /**
@@ -357,7 +354,7 @@ export class StartConversationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartConversationCommandOutput> {
-    return deserializeAws_restJson1StartConversationCommand(output, context);
+    return de_StartConversationCommand(output, context);
   }
 
   // Start section: command_body_extra

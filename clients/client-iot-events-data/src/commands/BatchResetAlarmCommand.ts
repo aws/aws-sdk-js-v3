@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchResetAlarmRequest, BatchResetAlarmResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchResetAlarmCommand,
-  serializeAws_restJson1BatchResetAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchResetAlarmCommand, se_BatchResetAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class BatchResetAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchResetAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchResetAlarmCommand(input, context);
+    return se_BatchResetAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchResetAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchResetAlarmCommand(output, context);
+    return de_BatchResetAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

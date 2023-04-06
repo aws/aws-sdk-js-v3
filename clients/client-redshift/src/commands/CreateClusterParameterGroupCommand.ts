@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateClusterParameterGroupMessage, CreateClusterParameterGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterParameterGroupCommand,
-  serializeAws_queryCreateClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateClusterParameterGroupCommand, se_CreateClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -152,7 +149,7 @@ export class CreateClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterParameterGroupCommand(input, context);
+    return se_CreateClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class CreateClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateClusterParameterGroupCommand(output, context);
+    return de_CreateClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

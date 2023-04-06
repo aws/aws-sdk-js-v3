@@ -16,8 +16,8 @@ import {
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetComponentVersionArtifactRequest, GetComponentVersionArtifactResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetComponentVersionArtifactCommand,
-  serializeAws_restJson1GetComponentVersionArtifactCommand,
+  de_GetComponentVersionArtifactCommand,
+  se_GetComponentVersionArtifactCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class GetComponentVersionArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComponentVersionArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetComponentVersionArtifactCommand(input, context);
+    return se_GetComponentVersionArtifactCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetComponentVersionArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComponentVersionArtifactCommandOutput> {
-    return deserializeAws_restJson1GetComponentVersionArtifactCommand(output, context);
+    return de_GetComponentVersionArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

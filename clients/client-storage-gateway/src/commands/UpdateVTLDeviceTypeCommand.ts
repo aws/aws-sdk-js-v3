@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVTLDeviceTypeCommand,
-  serializeAws_json1_1UpdateVTLDeviceTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateVTLDeviceTypeCommand, se_UpdateVTLDeviceTypeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -149,14 +146,14 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVTLDeviceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVTLDeviceTypeCommand(input, context);
+    return se_UpdateVTLDeviceTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVTLDeviceTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateVTLDeviceTypeCommand(output, context);
+    return de_UpdateVTLDeviceTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

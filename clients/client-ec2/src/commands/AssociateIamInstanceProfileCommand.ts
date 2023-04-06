@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateIamInstanceProfileRequest, AssociateIamInstanceProfileResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateIamInstanceProfileCommand,
-  serializeAws_ec2AssociateIamInstanceProfileCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateIamInstanceProfileCommand, se_AssociateIamInstanceProfileCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class AssociateIamInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateIamInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateIamInstanceProfileCommand(input, context);
+    return se_AssociateIamInstanceProfileCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateIamInstanceProfileCommandOutput> {
-    return deserializeAws_ec2AssociateIamInstanceProfileCommand(output, context);
+    return de_AssociateIamInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

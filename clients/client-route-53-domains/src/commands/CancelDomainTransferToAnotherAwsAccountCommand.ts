@@ -18,8 +18,8 @@ import {
   CancelDomainTransferToAnotherAwsAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
-  serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
+  de_CancelDomainTransferToAnotherAwsAccountCommand,
+  se_CancelDomainTransferToAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -155,7 +155,7 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     input: CancelDomainTransferToAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand(input, context);
+    return se_CancelDomainTransferToAnotherAwsAccountCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand(output, context);
+    return de_CancelDomainTransferToAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

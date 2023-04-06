@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchInput, SearchInputFilterSensitiveLog, SearchOutput } from "../models/models_0";
-import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
+import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -157,14 +157,14 @@ export class SearchCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCommand(input, context);
+    return se_SearchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return deserializeAws_restJson1SearchCommand(output, context);
+    return de_SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

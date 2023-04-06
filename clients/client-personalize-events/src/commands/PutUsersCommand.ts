@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import {
-  deserializeAws_restJson1PutUsersCommand,
-  serializeAws_restJson1PutUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutUsersCommand, se_PutUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class PutUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: PutUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutUsersCommand(input, context);
+    return se_PutUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUsersCommandOutput> {
-    return deserializeAws_restJson1PutUsersCommand(output, context);
+    return de_PutUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

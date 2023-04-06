@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopServerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopServerCommand,
-  serializeAws_json1_1StopServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopServerCommand, se_StopServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -145,14 +142,14 @@ export class StopServerCommand extends $Command<
    * @internal
    */
   private serialize(input: StopServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopServerCommand(input, context);
+    return se_StopServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopServerCommandOutput> {
-    return deserializeAws_json1_1StopServerCommand(output, context);
+    return de_StopServerCommand(output, context);
   }
 
   // Start section: command_body_extra

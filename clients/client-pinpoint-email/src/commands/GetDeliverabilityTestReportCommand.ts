@@ -16,8 +16,8 @@ import {
 import { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1GetDeliverabilityTestReportCommand,
-  serializeAws_restJson1GetDeliverabilityTestReportCommand,
+  de_GetDeliverabilityTestReportCommand,
+  se_GetDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -131,7 +131,7 @@ export class GetDeliverabilityTestReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeliverabilityTestReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeliverabilityTestReportCommand(input, context);
+    return se_GetDeliverabilityTestReportCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1GetDeliverabilityTestReportCommand(output, context);
+    return de_GetDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

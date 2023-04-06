@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AddUserToGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_queryAddUserToGroupCommand,
-  serializeAws_queryAddUserToGroupCommand,
-} from "../protocols/Aws_query";
+import { de_AddUserToGroupCommand, se_AddUserToGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class AddUserToGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AddUserToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddUserToGroupCommand(input, context);
+    return se_AddUserToGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddUserToGroupCommandOutput> {
-    return deserializeAws_queryAddUserToGroupCommand(output, context);
+    return de_AddUserToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

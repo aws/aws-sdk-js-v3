@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteScheduleGroupInput, DeleteScheduleGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteScheduleGroupCommand,
-  serializeAws_restJson1DeleteScheduleGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteScheduleGroupCommand, se_DeleteScheduleGroupCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
@@ -144,14 +141,14 @@ export class DeleteScheduleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduleGroupCommand(input, context);
+    return se_DeleteScheduleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduleGroupCommand(output, context);
+    return de_DeleteScheduleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

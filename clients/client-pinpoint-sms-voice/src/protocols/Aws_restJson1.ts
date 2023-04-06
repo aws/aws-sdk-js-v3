@@ -66,7 +66,10 @@ import {
 } from "../models/models_0";
 import { PinpointSMSVoiceServiceException as __BaseException } from "../models/PinpointSMSVoiceServiceException";
 
-export const serializeAws_restJson1CreateConfigurationSetCommand = async (
+/**
+ * serializeAws_restJson1CreateConfigurationSetCommand
+ */
+export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -91,7 +94,10 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+ */
+export const se_CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -113,7 +119,7 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   let body: any;
   body = JSON.stringify({
     ...(input.EventDestination != null && {
-      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
     }),
     ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
   });
@@ -128,7 +134,10 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   });
 };
 
-export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
+/**
+ * serializeAws_restJson1DeleteConfigurationSetCommand
+ */
+export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -157,7 +166,10 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
+ */
+export const se_DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -194,7 +206,10 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   });
 };
 
-export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand = async (
+/**
+ * serializeAws_restJson1GetConfigurationSetEventDestinationsCommand
+ */
+export const se_GetConfigurationSetEventDestinationsCommand = async (
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -223,7 +238,10 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   });
 };
 
-export const serializeAws_restJson1ListConfigurationSetsCommand = async (
+/**
+ * serializeAws_restJson1ListConfigurationSetsCommand
+ */
+export const se_ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -248,7 +266,10 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendVoiceMessageCommand = async (
+/**
+ * serializeAws_restJson1SendVoiceMessageCommand
+ */
+export const se_SendVoiceMessageCommand = async (
   input: SendVoiceMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -262,7 +283,7 @@ export const serializeAws_restJson1SendVoiceMessageCommand = async (
   body = JSON.stringify({
     ...(input.CallerId != null && { CallerId: input.CallerId }),
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content != null && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
+    ...(input.Content != null && { Content: se_VoiceMessageContent(input.Content, context) }),
     ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
     ...(input.OriginationPhoneNumber != null && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
   });
@@ -277,7 +298,10 @@ export const serializeAws_restJson1SendVoiceMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
+ */
+export const se_UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -307,7 +331,7 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   let body: any;
   body = JSON.stringify({
     ...(input.EventDestination != null && {
-      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
     }),
   });
   return new __HttpRequest({
@@ -321,12 +345,15 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   });
 };
 
-export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetCommand
+ */
+export const de_CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConfigurationSetCommandError(output, context);
+    return de_CreateConfigurationSetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -335,7 +362,10 @@ export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetCommandError
+ */
+const de_CreateConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
@@ -347,19 +377,19 @@ const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointsmsvoice#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointsmsvoice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -371,12 +401,15 @@ const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+ */
+export const de_CreateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -385,7 +418,10 @@ export const deserializeAws_restJson1CreateConfigurationSetEventDestinationComma
   return contents;
 };
 
-const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
+ */
+const de_CreateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
@@ -397,22 +433,22 @@ const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointsmsvoice#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointsmsvoice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -424,12 +460,15 @@ const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
   }
 };
 
-export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetCommand
+ */
+export const de_DeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConfigurationSetCommandError(output, context);
+    return de_DeleteConfigurationSetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -438,7 +477,10 @@ export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetCommandError
+ */
+const de_DeleteConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
@@ -450,16 +492,16 @@ const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -471,12 +513,15 @@ const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
+ */
+export const de_DeleteConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -485,7 +530,10 @@ export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationComma
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
+ */
+const de_DeleteConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
@@ -497,16 +545,16 @@ const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -518,24 +566,30 @@ const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
   }
 };
 
-export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
+ */
+export const de_GetConfigurationSetEventDestinationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError(output, context);
+    return de_GetConfigurationSetEventDestinationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventDestinations != null) {
-    contents.EventDestinations = deserializeAws_restJson1EventDestinations(data.EventDestinations, context);
+    contents.EventDestinations = de_EventDestinations(data.EventDestinations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError
+ */
+const de_GetConfigurationSetEventDestinationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
@@ -547,16 +601,16 @@ const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError =
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -568,19 +622,22 @@ const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError =
   }
 };
 
-export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
+/**
+ * deserializeAws_restJson1ListConfigurationSetsCommand
+ */
+export const de_ListConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConfigurationSetsCommandError(output, context);
+    return de_ListConfigurationSetsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConfigurationSets != null) {
-    contents.ConfigurationSets = deserializeAws_restJson1ConfigurationSets(data.ConfigurationSets, context);
+    contents.ConfigurationSets = de_ConfigurationSets(data.ConfigurationSets, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -588,7 +645,10 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
+/**
+ * deserializeAws_restJson1ListConfigurationSetsCommandError
+ */
+const de_ListConfigurationSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
@@ -600,13 +660,13 @@ const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -618,12 +678,15 @@ const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SendVoiceMessageCommand = async (
+/**
+ * deserializeAws_restJson1SendVoiceMessageCommand
+ */
+export const de_SendVoiceMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendVoiceMessageCommandError(output, context);
+    return de_SendVoiceMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -635,7 +698,10 @@ export const deserializeAws_restJson1SendVoiceMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SendVoiceMessageCommandError = async (
+/**
+ * deserializeAws_restJson1SendVoiceMessageCommandError
+ */
+const de_SendVoiceMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
@@ -647,13 +713,13 @@ const deserializeAws_restJson1SendVoiceMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -665,12 +731,15 @@ const deserializeAws_restJson1SendVoiceMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
+ */
+export const de_UpdateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -679,7 +748,10 @@ export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationComma
   return contents;
 };
 
-const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
+ */
+const de_UpdateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
@@ -691,16 +763,16 @@ const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -713,7 +785,10 @@ const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
 };
 
 const map = __map;
-const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AlreadyExistsExceptionRes
+ */
+const de_AlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
@@ -729,10 +804,10 @@ const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -745,7 +820,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
@@ -761,7 +839,10 @@ const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
@@ -777,10 +858,10 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -793,7 +874,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
@@ -809,53 +893,46 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CallInstructionsMessageType = (
-  input: CallInstructionsMessageType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CallInstructionsMessageType
+ */
+const se_CallInstructionsMessageType = (input: CallInstructionsMessageType, context: __SerdeContext): any => {
   return {
     ...(input.Text != null && { Text: input.Text }),
   };
 };
 
-const serializeAws_restJson1CloudWatchLogsDestination = (
-  input: CloudWatchLogsDestination,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CloudWatchLogsDestination
+ */
+const se_CloudWatchLogsDestination = (input: CloudWatchLogsDestination, context: __SerdeContext): any => {
   return {
     ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
     ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
   };
 };
 
-const serializeAws_restJson1EventDestinationDefinition = (
-  input: EventDestinationDefinition,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1EventDestinationDefinition
+ */
+const se_EventDestinationDefinition = (input: EventDestinationDefinition, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: serializeAws_restJson1CloudWatchLogsDestination(
-        input.CloudWatchLogsDestination,
-        context
-      ),
+      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
     }),
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
-        input.KinesisFirehoseDestination,
-        context
-      ),
+      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
     }),
-    ...(input.MatchingEventTypes != null && {
-      MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
-    }),
-    ...(input.SnsDestination != null && {
-      SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
-    }),
+    ...(input.MatchingEventTypes != null && { MatchingEventTypes: se_EventTypes(input.MatchingEventTypes, context) }),
+    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
   };
 };
 
-const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EventTypes
+ */
+const se_EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -863,17 +940,20 @@ const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context
     });
 };
 
-const serializeAws_restJson1KinesisFirehoseDestination = (
-  input: KinesisFirehoseDestination,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1KinesisFirehoseDestination
+ */
+const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
     ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
-const serializeAws_restJson1PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlainTextMessageType
+ */
+const se_PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
   return {
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Text != null && { Text: input.Text }),
@@ -881,13 +961,19 @@ const serializeAws_restJson1PlainTextMessageType = (input: PlainTextMessageType,
   };
 };
 
-const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SnsDestination
+ */
+const se_SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
     ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
-const serializeAws_restJson1SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SSMLMessageType
+ */
+const se_SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
   return {
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Text != null && { Text: input.Text }),
@@ -895,34 +981,35 @@ const serializeAws_restJson1SSMLMessageType = (input: SSMLMessageType, context: 
   };
 };
 
-const serializeAws_restJson1VoiceMessageContent = (input: VoiceMessageContent, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VoiceMessageContent
+ */
+const se_VoiceMessageContent = (input: VoiceMessageContent, context: __SerdeContext): any => {
   return {
     ...(input.CallInstructionsMessage != null && {
-      CallInstructionsMessage: serializeAws_restJson1CallInstructionsMessageType(
-        input.CallInstructionsMessage,
-        context
-      ),
+      CallInstructionsMessage: se_CallInstructionsMessageType(input.CallInstructionsMessage, context),
     }),
     ...(input.PlainTextMessage != null && {
-      PlainTextMessage: serializeAws_restJson1PlainTextMessageType(input.PlainTextMessage, context),
+      PlainTextMessage: se_PlainTextMessageType(input.PlainTextMessage, context),
     }),
-    ...(input.SSMLMessage != null && {
-      SSMLMessage: serializeAws_restJson1SSMLMessageType(input.SSMLMessage, context),
-    }),
+    ...(input.SSMLMessage != null && { SSMLMessage: se_SSMLMessageType(input.SSMLMessage, context) }),
   };
 };
 
-const deserializeAws_restJson1CloudWatchLogsDestination = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLogsDestination => {
+/**
+ * deserializeAws_restJson1CloudWatchLogsDestination
+ */
+const de_CloudWatchLogsDestination = (output: any, context: __SerdeContext): CloudWatchLogsDestination => {
   return {
     IamRoleArn: __expectString(output.IamRoleArn),
     LogGroupArn: __expectString(output.LogGroupArn),
   } as any;
 };
 
-const deserializeAws_restJson1ConfigurationSets = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ConfigurationSets
+ */
+const de_ConfigurationSets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -934,42 +1021,46 @@ const deserializeAws_restJson1ConfigurationSets = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
+/**
+ * deserializeAws_restJson1EventDestination
+ */
+const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
     CloudWatchLogsDestination:
       output.CloudWatchLogsDestination != null
-        ? deserializeAws_restJson1CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
+        ? de_CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     KinesisFirehoseDestination:
       output.KinesisFirehoseDestination != null
-        ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
+        ? de_KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes != null
-        ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
-        : undefined,
+      output.MatchingEventTypes != null ? de_EventTypes(output.MatchingEventTypes, context) : undefined,
     Name: __expectString(output.Name),
-    SnsDestination:
-      output.SnsDestination != null
-        ? deserializeAws_restJson1SnsDestination(output.SnsDestination, context)
-        : undefined,
+    SnsDestination: output.SnsDestination != null ? de_SnsDestination(output.SnsDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
+/**
+ * deserializeAws_restJson1EventDestinations
+ */
+const de_EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EventDestination(entry, context);
+      return de_EventDestination(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+/**
+ * deserializeAws_restJson1EventTypes
+ */
+const de_EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -981,17 +1072,20 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1KinesisFirehoseDestination = (
-  output: any,
-  context: __SerdeContext
-): KinesisFirehoseDestination => {
+/**
+ * deserializeAws_restJson1KinesisFirehoseDestination
+ */
+const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
   return {
     DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
     IamRoleArn: __expectString(output.IamRoleArn),
   } as any;
 };
 
-const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
+/**
+ * deserializeAws_restJson1SnsDestination
+ */
+const de_SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
     TopicArn: __expectString(output.TopicArn),
   } as any;

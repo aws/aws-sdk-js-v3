@@ -28,7 +28,10 @@ import {
   PayloadTooLargeException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteConnectionCommand = async (
+/**
+ * serializeAws_restJson1DeleteConnectionCommand
+ */
+export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -56,7 +59,10 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConnectionCommand = async (
+/**
+ * serializeAws_restJson1GetConnectionCommand
+ */
+export const se_GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -84,7 +90,10 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1PostToConnectionCommand = async (
+/**
+ * serializeAws_restJson1PostToConnectionCommand
+ */
+export const se_PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -117,12 +126,15 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteConnectionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConnectionCommandError(output, context);
+    return de_DeleteConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -131,7 +143,10 @@ export const deserializeAws_restJson1DeleteConnectionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConnectionCommandError
+ */
+const de_DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
@@ -143,13 +158,13 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+      throw await de_GoneExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -161,12 +176,15 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetConnectionCommand = async (
+/**
+ * deserializeAws_restJson1GetConnectionCommand
+ */
+export const de_GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConnectionCommandError(output, context);
+    return de_GetConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -176,7 +194,7 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
     contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.connectedAt));
   }
   if (data.identity != null) {
-    contents.Identity = deserializeAws_restJson1Identity(data.identity, context);
+    contents.Identity = de_Identity(data.identity, context);
   }
   if (data.lastActiveAt != null) {
     contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastActiveAt));
@@ -184,7 +202,10 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1GetConnectionCommandError
+ */
+const de_GetConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
@@ -196,13 +217,13 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+      throw await de_GoneExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -214,12 +235,15 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PostToConnectionCommand = async (
+/**
+ * deserializeAws_restJson1PostToConnectionCommand
+ */
+export const de_PostToConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PostToConnectionCommandError(output, context);
+    return de_PostToConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -228,7 +252,10 @@ export const deserializeAws_restJson1PostToConnectionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PostToConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1PostToConnectionCommandError
+ */
+const de_PostToConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> => {
@@ -240,16 +267,16 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+      throw await de_GoneExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.apigatewaymanagementapi#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -262,10 +289,10 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new ForbiddenException({
@@ -275,10 +302,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1GoneExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<GoneException> => {
+/**
+ * deserializeAws_restJson1GoneExceptionRes
+ */
+const de_GoneExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<GoneException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new GoneException({
@@ -288,7 +315,10 @@ const deserializeAws_restJson1GoneExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
@@ -301,7 +331,10 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PayloadTooLargeExceptionRes
+ */
+const de_PayloadTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PayloadTooLargeException> => {
@@ -317,7 +350,10 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
+/**
+ * deserializeAws_restJson1Identity
+ */
+const de_Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     SourceIp: __expectString(output.sourceIp),
     UserAgent: __expectString(output.userAgent),

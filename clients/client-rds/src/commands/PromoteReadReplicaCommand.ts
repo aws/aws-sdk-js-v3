@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
-import {
-  deserializeAws_queryPromoteReadReplicaCommand,
-  serializeAws_queryPromoteReadReplicaCommand,
-} from "../protocols/Aws_query";
+import { de_PromoteReadReplicaCommand, se_PromoteReadReplicaCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -84,20 +81,23 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *
  * @example To promote a read replica
  * ```javascript
- * // This example promotes the specified read replica and sets its backup retention period and preferred backup window.
+ * // The following example promotes the specified read replica to become a standalone DB instance.
  * const input = {
- *   "BackupRetentionPeriod": 1,
- *   "DBInstanceIdentifier": "mydbreadreplica",
- *   "PreferredBackupWindow": "03:30-04:00"
+ *   "DBInstanceIdentifier": "test-instance-repl"
  * };
  * const command = new PromoteReadReplicaCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     "DBInstanceStatus": "modifying",
+ *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance",
+ *     "StorageType": "standard"
+ *   }
  * }
  * *\/
- * // example id: promote-read-replica-cc580039-c55d-4035-838a-def4a1ae4181
+ * // example id: to-promote-a-read-replica-1680263877808
  * ```
  *
  */
@@ -164,14 +164,14 @@ export class PromoteReadReplicaCommand extends $Command<
    * @internal
    */
   private serialize(input: PromoteReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPromoteReadReplicaCommand(input, context);
+    return se_PromoteReadReplicaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteReadReplicaCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaCommand(output, context);
+    return de_PromoteReadReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

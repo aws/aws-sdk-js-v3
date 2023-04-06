@@ -15,10 +15,7 @@ import {
 
 import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0PutResourcePolicyCommand,
-  serializeAws_json1_0PutResourcePolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class PutResourcePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutResourcePolicyCommand(input, context);
+    return se_PutResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
-    return deserializeAws_json1_0PutResourcePolicyCommand(output, context);
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ConfigurationSettingsDescription, CreateConfigurationTemplateMessage } from "../models/models_0";
-import {
-  deserializeAws_queryCreateConfigurationTemplateCommand,
-  serializeAws_queryCreateConfigurationTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_CreateConfigurationTemplateCommand, se_CreateConfigurationTemplateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -198,7 +195,7 @@ export class CreateConfigurationTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateConfigurationTemplateCommand(input, context);
+    return se_CreateConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -208,7 +205,7 @@ export class CreateConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryCreateConfigurationTemplateCommand(output, context);
+    return de_CreateConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

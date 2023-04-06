@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { EnableImageDeprecationRequest, EnableImageDeprecationResult } from "../models/models_5";
-import {
-  deserializeAws_ec2EnableImageDeprecationCommand,
-  serializeAws_ec2EnableImageDeprecationCommand,
-} from "../protocols/Aws_ec2";
+import { de_EnableImageDeprecationCommand, se_EnableImageDeprecationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class EnableImageDeprecationCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableImageDeprecationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableImageDeprecationCommand(input, context);
+    return se_EnableImageDeprecationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableImageDeprecationCommandOutput> {
-    return deserializeAws_ec2EnableImageDeprecationCommand(output, context);
+    return de_EnableImageDeprecationCommand(output, context);
   }
 
   // Start section: command_body_extra

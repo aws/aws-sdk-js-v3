@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMissionProfileCommand,
-  serializeAws_restJson1UpdateMissionProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMissionProfileCommand, se_UpdateMissionProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateMissionProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMissionProfileCommand(input, context);
+    return se_UpdateMissionProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMissionProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateMissionProfileCommand(output, context);
+    return de_UpdateMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

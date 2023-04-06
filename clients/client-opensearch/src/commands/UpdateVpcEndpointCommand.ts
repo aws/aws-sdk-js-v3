@@ -15,10 +15,7 @@ import {
 
 import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpdateVpcEndpointCommand,
-  serializeAws_restJson1UpdateVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVpcEndpointCommand, se_UpdateVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVpcEndpointCommand(input, context);
+    return se_UpdateVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1UpdateVpcEndpointCommand(output, context);
+    return de_UpdateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

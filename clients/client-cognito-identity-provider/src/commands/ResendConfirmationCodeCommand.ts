@@ -23,10 +23,7 @@ import {
   ResendConfirmationCodeRequestFilterSensitiveLog,
   ResendConfirmationCodeResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResendConfirmationCodeCommand,
-  serializeAws_json1_1ResendConfirmationCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResendConfirmationCodeCommand, se_ResendConfirmationCodeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -216,14 +213,14 @@ export class ResendConfirmationCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: ResendConfirmationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendConfirmationCodeCommand(input, context);
+    return se_ResendConfirmationCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResendConfirmationCodeCommandOutput> {
-    return deserializeAws_json1_1ResendConfirmationCodeCommand(output, context);
+    return de_ResendConfirmationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

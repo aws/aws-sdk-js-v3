@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DisassociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand,
-  serializeAws_queryDisassociateEnvironmentOperationsRoleCommand,
+  de_DisassociateEnvironmentOperationsRoleCommand,
+  se_DisassociateEnvironmentOperationsRoleCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -131,7 +131,7 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
     input: DisassociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDisassociateEnvironmentOperationsRoleCommand(input, context);
+    return se_DisassociateEnvironmentOperationsRoleCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> {
-    return deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand(output, context);
+    return de_DisassociateEnvironmentOperationsRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

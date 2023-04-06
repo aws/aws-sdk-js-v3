@@ -19,8 +19,8 @@ import {
   DisassociateServiceRoleFromAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
-  serializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
+  de_DisassociateServiceRoleFromAccountCommand,
+  se_DisassociateServiceRoleFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -129,7 +129,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateServiceRoleFromAccountCommand(input, context);
+    return se_DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand(output, context);
+    return de_DisassociateServiceRoleFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

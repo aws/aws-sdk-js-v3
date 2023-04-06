@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagOpenIDConnectProviderRequest } from "../models/models_0";
-import {
-  deserializeAws_queryTagOpenIDConnectProviderCommand,
-  serializeAws_queryTagOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { de_TagOpenIDConnectProviderCommand, se_TagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class TagOpenIDConnectProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: TagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagOpenIDConnectProviderCommand(input, context);
+    return se_TagOpenIDConnectProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryTagOpenIDConnectProviderCommand(output, context);
+    return de_TagOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

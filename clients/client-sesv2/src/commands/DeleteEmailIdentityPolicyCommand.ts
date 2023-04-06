@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEmailIdentityPolicyCommand,
-  serializeAws_restJson1DeleteEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEmailIdentityPolicyCommand, se_DeleteEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -141,7 +138,7 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEmailIdentityPolicyCommand(input, context);
+    return se_DeleteEmailIdentityPolicyCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteEmailIdentityPolicyCommand(output, context);
+    return de_DeleteEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceInventoryCommand,
-  serializeAws_json1_1ListResourceInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListResourceInventoryCommand, se_ListResourceInventoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ListResourceInventoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceInventoryCommand(input, context);
+    return se_ListResourceInventoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceInventoryCommandOutput> {
-    return deserializeAws_json1_1ListResourceInventoryCommand(output, context);
+    return de_ListResourceInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

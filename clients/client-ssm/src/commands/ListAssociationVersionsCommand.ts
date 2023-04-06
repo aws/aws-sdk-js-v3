@@ -18,10 +18,7 @@ import {
   ListAssociationVersionsResult,
   ListAssociationVersionsResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListAssociationVersionsCommand,
-  serializeAws_json1_1ListAssociationVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssociationVersionsCommand, se_ListAssociationVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListAssociationVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssociationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociationVersionsCommand(input, context);
+    return se_ListAssociationVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListAssociationVersionsCommand(output, context);
+    return de_ListAssociationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

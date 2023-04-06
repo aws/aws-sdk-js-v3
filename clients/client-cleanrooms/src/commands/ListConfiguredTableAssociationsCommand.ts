@@ -16,8 +16,8 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { ListConfiguredTableAssociationsInput, ListConfiguredTableAssociationsOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListConfiguredTableAssociationsCommand,
-  serializeAws_restJson1ListConfiguredTableAssociationsCommand,
+  de_ListConfiguredTableAssociationsCommand,
+  se_ListConfiguredTableAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     input: ListConfiguredTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfiguredTableAssociationsCommand(input, context);
+    return se_ListConfiguredTableAssociationsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfiguredTableAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListConfiguredTableAssociationsCommand(output, context);
+    return de_ListConfiguredTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

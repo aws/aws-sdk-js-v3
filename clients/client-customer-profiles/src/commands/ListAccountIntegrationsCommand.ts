@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { ListAccountIntegrationsRequest, ListAccountIntegrationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccountIntegrationsCommand,
-  serializeAws_restJson1ListAccountIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccountIntegrationsCommand, se_ListAccountIntegrationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListAccountIntegrationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountIntegrationsCommand(input, context);
+    return se_ListAccountIntegrationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountIntegrationsCommandOutput> {
-    return deserializeAws_restJson1ListAccountIntegrationsCommand(output, context);
+    return de_ListAccountIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

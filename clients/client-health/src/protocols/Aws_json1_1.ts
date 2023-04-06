@@ -111,7 +111,10 @@ import {
   UnsupportedLocale,
 } from "../models/models_0";
 
-export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand
+ */
+export const se_DescribeAffectedAccountsForOrganizationCommand = async (
   input: DescribeAffectedAccountsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -120,11 +123,14 @@ export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand 
     "x-amz-target": "AWSHealth_20160804.DescribeAffectedAccountsForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest(input, context));
+  body = JSON.stringify(se_DescribeAffectedAccountsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAffectedEntitiesCommand = async (
+/**
+ * serializeAws_json1_1DescribeAffectedEntitiesCommand
+ */
+export const se_DescribeAffectedEntitiesCommand = async (
   input: DescribeAffectedEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -133,11 +139,14 @@ export const serializeAws_json1_1DescribeAffectedEntitiesCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntities",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context));
+  body = JSON.stringify(se_DescribeAffectedEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand
+ */
+export const se_DescribeAffectedEntitiesForOrganizationCommand = async (
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -146,11 +155,14 @@ export const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand 
     "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest(input, context));
+  body = JSON.stringify(se_DescribeAffectedEntitiesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEntityAggregatesCommand = async (
+/**
+ * serializeAws_json1_1DescribeEntityAggregatesCommand
+ */
+export const se_DescribeEntityAggregatesCommand = async (
   input: DescribeEntityAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -159,11 +171,14 @@ export const serializeAws_json1_1DescribeEntityAggregatesCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEntityAggregates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEntityAggregatesRequest(input, context));
+  body = JSON.stringify(se_DescribeEntityAggregatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventAggregatesCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventAggregatesCommand
+ */
+export const se_DescribeEventAggregatesCommand = async (
   input: DescribeEventAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -172,11 +187,14 @@ export const serializeAws_json1_1DescribeEventAggregatesCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEventAggregates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventAggregatesRequest(input, context));
+  body = JSON.stringify(se_DescribeEventAggregatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventDetailsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventDetailsCommand
+ */
+export const se_DescribeEventDetailsCommand = async (
   input: DescribeEventDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -185,11 +203,14 @@ export const serializeAws_json1_1DescribeEventDetailsCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEventDetails",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventDetailsRequest(input, context));
+  body = JSON.stringify(se_DescribeEventDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventDetailsForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventDetailsForOrganizationCommand
+ */
+export const se_DescribeEventDetailsForOrganizationCommand = async (
   input: DescribeEventDetailsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -198,11 +219,14 @@ export const serializeAws_json1_1DescribeEventDetailsForOrganizationCommand = as
     "x-amz-target": "AWSHealth_20160804.DescribeEventDetailsForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventDetailsForOrganizationRequest(input, context));
+  body = JSON.stringify(se_DescribeEventDetailsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventsCommand
+ */
+export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -211,11 +235,14 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEvents",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventsRequest(input, context));
+  body = JSON.stringify(se_DescribeEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventsForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventsForOrganizationCommand
+ */
+export const se_DescribeEventsForOrganizationCommand = async (
   input: DescribeEventsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -224,11 +251,14 @@ export const serializeAws_json1_1DescribeEventsForOrganizationCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEventsForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context));
+  body = JSON.stringify(se_DescribeEventsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventTypesCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventTypesCommand
+ */
+export const se_DescribeEventTypesCommand = async (
   input: DescribeEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -237,11 +267,14 @@ export const serializeAws_json1_1DescribeEventTypesCommand = async (
     "x-amz-target": "AWSHealth_20160804.DescribeEventTypes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventTypesRequest(input, context));
+  body = JSON.stringify(se_DescribeEventTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand
+ */
+export const se_DescribeHealthServiceStatusForOrganizationCommand = async (
   input: DescribeHealthServiceStatusForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -253,7 +286,10 @@ export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationComma
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand
+ */
+export const se_DisableHealthServiceAccessForOrganizationCommand = async (
   input: DisableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -265,7 +301,10 @@ export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationComman
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
+ */
+export const se_EnableHealthServiceAccessForOrganizationCommand = async (
   input: EnableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -277,16 +316,19 @@ export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand
+ */
+export const de_DescribeAffectedAccountsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError(output, context);
+    return de_DescribeAffectedAccountsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse(data, context);
+  contents = de_DescribeAffectedAccountsForOrganizationResponse(data, context);
   const response: DescribeAffectedAccountsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -294,7 +336,10 @@ export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComman
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError
+ */
+const de_DescribeAffectedAccountsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
@@ -306,7 +351,7 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError 
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -318,16 +363,19 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError 
   }
 };
 
-export const deserializeAws_json1_1DescribeAffectedEntitiesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesCommand
+ */
+export const de_DescribeAffectedEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAffectedEntitiesCommandError(output, context);
+    return de_DescribeAffectedEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAffectedEntitiesResponse(data, context);
+  contents = de_DescribeAffectedEntitiesResponse(data, context);
   const response: DescribeAffectedEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -335,7 +383,10 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesCommandError
+ */
+const de_DescribeAffectedEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesCommandOutput> => {
@@ -347,10 +398,10 @@ const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -362,16 +413,19 @@ const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand
+ */
+export const de_DescribeAffectedEntitiesForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError(output, context);
+    return de_DescribeAffectedEntitiesForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse(data, context);
+  contents = de_DescribeAffectedEntitiesForOrganizationResponse(data, context);
   const response: DescribeAffectedEntitiesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -379,7 +433,10 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComman
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError
+ */
+const de_DescribeAffectedEntitiesForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
@@ -391,10 +448,10 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError 
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -406,16 +463,19 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError 
   }
 };
 
-export const deserializeAws_json1_1DescribeEntityAggregatesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEntityAggregatesCommand
+ */
+export const de_DescribeEntityAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommandError(output, context);
+    return de_DescribeEntityAggregatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEntityAggregatesResponse(data, context);
+  contents = de_DescribeEntityAggregatesResponse(data, context);
   const response: DescribeEntityAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -423,7 +483,10 @@ export const deserializeAws_json1_1DescribeEntityAggregatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEntityAggregatesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEntityAggregatesCommandError
+ */
+const de_DescribeEntityAggregatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
@@ -441,16 +504,19 @@ const deserializeAws_json1_1DescribeEntityAggregatesCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1DescribeEventAggregatesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventAggregatesCommand
+ */
+export const de_DescribeEventAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventAggregatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventAggregatesCommandError(output, context);
+    return de_DescribeEventAggregatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventAggregatesResponse(data, context);
+  contents = de_DescribeEventAggregatesResponse(data, context);
   const response: DescribeEventAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -458,7 +524,10 @@ export const deserializeAws_json1_1DescribeEventAggregatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventAggregatesCommandError
+ */
+const de_DescribeEventAggregatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventAggregatesCommandOutput> => {
@@ -470,7 +539,7 @@ const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -482,16 +551,19 @@ const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEventDetailsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsCommand
+ */
+export const de_DescribeEventDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventDetailsCommandError(output, context);
+    return de_DescribeEventDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventDetailsResponse(data, context);
+  contents = de_DescribeEventDetailsResponse(data, context);
   const response: DescribeEventDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -499,7 +571,10 @@ export const deserializeAws_json1_1DescribeEventDetailsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsCommandError
+ */
+const de_DescribeEventDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsCommandOutput> => {
@@ -511,7 +586,7 @@ const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
   switch (errorCode) {
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -523,16 +598,19 @@ const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand
+ */
+export const de_DescribeEventDetailsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError(output, context);
+    return de_DescribeEventDetailsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse(data, context);
+  contents = de_DescribeEventDetailsForOrganizationResponse(data, context);
   const response: DescribeEventDetailsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -540,7 +618,10 @@ export const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError
+ */
+const de_DescribeEventDetailsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
@@ -552,7 +633,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = as
   switch (errorCode) {
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -564,16 +645,19 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = as
   }
 };
 
-export const deserializeAws_json1_1DescribeEventsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventsCommandError(output, context);
+    return de_DescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
+  contents = de_DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -581,7 +665,10 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventsCommandError
+ */
+const de_DescribeEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
@@ -593,10 +680,10 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -608,16 +695,19 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEventsForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventsForOrganizationCommand
+ */
+export const de_DescribeEventsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventsForOrganizationCommandError(output, context);
+    return de_DescribeEventsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsForOrganizationResponse(data, context);
+  contents = de_DescribeEventsForOrganizationResponse(data, context);
   const response: DescribeEventsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -625,7 +715,10 @@ export const deserializeAws_json1_1DescribeEventsForOrganizationCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventsForOrganizationCommandError
+ */
+const de_DescribeEventsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsForOrganizationCommandOutput> => {
@@ -637,10 +730,10 @@ const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -652,16 +745,19 @@ const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEventTypesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventTypesCommand
+ */
+export const de_DescribeEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventTypesCommandError(output, context);
+    return de_DescribeEventTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventTypesResponse(data, context);
+  contents = de_DescribeEventTypesResponse(data, context);
   const response: DescribeEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -669,7 +765,10 @@ export const deserializeAws_json1_1DescribeEventTypesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEventTypesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventTypesCommandError
+ */
+const de_DescribeEventTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTypesCommandOutput> => {
@@ -681,10 +780,10 @@ const deserializeAws_json1_1DescribeEventTypesCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.health#InvalidPaginationToken":
-      throw await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     case "UnsupportedLocale":
     case "com.amazonaws.health#UnsupportedLocale":
-      throw await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -696,16 +795,19 @@ const deserializeAws_json1_1DescribeEventTypesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand
+ */
+export const de_DescribeHealthServiceStatusForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError(output, context);
+    return de_DescribeHealthServiceStatusForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse(data, context);
+  contents = de_DescribeHealthServiceStatusForOrganizationResponse(data, context);
   const response: DescribeHealthServiceStatusForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -713,7 +815,10 @@ export const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCom
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError
+ */
+const de_DescribeHealthServiceStatusForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
@@ -731,12 +836,15 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandErr
   });
 };
 
-export const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand
+ */
+export const de_DisableHealthServiceAccessForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError(output, context);
+    return de_DisableHealthServiceAccessForOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableHealthServiceAccessForOrganizationCommandOutput = {
@@ -745,7 +853,10 @@ export const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationComm
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError
+ */
+const de_DisableHealthServiceAccessForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
@@ -757,7 +868,7 @@ const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandErro
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.health#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -769,12 +880,15 @@ const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandErro
   }
 };
 
-export const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
+ */
+export const de_EnableHealthServiceAccessForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError(output, context);
+    return de_EnableHealthServiceAccessForOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableHealthServiceAccessForOrganizationCommandOutput = {
@@ -783,7 +897,10 @@ export const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationComma
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
+ */
+const de_EnableHealthServiceAccessForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
@@ -795,7 +912,7 @@ const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.health#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -807,12 +924,15 @@ const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
   }
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = de_ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -820,12 +940,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPaginationTokenResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPaginationTokenRes
+ */
+const de_InvalidPaginationTokenRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationToken> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPaginationToken(body, context);
+  const deserialized: any = de_InvalidPaginationToken(body, context);
   const exception = new InvalidPaginationToken({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -833,12 +956,12 @@ const deserializeAws_json1_1InvalidPaginationTokenResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedLocaleResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UnsupportedLocale> => {
+/**
+ * deserializeAws_json1_1UnsupportedLocaleRes
+ */
+const de_UnsupportedLocaleRes = async (parsedOutput: any, context: __SerdeContext): Promise<UnsupportedLocale> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedLocale(body, context);
+  const deserialized: any = de_UnsupportedLocale(body, context);
   const exception = new UnsupportedLocale({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -846,7 +969,10 @@ const deserializeAws_json1_1UnsupportedLocaleResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1availabilityZones = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1availabilityZones
+ */
+const se_availabilityZones = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -854,7 +980,10 @@ const serializeAws_json1_1availabilityZones = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_json1_1awsAccountIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1awsAccountIdsList
+ */
+const se_awsAccountIdsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -862,22 +991,31 @@ const serializeAws_json1_1awsAccountIdsList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_json1_1DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DateTimeRange
+ */
+const se_DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
   return {
     ...(input.from != null && { from: Math.round(input.from.getTime() / 1000) }),
     ...(input.to != null && { to: Math.round(input.to.getTime() / 1000) }),
   };
 };
 
-const serializeAws_json1_1dateTimeRangeList = (input: DateTimeRange[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1dateTimeRangeList
+ */
+const se_dateTimeRangeList = (input: DateTimeRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1DateTimeRange(entry, context);
+      return se_DateTimeRange(entry, context);
     });
 };
 
-const serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest = (
+/**
+ * serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest
+ */
+const se_DescribeAffectedAccountsForOrganizationRequest = (
   input: DescribeAffectedAccountsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
@@ -888,7 +1026,10 @@ const serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
+/**
+ * serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest
+ */
+const se_DescribeAffectedEntitiesForOrganizationRequest = (
   input: DescribeAffectedEntitiesForOrganizationRequest,
   context: __SerdeContext
 ): any => {
@@ -897,55 +1038,55 @@ const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest = (
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.organizationEntityFilters != null && {
-      organizationEntityFilters: serializeAws_json1_1OrganizationEntityFiltersList(
-        input.organizationEntityFilters,
-        context
-      ),
+      organizationEntityFilters: se_OrganizationEntityFiltersList(input.organizationEntityFilters, context),
     }),
   };
 };
 
-const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
-  input: DescribeAffectedEntitiesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeAffectedEntitiesRequest
+ */
+const se_DescribeAffectedEntitiesRequest = (input: DescribeAffectedEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter != null && { filter: serializeAws_json1_1EntityFilter(input.filter, context) }),
+    ...(input.filter != null && { filter: se_EntityFilter(input.filter, context) }),
     ...(input.locale != null && { locale: input.locale }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeEntityAggregatesRequest = (
-  input: DescribeEntityAggregatesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEntityAggregatesRequest
+ */
+const se_DescribeEntityAggregatesRequest = (input: DescribeEntityAggregatesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.eventArns != null && { eventArns: serializeAws_json1_1EventArnsList(input.eventArns, context) }),
+    ...(input.eventArns != null && { eventArns: se_EventArnsList(input.eventArns, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeEventAggregatesRequest = (
-  input: DescribeEventAggregatesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEventAggregatesRequest
+ */
+const se_DescribeEventAggregatesRequest = (input: DescribeEventAggregatesRequest, context: __SerdeContext): any => {
   return {
     ...(input.aggregateField != null && { aggregateField: input.aggregateField }),
-    ...(input.filter != null && { filter: serializeAws_json1_1EventFilter(input.filter, context) }),
+    ...(input.filter != null && { filter: se_EventFilter(input.filter, context) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
+/**
+ * serializeAws_json1_1DescribeEventDetailsForOrganizationRequest
+ */
+const se_DescribeEventDetailsForOrganizationRequest = (
   input: DescribeEventDetailsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.locale != null && { locale: input.locale }),
     ...(input.organizationEventDetailFilters != null && {
-      organizationEventDetailFilters: serializeAws_json1_1OrganizationEventDetailFiltersList(
+      organizationEventDetailFilters: se_OrganizationEventDetailFiltersList(
         input.organizationEventDetailFilters,
         context
       ),
@@ -953,50 +1094,59 @@ const serializeAws_json1_1DescribeEventDetailsForOrganizationRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeEventDetailsRequest = (
-  input: DescribeEventDetailsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEventDetailsRequest
+ */
+const se_DescribeEventDetailsRequest = (input: DescribeEventDetailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.eventArns != null && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
+    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
     ...(input.locale != null && { locale: input.locale }),
   };
 };
 
-const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
+/**
+ * serializeAws_json1_1DescribeEventsForOrganizationRequest
+ */
+const se_DescribeEventsForOrganizationRequest = (
   input: DescribeEventsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter != null && { filter: serializeAws_json1_1OrganizationEventFilter(input.filter, context) }),
+    ...(input.filter != null && { filter: se_OrganizationEventFilter(input.filter, context) }),
     ...(input.locale != null && { locale: input.locale }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeEventsRequest
+ */
+const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter != null && { filter: serializeAws_json1_1EventFilter(input.filter, context) }),
+    ...(input.filter != null && { filter: se_EventFilter(input.filter, context) }),
     ...(input.locale != null && { locale: input.locale }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeEventTypesRequest = (
-  input: DescribeEventTypesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEventTypesRequest
+ */
+const se_DescribeEventTypesRequest = (input: DescribeEventTypesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter != null && { filter: serializeAws_json1_1EventTypeFilter(input.filter, context) }),
+    ...(input.filter != null && { filter: se_EventTypeFilter(input.filter, context) }),
     ...(input.locale != null && { locale: input.locale }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1entityArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1entityArnList
+ */
+const se_entityArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1004,27 +1154,24 @@ const serializeAws_json1_1entityArnList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EntityFilter
+ */
+const se_EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return {
-    ...(input.entityArns != null && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && {
-      entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
-    }),
-    ...(input.eventArns != null && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
-    ...(input.lastUpdatedTimes != null && {
-      lastUpdatedTimes: serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context),
-    }),
-    ...(input.statusCodes != null && {
-      statusCodes: serializeAws_json1_1entityStatusCodeList(input.statusCodes, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_1tagFilter(input.tags, context) }),
+    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
+    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
+    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
+    ...(input.lastUpdatedTimes != null && { lastUpdatedTimes: se_dateTimeRangeList(input.lastUpdatedTimes, context) }),
+    ...(input.statusCodes != null && { statusCodes: se_entityStatusCodeList(input.statusCodes, context) }),
+    ...(input.tags != null && { tags: se_tagFilter(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1entityStatusCodeList = (
-  input: (EntityStatusCode | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1entityStatusCodeList
+ */
+const se_entityStatusCodeList = (input: (EntityStatusCode | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1032,7 +1179,10 @@ const serializeAws_json1_1entityStatusCodeList = (
     });
 };
 
-const serializeAws_json1_1entityValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1entityValueList
+ */
+const se_entityValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1040,14 +1190,20 @@ const serializeAws_json1_1entityValueList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1EventAccountFilter = (input: EventAccountFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventAccountFilter
+ */
+const se_EventAccountFilter = (input: EventAccountFilter, context: __SerdeContext): any => {
   return {
     ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
     ...(input.eventArn != null && { eventArn: input.eventArn }),
   };
 };
 
-const serializeAws_json1_1eventArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1eventArnList
+ */
+const se_eventArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1055,7 +1211,10 @@ const serializeAws_json1_1eventArnList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1EventArnsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventArnsList
+ */
+const se_EventArnsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1063,37 +1222,37 @@ const serializeAws_json1_1EventArnsList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1EventFilter = (input: EventFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventFilter
+ */
+const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
   return {
     ...(input.availabilityZones != null && {
-      availabilityZones: serializeAws_json1_1availabilityZones(input.availabilityZones, context),
+      availabilityZones: se_availabilityZones(input.availabilityZones, context),
     }),
-    ...(input.endTimes != null && { endTimes: serializeAws_json1_1dateTimeRangeList(input.endTimes, context) }),
-    ...(input.entityArns != null && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && {
-      entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
-    }),
-    ...(input.eventArns != null && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
+    ...(input.endTimes != null && { endTimes: se_dateTimeRangeList(input.endTimes, context) }),
+    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
+    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
+    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
     ...(input.eventStatusCodes != null && {
-      eventStatusCodes: serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context),
+      eventStatusCodes: se_eventStatusCodeList(input.eventStatusCodes, context),
     }),
     ...(input.eventTypeCategories != null && {
-      eventTypeCategories: serializeAws_json1_1eventTypeCategoryList2(input.eventTypeCategories, context),
+      eventTypeCategories: se_eventTypeCategoryList2(input.eventTypeCategories, context),
     }),
-    ...(input.eventTypeCodes != null && {
-      eventTypeCodes: serializeAws_json1_1eventTypeList2(input.eventTypeCodes, context),
-    }),
-    ...(input.lastUpdatedTimes != null && {
-      lastUpdatedTimes: serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context),
-    }),
-    ...(input.regions != null && { regions: serializeAws_json1_1regionList(input.regions, context) }),
-    ...(input.services != null && { services: serializeAws_json1_1serviceList(input.services, context) }),
-    ...(input.startTimes != null && { startTimes: serializeAws_json1_1dateTimeRangeList(input.startTimes, context) }),
-    ...(input.tags != null && { tags: serializeAws_json1_1tagFilter(input.tags, context) }),
+    ...(input.eventTypeCodes != null && { eventTypeCodes: se_eventTypeList2(input.eventTypeCodes, context) }),
+    ...(input.lastUpdatedTimes != null && { lastUpdatedTimes: se_dateTimeRangeList(input.lastUpdatedTimes, context) }),
+    ...(input.regions != null && { regions: se_regionList(input.regions, context) }),
+    ...(input.services != null && { services: se_serviceList(input.services, context) }),
+    ...(input.startTimes != null && { startTimes: se_dateTimeRangeList(input.startTimes, context) }),
+    ...(input.tags != null && { tags: se_tagFilter(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1eventStatusCodeList = (input: (EventStatusCode | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1eventStatusCodeList
+ */
+const se_eventStatusCodeList = (input: (EventStatusCode | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1101,10 +1260,10 @@ const serializeAws_json1_1eventStatusCodeList = (input: (EventStatusCode | strin
     });
 };
 
-const serializeAws_json1_1EventTypeCategoryList = (
-  input: (EventTypeCategory | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1EventTypeCategoryList
+ */
+const se_EventTypeCategoryList = (input: (EventTypeCategory | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1112,10 +1271,10 @@ const serializeAws_json1_1EventTypeCategoryList = (
     });
 };
 
-const serializeAws_json1_1eventTypeCategoryList2 = (
-  input: (EventTypeCategory | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1eventTypeCategoryList2
+ */
+const se_eventTypeCategoryList2 = (input: (EventTypeCategory | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1123,7 +1282,10 @@ const serializeAws_json1_1eventTypeCategoryList2 = (
     });
 };
 
-const serializeAws_json1_1EventTypeCodeList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventTypeCodeList
+ */
+const se_EventTypeCodeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1131,19 +1293,23 @@ const serializeAws_json1_1EventTypeCodeList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_json1_1EventTypeFilter = (input: EventTypeFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventTypeFilter
+ */
+const se_EventTypeFilter = (input: EventTypeFilter, context: __SerdeContext): any => {
   return {
     ...(input.eventTypeCategories != null && {
-      eventTypeCategories: serializeAws_json1_1EventTypeCategoryList(input.eventTypeCategories, context),
+      eventTypeCategories: se_EventTypeCategoryList(input.eventTypeCategories, context),
     }),
-    ...(input.eventTypeCodes != null && {
-      eventTypeCodes: serializeAws_json1_1EventTypeCodeList(input.eventTypeCodes, context),
-    }),
-    ...(input.services != null && { services: serializeAws_json1_1serviceList(input.services, context) }),
+    ...(input.eventTypeCodes != null && { eventTypeCodes: se_EventTypeCodeList(input.eventTypeCodes, context) }),
+    ...(input.services != null && { services: se_serviceList(input.services, context) }),
   };
 };
 
-const serializeAws_json1_1eventTypeList2 = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1eventTypeList2
+ */
+const se_eventTypeList2 = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1151,57 +1317,55 @@ const serializeAws_json1_1eventTypeList2 = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1OrganizationEntityFiltersList = (
-  input: EventAccountFilter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1OrganizationEntityFiltersList
+ */
+const se_OrganizationEntityFiltersList = (input: EventAccountFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EventAccountFilter(entry, context);
+      return se_EventAccountFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1OrganizationEventDetailFiltersList = (
-  input: EventAccountFilter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1OrganizationEventDetailFiltersList
+ */
+const se_OrganizationEventDetailFiltersList = (input: EventAccountFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EventAccountFilter(entry, context);
+      return se_EventAccountFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1OrganizationEventFilter = (input: OrganizationEventFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OrganizationEventFilter
+ */
+const se_OrganizationEventFilter = (input: OrganizationEventFilter, context: __SerdeContext): any => {
   return {
-    ...(input.awsAccountIds != null && {
-      awsAccountIds: serializeAws_json1_1awsAccountIdsList(input.awsAccountIds, context),
-    }),
-    ...(input.endTime != null && { endTime: serializeAws_json1_1DateTimeRange(input.endTime, context) }),
-    ...(input.entityArns != null && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && {
-      entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
-    }),
+    ...(input.awsAccountIds != null && { awsAccountIds: se_awsAccountIdsList(input.awsAccountIds, context) }),
+    ...(input.endTime != null && { endTime: se_DateTimeRange(input.endTime, context) }),
+    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
+    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
     ...(input.eventStatusCodes != null && {
-      eventStatusCodes: serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context),
+      eventStatusCodes: se_eventStatusCodeList(input.eventStatusCodes, context),
     }),
     ...(input.eventTypeCategories != null && {
-      eventTypeCategories: serializeAws_json1_1eventTypeCategoryList2(input.eventTypeCategories, context),
+      eventTypeCategories: se_eventTypeCategoryList2(input.eventTypeCategories, context),
     }),
-    ...(input.eventTypeCodes != null && {
-      eventTypeCodes: serializeAws_json1_1eventTypeList2(input.eventTypeCodes, context),
-    }),
-    ...(input.lastUpdatedTime != null && {
-      lastUpdatedTime: serializeAws_json1_1DateTimeRange(input.lastUpdatedTime, context),
-    }),
-    ...(input.regions != null && { regions: serializeAws_json1_1regionList(input.regions, context) }),
-    ...(input.services != null && { services: serializeAws_json1_1serviceList(input.services, context) }),
-    ...(input.startTime != null && { startTime: serializeAws_json1_1DateTimeRange(input.startTime, context) }),
+    ...(input.eventTypeCodes != null && { eventTypeCodes: se_eventTypeList2(input.eventTypeCodes, context) }),
+    ...(input.lastUpdatedTime != null && { lastUpdatedTime: se_DateTimeRange(input.lastUpdatedTime, context) }),
+    ...(input.regions != null && { regions: se_regionList(input.regions, context) }),
+    ...(input.services != null && { services: se_serviceList(input.services, context) }),
+    ...(input.startTime != null && { startTime: se_DateTimeRange(input.startTime, context) }),
   };
 };
 
-const serializeAws_json1_1regionList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1regionList
+ */
+const se_regionList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1209,7 +1373,10 @@ const serializeAws_json1_1regionList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1serviceList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1serviceList
+ */
+const se_serviceList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1217,15 +1384,21 @@ const serializeAws_json1_1serviceList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1tagFilter = (input: Record<string, string>[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1tagFilter
+ */
+const se_tagFilter = (input: Record<string, string>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1tagSet(entry, context);
+      return se_tagSet(entry, context);
     });
 };
 
-const serializeAws_json1_1tagSet = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1tagSet
+ */
+const se_tagSet = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1235,7 +1408,10 @@ const serializeAws_json1_1tagSet = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const deserializeAws_json1_1affectedAccountsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1affectedAccountsList
+ */
+const de_affectedAccountsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1247,7 +1423,10 @@ const deserializeAws_json1_1affectedAccountsList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
+/**
+ * deserializeAws_json1_1AffectedEntity
+ */
+const de_AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
   return {
     awsAccountId: __expectString(output.awsAccountId),
     entityArn: __expectString(output.entityArn),
@@ -1259,34 +1438,38 @@ const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeConte
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     statusCode: __expectString(output.statusCode),
-    tags: output.tags != null ? deserializeAws_json1_1tagSet(output.tags, context) : undefined,
+    tags: output.tags != null ? de_tagSet(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
+/**
+ * deserializeAws_json1_1ConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse
+ */
+const de_DescribeAffectedAccountsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedAccountsForOrganizationResponse => {
   return {
     affectedAccounts:
-      output.affectedAccounts != null
-        ? deserializeAws_json1_1affectedAccountsList(output.affectedAccounts, context)
-        : undefined,
+      output.affectedAccounts != null ? de_affectedAccountsList(output.affectedAccounts, context) : undefined,
     eventScopeCode: __expectString(output.eventScopeCode),
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet
+ */
+const de_DescribeAffectedEntitiesForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem[] => {
@@ -1296,76 +1479,84 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem(entry, context);
+      return de_OrganizationAffectedEntitiesErrorItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse
+ */
+const de_DescribeAffectedEntitiesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesForOrganizationResponse => {
   return {
-    entities: output.entities != null ? deserializeAws_json1_1EntityList(output.entities, context) : undefined,
+    entities: output.entities != null ? de_EntityList(output.entities, context) : undefined,
     failedSet:
       output.failedSet != null
-        ? deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet(output.failedSet, context)
+        ? de_DescribeAffectedEntitiesForOrganizationFailedSet(output.failedSet, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
+/**
+ * deserializeAws_json1_1DescribeAffectedEntitiesResponse
+ */
+const de_DescribeAffectedEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesResponse => {
   return {
-    entities: output.entities != null ? deserializeAws_json1_1EntityList(output.entities, context) : undefined,
+    entities: output.entities != null ? de_EntityList(output.entities, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
+/**
+ * deserializeAws_json1_1DescribeEntityAggregatesResponse
+ */
+const de_DescribeEntityAggregatesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEntityAggregatesResponse => {
   return {
     entityAggregates:
-      output.entityAggregates != null
-        ? deserializeAws_json1_1EntityAggregateList(output.entityAggregates, context)
-        : undefined,
+      output.entityAggregates != null ? de_EntityAggregateList(output.entityAggregates, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventAggregatesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEventAggregatesResponse => {
+/**
+ * deserializeAws_json1_1DescribeEventAggregatesResponse
+ */
+const de_DescribeEventAggregatesResponse = (output: any, context: __SerdeContext): DescribeEventAggregatesResponse => {
   return {
     eventAggregates:
-      output.eventAggregates != null
-        ? deserializeAws_json1_1EventAggregateList(output.eventAggregates, context)
-        : undefined,
+      output.eventAggregates != null ? de_EventAggregateList(output.eventAggregates, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
-  output: any,
-  context: __SerdeContext
-): EventDetailsErrorItem[] => {
+/**
+ * deserializeAws_json1_1DescribeEventDetailsFailedSet
+ */
+const de_DescribeEventDetailsFailedSet = (output: any, context: __SerdeContext): EventDetailsErrorItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EventDetailsErrorItem(entry, context);
+      return de_EventDetailsErrorItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet = (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet
+ */
+const de_DescribeEventDetailsForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem[] => {
@@ -1375,28 +1566,32 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationEventDetailsErrorItem(entry, context);
+      return de_OrganizationEventDetailsErrorItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse
+ */
+const de_DescribeEventDetailsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventDetailsForOrganizationResponse => {
   return {
     failedSet:
-      output.failedSet != null
-        ? deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet(output.failedSet, context)
-        : undefined,
+      output.failedSet != null ? de_DescribeEventDetailsForOrganizationFailedSet(output.failedSet, context) : undefined,
     successfulSet:
       output.successfulSet != null
-        ? deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet(output.successfulSet, context)
+        ? de_DescribeEventDetailsForOrganizationSuccessfulSet(output.successfulSet, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
+/**
+ * deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet
+ */
+const de_DescribeEventDetailsForOrganizationSuccessfulSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetails[] => {
@@ -1406,70 +1601,74 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationEventDetails(entry, context);
+      return de_OrganizationEventDetails(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEventDetailsResponse => {
+/**
+ * deserializeAws_json1_1DescribeEventDetailsResponse
+ */
+const de_DescribeEventDetailsResponse = (output: any, context: __SerdeContext): DescribeEventDetailsResponse => {
   return {
-    failedSet:
-      output.failedSet != null
-        ? deserializeAws_json1_1DescribeEventDetailsFailedSet(output.failedSet, context)
-        : undefined,
+    failedSet: output.failedSet != null ? de_DescribeEventDetailsFailedSet(output.failedSet, context) : undefined,
     successfulSet:
-      output.successfulSet != null
-        ? deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(output.successfulSet, context)
-        : undefined,
+      output.successfulSet != null ? de_DescribeEventDetailsSuccessfulSet(output.successfulSet, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
-  output: any,
-  context: __SerdeContext
-): EventDetails[] => {
+/**
+ * deserializeAws_json1_1DescribeEventDetailsSuccessfulSet
+ */
+const de_DescribeEventDetailsSuccessfulSet = (output: any, context: __SerdeContext): EventDetails[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EventDetails(entry, context);
+      return de_EventDetails(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1DescribeEventsForOrganizationResponse
+ */
+const de_DescribeEventsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsForOrganizationResponse => {
   return {
-    events: output.events != null ? deserializeAws_json1_1OrganizationEventList(output.events, context) : undefined,
+    events: output.events != null ? de_OrganizationEventList(output.events, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
+/**
+ * deserializeAws_json1_1DescribeEventsResponse
+ */
+const de_DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
   return {
-    events: output.events != null ? deserializeAws_json1_1EventList(output.events, context) : undefined,
+    events: output.events != null ? de_EventList(output.events, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEventTypesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEventTypesResponse => {
+/**
+ * deserializeAws_json1_1DescribeEventTypesResponse
+ */
+const de_DescribeEventTypesResponse = (output: any, context: __SerdeContext): DescribeEventTypesResponse => {
   return {
-    eventTypes: output.eventTypes != null ? deserializeAws_json1_1EventTypeList(output.eventTypes, context) : undefined,
+    eventTypes: output.eventTypes != null ? de_EventTypeList(output.eventTypes, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse
+ */
+const de_DescribeHealthServiceStatusForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeHealthServiceStatusForOrganizationResponse => {
@@ -1478,38 +1677,50 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
   } as any;
 };
 
-const deserializeAws_json1_1EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
+/**
+ * deserializeAws_json1_1EntityAggregate
+ */
+const de_EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
   return {
     count: __expectInt32(output.count),
     eventArn: __expectString(output.eventArn),
   } as any;
 };
 
-const deserializeAws_json1_1EntityAggregateList = (output: any, context: __SerdeContext): EntityAggregate[] => {
+/**
+ * deserializeAws_json1_1EntityAggregateList
+ */
+const de_EntityAggregateList = (output: any, context: __SerdeContext): EntityAggregate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EntityAggregate(entry, context);
+      return de_EntityAggregate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext): AffectedEntity[] => {
+/**
+ * deserializeAws_json1_1EntityList
+ */
+const de_EntityList = (output: any, context: __SerdeContext): AffectedEntity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AffectedEntity(entry, context);
+      return de_AffectedEntity(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
+/**
+ * deserializeAws_json1_1Event
+ */
+const de_Event = (output: any, context: __SerdeContext): Event => {
   return {
     arn: __expectString(output.arn),
     availabilityZone: __expectString(output.availabilityZone),
@@ -1530,44 +1741,56 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
   } as any;
 };
 
-const deserializeAws_json1_1EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
+/**
+ * deserializeAws_json1_1EventAggregate
+ */
+const de_EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
   return {
     aggregateValue: __expectString(output.aggregateValue),
     count: __expectInt32(output.count),
   } as any;
 };
 
-const deserializeAws_json1_1EventAggregateList = (output: any, context: __SerdeContext): EventAggregate[] => {
+/**
+ * deserializeAws_json1_1EventAggregateList
+ */
+const de_EventAggregateList = (output: any, context: __SerdeContext): EventAggregate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EventAggregate(entry, context);
+      return de_EventAggregate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EventDescription = (output: any, context: __SerdeContext): EventDescription => {
+/**
+ * deserializeAws_json1_1EventDescription
+ */
+const de_EventDescription = (output: any, context: __SerdeContext): EventDescription => {
   return {
     latestDescription: __expectString(output.latestDescription),
   } as any;
 };
 
-const deserializeAws_json1_1EventDetails = (output: any, context: __SerdeContext): EventDetails => {
+/**
+ * deserializeAws_json1_1EventDetails
+ */
+const de_EventDetails = (output: any, context: __SerdeContext): EventDetails => {
   return {
-    event: output.event != null ? deserializeAws_json1_1Event(output.event, context) : undefined,
+    event: output.event != null ? de_Event(output.event, context) : undefined,
     eventDescription:
-      output.eventDescription != null
-        ? deserializeAws_json1_1EventDescription(output.eventDescription, context)
-        : undefined,
-    eventMetadata:
-      output.eventMetadata != null ? deserializeAws_json1_1eventMetadata(output.eventMetadata, context) : undefined,
+      output.eventDescription != null ? de_EventDescription(output.eventDescription, context) : undefined,
+    eventMetadata: output.eventMetadata != null ? de_eventMetadata(output.eventMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EventDetailsErrorItem = (output: any, context: __SerdeContext): EventDetailsErrorItem => {
+/**
+ * deserializeAws_json1_1EventDetailsErrorItem
+ */
+const de_EventDetailsErrorItem = (output: any, context: __SerdeContext): EventDetailsErrorItem => {
   return {
     errorMessage: __expectString(output.errorMessage),
     errorName: __expectString(output.errorName),
@@ -1575,19 +1798,25 @@ const deserializeAws_json1_1EventDetailsErrorItem = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): Event[] => {
+/**
+ * deserializeAws_json1_1EventList
+ */
+const de_EventList = (output: any, context: __SerdeContext): Event[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Event(entry, context);
+      return de_Event(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1eventMetadata
+ */
+const de_eventMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1597,7 +1826,10 @@ const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
+/**
+ * deserializeAws_json1_1EventType
+ */
+const de_EventType = (output: any, context: __SerdeContext): EventType => {
   return {
     category: __expectString(output.category),
     code: __expectString(output.code),
@@ -1605,25 +1837,34 @@ const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1EventTypeList = (output: any, context: __SerdeContext): EventType[] => {
+/**
+ * deserializeAws_json1_1EventTypeList
+ */
+const de_EventTypeList = (output: any, context: __SerdeContext): EventType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EventType(entry, context);
+      return de_EventType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
+/**
+ * deserializeAws_json1_1InvalidPaginationToken
+ */
+const de_InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
+/**
+ * deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem
+ */
+const de_OrganizationAffectedEntitiesErrorItem = (
   output: any,
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem => {
@@ -1635,7 +1876,10 @@ const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeContext): OrganizationEvent => {
+/**
+ * deserializeAws_json1_1OrganizationEvent
+ */
+const de_OrganizationEvent = (output: any, context: __SerdeContext): OrganizationEvent => {
   return {
     arn: __expectString(output.arn),
     endTime:
@@ -1655,23 +1899,23 @@ const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationEventDetails = (
-  output: any,
-  context: __SerdeContext
-): OrganizationEventDetails => {
+/**
+ * deserializeAws_json1_1OrganizationEventDetails
+ */
+const de_OrganizationEventDetails = (output: any, context: __SerdeContext): OrganizationEventDetails => {
   return {
     awsAccountId: __expectString(output.awsAccountId),
-    event: output.event != null ? deserializeAws_json1_1Event(output.event, context) : undefined,
+    event: output.event != null ? de_Event(output.event, context) : undefined,
     eventDescription:
-      output.eventDescription != null
-        ? deserializeAws_json1_1EventDescription(output.eventDescription, context)
-        : undefined,
-    eventMetadata:
-      output.eventMetadata != null ? deserializeAws_json1_1eventMetadata(output.eventMetadata, context) : undefined,
+      output.eventDescription != null ? de_EventDescription(output.eventDescription, context) : undefined,
+    eventMetadata: output.eventMetadata != null ? de_eventMetadata(output.eventMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
+/**
+ * deserializeAws_json1_1OrganizationEventDetailsErrorItem
+ */
+const de_OrganizationEventDetailsErrorItem = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem => {
@@ -1683,19 +1927,25 @@ const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationEventList = (output: any, context: __SerdeContext): OrganizationEvent[] => {
+/**
+ * deserializeAws_json1_1OrganizationEventList
+ */
+const de_OrganizationEventList = (output: any, context: __SerdeContext): OrganizationEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationEvent(entry, context);
+      return de_OrganizationEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1tagSet
+ */
+const de_tagSet = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1705,7 +1955,10 @@ const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-const deserializeAws_json1_1UnsupportedLocale = (output: any, context: __SerdeContext): UnsupportedLocale => {
+/**
+ * deserializeAws_json1_1UnsupportedLocale
+ */
+const de_UnsupportedLocale = (output: any, context: __SerdeContext): UnsupportedLocale => {
   return {
     message: __expectString(output.message),
   } as any;

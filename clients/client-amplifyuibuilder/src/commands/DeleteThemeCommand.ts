@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { DeleteThemeRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteThemeCommand,
-  serializeAws_restJson1DeleteThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteThemeCommand, se_DeleteThemeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteThemeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThemeCommand(input, context);
+    return se_DeleteThemeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThemeCommandOutput> {
-    return deserializeAws_restJson1DeleteThemeCommand(output, context);
+    return de_DeleteThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

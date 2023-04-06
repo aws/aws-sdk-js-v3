@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartAccessLoggingCommand,
-  serializeAws_json1_1StartAccessLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartAccessLoggingCommand, se_StartAccessLoggingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class StartAccessLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: StartAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAccessLoggingCommand(input, context);
+    return se_StartAccessLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAccessLoggingCommandOutput> {
-    return deserializeAws_json1_1StartAccessLoggingCommand(output, context);
+    return de_StartAccessLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

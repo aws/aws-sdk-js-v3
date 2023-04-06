@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProtectionCommand,
-  serializeAws_json1_1DeleteProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProtectionCommand, se_DeleteProtectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -130,14 +127,14 @@ export class DeleteProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProtectionCommand(input, context);
+    return se_DeleteProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtectionCommandOutput> {
-    return deserializeAws_json1_1DeleteProtectionCommand(output, context);
+    return de_DeleteProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListUserSettingsRequest, ListUserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUserSettingsCommand,
-  serializeAws_restJson1ListUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUserSettingsCommand, se_ListUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUserSettingsCommand(input, context);
+    return se_ListUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserSettingsCommandOutput> {
-    return deserializeAws_restJson1ListUserSettingsCommand(output, context);
+    return de_ListUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

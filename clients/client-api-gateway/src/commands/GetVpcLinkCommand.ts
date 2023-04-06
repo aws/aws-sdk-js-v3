@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetVpcLinkRequest, VpcLink } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVpcLinkCommand,
-  serializeAws_restJson1GetVpcLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVpcLinkCommand, se_GetVpcLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetVpcLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVpcLinkCommand(input, context);
+    return se_GetVpcLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcLinkCommandOutput> {
-    return deserializeAws_restJson1GetVpcLinkCommand(output, context);
+    return de_GetVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

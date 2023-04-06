@@ -15,10 +15,7 @@ import {
 
 import { CancelRunRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CancelRunCommand,
-  serializeAws_restJson1CancelRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelRunCommand, se_CancelRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CancelRunCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelRunCommand(input, context);
+    return se_CancelRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRunCommandOutput> {
-    return deserializeAws_restJson1CancelRunCommand(output, context);
+    return de_CancelRunCommand(output, context);
   }
 
   // Start section: command_body_extra

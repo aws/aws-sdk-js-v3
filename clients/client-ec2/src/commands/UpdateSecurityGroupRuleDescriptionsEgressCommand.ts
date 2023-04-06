@@ -19,8 +19,8 @@ import {
   UpdateSecurityGroupRuleDescriptionsEgressResult,
 } from "../models/models_7";
 import {
-  deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand,
-  serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand,
+  de_UpdateSecurityGroupRuleDescriptionsEgressCommand,
+  se_UpdateSecurityGroupRuleDescriptionsEgressCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -206,7 +206,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(input, context);
+    return se_UpdateSecurityGroupRuleDescriptionsEgressCommand(input, context);
   }
 
   /**
@@ -216,7 +216,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> {
-    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(output, context);
+    return de_UpdateSecurityGroupRuleDescriptionsEgressCommand(output, context);
   }
 
   // Start section: command_body_extra

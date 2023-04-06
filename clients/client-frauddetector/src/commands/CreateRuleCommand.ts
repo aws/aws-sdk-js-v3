@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { CreateRuleRequest, CreateRuleRequestFilterSensitiveLog, CreateRuleResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRuleCommand,
-  serializeAws_json1_1CreateRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_json1_1CreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

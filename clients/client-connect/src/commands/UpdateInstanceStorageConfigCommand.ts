@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateInstanceStorageConfigRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateInstanceStorageConfigCommand,
-  serializeAws_restJson1UpdateInstanceStorageConfigCommand,
+  de_UpdateInstanceStorageConfigCommand,
+  se_UpdateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInstanceStorageConfigCommand(input, context);
+    return se_UpdateInstanceStorageConfigCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateInstanceStorageConfigCommand(output, context);
+    return de_UpdateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

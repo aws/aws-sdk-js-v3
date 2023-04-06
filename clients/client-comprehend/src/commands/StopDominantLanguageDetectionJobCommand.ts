@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopDominantLanguageDetectionJobRequest, StopDominantLanguageDetectionJobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StopDominantLanguageDetectionJobCommand,
-  serializeAws_json1_1StopDominantLanguageDetectionJobCommand,
+  de_StopDominantLanguageDetectionJobCommand,
+  se_StopDominantLanguageDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     input: StopDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(input, context);
+    return se_StopDominantLanguageDetectionJobCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(output, context);
+    return de_StopDominantLanguageDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

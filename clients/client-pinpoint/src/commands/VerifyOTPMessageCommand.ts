@@ -15,10 +15,7 @@ import {
 
 import { VerifyOTPMessageRequest, VerifyOTPMessageResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1VerifyOTPMessageCommand,
-  serializeAws_restJson1VerifyOTPMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_VerifyOTPMessageCommand, se_VerifyOTPMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class VerifyOTPMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1VerifyOTPMessageCommand(input, context);
+    return se_VerifyOTPMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyOTPMessageCommandOutput> {
-    return deserializeAws_restJson1VerifyOTPMessageCommand(output, context);
+    return de_VerifyOTPMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

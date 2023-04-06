@@ -15,10 +15,7 @@ import {
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteSnapshotCommand,
-  serializeAws_restJson1CompleteSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CompleteSnapshotCommand, se_CompleteSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class CompleteSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteSnapshotCommand(input, context);
+    return se_CompleteSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteSnapshotCommandOutput> {
-    return deserializeAws_restJson1CompleteSnapshotCommand(output, context);
+    return de_CompleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

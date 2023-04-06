@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { AddTagsToVaultInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddTagsToVaultCommand,
-  serializeAws_restJson1AddTagsToVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddTagsToVaultCommand, se_AddTagsToVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class AddTagsToVaultCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsToVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddTagsToVaultCommand(input, context);
+    return se_AddTagsToVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToVaultCommandOutput> {
-    return deserializeAws_restJson1AddTagsToVaultCommand(output, context);
+    return de_AddTagsToVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

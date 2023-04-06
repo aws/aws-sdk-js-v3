@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListCalculationExecutionsRequest, ListCalculationExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCalculationExecutionsCommand,
-  serializeAws_json1_1ListCalculationExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCalculationExecutionsCommand, se_ListCalculationExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class ListCalculationExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCalculationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCalculationExecutionsCommand(input, context);
+    return se_ListCalculationExecutionsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class ListCalculationExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCalculationExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListCalculationExecutionsCommand(output, context);
+    return de_ListCalculationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

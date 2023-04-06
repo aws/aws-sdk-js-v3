@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GenerateAccessLogsCommand,
-  serializeAws_restJson1GenerateAccessLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GenerateAccessLogsCommand, se_GenerateAccessLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GenerateAccessLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateAccessLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateAccessLogsCommand(input, context);
+    return se_GenerateAccessLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateAccessLogsCommandOutput> {
-    return deserializeAws_restJson1GenerateAccessLogsCommand(output, context);
+    return de_GenerateAccessLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

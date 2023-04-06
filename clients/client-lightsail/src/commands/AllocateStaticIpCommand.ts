@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocateStaticIpCommand,
-  serializeAws_json1_1AllocateStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AllocateStaticIpCommand, se_AllocateStaticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class AllocateStaticIpCommand extends $Command<
    * @internal
    */
   private serialize(input: AllocateStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateStaticIpCommand(input, context);
+    return se_AllocateStaticIpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateStaticIpCommandOutput> {
-    return deserializeAws_json1_1AllocateStaticIpCommand(output, context);
+    return de_AllocateStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

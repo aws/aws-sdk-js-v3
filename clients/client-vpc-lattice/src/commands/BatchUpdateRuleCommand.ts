@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchUpdateRuleRequest, BatchUpdateRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateRuleCommand,
-  serializeAws_restJson1BatchUpdateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateRuleCommand, se_BatchUpdateRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -184,14 +181,14 @@ export class BatchUpdateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateRuleCommand(input, context);
+    return se_BatchUpdateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateRuleCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateRuleCommand(output, context);
+    return de_BatchUpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

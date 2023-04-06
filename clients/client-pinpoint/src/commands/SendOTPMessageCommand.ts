@@ -15,10 +15,7 @@ import {
 
 import { SendOTPMessageRequest, SendOTPMessageResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1SendOTPMessageCommand,
-  serializeAws_restJson1SendOTPMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendOTPMessageCommand, se_SendOTPMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class SendOTPMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: SendOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendOTPMessageCommand(input, context);
+    return se_SendOTPMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendOTPMessageCommandOutput> {
-    return deserializeAws_restJson1SendOTPMessageCommand(output, context);
+    return de_SendOTPMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResourcesSummaryInput, GetResourcesSummaryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetResourcesSummaryCommand,
-  serializeAws_json1_0GetResourcesSummaryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetResourcesSummaryCommand, se_GetResourcesSummaryCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -143,14 +140,14 @@ export class GetResourcesSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourcesSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetResourcesSummaryCommand(input, context);
+    return se_GetResourcesSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesSummaryCommandOutput> {
-    return deserializeAws_json1_0GetResourcesSummaryCommand(output, context);
+    return de_GetResourcesSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

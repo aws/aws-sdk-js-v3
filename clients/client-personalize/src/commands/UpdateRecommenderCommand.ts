@@ -15,10 +15,7 @@ import {
 
 import { UpdateRecommenderRequest, UpdateRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1UpdateRecommenderCommand,
-  serializeAws_json1_1UpdateRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRecommenderCommand, se_UpdateRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class UpdateRecommenderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRecommenderCommand(input, context);
+    return se_UpdateRecommenderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecommenderCommandOutput> {
-    return deserializeAws_json1_1UpdateRecommenderCommand(output, context);
+    return de_UpdateRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

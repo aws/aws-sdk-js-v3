@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetReplicationRunsRequest, GetReplicationRunsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetReplicationRunsCommand,
-  serializeAws_json1_1GetReplicationRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetReplicationRunsCommand, se_GetReplicationRunsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -132,14 +129,14 @@ export class GetReplicationRunsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReplicationRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReplicationRunsCommand(input, context);
+    return se_GetReplicationRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationRunsCommandOutput> {
-    return deserializeAws_json1_1GetReplicationRunsCommand(output, context);
+    return de_GetReplicationRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

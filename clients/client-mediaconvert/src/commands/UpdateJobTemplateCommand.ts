@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { UpdateJobTemplateRequest, UpdateJobTemplateResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateJobTemplateCommand,
-  serializeAws_restJson1UpdateJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateJobTemplateCommand, se_UpdateJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -1496,14 +1493,14 @@ export class UpdateJobTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJobTemplateCommand(input, context);
+    return se_UpdateJobTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateJobTemplateCommand(output, context);
+    return de_UpdateJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JoinDomainInput, JoinDomainInputFilterSensitiveLog, JoinDomainOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1JoinDomainCommand,
-  serializeAws_json1_1JoinDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_JoinDomainCommand, se_JoinDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -135,14 +132,14 @@ export class JoinDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: JoinDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1JoinDomainCommand(input, context);
+    return se_JoinDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinDomainCommandOutput> {
-    return deserializeAws_json1_1JoinDomainCommand(output, context);
+    return de_JoinDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

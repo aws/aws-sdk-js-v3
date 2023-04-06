@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeEdgePackagingJobCommand,
-  serializeAws_json1_1DescribeEdgePackagingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEdgePackagingJobCommand, se_DescribeEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeEdgePackagingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEdgePackagingJobCommand(input, context);
+    return se_DescribeEdgePackagingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEdgePackagingJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEdgePackagingJobCommand(output, context);
+    return de_DescribeEdgePackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

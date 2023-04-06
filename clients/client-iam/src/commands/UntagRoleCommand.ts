@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagRoleRequest } from "../models/models_1";
-import { deserializeAws_queryUntagRoleCommand, serializeAws_queryUntagRoleCommand } from "../protocols/Aws_query";
+import { de_UntagRoleCommand, se_UntagRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +141,14 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
    * @internal
    */
   private serialize(input: UntagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagRoleCommand(input, context);
+    return se_UntagRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagRoleCommandOutput> {
-    return deserializeAws_queryUntagRoleCommand(output, context);
+    return de_UntagRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

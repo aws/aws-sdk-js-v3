@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UploadLayerPartCommand,
-  serializeAws_json1_1UploadLayerPartCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UploadLayerPartCommand, se_UploadLayerPartCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class UploadLayerPartCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadLayerPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UploadLayerPartCommand(input, context);
+    return se_UploadLayerPartCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadLayerPartCommandOutput> {
-    return deserializeAws_json1_1UploadLayerPartCommand(output, context);
+    return de_UploadLayerPartCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   CalculateRouteResponse,
   CalculateRouteResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CalculateRouteCommand,
-  serializeAws_restJson1CalculateRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CalculateRouteCommand, se_CalculateRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -208,14 +205,14 @@ export class CalculateRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: CalculateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CalculateRouteCommand(input, context);
+    return se_CalculateRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteCommandOutput> {
-    return deserializeAws_restJson1CalculateRouteCommand(output, context);
+    return de_CalculateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { CreateBranchInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBranchCommand,
-  serializeAws_json1_1CreateBranchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBranchCommand, se_CreateBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class CreateBranchCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBranchCommand(input, context);
+    return se_CreateBranchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBranchCommandOutput> {
-    return deserializeAws_json1_1CreateBranchCommand(output, context);
+    return de_CreateBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

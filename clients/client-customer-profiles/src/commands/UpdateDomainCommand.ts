@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainCommand,
-  serializeAws_restJson1UpdateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class UpdateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainCommand(input, context);
+    return se_UpdateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainCommand(output, context);
+    return de_UpdateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

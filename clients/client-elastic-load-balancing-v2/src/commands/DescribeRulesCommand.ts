@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeRulesCommand,
-  serializeAws_queryDescribeRulesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeRulesCommand, se_DescribeRulesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class DescribeRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeRulesCommand(input, context);
+    return se_DescribeRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesCommandOutput> {
-    return deserializeAws_queryDescribeRulesCommand(output, context);
+    return de_DescribeRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

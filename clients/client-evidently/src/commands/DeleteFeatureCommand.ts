@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { DeleteFeatureRequest, DeleteFeatureResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFeatureCommand,
-  serializeAws_restJson1DeleteFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFeatureCommand, se_DeleteFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteFeatureCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFeatureCommand(input, context);
+    return se_DeleteFeatureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureCommandOutput> {
-    return deserializeAws_restJson1DeleteFeatureCommand(output, context);
+    return de_DeleteFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

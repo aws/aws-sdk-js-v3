@@ -16,10 +16,7 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetRetentionSettingsRequest } from "../models/models_0";
 import { GetRetentionSettingsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetRetentionSettingsCommand,
-  serializeAws_restJson1GetRetentionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRetentionSettingsCommand, se_GetRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetRetentionSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRetentionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRetentionSettingsCommand(input, context);
+    return se_GetRetentionSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1GetRetentionSettingsCommand(output, context);
+    return de_GetRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

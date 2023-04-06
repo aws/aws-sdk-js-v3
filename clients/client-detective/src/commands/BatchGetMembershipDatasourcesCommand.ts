@@ -16,8 +16,8 @@ import {
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { BatchGetMembershipDatasourcesRequest, BatchGetMembershipDatasourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetMembershipDatasourcesCommand,
-  serializeAws_restJson1BatchGetMembershipDatasourcesCommand,
+  de_BatchGetMembershipDatasourcesCommand,
+  se_BatchGetMembershipDatasourcesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +137,7 @@ export class BatchGetMembershipDatasourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetMembershipDatasourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetMembershipDatasourcesCommand(input, context);
+    return se_BatchGetMembershipDatasourcesCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class BatchGetMembershipDatasourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetMembershipDatasourcesCommandOutput> {
-    return deserializeAws_restJson1BatchGetMembershipDatasourcesCommand(output, context);
+    return de_BatchGetMembershipDatasourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

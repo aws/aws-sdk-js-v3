@@ -18,8 +18,8 @@ import {
   DisableSagemakerServicecatalogPortfolioOutput,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
-  serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
+  de_DisableSagemakerServicecatalogPortfolioCommand,
+  se_DisableSagemakerServicecatalogPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -134,7 +134,7 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     input: DisableSagemakerServicecatalogPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand(input, context);
+    return se_DisableSagemakerServicecatalogPortfolioCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand(output, context);
+    return de_DisableSagemakerServicecatalogPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

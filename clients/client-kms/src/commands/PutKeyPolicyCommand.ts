@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { PutKeyPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutKeyPolicyCommand,
-  serializeAws_json1_1PutKeyPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutKeyPolicyCommand, se_PutKeyPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -192,14 +189,14 @@ export class PutKeyPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutKeyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutKeyPolicyCommand(input, context);
+    return se_PutKeyPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeyPolicyCommandOutput> {
-    return deserializeAws_json1_1PutKeyPolicyCommand(output, context);
+    return de_PutKeyPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

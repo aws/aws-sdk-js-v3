@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { DisassociateAccountsInput, DisassociateAccountsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateAccountsCommand,
-  serializeAws_restJson1DisassociateAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateAccountsCommand, se_DisassociateAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DisassociateAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAccountsCommand(input, context);
+    return se_DisassociateAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAccountsCommandOutput> {
-    return deserializeAws_restJson1DisassociateAccountsCommand(output, context);
+    return de_DisassociateAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

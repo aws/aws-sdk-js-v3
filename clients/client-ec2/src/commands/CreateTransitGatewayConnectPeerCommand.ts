@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateTransitGatewayConnectPeerRequest, CreateTransitGatewayConnectPeerResult } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateTransitGatewayConnectPeerCommand,
-  serializeAws_ec2CreateTransitGatewayConnectPeerCommand,
+  de_CreateTransitGatewayConnectPeerCommand,
+  se_CreateTransitGatewayConnectPeerCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     input: CreateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayConnectPeerCommand(input, context);
+    return se_CreateTransitGatewayConnectPeerCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayConnectPeerCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayConnectPeerCommand(output, context);
+    return de_CreateTransitGatewayConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

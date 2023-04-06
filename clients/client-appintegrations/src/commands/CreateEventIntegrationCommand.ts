@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { CreateEventIntegrationRequest, CreateEventIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEventIntegrationCommand,
-  serializeAws_restJson1CreateEventIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEventIntegrationCommand, se_CreateEventIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateEventIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEventIntegrationCommand(input, context);
+    return se_CreateEventIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventIntegrationCommandOutput> {
-    return deserializeAws_restJson1CreateEventIntegrationCommand(output, context);
+    return de_CreateEventIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

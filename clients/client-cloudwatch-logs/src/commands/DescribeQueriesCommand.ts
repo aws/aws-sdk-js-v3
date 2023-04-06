@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeQueriesRequest, DescribeQueriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueriesCommand,
-  serializeAws_json1_1DescribeQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeQueriesCommand, se_DescribeQueriesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeQueriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueriesCommand(input, context);
+    return se_DescribeQueriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueriesCommandOutput> {
-    return deserializeAws_json1_1DescribeQueriesCommand(output, context);
+    return de_DescribeQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

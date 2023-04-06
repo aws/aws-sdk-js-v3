@@ -16,8 +16,8 @@ import {
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutImageScanningConfigurationCommand,
-  serializeAws_json1_1PutImageScanningConfigurationCommand,
+  de_PutImageScanningConfigurationCommand,
+  se_PutImageScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class PutImageScanningConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutImageScanningConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageScanningConfigurationCommand(input, context);
+    return se_PutImageScanningConfigurationCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class PutImageScanningConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutImageScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutImageScanningConfigurationCommand(output, context);
+    return de_PutImageScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

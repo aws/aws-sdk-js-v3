@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { PutMetadataFlagRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutMetadataFlagCommand,
-  serializeAws_restJson1PutMetadataFlagCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutMetadataFlagCommand, se_PutMetadataFlagCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class PutMetadataFlagCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMetadataFlagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMetadataFlagCommand(input, context);
+    return se_PutMetadataFlagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetadataFlagCommandOutput> {
-    return deserializeAws_restJson1PutMetadataFlagCommand(output, context);
+    return de_PutMetadataFlagCommand(output, context);
   }
 
   // Start section: command_body_extra

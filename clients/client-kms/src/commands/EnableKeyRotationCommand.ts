@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { EnableKeyRotationRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableKeyRotationCommand,
-  serializeAws_json1_1EnableKeyRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableKeyRotationCommand, se_EnableKeyRotationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -212,14 +209,14 @@ export class EnableKeyRotationCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableKeyRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableKeyRotationCommand(input, context);
+    return se_EnableKeyRotationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyRotationCommandOutput> {
-    return deserializeAws_json1_1EnableKeyRotationCommand(output, context);
+    return de_EnableKeyRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

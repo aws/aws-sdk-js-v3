@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagServerCertificateRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUntagServerCertificateCommand,
-  serializeAws_queryUntagServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_UntagServerCertificateCommand, se_UntagServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UntagServerCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagServerCertificateCommand(input, context);
+    return se_UntagServerCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagServerCertificateCommandOutput> {
-    return deserializeAws_queryUntagServerCertificateCommand(output, context);
+    return de_UntagServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

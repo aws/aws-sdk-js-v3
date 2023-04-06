@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { DeleteAlertRequest, DeleteAlertResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAlertCommand,
-  serializeAws_restJson1DeleteAlertCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAlertCommand, se_DeleteAlertCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteAlertCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlertCommand(input, context);
+    return se_DeleteAlertCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlertCommandOutput> {
-    return deserializeAws_restJson1DeleteAlertCommand(output, context);
+    return de_DeleteAlertCommand(output, context);
   }
 
   // Start section: command_body_extra

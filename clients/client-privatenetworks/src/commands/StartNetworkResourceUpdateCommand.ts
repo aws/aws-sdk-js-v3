@@ -20,10 +20,7 @@ import {
   StartNetworkResourceUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1StartNetworkResourceUpdateCommand,
-  serializeAws_restJson1StartNetworkResourceUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartNetworkResourceUpdateCommand, se_StartNetworkResourceUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class StartNetworkResourceUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: StartNetworkResourceUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartNetworkResourceUpdateCommand(input, context);
+    return se_StartNetworkResourceUpdateCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class StartNetworkResourceUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNetworkResourceUpdateCommandOutput> {
-    return deserializeAws_restJson1StartNetworkResourceUpdateCommand(output, context);
+    return de_StartNetworkResourceUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

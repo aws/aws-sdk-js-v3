@@ -15,7 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetRulesRequest, GetRulesResult, GetRulesResultFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1GetRulesCommand, serializeAws_json1_1GetRulesCommand } from "../protocols/Aws_json1_1";
+import { de_GetRulesCommand, se_GetRulesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class GetRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRulesCommand(input, context);
+    return se_GetRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRulesCommandOutput> {
-    return deserializeAws_json1_1GetRulesCommand(output, context);
+    return de_GetRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

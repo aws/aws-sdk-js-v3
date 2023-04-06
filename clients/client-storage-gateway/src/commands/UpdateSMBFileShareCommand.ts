@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSMBFileShareInput, UpdateSMBFileShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBFileShareCommand,
-  serializeAws_json1_1UpdateSMBFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSMBFileShareCommand, se_UpdateSMBFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -173,14 +170,14 @@ export class UpdateSMBFileShareCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBFileShareCommand(input, context);
+    return se_UpdateSMBFileShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBFileShareCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBFileShareCommand(output, context);
+    return de_UpdateSMBFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

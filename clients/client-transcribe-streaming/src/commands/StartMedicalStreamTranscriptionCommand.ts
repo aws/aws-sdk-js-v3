@@ -23,8 +23,8 @@ import {
   StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartMedicalStreamTranscriptionCommand,
-  serializeAws_restJson1StartMedicalStreamTranscriptionCommand,
+  de_StartMedicalStreamTranscriptionCommand,
+  se_StartMedicalStreamTranscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
@@ -211,7 +211,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     input: StartMedicalStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMedicalStreamTranscriptionCommand(input, context);
+    return se_StartMedicalStreamTranscriptionCommand(input, context);
   }
 
   /**
@@ -221,7 +221,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartMedicalStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartMedicalStreamTranscriptionCommand(output, context);
+    return de_StartMedicalStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

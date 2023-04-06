@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteTargetGroupCommand,
-  serializeAws_queryDeleteTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteTargetGroupCommand, se_DeleteTargetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTargetGroupCommand(input, context);
+    return se_DeleteTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetGroupCommandOutput> {
-    return deserializeAws_queryDeleteTargetGroupCommand(output, context);
+    return de_DeleteTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

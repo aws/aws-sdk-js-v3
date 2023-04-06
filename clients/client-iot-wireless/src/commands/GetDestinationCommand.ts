@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { GetDestinationRequest, GetDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDestinationCommand,
-  serializeAws_restJson1GetDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDestinationCommand, se_GetDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDestinationCommand(input, context);
+    return se_GetDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDestinationCommandOutput> {
-    return deserializeAws_restJson1GetDestinationCommand(output, context);
+    return de_GetDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

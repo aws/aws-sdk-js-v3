@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { IsVpcPeeredRequest, IsVpcPeeredResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1IsVpcPeeredCommand,
-  serializeAws_json1_1IsVpcPeeredCommand,
-} from "../protocols/Aws_json1_1";
+import { de_IsVpcPeeredCommand, se_IsVpcPeeredCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class IsVpcPeeredCommand extends $Command<
    * @internal
    */
   private serialize(input: IsVpcPeeredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IsVpcPeeredCommand(input, context);
+    return se_IsVpcPeeredCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsVpcPeeredCommandOutput> {
-    return deserializeAws_json1_1IsVpcPeeredCommand(output, context);
+    return de_IsVpcPeeredCommand(output, context);
   }
 
   // Start section: command_body_extra

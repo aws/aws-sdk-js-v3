@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAggregatedUtterancesCommand,
-  serializeAws_restJson1ListAggregatedUtterancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAggregatedUtterancesCommand, se_ListAggregatedUtterancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class ListAggregatedUtterancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAggregatedUtterancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAggregatedUtterancesCommand(input, context);
+    return se_ListAggregatedUtterancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAggregatedUtterancesCommandOutput> {
-    return deserializeAws_restJson1ListAggregatedUtterancesCommand(output, context);
+    return de_ListAggregatedUtterancesCommand(output, context);
   }
 
   // Start section: command_body_extra

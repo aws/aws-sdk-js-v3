@@ -19,8 +19,8 @@ import {
   BatchGetAssetPropertyValueHistoryResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
-  serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
+  de_BatchGetAssetPropertyValueHistoryCommand,
+  se_BatchGetAssetPropertyValueHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -160,7 +160,7 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     input: BatchGetAssetPropertyValueHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand(input, context);
+    return se_BatchGetAssetPropertyValueHistoryCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand(output, context);
+    return de_BatchGetAssetPropertyValueHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

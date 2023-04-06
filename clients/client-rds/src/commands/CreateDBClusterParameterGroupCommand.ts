@@ -15,8 +15,8 @@ import {
 
 import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import {
-  deserializeAws_queryCreateDBClusterParameterGroupCommand,
-  serializeAws_queryCreateDBClusterParameterGroupCommand,
+  de_CreateDBClusterParameterGroupCommand,
+  se_CreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -104,20 +104,25 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *
  * @example To create a DB cluster parameter group
  * ```javascript
- * // This example creates a DB cluster parameter group.
+ * // The following example creates a DB cluster parameter group.
  * const input = {
  *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
  *   "DBParameterGroupFamily": "aurora5.6",
- *   "Description": "My DB cluster parameter group"
+ *   "Description": "My new cluster parameter group"
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterParameterGroup": {}
+ *   "DBClusterParameterGroup": {
+ *     "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup",
+ *     "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *     "DBParameterGroupFamily": "aurora5.6",
+ *     "Description": "My new cluster parameter group"
+ *   }
  * }
  * *\/
- * // example id: create-db-cluster-parameter-group-8eb1c3ae-1965-4262-afe3-ee134c4430b1
+ * // example id: to-create-a-db-cluster-parameter-group-1679702915771
  * ```
  *
  */
@@ -184,7 +189,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
+    return se_CreateDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -194,7 +199,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
+    return de_CreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

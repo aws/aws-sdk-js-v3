@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreateDataCatalogInput, CreateDataCatalogOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataCatalogCommand,
-  serializeAws_json1_1CreateDataCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDataCatalogCommand, se_CreateDataCatalogCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateDataCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataCatalogCommand(input, context);
+    return se_CreateDataCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataCatalogCommandOutput> {
-    return deserializeAws_json1_1CreateDataCatalogCommand(output, context);
+    return de_CreateDataCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

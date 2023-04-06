@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListStatementsRequest, ListStatementsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStatementsCommand,
-  serializeAws_json1_1ListStatementsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListStatementsCommand, se_ListStatementsCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListStatementsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStatementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStatementsCommand(input, context);
+    return se_ListStatementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStatementsCommandOutput> {
-    return deserializeAws_json1_1ListStatementsCommand(output, context);
+    return de_ListStatementsCommand(output, context);
   }
 
   // Start section: command_body_extra

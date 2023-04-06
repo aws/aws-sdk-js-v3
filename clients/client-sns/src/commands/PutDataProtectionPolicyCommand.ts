@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutDataProtectionPolicyInput } from "../models/models_0";
-import {
-  deserializeAws_queryPutDataProtectionPolicyCommand,
-  serializeAws_queryPutDataProtectionPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -139,14 +136,14 @@ export class PutDataProtectionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutDataProtectionPolicyCommand(input, context);
+    return se_PutDataProtectionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
-    return deserializeAws_queryPutDataProtectionPolicyCommand(output, context);
+    return de_PutDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

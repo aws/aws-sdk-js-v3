@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAssociationCommand,
-  serializeAws_json1_1DeleteAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAssociationCommand, se_DeleteAssociationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -160,14 +157,14 @@ export class DeleteAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssociationCommand(input, context);
+    return se_DeleteAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssociationCommandOutput> {
-    return deserializeAws_json1_1DeleteAssociationCommand(output, context);
+    return de_DeleteAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

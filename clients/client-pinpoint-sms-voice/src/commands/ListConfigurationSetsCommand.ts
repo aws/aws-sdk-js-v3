@@ -15,10 +15,7 @@ import {
 
 import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import {
-  deserializeAws_restJson1ListConfigurationSetsCommand,
-  serializeAws_restJson1ListConfigurationSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConfigurationSetsCommand, se_ListConfigurationSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListConfigurationSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationSetsCommand(input, context);
+    return se_ListConfigurationSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationSetsCommand(output, context);
+    return de_ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

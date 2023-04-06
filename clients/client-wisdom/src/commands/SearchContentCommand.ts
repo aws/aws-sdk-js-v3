@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchContentRequest, SearchContentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchContentCommand,
-  serializeAws_restJson1SearchContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchContentCommand, se_SearchContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -139,14 +136,14 @@ export class SearchContentCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchContentCommand(input, context);
+    return se_SearchContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContentCommandOutput> {
-    return deserializeAws_restJson1SearchContentCommand(output, context);
+    return de_SearchContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0PollForDecisionTaskCommand,
-  serializeAws_json1_0PollForDecisionTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PollForDecisionTaskCommand, se_PollForDecisionTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -183,14 +180,14 @@ export class PollForDecisionTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: PollForDecisionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PollForDecisionTaskCommand(input, context);
+    return se_PollForDecisionTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForDecisionTaskCommandOutput> {
-    return deserializeAws_json1_0PollForDecisionTaskCommand(output, context);
+    return de_PollForDecisionTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

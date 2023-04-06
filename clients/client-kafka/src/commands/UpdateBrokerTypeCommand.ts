@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateBrokerTypeRequest, UpdateBrokerTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrokerTypeCommand,
-  serializeAws_restJson1UpdateBrokerTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBrokerTypeCommand, se_UpdateBrokerTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateBrokerTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBrokerTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerTypeCommand(input, context);
+    return se_UpdateBrokerTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerTypeCommand(output, context);
+    return de_UpdateBrokerTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

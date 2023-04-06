@@ -15,10 +15,7 @@ import {
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import { BatchDeleteTableRowsRequest, BatchDeleteTableRowsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteTableRowsCommand,
-  serializeAws_restJson1BatchDeleteTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteTableRowsCommand, se_BatchDeleteTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class BatchDeleteTableRowsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteTableRowsCommand(input, context);
+    return se_BatchDeleteTableRowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteTableRowsCommand(output, context);
+    return de_BatchDeleteTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

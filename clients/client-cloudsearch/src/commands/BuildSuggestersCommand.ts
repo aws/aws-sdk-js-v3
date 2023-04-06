@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/models_0";
-import {
-  deserializeAws_queryBuildSuggestersCommand,
-  serializeAws_queryBuildSuggestersCommand,
-} from "../protocols/Aws_query";
+import { de_BuildSuggestersCommand, se_BuildSuggestersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class BuildSuggestersCommand extends $Command<
    * @internal
    */
   private serialize(input: BuildSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBuildSuggestersCommand(input, context);
+    return se_BuildSuggestersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BuildSuggestersCommandOutput> {
-    return deserializeAws_queryBuildSuggestersCommand(output, context);
+    return de_BuildSuggestersCommand(output, context);
   }
 
   // Start section: command_body_extra

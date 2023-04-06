@@ -15,8 +15,8 @@ import {
 
 import { GetTrafficPolicyInstanceCountRequest, GetTrafficPolicyInstanceCountResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
-  serializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
+  de_GetTrafficPolicyInstanceCountCommand,
+  se_GetTrafficPolicyInstanceCountCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -121,7 +121,7 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTrafficPolicyInstanceCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(input, context);
+    return se_GetTrafficPolicyInstanceCountCommand(input, context);
   }
 
   /**
@@ -131,7 +131,7 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(output, context);
+    return de_GetTrafficPolicyInstanceCountCommand(output, context);
   }
 
   // Start section: command_body_extra

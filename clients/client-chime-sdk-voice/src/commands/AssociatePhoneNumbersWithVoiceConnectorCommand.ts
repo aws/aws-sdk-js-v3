@@ -21,8 +21,8 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
+  de_AssociatePhoneNumbersWithVoiceConnectorCommand,
+  se_AssociatePhoneNumbersWithVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -165,7 +165,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
+    return se_AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
+    return de_AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

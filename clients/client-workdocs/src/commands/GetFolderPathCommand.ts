@@ -19,10 +19,7 @@ import {
   GetFolderPathResponse,
   GetFolderPathResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFolderPathCommand,
-  serializeAws_restJson1GetFolderPathCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFolderPathCommand, se_GetFolderPathCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -149,14 +146,14 @@ export class GetFolderPathCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFolderPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFolderPathCommand(input, context);
+    return se_GetFolderPathCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderPathCommandOutput> {
-    return deserializeAws_restJson1GetFolderPathCommand(output, context);
+    return de_GetFolderPathCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   ListAppInstanceAdminsResponse,
   ListAppInstanceAdminsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppInstanceAdminsCommand,
-  serializeAws_restJson1ListAppInstanceAdminsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppInstanceAdminsCommand, se_ListAppInstanceAdminsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListAppInstanceAdminsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppInstanceAdminsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInstanceAdminsCommand(input, context);
+    return se_ListAppInstanceAdminsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstanceAdminsCommandOutput> {
-    return deserializeAws_restJson1ListAppInstanceAdminsCommand(output, context);
+    return de_ListAppInstanceAdminsCommand(output, context);
   }
 
   // Start section: command_body_extra

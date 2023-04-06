@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DeleteSchedulingPolicyRequest, DeleteSchedulingPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSchedulingPolicyCommand,
-  serializeAws_restJson1DeleteSchedulingPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSchedulingPolicyCommand, se_DeleteSchedulingPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteSchedulingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSchedulingPolicyCommand(input, context);
+    return se_DeleteSchedulingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchedulingPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteSchedulingPolicyCommand(output, context);
+    return de_DeleteSchedulingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

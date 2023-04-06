@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateSecurityProfileRequest, CreateSecurityProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSecurityProfileCommand,
-  serializeAws_restJson1CreateSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSecurityProfileCommand, se_CreateSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class CreateSecurityProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSecurityProfileCommand(input, context);
+    return se_CreateSecurityProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1CreateSecurityProfileCommand(output, context);
+    return de_CreateSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

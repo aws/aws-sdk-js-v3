@@ -21,10 +21,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export const serializeAws_restJson1EchoCommand = async (
-  input: EchoCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1EchoCommand
+ */
+export const se_EchoCommand = async (input: EchoCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
@@ -45,10 +45,10 @@ export const serializeAws_restJson1EchoCommand = async (
   });
 };
 
-export const serializeAws_restJson1LengthCommand = async (
-  input: LengthCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1LengthCommand
+ */
+export const se_LengthCommand = async (input: LengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/length/{string}";
@@ -65,12 +65,12 @@ export const serializeAws_restJson1LengthCommand = async (
   });
 };
 
-export const deserializeAws_restJson1EchoCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EchoCommandOutput> => {
+/**
+ * deserializeAws_restJson1EchoCommand
+ */
+export const de_EchoCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EchoCommandError(output, context);
+    return de_EchoCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -82,10 +82,10 @@ export const deserializeAws_restJson1EchoCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1EchoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EchoCommandOutput> => {
+/**
+ * deserializeAws_restJson1EchoCommandError
+ */
+const de_EchoCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -94,7 +94,7 @@ const deserializeAws_restJson1EchoCommandError = async (
   switch (errorCode) {
     case "PalindromeException":
     case "aws.test.generic#PalindromeException":
-      throw await deserializeAws_restJson1PalindromeExceptionResponse(parsedOutput, context);
+      throw await de_PalindromeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -106,12 +106,15 @@ const deserializeAws_restJson1EchoCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1LengthCommand = async (
+/**
+ * deserializeAws_restJson1LengthCommand
+ */
+export const de_LengthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LengthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1LengthCommandError(output, context);
+    return de_LengthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -123,10 +126,10 @@ export const deserializeAws_restJson1LengthCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1LengthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LengthCommandOutput> => {
+/**
+ * deserializeAws_restJson1LengthCommandError
+ */
+const de_LengthCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<LengthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -135,7 +138,7 @@ const deserializeAws_restJson1LengthCommandError = async (
   switch (errorCode) {
     case "PalindromeException":
     case "aws.test.generic#PalindromeException":
-      throw await deserializeAws_restJson1PalindromeExceptionResponse(parsedOutput, context);
+      throw await de_PalindromeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -148,10 +151,10 @@ const deserializeAws_restJson1LengthCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1PalindromeExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<PalindromeException> => {
+/**
+ * deserializeAws_restJson1PalindromeExceptionRes
+ */
+const de_PalindromeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<PalindromeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {

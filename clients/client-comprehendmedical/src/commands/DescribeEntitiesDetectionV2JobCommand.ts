@@ -20,8 +20,8 @@ import {
 } from "../ComprehendMedicalClient";
 import { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,
-  serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,
+  de_DescribeEntitiesDetectionV2JobCommand,
+  se_DescribeEntitiesDetectionV2JobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     input: DescribeEntitiesDetectionV2JobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(input, context);
+    return se_DescribeEntitiesDetectionV2JobCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(output, context);
+    return de_DescribeEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootReplicationInstanceCommand,
-  serializeAws_json1_1RebootReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebootReplicationInstanceCommand, se_RebootReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class RebootReplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootReplicationInstanceCommand(input, context);
+    return se_RebootReplicationInstanceCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class RebootReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebootReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootReplicationInstanceCommand(output, context);
+    return de_RebootReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

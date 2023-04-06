@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetBlueprintsRequest, BatchGetBlueprintsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetBlueprintsCommand,
-  serializeAws_json1_1BatchGetBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetBlueprintsCommand, se_BatchGetBlueprintsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class BatchGetBlueprintsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetBlueprintsCommand(input, context);
+    return se_BatchGetBlueprintsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBlueprintsCommandOutput> {
-    return deserializeAws_json1_1BatchGetBlueprintsCommand(output, context);
+    return de_BatchGetBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

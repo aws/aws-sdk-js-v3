@@ -19,8 +19,8 @@ import {
   GetNetworkInsightsAccessScopeContentResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommand,
-  serializeAws_ec2GetNetworkInsightsAccessScopeContentCommand,
+  de_GetNetworkInsightsAccessScopeContentCommand,
+  se_GetNetworkInsightsAccessScopeContentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -129,7 +129,7 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
     input: GetNetworkInsightsAccessScopeContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetNetworkInsightsAccessScopeContentCommand(input, context);
+    return se_GetNetworkInsightsAccessScopeContentCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> {
-    return deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommand(output, context);
+    return de_GetNetworkInsightsAccessScopeContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListNetworkProfilesRequest, ListNetworkProfilesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNetworkProfilesCommand,
-  serializeAws_json1_1ListNetworkProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListNetworkProfilesCommand, se_ListNetworkProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListNetworkProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNetworkProfilesCommand(input, context);
+    return se_ListNetworkProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkProfilesCommandOutput> {
-    return deserializeAws_json1_1ListNetworkProfilesCommand(output, context);
+    return de_ListNetworkProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

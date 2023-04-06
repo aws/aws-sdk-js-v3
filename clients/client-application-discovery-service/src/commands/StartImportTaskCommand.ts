@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { StartImportTaskRequest, StartImportTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartImportTaskCommand,
-  serializeAws_json1_1StartImportTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartImportTaskCommand, se_StartImportTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class StartImportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartImportTaskCommand(input, context);
+    return se_StartImportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportTaskCommandOutput> {
-    return deserializeAws_json1_1StartImportTaskCommand(output, context);
+    return de_StartImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

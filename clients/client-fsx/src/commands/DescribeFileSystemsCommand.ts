@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFileSystemsCommand,
-  serializeAws_json1_1DescribeFileSystemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFileSystemsCommand, se_DescribeFileSystemsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class DescribeFileSystemsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileSystemsCommand(input, context);
+    return se_DescribeFileSystemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeFileSystemsCommand(output, context);
+    return de_DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

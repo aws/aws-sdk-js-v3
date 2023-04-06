@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { StartRecommendationsRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartRecommendationsCommand,
-  serializeAws_json1_1StartRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartRecommendationsCommand, se_StartRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class StartRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRecommendationsCommand(input, context);
+    return se_StartRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommendationsCommandOutput> {
-    return deserializeAws_json1_1StartRecommendationsCommand(output, context);
+    return de_StartRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

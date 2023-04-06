@@ -18,8 +18,8 @@ import {
   ListUnsupportedAppVersionResourcesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand,
-  serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand,
+  de_ListUnsupportedAppVersionResourcesCommand,
+  se_ListUnsupportedAppVersionResourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -158,7 +158,7 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     input: ListUnsupportedAppVersionResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand(input, context);
+    return se_ListUnsupportedAppVersionResourcesCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUnsupportedAppVersionResourcesCommandOutput> {
-    return deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand(output, context);
+    return de_ListUnsupportedAppVersionResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestRenderEmailTemplateCommand,
-  serializeAws_restJson1TestRenderEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestRenderEmailTemplateCommand, se_TestRenderEmailTemplateCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -132,14 +129,14 @@ export class TestRenderEmailTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: TestRenderEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestRenderEmailTemplateCommand(input, context);
+    return se_TestRenderEmailTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1TestRenderEmailTemplateCommand(output, context);
+    return de_TestRenderEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

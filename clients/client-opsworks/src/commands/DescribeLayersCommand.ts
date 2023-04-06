@@ -15,10 +15,7 @@ import {
 
 import { DescribeLayersRequest, DescribeLayersResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeLayersCommand,
-  serializeAws_json1_1DescribeLayersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLayersCommand, se_DescribeLayersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeLayersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLayersCommand(input, context);
+    return se_DescribeLayersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLayersCommandOutput> {
-    return deserializeAws_json1_1DescribeLayersCommand(output, context);
+    return de_DescribeLayersCommand(output, context);
   }
 
   // Start section: command_body_extra

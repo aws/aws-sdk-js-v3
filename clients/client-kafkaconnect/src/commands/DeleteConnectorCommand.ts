@@ -15,10 +15,7 @@ import {
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { DeleteConnectorRequest, DeleteConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConnectorCommand,
-  serializeAws_restJson1DeleteConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConnectorCommand, se_DeleteConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectorCommand(input, context);
+    return se_DeleteConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectorCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectorCommand(output, context);
+    return de_DeleteConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

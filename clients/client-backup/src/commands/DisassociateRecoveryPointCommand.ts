@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DisassociateRecoveryPointInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateRecoveryPointCommand,
-  serializeAws_restJson1DisassociateRecoveryPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateRecoveryPointCommand, se_DisassociateRecoveryPointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class DisassociateRecoveryPointCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRecoveryPointCommand(input, context);
+    return se_DisassociateRecoveryPointCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DisassociateRecoveryPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1DisassociateRecoveryPointCommand(output, context);
+    return de_DisassociateRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

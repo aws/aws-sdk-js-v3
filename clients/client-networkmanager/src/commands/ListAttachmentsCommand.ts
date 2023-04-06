@@ -15,10 +15,7 @@ import {
 
 import { ListAttachmentsRequest, ListAttachmentsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListAttachmentsCommand,
-  serializeAws_restJson1ListAttachmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttachmentsCommand, se_ListAttachmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListAttachmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAttachmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttachmentsCommand(input, context);
+    return se_ListAttachmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachmentsCommandOutput> {
-    return deserializeAws_restJson1ListAttachmentsCommand(output, context);
+    return de_ListAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

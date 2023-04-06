@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateOpsItemRequest, CreateOpsItemResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOpsItemCommand,
-  serializeAws_json1_1CreateOpsItemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOpsItemCommand, se_CreateOpsItemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -175,14 +172,14 @@ export class CreateOpsItemCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOpsItemCommand(input, context);
+    return se_CreateOpsItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsItemCommandOutput> {
-    return deserializeAws_json1_1CreateOpsItemCommand(output, context);
+    return de_CreateOpsItemCommand(output, context);
   }
 
   // Start section: command_body_extra

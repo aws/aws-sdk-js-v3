@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetMappingRequest, GetMappingResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMappingCommand,
-  serializeAws_json1_1GetMappingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMappingCommand, se_GetMappingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class GetMappingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMappingCommand(input, context);
+    return se_GetMappingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMappingCommandOutput> {
-    return deserializeAws_json1_1GetMappingCommand(output, context);
+    return de_GetMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

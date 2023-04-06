@@ -15,10 +15,7 @@ import {
 
 import { CreatePushTemplateRequest, CreatePushTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreatePushTemplateCommand,
-  serializeAws_restJson1CreatePushTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePushTemplateCommand, se_CreatePushTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -192,14 +189,14 @@ export class CreatePushTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePushTemplateCommand(input, context);
+    return se_CreatePushTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePushTemplateCommandOutput> {
-    return deserializeAws_restJson1CreatePushTemplateCommand(output, context);
+    return de_CreatePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

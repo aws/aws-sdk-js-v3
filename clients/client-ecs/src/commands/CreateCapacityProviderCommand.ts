@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCapacityProviderCommand,
-  serializeAws_json1_1CreateCapacityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCapacityProviderCommand, se_CreateCapacityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class CreateCapacityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCapacityProviderCommand(input, context);
+    return se_CreateCapacityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCapacityProviderCommandOutput> {
-    return deserializeAws_json1_1CreateCapacityProviderCommand(output, context);
+    return de_CreateCapacityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

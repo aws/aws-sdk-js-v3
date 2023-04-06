@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlEnumsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlEnumsCommand, serializeAws_restXmlXmlEnumsCommand } from "../protocols/Aws_restXml";
+import { de_XmlEnumsCommand, se_XmlEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -115,14 +115,14 @@ export class XmlEnumsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEnumsCommand(input, context);
+    return se_XmlEnumsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEnumsCommandOutput> {
-    return deserializeAws_restXmlXmlEnumsCommand(output, context);
+    return de_XmlEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

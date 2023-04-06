@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLDAPSSettingsCommand,
-  serializeAws_json1_1DescribeLDAPSSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLDAPSSettingsCommand, se_DescribeLDAPSSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeLDAPSSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLDAPSSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLDAPSSettingsCommand(input, context);
+    return se_DescribeLDAPSSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLDAPSSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeLDAPSSettingsCommand(output, context);
+    return de_DescribeLDAPSSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

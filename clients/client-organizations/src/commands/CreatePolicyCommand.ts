@@ -15,10 +15,7 @@ import {
 
 import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreatePolicyCommand,
-  serializeAws_json1_1CreatePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePolicyCommand, se_CreatePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -509,14 +506,14 @@ export class CreatePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePolicyCommand(input, context);
+    return se_CreatePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
-    return deserializeAws_json1_1CreatePolicyCommand(output, context);
+    return de_CreatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

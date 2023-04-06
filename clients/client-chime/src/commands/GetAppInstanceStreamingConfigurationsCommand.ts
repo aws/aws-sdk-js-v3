@@ -20,8 +20,8 @@ import {
   GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand,
-  serializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand,
+  de_GetAppInstanceStreamingConfigurationsCommand,
+  se_GetAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     input: GetAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand(input, context);
+    return se_GetAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand(output, context);
+    return de_GetAppInstanceStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetBlueprintsRequest, GetBlueprintsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBlueprintsCommand,
-  serializeAws_json1_1GetBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetBlueprintsCommand, se_GetBlueprintsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class GetBlueprintsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlueprintsCommand(input, context);
+    return se_GetBlueprintsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlueprintsCommandOutput> {
-    return deserializeAws_json1_1GetBlueprintsCommand(output, context);
+    return de_GetBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

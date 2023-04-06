@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListComplianceItemsRequest, ListComplianceItemsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListComplianceItemsCommand,
-  serializeAws_json1_1ListComplianceItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListComplianceItemsCommand, se_ListComplianceItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -154,14 +151,14 @@ export class ListComplianceItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComplianceItemsCommand(input, context);
+    return se_ListComplianceItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceItemsCommandOutput> {
-    return deserializeAws_json1_1ListComplianceItemsCommand(output, context);
+    return de_ListComplianceItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

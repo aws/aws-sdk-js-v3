@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreatePartitionIndexRequest, CreatePartitionIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePartitionIndexCommand,
-  serializeAws_json1_1CreatePartitionIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePartitionIndexCommand, se_CreatePartitionIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreatePartitionIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePartitionIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePartitionIndexCommand(input, context);
+    return se_CreatePartitionIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartitionIndexCommandOutput> {
-    return deserializeAws_json1_1CreatePartitionIndexCommand(output, context);
+    return de_CreatePartitionIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

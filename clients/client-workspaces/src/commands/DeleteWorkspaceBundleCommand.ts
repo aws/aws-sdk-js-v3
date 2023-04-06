@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWorkspaceBundleRequest, DeleteWorkspaceBundleResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkspaceBundleCommand,
-  serializeAws_json1_1DeleteWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkspaceBundleCommand, se_DeleteWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteWorkspaceBundleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkspaceBundleCommand(input, context);
+    return se_DeleteWorkspaceBundleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkspaceBundleCommand(output, context);
+    return de_DeleteWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

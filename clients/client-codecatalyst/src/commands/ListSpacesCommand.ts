@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { ListSpacesRequest, ListSpacesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSpacesCommand,
-  serializeAws_restJson1ListSpacesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSpacesCommand, se_ListSpacesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListSpacesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSpacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSpacesCommand(input, context);
+    return se_ListSpacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpacesCommandOutput> {
-    return deserializeAws_restJson1ListSpacesCommand(output, context);
+    return de_ListSpacesCommand(output, context);
   }
 
   // Start section: command_body_extra

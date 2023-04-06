@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { DeleteRecoveryInstanceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecoveryInstanceCommand,
-  serializeAws_restJson1DeleteRecoveryInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRecoveryInstanceCommand, se_DeleteRecoveryInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteRecoveryInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRecoveryInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecoveryInstanceCommand(input, context);
+    return se_DeleteRecoveryInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteRecoveryInstanceCommand(output, context);
+    return de_DeleteRecoveryInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

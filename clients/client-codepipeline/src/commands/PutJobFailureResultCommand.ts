@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutJobFailureResultInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutJobFailureResultCommand,
-  serializeAws_json1_1PutJobFailureResultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class PutJobFailureResultCommand extends $Command<
    * @internal
    */
   private serialize(input: PutJobFailureResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutJobFailureResultCommand(input, context);
+    return se_PutJobFailureResultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobFailureResultCommandOutput> {
-    return deserializeAws_json1_1PutJobFailureResultCommand(output, context);
+    return de_PutJobFailureResultCommand(output, context);
   }
 
   // Start section: command_body_extra

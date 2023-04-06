@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AttachRolePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryAttachRolePolicyCommand,
-  serializeAws_queryAttachRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_AttachRolePolicyCommand, se_AttachRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class AttachRolePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachRolePolicyCommand(input, context);
+    return se_AttachRolePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachRolePolicyCommandOutput> {
-    return deserializeAws_queryAttachRolePolicyCommand(output, context);
+    return de_AttachRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListEdgeDeploymentPlansCommand,
-  serializeAws_json1_1ListEdgeDeploymentPlansCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEdgeDeploymentPlansCommand, se_ListEdgeDeploymentPlansCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListEdgeDeploymentPlansCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEdgeDeploymentPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEdgeDeploymentPlansCommand(input, context);
+    return se_ListEdgeDeploymentPlansCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEdgeDeploymentPlansCommandOutput> {
-    return deserializeAws_json1_1ListEdgeDeploymentPlansCommand(output, context);
+    return de_ListEdgeDeploymentPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

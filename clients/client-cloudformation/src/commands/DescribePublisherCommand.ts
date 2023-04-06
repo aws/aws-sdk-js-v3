@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribePublisherInput, DescribePublisherOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribePublisherCommand,
-  serializeAws_queryDescribePublisherCommand,
-} from "../protocols/Aws_query";
+import { de_DescribePublisherCommand, se_DescribePublisherCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribePublisherCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePublisherCommand(input, context);
+    return se_DescribePublisherCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublisherCommandOutput> {
-    return deserializeAws_queryDescribePublisherCommand(output, context);
+    return de_DescribePublisherCommand(output, context);
   }
 
   // Start section: command_body_extra

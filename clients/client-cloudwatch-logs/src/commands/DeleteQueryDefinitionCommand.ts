@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteQueryDefinitionCommand,
-  serializeAws_json1_1DeleteQueryDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteQueryDefinitionCommand, se_DeleteQueryDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteQueryDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteQueryDefinitionCommand(input, context);
+    return se_DeleteQueryDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueryDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteQueryDefinitionCommand(output, context);
+    return de_DeleteQueryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { CancelFindingsReportRequest, CancelFindingsReportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelFindingsReportCommand,
-  serializeAws_restJson1CancelFindingsReportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelFindingsReportCommand, se_CancelFindingsReportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class CancelFindingsReportCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelFindingsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelFindingsReportCommand(input, context);
+    return se_CancelFindingsReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelFindingsReportCommandOutput> {
-    return deserializeAws_restJson1CancelFindingsReportCommand(output, context);
+    return de_CancelFindingsReportCommand(output, context);
   }
 
   // Start section: command_body_extra

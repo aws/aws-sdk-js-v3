@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupPolicyCommand,
-  serializeAws_restJson1PutBackupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutBackupPolicyCommand, se_PutBackupPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class PutBackupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupPolicyCommand(input, context);
+    return se_PutBackupPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBackupPolicyCommandOutput> {
-    return deserializeAws_restJson1PutBackupPolicyCommand(output, context);
+    return de_PutBackupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

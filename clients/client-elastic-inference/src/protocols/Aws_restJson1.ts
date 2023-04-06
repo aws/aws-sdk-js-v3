@@ -49,7 +49,10 @@ import {
   ResourceNotFoundException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
+/**
+ * serializeAws_restJson1DescribeAcceleratorOfferingsCommand
+ */
+export const se_DescribeAcceleratorOfferingsCommand = async (
   input: DescribeAcceleratorOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -62,7 +65,7 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.acceleratorTypes != null && {
-      acceleratorTypes: serializeAws_restJson1AcceleratorTypeNameList(input.acceleratorTypes, context),
+      acceleratorTypes: se_AcceleratorTypeNameList(input.acceleratorTypes, context),
     }),
     ...(input.locationType != null && { locationType: input.locationType }),
   });
@@ -77,7 +80,10 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
+/**
+ * serializeAws_restJson1DescribeAcceleratorsCommand
+ */
+export const se_DescribeAcceleratorsCommand = async (
   input: DescribeAcceleratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -88,10 +94,8 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerators";
   let body: any;
   body = JSON.stringify({
-    ...(input.acceleratorIds != null && {
-      acceleratorIds: serializeAws_restJson1AcceleratorIdList(input.acceleratorIds, context),
-    }),
-    ...(input.filters != null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.acceleratorIds != null && { acceleratorIds: se_AcceleratorIdList(input.acceleratorIds, context) }),
+    ...(input.filters != null && { filters: se_FilterList(input.filters, context) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
@@ -106,7 +110,10 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
+/**
+ * serializeAws_restJson1DescribeAcceleratorTypesCommand
+ */
+export const se_DescribeAcceleratorTypesCommand = async (
   input: DescribeAcceleratorTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -129,7 +136,10 @@ export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -149,7 +159,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -161,7 +174,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -174,7 +187,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -201,27 +217,30 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorOfferingsCommand
+ */
+export const de_DescribeAcceleratorOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError(output, context);
+    return de_DescribeAcceleratorOfferingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorTypeOfferings != null) {
-    contents.acceleratorTypeOfferings = deserializeAws_restJson1AcceleratorTypeOfferingList(
-      data.acceleratorTypeOfferings,
-      context
-    );
+    contents.acceleratorTypeOfferings = de_AcceleratorTypeOfferingList(data.acceleratorTypeOfferings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError
+ */
+const de_DescribeAcceleratorOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorOfferingsCommandOutput> => {
@@ -233,13 +252,13 @@ const deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.elasticinference#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticinference#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -251,19 +270,22 @@ const deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorsCommand
+ */
+export const de_DescribeAcceleratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAcceleratorsCommandError(output, context);
+    return de_DescribeAcceleratorsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorSet != null) {
-    contents.acceleratorSet = deserializeAws_restJson1ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
+    contents.acceleratorSet = de_ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -271,7 +293,10 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAcceleratorsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorsCommandError
+ */
+const de_DescribeAcceleratorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorsCommandOutput> => {
@@ -283,13 +308,13 @@ const deserializeAws_restJson1DescribeAcceleratorsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.elasticinference#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticinference#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -301,24 +326,30 @@ const deserializeAws_restJson1DescribeAcceleratorsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAcceleratorTypesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorTypesCommand
+ */
+export const de_DescribeAcceleratorTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAcceleratorTypesCommandError(output, context);
+    return de_DescribeAcceleratorTypesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorTypes != null) {
-    contents.acceleratorTypes = deserializeAws_restJson1AcceleratorTypeList(data.acceleratorTypes, context);
+    contents.acceleratorTypes = de_AcceleratorTypeList(data.acceleratorTypes, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAcceleratorTypesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAcceleratorTypesCommandError
+ */
+const de_DescribeAcceleratorTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorTypesCommandOutput> => {
@@ -330,7 +361,7 @@ const deserializeAws_restJson1DescribeAcceleratorTypesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -342,24 +373,30 @@ const deserializeAws_restJson1DescribeAcceleratorTypesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -371,13 +408,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.elasticinference#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticinference#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -389,12 +426,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -403,7 +443,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -415,13 +458,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.elasticinference#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticinference#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -433,12 +476,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -447,7 +493,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -459,13 +508,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.elasticinference#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.elasticinference#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elasticinference#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -478,10 +527,10 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -494,7 +543,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -510,7 +562,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -526,7 +581,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AcceleratorIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AcceleratorIdList
+ */
+const se_AcceleratorIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -534,7 +592,10 @@ const serializeAws_restJson1AcceleratorIdList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1AcceleratorTypeNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AcceleratorTypeNameList
+ */
+const se_AcceleratorTypeNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -542,22 +603,31 @@ const serializeAws_restJson1AcceleratorTypeNameList = (input: string[], context:
     });
 };
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
+    ...(input.values != null && { values: se_ValueStringList(input.values, context) }),
   };
 };
 
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FilterList
+ */
+const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -567,7 +637,10 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValueStringList
+ */
+const se_ValueStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -575,33 +648,36 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
     });
 };
 
-const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
+/**
+ * deserializeAws_restJson1AcceleratorType
+ */
+const de_AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
   return {
     acceleratorTypeName: __expectString(output.acceleratorTypeName),
-    memoryInfo: output.memoryInfo != null ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context) : undefined,
-    throughputInfo:
-      output.throughputInfo != null
-        ? deserializeAws_restJson1ThroughputInfoList(output.throughputInfo, context)
-        : undefined,
+    memoryInfo: output.memoryInfo != null ? de_MemoryInfo(output.memoryInfo, context) : undefined,
+    throughputInfo: output.throughputInfo != null ? de_ThroughputInfoList(output.throughputInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
+/**
+ * deserializeAws_restJson1AcceleratorTypeList
+ */
+const de_AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AcceleratorType(entry, context);
+      return de_AcceleratorType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AcceleratorTypeOffering = (
-  output: any,
-  context: __SerdeContext
-): AcceleratorTypeOffering => {
+/**
+ * deserializeAws_restJson1AcceleratorTypeOffering
+ */
+const de_AcceleratorTypeOffering = (output: any, context: __SerdeContext): AcceleratorTypeOffering => {
   return {
     acceleratorType: __expectString(output.acceleratorType),
     location: __expectString(output.location),
@@ -609,29 +685,29 @@ const deserializeAws_restJson1AcceleratorTypeOffering = (
   } as any;
 };
 
-const deserializeAws_restJson1AcceleratorTypeOfferingList = (
-  output: any,
-  context: __SerdeContext
-): AcceleratorTypeOffering[] => {
+/**
+ * deserializeAws_restJson1AcceleratorTypeOfferingList
+ */
+const de_AcceleratorTypeOfferingList = (output: any, context: __SerdeContext): AcceleratorTypeOffering[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AcceleratorTypeOffering(entry, context);
+      return de_AcceleratorTypeOffering(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ElasticInferenceAccelerator = (
-  output: any,
-  context: __SerdeContext
-): ElasticInferenceAccelerator => {
+/**
+ * deserializeAws_restJson1ElasticInferenceAccelerator
+ */
+const de_ElasticInferenceAccelerator = (output: any, context: __SerdeContext): ElasticInferenceAccelerator => {
   return {
     acceleratorHealth:
       output.acceleratorHealth != null
-        ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
+        ? de_ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
         : undefined,
     acceleratorId: __expectString(output.acceleratorId),
     acceleratorType: __expectString(output.acceleratorType),
@@ -640,7 +716,10 @@ const deserializeAws_restJson1ElasticInferenceAccelerator = (
   } as any;
 };
 
-const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
+/**
+ * deserializeAws_restJson1ElasticInferenceAcceleratorHealth
+ */
+const de_ElasticInferenceAcceleratorHealth = (
   output: any,
   context: __SerdeContext
 ): ElasticInferenceAcceleratorHealth => {
@@ -649,35 +728,44 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
   } as any;
 };
 
-const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
-  output: any,
-  context: __SerdeContext
-): ElasticInferenceAccelerator[] => {
+/**
+ * deserializeAws_restJson1ElasticInferenceAcceleratorSet
+ */
+const de_ElasticInferenceAcceleratorSet = (output: any, context: __SerdeContext): ElasticInferenceAccelerator[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ElasticInferenceAccelerator(entry, context);
+      return de_ElasticInferenceAccelerator(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
+/**
+ * deserializeAws_restJson1KeyValuePair
+ */
+const de_KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
     key: __expectString(output.key),
     value: __expectInt32(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
+/**
+ * deserializeAws_restJson1MemoryInfo
+ */
+const de_MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
     sizeInMiB: __expectInt32(output.sizeInMiB),
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -687,14 +775,17 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
+/**
+ * deserializeAws_restJson1ThroughputInfoList
+ */
+const de_ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1KeyValuePair(entry, context);
+      return de_KeyValuePair(entry, context);
     });
   return retVal;
 };

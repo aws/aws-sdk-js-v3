@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchExecuteStatementInput, BatchExecuteStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchExecuteStatementCommand,
-  serializeAws_json1_1BatchExecuteStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
@@ -156,14 +153,14 @@ export class BatchExecuteStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchExecuteStatementCommand(input, context);
+    return se_BatchExecuteStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_json1_1BatchExecuteStatementCommand(output, context);
+    return de_BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

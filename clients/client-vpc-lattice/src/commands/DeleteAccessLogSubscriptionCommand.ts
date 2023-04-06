@@ -15,8 +15,8 @@ import {
 
 import { DeleteAccessLogSubscriptionRequest, DeleteAccessLogSubscriptionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAccessLogSubscriptionCommand,
-  serializeAws_restJson1DeleteAccessLogSubscriptionCommand,
+  de_DeleteAccessLogSubscriptionCommand,
+  se_DeleteAccessLogSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -138,7 +138,7 @@ export class DeleteAccessLogSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessLogSubscriptionCommand(input, context);
+    return se_DeleteAccessLogSubscriptionCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DeleteAccessLogSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessLogSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessLogSubscriptionCommand(output, context);
+    return de_DeleteAccessLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

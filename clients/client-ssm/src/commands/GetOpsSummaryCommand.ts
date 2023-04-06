@@ -15,10 +15,7 @@ import {
 
 import { GetOpsSummaryResult } from "../models/models_1";
 import { GetOpsSummaryRequest } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetOpsSummaryCommand,
-  serializeAws_json1_1GetOpsSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOpsSummaryCommand, se_GetOpsSummaryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -189,14 +186,14 @@ export class GetOpsSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOpsSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpsSummaryCommand(input, context);
+    return se_GetOpsSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsSummaryCommandOutput> {
-    return deserializeAws_json1_1GetOpsSummaryCommand(output, context);
+    return de_GetOpsSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

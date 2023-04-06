@@ -16,8 +16,8 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeRecommendationExportJobsCommand,
-  serializeAws_json1_0DescribeRecommendationExportJobsCommand,
+  de_DescribeRecommendationExportJobsCommand,
+  se_DescribeRecommendationExportJobsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -165,7 +165,7 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     input: DescribeRecommendationExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeRecommendationExportJobsCommand(input, context);
+    return se_DescribeRecommendationExportJobsCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecommendationExportJobsCommandOutput> {
-    return deserializeAws_json1_0DescribeRecommendationExportJobsCommand(output, context);
+    return de_DescribeRecommendationExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

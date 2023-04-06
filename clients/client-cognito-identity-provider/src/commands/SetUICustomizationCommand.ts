@@ -25,10 +25,7 @@ import {
   SetUICustomizationResponse,
   SetUICustomizationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUICustomizationCommand,
-  serializeAws_json1_1SetUICustomizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUICustomizationCommand, se_SetUICustomizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class SetUICustomizationCommand extends $Command<
    * @internal
    */
   private serialize(input: SetUICustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUICustomizationCommand(input, context);
+    return se_SetUICustomizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUICustomizationCommandOutput> {
-    return deserializeAws_json1_1SetUICustomizationCommand(output, context);
+    return de_SetUICustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

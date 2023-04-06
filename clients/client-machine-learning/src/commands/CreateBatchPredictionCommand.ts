@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBatchPredictionCommand,
-  serializeAws_json1_1CreateBatchPredictionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBatchPredictionCommand, se_CreateBatchPredictionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateBatchPredictionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBatchPredictionCommand(input, context);
+    return se_CreateBatchPredictionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionCommandOutput> {
-    return deserializeAws_json1_1CreateBatchPredictionCommand(output, context);
+    return de_CreateBatchPredictionCommand(output, context);
   }
 
   // Start section: command_body_extra

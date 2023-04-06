@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetIdentityNotificationTopicCommand,
-  serializeAws_querySetIdentityNotificationTopicCommand,
-} from "../protocols/Aws_query";
+import { de_SetIdentityNotificationTopicCommand, se_SetIdentityNotificationTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -145,7 +142,7 @@ export class SetIdentityNotificationTopicCommand extends $Command<
    * @internal
    */
   private serialize(input: SetIdentityNotificationTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityNotificationTopicCommand(input, context);
+    return se_SetIdentityNotificationTopicCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityNotificationTopicCommandOutput> {
-    return deserializeAws_querySetIdentityNotificationTopicCommand(output, context);
+    return de_SetIdentityNotificationTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

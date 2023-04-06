@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNetworkInterfaceCommand,
-  serializeAws_ec2CreateNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateNetworkInterfaceCommand, se_CreateNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -215,14 +212,14 @@ export class CreateNetworkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkInterfaceCommand(input, context);
+    return se_CreateNetworkInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2CreateNetworkInterfaceCommand(output, context);
+    return de_CreateNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

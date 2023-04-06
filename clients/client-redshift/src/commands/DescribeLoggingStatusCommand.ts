@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeLoggingStatusCommand,
-  serializeAws_queryDescribeLoggingStatusCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeLoggingStatusCommand, se_DescribeLoggingStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -125,14 +122,14 @@ export class DescribeLoggingStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLoggingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoggingStatusCommand(input, context);
+    return se_DescribeLoggingStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingStatusCommandOutput> {
-    return deserializeAws_queryDescribeLoggingStatusCommand(output, context);
+    return de_DescribeLoggingStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

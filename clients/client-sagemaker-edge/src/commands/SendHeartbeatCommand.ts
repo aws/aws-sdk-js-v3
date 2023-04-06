@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendHeartbeatRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendHeartbeatCommand,
-  serializeAws_restJson1SendHeartbeatCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendHeartbeatCommand, se_SendHeartbeatCommand } from "../protocols/Aws_restJson1";
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
 /**
@@ -167,14 +164,14 @@ export class SendHeartbeatCommand extends $Command<
    * @internal
    */
   private serialize(input: SendHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendHeartbeatCommand(input, context);
+    return se_SendHeartbeatCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendHeartbeatCommandOutput> {
-    return deserializeAws_restJson1SendHeartbeatCommand(output, context);
+    return de_SendHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

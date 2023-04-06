@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSendStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetSendStatisticsCommand,
-  serializeAws_queryGetSendStatisticsCommand,
-} from "../protocols/Aws_query";
+import { de_GetSendStatisticsCommand, se_GetSendStatisticsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -157,14 +154,14 @@ export class GetSendStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSendStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSendStatisticsCommand(input, context);
+    return se_GetSendStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSendStatisticsCommandOutput> {
-    return deserializeAws_queryGetSendStatisticsCommand(output, context);
+    return de_GetSendStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

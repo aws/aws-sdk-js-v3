@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateLensesInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLensesCommand,
-  serializeAws_restJson1DisassociateLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateLensesCommand, se_DisassociateLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -146,14 +143,14 @@ export class DisassociateLensesCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLensesCommand(input, context);
+    return se_DisassociateLensesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLensesCommandOutput> {
-    return deserializeAws_restJson1DisassociateLensesCommand(output, context);
+    return de_DisassociateLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
-import {
-  deserializeAws_queryStartInstanceRefreshCommand,
-  serializeAws_queryStartInstanceRefreshCommand,
-} from "../protocols/Aws_query";
+import { de_StartInstanceRefreshCommand, se_StartInstanceRefreshCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -296,14 +293,14 @@ export class StartInstanceRefreshCommand extends $Command<
    * @internal
    */
   private serialize(input: StartInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartInstanceRefreshCommand(input, context);
+    return se_StartInstanceRefreshCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstanceRefreshCommandOutput> {
-    return deserializeAws_queryStartInstanceRefreshCommand(output, context);
+    return de_StartInstanceRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

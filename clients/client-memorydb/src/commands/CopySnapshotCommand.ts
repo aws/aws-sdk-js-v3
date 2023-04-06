@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { CopySnapshotRequest, CopySnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CopySnapshotCommand,
-  serializeAws_json1_1CopySnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CopySnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_json1_1CopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

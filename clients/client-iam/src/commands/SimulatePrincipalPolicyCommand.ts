@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SimulatePolicyResponse, SimulatePrincipalPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_querySimulatePrincipalPolicyCommand,
-  serializeAws_querySimulatePrincipalPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_SimulatePrincipalPolicyCommand, se_SimulatePrincipalPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class SimulatePrincipalPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: SimulatePrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimulatePrincipalPolicyCommand(input, context);
+    return se_SimulatePrincipalPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulatePrincipalPolicyCommandOutput> {
-    return deserializeAws_querySimulatePrincipalPolicyCommand(output, context);
+    return de_SimulatePrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

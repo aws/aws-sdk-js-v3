@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteIntentVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntentVersionCommand,
-  serializeAws_restJson1DeleteIntentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIntentVersionCommand, se_DeleteIntentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class DeleteIntentVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIntentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntentVersionCommand(input, context);
+    return se_DeleteIntentVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntentVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteIntentVersionCommand(output, context);
+    return de_DeleteIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

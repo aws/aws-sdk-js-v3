@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListUsersCommand, serializeAws_json1_1ListUsersCommand } from "../protocols/Aws_json1_1";
+import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -134,14 +134,14 @@ export class ListUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsersCommand(input, context);
+    return se_ListUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return deserializeAws_json1_1ListUsersCommand(output, context);
+    return de_ListUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

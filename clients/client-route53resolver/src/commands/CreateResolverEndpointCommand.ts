@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateResolverEndpointRequest, CreateResolverEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResolverEndpointCommand,
-  serializeAws_json1_1CreateResolverEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateResolverEndpointCommand, se_CreateResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -170,14 +167,14 @@ export class CreateResolverEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResolverEndpointCommand(input, context);
+    return se_CreateResolverEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverEndpointCommandOutput> {
-    return deserializeAws_json1_1CreateResolverEndpointCommand(output, context);
+    return de_CreateResolverEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

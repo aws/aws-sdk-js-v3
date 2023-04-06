@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListBulkDeploymentsRequest, ListBulkDeploymentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBulkDeploymentsCommand,
-  serializeAws_restJson1ListBulkDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBulkDeploymentsCommand, se_ListBulkDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class ListBulkDeploymentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBulkDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBulkDeploymentsCommand(input, context);
+    return se_ListBulkDeploymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListBulkDeploymentsCommand(output, context);
+    return de_ListBulkDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

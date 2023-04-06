@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DeleteTrustRequest, DeleteTrustResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTrustCommand,
-  serializeAws_json1_1DeleteTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTrustCommand, se_DeleteTrustCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteTrustCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrustCommand(input, context);
+    return se_DeleteTrustCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustCommandOutput> {
-    return deserializeAws_json1_1DeleteTrustCommand(output, context);
+    return de_DeleteTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

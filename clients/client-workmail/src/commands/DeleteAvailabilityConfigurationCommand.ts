@@ -15,8 +15,8 @@ import {
 
 import { DeleteAvailabilityConfigurationRequest, DeleteAvailabilityConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteAvailabilityConfigurationCommand,
-  serializeAws_json1_1DeleteAvailabilityConfigurationCommand,
+  de_DeleteAvailabilityConfigurationCommand,
+  se_DeleteAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -134,7 +134,7 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     input: DeleteAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAvailabilityConfigurationCommand(input, context);
+    return se_DeleteAvailabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAvailabilityConfigurationCommand(output, context);
+    return de_DeleteAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

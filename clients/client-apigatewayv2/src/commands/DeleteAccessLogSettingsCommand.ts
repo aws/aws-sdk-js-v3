@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteAccessLogSettingsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessLogSettingsCommand,
-  serializeAws_restJson1DeleteAccessLogSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccessLogSettingsCommand, se_DeleteAccessLogSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteAccessLogSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessLogSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessLogSettingsCommand(input, context);
+    return se_DeleteAccessLogSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessLogSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessLogSettingsCommand(output, context);
+    return de_DeleteAccessLogSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

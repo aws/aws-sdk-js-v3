@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeSettingsRequest, DescribeSettingsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSettingsCommand,
-  serializeAws_json1_1DescribeSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSettingsCommand, se_DescribeSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSettingsCommand(input, context);
+    return se_DescribeSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeSettingsCommand(output, context);
+    return de_DescribeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

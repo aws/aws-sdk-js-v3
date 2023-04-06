@@ -16,8 +16,8 @@ import {
 import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutAccountSendingAttributesCommand,
-  serializeAws_restJson1PutAccountSendingAttributesCommand,
+  de_PutAccountSendingAttributesCommand,
+  se_PutAccountSendingAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -128,7 +128,7 @@ export class PutAccountSendingAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccountSendingAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSendingAttributesCommand(input, context);
+    return se_PutAccountSendingAttributesCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class PutAccountSendingAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSendingAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSendingAttributesCommand(output, context);
+    return de_PutAccountSendingAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

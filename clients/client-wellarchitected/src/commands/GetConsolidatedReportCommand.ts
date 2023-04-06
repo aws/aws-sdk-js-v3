@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetConsolidatedReportInput, GetConsolidatedReportOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConsolidatedReportCommand,
-  serializeAws_restJson1GetConsolidatedReportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConsolidatedReportCommand, se_GetConsolidatedReportCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -139,14 +136,14 @@ export class GetConsolidatedReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConsolidatedReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConsolidatedReportCommand(input, context);
+    return se_GetConsolidatedReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsolidatedReportCommandOutput> {
-    return deserializeAws_restJson1GetConsolidatedReportCommand(output, context);
+    return de_GetConsolidatedReportCommand(output, context);
   }
 
   // Start section: command_body_extra

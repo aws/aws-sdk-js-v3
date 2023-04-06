@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { AbortVaultLockInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AbortVaultLockCommand,
-  serializeAws_restJson1AbortVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AbortVaultLockCommand, se_AbortVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class AbortVaultLockCommand extends $Command<
    * @internal
    */
   private serialize(input: AbortVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AbortVaultLockCommand(input, context);
+    return se_AbortVaultLockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortVaultLockCommandOutput> {
-    return deserializeAws_restJson1AbortVaultLockCommand(output, context);
+    return de_AbortVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

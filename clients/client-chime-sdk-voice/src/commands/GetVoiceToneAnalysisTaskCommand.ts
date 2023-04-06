@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { GetVoiceToneAnalysisTaskRequest, GetVoiceToneAnalysisTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVoiceToneAnalysisTaskCommand,
-  serializeAws_restJson1GetVoiceToneAnalysisTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceToneAnalysisTaskCommand, se_GetVoiceToneAnalysisTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class GetVoiceToneAnalysisTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceToneAnalysisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceToneAnalysisTaskCommand(input, context);
+    return se_GetVoiceToneAnalysisTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceToneAnalysisTaskCommandOutput> {
-    return deserializeAws_restJson1GetVoiceToneAnalysisTaskCommand(output, context);
+    return de_GetVoiceToneAnalysisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

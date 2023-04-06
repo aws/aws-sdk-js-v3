@@ -18,8 +18,8 @@ import {
   UpdateManagedRuleSetVersionExpiryDateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
-  serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
+  de_UpdateManagedRuleSetVersionExpiryDateCommand,
+  se_UpdateManagedRuleSetVersionExpiryDateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
@@ -179,7 +179,7 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
+    return se_UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
   }
 
   /**
@@ -189,7 +189,7 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
+    return de_UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
   }
 
   // Start section: command_body_extra

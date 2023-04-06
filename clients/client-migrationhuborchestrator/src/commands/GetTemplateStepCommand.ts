@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { GetTemplateStepRequest, GetTemplateStepResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemplateStepCommand,
-  serializeAws_restJson1GetTemplateStepCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTemplateStepCommand, se_GetTemplateStepCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetTemplateStepCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTemplateStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemplateStepCommand(input, context);
+    return se_GetTemplateStepCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateStepCommandOutput> {
-    return deserializeAws_restJson1GetTemplateStepCommand(output, context);
+    return de_GetTemplateStepCommand(output, context);
   }
 
   // Start section: command_body_extra

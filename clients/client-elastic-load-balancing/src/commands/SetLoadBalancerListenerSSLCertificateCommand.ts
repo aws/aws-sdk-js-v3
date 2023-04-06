@@ -23,8 +23,8 @@ import {
   SetLoadBalancerListenerSSLCertificateOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
-  serializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
+  de_SetLoadBalancerListenerSSLCertificateCommand,
+  se_SetLoadBalancerListenerSSLCertificateCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -168,7 +168,7 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     input: SetLoadBalancerListenerSSLCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerListenerSSLCertificateCommand(input, context);
+    return se_SetLoadBalancerListenerSSLCertificateCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> {
-    return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand(output, context);
+    return de_SetLoadBalancerListenerSSLCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

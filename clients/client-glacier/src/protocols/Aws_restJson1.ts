@@ -135,7 +135,10 @@ import {
   VaultNotificationConfig,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AbortMultipartUploadCommand = async (
+/**
+ * serializeAws_restJson1AbortMultipartUploadCommand
+ */
+export const se_AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -159,7 +162,10 @@ export const serializeAws_restJson1AbortMultipartUploadCommand = async (
   });
 };
 
-export const serializeAws_restJson1AbortVaultLockCommand = async (
+/**
+ * serializeAws_restJson1AbortVaultLockCommand
+ */
+export const se_AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -182,7 +188,10 @@ export const serializeAws_restJson1AbortVaultLockCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddTagsToVaultCommand = async (
+/**
+ * serializeAws_restJson1AddTagsToVaultCommand
+ */
+export const se_AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -199,7 +208,7 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -213,7 +222,10 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
+/**
+ * serializeAws_restJson1CompleteMultipartUploadCommand
+ */
+export const se_CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -240,7 +252,10 @@ export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
   });
 };
 
-export const serializeAws_restJson1CompleteVaultLockCommand = async (
+/**
+ * serializeAws_restJson1CompleteVaultLockCommand
+ */
+export const se_CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -264,7 +279,10 @@ export const serializeAws_restJson1CompleteVaultLockCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVaultCommand = async (
+/**
+ * serializeAws_restJson1CreateVaultCommand
+ */
+export const se_CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -286,7 +304,10 @@ export const serializeAws_restJson1CreateVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteArchiveCommand = async (
+/**
+ * serializeAws_restJson1DeleteArchiveCommand
+ */
+export const se_DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -310,7 +331,10 @@ export const serializeAws_restJson1DeleteArchiveCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVaultCommand = async (
+/**
+ * serializeAws_restJson1DeleteVaultCommand
+ */
+export const se_DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -332,7 +356,10 @@ export const serializeAws_restJson1DeleteVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1DeleteVaultAccessPolicyCommand
+ */
+export const se_DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -355,7 +382,10 @@ export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1DeleteVaultNotificationsCommand
+ */
+export const se_DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +408,10 @@ export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeJobCommand
+ */
+export const se_DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -402,7 +435,10 @@ export const serializeAws_restJson1DescribeJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVaultCommand = async (
+/**
+ * serializeAws_restJson1DescribeVaultCommand
+ */
+export const se_DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -424,7 +460,10 @@ export const serializeAws_restJson1DescribeVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
+/**
+ * serializeAws_restJson1GetDataRetrievalPolicyCommand
+ */
+export const se_GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -445,7 +484,10 @@ export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetJobOutputCommand = async (
+/**
+ * serializeAws_restJson1GetJobOutputCommand
+ */
+export const se_GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -471,7 +513,10 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1GetVaultAccessPolicyCommand
+ */
+export const se_GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -494,7 +539,10 @@ export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVaultLockCommand = async (
+/**
+ * serializeAws_restJson1GetVaultLockCommand
+ */
+export const se_GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -517,7 +565,10 @@ export const serializeAws_restJson1GetVaultLockCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1GetVaultNotificationsCommand
+ */
+export const se_GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -540,7 +591,10 @@ export const serializeAws_restJson1GetVaultNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1InitiateJobCommand = async (
+/**
+ * serializeAws_restJson1InitiateJobCommand
+ */
+export const se_InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -554,7 +608,7 @@ export const serializeAws_restJson1InitiateJobCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.jobParameters !== undefined) {
-    body = serializeAws_restJson1JobParameters(input.jobParameters, context);
+    body = se_JobParameters(input.jobParameters, context);
   }
   if (body === undefined) {
     body = {};
@@ -571,7 +625,10 @@ export const serializeAws_restJson1InitiateJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
+/**
+ * serializeAws_restJson1InitiateMultipartUploadCommand
+ */
+export const se_InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -597,7 +654,10 @@ export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
   });
 };
 
-export const serializeAws_restJson1InitiateVaultLockCommand = async (
+/**
+ * serializeAws_restJson1InitiateVaultLockCommand
+ */
+export const se_InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -612,7 +672,7 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
-    body = serializeAws_restJson1VaultLockPolicy(input.policy, context);
+    body = se_VaultLockPolicy(input.policy, context);
   }
   if (body === undefined) {
     body = {};
@@ -629,7 +689,10 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJobsCommand = async (
+/**
+ * serializeAws_restJson1ListJobsCommand
+ */
+export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -658,7 +721,10 @@ export const serializeAws_restJson1ListJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListMultipartUploadsCommand = async (
+/**
+ * serializeAws_restJson1ListMultipartUploadsCommand
+ */
+export const se_ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -686,7 +752,10 @@ export const serializeAws_restJson1ListMultipartUploadsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPartsCommand = async (
+/**
+ * serializeAws_restJson1ListPartsCommand
+ */
+export const se_ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -715,7 +784,10 @@ export const serializeAws_restJson1ListPartsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
+/**
+ * serializeAws_restJson1ListProvisionedCapacityCommand
+ */
+export const se_ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,7 +808,10 @@ export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForVaultCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForVaultCommand
+ */
+export const se_ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -758,7 +833,10 @@ export const serializeAws_restJson1ListTagsForVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVaultsCommand = async (
+/**
+ * serializeAws_restJson1ListVaultsCommand
+ */
+export const se_ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,7 +861,10 @@ export const serializeAws_restJson1ListVaultsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
+/**
+ * serializeAws_restJson1PurchaseProvisionedCapacityCommand
+ */
+export const se_PurchaseProvisionedCapacityCommand = async (
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -804,7 +885,10 @@ export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
+/**
+ * serializeAws_restJson1RemoveTagsFromVaultCommand
+ */
+export const se_RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -821,7 +905,7 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -835,7 +919,10 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
+/**
+ * serializeAws_restJson1SetDataRetrievalPolicyCommand
+ */
+export const se_SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -848,7 +935,7 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy != null && { Policy: serializeAws_restJson1DataRetrievalPolicy(input.Policy, context) }),
+    ...(input.Policy != null && { Policy: se_DataRetrievalPolicy(input.Policy, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -861,7 +948,10 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1SetVaultAccessPolicyCommand
+ */
+export const se_SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -876,7 +966,7 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
-    body = serializeAws_restJson1VaultAccessPolicy(input.policy, context);
+    body = se_VaultAccessPolicy(input.policy, context);
   }
   if (body === undefined) {
     body = {};
@@ -893,7 +983,10 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1SetVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1SetVaultNotificationsCommand
+ */
+export const se_SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -908,7 +1001,7 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.vaultNotificationConfig !== undefined) {
-    body = serializeAws_restJson1VaultNotificationConfig(input.vaultNotificationConfig, context);
+    body = se_VaultNotificationConfig(input.vaultNotificationConfig, context);
   }
   if (body === undefined) {
     body = {};
@@ -925,7 +1018,10 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UploadArchiveCommand = async (
+/**
+ * serializeAws_restJson1UploadArchiveCommand
+ */
+export const se_UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -954,7 +1050,10 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
   });
 };
 
-export const serializeAws_restJson1UploadMultipartPartCommand = async (
+/**
+ * serializeAws_restJson1UploadMultipartPartCommand
+ */
+export const se_UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -985,12 +1084,15 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AbortMultipartUploadCommand = async (
+/**
+ * deserializeAws_restJson1AbortMultipartUploadCommand
+ */
+export const de_AbortMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AbortMultipartUploadCommandError(output, context);
+    return de_AbortMultipartUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -999,7 +1101,10 @@ export const deserializeAws_restJson1AbortMultipartUploadCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AbortMultipartUploadCommandError = async (
+/**
+ * deserializeAws_restJson1AbortMultipartUploadCommandError
+ */
+const de_AbortMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> => {
@@ -1011,16 +1116,16 @@ const deserializeAws_restJson1AbortMultipartUploadCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1032,12 +1137,15 @@ const deserializeAws_restJson1AbortMultipartUploadCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1AbortVaultLockCommand = async (
+/**
+ * deserializeAws_restJson1AbortVaultLockCommand
+ */
+export const de_AbortVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AbortVaultLockCommandError(output, context);
+    return de_AbortVaultLockCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1046,7 +1154,10 @@ export const deserializeAws_restJson1AbortVaultLockCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AbortVaultLockCommandError = async (
+/**
+ * deserializeAws_restJson1AbortVaultLockCommandError
+ */
+const de_AbortVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortVaultLockCommandOutput> => {
@@ -1058,16 +1169,16 @@ const deserializeAws_restJson1AbortVaultLockCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1079,12 +1190,15 @@ const deserializeAws_restJson1AbortVaultLockCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1AddTagsToVaultCommand = async (
+/**
+ * deserializeAws_restJson1AddTagsToVaultCommand
+ */
+export const de_AddTagsToVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddTagsToVaultCommandError(output, context);
+    return de_AddTagsToVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1093,7 +1207,10 @@ export const deserializeAws_restJson1AddTagsToVaultCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AddTagsToVaultCommandError = async (
+/**
+ * deserializeAws_restJson1AddTagsToVaultCommandError
+ */
+const de_AddTagsToVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToVaultCommandOutput> => {
@@ -1105,19 +1222,19 @@ const deserializeAws_restJson1AddTagsToVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.glacier#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1129,12 +1246,15 @@ const deserializeAws_restJson1AddTagsToVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CompleteMultipartUploadCommand = async (
+/**
+ * deserializeAws_restJson1CompleteMultipartUploadCommand
+ */
+export const de_CompleteMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CompleteMultipartUploadCommandError(output, context);
+    return de_CompleteMultipartUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1146,7 +1266,10 @@ export const deserializeAws_restJson1CompleteMultipartUploadCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CompleteMultipartUploadCommandError = async (
+/**
+ * deserializeAws_restJson1CompleteMultipartUploadCommandError
+ */
+const de_CompleteMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> => {
@@ -1158,16 +1281,16 @@ const deserializeAws_restJson1CompleteMultipartUploadCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1179,12 +1302,15 @@ const deserializeAws_restJson1CompleteMultipartUploadCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CompleteVaultLockCommand = async (
+/**
+ * deserializeAws_restJson1CompleteVaultLockCommand
+ */
+export const de_CompleteVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CompleteVaultLockCommandError(output, context);
+    return de_CompleteVaultLockCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1193,7 +1319,10 @@ export const deserializeAws_restJson1CompleteVaultLockCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CompleteVaultLockCommandError = async (
+/**
+ * deserializeAws_restJson1CompleteVaultLockCommandError
+ */
+const de_CompleteVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteVaultLockCommandOutput> => {
@@ -1205,16 +1334,16 @@ const deserializeAws_restJson1CompleteVaultLockCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1226,12 +1355,15 @@ const deserializeAws_restJson1CompleteVaultLockCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateVaultCommand = async (
+/**
+ * deserializeAws_restJson1CreateVaultCommand
+ */
+export const de_CreateVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVaultCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVaultCommandError(output, context);
+    return de_CreateVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1241,7 +1373,10 @@ export const deserializeAws_restJson1CreateVaultCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateVaultCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVaultCommandError
+ */
+const de_CreateVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVaultCommandOutput> => {
@@ -1253,16 +1388,16 @@ const deserializeAws_restJson1CreateVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.glacier#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1274,12 +1409,15 @@ const deserializeAws_restJson1CreateVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteArchiveCommand = async (
+/**
+ * deserializeAws_restJson1DeleteArchiveCommand
+ */
+export const de_DeleteArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteArchiveCommandError(output, context);
+    return de_DeleteArchiveCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1288,7 +1426,10 @@ export const deserializeAws_restJson1DeleteArchiveCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteArchiveCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteArchiveCommandError
+ */
+const de_DeleteArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> => {
@@ -1300,16 +1441,16 @@ const deserializeAws_restJson1DeleteArchiveCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1321,12 +1462,15 @@ const deserializeAws_restJson1DeleteArchiveCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteVaultCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVaultCommand
+ */
+export const de_DeleteVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVaultCommandError(output, context);
+    return de_DeleteVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1335,7 +1479,10 @@ export const deserializeAws_restJson1DeleteVaultCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVaultCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVaultCommandError
+ */
+const de_DeleteVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultCommandOutput> => {
@@ -1347,16 +1494,16 @@ const deserializeAws_restJson1DeleteVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1368,12 +1515,15 @@ const deserializeAws_restJson1DeleteVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVaultAccessPolicyCommand
+ */
+export const de_DeleteVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVaultAccessPolicyCommandError(output, context);
+    return de_DeleteVaultAccessPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1382,7 +1532,10 @@ export const deserializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVaultAccessPolicyCommandError
+ */
+const de_DeleteVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultAccessPolicyCommandOutput> => {
@@ -1394,16 +1547,16 @@ const deserializeAws_restJson1DeleteVaultAccessPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1415,12 +1568,15 @@ const deserializeAws_restJson1DeleteVaultAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVaultNotificationsCommand
+ */
+export const de_DeleteVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVaultNotificationsCommandError(output, context);
+    return de_DeleteVaultNotificationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1429,7 +1585,10 @@ export const deserializeAws_restJson1DeleteVaultNotificationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVaultNotificationsCommandError
+ */
+const de_DeleteVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultNotificationsCommandOutput> => {
@@ -1441,16 +1600,16 @@ const deserializeAws_restJson1DeleteVaultNotificationsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1462,12 +1621,15 @@ const deserializeAws_restJson1DeleteVaultNotificationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeJobCommand
+ */
+export const de_DescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeJobCommandError(output, context);
+    return de_DescribeJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1495,7 +1657,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.CreationDate = __expectString(data.CreationDate);
   }
   if (data.InventoryRetrievalParameters != null) {
-    contents.InventoryRetrievalParameters = deserializeAws_restJson1InventoryRetrievalJobDescription(
+    contents.InventoryRetrievalParameters = de_InventoryRetrievalJobDescription(
       data.InventoryRetrievalParameters,
       context
     );
@@ -1513,7 +1675,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.JobOutputPath = __expectString(data.JobOutputPath);
   }
   if (data.OutputLocation != null) {
-    contents.OutputLocation = deserializeAws_restJson1OutputLocation(data.OutputLocation, context);
+    contents.OutputLocation = de_OutputLocation(data.OutputLocation, context);
   }
   if (data.RetrievalByteRange != null) {
     contents.RetrievalByteRange = __expectString(data.RetrievalByteRange);
@@ -1525,7 +1687,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.SNSTopic = __expectString(data.SNSTopic);
   }
   if (data.SelectParameters != null) {
-    contents.SelectParameters = deserializeAws_restJson1SelectParameters(data.SelectParameters, context);
+    contents.SelectParameters = de_SelectParameters(data.SelectParameters, context);
   }
   if (data.StatusCode != null) {
     contents.StatusCode = __expectString(data.StatusCode);
@@ -1542,7 +1704,10 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeJobCommandError
+ */
+const de_DescribeJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
@@ -1554,16 +1719,16 @@ const deserializeAws_restJson1DescribeJobCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1575,12 +1740,15 @@ const deserializeAws_restJson1DescribeJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeVaultCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVaultCommand
+ */
+export const de_DescribeVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVaultCommandError(output, context);
+    return de_DescribeVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1607,7 +1775,10 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVaultCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVaultCommandError
+ */
+const de_DescribeVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVaultCommandOutput> => {
@@ -1619,16 +1790,16 @@ const deserializeAws_restJson1DescribeVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1640,24 +1811,30 @@ const deserializeAws_restJson1DescribeVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDataRetrievalPolicyCommand = async (
+/**
+ * deserializeAws_restJson1GetDataRetrievalPolicyCommand
+ */
+export const de_GetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDataRetrievalPolicyCommandError(output, context);
+    return de_GetDataRetrievalPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy != null) {
-    contents.Policy = deserializeAws_restJson1DataRetrievalPolicy(data.Policy, context);
+    contents.Policy = de_DataRetrievalPolicy(data.Policy, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetDataRetrievalPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1GetDataRetrievalPolicyCommandError
+ */
+const de_GetDataRetrievalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataRetrievalPolicyCommandOutput> => {
@@ -1669,13 +1846,13 @@ const deserializeAws_restJson1GetDataRetrievalPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1687,12 +1864,15 @@ const deserializeAws_restJson1GetDataRetrievalPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetJobOutputCommand = async (
+/**
+ * deserializeAws_restJson1GetJobOutputCommand
+ */
+export const de_GetJobOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetJobOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetJobOutputCommandError(output, context);
+    return de_GetJobOutputCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1711,7 +1891,10 @@ export const deserializeAws_restJson1GetJobOutputCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetJobOutputCommandError = async (
+/**
+ * deserializeAws_restJson1GetJobOutputCommandError
+ */
+const de_GetJobOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobOutputCommandOutput> => {
@@ -1723,16 +1906,16 @@ const deserializeAws_restJson1GetJobOutputCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1744,22 +1927,28 @@ const deserializeAws_restJson1GetJobOutputCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1GetVaultAccessPolicyCommand
+ */
+export const de_GetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVaultAccessPolicyCommandError(output, context);
+    return de_GetVaultAccessPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.policy = deserializeAws_restJson1VaultAccessPolicy(data, context);
+  contents.policy = de_VaultAccessPolicy(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1GetVaultAccessPolicyCommandError
+ */
+const de_GetVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultAccessPolicyCommandOutput> => {
@@ -1771,16 +1960,16 @@ const deserializeAws_restJson1GetVaultAccessPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1792,12 +1981,15 @@ const deserializeAws_restJson1GetVaultAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetVaultLockCommand = async (
+/**
+ * deserializeAws_restJson1GetVaultLockCommand
+ */
+export const de_GetVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultLockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVaultLockCommandError(output, context);
+    return de_GetVaultLockCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1818,7 +2010,10 @@ export const deserializeAws_restJson1GetVaultLockCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetVaultLockCommandError = async (
+/**
+ * deserializeAws_restJson1GetVaultLockCommandError
+ */
+const de_GetVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultLockCommandOutput> => {
@@ -1830,16 +2025,16 @@ const deserializeAws_restJson1GetVaultLockCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1851,22 +2046,28 @@ const deserializeAws_restJson1GetVaultLockCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1GetVaultNotificationsCommand
+ */
+export const de_GetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVaultNotificationsCommandError(output, context);
+    return de_GetVaultNotificationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.vaultNotificationConfig = deserializeAws_restJson1VaultNotificationConfig(data, context);
+  contents.vaultNotificationConfig = de_VaultNotificationConfig(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetVaultNotificationsCommandError
+ */
+const de_GetVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultNotificationsCommandOutput> => {
@@ -1878,16 +2079,16 @@ const deserializeAws_restJson1GetVaultNotificationsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1899,12 +2100,15 @@ const deserializeAws_restJson1GetVaultNotificationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1InitiateJobCommand = async (
+/**
+ * deserializeAws_restJson1InitiateJobCommand
+ */
+export const de_InitiateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InitiateJobCommandError(output, context);
+    return de_InitiateJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1916,7 +2120,10 @@ export const deserializeAws_restJson1InitiateJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1InitiateJobCommandError = async (
+/**
+ * deserializeAws_restJson1InitiateJobCommandError
+ */
+const de_InitiateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateJobCommandOutput> => {
@@ -1928,22 +2135,22 @@ const deserializeAws_restJson1InitiateJobCommandError = async (
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.glacier#InsufficientCapacityException":
-      throw await deserializeAws_restJson1InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "PolicyEnforcedException":
     case "com.amazonaws.glacier#PolicyEnforcedException":
-      throw await deserializeAws_restJson1PolicyEnforcedExceptionResponse(parsedOutput, context);
+      throw await de_PolicyEnforcedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1955,12 +2162,15 @@ const deserializeAws_restJson1InitiateJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1InitiateMultipartUploadCommand = async (
+/**
+ * deserializeAws_restJson1InitiateMultipartUploadCommand
+ */
+export const de_InitiateMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InitiateMultipartUploadCommandError(output, context);
+    return de_InitiateMultipartUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1971,7 +2181,10 @@ export const deserializeAws_restJson1InitiateMultipartUploadCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1InitiateMultipartUploadCommandError = async (
+/**
+ * deserializeAws_restJson1InitiateMultipartUploadCommandError
+ */
+const de_InitiateMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateMultipartUploadCommandOutput> => {
@@ -1983,16 +2196,16 @@ const deserializeAws_restJson1InitiateMultipartUploadCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2004,12 +2217,15 @@ const deserializeAws_restJson1InitiateMultipartUploadCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1InitiateVaultLockCommand = async (
+/**
+ * deserializeAws_restJson1InitiateVaultLockCommand
+ */
+export const de_InitiateVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateVaultLockCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InitiateVaultLockCommandError(output, context);
+    return de_InitiateVaultLockCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2019,7 +2235,10 @@ export const deserializeAws_restJson1InitiateVaultLockCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1InitiateVaultLockCommandError = async (
+/**
+ * deserializeAws_restJson1InitiateVaultLockCommandError
+ */
+const de_InitiateVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateVaultLockCommandOutput> => {
@@ -2031,16 +2250,16 @@ const deserializeAws_restJson1InitiateVaultLockCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2052,19 +2271,22 @@ const deserializeAws_restJson1InitiateVaultLockCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListJobsCommand
+ */
+export const de_ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJobsCommandError(output, context);
+    return de_ListJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.JobList != null) {
-    contents.JobList = deserializeAws_restJson1JobList(data.JobList, context);
+    contents.JobList = de_JobList(data.JobList, context);
   }
   if (data.Marker != null) {
     contents.Marker = __expectString(data.Marker);
@@ -2072,7 +2294,10 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListJobsCommandError
+ */
+const de_ListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
@@ -2084,16 +2309,16 @@ const deserializeAws_restJson1ListJobsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2105,12 +2330,15 @@ const deserializeAws_restJson1ListJobsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
+/**
+ * deserializeAws_restJson1ListMultipartUploadsCommand
+ */
+export const de_ListMultipartUploadsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListMultipartUploadsCommandError(output, context);
+    return de_ListMultipartUploadsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2120,12 +2348,15 @@ export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
     contents.Marker = __expectString(data.Marker);
   }
   if (data.UploadsList != null) {
-    contents.UploadsList = deserializeAws_restJson1UploadsList(data.UploadsList, context);
+    contents.UploadsList = de_UploadsList(data.UploadsList, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListMultipartUploadsCommandError = async (
+/**
+ * deserializeAws_restJson1ListMultipartUploadsCommandError
+ */
+const de_ListMultipartUploadsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> => {
@@ -2137,16 +2368,16 @@ const deserializeAws_restJson1ListMultipartUploadsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2158,12 +2389,15 @@ const deserializeAws_restJson1ListMultipartUploadsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListPartsCommand = async (
+/**
+ * deserializeAws_restJson1ListPartsCommand
+ */
+export const de_ListPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPartsCommandError(output, context);
+    return de_ListPartsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2185,7 +2419,7 @@ export const deserializeAws_restJson1ListPartsCommand = async (
     contents.PartSizeInBytes = __expectLong(data.PartSizeInBytes);
   }
   if (data.Parts != null) {
-    contents.Parts = deserializeAws_restJson1PartList(data.Parts, context);
+    contents.Parts = de_PartList(data.Parts, context);
   }
   if (data.VaultARN != null) {
     contents.VaultARN = __expectString(data.VaultARN);
@@ -2193,7 +2427,10 @@ export const deserializeAws_restJson1ListPartsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListPartsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPartsCommandError
+ */
+const de_ListPartsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> => {
@@ -2205,16 +2442,16 @@ const deserializeAws_restJson1ListPartsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2226,27 +2463,30 @@ const deserializeAws_restJson1ListPartsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListProvisionedCapacityCommand = async (
+/**
+ * deserializeAws_restJson1ListProvisionedCapacityCommand
+ */
+export const de_ListProvisionedCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProvisionedCapacityCommandError(output, context);
+    return de_ListProvisionedCapacityCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProvisionedCapacityList != null) {
-    contents.ProvisionedCapacityList = deserializeAws_restJson1ProvisionedCapacityList(
-      data.ProvisionedCapacityList,
-      context
-    );
+    contents.ProvisionedCapacityList = de_ProvisionedCapacityList(data.ProvisionedCapacityList, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListProvisionedCapacityCommandError = async (
+/**
+ * deserializeAws_restJson1ListProvisionedCapacityCommandError
+ */
+const de_ListProvisionedCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedCapacityCommandOutput> => {
@@ -2258,13 +2498,13 @@ const deserializeAws_restJson1ListProvisionedCapacityCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2276,24 +2516,30 @@ const deserializeAws_restJson1ListProvisionedCapacityCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForVaultCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForVaultCommand
+ */
+export const de_ListTagsForVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForVaultCommandError(output, context);
+    return de_ListTagsForVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
+    contents.Tags = de_TagMap(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForVaultCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForVaultCommandError
+ */
+const de_ListTagsForVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForVaultCommandOutput> => {
@@ -2305,16 +2551,16 @@ const deserializeAws_restJson1ListTagsForVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2326,12 +2572,15 @@ const deserializeAws_restJson1ListTagsForVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListVaultsCommand = async (
+/**
+ * deserializeAws_restJson1ListVaultsCommand
+ */
+export const de_ListVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVaultsCommandError(output, context);
+    return de_ListVaultsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2341,12 +2590,15 @@ export const deserializeAws_restJson1ListVaultsCommand = async (
     contents.Marker = __expectString(data.Marker);
   }
   if (data.VaultList != null) {
-    contents.VaultList = deserializeAws_restJson1VaultList(data.VaultList, context);
+    contents.VaultList = de_VaultList(data.VaultList, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListVaultsCommandError = async (
+/**
+ * deserializeAws_restJson1ListVaultsCommandError
+ */
+const de_ListVaultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVaultsCommandOutput> => {
@@ -2358,16 +2610,16 @@ const deserializeAws_restJson1ListVaultsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2379,12 +2631,15 @@ const deserializeAws_restJson1ListVaultsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
+/**
+ * deserializeAws_restJson1PurchaseProvisionedCapacityCommand
+ */
+export const de_PurchaseProvisionedCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PurchaseProvisionedCapacityCommandError(output, context);
+    return de_PurchaseProvisionedCapacityCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2394,7 +2649,10 @@ export const deserializeAws_restJson1PurchaseProvisionedCapacityCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1PurchaseProvisionedCapacityCommandError = async (
+/**
+ * deserializeAws_restJson1PurchaseProvisionedCapacityCommandError
+ */
+const de_PurchaseProvisionedCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseProvisionedCapacityCommandOutput> => {
@@ -2406,16 +2664,16 @@ const deserializeAws_restJson1PurchaseProvisionedCapacityCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.glacier#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2427,12 +2685,15 @@ const deserializeAws_restJson1PurchaseProvisionedCapacityCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RemoveTagsFromVaultCommand = async (
+/**
+ * deserializeAws_restJson1RemoveTagsFromVaultCommand
+ */
+export const de_RemoveTagsFromVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveTagsFromVaultCommandError(output, context);
+    return de_RemoveTagsFromVaultCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2441,7 +2702,10 @@ export const deserializeAws_restJson1RemoveTagsFromVaultCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveTagsFromVaultCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveTagsFromVaultCommandError
+ */
+const de_RemoveTagsFromVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromVaultCommandOutput> => {
@@ -2453,16 +2717,16 @@ const deserializeAws_restJson1RemoveTagsFromVaultCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2474,12 +2738,15 @@ const deserializeAws_restJson1RemoveTagsFromVaultCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SetDataRetrievalPolicyCommand = async (
+/**
+ * deserializeAws_restJson1SetDataRetrievalPolicyCommand
+ */
+export const de_SetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SetDataRetrievalPolicyCommandError(output, context);
+    return de_SetDataRetrievalPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2488,7 +2755,10 @@ export const deserializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SetDataRetrievalPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1SetDataRetrievalPolicyCommandError
+ */
+const de_SetDataRetrievalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDataRetrievalPolicyCommandOutput> => {
@@ -2500,13 +2770,13 @@ const deserializeAws_restJson1SetDataRetrievalPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2518,12 +2788,15 @@ const deserializeAws_restJson1SetDataRetrievalPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SetVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1SetVaultAccessPolicyCommand
+ */
+export const de_SetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SetVaultAccessPolicyCommandError(output, context);
+    return de_SetVaultAccessPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2532,7 +2805,10 @@ export const deserializeAws_restJson1SetVaultAccessPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SetVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1SetVaultAccessPolicyCommandError
+ */
+const de_SetVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultAccessPolicyCommandOutput> => {
@@ -2544,16 +2820,16 @@ const deserializeAws_restJson1SetVaultAccessPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2565,12 +2841,15 @@ const deserializeAws_restJson1SetVaultAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SetVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1SetVaultNotificationsCommand
+ */
+export const de_SetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SetVaultNotificationsCommandError(output, context);
+    return de_SetVaultNotificationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2579,7 +2858,10 @@ export const deserializeAws_restJson1SetVaultNotificationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SetVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1SetVaultNotificationsCommandError
+ */
+const de_SetVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultNotificationsCommandOutput> => {
@@ -2591,16 +2873,16 @@ const deserializeAws_restJson1SetVaultNotificationsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2612,12 +2894,15 @@ const deserializeAws_restJson1SetVaultNotificationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UploadArchiveCommand = async (
+/**
+ * deserializeAws_restJson1UploadArchiveCommand
+ */
+export const de_UploadArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadArchiveCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UploadArchiveCommandError(output, context);
+    return de_UploadArchiveCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2629,7 +2914,10 @@ export const deserializeAws_restJson1UploadArchiveCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UploadArchiveCommandError = async (
+/**
+ * deserializeAws_restJson1UploadArchiveCommandError
+ */
+const de_UploadArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadArchiveCommandOutput> => {
@@ -2641,19 +2929,19 @@ const deserializeAws_restJson1UploadArchiveCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.glacier#RequestTimeoutException":
-      throw await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2665,12 +2953,15 @@ const deserializeAws_restJson1UploadArchiveCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UploadMultipartPartCommand = async (
+/**
+ * deserializeAws_restJson1UploadMultipartPartCommand
+ */
+export const de_UploadMultipartPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadMultipartPartCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UploadMultipartPartCommandError(output, context);
+    return de_UploadMultipartPartCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2680,7 +2971,10 @@ export const deserializeAws_restJson1UploadMultipartPartCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UploadMultipartPartCommandError = async (
+/**
+ * deserializeAws_restJson1UploadMultipartPartCommandError
+ */
+const de_UploadMultipartPartCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadMultipartPartCommandOutput> => {
@@ -2692,19 +2986,19 @@ const deserializeAws_restJson1UploadMultipartPartCommandError = async (
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.glacier#RequestTimeoutException":
-      throw await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2717,7 +3011,10 @@ const deserializeAws_restJson1UploadMultipartPartCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InsufficientCapacityExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InsufficientCapacityExceptionRes
+ */
+const de_InsufficientCapacityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientCapacityException> => {
@@ -2739,7 +3036,10 @@ const deserializeAws_restJson1InsufficientCapacityExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
@@ -2761,7 +3061,10 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
@@ -2783,7 +3086,10 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MissingParameterValueExceptionRes
+ */
+const de_MissingParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingParameterValueException> => {
@@ -2805,7 +3111,10 @@ const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PolicyEnforcedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PolicyEnforcedExceptionRes
+ */
+const de_PolicyEnforcedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyEnforcedException> => {
@@ -2827,7 +3136,10 @@ const deserializeAws_restJson1PolicyEnforcedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestTimeoutExceptionRes
+ */
+const de_RequestTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestTimeoutException> => {
@@ -2849,7 +3161,10 @@ const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -2871,7 +3186,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -2893,15 +3211,21 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AccessControlPolicyList = (input: Grant[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AccessControlPolicyList
+ */
+const se_AccessControlPolicyList = (input: Grant[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Grant(entry, context);
+      return se_Grant(entry, context);
     });
 };
 
-const serializeAws_restJson1CSVInput = (input: CSVInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CSVInput
+ */
+const se_CSVInput = (input: CSVInput, context: __SerdeContext): any => {
   return {
     ...(input.Comments != null && { Comments: input.Comments }),
     ...(input.FieldDelimiter != null && { FieldDelimiter: input.FieldDelimiter }),
@@ -2912,7 +3236,10 @@ const serializeAws_restJson1CSVInput = (input: CSVInput, context: __SerdeContext
   };
 };
 
-const serializeAws_restJson1CSVOutput = (input: CSVOutput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CSVOutput
+ */
+const se_CSVOutput = (input: CSVOutput, context: __SerdeContext): any => {
   return {
     ...(input.FieldDelimiter != null && { FieldDelimiter: input.FieldDelimiter }),
     ...(input.QuoteCharacter != null && { QuoteCharacter: input.QuoteCharacter }),
@@ -2922,28 +3249,40 @@ const serializeAws_restJson1CSVOutput = (input: CSVOutput, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1DataRetrievalPolicy = (input: DataRetrievalPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataRetrievalPolicy
+ */
+const se_DataRetrievalPolicy = (input: DataRetrievalPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Rules != null && { Rules: serializeAws_restJson1DataRetrievalRulesList(input.Rules, context) }),
+    ...(input.Rules != null && { Rules: se_DataRetrievalRulesList(input.Rules, context) }),
   };
 };
 
-const serializeAws_restJson1DataRetrievalRule = (input: DataRetrievalRule, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataRetrievalRule
+ */
+const se_DataRetrievalRule = (input: DataRetrievalRule, context: __SerdeContext): any => {
   return {
     ...(input.BytesPerHour != null && { BytesPerHour: input.BytesPerHour }),
     ...(input.Strategy != null && { Strategy: input.Strategy }),
   };
 };
 
-const serializeAws_restJson1DataRetrievalRulesList = (input: DataRetrievalRule[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataRetrievalRulesList
+ */
+const se_DataRetrievalRulesList = (input: DataRetrievalRule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DataRetrievalRule(entry, context);
+      return se_DataRetrievalRule(entry, context);
     });
 };
 
-const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Encryption
+ */
+const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
   return {
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KMSContext != null && { KMSContext: input.KMSContext }),
@@ -2951,14 +3290,20 @@ const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1Grant = (input: Grant, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Grant
+ */
+const se_Grant = (input: Grant, context: __SerdeContext): any => {
   return {
-    ...(input.Grantee != null && { Grantee: serializeAws_restJson1Grantee(input.Grantee, context) }),
+    ...(input.Grantee != null && { Grantee: se_Grantee(input.Grantee, context) }),
     ...(input.Permission != null && { Permission: input.Permission }),
   };
 };
 
-const serializeAws_restJson1Grantee = (input: Grantee, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Grantee
+ */
+const se_Grantee = (input: Grantee, context: __SerdeContext): any => {
   return {
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
@@ -2968,7 +3313,10 @@ const serializeAws_restJson1Grantee = (input: Grantee, context: __SerdeContext):
   };
 };
 
-const serializeAws_restJson1hashmap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1hashmap
+ */
+const se_hashmap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2978,16 +3326,19 @@ const serializeAws_restJson1hashmap = (input: Record<string, string>, context: _
   }, {});
 };
 
-const serializeAws_restJson1InputSerialization = (input: InputSerialization, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InputSerialization
+ */
+const se_InputSerialization = (input: InputSerialization, context: __SerdeContext): any => {
   return {
-    ...(input.csv != null && { csv: serializeAws_restJson1CSVInput(input.csv, context) }),
+    ...(input.csv != null && { csv: se_CSVInput(input.csv, context) }),
   };
 };
 
-const serializeAws_restJson1InventoryRetrievalJobInput = (
-  input: InventoryRetrievalJobInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1InventoryRetrievalJobInput
+ */
+const se_InventoryRetrievalJobInput = (input: InventoryRetrievalJobInput, context: __SerdeContext): any => {
   return {
     ...(input.EndDate != null && { EndDate: input.EndDate }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -2996,31 +3347,30 @@ const serializeAws_restJson1InventoryRetrievalJobInput = (
   };
 };
 
-const serializeAws_restJson1JobParameters = (input: JobParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobParameters
+ */
+const se_JobParameters = (input: JobParameters, context: __SerdeContext): any => {
   return {
     ...(input.ArchiveId != null && { ArchiveId: input.ArchiveId }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Format != null && { Format: input.Format }),
     ...(input.InventoryRetrievalParameters != null && {
-      InventoryRetrievalParameters: serializeAws_restJson1InventoryRetrievalJobInput(
-        input.InventoryRetrievalParameters,
-        context
-      ),
+      InventoryRetrievalParameters: se_InventoryRetrievalJobInput(input.InventoryRetrievalParameters, context),
     }),
-    ...(input.OutputLocation != null && {
-      OutputLocation: serializeAws_restJson1OutputLocation(input.OutputLocation, context),
-    }),
+    ...(input.OutputLocation != null && { OutputLocation: se_OutputLocation(input.OutputLocation, context) }),
     ...(input.RetrievalByteRange != null && { RetrievalByteRange: input.RetrievalByteRange }),
     ...(input.SNSTopic != null && { SNSTopic: input.SNSTopic }),
-    ...(input.SelectParameters != null && {
-      SelectParameters: serializeAws_restJson1SelectParameters(input.SelectParameters, context),
-    }),
+    ...(input.SelectParameters != null && { SelectParameters: se_SelectParameters(input.SelectParameters, context) }),
     ...(input.Tier != null && { Tier: input.Tier }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_restJson1NotificationEventList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NotificationEventList
+ */
+const se_NotificationEventList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3028,47 +3378,62 @@ const serializeAws_restJson1NotificationEventList = (input: string[], context: _
     });
 };
 
-const serializeAws_restJson1OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1OutputLocation
+ */
+const se_OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
   return {
-    ...(input.S3 != null && { S3: serializeAws_restJson1S3Location(input.S3, context) }),
+    ...(input.S3 != null && { S3: se_S3Location(input.S3, context) }),
   };
 };
 
-const serializeAws_restJson1OutputSerialization = (input: OutputSerialization, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1OutputSerialization
+ */
+const se_OutputSerialization = (input: OutputSerialization, context: __SerdeContext): any => {
   return {
-    ...(input.csv != null && { csv: serializeAws_restJson1CSVOutput(input.csv, context) }),
+    ...(input.csv != null && { csv: se_CSVOutput(input.csv, context) }),
   };
 };
 
-const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1S3Location
+ */
+const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.AccessControlList != null && {
-      AccessControlList: serializeAws_restJson1AccessControlPolicyList(input.AccessControlList, context),
+      AccessControlList: se_AccessControlPolicyList(input.AccessControlList, context),
     }),
     ...(input.BucketName != null && { BucketName: input.BucketName }),
     ...(input.CannedACL != null && { CannedACL: input.CannedACL }),
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
     ...(input.StorageClass != null && { StorageClass: input.StorageClass }),
-    ...(input.Tagging != null && { Tagging: serializeAws_restJson1hashmap(input.Tagging, context) }),
-    ...(input.UserMetadata != null && { UserMetadata: serializeAws_restJson1hashmap(input.UserMetadata, context) }),
+    ...(input.Tagging != null && { Tagging: se_hashmap(input.Tagging, context) }),
+    ...(input.UserMetadata != null && { UserMetadata: se_hashmap(input.UserMetadata, context) }),
   };
 };
 
-const serializeAws_restJson1SelectParameters = (input: SelectParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SelectParameters
+ */
+const se_SelectParameters = (input: SelectParameters, context: __SerdeContext): any => {
   return {
     ...(input.Expression != null && { Expression: input.Expression }),
     ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
     ...(input.InputSerialization != null && {
-      InputSerialization: serializeAws_restJson1InputSerialization(input.InputSerialization, context),
+      InputSerialization: se_InputSerialization(input.InputSerialization, context),
     }),
     ...(input.OutputSerialization != null && {
-      OutputSerialization: serializeAws_restJson1OutputSerialization(input.OutputSerialization, context),
+      OutputSerialization: se_OutputSerialization(input.OutputSerialization, context),
     }),
   };
 };
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3076,7 +3441,10 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3086,41 +3454,53 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1VaultAccessPolicy = (input: VaultAccessPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VaultAccessPolicy
+ */
+const se_VaultAccessPolicy = (input: VaultAccessPolicy, context: __SerdeContext): any => {
   return {
     ...(input.Policy != null && { Policy: input.Policy }),
   };
 };
 
-const serializeAws_restJson1VaultLockPolicy = (input: VaultLockPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VaultLockPolicy
+ */
+const se_VaultLockPolicy = (input: VaultLockPolicy, context: __SerdeContext): any => {
   return {
     ...(input.Policy != null && { Policy: input.Policy }),
   };
 };
 
-const serializeAws_restJson1VaultNotificationConfig = (
-  input: VaultNotificationConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1VaultNotificationConfig
+ */
+const se_VaultNotificationConfig = (input: VaultNotificationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Events != null && { Events: serializeAws_restJson1NotificationEventList(input.Events, context) }),
+    ...(input.Events != null && { Events: se_NotificationEventList(input.Events, context) }),
     ...(input.SNSTopic != null && { SNSTopic: input.SNSTopic }),
   };
 };
 
-const deserializeAws_restJson1AccessControlPolicyList = (output: any, context: __SerdeContext): Grant[] => {
+/**
+ * deserializeAws_restJson1AccessControlPolicyList
+ */
+const de_AccessControlPolicyList = (output: any, context: __SerdeContext): Grant[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Grant(entry, context);
+      return de_Grant(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CSVInput = (output: any, context: __SerdeContext): CSVInput => {
+/**
+ * deserializeAws_restJson1CSVInput
+ */
+const de_CSVInput = (output: any, context: __SerdeContext): CSVInput => {
   return {
     Comments: __expectString(output.Comments),
     FieldDelimiter: __expectString(output.FieldDelimiter),
@@ -3131,7 +3511,10 @@ const deserializeAws_restJson1CSVInput = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext): CSVOutput => {
+/**
+ * deserializeAws_restJson1CSVOutput
+ */
+const de_CSVOutput = (output: any, context: __SerdeContext): CSVOutput => {
   return {
     FieldDelimiter: __expectString(output.FieldDelimiter),
     QuoteCharacter: __expectString(output.QuoteCharacter),
@@ -3141,32 +3524,44 @@ const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __SerdeContext): DataRetrievalPolicy => {
+/**
+ * deserializeAws_restJson1DataRetrievalPolicy
+ */
+const de_DataRetrievalPolicy = (output: any, context: __SerdeContext): DataRetrievalPolicy => {
   return {
-    Rules: output.Rules != null ? deserializeAws_restJson1DataRetrievalRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? de_DataRetrievalRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
+/**
+ * deserializeAws_restJson1DataRetrievalRule
+ */
+const de_DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
   return {
     BytesPerHour: __expectLong(output.BytesPerHour),
     Strategy: __expectString(output.Strategy),
   } as any;
 };
 
-const deserializeAws_restJson1DataRetrievalRulesList = (output: any, context: __SerdeContext): DataRetrievalRule[] => {
+/**
+ * deserializeAws_restJson1DataRetrievalRulesList
+ */
+const de_DataRetrievalRulesList = (output: any, context: __SerdeContext): DataRetrievalRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DataRetrievalRule(entry, context);
+      return de_DataRetrievalRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __SerdeContext): DescribeVaultOutput => {
+/**
+ * deserializeAws_restJson1DescribeVaultOutput
+ */
+const de_DescribeVaultOutput = (output: any, context: __SerdeContext): DescribeVaultOutput => {
   return {
     CreationDate: __expectString(output.CreationDate),
     LastInventoryDate: __expectString(output.LastInventoryDate),
@@ -3177,7 +3572,10 @@ const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
+/**
+ * deserializeAws_restJson1Encryption
+ */
+const de_Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
     EncryptionType: __expectString(output.EncryptionType),
     KMSContext: __expectString(output.KMSContext),
@@ -3185,7 +3583,10 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __SerdeContext): GlacierJobDescription => {
+/**
+ * deserializeAws_restJson1GlacierJobDescription
+ */
+const de_GlacierJobDescription = (output: any, context: __SerdeContext): GlacierJobDescription => {
   return {
     Action: __expectString(output.Action),
     ArchiveId: __expectString(output.ArchiveId),
@@ -3196,23 +3597,18 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
     CreationDate: __expectString(output.CreationDate),
     InventoryRetrievalParameters:
       output.InventoryRetrievalParameters != null
-        ? deserializeAws_restJson1InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
+        ? de_InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
         : undefined,
     InventorySizeInBytes: __expectLong(output.InventorySizeInBytes),
     JobDescription: __expectString(output.JobDescription),
     JobId: __expectString(output.JobId),
     JobOutputPath: __expectString(output.JobOutputPath),
-    OutputLocation:
-      output.OutputLocation != null
-        ? deserializeAws_restJson1OutputLocation(output.OutputLocation, context)
-        : undefined,
+    OutputLocation: output.OutputLocation != null ? de_OutputLocation(output.OutputLocation, context) : undefined,
     RetrievalByteRange: __expectString(output.RetrievalByteRange),
     SHA256TreeHash: __expectString(output.SHA256TreeHash),
     SNSTopic: __expectString(output.SNSTopic),
     SelectParameters:
-      output.SelectParameters != null
-        ? deserializeAws_restJson1SelectParameters(output.SelectParameters, context)
-        : undefined,
+      output.SelectParameters != null ? de_SelectParameters(output.SelectParameters, context) : undefined,
     StatusCode: __expectString(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
     Tier: __expectString(output.Tier),
@@ -3220,14 +3616,20 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
   } as any;
 };
 
-const deserializeAws_restJson1Grant = (output: any, context: __SerdeContext): Grant => {
+/**
+ * deserializeAws_restJson1Grant
+ */
+const de_Grant = (output: any, context: __SerdeContext): Grant => {
   return {
-    Grantee: output.Grantee != null ? deserializeAws_restJson1Grantee(output.Grantee, context) : undefined,
+    Grantee: output.Grantee != null ? de_Grantee(output.Grantee, context) : undefined,
     Permission: __expectString(output.Permission),
   } as any;
 };
 
-const deserializeAws_restJson1Grantee = (output: any, context: __SerdeContext): Grantee => {
+/**
+ * deserializeAws_restJson1Grantee
+ */
+const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
   return {
     DisplayName: __expectString(output.DisplayName),
     EmailAddress: __expectString(output.EmailAddress),
@@ -3237,7 +3639,10 @@ const deserializeAws_restJson1Grantee = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1hashmap
+ */
+const de_hashmap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3247,13 +3652,19 @@ const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
-const deserializeAws_restJson1InputSerialization = (output: any, context: __SerdeContext): InputSerialization => {
+/**
+ * deserializeAws_restJson1InputSerialization
+ */
+const de_InputSerialization = (output: any, context: __SerdeContext): InputSerialization => {
   return {
-    csv: output.csv != null ? deserializeAws_restJson1CSVInput(output.csv, context) : undefined,
+    csv: output.csv != null ? de_CSVInput(output.csv, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1InventoryRetrievalJobDescription = (
+/**
+ * deserializeAws_restJson1InventoryRetrievalJobDescription
+ */
+const de_InventoryRetrievalJobDescription = (
   output: any,
   context: __SerdeContext
 ): InventoryRetrievalJobDescription => {
@@ -3266,19 +3677,25 @@ const deserializeAws_restJson1InventoryRetrievalJobDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1JobList = (output: any, context: __SerdeContext): GlacierJobDescription[] => {
+/**
+ * deserializeAws_restJson1JobList
+ */
+const de_JobList = (output: any, context: __SerdeContext): GlacierJobDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1GlacierJobDescription(entry, context);
+      return de_GlacierJobDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1NotificationEventList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1NotificationEventList
+ */
+const de_NotificationEventList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3290,41 +3707,53 @@ const deserializeAws_restJson1NotificationEventList = (output: any, context: __S
   return retVal;
 };
 
-const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
+/**
+ * deserializeAws_restJson1OutputLocation
+ */
+const de_OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
   return {
-    S3: output.S3 != null ? deserializeAws_restJson1S3Location(output.S3, context) : undefined,
+    S3: output.S3 != null ? de_S3Location(output.S3, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1OutputSerialization = (output: any, context: __SerdeContext): OutputSerialization => {
+/**
+ * deserializeAws_restJson1OutputSerialization
+ */
+const de_OutputSerialization = (output: any, context: __SerdeContext): OutputSerialization => {
   return {
-    csv: output.csv != null ? deserializeAws_restJson1CSVOutput(output.csv, context) : undefined,
+    csv: output.csv != null ? de_CSVOutput(output.csv, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PartList = (output: any, context: __SerdeContext): PartListElement[] => {
+/**
+ * deserializeAws_restJson1PartList
+ */
+const de_PartList = (output: any, context: __SerdeContext): PartListElement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PartListElement(entry, context);
+      return de_PartListElement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PartListElement = (output: any, context: __SerdeContext): PartListElement => {
+/**
+ * deserializeAws_restJson1PartListElement
+ */
+const de_PartListElement = (output: any, context: __SerdeContext): PartListElement => {
   return {
     RangeInBytes: __expectString(output.RangeInBytes),
     SHA256TreeHash: __expectString(output.SHA256TreeHash),
   } as any;
 };
 
-const deserializeAws_restJson1ProvisionedCapacityDescription = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedCapacityDescription => {
+/**
+ * deserializeAws_restJson1ProvisionedCapacityDescription
+ */
+const de_ProvisionedCapacityDescription = (output: any, context: __SerdeContext): ProvisionedCapacityDescription => {
   return {
     CapacityId: __expectString(output.CapacityId),
     ExpirationDate: __expectString(output.ExpirationDate),
@@ -3332,54 +3761,56 @@ const deserializeAws_restJson1ProvisionedCapacityDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1ProvisionedCapacityList = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedCapacityDescription[] => {
+/**
+ * deserializeAws_restJson1ProvisionedCapacityList
+ */
+const de_ProvisionedCapacityList = (output: any, context: __SerdeContext): ProvisionedCapacityDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ProvisionedCapacityDescription(entry, context);
+      return de_ProvisionedCapacityDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
+/**
+ * deserializeAws_restJson1S3Location
+ */
+const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     AccessControlList:
-      output.AccessControlList != null
-        ? deserializeAws_restJson1AccessControlPolicyList(output.AccessControlList, context)
-        : undefined,
+      output.AccessControlList != null ? de_AccessControlPolicyList(output.AccessControlList, context) : undefined,
     BucketName: __expectString(output.BucketName),
     CannedACL: __expectString(output.CannedACL),
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     Prefix: __expectString(output.Prefix),
     StorageClass: __expectString(output.StorageClass),
-    Tagging: output.Tagging != null ? deserializeAws_restJson1hashmap(output.Tagging, context) : undefined,
-    UserMetadata:
-      output.UserMetadata != null ? deserializeAws_restJson1hashmap(output.UserMetadata, context) : undefined,
+    Tagging: output.Tagging != null ? de_hashmap(output.Tagging, context) : undefined,
+    UserMetadata: output.UserMetadata != null ? de_hashmap(output.UserMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SelectParameters = (output: any, context: __SerdeContext): SelectParameters => {
+/**
+ * deserializeAws_restJson1SelectParameters
+ */
+const de_SelectParameters = (output: any, context: __SerdeContext): SelectParameters => {
   return {
     Expression: __expectString(output.Expression),
     ExpressionType: __expectString(output.ExpressionType),
     InputSerialization:
-      output.InputSerialization != null
-        ? deserializeAws_restJson1InputSerialization(output.InputSerialization, context)
-        : undefined,
+      output.InputSerialization != null ? de_InputSerialization(output.InputSerialization, context) : undefined,
     OutputSerialization:
-      output.OutputSerialization != null
-        ? deserializeAws_restJson1OutputSerialization(output.OutputSerialization, context)
-        : undefined,
+      output.OutputSerialization != null ? de_OutputSerialization(output.OutputSerialization, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3389,7 +3820,10 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1UploadListElement = (output: any, context: __SerdeContext): UploadListElement => {
+/**
+ * deserializeAws_restJson1UploadListElement
+ */
+const de_UploadListElement = (output: any, context: __SerdeContext): UploadListElement => {
   return {
     ArchiveDescription: __expectString(output.ArchiveDescription),
     CreationDate: __expectString(output.CreationDate),
@@ -3399,42 +3833,51 @@ const deserializeAws_restJson1UploadListElement = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1UploadsList = (output: any, context: __SerdeContext): UploadListElement[] => {
+/**
+ * deserializeAws_restJson1UploadsList
+ */
+const de_UploadsList = (output: any, context: __SerdeContext): UploadListElement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1UploadListElement(entry, context);
+      return de_UploadListElement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1VaultAccessPolicy = (output: any, context: __SerdeContext): VaultAccessPolicy => {
+/**
+ * deserializeAws_restJson1VaultAccessPolicy
+ */
+const de_VaultAccessPolicy = (output: any, context: __SerdeContext): VaultAccessPolicy => {
   return {
     Policy: __expectString(output.Policy),
   } as any;
 };
 
-const deserializeAws_restJson1VaultList = (output: any, context: __SerdeContext): DescribeVaultOutput[] => {
+/**
+ * deserializeAws_restJson1VaultList
+ */
+const de_VaultList = (output: any, context: __SerdeContext): DescribeVaultOutput[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DescribeVaultOutput(entry, context);
+      return de_DescribeVaultOutput(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1VaultNotificationConfig = (
-  output: any,
-  context: __SerdeContext
-): VaultNotificationConfig => {
+/**
+ * deserializeAws_restJson1VaultNotificationConfig
+ */
+const de_VaultNotificationConfig = (output: any, context: __SerdeContext): VaultNotificationConfig => {
   return {
-    Events: output.Events != null ? deserializeAws_restJson1NotificationEventList(output.Events, context) : undefined,
+    Events: output.Events != null ? de_NotificationEventList(output.Events, context) : undefined,
     SNSTopic: __expectString(output.SNSTopic),
   } as any;
 };

@@ -19,8 +19,8 @@ import {
   DescribeDominantLanguageDetectionJobResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
-  serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
+  de_DescribeDominantLanguageDetectionJobCommand,
+  se_DescribeDominantLanguageDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     input: DescribeDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(input, context);
+    return se_DescribeDominantLanguageDetectionJobCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(output, context);
+    return de_DescribeDominantLanguageDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCanariesCommand,
-  serializeAws_restJson1DescribeCanariesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCanariesCommand, se_DescribeCanariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -139,14 +136,14 @@ export class DescribeCanariesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCanariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCanariesCommand(input, context);
+    return se_DescribeCanariesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesCommandOutput> {
-    return deserializeAws_restJson1DescribeCanariesCommand(output, context);
+    return de_DescribeCanariesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeAccountAttributesMessage, DescribeAccountAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAccountAttributesCommand,
-  serializeAws_json1_1DescribeAccountAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,7 +155,7 @@ export class DescribeAccountAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

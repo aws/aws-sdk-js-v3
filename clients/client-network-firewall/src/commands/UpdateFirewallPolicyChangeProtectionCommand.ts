@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand,
-  serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand,
+  de_UpdateFirewallPolicyChangeProtectionCommand,
+  se_UpdateFirewallPolicyChangeProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -165,7 +165,7 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     input: UpdateFirewallPolicyChangeProtectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand(input, context);
+    return se_UpdateFirewallPolicyChangeProtectionCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallPolicyChangeProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand(output, context);
+    return de_UpdateFirewallPolicyChangeProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

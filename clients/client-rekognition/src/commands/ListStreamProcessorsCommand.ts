@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListStreamProcessorsRequest, ListStreamProcessorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStreamProcessorsCommand,
-  serializeAws_json1_1ListStreamProcessorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListStreamProcessorsCommand, se_ListStreamProcessorsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListStreamProcessorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStreamProcessorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStreamProcessorsCommand(input, context);
+    return se_ListStreamProcessorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamProcessorsCommandOutput> {
-    return deserializeAws_json1_1ListStreamProcessorsCommand(output, context);
+    return de_ListStreamProcessorsCommand(output, context);
   }
 
   // Start section: command_body_extra

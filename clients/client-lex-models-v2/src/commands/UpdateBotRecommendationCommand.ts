@@ -20,10 +20,7 @@ import {
   UpdateBotRecommendationResponse,
   UpdateBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateBotRecommendationCommand,
-  serializeAws_restJson1UpdateBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBotRecommendationCommand, se_UpdateBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class UpdateBotRecommendationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBotRecommendationCommand(input, context);
+    return se_UpdateBotRecommendationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1UpdateBotRecommendationCommand(output, context);
+    return de_UpdateBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

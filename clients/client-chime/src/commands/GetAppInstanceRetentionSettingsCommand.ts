@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetAppInstanceRetentionSettingsRequest, GetAppInstanceRetentionSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
-  serializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
+  de_GetAppInstanceRetentionSettingsCommand,
+  se_GetAppInstanceRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     input: GetAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppInstanceRetentionSettingsCommand(input, context);
+    return se_GetAppInstanceRetentionSettingsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppInstanceRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand(output, context);
+    return de_GetAppInstanceRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

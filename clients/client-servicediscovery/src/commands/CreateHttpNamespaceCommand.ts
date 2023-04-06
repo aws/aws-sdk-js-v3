@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateHttpNamespaceRequest, CreateHttpNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateHttpNamespaceCommand,
-  serializeAws_json1_1CreateHttpNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateHttpNamespaceCommand, se_CreateHttpNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -169,14 +166,14 @@ export class CreateHttpNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHttpNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHttpNamespaceCommand(input, context);
+    return se_CreateHttpNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHttpNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreateHttpNamespaceCommand(output, context);
+    return de_CreateHttpNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

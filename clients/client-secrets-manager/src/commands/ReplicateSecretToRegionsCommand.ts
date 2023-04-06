@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateSecretToRegionsCommand,
-  serializeAws_json1_1ReplicateSecretToRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReplicateSecretToRegionsCommand, se_ReplicateSecretToRegionsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -161,14 +158,14 @@ export class ReplicateSecretToRegionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplicateSecretToRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateSecretToRegionsCommand(input, context);
+    return se_ReplicateSecretToRegionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateSecretToRegionsCommandOutput> {
-    return deserializeAws_json1_1ReplicateSecretToRegionsCommand(output, context);
+    return de_ReplicateSecretToRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

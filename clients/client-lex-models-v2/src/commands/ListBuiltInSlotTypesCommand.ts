@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBuiltInSlotTypesCommand,
-  serializeAws_restJson1ListBuiltInSlotTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBuiltInSlotTypesCommand, se_ListBuiltInSlotTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListBuiltInSlotTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBuiltInSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBuiltInSlotTypesCommand(input, context);
+    return se_ListBuiltInSlotTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuiltInSlotTypesCommandOutput> {
-    return deserializeAws_restJson1ListBuiltInSlotTypesCommand(output, context);
+    return de_ListBuiltInSlotTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

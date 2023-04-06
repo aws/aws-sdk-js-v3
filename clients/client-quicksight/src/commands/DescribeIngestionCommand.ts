@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeIngestionRequest, DescribeIngestionResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeIngestionCommand,
-  serializeAws_restJson1DescribeIngestionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeIngestionCommand, se_DescribeIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -143,14 +140,14 @@ export class DescribeIngestionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIngestionCommand(input, context);
+    return se_DescribeIngestionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIngestionCommandOutput> {
-    return deserializeAws_restJson1DescribeIngestionCommand(output, context);
+    return de_DescribeIngestionCommand(output, context);
   }
 
   // Start section: command_body_extra

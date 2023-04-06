@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricWidgetImageCommand,
-  serializeAws_queryGetMetricWidgetImageCommand,
-} from "../protocols/Aws_query";
+import { de_GetMetricWidgetImageCommand, se_GetMetricWidgetImageCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetMetricWidgetImageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMetricWidgetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricWidgetImageCommand(input, context);
+    return se_GetMetricWidgetImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricWidgetImageCommandOutput> {
-    return deserializeAws_queryGetMetricWidgetImageCommand(output, context);
+    return de_GetMetricWidgetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

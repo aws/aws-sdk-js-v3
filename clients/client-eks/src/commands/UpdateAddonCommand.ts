@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { UpdateAddonRequest, UpdateAddonResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAddonCommand,
-  serializeAws_restJson1UpdateAddonCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAddonCommand, se_UpdateAddonCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateAddonCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAddonCommand(input, context);
+    return se_UpdateAddonCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAddonCommandOutput> {
-    return deserializeAws_restJson1UpdateAddonCommand(output, context);
+    return de_UpdateAddonCommand(output, context);
   }
 
   // Start section: command_body_extra

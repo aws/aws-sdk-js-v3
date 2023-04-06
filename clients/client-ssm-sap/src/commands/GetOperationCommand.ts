@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetOperationInput, GetOperationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetOperationCommand,
-  serializeAws_restJson1GetOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetOperationCommand, se_GetOperationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -124,14 +121,14 @@ export class GetOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOperationCommand(input, context);
+    return se_GetOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
-    return deserializeAws_restJson1GetOperationCommand(output, context);
+    return de_GetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

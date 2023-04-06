@@ -15,7 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { UpdateACLRequest, UpdateACLResponse } from "../models/models_0";
-import { deserializeAws_json1_1UpdateACLCommand, serializeAws_json1_1UpdateACLCommand } from "../protocols/Aws_json1_1";
+import { de_UpdateACLCommand, se_UpdateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +142,14 @@ export class UpdateACLCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateACLCommand(input, context);
+    return se_UpdateACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateACLCommandOutput> {
-    return deserializeAws_json1_1UpdateACLCommand(output, context);
+    return de_UpdateACLCommand(output, context);
   }
 
   // Start section: command_body_extra

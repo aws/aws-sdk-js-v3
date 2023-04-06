@@ -19,10 +19,7 @@ import {
   ListUsersByPermissionGroupResponse,
   ListUsersByPermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUsersByPermissionGroupCommand,
-  serializeAws_restJson1ListUsersByPermissionGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUsersByPermissionGroupCommand, se_ListUsersByPermissionGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class ListUsersByPermissionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUsersByPermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUsersByPermissionGroupCommand(input, context);
+    return se_ListUsersByPermissionGroupCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class ListUsersByPermissionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUsersByPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1ListUsersByPermissionGroupCommand(output, context);
+    return de_ListUsersByPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

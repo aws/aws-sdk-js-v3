@@ -19,8 +19,8 @@ import {
   UpdateAvailabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateAvailabilityConfigurationCommand,
-  serializeAws_json1_1UpdateAvailabilityConfigurationCommand,
+  de_UpdateAvailabilityConfigurationCommand,
+  se_UpdateAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -153,7 +153,7 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     input: UpdateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAvailabilityConfigurationCommand(input, context);
+    return se_UpdateAvailabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateAvailabilityConfigurationCommand(output, context);
+    return de_UpdateAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

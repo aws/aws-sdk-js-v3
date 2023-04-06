@@ -19,8 +19,8 @@ import {
   DescribeRemediationConfigurationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRemediationConfigurationsCommand,
-  serializeAws_json1_1DescribeRemediationConfigurationsCommand,
+  de_DescribeRemediationConfigurationsCommand,
+  se_DescribeRemediationConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     input: DescribeRemediationConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRemediationConfigurationsCommand(input, context);
+    return se_DescribeRemediationConfigurationsCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRemediationConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRemediationConfigurationsCommand(output, context);
+    return de_DescribeRemediationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

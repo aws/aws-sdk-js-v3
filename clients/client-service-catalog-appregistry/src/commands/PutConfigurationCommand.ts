@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutConfigurationCommand,
-  serializeAws_restJson1PutConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutConfigurationCommand, se_PutConfigurationCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -141,14 +138,14 @@ export class PutConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationCommand(input, context);
+    return se_PutConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationCommand(output, context);
+    return de_PutConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

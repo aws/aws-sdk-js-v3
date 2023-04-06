@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationNfsCommand,
-  serializeAws_json1_1CreateLocationNfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationNfsCommand, se_CreateLocationNfsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateLocationNfsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationNfsCommand(input, context);
+    return se_CreateLocationNfsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationNfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationNfsCommand(output, context);
+    return de_CreateLocationNfsCommand(output, context);
   }
 
   // Start section: command_body_extra

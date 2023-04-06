@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterSnapshotCommand,
-  serializeAws_queryDeleteDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterSnapshotCommand, se_DeleteDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -73,9 +70,9 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
  *
  *
- * @example To delete a DB cluster snapshot.
+ * @example To delete a DB cluster snapshot
  * ```javascript
- * // This example deletes the specified DB cluster snapshot.
+ * //
  * const input = {
  *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
  * };
@@ -83,10 +80,34 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshot": {}
+ *   "DBClusterSnapshot": {
+ *     "AllocatedStorage": 0,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
+ *     "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "aurora-mysql",
+ *     "MasterUsername": "myadmin",
+ *     "PercentProgress": 100,
+ *     "Port": 0,
+ *     "SnapshotCreateTime": "2019-06-18T21:21:00.469Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "available",
+ *     "StorageEncrypted": true,
+ *     "VpcId": "vpc-6594f31c"
+ *   }
  * }
  * *\/
- * // example id: delete-db-cluster-snapshot-c67e0d95-670e-4fb5-af90-6d9a70a91b07
+ * // example id: to-delete-a-db-cluster-snapshot-1679962808509
  * ```
  *
  */
@@ -153,14 +174,14 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterSnapshotCommand(input, context);
+    return se_DeleteDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterSnapshotCommand(output, context);
+    return de_DeleteDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

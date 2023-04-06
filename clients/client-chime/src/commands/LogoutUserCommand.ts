@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { LogoutUserRequest, LogoutUserResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1LogoutUserCommand,
-  serializeAws_restJson1LogoutUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_LogoutUserCommand, se_LogoutUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class LogoutUserCommand extends $Command<
    * @internal
    */
   private serialize(input: LogoutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LogoutUserCommand(input, context);
+    return se_LogoutUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutUserCommandOutput> {
-    return deserializeAws_restJson1LogoutUserCommand(output, context);
+    return de_LogoutUserCommand(output, context);
   }
 
   // Start section: command_body_extra

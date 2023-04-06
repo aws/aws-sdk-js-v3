@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutRetentionSettingsCommand,
-  serializeAws_restJson1PutRetentionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRetentionSettingsCommand, se_PutRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class PutRetentionSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRetentionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRetentionSettingsCommand(input, context);
+    return se_PutRetentionSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1PutRetentionSettingsCommand(output, context);
+    return de_PutRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

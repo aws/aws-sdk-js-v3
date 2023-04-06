@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
 import { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterScalableTargetCommand,
-  serializeAws_json1_1DeregisterScalableTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterScalableTargetCommand, se_DeregisterScalableTargetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class DeregisterScalableTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterScalableTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterScalableTargetCommand(input, context);
+    return se_DeregisterScalableTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterScalableTargetCommandOutput> {
-    return deserializeAws_json1_1DeregisterScalableTargetCommand(output, context);
+    return de_DeregisterScalableTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

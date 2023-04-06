@@ -15,10 +15,7 @@ import {
 
 import { DescribeOperatingSystemsResponse } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeOperatingSystemsCommand,
-  serializeAws_json1_1DescribeOperatingSystemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOperatingSystemsCommand, se_DescribeOperatingSystemsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -118,14 +115,14 @@ export class DescribeOperatingSystemsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOperatingSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOperatingSystemsCommand(input, context);
+    return se_DescribeOperatingSystemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOperatingSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOperatingSystemsCommand(output, context);
+    return de_DescribeOperatingSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

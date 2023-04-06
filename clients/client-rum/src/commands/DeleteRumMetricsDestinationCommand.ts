@@ -15,8 +15,8 @@ import {
 
 import { DeleteRumMetricsDestinationRequest, DeleteRumMetricsDestinationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteRumMetricsDestinationCommand,
-  serializeAws_restJson1DeleteRumMetricsDestinationCommand,
+  de_DeleteRumMetricsDestinationCommand,
+  se_DeleteRumMetricsDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
@@ -143,7 +143,7 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRumMetricsDestinationCommand(input, context);
+    return se_DeleteRumMetricsDestinationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRumMetricsDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteRumMetricsDestinationCommand(output, context);
+    return de_DeleteRumMetricsDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

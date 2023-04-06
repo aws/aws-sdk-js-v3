@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { DeleteCoreDeviceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCoreDeviceCommand,
-  serializeAws_restJson1DeleteCoreDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCoreDeviceCommand, se_DeleteCoreDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteCoreDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCoreDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreDeviceCommand(input, context);
+    return se_DeleteCoreDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreDeviceCommand(output, context);
+    return de_DeleteCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

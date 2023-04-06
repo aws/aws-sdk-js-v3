@@ -15,10 +15,7 @@ import {
 
 import { GetAppsRequest, GetAppsResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetAppsCommand,
-  serializeAws_restJson1GetAppsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAppsCommand, se_GetAppsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommand
    * @internal
    */
   private serialize(input: GetAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppsCommand(input, context);
+    return se_GetAppsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppsCommandOutput> {
-    return deserializeAws_restJson1GetAppsCommand(output, context);
+    return de_GetAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

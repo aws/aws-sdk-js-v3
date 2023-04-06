@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetManagedRuleSetRequest, GetManagedRuleSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetManagedRuleSetCommand,
-  serializeAws_json1_1GetManagedRuleSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetManagedRuleSetCommand, se_GetManagedRuleSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -160,14 +157,14 @@ export class GetManagedRuleSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetManagedRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetManagedRuleSetCommand(input, context);
+    return se_GetManagedRuleSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedRuleSetCommandOutput> {
-    return deserializeAws_json1_1GetManagedRuleSetCommand(output, context);
+    return de_GetManagedRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

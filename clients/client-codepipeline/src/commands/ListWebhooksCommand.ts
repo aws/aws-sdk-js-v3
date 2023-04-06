@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { ListWebhooksInput, ListWebhooksOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWebhooksCommand,
-  serializeAws_json1_1ListWebhooksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListWebhooksCommand, se_ListWebhooksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListWebhooksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWebhooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWebhooksCommand(input, context);
+    return se_ListWebhooksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebhooksCommandOutput> {
-    return deserializeAws_json1_1ListWebhooksCommand(output, context);
+    return de_ListWebhooksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { AttachObjectRequest, AttachObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachObjectCommand,
-  serializeAws_restJson1AttachObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AttachObjectCommand, se_AttachObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class AttachObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachObjectCommand(input, context);
+    return se_AttachObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachObjectCommandOutput> {
-    return deserializeAws_restJson1AttachObjectCommand(output, context);
+    return de_AttachObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

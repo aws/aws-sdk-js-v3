@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterTaskDefinitionCommand,
-  serializeAws_json1_1DeregisterTaskDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterTaskDefinitionCommand, se_DeregisterTaskDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeregisterTaskDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterTaskDefinitionCommand(input, context);
+    return se_DeregisterTaskDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTaskDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeregisterTaskDefinitionCommand(output, context);
+    return de_DeregisterTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

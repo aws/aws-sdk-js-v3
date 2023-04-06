@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DeleteAppsListRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppsListCommand,
-  serializeAws_json1_1DeleteAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAppsListCommand, se_DeleteAppsListCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteAppsListCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppsListCommand(input, context);
+    return se_DeleteAppsListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppsListCommandOutput> {
-    return deserializeAws_json1_1DeleteAppsListCommand(output, context);
+    return de_DeleteAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

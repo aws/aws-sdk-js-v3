@@ -19,8 +19,8 @@ import {
   CreateVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand,
-  serializeAws_restXmlCreateVPCAssociationAuthorizationCommand,
+  de_CreateVPCAssociationAuthorizationCommand,
+  se_CreateVPCAssociationAuthorizationCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -165,7 +165,7 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     input: CreateVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateVPCAssociationAuthorizationCommand(input, context);
+    return se_CreateVPCAssociationAuthorizationCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput> {
-    return deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand(output, context);
+    return de_CreateVPCAssociationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

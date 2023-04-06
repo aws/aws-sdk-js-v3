@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchCheckLayerAvailabilityCommand,
-  serializeAws_json1_1BatchCheckLayerAvailabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchCheckLayerAvailabilityCommand, se_BatchCheckLayerAvailabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,7 +146,7 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchCheckLayerAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchCheckLayerAvailabilityCommand(input, context);
+    return se_BatchCheckLayerAvailabilityCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCheckLayerAvailabilityCommandOutput> {
-    return deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(output, context);
+    return de_BatchCheckLayerAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

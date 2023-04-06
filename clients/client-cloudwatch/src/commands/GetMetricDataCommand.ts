@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { GetMetricDataInput, GetMetricDataOutput } from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricDataCommand,
-  serializeAws_queryGetMetricDataCommand,
-} from "../protocols/Aws_query";
+import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -200,14 +197,14 @@ export class GetMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricDataCommand(input, context);
+    return se_GetMetricDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
-    return deserializeAws_queryGetMetricDataCommand(output, context);
+    return de_GetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

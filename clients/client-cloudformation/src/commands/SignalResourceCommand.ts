@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { SignalResourceInput } from "../models/models_0";
-import {
-  deserializeAws_querySignalResourceCommand,
-  serializeAws_querySignalResourceCommand,
-} from "../protocols/Aws_query";
+import { de_SignalResourceCommand, se_SignalResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class SignalResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: SignalResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySignalResourceCommand(input, context);
+    return se_SignalResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignalResourceCommandOutput> {
-    return deserializeAws_querySignalResourceCommand(output, context);
+    return de_SignalResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

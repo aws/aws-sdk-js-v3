@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListResponseHeadersPoliciesRequest, ListResponseHeadersPoliciesResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListResponseHeadersPoliciesCommand,
-  serializeAws_restXmlListResponseHeadersPoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListResponseHeadersPoliciesCommand, se_ListResponseHeadersPoliciesCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResponseHeadersPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListResponseHeadersPoliciesCommand(input, context);
+    return se_ListResponseHeadersPoliciesCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResponseHeadersPoliciesCommandOutput> {
-    return deserializeAws_restXmlListResponseHeadersPoliciesCommand(output, context);
+    return de_ListResponseHeadersPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

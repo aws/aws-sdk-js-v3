@@ -18,10 +18,7 @@ import {
   StartSimulationInputFilterSensitiveLog,
   StartSimulationOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSimulationCommand,
-  serializeAws_restJson1StartSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSimulationCommand, se_StartSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -150,14 +147,14 @@ export class StartSimulationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSimulationCommand(input, context);
+    return se_StartSimulationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationCommandOutput> {
-    return deserializeAws_restJson1StartSimulationCommand(output, context);
+    return de_StartSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

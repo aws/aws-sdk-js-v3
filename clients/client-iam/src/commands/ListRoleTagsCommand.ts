@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListRoleTagsRequest, ListRoleTagsResponse } from "../models/models_0";
-import { deserializeAws_queryListRoleTagsCommand, serializeAws_queryListRoleTagsCommand } from "../protocols/Aws_query";
+import { de_ListRoleTagsCommand, se_ListRoleTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -153,14 +153,14 @@ export class ListRoleTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRoleTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListRoleTagsCommand(input, context);
+    return se_ListRoleTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleTagsCommandOutput> {
-    return deserializeAws_queryListRoleTagsCommand(output, context);
+    return de_ListRoleTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

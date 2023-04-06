@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { ListQueriesRequest, ListQueriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListQueriesCommand,
-  serializeAws_json1_1ListQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListQueriesCommand, se_ListQueriesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class ListQueriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQueriesCommand(input, context);
+    return se_ListQueriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueriesCommandOutput> {
-    return deserializeAws_json1_1ListQueriesCommand(output, context);
+    return de_ListQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

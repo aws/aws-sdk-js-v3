@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput } from "../models/models_3";
-import {
-  deserializeAws_json1_1PutModelPackageGroupPolicyCommand,
-  serializeAws_json1_1PutModelPackageGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutModelPackageGroupPolicyCommand, se_PutModelPackageGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,7 +120,7 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutModelPackageGroupPolicyCommand(input, context);
+    return se_PutModelPackageGroupPolicyCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutModelPackageGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1PutModelPackageGroupPolicyCommand(output, context);
+    return de_PutModelPackageGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

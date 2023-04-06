@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteRouteTableRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteRouteTableCommand,
-  serializeAws_ec2DeleteRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteRouteTableCommand, se_DeleteRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteRouteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteRouteTableCommand(input, context);
+    return se_DeleteRouteTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteTableCommandOutput> {
-    return deserializeAws_ec2DeleteRouteTableCommand(output, context);
+    return de_DeleteRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { PutSubscriptionFilterRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSubscriptionFilterCommand,
-  serializeAws_json1_1PutSubscriptionFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSubscriptionFilterCommand, se_PutSubscriptionFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class PutSubscriptionFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSubscriptionFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSubscriptionFilterCommand(input, context);
+    return se_PutSubscriptionFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSubscriptionFilterCommandOutput> {
-    return deserializeAws_json1_1PutSubscriptionFilterCommand(output, context);
+    return de_PutSubscriptionFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

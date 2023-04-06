@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteAccountSubscriptionCommand,
-  serializeAws_restJson1DeleteAccountSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccountSubscriptionCommand, se_DeleteAccountSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -144,7 +141,7 @@ export class DeleteAccountSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountSubscriptionCommand(input, context);
+    return se_DeleteAccountSubscriptionCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DeleteAccountSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountSubscriptionCommand(output, context);
+    return de_DeleteAccountSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

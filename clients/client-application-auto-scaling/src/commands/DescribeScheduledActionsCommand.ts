@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
 import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScheduledActionsCommand,
-  serializeAws_json1_1DescribeScheduledActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeScheduledActionsCommand, se_DescribeScheduledActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -192,14 +189,14 @@ export class DescribeScheduledActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScheduledActionsCommand(input, context);
+    return se_DescribeScheduledActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
-    return deserializeAws_json1_1DescribeScheduledActionsCommand(output, context);
+    return de_DescribeScheduledActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

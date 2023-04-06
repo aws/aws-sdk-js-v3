@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LockRuleRequest, LockRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1LockRuleCommand,
-  serializeAws_restJson1LockRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_LockRuleCommand, se_LockRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
@@ -132,14 +129,14 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
    * @internal
    */
   private serialize(input: LockRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LockRuleCommand(input, context);
+    return se_LockRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LockRuleCommandOutput> {
-    return deserializeAws_restJson1LockRuleCommand(output, context);
+    return de_LockRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

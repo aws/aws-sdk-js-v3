@@ -18,10 +18,7 @@ import {
   GetActivityTaskOutput,
   GetActivityTaskOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetActivityTaskCommand,
-  serializeAws_json1_0GetActivityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetActivityTaskCommand, se_GetActivityTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -152,14 +149,14 @@ export class GetActivityTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetActivityTaskCommand(input, context);
+    return se_GetActivityTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActivityTaskCommandOutput> {
-    return deserializeAws_json1_0GetActivityTaskCommand(output, context);
+    return de_GetActivityTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

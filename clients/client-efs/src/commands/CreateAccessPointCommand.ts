@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { AccessPointDescription, CreateAccessPointRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessPointCommand,
-  serializeAws_restJson1CreateAccessPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessPointCommand, se_CreateAccessPointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class CreateAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessPointCommand(input, context);
+    return se_CreateAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restJson1CreateAccessPointCommand(output, context);
+    return de_CreateAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

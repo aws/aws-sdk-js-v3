@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { AssociatePricingRulesInput, AssociatePricingRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociatePricingRulesCommand,
-  serializeAws_restJson1AssociatePricingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociatePricingRulesCommand, se_AssociatePricingRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class AssociatePricingRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePricingRulesCommand(input, context);
+    return se_AssociatePricingRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePricingRulesCommandOutput> {
-    return deserializeAws_restJson1AssociatePricingRulesCommand(output, context);
+    return de_AssociatePricingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

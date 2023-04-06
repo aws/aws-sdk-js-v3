@@ -15,10 +15,7 @@ import {
 
 import { DescribeNodeRequest, DescribeNodeResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribeNodeCommand,
-  serializeAws_restJson1DescribeNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeNodeCommand, se_DescribeNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNodeCommand(input, context);
+    return se_DescribeNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodeCommandOutput> {
-    return deserializeAws_restJson1DescribeNodeCommand(output, context);
+    return de_DescribeNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

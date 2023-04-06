@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetFirewallDomainListRequest, GetFirewallDomainListResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallDomainListCommand,
-  serializeAws_json1_1GetFirewallDomainListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFirewallDomainListCommand, se_GetFirewallDomainListCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -132,14 +129,14 @@ export class GetFirewallDomainListCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallDomainListCommand(input, context);
+    return se_GetFirewallDomainListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallDomainListCommandOutput> {
-    return deserializeAws_json1_1GetFirewallDomainListCommand(output, context);
+    return de_GetFirewallDomainListCommand(output, context);
   }
 
   // Start section: command_body_extra

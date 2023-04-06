@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { ListInferenceExecutionsRequest, ListInferenceExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListInferenceExecutionsCommand,
-  serializeAws_json1_0ListInferenceExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListInferenceExecutionsCommand, se_ListInferenceExecutionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListInferenceExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInferenceExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListInferenceExecutionsCommand(input, context);
+    return se_ListInferenceExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListInferenceExecutionsCommand(output, context);
+    return de_ListInferenceExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

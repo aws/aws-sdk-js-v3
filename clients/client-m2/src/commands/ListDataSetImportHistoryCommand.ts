@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { ListDataSetImportHistoryRequest, ListDataSetImportHistoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSetImportHistoryCommand,
-  serializeAws_restJson1ListDataSetImportHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataSetImportHistoryCommand, se_ListDataSetImportHistoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListDataSetImportHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataSetImportHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetImportHistoryCommand(input, context);
+    return se_ListDataSetImportHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetImportHistoryCommandOutput> {
-    return deserializeAws_restJson1ListDataSetImportHistoryCommand(output, context);
+    return de_ListDataSetImportHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

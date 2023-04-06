@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { Environment, GetEnvironmentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEnvironmentCommand,
-  serializeAws_restJson1GetEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class GetEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnvironmentCommand(input, context);
+    return se_GetEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetEnvironmentCommand(output, context);
+    return de_GetEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

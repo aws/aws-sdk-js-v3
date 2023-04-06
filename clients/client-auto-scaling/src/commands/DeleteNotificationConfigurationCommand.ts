@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DeleteNotificationConfigurationType } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteNotificationConfigurationCommand,
-  serializeAws_queryDeleteNotificationConfigurationCommand,
+  de_DeleteNotificationConfigurationCommand,
+  se_DeleteNotificationConfigurationCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     input: DeleteNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteNotificationConfigurationCommand(input, context);
+    return se_DeleteNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteNotificationConfigurationCommand(output, context);
+    return de_DeleteNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

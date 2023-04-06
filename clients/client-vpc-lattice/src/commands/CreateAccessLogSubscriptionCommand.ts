@@ -15,8 +15,8 @@ import {
 
 import { CreateAccessLogSubscriptionRequest, CreateAccessLogSubscriptionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateAccessLogSubscriptionCommand,
-  serializeAws_restJson1CreateAccessLogSubscriptionCommand,
+  de_CreateAccessLogSubscriptionCommand,
+  se_CreateAccessLogSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -152,7 +152,7 @@ export class CreateAccessLogSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessLogSubscriptionCommand(input, context);
+    return se_CreateAccessLogSubscriptionCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class CreateAccessLogSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccessLogSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateAccessLogSubscriptionCommand(output, context);
+    return de_CreateAccessLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

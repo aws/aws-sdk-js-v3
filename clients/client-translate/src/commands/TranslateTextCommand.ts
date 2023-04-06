@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TranslateTextRequest, TranslateTextResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1TranslateTextCommand,
-  serializeAws_json1_1TranslateTextCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TranslateTextCommand, se_TranslateTextCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -162,14 +159,14 @@ export class TranslateTextCommand extends $Command<
    * @internal
    */
   private serialize(input: TranslateTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TranslateTextCommand(input, context);
+    return se_TranslateTextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TranslateTextCommandOutput> {
-    return deserializeAws_json1_1TranslateTextCommand(output, context);
+    return de_TranslateTextCommand(output, context);
   }
 
   // Start section: command_body_extra

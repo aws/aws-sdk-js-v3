@@ -20,8 +20,8 @@ import {
   CreateSipMediaApplicationCallResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSipMediaApplicationCallCommand,
-  serializeAws_restJson1CreateSipMediaApplicationCallCommand,
+  de_CreateSipMediaApplicationCallCommand,
+  se_CreateSipMediaApplicationCallCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSipMediaApplicationCallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipMediaApplicationCallCommand(input, context);
+    return se_CreateSipMediaApplicationCallCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSipMediaApplicationCallCommandOutput> {
-    return deserializeAws_restJson1CreateSipMediaApplicationCallCommand(output, context);
+    return de_CreateSipMediaApplicationCallCommand(output, context);
   }
 
   // Start section: command_body_extra

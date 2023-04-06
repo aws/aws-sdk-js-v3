@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DescribeBudgetRequest, DescribeBudgetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBudgetCommand,
-  serializeAws_json1_1DescribeBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBudgetCommand, se_DescribeBudgetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeBudgetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetCommand(input, context);
+    return se_DescribeBudgetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetCommand(output, context);
+    return de_DescribeBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

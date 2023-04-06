@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteMetricFilterRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMetricFilterCommand,
-  serializeAws_json1_1DeleteMetricFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMetricFilterCommand, se_DeleteMetricFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteMetricFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMetricFilterCommand(input, context);
+    return se_DeleteMetricFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteMetricFilterCommand(output, context);
+    return de_DeleteMetricFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

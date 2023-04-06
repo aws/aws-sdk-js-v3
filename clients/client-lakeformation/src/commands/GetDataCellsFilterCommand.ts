@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetDataCellsFilterRequest, GetDataCellsFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataCellsFilterCommand,
-  serializeAws_restJson1GetDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataCellsFilterCommand, se_GetDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetDataCellsFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataCellsFilterCommand(input, context);
+    return se_GetDataCellsFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1GetDataCellsFilterCommand(output, context);
+    return de_GetDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

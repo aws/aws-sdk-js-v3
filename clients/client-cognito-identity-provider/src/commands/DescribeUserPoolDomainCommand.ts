@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUserPoolDomainCommand,
-  serializeAws_json1_1DescribeUserPoolDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserPoolDomainCommand, se_DescribeUserPoolDomainCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeUserPoolDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserPoolDomainCommand(input, context);
+    return se_DescribeUserPoolDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolDomainCommandOutput> {
-    return deserializeAws_json1_1DescribeUserPoolDomainCommand(output, context);
+    return de_DescribeUserPoolDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

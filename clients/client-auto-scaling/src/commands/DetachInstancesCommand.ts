@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
-import {
-  deserializeAws_queryDetachInstancesCommand,
-  serializeAws_queryDetachInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DetachInstancesCommand, se_DetachInstancesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class DetachInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachInstancesCommand(input, context);
+    return se_DetachInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInstancesCommandOutput> {
-    return deserializeAws_queryDetachInstancesCommand(output, context);
+    return de_DetachInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

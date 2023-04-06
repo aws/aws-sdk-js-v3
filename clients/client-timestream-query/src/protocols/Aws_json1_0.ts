@@ -118,7 +118,10 @@ import {
 } from "../models/models_0";
 import { TimestreamQueryServiceException as __BaseException } from "../models/TimestreamQueryServiceException";
 
-export const serializeAws_json1_0CancelQueryCommand = async (
+/**
+ * serializeAws_json1_0CancelQueryCommand
+ */
+export const se_CancelQueryCommand = async (
   input: CancelQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -127,11 +130,14 @@ export const serializeAws_json1_0CancelQueryCommand = async (
     "x-amz-target": "Timestream_20181101.CancelQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CancelQueryRequest(input, context));
+  body = JSON.stringify(se_CancelQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateScheduledQueryCommand = async (
+/**
+ * serializeAws_json1_0CreateScheduledQueryCommand
+ */
+export const se_CreateScheduledQueryCommand = async (
   input: CreateScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -140,11 +146,14 @@ export const serializeAws_json1_0CreateScheduledQueryCommand = async (
     "x-amz-target": "Timestream_20181101.CreateScheduledQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateScheduledQueryRequest(input, context));
+  body = JSON.stringify(se_CreateScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteScheduledQueryCommand = async (
+/**
+ * serializeAws_json1_0DeleteScheduledQueryCommand
+ */
+export const se_DeleteScheduledQueryCommand = async (
   input: DeleteScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -153,11 +162,14 @@ export const serializeAws_json1_0DeleteScheduledQueryCommand = async (
     "x-amz-target": "Timestream_20181101.DeleteScheduledQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteScheduledQueryRequest(input, context));
+  body = JSON.stringify(se_DeleteScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeEndpointsCommand = async (
+/**
+ * serializeAws_json1_0DescribeEndpointsCommand
+ */
+export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -166,11 +178,14 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
     "x-amz-target": "Timestream_20181101.DescribeEndpoints",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeEndpointsRequest(input, context));
+  body = JSON.stringify(se_DescribeEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeScheduledQueryCommand = async (
+/**
+ * serializeAws_json1_0DescribeScheduledQueryCommand
+ */
+export const se_DescribeScheduledQueryCommand = async (
   input: DescribeScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,11 +194,14 @@ export const serializeAws_json1_0DescribeScheduledQueryCommand = async (
     "x-amz-target": "Timestream_20181101.DescribeScheduledQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeScheduledQueryRequest(input, context));
+  body = JSON.stringify(se_DescribeScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ExecuteScheduledQueryCommand = async (
+/**
+ * serializeAws_json1_0ExecuteScheduledQueryCommand
+ */
+export const se_ExecuteScheduledQueryCommand = async (
   input: ExecuteScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -192,11 +210,14 @@ export const serializeAws_json1_0ExecuteScheduledQueryCommand = async (
     "x-amz-target": "Timestream_20181101.ExecuteScheduledQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ExecuteScheduledQueryRequest(input, context));
+  body = JSON.stringify(se_ExecuteScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListScheduledQueriesCommand = async (
+/**
+ * serializeAws_json1_0ListScheduledQueriesCommand
+ */
+export const se_ListScheduledQueriesCommand = async (
   input: ListScheduledQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -205,11 +226,14 @@ export const serializeAws_json1_0ListScheduledQueriesCommand = async (
     "x-amz-target": "Timestream_20181101.ListScheduledQueries",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListScheduledQueriesRequest(input, context));
+  body = JSON.stringify(se_ListScheduledQueriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -218,11 +242,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "Timestream_20181101.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PrepareQueryCommand = async (
+/**
+ * serializeAws_json1_0PrepareQueryCommand
+ */
+export const se_PrepareQueryCommand = async (
   input: PrepareQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -231,24 +258,27 @@ export const serializeAws_json1_0PrepareQueryCommand = async (
     "x-amz-target": "Timestream_20181101.PrepareQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PrepareQueryRequest(input, context));
+  body = JSON.stringify(se_PrepareQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0QueryCommand = async (
-  input: QueryCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_json1_0QueryCommand
+ */
+export const se_QueryCommand = async (input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
     "x-amz-target": "Timestream_20181101.Query",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0QueryRequest(input, context));
+  body = JSON.stringify(se_QueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -257,11 +287,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "Timestream_20181101.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -270,11 +303,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "Timestream_20181101.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateScheduledQueryCommand = async (
+/**
+ * serializeAws_json1_0UpdateScheduledQueryCommand
+ */
+export const se_UpdateScheduledQueryCommand = async (
   input: UpdateScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -283,20 +319,23 @@ export const serializeAws_json1_0UpdateScheduledQueryCommand = async (
     "x-amz-target": "Timestream_20181101.UpdateScheduledQuery",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateScheduledQueryRequest(input, context));
+  body = JSON.stringify(se_UpdateScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CancelQueryCommand = async (
+/**
+ * deserializeAws_json1_0CancelQueryCommand
+ */
+export const de_CancelQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CancelQueryCommandError(output, context);
+    return de_CancelQueryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CancelQueryResponse(data, context);
+  contents = de_CancelQueryResponse(data, context);
   const response: CancelQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -304,7 +343,10 @@ export const deserializeAws_json1_0CancelQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CancelQueryCommandError = async (
+/**
+ * deserializeAws_json1_0CancelQueryCommandError
+ */
+const de_CancelQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelQueryCommandOutput> => {
@@ -316,19 +358,19 @@ const deserializeAws_json1_0CancelQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -340,16 +382,19 @@ const deserializeAws_json1_0CancelQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateScheduledQueryCommand = async (
+/**
+ * deserializeAws_json1_0CreateScheduledQueryCommand
+ */
+export const de_CreateScheduledQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateScheduledQueryCommandError(output, context);
+    return de_CreateScheduledQueryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateScheduledQueryResponse(data, context);
+  contents = de_CreateScheduledQueryResponse(data, context);
   const response: CreateScheduledQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -357,7 +402,10 @@ export const deserializeAws_json1_0CreateScheduledQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateScheduledQueryCommandError = async (
+/**
+ * deserializeAws_json1_0CreateScheduledQueryCommandError
+ */
+const de_CreateScheduledQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduledQueryCommandOutput> => {
@@ -369,25 +417,25 @@ const deserializeAws_json1_0CreateScheduledQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.timestreamquery#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.timestreamquery#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -399,12 +447,15 @@ const deserializeAws_json1_0CreateScheduledQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteScheduledQueryCommand = async (
+/**
+ * deserializeAws_json1_0DeleteScheduledQueryCommand
+ */
+export const de_DeleteScheduledQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteScheduledQueryCommandError(output, context);
+    return de_DeleteScheduledQueryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScheduledQueryCommandOutput = {
@@ -413,7 +464,10 @@ export const deserializeAws_json1_0DeleteScheduledQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteScheduledQueryCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteScheduledQueryCommandError
+ */
+const de_DeleteScheduledQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledQueryCommandOutput> => {
@@ -425,22 +479,22 @@ const deserializeAws_json1_0DeleteScheduledQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -452,16 +506,19 @@ const deserializeAws_json1_0DeleteScheduledQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeEndpointsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeEndpointsCommand
+ */
+export const de_DescribeEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeEndpointsCommandError(output, context);
+    return de_DescribeEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
+  contents = de_DescribeEndpointsResponse(data, context);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -469,7 +526,10 @@ export const deserializeAws_json1_0DescribeEndpointsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeEndpointsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeEndpointsCommandError
+ */
+const de_DescribeEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> => {
@@ -481,13 +541,13 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -499,16 +559,19 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeScheduledQueryCommand = async (
+/**
+ * deserializeAws_json1_0DescribeScheduledQueryCommand
+ */
+export const de_DescribeScheduledQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeScheduledQueryCommandError(output, context);
+    return de_DescribeScheduledQueryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeScheduledQueryResponse(data, context);
+  contents = de_DescribeScheduledQueryResponse(data, context);
   const response: DescribeScheduledQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -516,7 +579,10 @@ export const deserializeAws_json1_0DescribeScheduledQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeScheduledQueryCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeScheduledQueryCommandError
+ */
+const de_DescribeScheduledQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledQueryCommandOutput> => {
@@ -528,22 +594,22 @@ const deserializeAws_json1_0DescribeScheduledQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -555,12 +621,15 @@ const deserializeAws_json1_0DescribeScheduledQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ExecuteScheduledQueryCommand = async (
+/**
+ * deserializeAws_json1_0ExecuteScheduledQueryCommand
+ */
+export const de_ExecuteScheduledQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ExecuteScheduledQueryCommandError(output, context);
+    return de_ExecuteScheduledQueryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ExecuteScheduledQueryCommandOutput = {
@@ -569,7 +638,10 @@ export const deserializeAws_json1_0ExecuteScheduledQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ExecuteScheduledQueryCommandError = async (
+/**
+ * deserializeAws_json1_0ExecuteScheduledQueryCommandError
+ */
+const de_ExecuteScheduledQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteScheduledQueryCommandOutput> => {
@@ -581,22 +653,22 @@ const deserializeAws_json1_0ExecuteScheduledQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -608,16 +680,19 @@ const deserializeAws_json1_0ExecuteScheduledQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListScheduledQueriesCommand = async (
+/**
+ * deserializeAws_json1_0ListScheduledQueriesCommand
+ */
+export const de_ListScheduledQueriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScheduledQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListScheduledQueriesCommandError(output, context);
+    return de_ListScheduledQueriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListScheduledQueriesResponse(data, context);
+  contents = de_ListScheduledQueriesResponse(data, context);
   const response: ListScheduledQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -625,7 +700,10 @@ export const deserializeAws_json1_0ListScheduledQueriesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListScheduledQueriesCommandError = async (
+/**
+ * deserializeAws_json1_0ListScheduledQueriesCommandError
+ */
+const de_ListScheduledQueriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScheduledQueriesCommandOutput> => {
@@ -637,19 +715,19 @@ const deserializeAws_json1_0ListScheduledQueriesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -661,16 +739,19 @@ const deserializeAws_json1_0ListScheduledQueriesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -678,7 +759,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -690,16 +774,16 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -711,16 +795,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0PrepareQueryCommand = async (
+/**
+ * deserializeAws_json1_0PrepareQueryCommand
+ */
+export const de_PrepareQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PrepareQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PrepareQueryCommandError(output, context);
+    return de_PrepareQueryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PrepareQueryResponse(data, context);
+  contents = de_PrepareQueryResponse(data, context);
   const response: PrepareQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -728,7 +815,10 @@ export const deserializeAws_json1_0PrepareQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0PrepareQueryCommandError = async (
+/**
+ * deserializeAws_json1_0PrepareQueryCommandError
+ */
+const de_PrepareQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PrepareQueryCommandOutput> => {
@@ -740,19 +830,19 @@ const deserializeAws_json1_0PrepareQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -764,16 +854,16 @@ const deserializeAws_json1_0PrepareQueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0QueryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryCommandOutput> => {
+/**
+ * deserializeAws_json1_0QueryCommand
+ */
+export const de_QueryCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0QueryCommandError(output, context);
+    return de_QueryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0QueryResponse(data, context);
+  contents = de_QueryResponse(data, context);
   const response: QueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -781,10 +871,10 @@ export const deserializeAws_json1_0QueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0QueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryCommandOutput> => {
+/**
+ * deserializeAws_json1_0QueryCommandError
+ */
+const de_QueryCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -793,25 +883,25 @@ const deserializeAws_json1_0QueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.timestreamquery#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "QueryExecutionException":
     case "com.amazonaws.timestreamquery#QueryExecutionException":
-      throw await deserializeAws_json1_0QueryExecutionExceptionResponse(parsedOutput, context);
+      throw await de_QueryExecutionExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -823,16 +913,19 @@ const deserializeAws_json1_0QueryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -840,7 +933,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -852,19 +948,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.timestreamquery#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -876,16 +972,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -893,7 +992,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -905,16 +1007,16 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -926,12 +1028,15 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateScheduledQueryCommand = async (
+/**
+ * deserializeAws_json1_0UpdateScheduledQueryCommand
+ */
+export const de_UpdateScheduledQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateScheduledQueryCommandError(output, context);
+    return de_UpdateScheduledQueryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateScheduledQueryCommandOutput = {
@@ -940,7 +1045,10 @@ export const deserializeAws_json1_0UpdateScheduledQueryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateScheduledQueryCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateScheduledQueryCommandError
+ */
+const de_UpdateScheduledQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScheduledQueryCommandOutput> => {
@@ -952,22 +1060,22 @@ const deserializeAws_json1_0UpdateScheduledQueryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -979,12 +1087,15 @@ const deserializeAws_json1_0UpdateScheduledQueryCommandError = async (
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -992,12 +1103,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1005,12 +1116,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1018,12 +1132,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidEndpointExceptionRes
+ */
+const de_InvalidEndpointExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEndpointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidEndpointException(body, context);
+  const deserialized: any = de_InvalidEndpointException(body, context);
   const exception = new InvalidEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1031,12 +1148,15 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0QueryExecutionExceptionResponse = async (
+/**
+ * deserializeAws_json1_0QueryExecutionExceptionRes
+ */
+const de_QueryExecutionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<QueryExecutionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0QueryExecutionException(body, context);
+  const deserialized: any = de_QueryExecutionException(body, context);
   const exception = new QueryExecutionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1044,12 +1164,15 @@ const deserializeAws_json1_0QueryExecutionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1057,12 +1180,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1070,12 +1196,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1083,12 +1209,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1096,98 +1222,102 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0CancelQueryRequest = (input: CancelQueryRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CancelQueryRequest
+ */
+const se_CancelQueryRequest = (input: CancelQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.QueryId != null && { QueryId: input.QueryId }),
   };
 };
 
-const serializeAws_json1_0CreateScheduledQueryRequest = (
-  input: CreateScheduledQueryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateScheduledQueryRequest
+ */
+const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ErrorReportConfiguration != null && {
-      ErrorReportConfiguration: serializeAws_json1_0ErrorReportConfiguration(input.ErrorReportConfiguration, context),
+      ErrorReportConfiguration: se_ErrorReportConfiguration(input.ErrorReportConfiguration, context),
     }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.NotificationConfiguration != null && {
-      NotificationConfiguration: serializeAws_json1_0NotificationConfiguration(
-        input.NotificationConfiguration,
-        context
-      ),
+      NotificationConfiguration: se_NotificationConfiguration(input.NotificationConfiguration, context),
     }),
     ...(input.QueryString != null && { QueryString: input.QueryString }),
     ...(input.ScheduleConfiguration != null && {
-      ScheduleConfiguration: serializeAws_json1_0ScheduleConfiguration(input.ScheduleConfiguration, context),
+      ScheduleConfiguration: se_ScheduleConfiguration(input.ScheduleConfiguration, context),
     }),
     ...(input.ScheduledQueryExecutionRoleArn != null && {
       ScheduledQueryExecutionRoleArn: input.ScheduledQueryExecutionRoleArn,
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.TargetConfiguration != null && {
-      TargetConfiguration: serializeAws_json1_0TargetConfiguration(input.TargetConfiguration, context),
+      TargetConfiguration: se_TargetConfiguration(input.TargetConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_0DeleteScheduledQueryRequest = (
-  input: DeleteScheduledQueryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteScheduledQueryRequest
+ */
+const se_DeleteScheduledQueryRequest = (input: DeleteScheduledQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
 
-const serializeAws_json1_0DescribeEndpointsRequest = (
-  input: DescribeEndpointsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeEndpointsRequest
+ */
+const se_DescribeEndpointsRequest = (input: DescribeEndpointsRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0DescribeScheduledQueryRequest = (
-  input: DescribeScheduledQueryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeScheduledQueryRequest
+ */
+const se_DescribeScheduledQueryRequest = (input: DescribeScheduledQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
 
-const serializeAws_json1_0DimensionMapping = (input: DimensionMapping, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DimensionMapping
+ */
+const se_DimensionMapping = (input: DimensionMapping, context: __SerdeContext): any => {
   return {
     ...(input.DimensionValueType != null && { DimensionValueType: input.DimensionValueType }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_0DimensionMappingList = (input: DimensionMapping[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DimensionMappingList
+ */
+const se_DimensionMappingList = (input: DimensionMapping[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0DimensionMapping(entry, context);
+      return se_DimensionMapping(entry, context);
     });
 };
 
-const serializeAws_json1_0ErrorReportConfiguration = (
-  input: ErrorReportConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ErrorReportConfiguration
+ */
+const se_ErrorReportConfiguration = (input: ErrorReportConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_0S3Configuration(input.S3Configuration, context),
-    }),
+    ...(input.S3Configuration != null && { S3Configuration: se_S3Configuration(input.S3Configuration, context) }),
   };
 };
 
-const serializeAws_json1_0ExecuteScheduledQueryRequest = (
-  input: ExecuteScheduledQueryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ExecuteScheduledQueryRequest
+ */
+const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.InvocationTime != null && { InvocationTime: Math.round(input.InvocationTime.getTime() / 1000) }),
@@ -1195,20 +1325,20 @@ const serializeAws_json1_0ExecuteScheduledQueryRequest = (
   };
 };
 
-const serializeAws_json1_0ListScheduledQueriesRequest = (
-  input: ListScheduledQueriesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListScheduledQueriesRequest
+ */
+const se_ListScheduledQueriesRequest = (input: ListScheduledQueriesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -1216,33 +1346,36 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_0MixedMeasureMapping = (input: MixedMeasureMapping, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0MixedMeasureMapping
+ */
+const se_MixedMeasureMapping = (input: MixedMeasureMapping, context: __SerdeContext): any => {
   return {
     ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
     ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
     ...(input.MultiMeasureAttributeMappings != null && {
-      MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
-        input.MultiMeasureAttributeMappings,
-        context
-      ),
+      MultiMeasureAttributeMappings: se_MultiMeasureAttributeMappingList(input.MultiMeasureAttributeMappings, context),
     }),
     ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
     ...(input.TargetMeasureName != null && { TargetMeasureName: input.TargetMeasureName }),
   };
 };
 
-const serializeAws_json1_0MixedMeasureMappingList = (input: MixedMeasureMapping[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0MixedMeasureMappingList
+ */
+const se_MixedMeasureMappingList = (input: MixedMeasureMapping[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0MixedMeasureMapping(entry, context);
+      return se_MixedMeasureMapping(entry, context);
     });
 };
 
-const serializeAws_json1_0MultiMeasureAttributeMapping = (
-  input: MultiMeasureAttributeMapping,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0MultiMeasureAttributeMapping
+ */
+const se_MultiMeasureAttributeMapping = (input: MultiMeasureAttributeMapping, context: __SerdeContext): any => {
   return {
     ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
     ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
@@ -1252,48 +1385,52 @@ const serializeAws_json1_0MultiMeasureAttributeMapping = (
   };
 };
 
-const serializeAws_json1_0MultiMeasureAttributeMappingList = (
-  input: MultiMeasureAttributeMapping[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0MultiMeasureAttributeMappingList
+ */
+const se_MultiMeasureAttributeMappingList = (input: MultiMeasureAttributeMapping[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0MultiMeasureAttributeMapping(entry, context);
+      return se_MultiMeasureAttributeMapping(entry, context);
     });
 };
 
-const serializeAws_json1_0MultiMeasureMappings = (input: MultiMeasureMappings, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0MultiMeasureMappings
+ */
+const se_MultiMeasureMappings = (input: MultiMeasureMappings, context: __SerdeContext): any => {
   return {
     ...(input.MultiMeasureAttributeMappings != null && {
-      MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
-        input.MultiMeasureAttributeMappings,
-        context
-      ),
+      MultiMeasureAttributeMappings: se_MultiMeasureAttributeMappingList(input.MultiMeasureAttributeMappings, context),
     }),
     ...(input.TargetMultiMeasureName != null && { TargetMultiMeasureName: input.TargetMultiMeasureName }),
   };
 };
 
-const serializeAws_json1_0NotificationConfiguration = (
-  input: NotificationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0NotificationConfiguration
+ */
+const se_NotificationConfiguration = (input: NotificationConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SnsConfiguration != null && {
-      SnsConfiguration: serializeAws_json1_0SnsConfiguration(input.SnsConfiguration, context),
-    }),
+    ...(input.SnsConfiguration != null && { SnsConfiguration: se_SnsConfiguration(input.SnsConfiguration, context) }),
   };
 };
 
-const serializeAws_json1_0PrepareQueryRequest = (input: PrepareQueryRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PrepareQueryRequest
+ */
+const se_PrepareQueryRequest = (input: PrepareQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.QueryString != null && { QueryString: input.QueryString }),
     ...(input.ValidateOnly != null && { ValidateOnly: input.ValidateOnly }),
   };
 };
 
-const serializeAws_json1_0QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0QueryRequest
+ */
+const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.MaxRows != null && { MaxRows: input.MaxRows }),
@@ -1302,7 +1439,10 @@ const serializeAws_json1_0QueryRequest = (input: QueryRequest, context: __SerdeC
   };
 };
 
-const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0S3Configuration
+ */
+const se_S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
   return {
     ...(input.BucketName != null && { BucketName: input.BucketName }),
     ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
@@ -1310,26 +1450,38 @@ const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __
   };
 };
 
-const serializeAws_json1_0ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ScheduleConfiguration
+ */
+const se_ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
-const serializeAws_json1_0SnsConfiguration = (input: SnsConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SnsConfiguration
+ */
+const se_SnsConfiguration = (input: SnsConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1337,216 +1489,261 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TargetConfiguration
+ */
+const se_TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.TimestreamConfiguration != null && {
-      TimestreamConfiguration: serializeAws_json1_0TimestreamConfiguration(input.TimestreamConfiguration, context),
+      TimestreamConfiguration: se_TimestreamConfiguration(input.TimestreamConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_0TimestreamConfiguration = (input: TimestreamConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TimestreamConfiguration
+ */
+const se_TimestreamConfiguration = (input: TimestreamConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
     ...(input.DimensionMappings != null && {
-      DimensionMappings: serializeAws_json1_0DimensionMappingList(input.DimensionMappings, context),
+      DimensionMappings: se_DimensionMappingList(input.DimensionMappings, context),
     }),
     ...(input.MeasureNameColumn != null && { MeasureNameColumn: input.MeasureNameColumn }),
     ...(input.MixedMeasureMappings != null && {
-      MixedMeasureMappings: serializeAws_json1_0MixedMeasureMappingList(input.MixedMeasureMappings, context),
+      MixedMeasureMappings: se_MixedMeasureMappingList(input.MixedMeasureMappings, context),
     }),
     ...(input.MultiMeasureMappings != null && {
-      MultiMeasureMappings: serializeAws_json1_0MultiMeasureMappings(input.MultiMeasureMappings, context),
+      MultiMeasureMappings: se_MultiMeasureMappings(input.MultiMeasureMappings, context),
     }),
     ...(input.TableName != null && { TableName: input.TableName }),
     ...(input.TimeColumn != null && { TimeColumn: input.TimeColumn }),
   };
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateScheduledQueryRequest = (
-  input: UpdateScheduledQueryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateScheduledQueryRequest
+ */
+const se_UpdateScheduledQueryRequest = (input: UpdateScheduledQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
     ...(input.State != null && { State: input.State }),
   };
 };
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_0AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CancelQueryResponse = (output: any, context: __SerdeContext): CancelQueryResponse => {
+/**
+ * deserializeAws_json1_0CancelQueryResponse
+ */
+const de_CancelQueryResponse = (output: any, context: __SerdeContext): CancelQueryResponse => {
   return {
     CancellationMessage: __expectString(output.CancellationMessage),
   } as any;
 };
 
-const deserializeAws_json1_0ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
+/**
+ * deserializeAws_json1_0ColumnInfo
+ */
+const de_ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
   return {
     Name: __expectString(output.Name),
-    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? de_Type(output.Type, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ColumnInfoList = (output: any, context: __SerdeContext): ColumnInfo[] => {
+/**
+ * deserializeAws_json1_0ColumnInfoList
+ */
+const de_ColumnInfoList = (output: any, context: __SerdeContext): ColumnInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ColumnInfo(entry, context);
+      return de_ColumnInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CreateScheduledQueryResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateScheduledQueryResponse => {
+/**
+ * deserializeAws_json1_0CreateScheduledQueryResponse
+ */
+const de_CreateScheduledQueryResponse = (output: any, context: __SerdeContext): CreateScheduledQueryResponse => {
   return {
     Arn: __expectString(output.Arn),
   } as any;
 };
 
-const deserializeAws_json1_0Datum = (output: any, context: __SerdeContext): Datum => {
+/**
+ * deserializeAws_json1_0Datum
+ */
+const de_Datum = (output: any, context: __SerdeContext): Datum => {
   return {
-    ArrayValue: output.ArrayValue != null ? deserializeAws_json1_0DatumList(output.ArrayValue, context) : undefined,
+    ArrayValue: output.ArrayValue != null ? de_DatumList(output.ArrayValue, context) : undefined,
     NullValue: __expectBoolean(output.NullValue),
-    RowValue: output.RowValue != null ? deserializeAws_json1_0Row(output.RowValue, context) : undefined,
+    RowValue: output.RowValue != null ? de_Row(output.RowValue, context) : undefined,
     ScalarValue: __expectString(output.ScalarValue),
     TimeSeriesValue:
-      output.TimeSeriesValue != null
-        ? deserializeAws_json1_0TimeSeriesDataPointList(output.TimeSeriesValue, context)
-        : undefined,
+      output.TimeSeriesValue != null ? de_TimeSeriesDataPointList(output.TimeSeriesValue, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DatumList = (output: any, context: __SerdeContext): Datum[] => {
+/**
+ * deserializeAws_json1_0DatumList
+ */
+const de_DatumList = (output: any, context: __SerdeContext): Datum[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Datum(entry, context);
+      return de_Datum(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DescribeEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEndpointsResponse => {
+/**
+ * deserializeAws_json1_0DescribeEndpointsResponse
+ */
+const de_DescribeEndpointsResponse = (output: any, context: __SerdeContext): DescribeEndpointsResponse => {
   return {
-    Endpoints: output.Endpoints != null ? deserializeAws_json1_0Endpoints(output.Endpoints, context) : undefined,
+    Endpoints: output.Endpoints != null ? de_Endpoints(output.Endpoints, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeScheduledQueryResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeScheduledQueryResponse => {
+/**
+ * deserializeAws_json1_0DescribeScheduledQueryResponse
+ */
+const de_DescribeScheduledQueryResponse = (output: any, context: __SerdeContext): DescribeScheduledQueryResponse => {
   return {
     ScheduledQuery:
-      output.ScheduledQuery != null
-        ? deserializeAws_json1_0ScheduledQueryDescription(output.ScheduledQuery, context)
-        : undefined,
+      output.ScheduledQuery != null ? de_ScheduledQueryDescription(output.ScheduledQuery, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DimensionMapping = (output: any, context: __SerdeContext): DimensionMapping => {
+/**
+ * deserializeAws_json1_0DimensionMapping
+ */
+const de_DimensionMapping = (output: any, context: __SerdeContext): DimensionMapping => {
   return {
     DimensionValueType: __expectString(output.DimensionValueType),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_0DimensionMappingList = (output: any, context: __SerdeContext): DimensionMapping[] => {
+/**
+ * deserializeAws_json1_0DimensionMappingList
+ */
+const de_DimensionMappingList = (output: any, context: __SerdeContext): DimensionMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0DimensionMapping(entry, context);
+      return de_DimensionMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
+/**
+ * deserializeAws_json1_0Endpoint
+ */
+const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: __expectString(output.Address),
     CachePeriodInMinutes: __expectLong(output.CachePeriodInMinutes),
   } as any;
 };
 
-const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
+/**
+ * deserializeAws_json1_0Endpoints
+ */
+const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Endpoint(entry, context);
+      return de_Endpoint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ErrorReportConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ErrorReportConfiguration => {
+/**
+ * deserializeAws_json1_0ErrorReportConfiguration
+ */
+const de_ErrorReportConfiguration = (output: any, context: __SerdeContext): ErrorReportConfiguration => {
   return {
-    S3Configuration:
-      output.S3Configuration != null
-        ? deserializeAws_json1_0S3Configuration(output.S3Configuration, context)
-        : undefined,
+    S3Configuration: output.S3Configuration != null ? de_S3Configuration(output.S3Configuration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ErrorReportLocation = (output: any, context: __SerdeContext): ErrorReportLocation => {
+/**
+ * deserializeAws_json1_0ErrorReportLocation
+ */
+const de_ErrorReportLocation = (output: any, context: __SerdeContext): ErrorReportLocation => {
   return {
     S3ReportLocation:
-      output.S3ReportLocation != null
-        ? deserializeAws_json1_0S3ReportLocation(output.S3ReportLocation, context)
-        : undefined,
+      output.S3ReportLocation != null ? de_S3ReportLocation(output.S3ReportLocation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionStats = (output: any, context: __SerdeContext): ExecutionStats => {
+/**
+ * deserializeAws_json1_0ExecutionStats
+ */
+const de_ExecutionStats = (output: any, context: __SerdeContext): ExecutionStats => {
   return {
     BytesMetered: __expectLong(output.BytesMetered),
     DataWrites: __expectLong(output.DataWrites),
@@ -1556,76 +1753,80 @@ const deserializeAws_json1_0ExecutionStats = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidEndpointException = (
-  output: any,
-  context: __SerdeContext
-): InvalidEndpointException => {
+/**
+ * deserializeAws_json1_0InvalidEndpointException
+ */
+const de_InvalidEndpointException = (output: any, context: __SerdeContext): InvalidEndpointException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ListScheduledQueriesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListScheduledQueriesResponse => {
+/**
+ * deserializeAws_json1_0ListScheduledQueriesResponse
+ */
+const de_ListScheduledQueriesResponse = (output: any, context: __SerdeContext): ListScheduledQueriesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ScheduledQueries:
-      output.ScheduledQueries != null
-        ? deserializeAws_json1_0ScheduledQueryList(output.ScheduledQueries, context)
-        : undefined,
+      output.ScheduledQueries != null ? de_ScheduledQueryList(output.ScheduledQueries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0MixedMeasureMapping = (output: any, context: __SerdeContext): MixedMeasureMapping => {
+/**
+ * deserializeAws_json1_0MixedMeasureMapping
+ */
+const de_MixedMeasureMapping = (output: any, context: __SerdeContext): MixedMeasureMapping => {
   return {
     MeasureName: __expectString(output.MeasureName),
     MeasureValueType: __expectString(output.MeasureValueType),
     MultiMeasureAttributeMappings:
       output.MultiMeasureAttributeMappings != null
-        ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
+        ? de_MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
         : undefined,
     SourceColumn: __expectString(output.SourceColumn),
     TargetMeasureName: __expectString(output.TargetMeasureName),
   } as any;
 };
 
-const deserializeAws_json1_0MixedMeasureMappingList = (output: any, context: __SerdeContext): MixedMeasureMapping[] => {
+/**
+ * deserializeAws_json1_0MixedMeasureMappingList
+ */
+const de_MixedMeasureMappingList = (output: any, context: __SerdeContext): MixedMeasureMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0MixedMeasureMapping(entry, context);
+      return de_MixedMeasureMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0MultiMeasureAttributeMapping = (
-  output: any,
-  context: __SerdeContext
-): MultiMeasureAttributeMapping => {
+/**
+ * deserializeAws_json1_0MultiMeasureAttributeMapping
+ */
+const de_MultiMeasureAttributeMapping = (output: any, context: __SerdeContext): MultiMeasureAttributeMapping => {
   return {
     MeasureValueType: __expectString(output.MeasureValueType),
     SourceColumn: __expectString(output.SourceColumn),
@@ -1633,93 +1834,106 @@ const deserializeAws_json1_0MultiMeasureAttributeMapping = (
   } as any;
 };
 
-const deserializeAws_json1_0MultiMeasureAttributeMappingList = (
-  output: any,
-  context: __SerdeContext
-): MultiMeasureAttributeMapping[] => {
+/**
+ * deserializeAws_json1_0MultiMeasureAttributeMappingList
+ */
+const de_MultiMeasureAttributeMappingList = (output: any, context: __SerdeContext): MultiMeasureAttributeMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0MultiMeasureAttributeMapping(entry, context);
+      return de_MultiMeasureAttributeMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
+/**
+ * deserializeAws_json1_0MultiMeasureMappings
+ */
+const de_MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
   return {
     MultiMeasureAttributeMappings:
       output.MultiMeasureAttributeMappings != null
-        ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
+        ? de_MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
         : undefined,
     TargetMultiMeasureName: __expectString(output.TargetMultiMeasureName),
   } as any;
 };
 
-const deserializeAws_json1_0NotificationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NotificationConfiguration => {
+/**
+ * deserializeAws_json1_0NotificationConfiguration
+ */
+const de_NotificationConfiguration = (output: any, context: __SerdeContext): NotificationConfiguration => {
   return {
     SnsConfiguration:
-      output.SnsConfiguration != null
-        ? deserializeAws_json1_0SnsConfiguration(output.SnsConfiguration, context)
-        : undefined,
+      output.SnsConfiguration != null ? de_SnsConfiguration(output.SnsConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ParameterMapping = (output: any, context: __SerdeContext): ParameterMapping => {
+/**
+ * deserializeAws_json1_0ParameterMapping
+ */
+const de_ParameterMapping = (output: any, context: __SerdeContext): ParameterMapping => {
   return {
     Name: __expectString(output.Name),
-    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? de_Type(output.Type, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ParameterMappingList = (output: any, context: __SerdeContext): ParameterMapping[] => {
+/**
+ * deserializeAws_json1_0ParameterMappingList
+ */
+const de_ParameterMappingList = (output: any, context: __SerdeContext): ParameterMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ParameterMapping(entry, context);
+      return de_ParameterMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQueryResponse => {
+/**
+ * deserializeAws_json1_0PrepareQueryResponse
+ */
+const de_PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQueryResponse => {
   return {
-    Columns: output.Columns != null ? deserializeAws_json1_0SelectColumnList(output.Columns, context) : undefined,
-    Parameters:
-      output.Parameters != null ? deserializeAws_json1_0ParameterMappingList(output.Parameters, context) : undefined,
+    Columns: output.Columns != null ? de_SelectColumnList(output.Columns, context) : undefined,
+    Parameters: output.Parameters != null ? de_ParameterMappingList(output.Parameters, context) : undefined,
     QueryString: __expectString(output.QueryString),
   } as any;
 };
 
-const deserializeAws_json1_0QueryExecutionException = (
-  output: any,
-  context: __SerdeContext
-): QueryExecutionException => {
+/**
+ * deserializeAws_json1_0QueryExecutionException
+ */
+const de_QueryExecutionException = (output: any, context: __SerdeContext): QueryExecutionException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0QueryResponse = (output: any, context: __SerdeContext): QueryResponse => {
+/**
+ * deserializeAws_json1_0QueryResponse
+ */
+const de_QueryResponse = (output: any, context: __SerdeContext): QueryResponse => {
   return {
-    ColumnInfo:
-      output.ColumnInfo != null ? deserializeAws_json1_0ColumnInfoList(output.ColumnInfo, context) : undefined,
+    ColumnInfo: output.ColumnInfo != null ? de_ColumnInfoList(output.ColumnInfo, context) : undefined,
     NextToken: __expectString(output.NextToken),
     QueryId: __expectString(output.QueryId),
-    QueryStatus:
-      output.QueryStatus != null ? deserializeAws_json1_0QueryStatus(output.QueryStatus, context) : undefined,
-    Rows: output.Rows != null ? deserializeAws_json1_0RowList(output.Rows, context) : undefined,
+    QueryStatus: output.QueryStatus != null ? de_QueryStatus(output.QueryStatus, context) : undefined,
+    Rows: output.Rows != null ? de_RowList(output.Rows, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0QueryStatus = (output: any, context: __SerdeContext): QueryStatus => {
+/**
+ * deserializeAws_json1_0QueryStatus
+ */
+const de_QueryStatus = (output: any, context: __SerdeContext): QueryStatus => {
   return {
     CumulativeBytesMetered: __expectLong(output.CumulativeBytesMetered),
     CumulativeBytesScanned: __expectLong(output.CumulativeBytesScanned),
@@ -1727,35 +1941,44 @@ const deserializeAws_json1_0QueryStatus = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
     ScheduledQueryArn: __expectString(output.ScheduledQueryArn),
   } as any;
 };
 
-const deserializeAws_json1_0Row = (output: any, context: __SerdeContext): Row => {
+/**
+ * deserializeAws_json1_0Row
+ */
+const de_Row = (output: any, context: __SerdeContext): Row => {
   return {
-    Data: output.Data != null ? deserializeAws_json1_0DatumList(output.Data, context) : undefined,
+    Data: output.Data != null ? de_DatumList(output.Data, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0RowList = (output: any, context: __SerdeContext): Row[] => {
+/**
+ * deserializeAws_json1_0RowList
+ */
+const de_RowList = (output: any, context: __SerdeContext): Row[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Row(entry, context);
+      return de_Row(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
+/**
+ * deserializeAws_json1_0S3Configuration
+ */
+const de_S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
   return {
     BucketName: __expectString(output.BucketName),
     EncryptionOption: __expectString(output.EncryptionOption),
@@ -1763,20 +1986,29 @@ const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_0S3ReportLocation = (output: any, context: __SerdeContext): S3ReportLocation => {
+/**
+ * deserializeAws_json1_0S3ReportLocation
+ */
+const de_S3ReportLocation = (output: any, context: __SerdeContext): S3ReportLocation => {
   return {
     BucketName: __expectString(output.BucketName),
     ObjectKey: __expectString(output.ObjectKey),
   } as any;
 };
 
-const deserializeAws_json1_0ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {
+/**
+ * deserializeAws_json1_0ScheduleConfiguration
+ */
+const de_ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {
   return {
     ScheduleExpression: __expectString(output.ScheduleExpression),
   } as any;
 };
 
-const deserializeAws_json1_0ScheduledQuery = (output: any, context: __SerdeContext): ScheduledQuery => {
+/**
+ * deserializeAws_json1_0ScheduledQuery
+ */
+const de_ScheduledQuery = (output: any, context: __SerdeContext): ScheduledQuery => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
@@ -1785,7 +2017,7 @@ const deserializeAws_json1_0ScheduledQuery = (output: any, context: __SerdeConte
         : undefined,
     ErrorReportConfiguration:
       output.ErrorReportConfiguration != null
-        ? deserializeAws_json1_0ErrorReportConfiguration(output.ErrorReportConfiguration, context)
+        ? de_ErrorReportConfiguration(output.ErrorReportConfiguration, context)
         : undefined,
     LastRunStatus: __expectString(output.LastRunStatus),
     Name: __expectString(output.Name),
@@ -1799,16 +2031,14 @@ const deserializeAws_json1_0ScheduledQuery = (output: any, context: __SerdeConte
         : undefined,
     State: __expectString(output.State),
     TargetDestination:
-      output.TargetDestination != null
-        ? deserializeAws_json1_0TargetDestination(output.TargetDestination, context)
-        : undefined,
+      output.TargetDestination != null ? de_TargetDestination(output.TargetDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ScheduledQueryDescription = (
-  output: any,
-  context: __SerdeContext
-): ScheduledQueryDescription => {
+/**
+ * deserializeAws_json1_0ScheduledQueryDescription
+ */
+const de_ScheduledQueryDescription = (output: any, context: __SerdeContext): ScheduledQueryDescription => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
@@ -1817,13 +2047,11 @@ const deserializeAws_json1_0ScheduledQueryDescription = (
         : undefined,
     ErrorReportConfiguration:
       output.ErrorReportConfiguration != null
-        ? deserializeAws_json1_0ErrorReportConfiguration(output.ErrorReportConfiguration, context)
+        ? de_ErrorReportConfiguration(output.ErrorReportConfiguration, context)
         : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     LastRunSummary:
-      output.LastRunSummary != null
-        ? deserializeAws_json1_0ScheduledQueryRunSummary(output.LastRunSummary, context)
-        : undefined,
+      output.LastRunSummary != null ? de_ScheduledQueryRunSummary(output.LastRunSummary, context) : undefined,
     Name: __expectString(output.Name),
     NextInvocationTime:
       output.NextInvocationTime != null
@@ -1831,7 +2059,7 @@ const deserializeAws_json1_0ScheduledQueryDescription = (
         : undefined,
     NotificationConfiguration:
       output.NotificationConfiguration != null
-        ? deserializeAws_json1_0NotificationConfiguration(output.NotificationConfiguration, context)
+        ? de_NotificationConfiguration(output.NotificationConfiguration, context)
         : undefined,
     PreviousInvocationTime:
       output.PreviousInvocationTime != null
@@ -1840,44 +2068,42 @@ const deserializeAws_json1_0ScheduledQueryDescription = (
     QueryString: __expectString(output.QueryString),
     RecentlyFailedRuns:
       output.RecentlyFailedRuns != null
-        ? deserializeAws_json1_0ScheduledQueryRunSummaryList(output.RecentlyFailedRuns, context)
+        ? de_ScheduledQueryRunSummaryList(output.RecentlyFailedRuns, context)
         : undefined,
     ScheduleConfiguration:
       output.ScheduleConfiguration != null
-        ? deserializeAws_json1_0ScheduleConfiguration(output.ScheduleConfiguration, context)
+        ? de_ScheduleConfiguration(output.ScheduleConfiguration, context)
         : undefined,
     ScheduledQueryExecutionRoleArn: __expectString(output.ScheduledQueryExecutionRoleArn),
     State: __expectString(output.State),
     TargetConfiguration:
-      output.TargetConfiguration != null
-        ? deserializeAws_json1_0TargetConfiguration(output.TargetConfiguration, context)
-        : undefined,
+      output.TargetConfiguration != null ? de_TargetConfiguration(output.TargetConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ScheduledQueryList = (output: any, context: __SerdeContext): ScheduledQuery[] => {
+/**
+ * deserializeAws_json1_0ScheduledQueryList
+ */
+const de_ScheduledQueryList = (output: any, context: __SerdeContext): ScheduledQuery[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ScheduledQuery(entry, context);
+      return de_ScheduledQuery(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ScheduledQueryRunSummary = (
-  output: any,
-  context: __SerdeContext
-): ScheduledQueryRunSummary => {
+/**
+ * deserializeAws_json1_0ScheduledQueryRunSummary
+ */
+const de_ScheduledQueryRunSummary = (output: any, context: __SerdeContext): ScheduledQueryRunSummary => {
   return {
     ErrorReportLocation:
-      output.ErrorReportLocation != null
-        ? deserializeAws_json1_0ErrorReportLocation(output.ErrorReportLocation, context)
-        : undefined,
-    ExecutionStats:
-      output.ExecutionStats != null ? deserializeAws_json1_0ExecutionStats(output.ExecutionStats, context) : undefined,
+      output.ErrorReportLocation != null ? de_ErrorReportLocation(output.ErrorReportLocation, context) : undefined,
+    ExecutionStats: output.ExecutionStats != null ? de_ExecutionStats(output.ExecutionStats, context) : undefined,
     FailureReason: __expectString(output.FailureReason),
     InvocationTime:
       output.InvocationTime != null
@@ -1891,174 +2117,213 @@ const deserializeAws_json1_0ScheduledQueryRunSummary = (
   } as any;
 };
 
-const deserializeAws_json1_0ScheduledQueryRunSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ScheduledQueryRunSummary[] => {
+/**
+ * deserializeAws_json1_0ScheduledQueryRunSummaryList
+ */
+const de_ScheduledQueryRunSummaryList = (output: any, context: __SerdeContext): ScheduledQueryRunSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ScheduledQueryRunSummary(entry, context);
+      return de_ScheduledQueryRunSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SelectColumn = (output: any, context: __SerdeContext): SelectColumn => {
+/**
+ * deserializeAws_json1_0SelectColumn
+ */
+const de_SelectColumn = (output: any, context: __SerdeContext): SelectColumn => {
   return {
     Aliased: __expectBoolean(output.Aliased),
     DatabaseName: __expectString(output.DatabaseName),
     Name: __expectString(output.Name),
     TableName: __expectString(output.TableName),
-    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? de_Type(output.Type, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0SelectColumnList = (output: any, context: __SerdeContext): SelectColumn[] => {
+/**
+ * deserializeAws_json1_0SelectColumnList
+ */
+const de_SelectColumnList = (output: any, context: __SerdeContext): SelectColumn[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SelectColumn(entry, context);
+      return de_SelectColumn(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0SnsConfiguration = (output: any, context: __SerdeContext): SnsConfiguration => {
+/**
+ * deserializeAws_json1_0SnsConfiguration
+ */
+const de_SnsConfiguration = (output: any, context: __SerdeContext): SnsConfiguration => {
   return {
     TopicArn: __expectString(output.TopicArn),
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
+/**
+ * deserializeAws_json1_0TargetConfiguration
+ */
+const de_TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
     TimestreamConfiguration:
       output.TimestreamConfiguration != null
-        ? deserializeAws_json1_0TimestreamConfiguration(output.TimestreamConfiguration, context)
+        ? de_TimestreamConfiguration(output.TimestreamConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0TargetDestination = (output: any, context: __SerdeContext): TargetDestination => {
+/**
+ * deserializeAws_json1_0TargetDestination
+ */
+const de_TargetDestination = (output: any, context: __SerdeContext): TargetDestination => {
   return {
     TimestreamDestination:
       output.TimestreamDestination != null
-        ? deserializeAws_json1_0TimestreamDestination(output.TimestreamDestination, context)
+        ? de_TimestreamDestination(output.TimestreamDestination, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_0ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0TimeSeriesDataPoint = (output: any, context: __SerdeContext): TimeSeriesDataPoint => {
+/**
+ * deserializeAws_json1_0TimeSeriesDataPoint
+ */
+const de_TimeSeriesDataPoint = (output: any, context: __SerdeContext): TimeSeriesDataPoint => {
   return {
     Time: __expectString(output.Time),
-    Value: output.Value != null ? deserializeAws_json1_0Datum(output.Value, context) : undefined,
+    Value: output.Value != null ? de_Datum(output.Value, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0TimeSeriesDataPointList = (output: any, context: __SerdeContext): TimeSeriesDataPoint[] => {
+/**
+ * deserializeAws_json1_0TimeSeriesDataPointList
+ */
+const de_TimeSeriesDataPointList = (output: any, context: __SerdeContext): TimeSeriesDataPoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0TimeSeriesDataPoint(entry, context);
+      return de_TimeSeriesDataPoint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TimestreamConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TimestreamConfiguration => {
+/**
+ * deserializeAws_json1_0TimestreamConfiguration
+ */
+const de_TimestreamConfiguration = (output: any, context: __SerdeContext): TimestreamConfiguration => {
   return {
     DatabaseName: __expectString(output.DatabaseName),
     DimensionMappings:
-      output.DimensionMappings != null
-        ? deserializeAws_json1_0DimensionMappingList(output.DimensionMappings, context)
-        : undefined,
+      output.DimensionMappings != null ? de_DimensionMappingList(output.DimensionMappings, context) : undefined,
     MeasureNameColumn: __expectString(output.MeasureNameColumn),
     MixedMeasureMappings:
       output.MixedMeasureMappings != null
-        ? deserializeAws_json1_0MixedMeasureMappingList(output.MixedMeasureMappings, context)
+        ? de_MixedMeasureMappingList(output.MixedMeasureMappings, context)
         : undefined,
     MultiMeasureMappings:
-      output.MultiMeasureMappings != null
-        ? deserializeAws_json1_0MultiMeasureMappings(output.MultiMeasureMappings, context)
-        : undefined,
+      output.MultiMeasureMappings != null ? de_MultiMeasureMappings(output.MultiMeasureMappings, context) : undefined,
     TableName: __expectString(output.TableName),
     TimeColumn: __expectString(output.TimeColumn),
   } as any;
 };
 
-const deserializeAws_json1_0TimestreamDestination = (output: any, context: __SerdeContext): TimestreamDestination => {
+/**
+ * deserializeAws_json1_0TimestreamDestination
+ */
+const de_TimestreamDestination = (output: any, context: __SerdeContext): TimestreamDestination => {
   return {
     DatabaseName: __expectString(output.DatabaseName),
     TableName: __expectString(output.TableName),
   } as any;
 };
 
-const deserializeAws_json1_0Type = (output: any, context: __SerdeContext): Type => {
+/**
+ * deserializeAws_json1_0Type
+ */
+const de_Type = (output: any, context: __SerdeContext): Type => {
   return {
-    ArrayColumnInfo:
-      output.ArrayColumnInfo != null ? deserializeAws_json1_0ColumnInfo(output.ArrayColumnInfo, context) : undefined,
-    RowColumnInfo:
-      output.RowColumnInfo != null ? deserializeAws_json1_0ColumnInfoList(output.RowColumnInfo, context) : undefined,
+    ArrayColumnInfo: output.ArrayColumnInfo != null ? de_ColumnInfo(output.ArrayColumnInfo, context) : undefined,
+    RowColumnInfo: output.RowColumnInfo != null ? de_ColumnInfoList(output.RowColumnInfo, context) : undefined,
     ScalarType: __expectString(output.ScalarType),
     TimeSeriesMeasureValueColumnInfo:
       output.TimeSeriesMeasureValueColumnInfo != null
-        ? deserializeAws_json1_0ColumnInfo(output.TimeSeriesMeasureValueColumnInfo, context)
+        ? de_ColumnInfo(output.TimeSeriesMeasureValueColumnInfo, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

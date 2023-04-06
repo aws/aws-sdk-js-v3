@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateFeaturedResultsSetCommand,
-  serializeAws_json1_1UpdateFeaturedResultsSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFeaturedResultsSetCommand, se_UpdateFeaturedResultsSetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class UpdateFeaturedResultsSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFeaturedResultsSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFeaturedResultsSetCommand(input, context);
+    return se_UpdateFeaturedResultsSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeaturedResultsSetCommandOutput> {
-    return deserializeAws_json1_1UpdateFeaturedResultsSetCommand(output, context);
+    return de_UpdateFeaturedResultsSetCommand(output, context);
   }
 
   // Start section: command_body_extra

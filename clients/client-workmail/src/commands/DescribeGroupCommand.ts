@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGroupCommand,
-  serializeAws_json1_1DescribeGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -134,14 +131,14 @@ export class DescribeGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGroupCommand(input, context);
+    return se_DescribeGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeGroupCommand(output, context);
+    return de_DescribeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

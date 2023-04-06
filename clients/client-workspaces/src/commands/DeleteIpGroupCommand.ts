@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIpGroupCommand,
-  serializeAws_json1_1DeleteIpGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteIpGroupCommand, se_DeleteIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteIpGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIpGroupCommand(input, context);
+    return se_DeleteIpGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteIpGroupCommand(output, context);
+    return de_DeleteIpGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

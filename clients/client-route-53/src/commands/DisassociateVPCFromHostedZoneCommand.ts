@@ -16,8 +16,8 @@ import {
 
 import { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
-  serializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
+  de_DisassociateVPCFromHostedZoneCommand,
+  se_DisassociateVPCFromHostedZoneCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -195,7 +195,7 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateVPCFromHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(input, context);
+    return se_DisassociateVPCFromHostedZoneCommand(input, context);
   }
 
   /**
@@ -205,7 +205,7 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> {
-    return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(output, context);
+    return de_DisassociateVPCFromHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

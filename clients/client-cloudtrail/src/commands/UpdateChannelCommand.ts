@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateChannelCommand,
-  serializeAws_json1_1UpdateChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateChannelCommand(input, context);
+    return se_UpdateChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelCommandOutput> {
-    return deserializeAws_json1_1UpdateChannelCommand(output, context);
+    return de_UpdateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

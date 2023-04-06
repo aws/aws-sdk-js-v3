@@ -20,8 +20,8 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import { CreateApplicationPresignedUrlRequest, CreateApplicationPresignedUrlResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateApplicationPresignedUrlCommand,
-  serializeAws_json1_1CreateApplicationPresignedUrlCommand,
+  de_CreateApplicationPresignedUrlCommand,
+  se_CreateApplicationPresignedUrlCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApplicationPresignedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApplicationPresignedUrlCommand(input, context);
+    return se_CreateApplicationPresignedUrlCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationPresignedUrlCommandOutput> {
-    return deserializeAws_json1_1CreateApplicationPresignedUrlCommand(output, context);
+    return de_CreateApplicationPresignedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

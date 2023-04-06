@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { UpdateBotLocaleRequest, UpdateBotLocaleResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateBotLocaleCommand,
-  serializeAws_restJson1UpdateBotLocaleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBotLocaleCommand, se_UpdateBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class UpdateBotLocaleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBotLocaleCommand(input, context);
+    return se_UpdateBotLocaleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotLocaleCommandOutput> {
-    return deserializeAws_restJson1UpdateBotLocaleCommand(output, context);
+    return de_UpdateBotLocaleCommand(output, context);
   }
 
   // Start section: command_body_extra

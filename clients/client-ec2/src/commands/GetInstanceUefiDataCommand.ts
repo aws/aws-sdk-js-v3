@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetInstanceUefiDataCommand,
-  serializeAws_ec2GetInstanceUefiDataCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetInstanceUefiDataCommand, se_GetInstanceUefiDataCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetInstanceUefiDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceUefiDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetInstanceUefiDataCommand(input, context);
+    return se_GetInstanceUefiDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceUefiDataCommandOutput> {
-    return deserializeAws_ec2GetInstanceUefiDataCommand(output, context);
+    return de_GetInstanceUefiDataCommand(output, context);
   }
 
   // Start section: command_body_extra

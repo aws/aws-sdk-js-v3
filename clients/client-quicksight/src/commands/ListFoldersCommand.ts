@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFoldersRequest, ListFoldersResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListFoldersCommand,
-  serializeAws_restJson1ListFoldersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFoldersCommand, se_ListFoldersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,14 +144,14 @@ export class ListFoldersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFoldersCommand(input, context);
+    return se_ListFoldersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFoldersCommandOutput> {
-    return deserializeAws_restJson1ListFoldersCommand(output, context);
+    return de_ListFoldersCommand(output, context);
   }
 
   // Start section: command_body_extra

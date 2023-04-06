@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListCustomVocabularyItemsRequest, ListCustomVocabularyItemsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomVocabularyItemsCommand,
-  serializeAws_restJson1ListCustomVocabularyItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCustomVocabularyItemsCommand, se_ListCustomVocabularyItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class ListCustomVocabularyItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomVocabularyItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomVocabularyItemsCommand(input, context);
+    return se_ListCustomVocabularyItemsCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomVocabularyItemsCommandOutput> {
-    return deserializeAws_restJson1ListCustomVocabularyItemsCommand(output, context);
+    return de_ListCustomVocabularyItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

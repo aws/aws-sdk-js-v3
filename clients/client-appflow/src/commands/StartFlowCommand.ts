@@ -15,10 +15,7 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { StartFlowRequest, StartFlowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartFlowCommand,
-  serializeAws_restJson1StartFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartFlowCommand, se_StartFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class StartFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: StartFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFlowCommand(input, context);
+    return se_StartFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlowCommandOutput> {
-    return deserializeAws_restJson1StartFlowCommand(output, context);
+    return de_StartFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

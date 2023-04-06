@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyReplicationInstanceCommand,
-  serializeAws_json1_1ModifyReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyReplicationInstanceCommand, se_ModifyReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -236,7 +233,7 @@ export class ModifyReplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
+    return se_ModifyReplicationInstanceCommand(input, context);
   }
 
   /**
@@ -246,7 +243,7 @@ export class ModifyReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationInstanceCommand(output, context);
+    return de_ModifyReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

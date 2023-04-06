@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeletePipelineCommand,
-  serializeAws_json1_1DeletePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeletePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePipelineCommand(input, context);
+    return se_DeletePipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_json1_1DeletePipelineCommand(output, context);
+    return de_DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

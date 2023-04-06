@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetLatestAssessmentIdRequest, GetLatestAssessmentIdResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLatestAssessmentIdCommand,
-  serializeAws_restJson1GetLatestAssessmentIdCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLatestAssessmentIdCommand, se_GetLatestAssessmentIdCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetLatestAssessmentIdCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLatestAssessmentIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLatestAssessmentIdCommand(input, context);
+    return se_GetLatestAssessmentIdCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestAssessmentIdCommandOutput> {
-    return deserializeAws_restJson1GetLatestAssessmentIdCommand(output, context);
+    return de_GetLatestAssessmentIdCommand(output, context);
   }
 
   // Start section: command_body_extra

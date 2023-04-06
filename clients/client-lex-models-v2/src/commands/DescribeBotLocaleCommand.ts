@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DescribeBotLocaleRequest, DescribeBotLocaleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBotLocaleCommand,
-  serializeAws_restJson1DescribeBotLocaleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBotLocaleCommand, se_DescribeBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeBotLocaleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBotLocaleCommand(input, context);
+    return se_DescribeBotLocaleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotLocaleCommandOutput> {
-    return deserializeAws_restJson1DescribeBotLocaleCommand(output, context);
+    return de_DescribeBotLocaleCommand(output, context);
   }
 
   // Start section: command_body_extra

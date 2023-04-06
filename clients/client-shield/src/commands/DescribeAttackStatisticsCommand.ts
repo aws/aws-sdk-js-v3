@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAttackStatisticsRequest, DescribeAttackStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAttackStatisticsCommand,
-  serializeAws_json1_1DescribeAttackStatisticsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAttackStatisticsCommand, se_DescribeAttackStatisticsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeAttackStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAttackStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAttackStatisticsCommand(input, context);
+    return se_DescribeAttackStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttackStatisticsCommandOutput> {
-    return deserializeAws_json1_1DescribeAttackStatisticsCommand(output, context);
+    return de_DescribeAttackStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

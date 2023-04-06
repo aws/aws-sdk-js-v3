@@ -15,8 +15,8 @@ import {
 
 import { DeleteRecommendationTemplateRequest, DeleteRecommendationTemplateResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteRecommendationTemplateCommand,
-  serializeAws_restJson1DeleteRecommendationTemplateCommand,
+  de_DeleteRecommendationTemplateCommand,
+  se_DeleteRecommendationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -142,7 +142,7 @@ export class DeleteRecommendationTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRecommendationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecommendationTemplateCommand(input, context);
+    return se_DeleteRecommendationTemplateCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DeleteRecommendationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecommendationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteRecommendationTemplateCommand(output, context);
+    return de_DeleteRecommendationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

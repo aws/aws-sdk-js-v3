@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSpacesRequest, ListSpacesResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListSpacesCommand,
-  serializeAws_json1_1ListSpacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSpacesCommand, se_ListSpacesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class ListSpacesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSpacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSpacesCommand(input, context);
+    return se_ListSpacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpacesCommandOutput> {
-    return deserializeAws_json1_1ListSpacesCommand(output, context);
+    return de_ListSpacesCommand(output, context);
   }
 
   // Start section: command_body_extra

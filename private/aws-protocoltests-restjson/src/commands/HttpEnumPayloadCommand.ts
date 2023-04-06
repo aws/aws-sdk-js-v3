@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EnumPayloadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpEnumPayloadCommand,
-  serializeAws_restJson1HttpEnumPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpEnumPayloadCommand, se_HttpEnumPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class HttpEnumPayloadCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpEnumPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpEnumPayloadCommand(input, context);
+    return se_HttpEnumPayloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpEnumPayloadCommandOutput> {
-    return deserializeAws_restJson1HttpEnumPayloadCommand(output, context);
+    return de_HttpEnumPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

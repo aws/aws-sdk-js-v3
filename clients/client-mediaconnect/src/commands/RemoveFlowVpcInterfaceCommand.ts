@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowVpcInterfaceCommand,
-  serializeAws_restJson1RemoveFlowVpcInterfaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveFlowVpcInterfaceCommand, se_RemoveFlowVpcInterfaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveFlowVpcInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowVpcInterfaceCommand(input, context);
+    return se_RemoveFlowVpcInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowVpcInterfaceCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowVpcInterfaceCommand(output, context);
+    return de_RemoveFlowVpcInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

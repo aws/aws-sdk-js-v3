@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchMeterUsageCommand,
-  serializeAws_json1_1BatchMeterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchMeterUsageCommand, se_BatchMeterUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class BatchMeterUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchMeterUsageCommand(input, context);
+    return se_BatchMeterUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput> {
-    return deserializeAws_json1_1BatchMeterUsageCommand(output, context);
+    return de_BatchMeterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

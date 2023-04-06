@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFileSystemAssociationsInput, ListFileSystemAssociationsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFileSystemAssociationsCommand,
-  serializeAws_json1_1ListFileSystemAssociationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFileSystemAssociationsCommand, se_ListFileSystemAssociationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -132,7 +129,7 @@ export class ListFileSystemAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFileSystemAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFileSystemAssociationsCommand(input, context);
+    return se_ListFileSystemAssociationsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListFileSystemAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFileSystemAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListFileSystemAssociationsCommand(output, context);
+    return de_ListFileSystemAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
-  serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
+  de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
+  se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -167,7 +167,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
+    return se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
+    return de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

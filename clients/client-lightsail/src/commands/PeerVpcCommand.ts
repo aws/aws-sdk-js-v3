@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { PeerVpcRequest, PeerVpcResult } from "../models/models_1";
-import { deserializeAws_json1_1PeerVpcCommand, serializeAws_json1_1PeerVpcCommand } from "../protocols/Aws_json1_1";
+import { de_PeerVpcCommand, se_PeerVpcCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +139,14 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
    * @internal
    */
   private serialize(input: PeerVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PeerVpcCommand(input, context);
+    return se_PeerVpcCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PeerVpcCommandOutput> {
-    return deserializeAws_json1_1PeerVpcCommand(output, context);
+    return de_PeerVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

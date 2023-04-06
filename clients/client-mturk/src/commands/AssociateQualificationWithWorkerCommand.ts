@@ -16,8 +16,8 @@ import {
 import { AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1AssociateQualificationWithWorkerCommand,
-  serializeAws_json1_1AssociateQualificationWithWorkerCommand,
+  de_AssociateQualificationWithWorkerCommand,
+  se_AssociateQualificationWithWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     input: AssociateQualificationWithWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateQualificationWithWorkerCommand(input, context);
+    return se_AssociateQualificationWithWorkerCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateQualificationWithWorkerCommandOutput> {
-    return deserializeAws_json1_1AssociateQualificationWithWorkerCommand(output, context);
+    return de_AssociateQualificationWithWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

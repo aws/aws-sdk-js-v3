@@ -16,8 +16,8 @@ import {
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListTypedLinkFacetAttributesRequest, ListTypedLinkFacetAttributesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListTypedLinkFacetAttributesCommand,
-  serializeAws_restJson1ListTypedLinkFacetAttributesCommand,
+  de_ListTypedLinkFacetAttributesCommand,
+  se_ListTypedLinkFacetAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTypedLinkFacetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypedLinkFacetAttributesCommand(input, context);
+    return se_ListTypedLinkFacetAttributesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTypedLinkFacetAttributesCommandOutput> {
-    return deserializeAws_restJson1ListTypedLinkFacetAttributesCommand(output, context);
+    return de_ListTypedLinkFacetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

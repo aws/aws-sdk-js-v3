@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ImportHubContentCommand,
-  serializeAws_json1_1ImportHubContentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportHubContentCommand, se_ImportHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -150,14 +147,14 @@ export class ImportHubContentCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportHubContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportHubContentCommand(input, context);
+    return se_ImportHubContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportHubContentCommandOutput> {
-    return deserializeAws_json1_1ImportHubContentCommand(output, context);
+    return de_ImportHubContentCommand(output, context);
   }
 
   // Start section: command_body_extra

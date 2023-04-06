@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { GetTaskProtectionRequest, GetTaskProtectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTaskProtectionCommand,
-  serializeAws_json1_1GetTaskProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTaskProtectionCommand, se_GetTaskProtectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class GetTaskProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTaskProtectionCommand(input, context);
+    return se_GetTaskProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskProtectionCommandOutput> {
-    return deserializeAws_json1_1GetTaskProtectionCommand(output, context);
+    return de_GetTaskProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

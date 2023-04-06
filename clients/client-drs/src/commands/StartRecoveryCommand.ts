@@ -20,10 +20,7 @@ import {
   StartRecoveryResponse,
   StartRecoveryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartRecoveryCommand,
-  serializeAws_restJson1StartRecoveryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRecoveryCommand, se_StartRecoveryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class StartRecoveryCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRecoveryCommand(input, context);
+    return se_StartRecoveryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
-    return deserializeAws_restJson1StartRecoveryCommand(output, context);
+    return de_StartRecoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

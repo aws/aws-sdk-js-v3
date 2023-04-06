@@ -15,7 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetBotRequest, GetBotResponse, GetBotResponseFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
+import { de_GetBotCommand, se_GetBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +133,14 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
    * @internal
    */
   private serialize(input: GetBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotCommand(input, context);
+    return se_GetBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> {
-    return deserializeAws_restJson1GetBotCommand(output, context);
+    return de_GetBotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBClusterSnapshotCommand,
-  serializeAws_queryDeleteDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterSnapshotCommand, se_DeleteDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterSnapshotCommand(input, context);
+    return se_DeleteDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterSnapshotCommand(output, context);
+    return de_DeleteDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

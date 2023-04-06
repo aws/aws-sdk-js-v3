@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAliasesCommand,
-  serializeAws_restJson1ListAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_restJson1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

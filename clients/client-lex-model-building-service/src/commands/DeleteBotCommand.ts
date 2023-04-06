@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotCommand,
-  serializeAws_restJson1DeleteBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBotCommand, se_DeleteBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class DeleteBotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotCommand(input, context);
+    return se_DeleteBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotCommandOutput> {
-    return deserializeAws_restJson1DeleteBotCommand(output, context);
+    return de_DeleteBotCommand(output, context);
   }
 
   // Start section: command_body_extra

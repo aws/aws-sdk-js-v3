@@ -18,8 +18,8 @@ import {
   RejectDomainTransferFromAnotherAwsAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand,
-  serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand,
+  de_RejectDomainTransferFromAnotherAwsAccountCommand,
+  se_RejectDomainTransferFromAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -151,7 +151,7 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     input: RejectDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand(input, context);
+    return se_RejectDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand(output, context);
+    return de_RejectDomainTransferFromAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

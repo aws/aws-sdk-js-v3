@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restJson1UnitInputAndOutputCommand,
-  serializeAws_restJson1UnitInputAndOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnitInputAndOutputCommand, se_UnitInputAndOutputCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -104,14 +101,14 @@ export class UnitInputAndOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: UnitInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnitInputAndOutputCommand(input, context);
+    return se_UnitInputAndOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnitInputAndOutputCommandOutput> {
-    return deserializeAws_restJson1UnitInputAndOutputCommand(output, context);
+    return de_UnitInputAndOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

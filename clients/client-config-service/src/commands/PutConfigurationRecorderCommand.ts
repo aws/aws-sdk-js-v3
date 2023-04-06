@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutConfigurationRecorderRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConfigurationRecorderCommand,
-  serializeAws_json1_1PutConfigurationRecorderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutConfigurationRecorderCommand, se_PutConfigurationRecorderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class PutConfigurationRecorderCommand extends $Command<
    * @internal
    */
   private serialize(input: PutConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConfigurationRecorderCommand(input, context);
+    return se_PutConfigurationRecorderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1PutConfigurationRecorderCommand(output, context);
+    return de_PutConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEnvironmentCommand,
-  serializeAws_restJson1CreateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class CreateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

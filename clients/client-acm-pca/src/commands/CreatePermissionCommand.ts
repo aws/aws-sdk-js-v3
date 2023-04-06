@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { CreatePermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePermissionCommand,
-  serializeAws_json1_1CreatePermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePermissionCommand, se_CreatePermissionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class CreatePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePermissionCommand(input, context);
+    return se_CreatePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionCommandOutput> {
-    return deserializeAws_json1_1CreatePermissionCommand(output, context);
+    return de_CreatePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

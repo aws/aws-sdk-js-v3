@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { UpdateExportRequest, UpdateExportRequestFilterSensitiveLog, UpdateExportResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateExportCommand,
-  serializeAws_restJson1UpdateExportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateExportCommand, se_UpdateExportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateExportCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExportCommand(input, context);
+    return se_UpdateExportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExportCommandOutput> {
-    return deserializeAws_restJson1UpdateExportCommand(output, context);
+    return de_UpdateExportCommand(output, context);
   }
 
   // Start section: command_body_extra

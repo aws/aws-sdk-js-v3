@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { PutImagePolicyRequest, PutImagePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutImagePolicyCommand,
-  serializeAws_restJson1PutImagePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutImagePolicyCommand, se_PutImagePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class PutImagePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutImagePolicyCommand(input, context);
+    return se_PutImagePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImagePolicyCommandOutput> {
-    return deserializeAws_restJson1PutImagePolicyCommand(output, context);
+    return de_PutImagePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

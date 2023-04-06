@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { CreateNodeInput, CreateNodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNodeCommand,
-  serializeAws_restJson1CreateNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNodeCommand, se_CreateNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -178,14 +175,14 @@ export class CreateNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNodeCommand(input, context);
+    return se_CreateNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNodeCommandOutput> {
-    return deserializeAws_restJson1CreateNodeCommand(output, context);
+    return de_CreateNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

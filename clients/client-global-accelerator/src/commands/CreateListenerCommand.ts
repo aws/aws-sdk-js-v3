@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateListenerCommand,
-  serializeAws_json1_1CreateListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateListenerCommand, se_CreateListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreateListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateListenerCommand(input, context);
+    return se_CreateListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
-    return deserializeAws_json1_1CreateListenerCommand(output, context);
+    return de_CreateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

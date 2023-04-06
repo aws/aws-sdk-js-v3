@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetFunctionConcurrencyRequest, GetFunctionConcurrencyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionConcurrencyCommand,
-  serializeAws_restJson1GetFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFunctionConcurrencyCommand, se_GetFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetFunctionConcurrencyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionConcurrencyCommand(input, context);
+    return se_GetFunctionConcurrencyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1GetFunctionConcurrencyCommand(output, context);
+    return de_GetFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

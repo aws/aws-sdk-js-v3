@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ValidateResourcePolicyCommand,
-  serializeAws_json1_1ValidateResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ValidateResourcePolicyCommand, se_ValidateResourcePolicyCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -190,14 +187,14 @@ export class ValidateResourcePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateResourcePolicyCommand(input, context);
+    return se_ValidateResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1ValidateResourcePolicyCommand(output, context);
+    return de_ValidateResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ListAccountsForParentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListAccountsForParentCommand,
-  serializeAws_json1_1ListAccountsForParentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountsForParentCommand, se_ListAccountsForParentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -304,14 +301,14 @@ export class ListAccountsForParentCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountsForParentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountsForParentCommand(input, context);
+    return se_ListAccountsForParentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsForParentCommandOutput> {
-    return deserializeAws_json1_1ListAccountsForParentCommand(output, context);
+    return de_ListAccountsForParentCommand(output, context);
   }
 
   // Start section: command_body_extra

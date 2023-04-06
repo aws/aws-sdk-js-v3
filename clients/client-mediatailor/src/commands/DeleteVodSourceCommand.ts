@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeleteVodSourceRequest, DeleteVodSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVodSourceCommand,
-  serializeAws_restJson1DeleteVodSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVodSourceCommand, se_DeleteVodSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DeleteVodSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVodSourceCommand(input, context);
+    return se_DeleteVodSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVodSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteVodSourceCommand(output, context);
+    return de_DeleteVodSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

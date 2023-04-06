@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeUpdateActionsMessage, UpdateActionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeUpdateActionsCommand,
-  serializeAws_queryDescribeUpdateActionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeUpdateActionsCommand, se_DescribeUpdateActionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DescribeUpdateActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUpdateActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeUpdateActionsCommand(input, context);
+    return se_DescribeUpdateActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateActionsCommandOutput> {
-    return deserializeAws_queryDescribeUpdateActionsCommand(output, context);
+    return de_DescribeUpdateActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

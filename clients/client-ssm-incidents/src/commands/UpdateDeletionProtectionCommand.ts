@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDeletionProtectionInput, UpdateDeletionProtectionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeletionProtectionCommand,
-  serializeAws_restJson1UpdateDeletionProtectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDeletionProtectionCommand, se_UpdateDeletionProtectionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -140,14 +137,14 @@ export class UpdateDeletionProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeletionProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeletionProtectionCommand(input, context);
+    return se_UpdateDeletionProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeletionProtectionCommandOutput> {
-    return deserializeAws_restJson1UpdateDeletionProtectionCommand(output, context);
+    return de_UpdateDeletionProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

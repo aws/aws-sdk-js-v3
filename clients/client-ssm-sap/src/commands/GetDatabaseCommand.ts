@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDatabaseInput, GetDatabaseOutput, GetDatabaseOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatabaseCommand,
-  serializeAws_restJson1GetDatabaseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDatabaseCommand, se_GetDatabaseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatabaseCommand(input, context);
+    return se_GetDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabaseCommandOutput> {
-    return deserializeAws_restJson1GetDatabaseCommand(output, context);
+    return de_GetDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { ListPackageVersionDependenciesRequest, ListPackageVersionDependenciesResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPackageVersionDependenciesCommand,
-  serializeAws_restJson1ListPackageVersionDependenciesCommand,
+  de_ListPackageVersionDependenciesCommand,
+  se_ListPackageVersionDependenciesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +161,7 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     input: ListPackageVersionDependenciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackageVersionDependenciesCommand(input, context);
+    return se_ListPackageVersionDependenciesCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPackageVersionDependenciesCommandOutput> {
-    return deserializeAws_restJson1ListPackageVersionDependenciesCommand(output, context);
+    return de_ListPackageVersionDependenciesCommand(output, context);
   }
 
   // Start section: command_body_extra

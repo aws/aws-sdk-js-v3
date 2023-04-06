@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { CreateAssetModelRequest, CreateAssetModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssetModelCommand,
-  serializeAws_restJson1CreateAssetModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAssetModelCommand, se_CreateAssetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -289,14 +286,14 @@ export class CreateAssetModelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssetModelCommand(input, context);
+    return se_CreateAssetModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetModelCommandOutput> {
-    return deserializeAws_restJson1CreateAssetModelCommand(output, context);
+    return de_CreateAssetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

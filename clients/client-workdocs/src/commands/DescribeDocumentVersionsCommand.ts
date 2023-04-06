@@ -19,10 +19,7 @@ import {
   DescribeDocumentVersionsResponse,
   DescribeDocumentVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDocumentVersionsCommand,
-  serializeAws_restJson1DescribeDocumentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDocumentVersionsCommand, se_DescribeDocumentVersionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -157,14 +154,14 @@ export class DescribeDocumentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDocumentVersionsCommand(input, context);
+    return se_DescribeDocumentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDocumentVersionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDocumentVersionsCommand(output, context);
+    return de_DescribeDocumentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

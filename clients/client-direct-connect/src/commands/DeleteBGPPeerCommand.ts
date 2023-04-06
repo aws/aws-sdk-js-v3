@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBGPPeerCommand,
-  serializeAws_json1_1DeleteBGPPeerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBGPPeerCommand, se_DeleteBGPPeerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DeleteBGPPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBGPPeerCommand(input, context);
+    return se_DeleteBGPPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBGPPeerCommandOutput> {
-    return deserializeAws_json1_1DeleteBGPPeerCommand(output, context);
+    return de_DeleteBGPPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

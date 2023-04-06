@@ -15,8 +15,8 @@ import {
 
 import { GetBucketMetricsConfigurationOutput, GetBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketMetricsConfigurationCommand,
-  serializeAws_restXmlGetBucketMetricsConfigurationCommand,
+  de_GetBucketMetricsConfigurationCommand,
+  se_GetBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -162,7 +162,7 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketMetricsConfigurationCommand(input, context);
+    return se_GetBucketMetricsConfigurationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketMetricsConfigurationCommand(output, context);
+    return de_GetBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetAttendeeRequest, GetAttendeeResponse, GetAttendeeResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAttendeeCommand,
-  serializeAws_restJson1GetAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAttendeeCommand, se_GetAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class GetAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAttendeeCommand(input, context);
+    return se_GetAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttendeeCommandOutput> {
-    return deserializeAws_restJson1GetAttendeeCommand(output, context);
+    return de_GetAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

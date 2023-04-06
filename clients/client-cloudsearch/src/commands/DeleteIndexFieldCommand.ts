@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteIndexFieldCommand,
-  serializeAws_queryDeleteIndexFieldCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteIndexFieldCommand, se_DeleteIndexFieldCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteIndexFieldCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIndexFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteIndexFieldCommand(input, context);
+    return se_DeleteIndexFieldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexFieldCommandOutput> {
-    return deserializeAws_queryDeleteIndexFieldCommand(output, context);
+    return de_DeleteIndexFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

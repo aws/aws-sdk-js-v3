@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateActionTargetRequest, UpdateActionTargetResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateActionTargetCommand,
-  serializeAws_restJson1UpdateActionTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateActionTargetCommand, se_UpdateActionTargetCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -135,14 +132,14 @@ export class UpdateActionTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateActionTargetCommand(input, context);
+    return se_UpdateActionTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionTargetCommandOutput> {
-    return deserializeAws_restJson1UpdateActionTargetCommand(output, context);
+    return de_UpdateActionTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

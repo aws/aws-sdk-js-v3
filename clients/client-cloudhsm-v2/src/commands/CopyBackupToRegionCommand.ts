@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyBackupToRegionCommand,
-  serializeAws_json1_1CopyBackupToRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CopyBackupToRegionCommand, se_CopyBackupToRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CopyBackupToRegionCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyBackupToRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyBackupToRegionCommand(input, context);
+    return se_CopyBackupToRegionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupToRegionCommandOutput> {
-    return deserializeAws_json1_1CopyBackupToRegionCommand(output, context);
+    return de_CopyBackupToRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

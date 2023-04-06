@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLedgersRequest, ListLedgersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLedgersCommand,
-  serializeAws_restJson1ListLedgersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLedgersCommand, se_ListLedgersCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -122,14 +119,14 @@ export class ListLedgersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLedgersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLedgersCommand(input, context);
+    return se_ListLedgersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLedgersCommandOutput> {
-    return deserializeAws_restJson1ListLedgersCommand(output, context);
+    return de_ListLedgersCommand(output, context);
   }
 
   // Start section: command_body_extra

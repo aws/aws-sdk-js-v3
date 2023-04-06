@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNatGatewayCommand,
-  serializeAws_ec2CreateNatGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateNatGatewayCommand, se_CreateNatGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class CreateNatGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNatGatewayCommand(input, context);
+    return se_CreateNatGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNatGatewayCommandOutput> {
-    return deserializeAws_ec2CreateNatGatewayCommand(output, context);
+    return de_CreateNatGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

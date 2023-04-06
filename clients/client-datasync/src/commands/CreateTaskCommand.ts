@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CreateTaskRequest, CreateTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTaskCommand,
-  serializeAws_json1_1CreateTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTaskCommand, se_CreateTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class CreateTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTaskCommand(input, context);
+    return se_CreateTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
-    return deserializeAws_json1_1CreateTaskCommand(output, context);
+    return de_CreateTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

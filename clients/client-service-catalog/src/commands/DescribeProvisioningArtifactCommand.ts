@@ -15,8 +15,8 @@ import {
 
 import { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeProvisioningArtifactCommand,
-  serializeAws_json1_1DescribeProvisioningArtifactCommand,
+  de_DescribeProvisioningArtifactCommand,
+  se_DescribeProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -133,7 +133,7 @@ export class DescribeProvisioningArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningArtifactCommand(input, context);
+    return se_DescribeProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(output, context);
+    return de_DescribeProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

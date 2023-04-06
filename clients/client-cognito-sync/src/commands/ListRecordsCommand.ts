@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { ListRecordsRequest, ListRecordsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecordsCommand,
-  serializeAws_restJson1ListRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRecordsCommand, se_ListRecordsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class ListRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecordsCommand(input, context);
+    return se_ListRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecordsCommandOutput> {
-    return deserializeAws_restJson1ListRecordsCommand(output, context);
+    return de_ListRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

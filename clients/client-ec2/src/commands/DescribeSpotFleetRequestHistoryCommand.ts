@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSpotFleetRequestHistoryRequest, DescribeSpotFleetRequestHistoryResponse } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
-  serializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
+  de_DescribeSpotFleetRequestHistoryCommand,
+  se_DescribeSpotFleetRequestHistoryCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -187,7 +187,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     input: DescribeSpotFleetRequestHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(input, context);
+    return se_DescribeSpotFleetRequestHistoryCommand(input, context);
   }
 
   /**
@@ -197,7 +197,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> {
-    return deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand(output, context);
+    return de_DescribeSpotFleetRequestHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

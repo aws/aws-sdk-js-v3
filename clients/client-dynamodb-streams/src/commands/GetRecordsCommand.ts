@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
 import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecordsCommand,
-  serializeAws_json1_0GetRecordsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetRecordsCommand, se_GetRecordsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -250,14 +247,14 @@ export class GetRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecordsCommand(input, context);
+    return se_GetRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
-    return deserializeAws_json1_0GetRecordsCommand(output, context);
+    return de_GetRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListNetworkSettingsRequest, ListNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNetworkSettingsCommand,
-  serializeAws_restJson1ListNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNetworkSettingsCommand, se_ListNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkSettingsCommand(input, context);
+    return se_ListNetworkSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1ListNetworkSettingsCommand(output, context);
+    return de_ListNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

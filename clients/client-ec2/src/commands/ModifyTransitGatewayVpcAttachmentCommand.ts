@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyTransitGatewayVpcAttachmentRequest, ModifyTransitGatewayVpcAttachmentResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
+  de_ModifyTransitGatewayVpcAttachmentCommand,
+  se_ModifyTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     input: ModifyTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(input, context);
+    return se_ModifyTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(output, context);
+    return de_ModifyTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

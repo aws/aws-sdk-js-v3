@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTraceSegmentsCommand,
-  serializeAws_restJson1PutTraceSegmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutTraceSegmentsCommand, se_PutTraceSegmentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -190,14 +187,14 @@ export class PutTraceSegmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutTraceSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTraceSegmentsCommand(input, context);
+    return se_PutTraceSegmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTraceSegmentsCommandOutput> {
-    return deserializeAws_restJson1PutTraceSegmentsCommand(output, context);
+    return de_PutTraceSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

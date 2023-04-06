@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectUserCommand,
-  serializeAws_restJson1DisconnectUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisconnectUserCommand, se_DisconnectUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DisconnectUserCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectUserCommand(input, context);
+    return se_DisconnectUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectUserCommandOutput> {
-    return deserializeAws_restJson1DisconnectUserCommand(output, context);
+    return de_DisconnectUserCommand(output, context);
   }
 
   // Start section: command_body_extra

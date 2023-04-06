@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2PurchaseScheduledInstancesCommand,
-  serializeAws_ec2PurchaseScheduledInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_PurchaseScheduledInstancesCommand, se_PurchaseScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -181,7 +178,7 @@ export class PurchaseScheduledInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: PurchaseScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2PurchaseScheduledInstancesCommand(input, context);
+    return se_PurchaseScheduledInstancesCommand(input, context);
   }
 
   /**
@@ -191,7 +188,7 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseScheduledInstancesCommandOutput> {
-    return deserializeAws_ec2PurchaseScheduledInstancesCommand(output, context);
+    return de_PurchaseScheduledInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

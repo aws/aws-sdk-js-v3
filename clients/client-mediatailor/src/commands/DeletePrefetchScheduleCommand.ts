@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeletePrefetchScheduleRequest, DeletePrefetchScheduleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePrefetchScheduleCommand,
-  serializeAws_restJson1DeletePrefetchScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePrefetchScheduleCommand, se_DeletePrefetchScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DeletePrefetchScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePrefetchScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePrefetchScheduleCommand(input, context);
+    return se_DeletePrefetchScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePrefetchScheduleCommandOutput> {
-    return deserializeAws_restJson1DeletePrefetchScheduleCommand(output, context);
+    return de_DeletePrefetchScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

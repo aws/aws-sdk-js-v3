@@ -15,10 +15,7 @@ import {
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateS3ResourcesCommand,
-  serializeAws_json1_1UpdateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateS3ResourcesCommand, se_UpdateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateS3ResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateS3ResourcesCommand(input, context);
+    return se_UpdateS3ResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1UpdateS3ResourcesCommand(output, context);
+    return de_UpdateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

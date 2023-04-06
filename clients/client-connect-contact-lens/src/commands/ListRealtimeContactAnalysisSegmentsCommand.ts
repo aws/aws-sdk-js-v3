@@ -23,8 +23,8 @@ import {
   ListRealtimeContactAnalysisSegmentsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
-  serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
+  de_ListRealtimeContactAnalysisSegmentsCommand,
+  se_ListRealtimeContactAnalysisSegmentsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     input: ListRealtimeContactAnalysisSegmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand(input, context);
+    return se_ListRealtimeContactAnalysisSegmentsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRealtimeContactAnalysisSegmentsCommandOutput> {
-    return deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand(output, context);
+    return de_ListRealtimeContactAnalysisSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { SubmitFeedbackRequest, SubmitFeedbackResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SubmitFeedbackCommand,
-  serializeAws_restJson1SubmitFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SubmitFeedbackCommand, se_SubmitFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class SubmitFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SubmitFeedbackCommand(input, context);
+    return se_SubmitFeedbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
-    return deserializeAws_restJson1SubmitFeedbackCommand(output, context);
+    return de_SubmitFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

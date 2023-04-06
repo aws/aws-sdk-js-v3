@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ListTypeVersionsInput, ListTypeVersionsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListTypeVersionsCommand,
-  serializeAws_queryListTypeVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_ListTypeVersionsCommand, se_ListTypeVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListTypeVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTypeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTypeVersionsCommand(input, context);
+    return se_ListTypeVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypeVersionsCommandOutput> {
-    return deserializeAws_queryListTypeVersionsCommand(output, context);
+    return de_ListTypeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

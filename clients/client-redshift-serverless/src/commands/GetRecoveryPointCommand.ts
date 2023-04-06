@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRecoveryPointRequest, GetRecoveryPointResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRecoveryPointCommand,
-  serializeAws_json1_1GetRecoveryPointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRecoveryPointCommand, se_GetRecoveryPointCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -136,14 +133,14 @@ export class GetRecoveryPointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRecoveryPointCommand(input, context);
+    return se_GetRecoveryPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1GetRecoveryPointCommand(output, context);
+    return de_GetRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

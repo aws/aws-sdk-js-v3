@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopLabelingJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopLabelingJobCommand,
-  serializeAws_json1_1StopLabelingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopLabelingJobCommand, se_StopLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -124,14 +121,14 @@ export class StopLabelingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopLabelingJobCommand(input, context);
+    return se_StopLabelingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLabelingJobCommandOutput> {
-    return deserializeAws_json1_1StopLabelingJobCommand(output, context);
+    return de_StopLabelingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetStatementResultRequest, GetStatementResultResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetStatementResultCommand,
-  serializeAws_json1_1GetStatementResultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetStatementResultCommand, se_GetStatementResultCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
@@ -134,14 +131,14 @@ export class GetStatementResultCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStatementResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStatementResultCommand(input, context);
+    return se_GetStatementResultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementResultCommandOutput> {
-    return deserializeAws_json1_1GetStatementResultCommand(output, context);
+    return de_GetStatementResultCommand(output, context);
   }
 
   // Start section: command_body_extra

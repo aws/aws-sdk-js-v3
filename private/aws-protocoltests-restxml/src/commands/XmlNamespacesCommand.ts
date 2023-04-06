@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlNamespacesInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlNamespacesCommand,
-  serializeAws_restXmlXmlNamespacesCommand,
-} from "../protocols/Aws_restXml";
+import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class XmlNamespacesCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlNamespacesCommand(input, context);
+    return se_XmlNamespacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlNamespacesCommandOutput> {
-    return deserializeAws_restXmlXmlNamespacesCommand(output, context);
+    return de_XmlNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

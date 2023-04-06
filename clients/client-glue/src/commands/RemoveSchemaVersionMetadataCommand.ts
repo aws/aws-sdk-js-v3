@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1RemoveSchemaVersionMetadataCommand,
-  serializeAws_json1_1RemoveSchemaVersionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveSchemaVersionMetadataCommand, se_RemoveSchemaVersionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveSchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveSchemaVersionMetadataCommand(input, context);
+    return se_RemoveSchemaVersionMetadataCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSchemaVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1RemoveSchemaVersionMetadataCommand(output, context);
+    return de_RemoveSchemaVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

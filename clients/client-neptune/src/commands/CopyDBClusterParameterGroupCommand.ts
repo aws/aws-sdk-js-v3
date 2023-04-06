@@ -15,10 +15,7 @@ import {
 
 import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCopyDBClusterParameterGroupCommand,
-  serializeAws_queryCopyDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBClusterParameterGroupCommand, se_CopyDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterParameterGroupCommand(input, context);
+    return se_CopyDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CopyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBClusterParameterGroupCommand(output, context);
+    return de_CopyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

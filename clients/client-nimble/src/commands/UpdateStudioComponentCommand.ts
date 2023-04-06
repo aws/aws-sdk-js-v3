@@ -20,10 +20,7 @@ import {
   UpdateStudioComponentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateStudioComponentCommand,
-  serializeAws_restJson1UpdateStudioComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStudioComponentCommand, se_UpdateStudioComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -200,14 +197,14 @@ export class UpdateStudioComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStudioComponentCommand(input, context);
+    return se_UpdateStudioComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioComponentCommandOutput> {
-    return deserializeAws_restJson1UpdateStudioComponentCommand(output, context);
+    return de_UpdateStudioComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePublicIpv4PoolsCommand,
-  serializeAws_ec2DescribePublicIpv4PoolsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribePublicIpv4PoolsCommand, se_DescribePublicIpv4PoolsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePublicIpv4PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePublicIpv4PoolsCommand(input, context);
+    return se_DescribePublicIpv4PoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublicIpv4PoolsCommandOutput> {
-    return deserializeAws_ec2DescribePublicIpv4PoolsCommand(output, context);
+    return de_DescribePublicIpv4PoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

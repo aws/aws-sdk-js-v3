@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { ListImportsRequest, ListImportsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListImportsCommand,
-  serializeAws_json1_1ListImportsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListImportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImportsCommand(input, context);
+    return se_ListImportsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return deserializeAws_json1_1ListImportsCommand(output, context);
+    return de_ListImportsCommand(output, context);
   }
 
   // Start section: command_body_extra

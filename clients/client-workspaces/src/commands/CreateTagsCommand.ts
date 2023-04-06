@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTagsRequest, CreateTagsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTagsCommand,
-  serializeAws_json1_1CreateTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -133,14 +130,14 @@ export class CreateTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_json1_1CreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

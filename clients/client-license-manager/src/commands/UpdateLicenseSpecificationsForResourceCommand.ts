@@ -19,8 +19,8 @@ import {
   UpdateLicenseSpecificationsForResourceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
-  serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
+  de_UpdateLicenseSpecificationsForResourceCommand,
+  se_UpdateLicenseSpecificationsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -168,7 +168,7 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     input: UpdateLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(input, context);
+    return se_UpdateLicenseSpecificationsForResourceCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> {
-    return deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(output, context);
+    return de_UpdateLicenseSpecificationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

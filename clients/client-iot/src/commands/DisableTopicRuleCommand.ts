@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DisableTopicRuleRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1DisableTopicRuleCommand,
-  serializeAws_restJson1DisableTopicRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableTopicRuleCommand, se_DisableTopicRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DisableTopicRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableTopicRuleCommand(input, context);
+    return se_DisableTopicRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableTopicRuleCommandOutput> {
-    return deserializeAws_restJson1DisableTopicRuleCommand(output, context);
+    return de_DisableTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

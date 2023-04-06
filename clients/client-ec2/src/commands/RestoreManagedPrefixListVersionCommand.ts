@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResult } from "../models/models_6";
 import {
-  deserializeAws_ec2RestoreManagedPrefixListVersionCommand,
-  serializeAws_ec2RestoreManagedPrefixListVersionCommand,
+  de_RestoreManagedPrefixListVersionCommand,
+  se_RestoreManagedPrefixListVersionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +128,7 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     input: RestoreManagedPrefixListVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreManagedPrefixListVersionCommand(input, context);
+    return se_RestoreManagedPrefixListVersionCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreManagedPrefixListVersionCommandOutput> {
-    return deserializeAws_ec2RestoreManagedPrefixListVersionCommand(output, context);
+    return de_RestoreManagedPrefixListVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

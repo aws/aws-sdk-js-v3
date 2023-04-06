@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateNatGatewayAddressRequest, AssociateNatGatewayAddressResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateNatGatewayAddressCommand,
-  serializeAws_ec2AssociateNatGatewayAddressCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateNatGatewayAddressCommand, se_AssociateNatGatewayAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -128,7 +125,7 @@ export class AssociateNatGatewayAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateNatGatewayAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateNatGatewayAddressCommand(input, context);
+    return se_AssociateNatGatewayAddressCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class AssociateNatGatewayAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2AssociateNatGatewayAddressCommand(output, context);
+    return de_AssociateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListSubscriptionDefinitionVersionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand,
-  serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand,
+  de_ListSubscriptionDefinitionVersionsCommand,
+  se_ListSubscriptionDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -133,7 +133,7 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     input: ListSubscriptionDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand(input, context);
+    return se_ListSubscriptionDefinitionVersionsCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand(output, context);
+    return de_ListSubscriptionDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

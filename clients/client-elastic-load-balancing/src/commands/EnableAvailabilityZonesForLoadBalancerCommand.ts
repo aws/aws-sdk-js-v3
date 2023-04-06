@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { AddAvailabilityZonesInput, AddAvailabilityZonesOutput } from "../models/models_0";
 import {
-  deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
-  serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
+  de_EnableAvailabilityZonesForLoadBalancerCommand,
+  se_EnableAvailabilityZonesForLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -162,7 +162,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     input: EnableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(input, context);
+    return se_EnableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
-    return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(output, context);
+    return de_EnableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

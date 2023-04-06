@@ -18,8 +18,8 @@ import {
   ModifyCertificateBasedAuthPropertiesResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand,
-  serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand,
+  de_ModifyCertificateBasedAuthPropertiesCommand,
+  se_ModifyCertificateBasedAuthPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -148,7 +148,7 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     input: ModifyCertificateBasedAuthPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand(input, context);
+    return se_ModifyCertificateBasedAuthPropertiesCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand(output, context);
+    return de_ModifyCertificateBasedAuthPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

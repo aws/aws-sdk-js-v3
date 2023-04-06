@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchGetViewInput, BatchGetViewOutput, BatchGetViewOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetViewCommand,
-  serializeAws_restJson1BatchGetViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetViewCommand, se_BatchGetViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -143,14 +140,14 @@ export class BatchGetViewCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetViewCommand(input, context);
+    return se_BatchGetViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetViewCommandOutput> {
-    return deserializeAws_restJson1BatchGetViewCommand(output, context);
+    return de_BatchGetViewCommand(output, context);
   }
 
   // Start section: command_body_extra

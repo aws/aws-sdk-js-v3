@@ -15,7 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListFaqsRequest, ListFaqsResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListFaqsCommand, serializeAws_json1_1ListFaqsCommand } from "../protocols/Aws_json1_1";
+import { de_ListFaqsCommand, se_ListFaqsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +133,14 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
    * @internal
    */
   private serialize(input: ListFaqsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFaqsCommand(input, context);
+    return se_ListFaqsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFaqsCommandOutput> {
-    return deserializeAws_json1_1ListFaqsCommand(output, context);
+    return de_ListFaqsCommand(output, context);
   }
 
   // Start section: command_body_extra

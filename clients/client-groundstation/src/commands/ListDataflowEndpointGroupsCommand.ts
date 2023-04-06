@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { ListDataflowEndpointGroupsRequest, ListDataflowEndpointGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataflowEndpointGroupsCommand,
-  serializeAws_restJson1ListDataflowEndpointGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataflowEndpointGroupsCommand, se_ListDataflowEndpointGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class ListDataflowEndpointGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataflowEndpointGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataflowEndpointGroupsCommand(input, context);
+    return se_ListDataflowEndpointGroupsCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class ListDataflowEndpointGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataflowEndpointGroupsCommandOutput> {
-    return deserializeAws_restJson1ListDataflowEndpointGroupsCommand(output, context);
+    return de_ListDataflowEndpointGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

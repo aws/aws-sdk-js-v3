@@ -18,8 +18,8 @@ import {
   DescribeFolderResolvedPermissionsResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand,
-  serializeAws_restJson1DescribeFolderResolvedPermissionsCommand,
+  de_DescribeFolderResolvedPermissionsCommand,
+  se_DescribeFolderResolvedPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -153,7 +153,7 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     input: DescribeFolderResolvedPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFolderResolvedPermissionsCommand(input, context);
+    return se_DescribeFolderResolvedPermissionsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFolderResolvedPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand(output, context);
+    return de_DescribeFolderResolvedPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

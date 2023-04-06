@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDigestRequest, GetDigestResponse, GetDigestResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDigestCommand,
-  serializeAws_restJson1GetDigestCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDigestCommand, se_GetDigestCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetDigestCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDigestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDigestCommand(input, context);
+    return se_GetDigestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDigestCommandOutput> {
-    return deserializeAws_restJson1GetDigestCommand(output, context);
+    return de_GetDigestCommand(output, context);
   }
 
   // Start section: command_body_extra

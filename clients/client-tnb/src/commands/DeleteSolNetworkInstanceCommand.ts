@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSolNetworkInstanceInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSolNetworkInstanceCommand,
-  serializeAws_restJson1DeleteSolNetworkInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSolNetworkInstanceCommand, se_DeleteSolNetworkInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeleteSolNetworkInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSolNetworkInstanceCommand(input, context);
+    return se_DeleteSolNetworkInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteSolNetworkInstanceCommand(output, context);
+    return de_DeleteSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

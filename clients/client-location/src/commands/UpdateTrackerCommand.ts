@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { UpdateTrackerRequest, UpdateTrackerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTrackerCommand,
-  serializeAws_restJson1UpdateTrackerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTrackerCommand, se_UpdateTrackerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTrackerCommand(input, context);
+    return se_UpdateTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrackerCommandOutput> {
-    return deserializeAws_restJson1UpdateTrackerCommand(output, context);
+    return de_UpdateTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

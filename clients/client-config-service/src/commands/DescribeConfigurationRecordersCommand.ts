@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigurationRecordersCommand,
-  serializeAws_json1_1DescribeConfigurationRecordersCommand,
+  de_DescribeConfigurationRecordersCommand,
+  se_DescribeConfigurationRecordersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     input: DescribeConfigurationRecordersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationRecordersCommand(input, context);
+    return se_DescribeConfigurationRecordersCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRecordersCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationRecordersCommand(output, context);
+    return de_DescribeConfigurationRecordersCommand(output, context);
   }
 
   // Start section: command_body_extra

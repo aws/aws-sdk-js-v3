@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRobotApplicationRequest, UpdateRobotApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRobotApplicationCommand,
-  serializeAws_restJson1UpdateRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRobotApplicationCommand, se_UpdateRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -152,14 +149,14 @@ export class UpdateRobotApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRobotApplicationCommand(input, context);
+    return se_UpdateRobotApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateRobotApplicationCommand(output, context);
+    return de_UpdateRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

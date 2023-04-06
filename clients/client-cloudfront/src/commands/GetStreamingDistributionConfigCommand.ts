@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetStreamingDistributionConfigRequest, GetStreamingDistributionConfigResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetStreamingDistributionConfigCommand,
-  serializeAws_restXmlGetStreamingDistributionConfigCommand,
+  de_GetStreamingDistributionConfigCommand,
+  se_GetStreamingDistributionConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -131,7 +131,7 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     input: GetStreamingDistributionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStreamingDistributionConfigCommand(input, context);
+    return se_GetStreamingDistributionConfigCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingDistributionConfigCommandOutput> {
-    return deserializeAws_restXmlGetStreamingDistributionConfigCommand(output, context);
+    return de_GetStreamingDistributionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

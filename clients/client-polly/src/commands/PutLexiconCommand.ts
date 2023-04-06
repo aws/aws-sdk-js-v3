@@ -15,10 +15,7 @@ import {
 
 import { PutLexiconInput, PutLexiconInputFilterSensitiveLog, PutLexiconOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1PutLexiconCommand,
-  serializeAws_restJson1PutLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutLexiconCommand, se_PutLexiconCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class PutLexiconCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLexiconCommand(input, context);
+    return se_PutLexiconCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLexiconCommandOutput> {
-    return deserializeAws_restJson1PutLexiconCommand(output, context);
+    return de_PutLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

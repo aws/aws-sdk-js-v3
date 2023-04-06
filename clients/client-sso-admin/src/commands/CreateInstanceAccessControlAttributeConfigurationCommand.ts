@@ -18,8 +18,8 @@ import {
   CreateInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand,
-  serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand,
+  de_CreateInstanceAccessControlAttributeConfigurationCommand,
+  se_CreateInstanceAccessControlAttributeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -176,7 +176,7 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
     input: CreateInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand(input, context);
+    return se_CreateInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand(output, context);
+    return de_CreateInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetCommentsForPullRequestInput, GetCommentsForPullRequestOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCommentsForPullRequestCommand,
-  serializeAws_json1_1GetCommentsForPullRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCommentsForPullRequestCommand, se_GetCommentsForPullRequestCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -186,7 +183,7 @@ export class GetCommentsForPullRequestCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCommentsForPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentsForPullRequestCommand(input, context);
+    return se_GetCommentsForPullRequestCommand(input, context);
   }
 
   /**
@@ -196,7 +193,7 @@ export class GetCommentsForPullRequestCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCommentsForPullRequestCommandOutput> {
-    return deserializeAws_json1_1GetCommentsForPullRequestCommand(output, context);
+    return de_GetCommentsForPullRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

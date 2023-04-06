@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAppVersionResourceRequest, CreateAppVersionResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppVersionResourceCommand,
-  serializeAws_restJson1CreateAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppVersionResourceCommand, se_CreateAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -187,14 +184,14 @@ export class CreateAppVersionResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppVersionResourceCommand(input, context);
+    return se_CreateAppVersionResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1CreateAppVersionResourceCommand(output, context);
+    return de_CreateAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

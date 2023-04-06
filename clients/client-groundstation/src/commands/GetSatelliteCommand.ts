@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { GetSatelliteRequest, GetSatelliteResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSatelliteCommand,
-  serializeAws_restJson1GetSatelliteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSatelliteCommand, se_GetSatelliteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetSatelliteCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSatelliteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSatelliteCommand(input, context);
+    return se_GetSatelliteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSatelliteCommandOutput> {
-    return deserializeAws_restJson1GetSatelliteCommand(output, context);
+    return de_GetSatelliteCommand(output, context);
   }
 
   // Start section: command_body_extra

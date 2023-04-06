@@ -23,8 +23,8 @@ import {
   GetApplicationComponentStrategiesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetApplicationComponentStrategiesCommand,
-  serializeAws_restJson1GetApplicationComponentStrategiesCommand,
+  de_GetApplicationComponentStrategiesCommand,
+  se_GetApplicationComponentStrategiesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
     input: GetApplicationComponentStrategiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationComponentStrategiesCommand(input, context);
+    return se_GetApplicationComponentStrategiesCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationComponentStrategiesCommandOutput> {
-    return deserializeAws_restJson1GetApplicationComponentStrategiesCommand(output, context);
+    return de_GetApplicationComponentStrategiesCommand(output, context);
   }
 
   // Start section: command_body_extra

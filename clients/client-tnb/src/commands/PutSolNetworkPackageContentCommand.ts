@@ -15,8 +15,8 @@ import {
 
 import { PutSolNetworkPackageContentInput, PutSolNetworkPackageContentOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutSolNetworkPackageContentCommand,
-  serializeAws_restJson1PutSolNetworkPackageContentCommand,
+  de_PutSolNetworkPackageContentCommand,
+  se_PutSolNetworkPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -138,7 +138,7 @@ export class PutSolNetworkPackageContentCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSolNetworkPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSolNetworkPackageContentCommand(input, context);
+    return se_PutSolNetworkPackageContentCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class PutSolNetworkPackageContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSolNetworkPackageContentCommandOutput> {
-    return deserializeAws_restJson1PutSolNetworkPackageContentCommand(output, context);
+    return de_PutSolNetworkPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

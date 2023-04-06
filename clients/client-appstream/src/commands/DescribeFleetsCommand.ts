@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetsCommand,
-  serializeAws_json1_1DescribeFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFleetsCommand, se_DescribeFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetsCommand(input, context);
+    return se_DescribeFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetsCommand(output, context);
+    return de_DescribeFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_5";
-import { deserializeAws_ec2DescribeVpcsCommand, serializeAws_ec2DescribeVpcsCommand } from "../protocols/Aws_ec2";
+import { de_DescribeVpcsCommand, se_DescribeVpcsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -161,14 +161,14 @@ export class DescribeVpcsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVpcsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcsCommand(input, context);
+    return se_DescribeVpcsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcsCommand(output, context);
+    return de_DescribeVpcsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   RecognizeTextResponse,
   RecognizeTextResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RecognizeTextCommand,
-  serializeAws_restJson1RecognizeTextCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RecognizeTextCommand, se_RecognizeTextCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -273,14 +270,14 @@ export class RecognizeTextCommand extends $Command<
    * @internal
    */
   private serialize(input: RecognizeTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RecognizeTextCommand(input, context);
+    return se_RecognizeTextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeTextCommandOutput> {
-    return deserializeAws_restJson1RecognizeTextCommand(output, context);
+    return de_RecognizeTextCommand(output, context);
   }
 
   // Start section: command_body_extra

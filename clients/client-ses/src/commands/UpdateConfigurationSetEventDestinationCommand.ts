@@ -18,8 +18,8 @@ import {
   UpdateConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetEventDestinationCommand,
-  serializeAws_queryUpdateConfigurationSetEventDestinationCommand,
+  de_UpdateConfigurationSetEventDestinationCommand,
+  se_UpdateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -181,7 +181,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(input, context);
+    return se_UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
   /**
@@ -191,7 +191,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

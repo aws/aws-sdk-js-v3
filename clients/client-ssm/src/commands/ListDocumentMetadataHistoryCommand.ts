@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentMetadataHistoryCommand,
-  serializeAws_json1_1ListDocumentMetadataHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDocumentMetadataHistoryCommand, se_ListDocumentMetadataHistoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -138,7 +135,7 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDocumentMetadataHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentMetadataHistoryCommand(input, context);
+    return se_ListDocumentMetadataHistoryCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentMetadataHistoryCommandOutput> {
-    return deserializeAws_json1_1ListDocumentMetadataHistoryCommand(output, context);
+    return de_ListDocumentMetadataHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

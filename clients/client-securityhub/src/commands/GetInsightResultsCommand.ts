@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1GetInsightResultsCommand,
-  serializeAws_restJson1GetInsightResultsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInsightResultsCommand, se_GetInsightResultsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetInsightResultsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInsightResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightResultsCommand(input, context);
+    return se_GetInsightResultsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightResultsCommandOutput> {
-    return deserializeAws_restJson1GetInsightResultsCommand(output, context);
+    return de_GetInsightResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

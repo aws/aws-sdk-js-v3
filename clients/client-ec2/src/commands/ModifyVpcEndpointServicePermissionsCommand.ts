@@ -19,8 +19,8 @@ import {
   ModifyVpcEndpointServicePermissionsResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
-  serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
+  de_ModifyVpcEndpointServicePermissionsCommand,
+  se_ModifyVpcEndpointServicePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     input: ModifyVpcEndpointServicePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(input, context);
+    return se_ModifyVpcEndpointServicePermissionsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(output, context);
+    return de_ModifyVpcEndpointServicePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

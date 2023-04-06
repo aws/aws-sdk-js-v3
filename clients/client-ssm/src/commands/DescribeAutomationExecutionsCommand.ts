@@ -15,8 +15,8 @@ import {
 
 import { DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAutomationExecutionsCommand,
-  serializeAws_json1_1DescribeAutomationExecutionsCommand,
+  de_DescribeAutomationExecutionsCommand,
+  se_DescribeAutomationExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -143,7 +143,7 @@ export class DescribeAutomationExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAutomationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationExecutionsCommand(input, context);
+    return se_DescribeAutomationExecutionsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeAutomationExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationExecutionsCommand(output, context);
+    return de_DescribeAutomationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeBudgetNotificationsForAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
-  serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
+  de_DescribeBudgetNotificationsForAccountCommand,
+  se_DescribeBudgetNotificationsForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     input: DescribeBudgetNotificationsForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand(input, context);
+    return se_DescribeBudgetNotificationsForAccountCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetNotificationsForAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand(output, context);
+    return de_DescribeBudgetNotificationsForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

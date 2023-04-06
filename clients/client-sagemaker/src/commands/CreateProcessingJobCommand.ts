@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateProcessingJobRequest, CreateProcessingJobResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateProcessingJobCommand,
-  serializeAws_json1_1CreateProcessingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateProcessingJobCommand, se_CreateProcessingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -235,14 +232,14 @@ export class CreateProcessingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProcessingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProcessingJobCommand(input, context);
+    return se_CreateProcessingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProcessingJobCommandOutput> {
-    return deserializeAws_json1_1CreateProcessingJobCommand(output, context);
+    return de_CreateProcessingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

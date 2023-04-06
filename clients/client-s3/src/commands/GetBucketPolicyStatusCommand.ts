@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketPolicyStatusOutput, GetBucketPolicyStatusRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketPolicyStatusCommand,
-  serializeAws_restXmlGetBucketPolicyStatusCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketPolicyStatusCommand, se_GetBucketPolicyStatusCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -155,14 +152,14 @@ export class GetBucketPolicyStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketPolicyStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketPolicyStatusCommand(input, context);
+    return se_GetBucketPolicyStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyStatusCommandOutput> {
-    return deserializeAws_restXmlGetBucketPolicyStatusCommand(output, context);
+    return de_GetBucketPolicyStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

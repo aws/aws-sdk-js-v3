@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { UpdateActionTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateActionTypeCommand,
-  serializeAws_json1_1UpdateActionTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateActionTypeCommand, se_UpdateActionTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class UpdateActionTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateActionTypeCommand(input, context);
+    return se_UpdateActionTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateActionTypeCommand(output, context);
+    return de_UpdateActionTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssignPrivateIpAddressesCommand,
-  serializeAws_ec2AssignPrivateIpAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssignPrivateIpAddressesCommand, se_AssignPrivateIpAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class AssignPrivateIpAddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssignPrivateIpAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssignPrivateIpAddressesCommand(input, context);
+    return se_AssignPrivateIpAddressesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignPrivateIpAddressesCommandOutput> {
-    return deserializeAws_ec2AssignPrivateIpAddressesCommand(output, context);
+    return de_AssignPrivateIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

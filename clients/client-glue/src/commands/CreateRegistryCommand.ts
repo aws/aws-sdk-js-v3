@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateRegistryInput, CreateRegistryResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateRegistryCommand,
-  serializeAws_json1_1CreateRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRegistryCommand, se_CreateRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRegistryCommand(input, context);
+    return se_CreateRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegistryCommandOutput> {
-    return deserializeAws_json1_1CreateRegistryCommand(output, context);
+    return de_CreateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ExportAutoScalingGroupRecommendationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,
-  serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,
+  de_ExportAutoScalingGroupRecommendationsCommand,
+  se_ExportAutoScalingGroupRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -183,7 +183,7 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     input: ExportAutoScalingGroupRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand(input, context);
+    return se_ExportAutoScalingGroupRecommendationsCommand(input, context);
   }
 
   /**
@@ -193,7 +193,7 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportAutoScalingGroupRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand(output, context);
+    return de_ExportAutoScalingGroupRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

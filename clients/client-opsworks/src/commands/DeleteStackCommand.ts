@@ -15,10 +15,7 @@ import {
 
 import { DeleteStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeleteStackCommand,
-  serializeAws_json1_1DeleteStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStackCommand, se_DeleteStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteStackCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStackCommand(input, context);
+    return se_DeleteStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
-    return deserializeAws_json1_1DeleteStackCommand(output, context);
+    return de_DeleteStackCommand(output, context);
   }
 
   // Start section: command_body_extra

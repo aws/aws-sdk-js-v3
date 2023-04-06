@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigurationSetCommand,
-  serializeAws_restJson1GetConfigurationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConfigurationSetCommand, se_GetConfigurationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -136,14 +133,14 @@ export class GetConfigurationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationSetCommand(input, context);
+    return se_GetConfigurationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationSetCommand(output, context);
+    return de_GetConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

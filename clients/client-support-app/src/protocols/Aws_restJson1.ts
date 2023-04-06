@@ -58,7 +58,10 @@ import {
 } from "../models/models_0";
 import { SupportAppServiceException as __BaseException } from "../models/SupportAppServiceException";
 
-export const serializeAws_restJson1CreateSlackChannelConfigurationCommand = async (
+/**
+ * serializeAws_restJson1CreateSlackChannelConfigurationCommand
+ */
+export const se_CreateSlackChannelConfigurationCommand = async (
   input: CreateSlackChannelConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -93,7 +96,10 @@ export const serializeAws_restJson1CreateSlackChannelConfigurationCommand = asyn
   });
 };
 
-export const serializeAws_restJson1DeleteAccountAliasCommand = async (
+/**
+ * serializeAws_restJson1DeleteAccountAliasCommand
+ */
+export const se_DeleteAccountAliasCommand = async (
   input: DeleteAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -116,7 +122,10 @@ export const serializeAws_restJson1DeleteAccountAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSlackChannelConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlackChannelConfigurationCommand
+ */
+export const se_DeleteSlackChannelConfigurationCommand = async (
   input: DeleteSlackChannelConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -143,7 +152,10 @@ export const serializeAws_restJson1DeleteSlackChannelConfigurationCommand = asyn
   });
 };
 
-export const serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand
+ */
+export const se_DeleteSlackWorkspaceConfigurationCommand = async (
   input: DeleteSlackWorkspaceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,7 +181,10 @@ export const serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand = as
   });
 };
 
-export const serializeAws_restJson1GetAccountAliasCommand = async (
+/**
+ * serializeAws_restJson1GetAccountAliasCommand
+ */
+export const se_GetAccountAliasCommand = async (
   input: GetAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -192,7 +207,10 @@ export const serializeAws_restJson1GetAccountAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSlackChannelConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1ListSlackChannelConfigurationsCommand
+ */
+export const se_ListSlackChannelConfigurationsCommand = async (
   input: ListSlackChannelConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -218,7 +236,10 @@ export const serializeAws_restJson1ListSlackChannelConfigurationsCommand = async
   });
 };
 
-export const serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand
+ */
+export const se_ListSlackWorkspaceConfigurationsCommand = async (
   input: ListSlackWorkspaceConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -244,7 +265,10 @@ export const serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand = asy
   });
 };
 
-export const serializeAws_restJson1PutAccountAliasCommand = async (
+/**
+ * serializeAws_restJson1PutAccountAliasCommand
+ */
+export const se_PutAccountAliasCommand = async (
   input: PutAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -269,7 +293,10 @@ export const serializeAws_restJson1PutAccountAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand = async (
+/**
+ * serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand
+ */
+export const se_RegisterSlackWorkspaceForOrganizationCommand = async (
   input: RegisterSlackWorkspaceForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -295,7 +322,10 @@ export const serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand 
   });
 };
 
-export const serializeAws_restJson1UpdateSlackChannelConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateSlackChannelConfigurationCommand
+ */
+export const se_UpdateSlackChannelConfigurationCommand = async (
   input: UpdateSlackChannelConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,12 +360,15 @@ export const serializeAws_restJson1UpdateSlackChannelConfigurationCommand = asyn
   });
 };
 
-export const deserializeAws_restJson1CreateSlackChannelConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1CreateSlackChannelConfigurationCommand
+ */
+export const de_CreateSlackChannelConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlackChannelConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSlackChannelConfigurationCommandError(output, context);
+    return de_CreateSlackChannelConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -344,7 +377,10 @@ export const deserializeAws_restJson1CreateSlackChannelConfigurationCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1CreateSlackChannelConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSlackChannelConfigurationCommandError
+ */
+const de_CreateSlackChannelConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlackChannelConfigurationCommandOutput> => {
@@ -356,19 +392,19 @@ const deserializeAws_restJson1CreateSlackChannelConfigurationCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.supportapp#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.supportapp#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -380,12 +416,15 @@ const deserializeAws_restJson1CreateSlackChannelConfigurationCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1DeleteAccountAliasCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAccountAliasCommand
+ */
+export const de_DeleteAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAccountAliasCommandError(output, context);
+    return de_DeleteAccountAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -394,7 +433,10 @@ export const deserializeAws_restJson1DeleteAccountAliasCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAccountAliasCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAccountAliasCommandError
+ */
+const de_DeleteAccountAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
@@ -406,13 +448,13 @@ const deserializeAws_restJson1DeleteAccountAliasCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.supportapp#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -424,12 +466,15 @@ const deserializeAws_restJson1DeleteAccountAliasCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteSlackChannelConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlackChannelConfigurationCommand
+ */
+export const de_DeleteSlackChannelConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlackChannelConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError(output, context);
+    return de_DeleteSlackChannelConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -438,7 +483,10 @@ export const deserializeAws_restJson1DeleteSlackChannelConfigurationCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError
+ */
+const de_DeleteSlackChannelConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlackChannelConfigurationCommandOutput> => {
@@ -450,19 +498,19 @@ const deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.supportapp#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.supportapp#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -474,12 +522,15 @@ const deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand
+ */
+export const de_DeleteSlackWorkspaceConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlackWorkspaceConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError(output, context);
+    return de_DeleteSlackWorkspaceConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -488,7 +539,10 @@ export const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand = 
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError
+ */
+const de_DeleteSlackWorkspaceConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlackWorkspaceConfigurationCommandOutput> => {
@@ -500,19 +554,19 @@ const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.supportapp#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.supportapp#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -524,12 +578,15 @@ const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError = as
   }
 };
 
-export const deserializeAws_restJson1GetAccountAliasCommand = async (
+/**
+ * deserializeAws_restJson1GetAccountAliasCommand
+ */
+export const de_GetAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAccountAliasCommandError(output, context);
+    return de_GetAccountAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -541,7 +598,10 @@ export const deserializeAws_restJson1GetAccountAliasCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetAccountAliasCommandError = async (
+/**
+ * deserializeAws_restJson1GetAccountAliasCommandError
+ */
+const de_GetAccountAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountAliasCommandOutput> => {
@@ -553,7 +613,7 @@ const deserializeAws_restJson1GetAccountAliasCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -565,12 +625,15 @@ const deserializeAws_restJson1GetAccountAliasCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSlackChannelConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1ListSlackChannelConfigurationsCommand
+ */
+export const de_ListSlackChannelConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlackChannelConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSlackChannelConfigurationsCommandError(output, context);
+    return de_ListSlackChannelConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -580,15 +643,15 @@ export const deserializeAws_restJson1ListSlackChannelConfigurationsCommand = asy
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.slackChannelConfigurations != null) {
-    contents.slackChannelConfigurations = deserializeAws_restJson1slackChannelConfigurationList(
-      data.slackChannelConfigurations,
-      context
-    );
+    contents.slackChannelConfigurations = de_slackChannelConfigurationList(data.slackChannelConfigurations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSlackChannelConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSlackChannelConfigurationsCommandError
+ */
+const de_ListSlackChannelConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlackChannelConfigurationsCommandOutput> => {
@@ -600,10 +663,10 @@ const deserializeAws_restJson1ListSlackChannelConfigurationsCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -615,12 +678,15 @@ const deserializeAws_restJson1ListSlackChannelConfigurationsCommandError = async
   }
 };
 
-export const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand
+ */
+export const de_ListSlackWorkspaceConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlackWorkspaceConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError(output, context);
+    return de_ListSlackWorkspaceConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -630,7 +696,7 @@ export const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand = a
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.slackWorkspaceConfigurations != null) {
-    contents.slackWorkspaceConfigurations = deserializeAws_restJson1SlackWorkspaceConfigurationList(
+    contents.slackWorkspaceConfigurations = de_SlackWorkspaceConfigurationList(
       data.slackWorkspaceConfigurations,
       context
     );
@@ -638,7 +704,10 @@ export const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand = a
   return contents;
 };
 
-const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError
+ */
+const de_ListSlackWorkspaceConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlackWorkspaceConfigurationsCommandOutput> => {
@@ -650,10 +719,10 @@ const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -665,12 +734,15 @@ const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError = asy
   }
 };
 
-export const deserializeAws_restJson1PutAccountAliasCommand = async (
+/**
+ * deserializeAws_restJson1PutAccountAliasCommand
+ */
+export const de_PutAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAccountAliasCommandError(output, context);
+    return de_PutAccountAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -679,7 +751,10 @@ export const deserializeAws_restJson1PutAccountAliasCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutAccountAliasCommandError = async (
+/**
+ * deserializeAws_restJson1PutAccountAliasCommandError
+ */
+const de_PutAccountAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountAliasCommandOutput> => {
@@ -691,13 +766,13 @@ const deserializeAws_restJson1PutAccountAliasCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -709,12 +784,15 @@ const deserializeAws_restJson1PutAccountAliasCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand = async (
+/**
+ * deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand
+ */
+export const de_RegisterSlackWorkspaceForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError(output, context);
+    return de_RegisterSlackWorkspaceForOrganizationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -732,7 +810,10 @@ export const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationComman
   return contents;
 };
 
-const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError = async (
+/**
+ * deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError
+ */
+const de_RegisterSlackWorkspaceForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> => {
@@ -744,19 +825,19 @@ const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.supportapp#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.supportapp#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -768,12 +849,15 @@ const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError 
   }
 };
 
-export const deserializeAws_restJson1UpdateSlackChannelConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSlackChannelConfigurationCommand
+ */
+export const de_UpdateSlackChannelConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlackChannelConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError(output, context);
+    return de_UpdateSlackChannelConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -806,7 +890,10 @@ export const deserializeAws_restJson1UpdateSlackChannelConfigurationCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError
+ */
+const de_UpdateSlackChannelConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlackChannelConfigurationCommandOutput> => {
@@ -818,19 +905,19 @@ const deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.supportapp#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.supportapp#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.supportapp#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.supportapp#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.supportapp#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -843,7 +930,10 @@ const deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError = asyn
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -859,10 +949,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -875,7 +965,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -891,7 +984,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -907,7 +1003,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -923,10 +1022,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -939,10 +1038,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SlackChannelConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SlackChannelConfiguration => {
+/**
+ * deserializeAws_restJson1SlackChannelConfiguration
+ */
+const de_SlackChannelConfiguration = (output: any, context: __SerdeContext): SlackChannelConfiguration => {
   return {
     channelId: __expectString(output.channelId),
     channelName: __expectString(output.channelName),
@@ -955,25 +1054,25 @@ const deserializeAws_restJson1SlackChannelConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1slackChannelConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): SlackChannelConfiguration[] => {
+/**
+ * deserializeAws_restJson1slackChannelConfigurationList
+ */
+const de_slackChannelConfigurationList = (output: any, context: __SerdeContext): SlackChannelConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SlackChannelConfiguration(entry, context);
+      return de_SlackChannelConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SlackWorkspaceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SlackWorkspaceConfiguration => {
+/**
+ * deserializeAws_restJson1SlackWorkspaceConfiguration
+ */
+const de_SlackWorkspaceConfiguration = (output: any, context: __SerdeContext): SlackWorkspaceConfiguration => {
   return {
     allowOrganizationMemberAccount: __expectBoolean(output.allowOrganizationMemberAccount),
     teamId: __expectString(output.teamId),
@@ -981,17 +1080,17 @@ const deserializeAws_restJson1SlackWorkspaceConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1SlackWorkspaceConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): SlackWorkspaceConfiguration[] => {
+/**
+ * deserializeAws_restJson1SlackWorkspaceConfigurationList
+ */
+const de_SlackWorkspaceConfigurationList = (output: any, context: __SerdeContext): SlackWorkspaceConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SlackWorkspaceConfiguration(entry, context);
+      return de_SlackWorkspaceConfiguration(entry, context);
     });
   return retVal;
 };

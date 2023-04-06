@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SampleChannelDataCommand,
-  serializeAws_restJson1SampleChannelDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SampleChannelDataCommand, se_SampleChannelDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class SampleChannelDataCommand extends $Command<
    * @internal
    */
   private serialize(input: SampleChannelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SampleChannelDataCommand(input, context);
+    return se_SampleChannelDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SampleChannelDataCommandOutput> {
-    return deserializeAws_restJson1SampleChannelDataCommand(output, context);
+    return de_SampleChannelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchGetSecurityControlsRequest, BatchGetSecurityControlsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchGetSecurityControlsCommand,
-  serializeAws_restJson1BatchGetSecurityControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetSecurityControlsCommand, se_BatchGetSecurityControlsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -138,14 +135,14 @@ export class BatchGetSecurityControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetSecurityControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetSecurityControlsCommand(input, context);
+    return se_BatchGetSecurityControlsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSecurityControlsCommandOutput> {
-    return deserializeAws_restJson1BatchGetSecurityControlsCommand(output, context);
+    return de_BatchGetSecurityControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

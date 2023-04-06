@@ -16,8 +16,8 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_0";
 import {
-  deserializeAws_queryModifyDBClusterParameterGroupCommand,
-  serializeAws_queryModifyDBClusterParameterGroupCommand,
+  de_ModifyDBClusterParameterGroupCommand,
+  se_ModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -161,7 +161,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
+    return se_ModifyDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
+    return de_ModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeviceStateCommand,
-  serializeAws_restJson1UpdateDeviceStateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDeviceStateCommand, se_UpdateDeviceStateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class UpdateDeviceStateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeviceStateCommand(input, context);
+    return se_UpdateDeviceStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStateCommandOutput> {
-    return deserializeAws_restJson1UpdateDeviceStateCommand(output, context);
+    return de_UpdateDeviceStateCommand(output, context);
   }
 
   // Start section: command_body_extra

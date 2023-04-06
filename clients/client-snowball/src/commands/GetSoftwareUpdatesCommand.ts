@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSoftwareUpdatesCommand,
-  serializeAws_json1_1GetSoftwareUpdatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSoftwareUpdatesCommand, se_GetSoftwareUpdatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -129,14 +126,14 @@ export class GetSoftwareUpdatesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSoftwareUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSoftwareUpdatesCommand(input, context);
+    return se_GetSoftwareUpdatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSoftwareUpdatesCommandOutput> {
-    return deserializeAws_json1_1GetSoftwareUpdatesCommand(output, context);
+    return de_GetSoftwareUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { DeleteCollaborationInput, DeleteCollaborationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCollaborationCommand,
-  serializeAws_restJson1DeleteCollaborationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCollaborationCommand, se_DeleteCollaborationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteCollaborationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCollaborationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCollaborationCommand(input, context);
+    return se_DeleteCollaborationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollaborationCommandOutput> {
-    return deserializeAws_restJson1DeleteCollaborationCommand(output, context);
+    return de_DeleteCollaborationCommand(output, context);
   }
 
   // Start section: command_body_extra

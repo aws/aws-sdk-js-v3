@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteParameterRequest, DeleteParameterResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteParameterCommand,
-  serializeAws_json1_1DeleteParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteParameterCommand, se_DeleteParameterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteParameterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteParameterCommand(input, context);
+    return se_DeleteParameterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParameterCommandOutput> {
-    return deserializeAws_json1_1DeleteParameterCommand(output, context);
+    return de_DeleteParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

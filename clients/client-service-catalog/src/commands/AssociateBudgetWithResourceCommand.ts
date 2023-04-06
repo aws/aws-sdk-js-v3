@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateBudgetWithResourceInput, AssociateBudgetWithResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateBudgetWithResourceCommand,
-  serializeAws_json1_1AssociateBudgetWithResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateBudgetWithResourceCommand, se_AssociateBudgetWithResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -134,7 +131,7 @@ export class AssociateBudgetWithResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateBudgetWithResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateBudgetWithResourceCommand(input, context);
+    return se_AssociateBudgetWithResourceCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class AssociateBudgetWithResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateBudgetWithResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateBudgetWithResourceCommand(output, context);
+    return de_AssociateBudgetWithResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

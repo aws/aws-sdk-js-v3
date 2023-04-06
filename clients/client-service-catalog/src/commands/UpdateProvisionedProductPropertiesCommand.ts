@@ -15,8 +15,8 @@ import {
 
 import { UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
-  serializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
+  de_UpdateProvisionedProductPropertiesCommand,
+  se_UpdateProvisionedProductPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -140,7 +140,7 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     input: UpdateProvisionedProductPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(input, context);
+    return se_UpdateProvisionedProductPropertiesCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand(output, context);
+    return de_UpdateProvisionedProductPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

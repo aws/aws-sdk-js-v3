@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPackageVersionReadmeCommand,
-  serializeAws_restJson1GetPackageVersionReadmeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPackageVersionReadmeCommand, se_GetPackageVersionReadmeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class GetPackageVersionReadmeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPackageVersionReadmeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPackageVersionReadmeCommand(input, context);
+    return se_GetPackageVersionReadmeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionReadmeCommandOutput> {
-    return deserializeAws_restJson1GetPackageVersionReadmeCommand(output, context);
+    return de_GetPackageVersionReadmeCommand(output, context);
   }
 
   // Start section: command_body_extra

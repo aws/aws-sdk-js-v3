@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpcPeeringConnectionsRequest, DescribeVpcPeeringConnectionsResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcPeeringConnectionsCommand,
-  serializeAws_ec2DescribeVpcPeeringConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVpcPeeringConnectionsCommand, se_DescribeVpcPeeringConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVpcPeeringConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcPeeringConnectionsCommand(input, context);
+    return se_DescribeVpcPeeringConnectionsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcPeeringConnectionsCommand(output, context);
+    return de_DescribeVpcPeeringConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

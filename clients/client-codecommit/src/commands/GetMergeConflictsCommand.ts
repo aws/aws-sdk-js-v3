@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMergeConflictsCommand,
-  serializeAws_json1_1GetMergeConflictsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMergeConflictsCommand, se_GetMergeConflictsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -200,14 +197,14 @@ export class GetMergeConflictsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMergeConflictsCommand(input, context);
+    return se_GetMergeConflictsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeConflictsCommandOutput> {
-    return deserializeAws_json1_1GetMergeConflictsCommand(output, context);
+    return de_GetMergeConflictsCommand(output, context);
   }
 
   // Start section: command_body_extra

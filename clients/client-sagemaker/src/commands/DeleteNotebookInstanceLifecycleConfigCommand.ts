@@ -15,8 +15,8 @@ import {
 
 import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
+  de_DeleteNotebookInstanceLifecycleConfigCommand,
+  se_DeleteNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -123,7 +123,7 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     input: DeleteNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_DeleteNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
   /**
@@ -133,7 +133,7 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_DeleteNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

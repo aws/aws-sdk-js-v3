@@ -19,8 +19,8 @@ import {
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
-  serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
+  de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
+  se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -173,7 +173,7 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, context);
+    return se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> {
-    return deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(output, context);
+    return de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

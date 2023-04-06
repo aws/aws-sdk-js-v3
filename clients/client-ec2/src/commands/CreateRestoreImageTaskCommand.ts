@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateRestoreImageTaskRequest, CreateRestoreImageTaskResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateRestoreImageTaskCommand,
-  serializeAws_ec2CreateRestoreImageTaskCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateRestoreImageTaskCommand, se_CreateRestoreImageTaskCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class CreateRestoreImageTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRestoreImageTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateRestoreImageTaskCommand(input, context);
+    return se_CreateRestoreImageTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRestoreImageTaskCommandOutput> {
-    return deserializeAws_ec2CreateRestoreImageTaskCommand(output, context);
+    return de_CreateRestoreImageTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

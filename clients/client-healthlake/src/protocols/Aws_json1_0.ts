@@ -95,7 +95,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_0CreateFHIRDatastoreCommand = async (
+/**
+ * serializeAws_json1_0CreateFHIRDatastoreCommand
+ */
+export const se_CreateFHIRDatastoreCommand = async (
   input: CreateFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -104,11 +107,14 @@ export const serializeAws_json1_0CreateFHIRDatastoreCommand = async (
     "x-amz-target": "HealthLake.CreateFHIRDatastore",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateFHIRDatastoreRequest(input, context));
+  body = JSON.stringify(se_CreateFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteFHIRDatastoreCommand = async (
+/**
+ * serializeAws_json1_0DeleteFHIRDatastoreCommand
+ */
+export const se_DeleteFHIRDatastoreCommand = async (
   input: DeleteFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -117,11 +123,14 @@ export const serializeAws_json1_0DeleteFHIRDatastoreCommand = async (
     "x-amz-target": "HealthLake.DeleteFHIRDatastore",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteFHIRDatastoreRequest(input, context));
+  body = JSON.stringify(se_DeleteFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFHIRDatastoreCommand = async (
+/**
+ * serializeAws_json1_0DescribeFHIRDatastoreCommand
+ */
+export const se_DescribeFHIRDatastoreCommand = async (
   input: DescribeFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -130,11 +139,14 @@ export const serializeAws_json1_0DescribeFHIRDatastoreCommand = async (
     "x-amz-target": "HealthLake.DescribeFHIRDatastore",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFHIRDatastoreRequest(input, context));
+  body = JSON.stringify(se_DescribeFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFHIRExportJobCommand = async (
+/**
+ * serializeAws_json1_0DescribeFHIRExportJobCommand
+ */
+export const se_DescribeFHIRExportJobCommand = async (
   input: DescribeFHIRExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -143,11 +155,14 @@ export const serializeAws_json1_0DescribeFHIRExportJobCommand = async (
     "x-amz-target": "HealthLake.DescribeFHIRExportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFHIRExportJobRequest(input, context));
+  body = JSON.stringify(se_DescribeFHIRExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFHIRImportJobCommand = async (
+/**
+ * serializeAws_json1_0DescribeFHIRImportJobCommand
+ */
+export const se_DescribeFHIRImportJobCommand = async (
   input: DescribeFHIRImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -156,11 +171,14 @@ export const serializeAws_json1_0DescribeFHIRImportJobCommand = async (
     "x-amz-target": "HealthLake.DescribeFHIRImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFHIRImportJobRequest(input, context));
+  body = JSON.stringify(se_DescribeFHIRImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
+/**
+ * serializeAws_json1_0ListFHIRDatastoresCommand
+ */
+export const se_ListFHIRDatastoresCommand = async (
   input: ListFHIRDatastoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,11 +187,14 @@ export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
     "x-amz-target": "HealthLake.ListFHIRDatastores",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFHIRDatastoresRequest(input, context));
+  body = JSON.stringify(se_ListFHIRDatastoresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFHIRExportJobsCommand = async (
+/**
+ * serializeAws_json1_0ListFHIRExportJobsCommand
+ */
+export const se_ListFHIRExportJobsCommand = async (
   input: ListFHIRExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -182,11 +203,14 @@ export const serializeAws_json1_0ListFHIRExportJobsCommand = async (
     "x-amz-target": "HealthLake.ListFHIRExportJobs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFHIRExportJobsRequest(input, context));
+  body = JSON.stringify(se_ListFHIRExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFHIRImportJobsCommand = async (
+/**
+ * serializeAws_json1_0ListFHIRImportJobsCommand
+ */
+export const se_ListFHIRImportJobsCommand = async (
   input: ListFHIRImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -195,11 +219,14 @@ export const serializeAws_json1_0ListFHIRImportJobsCommand = async (
     "x-amz-target": "HealthLake.ListFHIRImportJobs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFHIRImportJobsRequest(input, context));
+  body = JSON.stringify(se_ListFHIRImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -208,11 +235,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "HealthLake.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartFHIRExportJobCommand = async (
+/**
+ * serializeAws_json1_0StartFHIRExportJobCommand
+ */
+export const se_StartFHIRExportJobCommand = async (
   input: StartFHIRExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -221,11 +251,14 @@ export const serializeAws_json1_0StartFHIRExportJobCommand = async (
     "x-amz-target": "HealthLake.StartFHIRExportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartFHIRExportJobRequest(input, context));
+  body = JSON.stringify(se_StartFHIRExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartFHIRImportJobCommand = async (
+/**
+ * serializeAws_json1_0StartFHIRImportJobCommand
+ */
+export const se_StartFHIRImportJobCommand = async (
   input: StartFHIRImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -234,11 +267,14 @@ export const serializeAws_json1_0StartFHIRImportJobCommand = async (
     "x-amz-target": "HealthLake.StartFHIRImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartFHIRImportJobRequest(input, context));
+  body = JSON.stringify(se_StartFHIRImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -247,11 +283,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "HealthLake.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -260,20 +299,23 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "HealthLake.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CreateFHIRDatastoreCommand = async (
+/**
+ * deserializeAws_json1_0CreateFHIRDatastoreCommand
+ */
+export const de_CreateFHIRDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFHIRDatastoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateFHIRDatastoreCommandError(output, context);
+    return de_CreateFHIRDatastoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateFHIRDatastoreResponse(data, context);
+  contents = de_CreateFHIRDatastoreResponse(data, context);
   const response: CreateFHIRDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -281,7 +323,10 @@ export const deserializeAws_json1_0CreateFHIRDatastoreCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateFHIRDatastoreCommandError = async (
+/**
+ * deserializeAws_json1_0CreateFHIRDatastoreCommandError
+ */
+const de_CreateFHIRDatastoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFHIRDatastoreCommandOutput> => {
@@ -293,16 +338,16 @@ const deserializeAws_json1_0CreateFHIRDatastoreCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -314,16 +359,19 @@ const deserializeAws_json1_0CreateFHIRDatastoreCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteFHIRDatastoreCommand = async (
+/**
+ * deserializeAws_json1_0DeleteFHIRDatastoreCommand
+ */
+export const de_DeleteFHIRDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFHIRDatastoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteFHIRDatastoreCommandError(output, context);
+    return de_DeleteFHIRDatastoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteFHIRDatastoreResponse(data, context);
+  contents = de_DeleteFHIRDatastoreResponse(data, context);
   const response: DeleteFHIRDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -331,7 +379,10 @@ export const deserializeAws_json1_0DeleteFHIRDatastoreCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteFHIRDatastoreCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteFHIRDatastoreCommandError
+ */
+const de_DeleteFHIRDatastoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFHIRDatastoreCommandOutput> => {
@@ -343,22 +394,22 @@ const deserializeAws_json1_0DeleteFHIRDatastoreCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.healthlake#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -370,16 +421,19 @@ const deserializeAws_json1_0DeleteFHIRDatastoreCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeFHIRDatastoreCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRDatastoreCommand
+ */
+export const de_DescribeFHIRDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRDatastoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFHIRDatastoreCommandError(output, context);
+    return de_DescribeFHIRDatastoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFHIRDatastoreResponse(data, context);
+  contents = de_DescribeFHIRDatastoreResponse(data, context);
   const response: DescribeFHIRDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -387,7 +441,10 @@ export const deserializeAws_json1_0DescribeFHIRDatastoreCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeFHIRDatastoreCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRDatastoreCommandError
+ */
+const de_DescribeFHIRDatastoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRDatastoreCommandOutput> => {
@@ -399,16 +456,16 @@ const deserializeAws_json1_0DescribeFHIRDatastoreCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -420,16 +477,19 @@ const deserializeAws_json1_0DescribeFHIRDatastoreCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeFHIRExportJobCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRExportJobCommand
+ */
+export const de_DescribeFHIRExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFHIRExportJobCommandError(output, context);
+    return de_DescribeFHIRExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFHIRExportJobResponse(data, context);
+  contents = de_DescribeFHIRExportJobResponse(data, context);
   const response: DescribeFHIRExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -437,7 +497,10 @@ export const deserializeAws_json1_0DescribeFHIRExportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeFHIRExportJobCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRExportJobCommandError
+ */
+const de_DescribeFHIRExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRExportJobCommandOutput> => {
@@ -449,16 +512,16 @@ const deserializeAws_json1_0DescribeFHIRExportJobCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -470,16 +533,19 @@ const deserializeAws_json1_0DescribeFHIRExportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeFHIRImportJobCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRImportJobCommand
+ */
+export const de_DescribeFHIRImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFHIRImportJobCommandError(output, context);
+    return de_DescribeFHIRImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFHIRImportJobResponse(data, context);
+  contents = de_DescribeFHIRImportJobResponse(data, context);
   const response: DescribeFHIRImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -487,7 +553,10 @@ export const deserializeAws_json1_0DescribeFHIRImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeFHIRImportJobCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFHIRImportJobCommandError
+ */
+const de_DescribeFHIRImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFHIRImportJobCommandOutput> => {
@@ -499,16 +568,16 @@ const deserializeAws_json1_0DescribeFHIRImportJobCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -520,16 +589,19 @@ const deserializeAws_json1_0DescribeFHIRImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListFHIRDatastoresCommand = async (
+/**
+ * deserializeAws_json1_0ListFHIRDatastoresCommand
+ */
+export const de_ListFHIRDatastoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRDatastoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFHIRDatastoresCommandError(output, context);
+    return de_ListFHIRDatastoresCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFHIRDatastoresResponse(data, context);
+  contents = de_ListFHIRDatastoresResponse(data, context);
   const response: ListFHIRDatastoresCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -537,7 +609,10 @@ export const deserializeAws_json1_0ListFHIRDatastoresCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
+/**
+ * deserializeAws_json1_0ListFHIRDatastoresCommandError
+ */
+const de_ListFHIRDatastoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRDatastoresCommandOutput> => {
@@ -549,13 +624,13 @@ const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -567,16 +642,19 @@ const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListFHIRExportJobsCommand = async (
+/**
+ * deserializeAws_json1_0ListFHIRExportJobsCommand
+ */
+export const de_ListFHIRExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFHIRExportJobsCommandError(output, context);
+    return de_ListFHIRExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFHIRExportJobsResponse(data, context);
+  contents = de_ListFHIRExportJobsResponse(data, context);
   const response: ListFHIRExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -584,7 +662,10 @@ export const deserializeAws_json1_0ListFHIRExportJobsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListFHIRExportJobsCommandError = async (
+/**
+ * deserializeAws_json1_0ListFHIRExportJobsCommandError
+ */
+const de_ListFHIRExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRExportJobsCommandOutput> => {
@@ -596,19 +677,19 @@ const deserializeAws_json1_0ListFHIRExportJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -620,16 +701,19 @@ const deserializeAws_json1_0ListFHIRExportJobsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListFHIRImportJobsCommand = async (
+/**
+ * deserializeAws_json1_0ListFHIRImportJobsCommand
+ */
+export const de_ListFHIRImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFHIRImportJobsCommandError(output, context);
+    return de_ListFHIRImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFHIRImportJobsResponse(data, context);
+  contents = de_ListFHIRImportJobsResponse(data, context);
   const response: ListFHIRImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -637,7 +721,10 @@ export const deserializeAws_json1_0ListFHIRImportJobsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListFHIRImportJobsCommandError = async (
+/**
+ * deserializeAws_json1_0ListFHIRImportJobsCommandError
+ */
+const de_ListFHIRImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFHIRImportJobsCommandOutput> => {
@@ -649,19 +736,19 @@ const deserializeAws_json1_0ListFHIRImportJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -673,16 +760,19 @@ const deserializeAws_json1_0ListFHIRImportJobsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -690,7 +780,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -702,10 +795,10 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -717,16 +810,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StartFHIRExportJobCommand = async (
+/**
+ * deserializeAws_json1_0StartFHIRExportJobCommand
+ */
+export const de_StartFHIRExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFHIRExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartFHIRExportJobCommandError(output, context);
+    return de_StartFHIRExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartFHIRExportJobResponse(data, context);
+  contents = de_StartFHIRExportJobResponse(data, context);
   const response: StartFHIRExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -734,7 +830,10 @@ export const deserializeAws_json1_0StartFHIRExportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StartFHIRExportJobCommandError = async (
+/**
+ * deserializeAws_json1_0StartFHIRExportJobCommandError
+ */
+const de_StartFHIRExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFHIRExportJobCommandOutput> => {
@@ -746,19 +845,19 @@ const deserializeAws_json1_0StartFHIRExportJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -770,16 +869,19 @@ const deserializeAws_json1_0StartFHIRExportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StartFHIRImportJobCommand = async (
+/**
+ * deserializeAws_json1_0StartFHIRImportJobCommand
+ */
+export const de_StartFHIRImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFHIRImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartFHIRImportJobCommandError(output, context);
+    return de_StartFHIRImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartFHIRImportJobResponse(data, context);
+  contents = de_StartFHIRImportJobResponse(data, context);
   const response: StartFHIRImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -787,7 +889,10 @@ export const deserializeAws_json1_0StartFHIRImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StartFHIRImportJobCommandError = async (
+/**
+ * deserializeAws_json1_0StartFHIRImportJobCommandError
+ */
+const de_StartFHIRImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFHIRImportJobCommandOutput> => {
@@ -799,19 +904,19 @@ const deserializeAws_json1_0StartFHIRImportJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.healthlake#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -823,16 +928,19 @@ const deserializeAws_json1_0StartFHIRImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -840,7 +948,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -852,10 +963,10 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -867,16 +978,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -884,7 +998,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -896,10 +1013,10 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.healthlake#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.healthlake#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -911,12 +1028,15 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -924,12 +1044,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -937,12 +1057,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -950,12 +1073,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -963,12 +1089,12 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -976,12 +1102,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -989,25 +1115,26 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0CreateFHIRDatastoreRequest = (
-  input: CreateFHIRDatastoreRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateFHIRDatastoreRequest
+ */
+const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DatastoreName != null && { DatastoreName: input.DatastoreName }),
     ...(input.DatastoreTypeVersion != null && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
     ...(input.PreloadDataConfig != null && {
-      PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
+      PreloadDataConfig: se_PreloadDataConfig(input.PreloadDataConfig, context),
     }),
-    ...(input.SseConfiguration != null && {
-      SseConfiguration: serializeAws_json1_0SseConfiguration(input.SseConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.SseConfiguration != null && { SseConfiguration: se_SseConfiguration(input.SseConfiguration, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DatastoreFilter
+ */
+const se_DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
   return {
     ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
     ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
@@ -1016,88 +1143,79 @@ const serializeAws_json1_0DatastoreFilter = (input: DatastoreFilter, context: __
   };
 };
 
-const serializeAws_json1_0DeleteFHIRDatastoreRequest = (
-  input: DeleteFHIRDatastoreRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteFHIRDatastoreRequest
+ */
+const se_DeleteFHIRDatastoreRequest = (input: DeleteFHIRDatastoreRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
   };
 };
 
-const serializeAws_json1_0DescribeFHIRDatastoreRequest = (
-  input: DescribeFHIRDatastoreRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeFHIRDatastoreRequest
+ */
+const se_DescribeFHIRDatastoreRequest = (input: DescribeFHIRDatastoreRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
   };
 };
 
-const serializeAws_json1_0DescribeFHIRExportJobRequest = (
-  input: DescribeFHIRExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
-
-const serializeAws_json1_0DescribeFHIRImportJobRequest = (
-  input: DescribeFHIRImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeFHIRExportJobRequest
+ */
+const se_DescribeFHIRExportJobRequest = (input: DescribeFHIRExportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
     ...(input.JobId != null && { JobId: input.JobId }),
   };
 };
 
-const serializeAws_json1_0InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeFHIRImportJobRequest
+ */
+const se_DescribeFHIRImportJobRequest = (input: DescribeFHIRImportJobRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
+  };
+};
+
+/**
+ * serializeAws_json1_0InputDataConfig
+ */
+const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return InputDataConfig.visit(input, {
     S3Uri: (value) => ({ S3Uri: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0KmsEncryptionConfig = (input: KmsEncryptionConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0KmsEncryptionConfig
+ */
+const se_KmsEncryptionConfig = (input: KmsEncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.CmkType != null && { CmkType: input.CmkType }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
-const serializeAws_json1_0ListFHIRDatastoresRequest = (
-  input: ListFHIRDatastoresRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListFHIRDatastoresRequest
+ */
+const se_ListFHIRDatastoresRequest = (input: ListFHIRDatastoresRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != null && { Filter: serializeAws_json1_0DatastoreFilter(input.Filter, context) }),
+    ...(input.Filter != null && { Filter: se_DatastoreFilter(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0ListFHIRExportJobsRequest = (
-  input: ListFHIRExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_0ListFHIRImportJobsRequest = (
-  input: ListFHIRImportJobsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListFHIRExportJobsRequest
+ */
+const se_ListFHIRExportJobsRequest = (input: ListFHIRExportJobsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
     ...(input.JobName != null && { JobName: input.JobName }),
@@ -1109,84 +1227,113 @@ const serializeAws_json1_0ListFHIRImportJobsRequest = (
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListFHIRImportJobsRequest
+ */
+const se_ListFHIRImportJobsRequest = (input: ListFHIRImportJobsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
+    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+  };
+};
+
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
-const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0OutputDataConfig
+ */
+const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return OutputDataConfig.visit(input, {
-    S3Configuration: (value) => ({ S3Configuration: serializeAws_json1_0S3Configuration(value, context) }),
+    S3Configuration: (value) => ({ S3Configuration: se_S3Configuration(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PreloadDataConfig
+ */
+const se_PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
   return {
     ...(input.PreloadDataType != null && { PreloadDataType: input.PreloadDataType }),
   };
 };
 
-const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0S3Configuration
+ */
+const se_S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
 };
 
-const serializeAws_json1_0SseConfiguration = (input: SseConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SseConfiguration
+ */
+const se_SseConfiguration = (input: SseConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.KmsEncryptionConfig != null && {
-      KmsEncryptionConfig: serializeAws_json1_0KmsEncryptionConfig(input.KmsEncryptionConfig, context),
+      KmsEncryptionConfig: se_KmsEncryptionConfig(input.KmsEncryptionConfig, context),
     }),
   };
 };
 
-const serializeAws_json1_0StartFHIRExportJobRequest = (
-  input: StartFHIRExportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0StartFHIRExportJobRequest
+ */
+const se_StartFHIRExportJobRequest = (input: StartFHIRExportJobRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
     ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && {
-      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-    }),
+    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
   };
 };
 
-const serializeAws_json1_0StartFHIRImportJobRequest = (
-  input: StartFHIRImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0StartFHIRImportJobRequest
+ */
+const se_StartFHIRImportJobRequest = (input: StartFHIRImportJobRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-    }),
+    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobOutputDataConfig != null && {
-      JobOutputDataConfig: serializeAws_json1_0OutputDataConfig(input.JobOutputDataConfig, context),
+      JobOutputDataConfig: se_OutputDataConfig(input.JobOutputDataConfig, context),
     }),
   };
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1194,44 +1341,59 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_0AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CreateFHIRDatastoreResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateFHIRDatastoreResponse => {
+/**
+ * deserializeAws_json1_0CreateFHIRDatastoreResponse
+ */
+const de_CreateFHIRDatastoreResponse = (output: any, context: __SerdeContext): CreateFHIRDatastoreResponse => {
   return {
     DatastoreArn: __expectString(output.DatastoreArn),
     DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
@@ -1240,7 +1402,10 @@ const deserializeAws_json1_0CreateFHIRDatastoreResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0DatastoreProperties = (output: any, context: __SerdeContext): DatastoreProperties => {
+/**
+ * deserializeAws_json1_0DatastoreProperties
+ */
+const de_DatastoreProperties = (output: any, context: __SerdeContext): DatastoreProperties => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -1251,32 +1416,31 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
     DatastoreStatus: __expectString(output.DatastoreStatus),
     DatastoreTypeVersion: __expectString(output.DatastoreTypeVersion),
     PreloadDataConfig:
-      output.PreloadDataConfig != null
-        ? deserializeAws_json1_0PreloadDataConfig(output.PreloadDataConfig, context)
-        : undefined,
+      output.PreloadDataConfig != null ? de_PreloadDataConfig(output.PreloadDataConfig, context) : undefined,
     SseConfiguration:
-      output.SseConfiguration != null
-        ? deserializeAws_json1_0SseConfiguration(output.SseConfiguration, context)
-        : undefined,
+      output.SseConfiguration != null ? de_SseConfiguration(output.SseConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DatastorePropertiesList = (output: any, context: __SerdeContext): DatastoreProperties[] => {
+/**
+ * deserializeAws_json1_0DatastorePropertiesList
+ */
+const de_DatastorePropertiesList = (output: any, context: __SerdeContext): DatastoreProperties[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0DatastoreProperties(entry, context);
+      return de_DatastoreProperties(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DeleteFHIRDatastoreResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteFHIRDatastoreResponse => {
+/**
+ * deserializeAws_json1_0DeleteFHIRDatastoreResponse
+ */
+const de_DeleteFHIRDatastoreResponse = (output: any, context: __SerdeContext): DeleteFHIRDatastoreResponse => {
   return {
     DatastoreArn: __expectString(output.DatastoreArn),
     DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
@@ -1285,43 +1449,40 @@ const deserializeAws_json1_0DeleteFHIRDatastoreResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0DescribeFHIRDatastoreResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFHIRDatastoreResponse => {
+/**
+ * deserializeAws_json1_0DescribeFHIRDatastoreResponse
+ */
+const de_DescribeFHIRDatastoreResponse = (output: any, context: __SerdeContext): DescribeFHIRDatastoreResponse => {
   return {
     DatastoreProperties:
-      output.DatastoreProperties != null
-        ? deserializeAws_json1_0DatastoreProperties(output.DatastoreProperties, context)
-        : undefined,
+      output.DatastoreProperties != null ? de_DatastoreProperties(output.DatastoreProperties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeFHIRExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFHIRExportJobResponse => {
+/**
+ * deserializeAws_json1_0DescribeFHIRExportJobResponse
+ */
+const de_DescribeFHIRExportJobResponse = (output: any, context: __SerdeContext): DescribeFHIRExportJobResponse => {
   return {
     ExportJobProperties:
-      output.ExportJobProperties != null
-        ? deserializeAws_json1_0ExportJobProperties(output.ExportJobProperties, context)
-        : undefined,
+      output.ExportJobProperties != null ? de_ExportJobProperties(output.ExportJobProperties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeFHIRImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFHIRImportJobResponse => {
+/**
+ * deserializeAws_json1_0DescribeFHIRImportJobResponse
+ */
+const de_DescribeFHIRImportJobResponse = (output: any, context: __SerdeContext): DescribeFHIRImportJobResponse => {
   return {
     ImportJobProperties:
-      output.ImportJobProperties != null
-        ? deserializeAws_json1_0ImportJobProperties(output.ImportJobProperties, context)
-        : undefined,
+      output.ImportJobProperties != null ? de_ImportJobProperties(output.ImportJobProperties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ExportJobProperties = (output: any, context: __SerdeContext): ExportJobProperties => {
+/**
+ * deserializeAws_json1_0ExportJobProperties
+ */
+const de_ExportJobProperties = (output: any, context: __SerdeContext): ExportJobProperties => {
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
@@ -1333,40 +1494,44 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
     Message: __expectString(output.Message),
     OutputDataConfig:
       output.OutputDataConfig != null
-        ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.OutputDataConfig), context)
+        ? de_OutputDataConfig(__expectUnion(output.OutputDataConfig), context)
         : undefined,
     SubmitTime:
       output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ExportJobPropertiesList = (output: any, context: __SerdeContext): ExportJobProperties[] => {
+/**
+ * deserializeAws_json1_0ExportJobPropertiesList
+ */
+const de_ExportJobPropertiesList = (output: any, context: __SerdeContext): ExportJobProperties[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ExportJobProperties(entry, context);
+      return de_ExportJobProperties(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
+/**
+ * deserializeAws_json1_0ImportJobProperties
+ */
+const de_ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     InputDataConfig:
-      output.InputDataConfig != null
-        ? deserializeAws_json1_0InputDataConfig(__expectUnion(output.InputDataConfig), context)
-        : undefined,
+      output.InputDataConfig != null ? de_InputDataConfig(__expectUnion(output.InputDataConfig), context) : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobOutputDataConfig:
       output.JobOutputDataConfig != null
-        ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.JobOutputDataConfig), context)
+        ? de_OutputDataConfig(__expectUnion(output.JobOutputDataConfig), context)
         : undefined,
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),
@@ -1375,133 +1540,152 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_0ImportJobPropertiesList = (output: any, context: __SerdeContext): ImportJobProperties[] => {
+/**
+ * deserializeAws_json1_0ImportJobPropertiesList
+ */
+const de_ImportJobPropertiesList = (output: any, context: __SerdeContext): ImportJobProperties[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ImportJobProperties(entry, context);
+      return de_ImportJobProperties(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
+/**
+ * deserializeAws_json1_0InputDataConfig
+ */
+const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   if (__expectString(output.S3Uri) !== undefined) {
     return { S3Uri: __expectString(output.S3Uri) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0KmsEncryptionConfig = (output: any, context: __SerdeContext): KmsEncryptionConfig => {
+/**
+ * deserializeAws_json1_0KmsEncryptionConfig
+ */
+const de_KmsEncryptionConfig = (output: any, context: __SerdeContext): KmsEncryptionConfig => {
   return {
     CmkType: __expectString(output.CmkType),
     KmsKeyId: __expectString(output.KmsKeyId),
   } as any;
 };
 
-const deserializeAws_json1_0ListFHIRDatastoresResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFHIRDatastoresResponse => {
+/**
+ * deserializeAws_json1_0ListFHIRDatastoresResponse
+ */
+const de_ListFHIRDatastoresResponse = (output: any, context: __SerdeContext): ListFHIRDatastoresResponse => {
   return {
     DatastorePropertiesList:
       output.DatastorePropertiesList != null
-        ? deserializeAws_json1_0DatastorePropertiesList(output.DatastorePropertiesList, context)
+        ? de_DatastorePropertiesList(output.DatastorePropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListFHIRExportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFHIRExportJobsResponse => {
+/**
+ * deserializeAws_json1_0ListFHIRExportJobsResponse
+ */
+const de_ListFHIRExportJobsResponse = (output: any, context: __SerdeContext): ListFHIRExportJobsResponse => {
   return {
     ExportJobPropertiesList:
       output.ExportJobPropertiesList != null
-        ? deserializeAws_json1_0ExportJobPropertiesList(output.ExportJobPropertiesList, context)
+        ? de_ExportJobPropertiesList(output.ExportJobPropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListFHIRImportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFHIRImportJobsResponse => {
+/**
+ * deserializeAws_json1_0ListFHIRImportJobsResponse
+ */
+const de_ListFHIRImportJobsResponse = (output: any, context: __SerdeContext): ListFHIRImportJobsResponse => {
   return {
     ImportJobPropertiesList:
       output.ImportJobPropertiesList != null
-        ? deserializeAws_json1_0ImportJobPropertiesList(output.ImportJobPropertiesList, context)
+        ? de_ImportJobPropertiesList(output.ImportJobPropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
+/**
+ * deserializeAws_json1_0OutputDataConfig
+ */
+const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   if (output.S3Configuration != null) {
     return {
-      S3Configuration: deserializeAws_json1_0S3Configuration(output.S3Configuration, context),
+      S3Configuration: de_S3Configuration(output.S3Configuration, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0PreloadDataConfig = (output: any, context: __SerdeContext): PreloadDataConfig => {
+/**
+ * deserializeAws_json1_0PreloadDataConfig
+ */
+const de_PreloadDataConfig = (output: any, context: __SerdeContext): PreloadDataConfig => {
   return {
     PreloadDataType: __expectString(output.PreloadDataType),
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
+/**
+ * deserializeAws_json1_0S3Configuration
+ */
+const de_S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
     S3Uri: __expectString(output.S3Uri),
   } as any;
 };
 
-const deserializeAws_json1_0SseConfiguration = (output: any, context: __SerdeContext): SseConfiguration => {
+/**
+ * deserializeAws_json1_0SseConfiguration
+ */
+const de_SseConfiguration = (output: any, context: __SerdeContext): SseConfiguration => {
   return {
     KmsEncryptionConfig:
-      output.KmsEncryptionConfig != null
-        ? deserializeAws_json1_0KmsEncryptionConfig(output.KmsEncryptionConfig, context)
-        : undefined,
+      output.KmsEncryptionConfig != null ? de_KmsEncryptionConfig(output.KmsEncryptionConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0StartFHIRExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartFHIRExportJobResponse => {
+/**
+ * deserializeAws_json1_0StartFHIRExportJobResponse
+ */
+const de_StartFHIRExportJobResponse = (output: any, context: __SerdeContext): StartFHIRExportJobResponse => {
   return {
     DatastoreId: __expectString(output.DatastoreId),
     JobId: __expectString(output.JobId),
@@ -1509,10 +1693,10 @@ const deserializeAws_json1_0StartFHIRExportJobResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0StartFHIRImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartFHIRImportJobResponse => {
+/**
+ * deserializeAws_json1_0StartFHIRImportJobResponse
+ */
+const de_StartFHIRImportJobResponse = (output: any, context: __SerdeContext): StartFHIRImportJobResponse => {
   return {
     DatastoreId: __expectString(output.DatastoreId),
     JobId: __expectString(output.JobId),
@@ -1520,40 +1704,58 @@ const deserializeAws_json1_0StartFHIRImportJobResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_0ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

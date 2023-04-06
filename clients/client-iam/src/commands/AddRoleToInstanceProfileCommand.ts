@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AddRoleToInstanceProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_queryAddRoleToInstanceProfileCommand,
-  serializeAws_queryAddRoleToInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToInstanceProfileCommand, se_AddRoleToInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class AddRoleToInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: AddRoleToInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToInstanceProfileCommand(input, context);
+    return se_AddRoleToInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToInstanceProfileCommandOutput> {
-    return deserializeAws_queryAddRoleToInstanceProfileCommand(output, context);
+    return de_AddRoleToInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

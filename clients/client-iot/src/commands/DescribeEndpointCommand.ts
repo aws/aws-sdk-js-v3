@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeEndpointCommand,
-  serializeAws_restJson1DescribeEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeEndpointCommand, se_DescribeEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEndpointCommand(input, context);
+    return se_DescribeEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointCommandOutput> {
-    return deserializeAws_restJson1DescribeEndpointCommand(output, context);
+    return de_DescribeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

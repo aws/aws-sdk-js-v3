@@ -25,10 +25,7 @@ import {
   AdminRespondToAuthChallengeResponse,
   AdminRespondToAuthChallengeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminRespondToAuthChallengeCommand,
-  serializeAws_json1_1AdminRespondToAuthChallengeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminRespondToAuthChallengeCommand, se_AdminRespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -253,7 +250,7 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminRespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(input, context);
+    return se_AdminRespondToAuthChallengeCommand(input, context);
   }
 
   /**
@@ -263,7 +260,7 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminRespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(output, context);
+    return de_AdminRespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

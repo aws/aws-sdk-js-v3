@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopMonitoringMembersCommand,
-  serializeAws_restJson1StopMonitoringMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopMonitoringMembersCommand, se_StopMonitoringMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class StopMonitoringMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: StopMonitoringMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopMonitoringMembersCommand(input, context);
+    return se_StopMonitoringMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1StopMonitoringMembersCommand(output, context);
+    return de_StopMonitoringMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

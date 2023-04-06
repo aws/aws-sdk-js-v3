@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDatasetCommand,
-  serializeAws_json1_1DescribeDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DescribeDatasetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetCommand(input, context);
+    return se_DescribeDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetCommand(output, context);
+    return de_DescribeDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

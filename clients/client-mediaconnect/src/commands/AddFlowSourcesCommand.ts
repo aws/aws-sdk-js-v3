@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddFlowSourcesCommand,
-  serializeAws_restJson1AddFlowSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddFlowSourcesCommand, se_AddFlowSourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class AddFlowSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: AddFlowSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddFlowSourcesCommand(input, context);
+    return se_AddFlowSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowSourcesCommandOutput> {
-    return deserializeAws_restJson1AddFlowSourcesCommand(output, context);
+    return de_AddFlowSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

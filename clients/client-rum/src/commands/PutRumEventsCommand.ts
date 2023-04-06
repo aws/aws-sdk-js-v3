@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutRumEventsRequest, PutRumEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRumEventsCommand,
-  serializeAws_restJson1PutRumEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRumEventsCommand, se_PutRumEventsCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
@@ -155,14 +152,14 @@ export class PutRumEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRumEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRumEventsCommand(input, context);
+    return se_PutRumEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumEventsCommandOutput> {
-    return deserializeAws_restJson1PutRumEventsCommand(output, context);
+    return de_PutRumEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

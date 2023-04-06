@@ -15,10 +15,7 @@ import {
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSuiteDefinitionCommand,
-  serializeAws_restJson1DeleteSuiteDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSuiteDefinitionCommand, se_DeleteSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteSuiteDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSuiteDefinitionCommand(input, context);
+    return se_DeleteSuiteDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuiteDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteSuiteDefinitionCommand(output, context);
+    return de_DeleteSuiteDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

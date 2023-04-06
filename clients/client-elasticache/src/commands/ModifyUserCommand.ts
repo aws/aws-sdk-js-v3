@@ -15,7 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { ModifyUserMessage, User } from "../models/models_0";
-import { deserializeAws_queryModifyUserCommand, serializeAws_queryModifyUserCommand } from "../protocols/Aws_query";
+import { de_ModifyUserCommand, se_ModifyUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +142,14 @@ export class ModifyUserCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyUserCommand(input, context);
+    return se_ModifyUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUserCommandOutput> {
-    return deserializeAws_queryModifyUserCommand(output, context);
+    return de_ModifyUserCommand(output, context);
   }
 
   // Start section: command_body_extra

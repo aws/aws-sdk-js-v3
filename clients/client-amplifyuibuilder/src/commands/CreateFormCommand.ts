@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { CreateFormRequest, CreateFormResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFormCommand,
-  serializeAws_restJson1CreateFormCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFormCommand, se_CreateFormCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -287,14 +284,14 @@ export class CreateFormCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFormCommand(input, context);
+    return se_CreateFormCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFormCommandOutput> {
-    return deserializeAws_restJson1CreateFormCommand(output, context);
+    return de_CreateFormCommand(output, context);
   }
 
   // Start section: command_body_extra

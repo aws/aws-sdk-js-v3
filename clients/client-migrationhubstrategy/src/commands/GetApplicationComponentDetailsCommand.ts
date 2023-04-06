@@ -20,8 +20,8 @@ import {
 } from "../MigrationHubStrategyClient";
 import { GetApplicationComponentDetailsRequest, GetApplicationComponentDetailsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetApplicationComponentDetailsCommand,
-  serializeAws_restJson1GetApplicationComponentDetailsCommand,
+  de_GetApplicationComponentDetailsCommand,
+  se_GetApplicationComponentDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     input: GetApplicationComponentDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationComponentDetailsCommand(input, context);
+    return se_GetApplicationComponentDetailsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationComponentDetailsCommandOutput> {
-    return deserializeAws_restJson1GetApplicationComponentDetailsCommand(output, context);
+    return de_GetApplicationComponentDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

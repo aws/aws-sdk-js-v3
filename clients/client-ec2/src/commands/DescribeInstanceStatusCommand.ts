@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeInstanceStatusCommand,
-  serializeAws_ec2DescribeInstanceStatusCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstanceStatusCommand, se_DescribeInstanceStatusCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -207,14 +204,14 @@ export class DescribeInstanceStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceStatusCommand(input, context);
+    return se_DescribeInstanceStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceStatusCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceStatusCommand(output, context);
+    return de_DescribeInstanceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

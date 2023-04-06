@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { EnableAlarmActionsInput } from "../models/models_0";
-import {
-  deserializeAws_queryEnableAlarmActionsCommand,
-  serializeAws_queryEnableAlarmActionsCommand,
-} from "../protocols/Aws_query";
+import { de_EnableAlarmActionsCommand, se_EnableAlarmActionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class EnableAlarmActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableAlarmActionsCommand(input, context);
+    return se_EnableAlarmActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAlarmActionsCommandOutput> {
-    return deserializeAws_queryEnableAlarmActionsCommand(output, context);
+    return de_EnableAlarmActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

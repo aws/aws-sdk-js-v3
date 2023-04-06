@@ -23,10 +23,7 @@ import {
   SendChannelMessageRequestFilterSensitiveLog,
   SendChannelMessageResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendChannelMessageCommand,
-  serializeAws_restJson1SendChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendChannelMessageCommand, se_SendChannelMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class SendChannelMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: SendChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendChannelMessageCommand(input, context);
+    return se_SendChannelMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendChannelMessageCommandOutput> {
-    return deserializeAws_restJson1SendChannelMessageCommand(output, context);
+    return de_SendChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

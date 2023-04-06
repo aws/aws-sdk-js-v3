@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteVpcEndpointCommand,
-  serializeAws_json1_0DeleteVpcEndpointCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteVpcEndpointCommand, se_DeleteVpcEndpointCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcEndpointCommand(input, context);
+    return se_DeleteVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcEndpointCommand(output, context);
+    return de_DeleteVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

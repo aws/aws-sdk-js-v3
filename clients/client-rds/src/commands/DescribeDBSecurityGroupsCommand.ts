@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSecurityGroupsCommand,
-  serializeAws_queryDescribeDBSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBSecurityGroupsCommand, se_DescribeDBSecurityGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -153,14 +150,14 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSecurityGroupsCommand(input, context);
+    return se_DescribeDBSecurityGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBSecurityGroupsCommand(output, context);
+    return de_DescribeDBSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeletePolicyRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeletePolicyCommand,
-  serializeAws_json1_1DeletePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -274,14 +271,14 @@ export class DeletePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePolicyCommand(input, context);
+    return se_DeletePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
-    return deserializeAws_json1_1DeletePolicyCommand(output, context);
+    return de_DeletePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

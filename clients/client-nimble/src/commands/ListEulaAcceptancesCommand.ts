@@ -15,10 +15,7 @@ import {
 
 import { ListEulaAcceptancesRequest, ListEulaAcceptancesResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListEulaAcceptancesCommand,
-  serializeAws_restJson1ListEulaAcceptancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEulaAcceptancesCommand, se_ListEulaAcceptancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListEulaAcceptancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEulaAcceptancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEulaAcceptancesCommand(input, context);
+    return se_ListEulaAcceptancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulaAcceptancesCommandOutput> {
-    return deserializeAws_restJson1ListEulaAcceptancesCommand(output, context);
+    return de_ListEulaAcceptancesCommand(output, context);
   }
 
   // Start section: command_body_extra

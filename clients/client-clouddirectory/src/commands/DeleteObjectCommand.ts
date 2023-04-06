@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteObjectCommand,
-  serializeAws_restJson1DeleteObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteObjectCommand(input, context);
+    return se_DeleteObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectCommandOutput> {
-    return deserializeAws_restJson1DeleteObjectCommand(output, context);
+    return de_DeleteObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ViewBillingRequest, ViewBillingResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ViewBillingCommand,
-  serializeAws_json1_1ViewBillingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ViewBillingCommand, se_ViewBillingCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -127,14 +124,14 @@ export class ViewBillingCommand extends $Command<
    * @internal
    */
   private serialize(input: ViewBillingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ViewBillingCommand(input, context);
+    return se_ViewBillingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ViewBillingCommandOutput> {
-    return deserializeAws_json1_1ViewBillingCommand(output, context);
+    return de_ViewBillingCommand(output, context);
   }
 
   // Start section: command_body_extra

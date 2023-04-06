@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeRepositoriesRequest, DescribeRepositoriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRepositoriesCommand,
-  serializeAws_json1_1DescribeRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRepositoriesCommand, se_DescribeRepositoriesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DescribeRepositoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRepositoriesCommand(input, context);
+    return se_DescribeRepositoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRepositoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeRepositoriesCommand(output, context);
+    return de_DescribeRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

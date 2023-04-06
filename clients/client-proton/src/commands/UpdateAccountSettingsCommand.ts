@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAccountSettingsInput, UpdateAccountSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateAccountSettingsCommand,
-  serializeAws_json1_0UpdateAccountSettingsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -142,14 +139,14 @@ export class UpdateAccountSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateAccountSettingsCommand(input, context);
+    return se_UpdateAccountSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_json1_0UpdateAccountSettingsCommand(output, context);
+    return de_UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

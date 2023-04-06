@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetServerStrategiesRequest, GetServerStrategiesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServerStrategiesCommand,
-  serializeAws_restJson1GetServerStrategiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServerStrategiesCommand, se_GetServerStrategiesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetServerStrategiesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServerStrategiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServerStrategiesCommand(input, context);
+    return se_GetServerStrategiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerStrategiesCommandOutput> {
-    return deserializeAws_restJson1GetServerStrategiesCommand(output, context);
+    return de_GetServerStrategiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { RetryBuildBatchInput, RetryBuildBatchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetryBuildBatchCommand,
-  serializeAws_json1_1RetryBuildBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetryBuildBatchCommand, se_RetryBuildBatchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class RetryBuildBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: RetryBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryBuildBatchCommand(input, context);
+    return se_RetryBuildBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryBuildBatchCommandOutput> {
-    return deserializeAws_json1_1RetryBuildBatchCommand(output, context);
+    return de_RetryBuildBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

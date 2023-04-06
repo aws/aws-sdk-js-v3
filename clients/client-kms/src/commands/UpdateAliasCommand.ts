@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { UpdateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAliasCommand,
-  serializeAws_json1_1UpdateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -227,14 +224,14 @@ export class UpdateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAliasCommand(input, context);
+    return se_UpdateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
-    return deserializeAws_json1_1UpdateAliasCommand(output, context);
+    return de_UpdateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DeleteCustomDataIdentifierRequest, DeleteCustomDataIdentifierResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomDataIdentifierCommand,
-  serializeAws_restJson1DeleteCustomDataIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCustomDataIdentifierCommand, se_DeleteCustomDataIdentifierCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomDataIdentifierCommand(input, context);
+    return se_DeleteCustomDataIdentifierCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomDataIdentifierCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomDataIdentifierCommand(output, context);
+    return de_DeleteCustomDataIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

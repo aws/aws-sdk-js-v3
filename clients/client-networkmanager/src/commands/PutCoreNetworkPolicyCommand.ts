@@ -15,10 +15,7 @@ import {
 
 import { PutCoreNetworkPolicyRequest, PutCoreNetworkPolicyResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1PutCoreNetworkPolicyCommand,
-  serializeAws_restJson1PutCoreNetworkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutCoreNetworkPolicyCommand, se_PutCoreNetworkPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutCoreNetworkPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutCoreNetworkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutCoreNetworkPolicyCommand(input, context);
+    return se_PutCoreNetworkPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCoreNetworkPolicyCommandOutput> {
-    return deserializeAws_restJson1PutCoreNetworkPolicyCommand(output, context);
+    return de_PutCoreNetworkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetListElementsResult,
   GetListElementsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetListElementsCommand,
-  serializeAws_json1_1GetListElementsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetListElementsCommand, se_GetListElementsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetListElementsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetListElementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetListElementsCommand(input, context);
+    return se_GetListElementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListElementsCommandOutput> {
-    return deserializeAws_json1_1GetListElementsCommand(output, context);
+    return de_GetListElementsCommand(output, context);
   }
 
   // Start section: command_body_extra

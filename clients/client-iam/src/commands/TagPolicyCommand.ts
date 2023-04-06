@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagPolicyRequest } from "../models/models_0";
-import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
+import { de_TagPolicyCommand, se_TagPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -172,14 +172,14 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
    * @internal
    */
   private serialize(input: TagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagPolicyCommand(input, context);
+    return se_TagPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagPolicyCommandOutput> {
-    return deserializeAws_queryTagPolicyCommand(output, context);
+    return de_TagPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

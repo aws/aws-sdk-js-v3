@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeImageBuildersRequest, DescribeImageBuildersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageBuildersCommand,
-  serializeAws_json1_1DescribeImageBuildersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImageBuildersCommand, se_DescribeImageBuildersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeImageBuildersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImageBuildersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageBuildersCommand(input, context);
+    return se_DescribeImageBuildersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageBuildersCommandOutput> {
-    return deserializeAws_json1_1DescribeImageBuildersCommand(output, context);
+    return de_DescribeImageBuildersCommand(output, context);
   }
 
   // Start section: command_body_extra

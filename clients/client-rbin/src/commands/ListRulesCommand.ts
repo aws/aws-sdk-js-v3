@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRulesCommand,
-  serializeAws_restJson1ListRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRulesCommand(input, context);
+    return se_ListRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
-    return deserializeAws_restJson1ListRulesCommand(output, context);
+    return de_ListRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

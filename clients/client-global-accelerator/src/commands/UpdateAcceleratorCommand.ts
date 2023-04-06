@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAcceleratorCommand,
-  serializeAws_json1_1UpdateAcceleratorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAcceleratorCommand, se_UpdateAcceleratorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateAcceleratorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAcceleratorCommand(input, context);
+    return se_UpdateAcceleratorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAcceleratorCommandOutput> {
-    return deserializeAws_json1_1UpdateAcceleratorCommand(output, context);
+    return de_UpdateAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

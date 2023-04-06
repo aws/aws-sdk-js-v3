@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { ListKeysRequest, ListKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListKeysCommand,
-  serializeAws_restJson1ListKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListKeysCommand, se_ListKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListKeysCommand(input, context);
+    return se_ListKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeysCommandOutput> {
-    return deserializeAws_restJson1ListKeysCommand(output, context);
+    return de_ListKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

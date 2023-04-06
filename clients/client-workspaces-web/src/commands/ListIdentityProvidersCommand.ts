@@ -18,10 +18,7 @@ import {
   ListIdentityProvidersResponse,
   ListIdentityProvidersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIdentityProvidersCommand,
-  serializeAws_restJson1ListIdentityProvidersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -138,14 +135,14 @@ export class ListIdentityProvidersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIdentityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityProvidersCommand(input, context);
+    return se_ListIdentityProvidersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityProvidersCommandOutput> {
-    return deserializeAws_restJson1ListIdentityProvidersCommand(output, context);
+    return de_ListIdentityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

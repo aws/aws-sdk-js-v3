@@ -632,7 +632,10 @@ import {
   UpdateRepositoryNameInput,
 } from "../models/models_1";
 
-export const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand = async (
+/**
+ * serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand
+ */
+export const se_AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -641,11 +644,14 @@ export const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryComm
     "x-amz-target": "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput(input, context));
+  body = JSON.stringify(se_AssociateApprovalRuleTemplateWithRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
+/**
+ * serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand
+ */
+export const se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
   input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -654,11 +660,14 @@ export const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositor
     "x-amz-target": "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput(input, context));
+  body = JSON.stringify(se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
+/**
+ * serializeAws_json1_1BatchDescribeMergeConflictsCommand
+ */
+export const se_BatchDescribeMergeConflictsCommand = async (
   input: BatchDescribeMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -667,11 +676,14 @@ export const serializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
     "x-amz-target": "CodeCommit_20150413.BatchDescribeMergeConflicts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDescribeMergeConflictsInput(input, context));
+  body = JSON.stringify(se_BatchDescribeMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
+/**
+ * serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand
+ */
+export const se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -680,11 +692,14 @@ export const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromReposi
     "x-amz-target": "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(input, context));
+  body = JSON.stringify(se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetCommitsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetCommitsCommand
+ */
+export const se_BatchGetCommitsCommand = async (
   input: BatchGetCommitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -693,11 +708,14 @@ export const serializeAws_json1_1BatchGetCommitsCommand = async (
     "x-amz-target": "CodeCommit_20150413.BatchGetCommits",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetCommitsInput(input, context));
+  body = JSON.stringify(se_BatchGetCommitsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetRepositoriesCommand = async (
+/**
+ * serializeAws_json1_1BatchGetRepositoriesCommand
+ */
+export const se_BatchGetRepositoriesCommand = async (
   input: BatchGetRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -706,11 +724,14 @@ export const serializeAws_json1_1BatchGetRepositoriesCommand = async (
     "x-amz-target": "CodeCommit_20150413.BatchGetRepositories",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetRepositoriesInput(input, context));
+  body = JSON.stringify(se_BatchGetRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
+/**
+ * serializeAws_json1_1CreateApprovalRuleTemplateCommand
+ */
+export const se_CreateApprovalRuleTemplateCommand = async (
   input: CreateApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -719,11 +740,14 @@ export const serializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreateApprovalRuleTemplate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(se_CreateApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateBranchCommand = async (
+/**
+ * serializeAws_json1_1CreateBranchCommand
+ */
+export const se_CreateBranchCommand = async (
   input: CreateBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -732,11 +756,14 @@ export const serializeAws_json1_1CreateBranchCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreateBranch",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateBranchInput(input, context));
+  body = JSON.stringify(se_CreateBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCommitCommand = async (
+/**
+ * serializeAws_json1_1CreateCommitCommand
+ */
+export const se_CreateCommitCommand = async (
   input: CreateCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -745,11 +772,14 @@ export const serializeAws_json1_1CreateCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreateCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCommitInput(input, context));
+  body = JSON.stringify(se_CreateCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePullRequestCommand = async (
+/**
+ * serializeAws_json1_1CreatePullRequestCommand
+ */
+export const se_CreatePullRequestCommand = async (
   input: CreatePullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -758,11 +788,14 @@ export const serializeAws_json1_1CreatePullRequestCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreatePullRequest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePullRequestInput(input, context));
+  body = JSON.stringify(se_CreatePullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePullRequestApprovalRuleCommand = async (
+/**
+ * serializeAws_json1_1CreatePullRequestApprovalRuleCommand
+ */
+export const se_CreatePullRequestApprovalRuleCommand = async (
   input: CreatePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -771,11 +804,14 @@ export const serializeAws_json1_1CreatePullRequestApprovalRuleCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreatePullRequestApprovalRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePullRequestApprovalRuleInput(input, context));
+  body = JSON.stringify(se_CreatePullRequestApprovalRuleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateRepositoryCommand = async (
+/**
+ * serializeAws_json1_1CreateRepositoryCommand
+ */
+export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -784,11 +820,14 @@ export const serializeAws_json1_1CreateRepositoryCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreateRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateRepositoryInput(input, context));
+  body = JSON.stringify(se_CreateRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUnreferencedMergeCommitCommand = async (
+/**
+ * serializeAws_json1_1CreateUnreferencedMergeCommitCommand
+ */
+export const se_CreateUnreferencedMergeCommitCommand = async (
   input: CreateUnreferencedMergeCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -797,11 +836,14 @@ export const serializeAws_json1_1CreateUnreferencedMergeCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.CreateUnreferencedMergeCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUnreferencedMergeCommitInput(input, context));
+  body = JSON.stringify(se_CreateUnreferencedMergeCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
+/**
+ * serializeAws_json1_1DeleteApprovalRuleTemplateCommand
+ */
+export const se_DeleteApprovalRuleTemplateCommand = async (
   input: DeleteApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -810,11 +852,14 @@ export const serializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeleteApprovalRuleTemplate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(se_DeleteApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteBranchCommand = async (
+/**
+ * serializeAws_json1_1DeleteBranchCommand
+ */
+export const se_DeleteBranchCommand = async (
   input: DeleteBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -823,11 +868,14 @@ export const serializeAws_json1_1DeleteBranchCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeleteBranch",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteBranchInput(input, context));
+  body = JSON.stringify(se_DeleteBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCommentContentCommand = async (
+/**
+ * serializeAws_json1_1DeleteCommentContentCommand
+ */
+export const se_DeleteCommentContentCommand = async (
   input: DeleteCommentContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -836,11 +884,14 @@ export const serializeAws_json1_1DeleteCommentContentCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeleteCommentContent",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCommentContentInput(input, context));
+  body = JSON.stringify(se_DeleteCommentContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFileCommand = async (
+/**
+ * serializeAws_json1_1DeleteFileCommand
+ */
+export const se_DeleteFileCommand = async (
   input: DeleteFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -849,11 +900,14 @@ export const serializeAws_json1_1DeleteFileCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeleteFile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFileInput(input, context));
+  body = JSON.stringify(se_DeleteFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePullRequestApprovalRuleCommand = async (
+/**
+ * serializeAws_json1_1DeletePullRequestApprovalRuleCommand
+ */
+export const se_DeletePullRequestApprovalRuleCommand = async (
   input: DeletePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -862,11 +916,14 @@ export const serializeAws_json1_1DeletePullRequestApprovalRuleCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeletePullRequestApprovalRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePullRequestApprovalRuleInput(input, context));
+  body = JSON.stringify(se_DeletePullRequestApprovalRuleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRepositoryCommand = async (
+/**
+ * serializeAws_json1_1DeleteRepositoryCommand
+ */
+export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -875,11 +932,14 @@ export const serializeAws_json1_1DeleteRepositoryCommand = async (
     "x-amz-target": "CodeCommit_20150413.DeleteRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRepositoryInput(input, context));
+  body = JSON.stringify(se_DeleteRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeMergeConflictsCommand = async (
+/**
+ * serializeAws_json1_1DescribeMergeConflictsCommand
+ */
+export const se_DescribeMergeConflictsCommand = async (
   input: DescribeMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -888,11 +948,14 @@ export const serializeAws_json1_1DescribeMergeConflictsCommand = async (
     "x-amz-target": "CodeCommit_20150413.DescribeMergeConflicts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeMergeConflictsInput(input, context));
+  body = JSON.stringify(se_DescribeMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePullRequestEventsCommand = async (
+/**
+ * serializeAws_json1_1DescribePullRequestEventsCommand
+ */
+export const se_DescribePullRequestEventsCommand = async (
   input: DescribePullRequestEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -901,11 +964,14 @@ export const serializeAws_json1_1DescribePullRequestEventsCommand = async (
     "x-amz-target": "CodeCommit_20150413.DescribePullRequestEvents",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePullRequestEventsInput(input, context));
+  body = JSON.stringify(se_DescribePullRequestEventsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
+/**
+ * serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand
+ */
+export const se_DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -914,11 +980,14 @@ export const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryC
     "x-amz-target": "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput(input, context));
+  body = JSON.stringify(se_DisassociateApprovalRuleTemplateFromRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = async (
+/**
+ * serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand
+ */
+export const se_EvaluatePullRequestApprovalRulesCommand = async (
   input: EvaluatePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -927,11 +996,14 @@ export const serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = async
     "x-amz-target": "CodeCommit_20150413.EvaluatePullRequestApprovalRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EvaluatePullRequestApprovalRulesInput(input, context));
+  body = JSON.stringify(se_EvaluatePullRequestApprovalRulesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetApprovalRuleTemplateCommand = async (
+/**
+ * serializeAws_json1_1GetApprovalRuleTemplateCommand
+ */
+export const se_GetApprovalRuleTemplateCommand = async (
   input: GetApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -940,11 +1012,14 @@ export const serializeAws_json1_1GetApprovalRuleTemplateCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetApprovalRuleTemplate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(se_GetApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetBlobCommand = async (
+/**
+ * serializeAws_json1_1GetBlobCommand
+ */
+export const se_GetBlobCommand = async (
   input: GetBlobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -953,11 +1028,14 @@ export const serializeAws_json1_1GetBlobCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetBlob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetBlobInput(input, context));
+  body = JSON.stringify(se_GetBlobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetBranchCommand = async (
+/**
+ * serializeAws_json1_1GetBranchCommand
+ */
+export const se_GetBranchCommand = async (
   input: GetBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -966,11 +1044,14 @@ export const serializeAws_json1_1GetBranchCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetBranch",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetBranchInput(input, context));
+  body = JSON.stringify(se_GetBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCommentCommand = async (
+/**
+ * serializeAws_json1_1GetCommentCommand
+ */
+export const se_GetCommentCommand = async (
   input: GetCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -979,11 +1060,14 @@ export const serializeAws_json1_1GetCommentCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetComment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCommentInput(input, context));
+  body = JSON.stringify(se_GetCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCommentReactionsCommand = async (
+/**
+ * serializeAws_json1_1GetCommentReactionsCommand
+ */
+export const se_GetCommentReactionsCommand = async (
   input: GetCommentReactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -992,11 +1076,14 @@ export const serializeAws_json1_1GetCommentReactionsCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetCommentReactions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCommentReactionsInput(input, context));
+  body = JSON.stringify(se_GetCommentReactionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCommentsForComparedCommitCommand = async (
+/**
+ * serializeAws_json1_1GetCommentsForComparedCommitCommand
+ */
+export const se_GetCommentsForComparedCommitCommand = async (
   input: GetCommentsForComparedCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1005,11 +1092,14 @@ export const serializeAws_json1_1GetCommentsForComparedCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetCommentsForComparedCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCommentsForComparedCommitInput(input, context));
+  body = JSON.stringify(se_GetCommentsForComparedCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCommentsForPullRequestCommand = async (
+/**
+ * serializeAws_json1_1GetCommentsForPullRequestCommand
+ */
+export const se_GetCommentsForPullRequestCommand = async (
   input: GetCommentsForPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1018,11 +1108,14 @@ export const serializeAws_json1_1GetCommentsForPullRequestCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetCommentsForPullRequest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCommentsForPullRequestInput(input, context));
+  body = JSON.stringify(se_GetCommentsForPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCommitCommand = async (
+/**
+ * serializeAws_json1_1GetCommitCommand
+ */
+export const se_GetCommitCommand = async (
   input: GetCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1031,11 +1124,14 @@ export const serializeAws_json1_1GetCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCommitInput(input, context));
+  body = JSON.stringify(se_GetCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDifferencesCommand = async (
+/**
+ * serializeAws_json1_1GetDifferencesCommand
+ */
+export const se_GetDifferencesCommand = async (
   input: GetDifferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1044,11 +1140,14 @@ export const serializeAws_json1_1GetDifferencesCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetDifferences",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDifferencesInput(input, context));
+  body = JSON.stringify(se_GetDifferencesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFileCommand = async (
+/**
+ * serializeAws_json1_1GetFileCommand
+ */
+export const se_GetFileCommand = async (
   input: GetFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1057,11 +1156,14 @@ export const serializeAws_json1_1GetFileCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetFile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFileInput(input, context));
+  body = JSON.stringify(se_GetFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFolderCommand = async (
+/**
+ * serializeAws_json1_1GetFolderCommand
+ */
+export const se_GetFolderCommand = async (
   input: GetFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1070,11 +1172,14 @@ export const serializeAws_json1_1GetFolderCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetFolder",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFolderInput(input, context));
+  body = JSON.stringify(se_GetFolderInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMergeCommitCommand = async (
+/**
+ * serializeAws_json1_1GetMergeCommitCommand
+ */
+export const se_GetMergeCommitCommand = async (
   input: GetMergeCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1083,11 +1188,14 @@ export const serializeAws_json1_1GetMergeCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetMergeCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMergeCommitInput(input, context));
+  body = JSON.stringify(se_GetMergeCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMergeConflictsCommand = async (
+/**
+ * serializeAws_json1_1GetMergeConflictsCommand
+ */
+export const se_GetMergeConflictsCommand = async (
   input: GetMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1096,11 +1204,14 @@ export const serializeAws_json1_1GetMergeConflictsCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetMergeConflicts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMergeConflictsInput(input, context));
+  body = JSON.stringify(se_GetMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMergeOptionsCommand = async (
+/**
+ * serializeAws_json1_1GetMergeOptionsCommand
+ */
+export const se_GetMergeOptionsCommand = async (
   input: GetMergeOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1109,11 +1220,14 @@ export const serializeAws_json1_1GetMergeOptionsCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetMergeOptions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMergeOptionsInput(input, context));
+  body = JSON.stringify(se_GetMergeOptionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPullRequestCommand = async (
+/**
+ * serializeAws_json1_1GetPullRequestCommand
+ */
+export const se_GetPullRequestCommand = async (
   input: GetPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1122,11 +1236,14 @@ export const serializeAws_json1_1GetPullRequestCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetPullRequest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPullRequestInput(input, context));
+  body = JSON.stringify(se_GetPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
+/**
+ * serializeAws_json1_1GetPullRequestApprovalStatesCommand
+ */
+export const se_GetPullRequestApprovalStatesCommand = async (
   input: GetPullRequestApprovalStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1135,11 +1252,14 @@ export const serializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetPullRequestApprovalStates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPullRequestApprovalStatesInput(input, context));
+  body = JSON.stringify(se_GetPullRequestApprovalStatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPullRequestOverrideStateCommand = async (
+/**
+ * serializeAws_json1_1GetPullRequestOverrideStateCommand
+ */
+export const se_GetPullRequestOverrideStateCommand = async (
   input: GetPullRequestOverrideStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1148,11 +1268,14 @@ export const serializeAws_json1_1GetPullRequestOverrideStateCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetPullRequestOverrideState",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPullRequestOverrideStateInput(input, context));
+  body = JSON.stringify(se_GetPullRequestOverrideStateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRepositoryCommand = async (
+/**
+ * serializeAws_json1_1GetRepositoryCommand
+ */
+export const se_GetRepositoryCommand = async (
   input: GetRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1161,11 +1284,14 @@ export const serializeAws_json1_1GetRepositoryCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRepositoryInput(input, context));
+  body = JSON.stringify(se_GetRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRepositoryTriggersCommand = async (
+/**
+ * serializeAws_json1_1GetRepositoryTriggersCommand
+ */
+export const se_GetRepositoryTriggersCommand = async (
   input: GetRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1174,11 +1300,14 @@ export const serializeAws_json1_1GetRepositoryTriggersCommand = async (
     "x-amz-target": "CodeCommit_20150413.GetRepositoryTriggers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRepositoryTriggersInput(input, context));
+  body = JSON.stringify(se_GetRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
+/**
+ * serializeAws_json1_1ListApprovalRuleTemplatesCommand
+ */
+export const se_ListApprovalRuleTemplatesCommand = async (
   input: ListApprovalRuleTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1187,11 +1316,14 @@ export const serializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
     "x-amz-target": "CodeCommit_20150413.ListApprovalRuleTemplates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListApprovalRuleTemplatesInput(input, context));
+  body = JSON.stringify(se_ListApprovalRuleTemplatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
+/**
+ * serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand
+ */
+export const se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
   input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1200,11 +1332,14 @@ export const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositor
     "x-amz-target": "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput(input, context));
+  body = JSON.stringify(se_ListAssociatedApprovalRuleTemplatesForRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBranchesCommand = async (
+/**
+ * serializeAws_json1_1ListBranchesCommand
+ */
+export const se_ListBranchesCommand = async (
   input: ListBranchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1213,11 +1348,14 @@ export const serializeAws_json1_1ListBranchesCommand = async (
     "x-amz-target": "CodeCommit_20150413.ListBranches",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBranchesInput(input, context));
+  body = JSON.stringify(se_ListBranchesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPullRequestsCommand = async (
+/**
+ * serializeAws_json1_1ListPullRequestsCommand
+ */
+export const se_ListPullRequestsCommand = async (
   input: ListPullRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1226,11 +1364,14 @@ export const serializeAws_json1_1ListPullRequestsCommand = async (
     "x-amz-target": "CodeCommit_20150413.ListPullRequests",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPullRequestsInput(input, context));
+  body = JSON.stringify(se_ListPullRequestsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRepositoriesCommand = async (
+/**
+ * serializeAws_json1_1ListRepositoriesCommand
+ */
+export const se_ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1239,11 +1380,14 @@ export const serializeAws_json1_1ListRepositoriesCommand = async (
     "x-amz-target": "CodeCommit_20150413.ListRepositories",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRepositoriesInput(input, context));
+  body = JSON.stringify(se_ListRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand = async (
+/**
+ * serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand
+ */
+export const se_ListRepositoriesForApprovalRuleTemplateCommand = async (
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1252,11 +1396,14 @@ export const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand 
     "x-amz-target": "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(se_ListRepositoriesForApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1265,11 +1412,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "CodeCommit_20150413.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
+  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergeBranchesByFastForwardCommand = async (
+/**
+ * serializeAws_json1_1MergeBranchesByFastForwardCommand
+ */
+export const se_MergeBranchesByFastForwardCommand = async (
   input: MergeBranchesByFastForwardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1278,11 +1428,14 @@ export const serializeAws_json1_1MergeBranchesByFastForwardCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergeBranchesByFastForward",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergeBranchesByFastForwardInput(input, context));
+  body = JSON.stringify(se_MergeBranchesByFastForwardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergeBranchesBySquashCommand = async (
+/**
+ * serializeAws_json1_1MergeBranchesBySquashCommand
+ */
+export const se_MergeBranchesBySquashCommand = async (
   input: MergeBranchesBySquashCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1291,11 +1444,14 @@ export const serializeAws_json1_1MergeBranchesBySquashCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergeBranchesBySquash",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergeBranchesBySquashInput(input, context));
+  body = JSON.stringify(se_MergeBranchesBySquashInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergeBranchesByThreeWayCommand = async (
+/**
+ * serializeAws_json1_1MergeBranchesByThreeWayCommand
+ */
+export const se_MergeBranchesByThreeWayCommand = async (
   input: MergeBranchesByThreeWayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1304,11 +1460,14 @@ export const serializeAws_json1_1MergeBranchesByThreeWayCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergeBranchesByThreeWay",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergeBranchesByThreeWayInput(input, context));
+  body = JSON.stringify(se_MergeBranchesByThreeWayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergePullRequestByFastForwardCommand = async (
+/**
+ * serializeAws_json1_1MergePullRequestByFastForwardCommand
+ */
+export const se_MergePullRequestByFastForwardCommand = async (
   input: MergePullRequestByFastForwardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1317,11 +1476,14 @@ export const serializeAws_json1_1MergePullRequestByFastForwardCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergePullRequestByFastForward",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergePullRequestByFastForwardInput(input, context));
+  body = JSON.stringify(se_MergePullRequestByFastForwardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergePullRequestBySquashCommand = async (
+/**
+ * serializeAws_json1_1MergePullRequestBySquashCommand
+ */
+export const se_MergePullRequestBySquashCommand = async (
   input: MergePullRequestBySquashCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1330,11 +1492,14 @@ export const serializeAws_json1_1MergePullRequestBySquashCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergePullRequestBySquash",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergePullRequestBySquashInput(input, context));
+  body = JSON.stringify(se_MergePullRequestBySquashInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MergePullRequestByThreeWayCommand = async (
+/**
+ * serializeAws_json1_1MergePullRequestByThreeWayCommand
+ */
+export const se_MergePullRequestByThreeWayCommand = async (
   input: MergePullRequestByThreeWayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1343,11 +1508,14 @@ export const serializeAws_json1_1MergePullRequestByThreeWayCommand = async (
     "x-amz-target": "CodeCommit_20150413.MergePullRequestByThreeWay",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MergePullRequestByThreeWayInput(input, context));
+  body = JSON.stringify(se_MergePullRequestByThreeWayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1OverridePullRequestApprovalRulesCommand = async (
+/**
+ * serializeAws_json1_1OverridePullRequestApprovalRulesCommand
+ */
+export const se_OverridePullRequestApprovalRulesCommand = async (
   input: OverridePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1356,11 +1524,14 @@ export const serializeAws_json1_1OverridePullRequestApprovalRulesCommand = async
     "x-amz-target": "CodeCommit_20150413.OverridePullRequestApprovalRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1OverridePullRequestApprovalRulesInput(input, context));
+  body = JSON.stringify(se_OverridePullRequestApprovalRulesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PostCommentForComparedCommitCommand = async (
+/**
+ * serializeAws_json1_1PostCommentForComparedCommitCommand
+ */
+export const se_PostCommentForComparedCommitCommand = async (
   input: PostCommentForComparedCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1369,11 +1540,14 @@ export const serializeAws_json1_1PostCommentForComparedCommitCommand = async (
     "x-amz-target": "CodeCommit_20150413.PostCommentForComparedCommit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PostCommentForComparedCommitInput(input, context));
+  body = JSON.stringify(se_PostCommentForComparedCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PostCommentForPullRequestCommand = async (
+/**
+ * serializeAws_json1_1PostCommentForPullRequestCommand
+ */
+export const se_PostCommentForPullRequestCommand = async (
   input: PostCommentForPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1382,11 +1556,14 @@ export const serializeAws_json1_1PostCommentForPullRequestCommand = async (
     "x-amz-target": "CodeCommit_20150413.PostCommentForPullRequest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PostCommentForPullRequestInput(input, context));
+  body = JSON.stringify(se_PostCommentForPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PostCommentReplyCommand = async (
+/**
+ * serializeAws_json1_1PostCommentReplyCommand
+ */
+export const se_PostCommentReplyCommand = async (
   input: PostCommentReplyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1395,11 +1572,14 @@ export const serializeAws_json1_1PostCommentReplyCommand = async (
     "x-amz-target": "CodeCommit_20150413.PostCommentReply",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PostCommentReplyInput(input, context));
+  body = JSON.stringify(se_PostCommentReplyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutCommentReactionCommand = async (
+/**
+ * serializeAws_json1_1PutCommentReactionCommand
+ */
+export const se_PutCommentReactionCommand = async (
   input: PutCommentReactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1408,11 +1588,14 @@ export const serializeAws_json1_1PutCommentReactionCommand = async (
     "x-amz-target": "CodeCommit_20150413.PutCommentReaction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutCommentReactionInput(input, context));
+  body = JSON.stringify(se_PutCommentReactionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutFileCommand = async (
+/**
+ * serializeAws_json1_1PutFileCommand
+ */
+export const se_PutFileCommand = async (
   input: PutFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1421,11 +1604,14 @@ export const serializeAws_json1_1PutFileCommand = async (
     "x-amz-target": "CodeCommit_20150413.PutFile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutFileInput(input, context));
+  body = JSON.stringify(se_PutFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRepositoryTriggersCommand = async (
+/**
+ * serializeAws_json1_1PutRepositoryTriggersCommand
+ */
+export const se_PutRepositoryTriggersCommand = async (
   input: PutRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1434,11 +1620,14 @@ export const serializeAws_json1_1PutRepositoryTriggersCommand = async (
     "x-amz-target": "CodeCommit_20150413.PutRepositoryTriggers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRepositoryTriggersInput(input, context));
+  body = JSON.stringify(se_PutRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1447,11 +1636,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "CodeCommit_20150413.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
+  body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TestRepositoryTriggersCommand = async (
+/**
+ * serializeAws_json1_1TestRepositoryTriggersCommand
+ */
+export const se_TestRepositoryTriggersCommand = async (
   input: TestRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1460,11 +1652,14 @@ export const serializeAws_json1_1TestRepositoryTriggersCommand = async (
     "x-amz-target": "CodeCommit_20150413.TestRepositoryTriggers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TestRepositoryTriggersInput(input, context));
+  body = JSON.stringify(se_TestRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1473,11 +1668,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "CodeCommit_20150413.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
+  body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = async (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand
+ */
+export const se_UpdateApprovalRuleTemplateContentCommand = async (
   input: UpdateApprovalRuleTemplateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1486,11 +1684,14 @@ export const serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = asyn
     "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateContent",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApprovalRuleTemplateContentInput(input, context));
+  body = JSON.stringify(se_UpdateApprovalRuleTemplateContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand = async (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand
+ */
+export const se_UpdateApprovalRuleTemplateDescriptionCommand = async (
   input: UpdateApprovalRuleTemplateDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1499,11 +1700,14 @@ export const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand = 
     "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput(input, context));
+  body = JSON.stringify(se_UpdateApprovalRuleTemplateDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand
+ */
+export const se_UpdateApprovalRuleTemplateNameCommand = async (
   input: UpdateApprovalRuleTemplateNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1512,11 +1716,14 @@ export const serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateName",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApprovalRuleTemplateNameInput(input, context));
+  body = JSON.stringify(se_UpdateApprovalRuleTemplateNameInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCommentCommand = async (
+/**
+ * serializeAws_json1_1UpdateCommentCommand
+ */
+export const se_UpdateCommentCommand = async (
   input: UpdateCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1525,11 +1732,14 @@ export const serializeAws_json1_1UpdateCommentCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdateComment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCommentInput(input, context));
+  body = JSON.stringify(se_UpdateCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDefaultBranchCommand = async (
+/**
+ * serializeAws_json1_1UpdateDefaultBranchCommand
+ */
+export const se_UpdateDefaultBranchCommand = async (
   input: UpdateDefaultBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1538,11 +1748,14 @@ export const serializeAws_json1_1UpdateDefaultBranchCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdateDefaultBranch",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDefaultBranchInput(input, context));
+  body = JSON.stringify(se_UpdateDefaultBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand = async (
+/**
+ * serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
+ */
+export const se_UpdatePullRequestApprovalRuleContentCommand = async (
   input: UpdatePullRequestApprovalRuleContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1551,11 +1764,14 @@ export const serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand = a
     "x-amz-target": "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput(input, context));
+  body = JSON.stringify(se_UpdatePullRequestApprovalRuleContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePullRequestApprovalStateCommand = async (
+/**
+ * serializeAws_json1_1UpdatePullRequestApprovalStateCommand
+ */
+export const se_UpdatePullRequestApprovalStateCommand = async (
   input: UpdatePullRequestApprovalStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1564,11 +1780,14 @@ export const serializeAws_json1_1UpdatePullRequestApprovalStateCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdatePullRequestApprovalState",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePullRequestApprovalStateInput(input, context));
+  body = JSON.stringify(se_UpdatePullRequestApprovalStateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
+/**
+ * serializeAws_json1_1UpdatePullRequestDescriptionCommand
+ */
+export const se_UpdatePullRequestDescriptionCommand = async (
   input: UpdatePullRequestDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1577,11 +1796,14 @@ export const serializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdatePullRequestDescription",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePullRequestDescriptionInput(input, context));
+  body = JSON.stringify(se_UpdatePullRequestDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePullRequestStatusCommand = async (
+/**
+ * serializeAws_json1_1UpdatePullRequestStatusCommand
+ */
+export const se_UpdatePullRequestStatusCommand = async (
   input: UpdatePullRequestStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1590,11 +1812,14 @@ export const serializeAws_json1_1UpdatePullRequestStatusCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdatePullRequestStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePullRequestStatusInput(input, context));
+  body = JSON.stringify(se_UpdatePullRequestStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePullRequestTitleCommand = async (
+/**
+ * serializeAws_json1_1UpdatePullRequestTitleCommand
+ */
+export const se_UpdatePullRequestTitleCommand = async (
   input: UpdatePullRequestTitleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1603,11 +1828,14 @@ export const serializeAws_json1_1UpdatePullRequestTitleCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdatePullRequestTitle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePullRequestTitleInput(input, context));
+  body = JSON.stringify(se_UpdatePullRequestTitleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
+/**
+ * serializeAws_json1_1UpdateRepositoryDescriptionCommand
+ */
+export const se_UpdateRepositoryDescriptionCommand = async (
   input: UpdateRepositoryDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1616,11 +1844,14 @@ export const serializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdateRepositoryDescription",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateRepositoryDescriptionInput(input, context));
+  body = JSON.stringify(se_UpdateRepositoryDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateRepositoryNameCommand = async (
+/**
+ * serializeAws_json1_1UpdateRepositoryNameCommand
+ */
+export const se_UpdateRepositoryNameCommand = async (
   input: UpdateRepositoryNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1629,16 +1860,19 @@ export const serializeAws_json1_1UpdateRepositoryNameCommand = async (
     "x-amz-target": "CodeCommit_20150413.UpdateRepositoryName",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateRepositoryNameInput(input, context));
+  body = JSON.stringify(se_UpdateRepositoryNameInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand
+ */
+export const de_AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError(output, context);
+    return de_AssociateApprovalRuleTemplateWithRepositoryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateApprovalRuleTemplateWithRepositoryCommandOutput = {
@@ -1647,7 +1881,10 @@ export const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCo
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError
+ */
+const de_AssociateApprovalRuleTemplateWithRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
@@ -1659,43 +1896,40 @@ const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandEr
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumRuleTemplatesAssociatedWithRepositoryException":
     case "com.amazonaws.codecommit#MaximumRuleTemplatesAssociatedWithRepositoryException":
-      throw await deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumRuleTemplatesAssociatedWithRepositoryExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1707,16 +1941,19 @@ const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandEr
   }
 };
 
-export const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
+/**
+ * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand
+ */
+export const de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError(output, context);
+    return de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(data, context);
+  contents = de_BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(data, context);
   const response: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1724,7 +1961,10 @@ export const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithReposit
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError
+ */
+const de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
@@ -1736,34 +1976,34 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCo
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      throw await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumRepositoryNamesExceededExceptionRes(parsedOutput, context);
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      throw await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1775,16 +2015,19 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCo
   }
 };
 
-export const deserializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
+/**
+ * deserializeAws_json1_1BatchDescribeMergeConflictsCommand
+ */
+export const de_BatchDescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDescribeMergeConflictsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(output, context);
+    return de_BatchDescribeMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDescribeMergeConflictsOutput(data, context);
+  contents = de_BatchDescribeMergeConflictsOutput(data, context);
   const response: BatchDescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1792,7 +2035,10 @@ export const deserializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDescribeMergeConflictsCommandError
+ */
+const de_BatchDescribeMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDescribeMergeConflictsCommandOutput> => {
@@ -1804,67 +2050,67 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxConflictFilesException":
     case "com.amazonaws.codecommit#InvalidMaxConflictFilesException":
-      throw await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxConflictFilesExceptionRes(parsedOutput, context);
     case "InvalidMaxMergeHunksException":
     case "com.amazonaws.codecommit#InvalidMaxMergeHunksException":
-      throw await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxMergeHunksExceptionRes(parsedOutput, context);
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      throw await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMergeOptionExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      throw await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_MergeOptionRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1876,16 +2122,19 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand
+ */
+export const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(output, context);
+    return de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(data, context);
+  contents = de_BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(data, context);
   const response: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1893,7 +2142,10 @@ export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepo
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError
+ */
+const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
@@ -1905,34 +2157,34 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      throw await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumRepositoryNamesExceededExceptionRes(parsedOutput, context);
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      throw await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1944,16 +2196,19 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
   }
 };
 
-export const deserializeAws_json1_1BatchGetCommitsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetCommitsCommand
+ */
+export const de_BatchGetCommitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCommitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetCommitsCommandError(output, context);
+    return de_BatchGetCommitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetCommitsOutput(data, context);
+  contents = de_BatchGetCommitsOutput(data, context);
   const response: BatchGetCommitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1961,7 +2216,10 @@ export const deserializeAws_json1_1BatchGetCommitsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetCommitsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetCommitsCommandError
+ */
+const de_BatchGetCommitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCommitsCommandOutput> => {
@@ -1973,34 +2231,34 @@ const deserializeAws_json1_1BatchGetCommitsCommandError = async (
   switch (errorCode) {
     case "CommitIdsLimitExceededException":
     case "com.amazonaws.codecommit#CommitIdsLimitExceededException":
-      throw await deserializeAws_json1_1CommitIdsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdsLimitExceededExceptionRes(parsedOutput, context);
     case "CommitIdsListRequiredException":
     case "com.amazonaws.codecommit#CommitIdsListRequiredException":
-      throw await deserializeAws_json1_1CommitIdsListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdsListRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2012,16 +2270,19 @@ const deserializeAws_json1_1BatchGetCommitsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetRepositoriesCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetRepositoriesCommand
+ */
+export const de_BatchGetRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetRepositoriesCommandError(output, context);
+    return de_BatchGetRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetRepositoriesOutput(data, context);
+  contents = de_BatchGetRepositoriesOutput(data, context);
   const response: BatchGetRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2029,7 +2290,10 @@ export const deserializeAws_json1_1BatchGetRepositoriesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetRepositoriesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetRepositoriesCommandError
+ */
+const de_BatchGetRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRepositoriesCommandOutput> => {
@@ -2041,28 +2305,28 @@ const deserializeAws_json1_1BatchGetRepositoriesCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      throw await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumRepositoryNamesExceededExceptionRes(parsedOutput, context);
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      throw await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2074,16 +2338,19 @@ const deserializeAws_json1_1BatchGetRepositoriesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
+/**
+ * deserializeAws_json1_1CreateApprovalRuleTemplateCommand
+ */
+export const de_CreateApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(output, context);
+    return de_CreateApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApprovalRuleTemplateOutput(data, context);
+  contents = de_CreateApprovalRuleTemplateOutput(data, context);
   const response: CreateApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2091,7 +2358,10 @@ export const deserializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateApprovalRuleTemplateCommandError = async (
+/**
+ * deserializeAws_json1_1CreateApprovalRuleTemplateCommandError
+ */
+const de_CreateApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApprovalRuleTemplateCommandOutput> => {
@@ -2103,25 +2373,25 @@ const deserializeAws_json1_1CreateApprovalRuleTemplateCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleTemplateContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateContentRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateContentRequiredExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameAlreadyExistsException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateContentException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateContentExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateDescriptionException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateDescriptionException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateDescriptionExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "NumberOfRuleTemplatesExceededException":
     case "com.amazonaws.codecommit#NumberOfRuleTemplatesExceededException":
-      throw await deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse(parsedOutput, context);
+      throw await de_NumberOfRuleTemplatesExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2133,12 +2403,15 @@ const deserializeAws_json1_1CreateApprovalRuleTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateBranchCommand = async (
+/**
+ * deserializeAws_json1_1CreateBranchCommand
+ */
+export const de_CreateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateBranchCommandError(output, context);
+    return de_CreateBranchCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateBranchCommandOutput = {
@@ -2147,7 +2420,10 @@ export const deserializeAws_json1_1CreateBranchCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateBranchCommandError = async (
+/**
+ * deserializeAws_json1_1CreateBranchCommandError
+ */
+const de_CreateBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
@@ -2159,46 +2435,46 @@ const deserializeAws_json1_1CreateBranchCommandError = async (
   switch (errorCode) {
     case "BranchNameExistsException":
     case "com.amazonaws.codecommit#BranchNameExistsException":
-      throw await deserializeAws_json1_1BranchNameExistsExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameExistsExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2210,16 +2486,19 @@ const deserializeAws_json1_1CreateBranchCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateCommitCommand = async (
+/**
+ * deserializeAws_json1_1CreateCommitCommand
+ */
+export const de_CreateCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCommitCommandError(output, context);
+    return de_CreateCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCommitOutput(data, context);
+  contents = de_CreateCommitOutput(data, context);
   const response: CreateCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2227,7 +2506,10 @@ export const deserializeAws_json1_1CreateCommitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateCommitCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCommitCommandError
+ */
+const de_CreateCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommitCommandOutput> => {
@@ -2239,118 +2521,118 @@ const deserializeAws_json1_1CreateCommitCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "DirectoryNameConflictsWithFileNameException":
     case "com.amazonaws.codecommit#DirectoryNameConflictsWithFileNameException":
-      throw await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNameConflictsWithFileNameExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentAndSourceFileSpecifiedException":
     case "com.amazonaws.codecommit#FileContentAndSourceFileSpecifiedException":
-      throw await deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionResponse(parsedOutput, context);
+      throw await de_FileContentAndSourceFileSpecifiedExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      throw await deserializeAws_json1_1FileDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_FileDoesNotExistExceptionRes(parsedOutput, context);
     case "FileEntryRequiredException":
     case "com.amazonaws.codecommit#FileEntryRequiredException":
-      throw await deserializeAws_json1_1FileEntryRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileEntryRequiredExceptionRes(parsedOutput, context);
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      throw await deserializeAws_json1_1FileModeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileModeRequiredExceptionRes(parsedOutput, context);
     case "FileNameConflictsWithDirectoryNameException":
     case "com.amazonaws.codecommit#FileNameConflictsWithDirectoryNameException":
-      throw await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(parsedOutput, context);
+      throw await de_FileNameConflictsWithDirectoryNameExceptionRes(parsedOutput, context);
     case "FilePathConflictsWithSubmodulePathException":
     case "com.amazonaws.codecommit#FilePathConflictsWithSubmodulePathException":
-      throw await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(parsedOutput, context);
+      throw await de_FilePathConflictsWithSubmodulePathExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidDeletionParameterException":
     case "com.amazonaws.codecommit#InvalidDeletionParameterException":
-      throw await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeletionParameterExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      throw await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParentCommitIdExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumFileEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumFileEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumFileEntriesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileEntriesExceededExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "NoChangeException":
     case "com.amazonaws.codecommit#NoChangeException":
-      throw await deserializeAws_json1_1NoChangeExceptionResponse(parsedOutput, context);
+      throw await de_NoChangeExceptionRes(parsedOutput, context);
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      throw await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitDoesNotExistExceptionRes(parsedOutput, context);
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      throw await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdOutdatedExceptionRes(parsedOutput, context);
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      throw await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdRequiredExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "PutFileEntryConflictException":
     case "com.amazonaws.codecommit#PutFileEntryConflictException":
-      throw await deserializeAws_json1_1PutFileEntryConflictExceptionResponse(parsedOutput, context);
+      throw await de_PutFileEntryConflictExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RestrictedSourceFileException":
     case "com.amazonaws.codecommit#RestrictedSourceFileException":
-      throw await deserializeAws_json1_1RestrictedSourceFileExceptionResponse(parsedOutput, context);
+      throw await de_RestrictedSourceFileExceptionRes(parsedOutput, context);
     case "SamePathRequestException":
     case "com.amazonaws.codecommit#SamePathRequestException":
-      throw await deserializeAws_json1_1SamePathRequestExceptionResponse(parsedOutput, context);
+      throw await de_SamePathRequestExceptionRes(parsedOutput, context);
     case "SourceFileOrContentRequiredException":
     case "com.amazonaws.codecommit#SourceFileOrContentRequiredException":
-      throw await deserializeAws_json1_1SourceFileOrContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_SourceFileOrContentRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2362,16 +2644,19 @@ const deserializeAws_json1_1CreateCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreatePullRequestCommand = async (
+/**
+ * deserializeAws_json1_1CreatePullRequestCommand
+ */
+export const de_CreatePullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePullRequestCommandError(output, context);
+    return de_CreatePullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePullRequestOutput(data, context);
+  contents = de_CreatePullRequestOutput(data, context);
   const response: CreatePullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2379,7 +2664,10 @@ export const deserializeAws_json1_1CreatePullRequestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreatePullRequestCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePullRequestCommandError
+ */
+const de_CreatePullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestCommandOutput> => {
@@ -2391,79 +2679,79 @@ const deserializeAws_json1_1CreatePullRequestCommandError = async (
   switch (errorCode) {
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      throw await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ClientRequestTokenRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotencyParameterMismatchExceptionRes(parsedOutput, context);
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      throw await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidClientRequestTokenExceptionRes(parsedOutput, context);
     case "InvalidDescriptionException":
     case "com.amazonaws.codecommit#InvalidDescriptionException":
-      throw await deserializeAws_json1_1InvalidDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDescriptionExceptionRes(parsedOutput, context);
     case "InvalidReferenceNameException":
     case "com.amazonaws.codecommit#InvalidReferenceNameException":
-      throw await deserializeAws_json1_1InvalidReferenceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReferenceNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidTargetException":
     case "com.amazonaws.codecommit#InvalidTargetException":
-      throw await deserializeAws_json1_1InvalidTargetExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
     case "InvalidTargetsException":
     case "com.amazonaws.codecommit#InvalidTargetsException":
-      throw await deserializeAws_json1_1InvalidTargetsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetsExceptionRes(parsedOutput, context);
     case "InvalidTitleException":
     case "com.amazonaws.codecommit#InvalidTitleException":
-      throw await deserializeAws_json1_1InvalidTitleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTitleExceptionRes(parsedOutput, context);
     case "MaximumOpenPullRequestsExceededException":
     case "com.amazonaws.codecommit#MaximumOpenPullRequestsExceededException":
-      throw await deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumOpenPullRequestsExceededExceptionRes(parsedOutput, context);
     case "MultipleRepositoriesInPullRequestException":
     case "com.amazonaws.codecommit#MultipleRepositoriesInPullRequestException":
-      throw await deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_MultipleRepositoriesInPullRequestExceptionRes(parsedOutput, context);
     case "ReferenceDoesNotExistException":
     case "com.amazonaws.codecommit#ReferenceDoesNotExistException":
-      throw await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ReferenceDoesNotExistExceptionRes(parsedOutput, context);
     case "ReferenceNameRequiredException":
     case "com.amazonaws.codecommit#ReferenceNameRequiredException":
-      throw await deserializeAws_json1_1ReferenceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReferenceNameRequiredExceptionRes(parsedOutput, context);
     case "ReferenceTypeNotSupportedException":
     case "com.amazonaws.codecommit#ReferenceTypeNotSupportedException":
-      throw await deserializeAws_json1_1ReferenceTypeNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ReferenceTypeNotSupportedExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "SourceAndDestinationAreSameException":
     case "com.amazonaws.codecommit#SourceAndDestinationAreSameException":
-      throw await deserializeAws_json1_1SourceAndDestinationAreSameExceptionResponse(parsedOutput, context);
+      throw await de_SourceAndDestinationAreSameExceptionRes(parsedOutput, context);
     case "TargetRequiredException":
     case "com.amazonaws.codecommit#TargetRequiredException":
-      throw await deserializeAws_json1_1TargetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TargetRequiredExceptionRes(parsedOutput, context);
     case "TargetsRequiredException":
     case "com.amazonaws.codecommit#TargetsRequiredException":
-      throw await deserializeAws_json1_1TargetsRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TargetsRequiredExceptionRes(parsedOutput, context);
     case "TitleRequiredException":
     case "com.amazonaws.codecommit#TitleRequiredException":
-      throw await deserializeAws_json1_1TitleRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TitleRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2475,16 +2763,19 @@ const deserializeAws_json1_1CreatePullRequestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreatePullRequestApprovalRuleCommand = async (
+/**
+ * deserializeAws_json1_1CreatePullRequestApprovalRuleCommand
+ */
+export const de_CreatePullRequestApprovalRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(output, context);
+    return de_CreatePullRequestApprovalRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePullRequestApprovalRuleOutput(data, context);
+  contents = de_CreatePullRequestApprovalRuleOutput(data, context);
   const response: CreatePullRequestApprovalRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2492,7 +2783,10 @@ export const deserializeAws_json1_1CreatePullRequestApprovalRuleCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError
+ */
+const de_CreatePullRequestApprovalRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
@@ -2504,49 +2798,49 @@ const deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleContentRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleContentRequiredExceptionRes(parsedOutput, context);
     case "ApprovalRuleNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleNameAlreadyExistsException":
-      throw await deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleNameAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleContentException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleContentExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleNameExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "NumberOfRulesExceededException":
     case "com.amazonaws.codecommit#NumberOfRulesExceededException":
-      throw await deserializeAws_json1_1NumberOfRulesExceededExceptionResponse(parsedOutput, context);
+      throw await de_NumberOfRulesExceededExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2558,16 +2852,19 @@ const deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1CreateRepositoryCommand
+ */
+export const de_CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateRepositoryCommandError(output, context);
+    return de_CreateRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRepositoryOutput(data, context);
+  contents = de_CreateRepositoryOutput(data, context);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2575,7 +2872,10 @@ export const deserializeAws_json1_1CreateRepositoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1CreateRepositoryCommandError
+ */
+const de_CreateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
@@ -2587,46 +2887,46 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryDescriptionException":
     case "com.amazonaws.codecommit#InvalidRepositoryDescriptionException":
-      throw await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryDescriptionExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      throw await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSystemTagUsageExceptionRes(parsedOutput, context);
     case "InvalidTagsMapException":
     case "com.amazonaws.codecommit#InvalidTagsMapException":
-      throw await deserializeAws_json1_1InvalidTagsMapExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsMapExceptionRes(parsedOutput, context);
     case "RepositoryLimitExceededException":
     case "com.amazonaws.codecommit#RepositoryLimitExceededException":
-      throw await deserializeAws_json1_1RepositoryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryLimitExceededExceptionRes(parsedOutput, context);
     case "RepositoryNameExistsException":
     case "com.amazonaws.codecommit#RepositoryNameExistsException":
-      throw await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameExistsExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2638,16 +2938,19 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUnreferencedMergeCommitCommand = async (
+/**
+ * deserializeAws_json1_1CreateUnreferencedMergeCommitCommand
+ */
+export const de_CreateUnreferencedMergeCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(output, context);
+    return de_CreateUnreferencedMergeCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUnreferencedMergeCommitOutput(data, context);
+  contents = de_CreateUnreferencedMergeCommitOutput(data, context);
   const response: CreateUnreferencedMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2655,7 +2958,10 @@ export const deserializeAws_json1_1CreateUnreferencedMergeCommitCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError
+ */
+const de_CreateUnreferencedMergeCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
@@ -2667,115 +2973,112 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      throw await deserializeAws_json1_1FileModeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileModeRequiredExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      throw await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMergeOptionExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      throw await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementContentExceptionRes(parsedOutput, context);
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      throw await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementTypeExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumConflictResolutionEntriesExceededExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      throw await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_MergeOptionRequiredExceptionRes(parsedOutput, context);
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      throw await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(parsedOutput, context);
+      throw await de_MultipleConflictResolutionEntriesExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      throw await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementContentRequiredExceptionRes(parsedOutput, context);
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      throw await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementTypeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2787,16 +3090,19 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
+/**
+ * deserializeAws_json1_1DeleteApprovalRuleTemplateCommand
+ */
+export const de_DeleteApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(output, context);
+    return de_DeleteApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApprovalRuleTemplateOutput(data, context);
+  contents = de_DeleteApprovalRuleTemplateOutput(data, context);
   const response: DeleteApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2804,7 +3110,10 @@ export const deserializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError
+ */
+const de_DeleteApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
@@ -2816,13 +3125,13 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleTemplateInUseException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateInUseException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateInUseExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2834,16 +3143,19 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteBranchCommand = async (
+/**
+ * deserializeAws_json1_1DeleteBranchCommand
+ */
+export const de_DeleteBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteBranchCommandError(output, context);
+    return de_DeleteBranchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBranchOutput(data, context);
+  contents = de_DeleteBranchOutput(data, context);
   const response: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2851,7 +3163,10 @@ export const deserializeAws_json1_1DeleteBranchCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteBranchCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteBranchCommandError
+ */
+const de_DeleteBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
@@ -2863,37 +3178,37 @@ const deserializeAws_json1_1DeleteBranchCommandError = async (
   switch (errorCode) {
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "DefaultBranchCannotBeDeletedException":
     case "com.amazonaws.codecommit#DefaultBranchCannotBeDeletedException":
-      throw await deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionResponse(parsedOutput, context);
+      throw await de_DefaultBranchCannotBeDeletedExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2905,16 +3220,19 @@ const deserializeAws_json1_1DeleteBranchCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteCommentContentCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCommentContentCommand
+ */
+export const de_DeleteCommentContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCommentContentCommandError(output, context);
+    return de_DeleteCommentContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCommentContentOutput(data, context);
+  contents = de_DeleteCommentContentOutput(data, context);
   const response: DeleteCommentContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2922,7 +3240,10 @@ export const deserializeAws_json1_1DeleteCommentContentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteCommentContentCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCommentContentCommandError
+ */
+const de_DeleteCommentContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentContentCommandOutput> => {
@@ -2934,16 +3255,16 @@ const deserializeAws_json1_1DeleteCommentContentCommandError = async (
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      throw await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context);
+      throw await de_CommentDeletedExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2955,16 +3276,19 @@ const deserializeAws_json1_1DeleteCommentContentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteFileCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFileCommand
+ */
+export const de_DeleteFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFileCommandError(output, context);
+    return de_DeleteFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFileOutput(data, context);
+  contents = de_DeleteFileOutput(data, context);
   const response: DeleteFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2972,7 +3296,10 @@ export const deserializeAws_json1_1DeleteFileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteFileCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFileCommandError
+ */
+const de_DeleteFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileCommandOutput> => {
@@ -2984,70 +3311,70 @@ const deserializeAws_json1_1DeleteFileCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      throw await deserializeAws_json1_1FileDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_FileDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      throw await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParentCommitIdExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      throw await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitDoesNotExistExceptionRes(parsedOutput, context);
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      throw await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdOutdatedExceptionRes(parsedOutput, context);
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      throw await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdRequiredExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3059,16 +3386,19 @@ const deserializeAws_json1_1DeleteFileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeletePullRequestApprovalRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeletePullRequestApprovalRuleCommand
+ */
+export const de_DeletePullRequestApprovalRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(output, context);
+    return de_DeletePullRequestApprovalRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePullRequestApprovalRuleOutput(data, context);
+  contents = de_DeletePullRequestApprovalRuleOutput(data, context);
   const response: DeletePullRequestApprovalRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3076,7 +3406,10 @@ export const deserializeAws_json1_1DeletePullRequestApprovalRuleCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError
+ */
+const de_DeletePullRequestApprovalRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
@@ -3088,40 +3421,40 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleNameRequiredExceptionRes(parsedOutput, context);
     case "CannotDeleteApprovalRuleFromTemplateException":
     case "com.amazonaws.codecommit#CannotDeleteApprovalRuleFromTemplateException":
-      throw await deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionResponse(parsedOutput, context);
+      throw await de_CannotDeleteApprovalRuleFromTemplateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleNameExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3133,16 +3466,19 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryCommand
+ */
+export const de_DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRepositoryCommandError(output, context);
+    return de_DeleteRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryOutput(data, context);
+  contents = de_DeleteRepositoryOutput(data, context);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3150,7 +3486,10 @@ export const deserializeAws_json1_1DeleteRepositoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryCommandError
+ */
+const de_DeleteRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
@@ -3162,25 +3501,25 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3192,16 +3531,19 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeMergeConflictsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMergeConflictsCommand
+ */
+export const de_DescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMergeConflictsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeMergeConflictsCommandError(output, context);
+    return de_DescribeMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMergeConflictsOutput(data, context);
+  contents = de_DescribeMergeConflictsOutput(data, context);
   const response: DescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3209,7 +3551,10 @@ export const deserializeAws_json1_1DescribeMergeConflictsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeMergeConflictsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeMergeConflictsCommandError
+ */
+const de_DescribeMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMergeConflictsCommandOutput> => {
@@ -3221,73 +3566,73 @@ const deserializeAws_json1_1DescribeMergeConflictsCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      throw await deserializeAws_json1_1FileDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_FileDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxMergeHunksException":
     case "com.amazonaws.codecommit#InvalidMaxMergeHunksException":
-      throw await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxMergeHunksExceptionRes(parsedOutput, context);
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      throw await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMergeOptionExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      throw await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_MergeOptionRequiredExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3299,16 +3644,19 @@ const deserializeAws_json1_1DescribeMergeConflictsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribePullRequestEventsCommand = async (
+/**
+ * deserializeAws_json1_1DescribePullRequestEventsCommand
+ */
+export const de_DescribePullRequestEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePullRequestEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePullRequestEventsCommandError(output, context);
+    return de_DescribePullRequestEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePullRequestEventsOutput(data, context);
+  contents = de_DescribePullRequestEventsOutput(data, context);
   const response: DescribePullRequestEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3316,7 +3664,10 @@ export const deserializeAws_json1_1DescribePullRequestEventsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribePullRequestEventsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePullRequestEventsCommandError
+ */
+const de_DescribePullRequestEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePullRequestEventsCommandOutput> => {
@@ -3328,43 +3679,43 @@ const deserializeAws_json1_1DescribePullRequestEventsCommandError = async (
   switch (errorCode) {
     case "ActorDoesNotExistException":
     case "com.amazonaws.codecommit#ActorDoesNotExistException":
-      throw await deserializeAws_json1_1ActorDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ActorDoesNotExistExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidActorArnException":
     case "com.amazonaws.codecommit#InvalidActorArnException":
-      throw await deserializeAws_json1_1InvalidActorArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidActorArnExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidPullRequestEventTypeException":
     case "com.amazonaws.codecommit#InvalidPullRequestEventTypeException":
-      throw await deserializeAws_json1_1InvalidPullRequestEventTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestEventTypeExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3376,12 +3727,15 @@ const deserializeAws_json1_1DescribePullRequestEventsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand
+ */
+export const de_DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError(output, context);
+    return de_DisassociateApprovalRuleTemplateFromRepositoryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput = {
@@ -3390,7 +3744,10 @@ export const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositor
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError
+ */
+const de_DisassociateApprovalRuleTemplateFromRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
@@ -3402,37 +3759,37 @@ const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryComman
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3444,16 +3801,19 @@ const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryComman
   }
 };
 
-export const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = async (
+/**
+ * deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand
+ */
+export const de_EvaluatePullRequestApprovalRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError(output, context);
+    return de_EvaluatePullRequestApprovalRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput(data, context);
+  contents = de_EvaluatePullRequestApprovalRulesOutput(data, context);
   const response: EvaluatePullRequestApprovalRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3461,7 +3821,10 @@ export const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError = async (
+/**
+ * deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError
+ */
+const de_EvaluatePullRequestApprovalRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
@@ -3473,37 +3836,37 @@ const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError = async
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      throw await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionIdExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      throw await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      throw await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(parsedOutput, context);
+      throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3515,16 +3878,19 @@ const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError = async
   }
 };
 
-export const deserializeAws_json1_1GetApprovalRuleTemplateCommand = async (
+/**
+ * deserializeAws_json1_1GetApprovalRuleTemplateCommand
+ */
+export const de_GetApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetApprovalRuleTemplateCommandError(output, context);
+    return de_GetApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApprovalRuleTemplateOutput(data, context);
+  contents = de_GetApprovalRuleTemplateOutput(data, context);
   const response: GetApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3532,7 +3898,10 @@ export const deserializeAws_json1_1GetApprovalRuleTemplateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetApprovalRuleTemplateCommandError = async (
+/**
+ * deserializeAws_json1_1GetApprovalRuleTemplateCommandError
+ */
+const de_GetApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApprovalRuleTemplateCommandOutput> => {
@@ -3544,13 +3913,13 @@ const deserializeAws_json1_1GetApprovalRuleTemplateCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3562,16 +3931,19 @@ const deserializeAws_json1_1GetApprovalRuleTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetBlobCommand = async (
+/**
+ * deserializeAws_json1_1GetBlobCommand
+ */
+export const de_GetBlobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetBlobCommandError(output, context);
+    return de_GetBlobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlobOutput(data, context);
+  contents = de_GetBlobOutput(data, context);
   const response: GetBlobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3579,7 +3951,10 @@ export const deserializeAws_json1_1GetBlobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetBlobCommandError = async (
+/**
+ * deserializeAws_json1_1GetBlobCommandError
+ */
+const de_GetBlobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlobCommandOutput> => {
@@ -3591,40 +3966,40 @@ const deserializeAws_json1_1GetBlobCommandError = async (
   switch (errorCode) {
     case "BlobIdDoesNotExistException":
     case "com.amazonaws.codecommit#BlobIdDoesNotExistException":
-      throw await deserializeAws_json1_1BlobIdDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BlobIdDoesNotExistExceptionRes(parsedOutput, context);
     case "BlobIdRequiredException":
     case "com.amazonaws.codecommit#BlobIdRequiredException":
-      throw await deserializeAws_json1_1BlobIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BlobIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileTooLargeException":
     case "com.amazonaws.codecommit#FileTooLargeException":
-      throw await deserializeAws_json1_1FileTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_FileTooLargeExceptionRes(parsedOutput, context);
     case "InvalidBlobIdException":
     case "com.amazonaws.codecommit#InvalidBlobIdException":
-      throw await deserializeAws_json1_1InvalidBlobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBlobIdExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3636,16 +4011,19 @@ const deserializeAws_json1_1GetBlobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetBranchCommand = async (
+/**
+ * deserializeAws_json1_1GetBranchCommand
+ */
+export const de_GetBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetBranchCommandError(output, context);
+    return de_GetBranchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBranchOutput(data, context);
+  contents = de_GetBranchOutput(data, context);
   const response: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3653,7 +4031,10 @@ export const deserializeAws_json1_1GetBranchCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetBranchCommandError = async (
+/**
+ * deserializeAws_json1_1GetBranchCommandError
+ */
+const de_GetBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
@@ -3665,37 +4046,37 @@ const deserializeAws_json1_1GetBranchCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3707,16 +4088,19 @@ const deserializeAws_json1_1GetBranchCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCommentCommand = async (
+/**
+ * deserializeAws_json1_1GetCommentCommand
+ */
+export const de_GetCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCommentCommandError(output, context);
+    return de_GetCommentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentOutput(data, context);
+  contents = de_GetCommentOutput(data, context);
   const response: GetCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3724,7 +4108,10 @@ export const deserializeAws_json1_1GetCommentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCommentCommandError = async (
+/**
+ * deserializeAws_json1_1GetCommentCommandError
+ */
+const de_GetCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentCommandOutput> => {
@@ -3736,31 +4123,31 @@ const deserializeAws_json1_1GetCommentCommandError = async (
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      throw await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context);
+      throw await de_CommentDeletedExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3772,16 +4159,19 @@ const deserializeAws_json1_1GetCommentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCommentReactionsCommand = async (
+/**
+ * deserializeAws_json1_1GetCommentReactionsCommand
+ */
+export const de_GetCommentReactionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentReactionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCommentReactionsCommandError(output, context);
+    return de_GetCommentReactionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentReactionsOutput(data, context);
+  contents = de_GetCommentReactionsOutput(data, context);
   const response: GetCommentReactionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3789,7 +4179,10 @@ export const deserializeAws_json1_1GetCommentReactionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCommentReactionsCommandError = async (
+/**
+ * deserializeAws_json1_1GetCommentReactionsCommandError
+ */
+const de_GetCommentReactionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentReactionsCommandOutput> => {
@@ -3801,25 +4194,25 @@ const deserializeAws_json1_1GetCommentReactionsCommandError = async (
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      throw await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context);
+      throw await de_CommentDeletedExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidReactionUserArnException":
     case "com.amazonaws.codecommit#InvalidReactionUserArnException":
-      throw await deserializeAws_json1_1InvalidReactionUserArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReactionUserArnExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3831,16 +4224,19 @@ const deserializeAws_json1_1GetCommentReactionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCommentsForComparedCommitCommand = async (
+/**
+ * deserializeAws_json1_1GetCommentsForComparedCommitCommand
+ */
+export const de_GetCommentsForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForComparedCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCommentsForComparedCommitCommandError(output, context);
+    return de_GetCommentsForComparedCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentsForComparedCommitOutput(data, context);
+  contents = de_GetCommentsForComparedCommitOutput(data, context);
   const response: GetCommentsForComparedCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3848,7 +4244,10 @@ export const deserializeAws_json1_1GetCommentsForComparedCommitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCommentsForComparedCommitCommandError = async (
+/**
+ * deserializeAws_json1_1GetCommentsForComparedCommitCommandError
+ */
+const de_GetCommentsForComparedCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForComparedCommitCommandOutput> => {
@@ -3860,43 +4259,43 @@ const deserializeAws_json1_1GetCommentsForComparedCommitCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3908,16 +4307,19 @@ const deserializeAws_json1_1GetCommentsForComparedCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCommentsForPullRequestCommand = async (
+/**
+ * deserializeAws_json1_1GetCommentsForPullRequestCommand
+ */
+export const de_GetCommentsForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForPullRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCommentsForPullRequestCommandError(output, context);
+    return de_GetCommentsForPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentsForPullRequestOutput(data, context);
+  contents = de_GetCommentsForPullRequestOutput(data, context);
   const response: GetCommentsForPullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3925,7 +4327,10 @@ export const deserializeAws_json1_1GetCommentsForPullRequestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCommentsForPullRequestCommandError = async (
+/**
+ * deserializeAws_json1_1GetCommentsForPullRequestCommandError
+ */
+const de_GetCommentsForPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForPullRequestCommandOutput> => {
@@ -3937,55 +4342,55 @@ const deserializeAws_json1_1GetCommentsForPullRequestCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      throw await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3997,16 +4402,19 @@ const deserializeAws_json1_1GetCommentsForPullRequestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCommitCommand = async (
+/**
+ * deserializeAws_json1_1GetCommitCommand
+ */
+export const de_GetCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCommitCommandError(output, context);
+    return de_GetCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommitOutput(data, context);
+  contents = de_GetCommitOutput(data, context);
   const response: GetCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4014,7 +4422,10 @@ export const deserializeAws_json1_1GetCommitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCommitCommandError = async (
+/**
+ * deserializeAws_json1_1GetCommitCommandError
+ */
+const de_GetCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommitCommandOutput> => {
@@ -4026,37 +4437,37 @@ const deserializeAws_json1_1GetCommitCommandError = async (
   switch (errorCode) {
     case "CommitIdDoesNotExistException":
     case "com.amazonaws.codecommit#CommitIdDoesNotExistException":
-      throw await deserializeAws_json1_1CommitIdDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4068,16 +4479,19 @@ const deserializeAws_json1_1GetCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDifferencesCommand = async (
+/**
+ * deserializeAws_json1_1GetDifferencesCommand
+ */
+export const de_GetDifferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDifferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDifferencesCommandError(output, context);
+    return de_GetDifferencesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDifferencesOutput(data, context);
+  contents = de_GetDifferencesOutput(data, context);
   const response: GetDifferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4085,7 +4499,10 @@ export const deserializeAws_json1_1GetDifferencesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDifferencesCommandError = async (
+/**
+ * deserializeAws_json1_1GetDifferencesCommandError
+ */
+const de_GetDifferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDifferencesCommandOutput> => {
@@ -4097,52 +4514,52 @@ const deserializeAws_json1_1GetDifferencesCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      throw await deserializeAws_json1_1PathDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PathDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4154,16 +4571,19 @@ const deserializeAws_json1_1GetDifferencesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFileCommand = async (
+/**
+ * deserializeAws_json1_1GetFileCommand
+ */
+export const de_GetFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFileCommandError(output, context);
+    return de_GetFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFileOutput(data, context);
+  contents = de_GetFileOutput(data, context);
   const response: GetFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4171,7 +4591,10 @@ export const deserializeAws_json1_1GetFileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFileCommandError = async (
+/**
+ * deserializeAws_json1_1GetFileCommandError
+ */
+const de_GetFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileCommandOutput> => {
@@ -4183,46 +4606,46 @@ const deserializeAws_json1_1GetFileCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      throw await deserializeAws_json1_1FileDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_FileDoesNotExistExceptionRes(parsedOutput, context);
     case "FileTooLargeException":
     case "com.amazonaws.codecommit#FileTooLargeException":
-      throw await deserializeAws_json1_1FileTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_FileTooLargeExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4234,16 +4657,19 @@ const deserializeAws_json1_1GetFileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFolderCommand = async (
+/**
+ * deserializeAws_json1_1GetFolderCommand
+ */
+export const de_GetFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFolderCommandError(output, context);
+    return de_GetFolderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFolderOutput(data, context);
+  contents = de_GetFolderOutput(data, context);
   const response: GetFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4251,7 +4677,10 @@ export const deserializeAws_json1_1GetFolderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFolderCommandError = async (
+/**
+ * deserializeAws_json1_1GetFolderCommandError
+ */
+const de_GetFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
@@ -4263,43 +4692,43 @@ const deserializeAws_json1_1GetFolderCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FolderDoesNotExistException":
     case "com.amazonaws.codecommit#FolderDoesNotExistException":
-      throw await deserializeAws_json1_1FolderDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_FolderDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4311,16 +4740,19 @@ const deserializeAws_json1_1GetFolderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMergeCommitCommand = async (
+/**
+ * deserializeAws_json1_1GetMergeCommitCommand
+ */
+export const de_GetMergeCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMergeCommitCommandError(output, context);
+    return de_GetMergeCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeCommitOutput(data, context);
+  contents = de_GetMergeCommitOutput(data, context);
   const response: GetMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4328,7 +4760,10 @@ export const deserializeAws_json1_1GetMergeCommitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMergeCommitCommandError = async (
+/**
+ * deserializeAws_json1_1GetMergeCommitCommandError
+ */
+const de_GetMergeCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeCommitCommandOutput> => {
@@ -4340,43 +4775,43 @@ const deserializeAws_json1_1GetMergeCommitCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4388,16 +4823,19 @@ const deserializeAws_json1_1GetMergeCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMergeConflictsCommand = async (
+/**
+ * deserializeAws_json1_1GetMergeConflictsCommand
+ */
+export const de_GetMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeConflictsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMergeConflictsCommandError(output, context);
+    return de_GetMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeConflictsOutput(data, context);
+  contents = de_GetMergeConflictsOutput(data, context);
   const response: GetMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4405,7 +4843,10 @@ export const deserializeAws_json1_1GetMergeConflictsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMergeConflictsCommandError = async (
+/**
+ * deserializeAws_json1_1GetMergeConflictsCommandError
+ */
+const de_GetMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeConflictsCommandOutput> => {
@@ -4417,70 +4858,70 @@ const deserializeAws_json1_1GetMergeConflictsCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidDestinationCommitSpecifierException":
     case "com.amazonaws.codecommit#InvalidDestinationCommitSpecifierException":
-      throw await deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDestinationCommitSpecifierExceptionRes(parsedOutput, context);
     case "InvalidMaxConflictFilesException":
     case "com.amazonaws.codecommit#InvalidMaxConflictFilesException":
-      throw await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxConflictFilesExceptionRes(parsedOutput, context);
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      throw await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMergeOptionExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidSourceCommitSpecifierException":
     case "com.amazonaws.codecommit#InvalidSourceCommitSpecifierException":
-      throw await deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSourceCommitSpecifierExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      throw await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_MergeOptionRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4492,16 +4933,19 @@ const deserializeAws_json1_1GetMergeConflictsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMergeOptionsCommand = async (
+/**
+ * deserializeAws_json1_1GetMergeOptionsCommand
+ */
+export const de_GetMergeOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMergeOptionsCommandError(output, context);
+    return de_GetMergeOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeOptionsOutput(data, context);
+  contents = de_GetMergeOptionsOutput(data, context);
   const response: GetMergeOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4509,7 +4953,10 @@ export const deserializeAws_json1_1GetMergeOptionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMergeOptionsCommandError = async (
+/**
+ * deserializeAws_json1_1GetMergeOptionsCommandError
+ */
+const de_GetMergeOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeOptionsCommandOutput> => {
@@ -4521,52 +4968,52 @@ const deserializeAws_json1_1GetMergeOptionsCommandError = async (
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4578,16 +5025,19 @@ const deserializeAws_json1_1GetMergeOptionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetPullRequestCommand = async (
+/**
+ * deserializeAws_json1_1GetPullRequestCommand
+ */
+export const de_GetPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPullRequestCommandError(output, context);
+    return de_GetPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPullRequestOutput(data, context);
+  contents = de_GetPullRequestOutput(data, context);
   const response: GetPullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4595,7 +5045,10 @@ export const deserializeAws_json1_1GetPullRequestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetPullRequestCommandError = async (
+/**
+ * deserializeAws_json1_1GetPullRequestCommandError
+ */
+const de_GetPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestCommandOutput> => {
@@ -4607,28 +5060,28 @@ const deserializeAws_json1_1GetPullRequestCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4640,16 +5093,19 @@ const deserializeAws_json1_1GetPullRequestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
+/**
+ * deserializeAws_json1_1GetPullRequestApprovalStatesCommand
+ */
+export const de_GetPullRequestApprovalStatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestApprovalStatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(output, context);
+    return de_GetPullRequestApprovalStatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPullRequestApprovalStatesOutput(data, context);
+  contents = de_GetPullRequestApprovalStatesOutput(data, context);
   const response: GetPullRequestApprovalStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4657,7 +5113,10 @@ export const deserializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetPullRequestApprovalStatesCommandError = async (
+/**
+ * deserializeAws_json1_1GetPullRequestApprovalStatesCommandError
+ */
+const de_GetPullRequestApprovalStatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestApprovalStatesCommandOutput> => {
@@ -4669,34 +5128,34 @@ const deserializeAws_json1_1GetPullRequestApprovalStatesCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      throw await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionIdExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      throw await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4708,16 +5167,19 @@ const deserializeAws_json1_1GetPullRequestApprovalStatesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetPullRequestOverrideStateCommand = async (
+/**
+ * deserializeAws_json1_1GetPullRequestOverrideStateCommand
+ */
+export const de_GetPullRequestOverrideStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestOverrideStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPullRequestOverrideStateCommandError(output, context);
+    return de_GetPullRequestOverrideStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPullRequestOverrideStateOutput(data, context);
+  contents = de_GetPullRequestOverrideStateOutput(data, context);
   const response: GetPullRequestOverrideStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4725,7 +5187,10 @@ export const deserializeAws_json1_1GetPullRequestOverrideStateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetPullRequestOverrideStateCommandError = async (
+/**
+ * deserializeAws_json1_1GetPullRequestOverrideStateCommandError
+ */
+const de_GetPullRequestOverrideStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestOverrideStateCommandOutput> => {
@@ -4737,34 +5202,34 @@ const deserializeAws_json1_1GetPullRequestOverrideStateCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      throw await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionIdExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      throw await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4776,16 +5241,19 @@ const deserializeAws_json1_1GetPullRequestOverrideStateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1GetRepositoryCommand
+ */
+export const de_GetRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRepositoryCommandError(output, context);
+    return de_GetRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryOutput(data, context);
+  contents = de_GetRepositoryOutput(data, context);
   const response: GetRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4793,7 +5261,10 @@ export const deserializeAws_json1_1GetRepositoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1GetRepositoryCommandError
+ */
+const de_GetRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryCommandOutput> => {
@@ -4805,28 +5276,28 @@ const deserializeAws_json1_1GetRepositoryCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4838,16 +5309,19 @@ const deserializeAws_json1_1GetRepositoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetRepositoryTriggersCommand = async (
+/**
+ * deserializeAws_json1_1GetRepositoryTriggersCommand
+ */
+export const de_GetRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRepositoryTriggersCommandError(output, context);
+    return de_GetRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryTriggersOutput(data, context);
+  contents = de_GetRepositoryTriggersOutput(data, context);
   const response: GetRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4855,7 +5329,10 @@ export const deserializeAws_json1_1GetRepositoryTriggersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetRepositoryTriggersCommandError = async (
+/**
+ * deserializeAws_json1_1GetRepositoryTriggersCommandError
+ */
+const de_GetRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryTriggersCommandOutput> => {
@@ -4867,28 +5344,28 @@ const deserializeAws_json1_1GetRepositoryTriggersCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4900,16 +5377,19 @@ const deserializeAws_json1_1GetRepositoryTriggersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
+/**
+ * deserializeAws_json1_1ListApprovalRuleTemplatesCommand
+ */
+export const de_ListApprovalRuleTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApprovalRuleTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(output, context);
+    return de_ListApprovalRuleTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApprovalRuleTemplatesOutput(data, context);
+  contents = de_ListApprovalRuleTemplatesOutput(data, context);
   const response: ListApprovalRuleTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4917,7 +5397,10 @@ export const deserializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListApprovalRuleTemplatesCommandError = async (
+/**
+ * deserializeAws_json1_1ListApprovalRuleTemplatesCommandError
+ */
+const de_ListApprovalRuleTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApprovalRuleTemplatesCommandOutput> => {
@@ -4929,10 +5412,10 @@ const deserializeAws_json1_1ListApprovalRuleTemplatesCommandError = async (
   switch (errorCode) {
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4944,16 +5427,19 @@ const deserializeAws_json1_1ListApprovalRuleTemplatesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand
+ */
+export const de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError(output, context);
+    return de_ListAssociatedApprovalRuleTemplatesForRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput(data, context);
+  contents = de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput(data, context);
   const response: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4961,7 +5447,10 @@ export const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForReposit
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError
+ */
+const de_ListAssociatedApprovalRuleTemplatesForRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
@@ -4973,34 +5462,34 @@ const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryComm
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5012,16 +5501,19 @@ const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryComm
   }
 };
 
-export const deserializeAws_json1_1ListBranchesCommand = async (
+/**
+ * deserializeAws_json1_1ListBranchesCommand
+ */
+export const de_ListBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBranchesCommandError(output, context);
+    return de_ListBranchesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBranchesOutput(data, context);
+  contents = de_ListBranchesOutput(data, context);
   const response: ListBranchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5029,7 +5521,10 @@ export const deserializeAws_json1_1ListBranchesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListBranchesCommandError = async (
+/**
+ * deserializeAws_json1_1ListBranchesCommandError
+ */
+const de_ListBranchesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
@@ -5041,31 +5536,31 @@ const deserializeAws_json1_1ListBranchesCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5077,16 +5572,19 @@ const deserializeAws_json1_1ListBranchesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPullRequestsCommand = async (
+/**
+ * deserializeAws_json1_1ListPullRequestsCommand
+ */
+export const de_ListPullRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPullRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPullRequestsCommandError(output, context);
+    return de_ListPullRequestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPullRequestsOutput(data, context);
+  contents = de_ListPullRequestsOutput(data, context);
   const response: ListPullRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5094,7 +5592,10 @@ export const deserializeAws_json1_1ListPullRequestsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPullRequestsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPullRequestsCommandError
+ */
+const de_ListPullRequestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPullRequestsCommandOutput> => {
@@ -5106,43 +5607,43 @@ const deserializeAws_json1_1ListPullRequestsCommandError = async (
   switch (errorCode) {
     case "AuthorDoesNotExistException":
     case "com.amazonaws.codecommit#AuthorDoesNotExistException":
-      throw await deserializeAws_json1_1AuthorDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_AuthorDoesNotExistExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidAuthorArnException":
     case "com.amazonaws.codecommit#InvalidAuthorArnException":
-      throw await deserializeAws_json1_1InvalidAuthorArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAuthorArnExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "InvalidPullRequestStatusException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusException":
-      throw await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestStatusExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5154,16 +5655,19 @@ const deserializeAws_json1_1ListPullRequestsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListRepositoriesCommand = async (
+/**
+ * deserializeAws_json1_1ListRepositoriesCommand
+ */
+export const de_ListRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRepositoriesCommandError(output, context);
+    return de_ListRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRepositoriesOutput(data, context);
+  contents = de_ListRepositoriesOutput(data, context);
   const response: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5171,7 +5675,10 @@ export const deserializeAws_json1_1ListRepositoriesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListRepositoriesCommandError = async (
+/**
+ * deserializeAws_json1_1ListRepositoriesCommandError
+ */
+const de_ListRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesCommandOutput> => {
@@ -5183,13 +5690,13 @@ const deserializeAws_json1_1ListRepositoriesCommandError = async (
   switch (errorCode) {
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidOrderException":
     case "com.amazonaws.codecommit#InvalidOrderException":
-      throw await deserializeAws_json1_1InvalidOrderExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOrderExceptionRes(parsedOutput, context);
     case "InvalidSortByException":
     case "com.amazonaws.codecommit#InvalidSortByException":
-      throw await deserializeAws_json1_1InvalidSortByExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSortByExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5201,16 +5708,19 @@ const deserializeAws_json1_1ListRepositoriesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand = async (
+/**
+ * deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand
+ */
+export const de_ListRepositoriesForApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError(output, context);
+    return de_ListRepositoriesForApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput(data, context);
+  contents = de_ListRepositoriesForApprovalRuleTemplateOutput(data, context);
   const response: ListRepositoriesForApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5218,7 +5728,10 @@ export const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComman
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError = async (
+/**
+ * deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError
+ */
+const de_ListRepositoriesForApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
@@ -5230,34 +5743,34 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError 
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      throw await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5269,16 +5782,19 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError 
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
+  contents = de_ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5286,7 +5802,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -5298,16 +5817,16 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      throw await deserializeAws_json1_1InvalidResourceArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceArnExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5319,16 +5838,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergeBranchesByFastForwardCommand = async (
+/**
+ * deserializeAws_json1_1MergeBranchesByFastForwardCommand
+ */
+export const de_MergeBranchesByFastForwardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByFastForwardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergeBranchesByFastForwardCommandError(output, context);
+    return de_MergeBranchesByFastForwardCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesByFastForwardOutput(data, context);
+  contents = de_MergeBranchesByFastForwardOutput(data, context);
   const response: MergeBranchesByFastForwardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5336,7 +5858,10 @@ export const deserializeAws_json1_1MergeBranchesByFastForwardCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergeBranchesByFastForwardCommandError = async (
+/**
+ * deserializeAws_json1_1MergeBranchesByFastForwardCommandError
+ */
+const de_MergeBranchesByFastForwardCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByFastForwardCommandOutput> => {
@@ -5348,61 +5873,61 @@ const deserializeAws_json1_1MergeBranchesByFastForwardCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      throw await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetBranchExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5414,16 +5939,19 @@ const deserializeAws_json1_1MergeBranchesByFastForwardCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergeBranchesBySquashCommand = async (
+/**
+ * deserializeAws_json1_1MergeBranchesBySquashCommand
+ */
+export const de_MergeBranchesBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesBySquashCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergeBranchesBySquashCommandError(output, context);
+    return de_MergeBranchesBySquashCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesBySquashOutput(data, context);
+  contents = de_MergeBranchesBySquashOutput(data, context);
   const response: MergeBranchesBySquashCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5431,7 +5959,10 @@ export const deserializeAws_json1_1MergeBranchesBySquashCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergeBranchesBySquashCommandError = async (
+/**
+ * deserializeAws_json1_1MergeBranchesBySquashCommandError
+ */
+const de_MergeBranchesBySquashCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesBySquashCommandOutput> => {
@@ -5443,124 +5974,121 @@ const deserializeAws_json1_1MergeBranchesBySquashCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      throw await deserializeAws_json1_1FileModeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileModeRequiredExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      throw await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementContentExceptionRes(parsedOutput, context);
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      throw await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementTypeExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      throw await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetBranchExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumConflictResolutionEntriesExceededExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      throw await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(parsedOutput, context);
+      throw await de_MultipleConflictResolutionEntriesExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      throw await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementContentRequiredExceptionRes(parsedOutput, context);
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      throw await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementTypeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5572,16 +6100,19 @@ const deserializeAws_json1_1MergeBranchesBySquashCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergeBranchesByThreeWayCommand = async (
+/**
+ * deserializeAws_json1_1MergeBranchesByThreeWayCommand
+ */
+export const de_MergeBranchesByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByThreeWayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergeBranchesByThreeWayCommandError(output, context);
+    return de_MergeBranchesByThreeWayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesByThreeWayOutput(data, context);
+  contents = de_MergeBranchesByThreeWayOutput(data, context);
   const response: MergeBranchesByThreeWayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5589,7 +6120,10 @@ export const deserializeAws_json1_1MergeBranchesByThreeWayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergeBranchesByThreeWayCommandError = async (
+/**
+ * deserializeAws_json1_1MergeBranchesByThreeWayCommandError
+ */
+const de_MergeBranchesByThreeWayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByThreeWayCommandOutput> => {
@@ -5601,124 +6135,121 @@ const deserializeAws_json1_1MergeBranchesByThreeWayCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      throw await deserializeAws_json1_1CommitRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      throw await deserializeAws_json1_1FileModeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileModeRequiredExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      throw await deserializeAws_json1_1InvalidCommitExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      throw await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementContentExceptionRes(parsedOutput, context);
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      throw await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementTypeExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      throw await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetBranchExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumConflictResolutionEntriesExceededExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      throw await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(parsedOutput, context);
+      throw await de_MultipleConflictResolutionEntriesExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      throw await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementContentRequiredExceptionRes(parsedOutput, context);
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      throw await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementTypeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5730,16 +6261,19 @@ const deserializeAws_json1_1MergeBranchesByThreeWayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergePullRequestByFastForwardCommand = async (
+/**
+ * deserializeAws_json1_1MergePullRequestByFastForwardCommand
+ */
+export const de_MergePullRequestByFastForwardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByFastForwardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergePullRequestByFastForwardCommandError(output, context);
+    return de_MergePullRequestByFastForwardCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergePullRequestByFastForwardOutput(data, context);
+  contents = de_MergePullRequestByFastForwardOutput(data, context);
   const response: MergePullRequestByFastForwardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5747,7 +6281,10 @@ export const deserializeAws_json1_1MergePullRequestByFastForwardCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergePullRequestByFastForwardCommandError = async (
+/**
+ * deserializeAws_json1_1MergePullRequestByFastForwardCommandError
+ */
+const de_MergePullRequestByFastForwardCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByFastForwardCommandOutput> => {
@@ -5759,61 +6296,61 @@ const deserializeAws_json1_1MergePullRequestByFastForwardCommandError = async (
   switch (errorCode) {
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      throw await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestApprovalRulesNotSatisfiedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "ReferenceDoesNotExistException":
     case "com.amazonaws.codecommit#ReferenceDoesNotExistException":
-      throw await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ReferenceDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      throw await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      throw await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(parsedOutput, context);
+      throw await de_TipOfSourceReferenceIsDifferentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5825,16 +6362,19 @@ const deserializeAws_json1_1MergePullRequestByFastForwardCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergePullRequestBySquashCommand = async (
+/**
+ * deserializeAws_json1_1MergePullRequestBySquashCommand
+ */
+export const de_MergePullRequestBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestBySquashCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergePullRequestBySquashCommandError(output, context);
+    return de_MergePullRequestBySquashCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergePullRequestBySquashOutput(data, context);
+  contents = de_MergePullRequestBySquashOutput(data, context);
   const response: MergePullRequestBySquashCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5842,7 +6382,10 @@ export const deserializeAws_json1_1MergePullRequestBySquashCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergePullRequestBySquashCommandError = async (
+/**
+ * deserializeAws_json1_1MergePullRequestBySquashCommandError
+ */
+const de_MergePullRequestBySquashCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestBySquashCommandOutput> => {
@@ -5854,121 +6397,118 @@ const deserializeAws_json1_1MergePullRequestBySquashCommandError = async (
   switch (errorCode) {
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      throw await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementContentExceptionRes(parsedOutput, context);
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      throw await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementTypeExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumConflictResolutionEntriesExceededExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      throw await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(parsedOutput, context);
+      throw await de_MultipleConflictResolutionEntriesExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      throw await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestApprovalRulesNotSatisfiedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      throw await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementContentRequiredExceptionRes(parsedOutput, context);
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      throw await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementTypeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      throw await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      throw await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(parsedOutput, context);
+      throw await de_TipOfSourceReferenceIsDifferentExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5980,16 +6520,19 @@ const deserializeAws_json1_1MergePullRequestBySquashCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MergePullRequestByThreeWayCommand = async (
+/**
+ * deserializeAws_json1_1MergePullRequestByThreeWayCommand
+ */
+export const de_MergePullRequestByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByThreeWayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MergePullRequestByThreeWayCommandError(output, context);
+    return de_MergePullRequestByThreeWayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergePullRequestByThreeWayOutput(data, context);
+  contents = de_MergePullRequestByThreeWayOutput(data, context);
   const response: MergePullRequestByThreeWayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5997,7 +6540,10 @@ export const deserializeAws_json1_1MergePullRequestByThreeWayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MergePullRequestByThreeWayCommandError = async (
+/**
+ * deserializeAws_json1_1MergePullRequestByThreeWayCommandError
+ */
+const de_MergePullRequestByThreeWayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByThreeWayCommandOutput> => {
@@ -6009,121 +6555,118 @@ const deserializeAws_json1_1MergePullRequestByThreeWayCommandError = async (
   switch (errorCode) {
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      throw await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentReferenceUpdateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      throw await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictDetailLevelExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionExceptionRes(parsedOutput, context);
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      throw await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConflictResolutionStrategyExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      throw await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementContentExceptionRes(parsedOutput, context);
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      throw await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReplacementTypeExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      throw await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ManualMergeRequiredExceptionRes(parsedOutput, context);
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      throw await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_MaximumConflictResolutionEntriesExceededExceptionRes(parsedOutput, context);
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      throw await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumFileContentToLoadExceededExceptionRes(parsedOutput, context);
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      throw await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumItemsToCompareExceededExceptionRes(parsedOutput, context);
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      throw await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(parsedOutput, context);
+      throw await de_MultipleConflictResolutionEntriesExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      throw await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestApprovalRulesNotSatisfiedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      throw await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementContentRequiredExceptionRes(parsedOutput, context);
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      throw await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReplacementTypeRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      throw await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      throw await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(parsedOutput, context);
+      throw await de_TipOfSourceReferenceIsDifferentExceptionRes(parsedOutput, context);
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      throw await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(parsedOutput, context);
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6135,12 +6678,15 @@ const deserializeAws_json1_1MergePullRequestByThreeWayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1OverridePullRequestApprovalRulesCommand = async (
+/**
+ * deserializeAws_json1_1OverridePullRequestApprovalRulesCommand
+ */
+export const de_OverridePullRequestApprovalRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError(output, context);
+    return de_OverridePullRequestApprovalRulesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: OverridePullRequestApprovalRulesCommandOutput = {
@@ -6149,7 +6695,10 @@ export const deserializeAws_json1_1OverridePullRequestApprovalRulesCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError = async (
+/**
+ * deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError
+ */
+const de_OverridePullRequestApprovalRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
@@ -6161,49 +6710,49 @@ const deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError = async
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidOverrideStatusException":
     case "com.amazonaws.codecommit#InvalidOverrideStatusException":
-      throw await deserializeAws_json1_1InvalidOverrideStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOverrideStatusExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      throw await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionIdExceptionRes(parsedOutput, context);
     case "OverrideAlreadySetException":
     case "com.amazonaws.codecommit#OverrideAlreadySetException":
-      throw await deserializeAws_json1_1OverrideAlreadySetExceptionResponse(parsedOutput, context);
+      throw await de_OverrideAlreadySetExceptionRes(parsedOutput, context);
     case "OverrideStatusRequiredException":
     case "com.amazonaws.codecommit#OverrideStatusRequiredException":
-      throw await deserializeAws_json1_1OverrideStatusRequiredExceptionResponse(parsedOutput, context);
+      throw await de_OverrideStatusRequiredExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      throw await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      throw await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(parsedOutput, context);
+      throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6215,16 +6764,19 @@ const deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError = async
   }
 };
 
-export const deserializeAws_json1_1PostCommentForComparedCommitCommand = async (
+/**
+ * deserializeAws_json1_1PostCommentForComparedCommitCommand
+ */
+export const de_PostCommentForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForComparedCommitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PostCommentForComparedCommitCommandError(output, context);
+    return de_PostCommentForComparedCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PostCommentForComparedCommitOutput(data, context);
+  contents = de_PostCommentForComparedCommitOutput(data, context);
   const response: PostCommentForComparedCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6232,7 +6784,10 @@ export const deserializeAws_json1_1PostCommentForComparedCommitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PostCommentForComparedCommitCommandError = async (
+/**
+ * deserializeAws_json1_1PostCommentForComparedCommitCommandError
+ */
+const de_PostCommentForComparedCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForComparedCommitCommandOutput> => {
@@ -6244,73 +6799,73 @@ const deserializeAws_json1_1PostCommentForComparedCommitCommandError = async (
   switch (errorCode) {
     case "BeforeCommitIdAndAfterCommitIdAreSameException":
     case "com.amazonaws.codecommit#BeforeCommitIdAndAfterCommitIdAreSameException":
-      throw await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(parsedOutput, context);
+      throw await de_BeforeCommitIdAndAfterCommitIdAreSameExceptionRes(parsedOutput, context);
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      throw await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ClientRequestTokenRequiredExceptionRes(parsedOutput, context);
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      throw await deserializeAws_json1_1CommentContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentRequiredExceptionRes(parsedOutput, context);
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotencyParameterMismatchExceptionRes(parsedOutput, context);
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      throw await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidClientRequestTokenExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidFileLocationException":
     case "com.amazonaws.codecommit#InvalidFileLocationException":
-      throw await deserializeAws_json1_1InvalidFileLocationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileLocationExceptionRes(parsedOutput, context);
     case "InvalidFilePositionException":
     case "com.amazonaws.codecommit#InvalidFilePositionException":
-      throw await deserializeAws_json1_1InvalidFilePositionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFilePositionExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRelativeFileVersionEnumException":
     case "com.amazonaws.codecommit#InvalidRelativeFileVersionEnumException":
-      throw await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRelativeFileVersionEnumExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      throw await deserializeAws_json1_1PathDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PathDoesNotExistExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6322,16 +6877,19 @@ const deserializeAws_json1_1PostCommentForComparedCommitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PostCommentForPullRequestCommand = async (
+/**
+ * deserializeAws_json1_1PostCommentForPullRequestCommand
+ */
+export const de_PostCommentForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForPullRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PostCommentForPullRequestCommandError(output, context);
+    return de_PostCommentForPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PostCommentForPullRequestOutput(data, context);
+  contents = de_PostCommentForPullRequestOutput(data, context);
   const response: PostCommentForPullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6339,7 +6897,10 @@ export const deserializeAws_json1_1PostCommentForPullRequestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PostCommentForPullRequestCommandError = async (
+/**
+ * deserializeAws_json1_1PostCommentForPullRequestCommandError
+ */
+const de_PostCommentForPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForPullRequestCommandOutput> => {
@@ -6351,85 +6912,85 @@ const deserializeAws_json1_1PostCommentForPullRequestCommandError = async (
   switch (errorCode) {
     case "BeforeCommitIdAndAfterCommitIdAreSameException":
     case "com.amazonaws.codecommit#BeforeCommitIdAndAfterCommitIdAreSameException":
-      throw await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(parsedOutput, context);
+      throw await de_BeforeCommitIdAndAfterCommitIdAreSameExceptionRes(parsedOutput, context);
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      throw await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ClientRequestTokenRequiredExceptionRes(parsedOutput, context);
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      throw await deserializeAws_json1_1CommentContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentRequiredExceptionRes(parsedOutput, context);
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      throw await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      throw await deserializeAws_json1_1CommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommitIdRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotencyParameterMismatchExceptionRes(parsedOutput, context);
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      throw await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidClientRequestTokenExceptionRes(parsedOutput, context);
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      throw await deserializeAws_json1_1InvalidCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommitIdExceptionRes(parsedOutput, context);
     case "InvalidFileLocationException":
     case "com.amazonaws.codecommit#InvalidFileLocationException":
-      throw await deserializeAws_json1_1InvalidFileLocationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileLocationExceptionRes(parsedOutput, context);
     case "InvalidFilePositionException":
     case "com.amazonaws.codecommit#InvalidFilePositionException":
-      throw await deserializeAws_json1_1InvalidFilePositionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFilePositionExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRelativeFileVersionEnumException":
     case "com.amazonaws.codecommit#InvalidRelativeFileVersionEnumException":
-      throw await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRelativeFileVersionEnumExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      throw await deserializeAws_json1_1PathDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PathDoesNotExistExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      throw await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6441,16 +7002,19 @@ const deserializeAws_json1_1PostCommentForPullRequestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PostCommentReplyCommand = async (
+/**
+ * deserializeAws_json1_1PostCommentReplyCommand
+ */
+export const de_PostCommentReplyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentReplyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PostCommentReplyCommandError(output, context);
+    return de_PostCommentReplyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PostCommentReplyOutput(data, context);
+  contents = de_PostCommentReplyOutput(data, context);
   const response: PostCommentReplyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6458,7 +7022,10 @@ export const deserializeAws_json1_1PostCommentReplyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PostCommentReplyCommandError = async (
+/**
+ * deserializeAws_json1_1PostCommentReplyCommandError
+ */
+const de_PostCommentReplyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentReplyCommandOutput> => {
@@ -6470,28 +7037,28 @@ const deserializeAws_json1_1PostCommentReplyCommandError = async (
   switch (errorCode) {
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      throw await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ClientRequestTokenRequiredExceptionRes(parsedOutput, context);
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      throw await deserializeAws_json1_1CommentContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentRequiredExceptionRes(parsedOutput, context);
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotencyParameterMismatchExceptionRes(parsedOutput, context);
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      throw await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidClientRequestTokenExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6503,12 +7070,15 @@ const deserializeAws_json1_1PostCommentReplyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutCommentReactionCommand = async (
+/**
+ * deserializeAws_json1_1PutCommentReactionCommand
+ */
+export const de_PutCommentReactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutCommentReactionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutCommentReactionCommandError(output, context);
+    return de_PutCommentReactionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutCommentReactionCommandOutput = {
@@ -6517,7 +7087,10 @@ export const deserializeAws_json1_1PutCommentReactionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutCommentReactionCommandError = async (
+/**
+ * deserializeAws_json1_1PutCommentReactionCommandError
+ */
+const de_PutCommentReactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutCommentReactionCommandOutput> => {
@@ -6529,25 +7102,25 @@ const deserializeAws_json1_1PutCommentReactionCommandError = async (
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      throw await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context);
+      throw await de_CommentDeletedExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     case "InvalidReactionValueException":
     case "com.amazonaws.codecommit#InvalidReactionValueException":
-      throw await deserializeAws_json1_1InvalidReactionValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidReactionValueExceptionRes(parsedOutput, context);
     case "ReactionLimitExceededException":
     case "com.amazonaws.codecommit#ReactionLimitExceededException":
-      throw await deserializeAws_json1_1ReactionLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ReactionLimitExceededExceptionRes(parsedOutput, context);
     case "ReactionValueRequiredException":
     case "com.amazonaws.codecommit#ReactionValueRequiredException":
-      throw await deserializeAws_json1_1ReactionValueRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ReactionValueRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6559,16 +7132,19 @@ const deserializeAws_json1_1PutCommentReactionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutFileCommand = async (
+/**
+ * deserializeAws_json1_1PutFileCommand
+ */
+export const de_PutFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutFileCommandError(output, context);
+    return de_PutFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutFileOutput(data, context);
+  contents = de_PutFileOutput(data, context);
   const response: PutFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6576,7 +7152,10 @@ export const deserializeAws_json1_1PutFileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutFileCommandError = async (
+/**
+ * deserializeAws_json1_1PutFileCommandError
+ */
+const de_PutFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFileCommandOutput> => {
@@ -6588,94 +7167,94 @@ const deserializeAws_json1_1PutFileCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      throw await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameIsTagNameExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      throw await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommitMessageLengthExceededExceptionRes(parsedOutput, context);
     case "DirectoryNameConflictsWithFileNameException":
     case "com.amazonaws.codecommit#DirectoryNameConflictsWithFileNameException":
-      throw await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNameConflictsWithFileNameExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "FileContentRequiredException":
     case "com.amazonaws.codecommit#FileContentRequiredException":
-      throw await deserializeAws_json1_1FileContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_FileContentRequiredExceptionRes(parsedOutput, context);
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FileContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "FileNameConflictsWithDirectoryNameException":
     case "com.amazonaws.codecommit#FileNameConflictsWithDirectoryNameException":
-      throw await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(parsedOutput, context);
+      throw await de_FileNameConflictsWithDirectoryNameExceptionRes(parsedOutput, context);
     case "FilePathConflictsWithSubmodulePathException":
     case "com.amazonaws.codecommit#FilePathConflictsWithSubmodulePathException":
-      throw await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(parsedOutput, context);
+      throw await de_FilePathConflictsWithSubmodulePathExceptionRes(parsedOutput, context);
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FolderContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidDeletionParameterException":
     case "com.amazonaws.codecommit#InvalidDeletionParameterException":
-      throw await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeletionParameterExceptionRes(parsedOutput, context);
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      throw await deserializeAws_json1_1InvalidEmailExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailExceptionRes(parsedOutput, context);
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      throw await deserializeAws_json1_1InvalidFileModeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileModeExceptionRes(parsedOutput, context);
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      throw await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParentCommitIdExceptionRes(parsedOutput, context);
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      throw await deserializeAws_json1_1InvalidPathExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPathExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      throw await deserializeAws_json1_1NameLengthExceededExceptionResponse(parsedOutput, context);
+      throw await de_NameLengthExceededExceptionRes(parsedOutput, context);
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      throw await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitDoesNotExistExceptionRes(parsedOutput, context);
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      throw await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdOutdatedExceptionRes(parsedOutput, context);
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      throw await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ParentCommitIdRequiredExceptionRes(parsedOutput, context);
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      throw await deserializeAws_json1_1PathRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PathRequiredExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "SameFileContentException":
     case "com.amazonaws.codecommit#SameFileContentException":
-      throw await deserializeAws_json1_1SameFileContentExceptionResponse(parsedOutput, context);
+      throw await de_SameFileContentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6687,16 +7266,19 @@ const deserializeAws_json1_1PutFileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutRepositoryTriggersCommand = async (
+/**
+ * deserializeAws_json1_1PutRepositoryTriggersCommand
+ */
+export const de_PutRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRepositoryTriggersCommandError(output, context);
+    return de_PutRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRepositoryTriggersOutput(data, context);
+  contents = de_PutRepositoryTriggersOutput(data, context);
   const response: PutRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6704,7 +7286,10 @@ export const deserializeAws_json1_1PutRepositoryTriggersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutRepositoryTriggersCommandError = async (
+/**
+ * deserializeAws_json1_1PutRepositoryTriggersCommandError
+ */
+const de_PutRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRepositoryTriggersCommandOutput> => {
@@ -6716,67 +7301,67 @@ const deserializeAws_json1_1PutRepositoryTriggersCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerBranchNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerBranchNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerBranchNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerCustomDataException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerCustomDataException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerCustomDataExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerDestinationArnException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerDestinationArnException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerDestinationArnExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerEventsException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerEventsException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerEventsExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerRegionException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerRegionException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerRegionExceptionRes(parsedOutput, context);
     case "MaximumBranchesExceededException":
     case "com.amazonaws.codecommit#MaximumBranchesExceededException":
-      throw await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumBranchesExceededExceptionRes(parsedOutput, context);
     case "MaximumRepositoryTriggersExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryTriggersExceededException":
-      throw await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumRepositoryTriggersExceededExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerBranchNameListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerBranchNameListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerBranchNameListRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerDestinationArnRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerDestinationArnRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerDestinationArnRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerEventsListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerEventsListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerEventsListRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggersListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggersListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggersListRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6788,12 +7373,15 @@ const deserializeAws_json1_1PutRepositoryTriggersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
@@ -6802,7 +7390,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -6814,31 +7405,31 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      throw await deserializeAws_json1_1InvalidResourceArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceArnExceptionRes(parsedOutput, context);
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      throw await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSystemTagUsageExceptionRes(parsedOutput, context);
     case "InvalidTagsMapException":
     case "com.amazonaws.codecommit#InvalidTagsMapException":
-      throw await deserializeAws_json1_1InvalidTagsMapExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsMapExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TagsMapRequiredException":
     case "com.amazonaws.codecommit#TagsMapRequiredException":
-      throw await deserializeAws_json1_1TagsMapRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagsMapRequiredExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6850,16 +7441,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TestRepositoryTriggersCommand = async (
+/**
+ * deserializeAws_json1_1TestRepositoryTriggersCommand
+ */
+export const de_TestRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TestRepositoryTriggersCommandError(output, context);
+    return de_TestRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestRepositoryTriggersOutput(data, context);
+  contents = de_TestRepositoryTriggersOutput(data, context);
   const response: TestRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6867,7 +7461,10 @@ export const deserializeAws_json1_1TestRepositoryTriggersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TestRepositoryTriggersCommandError = async (
+/**
+ * deserializeAws_json1_1TestRepositoryTriggersCommandError
+ */
+const de_TestRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRepositoryTriggersCommandOutput> => {
@@ -6879,67 +7476,67 @@ const deserializeAws_json1_1TestRepositoryTriggersCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerBranchNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerBranchNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerBranchNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerCustomDataException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerCustomDataException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerCustomDataExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerDestinationArnException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerDestinationArnException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerDestinationArnExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerEventsException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerEventsException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerEventsExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryTriggerRegionException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerRegionException":
-      throw await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryTriggerRegionExceptionRes(parsedOutput, context);
     case "MaximumBranchesExceededException":
     case "com.amazonaws.codecommit#MaximumBranchesExceededException":
-      throw await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumBranchesExceededExceptionRes(parsedOutput, context);
     case "MaximumRepositoryTriggersExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryTriggersExceededException":
-      throw await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumRepositoryTriggersExceededExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerBranchNameListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerBranchNameListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerBranchNameListRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerDestinationArnRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerDestinationArnRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerDestinationArnRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerEventsListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerEventsListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerEventsListRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggerNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggerNameRequiredExceptionRes(parsedOutput, context);
     case "RepositoryTriggersListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggersListRequiredException":
-      throw await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryTriggersListRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6951,12 +7548,15 @@ const deserializeAws_json1_1TestRepositoryTriggersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
@@ -6965,7 +7565,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -6977,31 +7580,31 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      throw await deserializeAws_json1_1InvalidResourceArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceArnExceptionRes(parsedOutput, context);
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      throw await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSystemTagUsageExceptionRes(parsedOutput, context);
     case "InvalidTagKeysListException":
     case "com.amazonaws.codecommit#InvalidTagKeysListException":
-      throw await deserializeAws_json1_1InvalidTagKeysListExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagKeysListExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     case "TagKeysListRequiredException":
     case "com.amazonaws.codecommit#TagKeysListRequiredException":
-      throw await deserializeAws_json1_1TagKeysListRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagKeysListRequiredExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7013,16 +7616,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand
+ */
+export const de_UpdateApprovalRuleTemplateContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError(output, context);
+    return de_UpdateApprovalRuleTemplateContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput(data, context);
+  contents = de_UpdateApprovalRuleTemplateContentOutput(data, context);
   const response: UpdateApprovalRuleTemplateContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7030,7 +7636,10 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError
+ */
+const de_UpdateApprovalRuleTemplateContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
@@ -7042,22 +7651,22 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError = asyn
   switch (errorCode) {
     case "ApprovalRuleTemplateContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateContentRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateContentRequiredExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateContentException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateContentExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     case "InvalidRuleContentSha256Exception":
     case "com.amazonaws.codecommit#InvalidRuleContentSha256Exception":
-      throw await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleContentSha256ExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7069,16 +7678,19 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand
+ */
+export const de_UpdateApprovalRuleTemplateDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError(output, context);
+    return de_UpdateApprovalRuleTemplateDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput(data, context);
+  contents = de_UpdateApprovalRuleTemplateDescriptionOutput(data, context);
   const response: UpdateApprovalRuleTemplateDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7086,7 +7698,10 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError
+ */
+const de_UpdateApprovalRuleTemplateDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
@@ -7098,16 +7713,16 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError = 
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateDescriptionException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateDescriptionException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateDescriptionExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7119,16 +7734,19 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError = 
   }
 };
 
-export const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand
+ */
+export const de_UpdateApprovalRuleTemplateNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(output, context);
+    return de_UpdateApprovalRuleTemplateNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput(data, context);
+  contents = de_UpdateApprovalRuleTemplateNameOutput(data, context);
   const response: UpdateApprovalRuleTemplateNameCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7136,7 +7754,10 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError
+ */
+const de_UpdateApprovalRuleTemplateNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
@@ -7148,16 +7769,16 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError = async (
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameAlreadyExistsException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleTemplateNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7169,16 +7790,19 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateCommentCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCommentCommand
+ */
+export const de_UpdateCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCommentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCommentCommandError(output, context);
+    return de_UpdateCommentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCommentOutput(data, context);
+  contents = de_UpdateCommentOutput(data, context);
   const response: UpdateCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7186,7 +7810,10 @@ export const deserializeAws_json1_1UpdateCommentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateCommentCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCommentCommandError
+ */
+const de_UpdateCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCommentCommandOutput> => {
@@ -7198,25 +7825,25 @@ const deserializeAws_json1_1UpdateCommentCommandError = async (
   switch (errorCode) {
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      throw await deserializeAws_json1_1CommentContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentRequiredExceptionRes(parsedOutput, context);
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      throw await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CommentContentSizeLimitExceededExceptionRes(parsedOutput, context);
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      throw await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context);
+      throw await de_CommentDeletedExceptionRes(parsedOutput, context);
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      throw await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_CommentDoesNotExistExceptionRes(parsedOutput, context);
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      throw await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_CommentIdRequiredExceptionRes(parsedOutput, context);
     case "CommentNotCreatedByCallerException":
     case "com.amazonaws.codecommit#CommentNotCreatedByCallerException":
-      throw await deserializeAws_json1_1CommentNotCreatedByCallerExceptionResponse(parsedOutput, context);
+      throw await de_CommentNotCreatedByCallerExceptionRes(parsedOutput, context);
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      throw await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7228,12 +7855,15 @@ const deserializeAws_json1_1UpdateCommentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateDefaultBranchCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDefaultBranchCommand
+ */
+export const de_UpdateDefaultBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDefaultBranchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDefaultBranchCommandError(output, context);
+    return de_UpdateDefaultBranchCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateDefaultBranchCommandOutput = {
@@ -7242,7 +7872,10 @@ export const deserializeAws_json1_1UpdateDefaultBranchCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDefaultBranchCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDefaultBranchCommandError
+ */
+const de_UpdateDefaultBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDefaultBranchCommandOutput> => {
@@ -7254,37 +7887,37 @@ const deserializeAws_json1_1UpdateDefaultBranchCommandError = async (
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      throw await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_BranchDoesNotExistExceptionRes(parsedOutput, context);
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      throw await deserializeAws_json1_1BranchNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BranchNameRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      throw await deserializeAws_json1_1InvalidBranchNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBranchNameExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7296,16 +7929,19 @@ const deserializeAws_json1_1UpdateDefaultBranchCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
+ */
+export const de_UpdatePullRequestApprovalRuleContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError(output, context);
+    return de_UpdatePullRequestApprovalRuleContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput(data, context);
+  contents = de_UpdatePullRequestApprovalRuleContentOutput(data, context);
   const response: UpdatePullRequestApprovalRuleContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7313,7 +7949,10 @@ export const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError
+ */
+const de_UpdatePullRequestApprovalRuleContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
@@ -7325,52 +7964,52 @@ const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError = a
   switch (errorCode) {
     case "ApprovalRuleContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleContentRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleContentRequiredExceptionRes(parsedOutput, context);
     case "ApprovalRuleDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleDoesNotExistException":
-      throw await deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleDoesNotExistExceptionRes(parsedOutput, context);
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      throw await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalRuleNameRequiredExceptionRes(parsedOutput, context);
     case "CannotModifyApprovalRuleFromTemplateException":
     case "com.amazonaws.codecommit#CannotModifyApprovalRuleFromTemplateException":
-      throw await deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionResponse(parsedOutput, context);
+      throw await de_CannotModifyApprovalRuleFromTemplateExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleContentException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleContentExceptionRes(parsedOutput, context);
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      throw await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalRuleNameExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRuleContentSha256Exception":
     case "com.amazonaws.codecommit#InvalidRuleContentSha256Exception":
-      throw await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleContentSha256ExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7382,12 +8021,15 @@ const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError = a
   }
 };
 
-export const deserializeAws_json1_1UpdatePullRequestApprovalStateCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestApprovalStateCommand
+ */
+export const de_UpdatePullRequestApprovalStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(output, context);
+    return de_UpdatePullRequestApprovalStateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdatePullRequestApprovalStateCommandOutput = {
@@ -7396,7 +8038,10 @@ export const deserializeAws_json1_1UpdatePullRequestApprovalStateCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError
+ */
+const de_UpdatePullRequestApprovalStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
@@ -7408,52 +8053,52 @@ const deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError = async (
   switch (errorCode) {
     case "ApprovalStateRequiredException":
     case "com.amazonaws.codecommit#ApprovalStateRequiredException":
-      throw await deserializeAws_json1_1ApprovalStateRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApprovalStateRequiredExceptionRes(parsedOutput, context);
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidApprovalStateException":
     case "com.amazonaws.codecommit#InvalidApprovalStateException":
-      throw await deserializeAws_json1_1InvalidApprovalStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApprovalStateExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      throw await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionIdExceptionRes(parsedOutput, context);
     case "MaximumNumberOfApprovalsExceededException":
     case "com.amazonaws.codecommit#MaximumNumberOfApprovalsExceededException":
-      throw await deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionResponse(parsedOutput, context);
+      throw await de_MaximumNumberOfApprovalsExceededExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestCannotBeApprovedByAuthorException":
     case "com.amazonaws.codecommit#PullRequestCannotBeApprovedByAuthorException":
-      throw await deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestCannotBeApprovedByAuthorExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      throw await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      throw await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(parsedOutput, context);
+      throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7465,16 +8110,19 @@ const deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestDescriptionCommand
+ */
+export const de_UpdatePullRequestDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(output, context);
+    return de_UpdatePullRequestDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestDescriptionOutput(data, context);
+  contents = de_UpdatePullRequestDescriptionOutput(data, context);
   const response: UpdatePullRequestDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7482,7 +8130,10 @@ export const deserializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePullRequestDescriptionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestDescriptionCommandError
+ */
+const de_UpdatePullRequestDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestDescriptionCommandOutput> => {
@@ -7494,19 +8145,19 @@ const deserializeAws_json1_1UpdatePullRequestDescriptionCommandError = async (
   switch (errorCode) {
     case "InvalidDescriptionException":
     case "com.amazonaws.codecommit#InvalidDescriptionException":
-      throw await deserializeAws_json1_1InvalidDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDescriptionExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7518,16 +8169,19 @@ const deserializeAws_json1_1UpdatePullRequestDescriptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePullRequestStatusCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestStatusCommand
+ */
+export const de_UpdatePullRequestStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePullRequestStatusCommandError(output, context);
+    return de_UpdatePullRequestStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestStatusOutput(data, context);
+  contents = de_UpdatePullRequestStatusOutput(data, context);
   const response: UpdatePullRequestStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7535,7 +8189,10 @@ export const deserializeAws_json1_1UpdatePullRequestStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePullRequestStatusCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestStatusCommandError
+ */
+const de_UpdatePullRequestStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestStatusCommandOutput> => {
@@ -7547,37 +8204,37 @@ const deserializeAws_json1_1UpdatePullRequestStatusCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidPullRequestStatusException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusException":
-      throw await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestStatusExceptionRes(parsedOutput, context);
     case "InvalidPullRequestStatusUpdateException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusUpdateException":
-      throw await deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestStatusUpdateExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "PullRequestStatusRequiredException":
     case "com.amazonaws.codecommit#PullRequestStatusRequiredException":
-      throw await deserializeAws_json1_1PullRequestStatusRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestStatusRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7589,16 +8246,19 @@ const deserializeAws_json1_1UpdatePullRequestStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePullRequestTitleCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestTitleCommand
+ */
+export const de_UpdatePullRequestTitleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestTitleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePullRequestTitleCommandError(output, context);
+    return de_UpdatePullRequestTitleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestTitleOutput(data, context);
+  contents = de_UpdatePullRequestTitleOutput(data, context);
   const response: UpdatePullRequestTitleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7606,7 +8266,10 @@ export const deserializeAws_json1_1UpdatePullRequestTitleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePullRequestTitleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePullRequestTitleCommandError
+ */
+const de_UpdatePullRequestTitleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestTitleCommandOutput> => {
@@ -7618,22 +8281,22 @@ const deserializeAws_json1_1UpdatePullRequestTitleCommandError = async (
   switch (errorCode) {
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      throw await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPullRequestIdExceptionRes(parsedOutput, context);
     case "InvalidTitleException":
     case "com.amazonaws.codecommit#InvalidTitleException":
-      throw await deserializeAws_json1_1InvalidTitleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTitleExceptionRes(parsedOutput, context);
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      throw await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestAlreadyClosedExceptionRes(parsedOutput, context);
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      throw await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestDoesNotExistExceptionRes(parsedOutput, context);
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      throw await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     case "TitleRequiredException":
     case "com.amazonaws.codecommit#TitleRequiredException":
-      throw await deserializeAws_json1_1TitleRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TitleRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7645,12 +8308,15 @@ const deserializeAws_json1_1UpdatePullRequestTitleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateRepositoryDescriptionCommand
+ */
+export const de_UpdateRepositoryDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(output, context);
+    return de_UpdateRepositoryDescriptionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateRepositoryDescriptionCommandOutput = {
@@ -7659,7 +8325,10 @@ export const deserializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateRepositoryDescriptionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateRepositoryDescriptionCommandError
+ */
+const de_UpdateRepositoryDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryDescriptionCommandOutput> => {
@@ -7671,31 +8340,31 @@ const deserializeAws_json1_1UpdateRepositoryDescriptionCommandError = async (
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      throw await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      throw await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      throw await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      throw await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      throw await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
     case "InvalidRepositoryDescriptionException":
     case "com.amazonaws.codecommit#InvalidRepositoryDescriptionException":
-      throw await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryDescriptionExceptionRes(parsedOutput, context);
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7707,12 +8376,15 @@ const deserializeAws_json1_1UpdateRepositoryDescriptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateRepositoryNameCommand = async (
+/**
+ * deserializeAws_json1_1UpdateRepositoryNameCommand
+ */
+export const de_UpdateRepositoryNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryNameCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateRepositoryNameCommandError(output, context);
+    return de_UpdateRepositoryNameCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateRepositoryNameCommandOutput = {
@@ -7721,7 +8393,10 @@ export const deserializeAws_json1_1UpdateRepositoryNameCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateRepositoryNameCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateRepositoryNameCommandError
+ */
+const de_UpdateRepositoryNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryNameCommandOutput> => {
@@ -7733,16 +8408,16 @@ const deserializeAws_json1_1UpdateRepositoryNameCommandError = async (
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      throw await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      throw await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
     case "RepositoryNameExistsException":
     case "com.amazonaws.codecommit#RepositoryNameExistsException":
-      throw await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameExistsExceptionRes(parsedOutput, context);
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      throw await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7754,12 +8429,15 @@ const deserializeAws_json1_1UpdateRepositoryNameCommandError = async (
   }
 };
 
-const deserializeAws_json1_1ActorDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ActorDoesNotExistExceptionRes
+ */
+const de_ActorDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ActorDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ActorDoesNotExistException(body, context);
+  const deserialized: any = de_ActorDoesNotExistException(body, context);
   const exception = new ActorDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7767,12 +8445,15 @@ const deserializeAws_json1_1ActorDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleContentRequiredExceptionRes
+ */
+const de_ApprovalRuleContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleContentRequiredException(body, context);
+  const deserialized: any = de_ApprovalRuleContentRequiredException(body, context);
   const exception = new ApprovalRuleContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7780,12 +8461,15 @@ const deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionRes
+ */
+const de_ApprovalRuleDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleDoesNotExistException(body, context);
+  const deserialized: any = de_ApprovalRuleDoesNotExistException(body, context);
   const exception = new ApprovalRuleDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7793,12 +8477,15 @@ const deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionRes
+ */
+const de_ApprovalRuleNameAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleNameAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException(body, context);
+  const deserialized: any = de_ApprovalRuleNameAlreadyExistsException(body, context);
   const exception = new ApprovalRuleNameAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7806,12 +8493,15 @@ const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleNameRequiredExceptionRes
+ */
+const de_ApprovalRuleNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleNameRequiredException(body, context);
+  const deserialized: any = de_ApprovalRuleNameRequiredException(body, context);
   const exception = new ApprovalRuleNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7819,12 +8509,15 @@ const deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionRes
+ */
+const de_ApprovalRuleTemplateContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException(body, context);
+  const deserialized: any = de_ApprovalRuleTemplateContentRequiredException(body, context);
   const exception = new ApprovalRuleTemplateContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7832,12 +8525,15 @@ const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionRes
+ */
+const de_ApprovalRuleTemplateDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException(body, context);
+  const deserialized: any = de_ApprovalRuleTemplateDoesNotExistException(body, context);
   const exception = new ApprovalRuleTemplateDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7845,12 +8541,15 @@ const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionRes
+ */
+const de_ApprovalRuleTemplateInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleTemplateInUseException(body, context);
+  const deserialized: any = de_ApprovalRuleTemplateInUseException(body, context);
   const exception = new ApprovalRuleTemplateInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7858,12 +8557,15 @@ const deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionRes
+ */
+const de_ApprovalRuleTemplateNameAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateNameAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException(body, context);
+  const deserialized: any = de_ApprovalRuleTemplateNameAlreadyExistsException(body, context);
   const exception = new ApprovalRuleTemplateNameAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7871,12 +8573,15 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionRespon
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionRes
+ */
+const de_ApprovalRuleTemplateNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException(body, context);
+  const deserialized: any = de_ApprovalRuleTemplateNameRequiredException(body, context);
   const exception = new ApprovalRuleTemplateNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7884,12 +8589,15 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApprovalStateRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApprovalStateRequiredExceptionRes
+ */
+const de_ApprovalStateRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApprovalStateRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApprovalStateRequiredException(body, context);
+  const deserialized: any = de_ApprovalStateRequiredException(body, context);
   const exception = new ApprovalStateRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7897,12 +8605,15 @@ const deserializeAws_json1_1ApprovalStateRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AuthorDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AuthorDoesNotExistExceptionRes
+ */
+const de_AuthorDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AuthorDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AuthorDoesNotExistException(body, context);
+  const deserialized: any = de_AuthorDoesNotExistException(body, context);
   const exception = new AuthorDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7910,12 +8621,15 @@ const deserializeAws_json1_1AuthorDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionRes
+ */
+const de_BeforeCommitIdAndAfterCommitIdAreSameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BeforeCommitIdAndAfterCommitIdAreSameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException(body, context);
+  const deserialized: any = de_BeforeCommitIdAndAfterCommitIdAreSameException(body, context);
   const exception = new BeforeCommitIdAndAfterCommitIdAreSameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7923,12 +8637,15 @@ const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionRespon
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BlobIdDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BlobIdDoesNotExistExceptionRes
+ */
+const de_BlobIdDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BlobIdDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BlobIdDoesNotExistException(body, context);
+  const deserialized: any = de_BlobIdDoesNotExistException(body, context);
   const exception = new BlobIdDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7936,12 +8653,15 @@ const deserializeAws_json1_1BlobIdDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BlobIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BlobIdRequiredExceptionRes
+ */
+const de_BlobIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BlobIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BlobIdRequiredException(body, context);
+  const deserialized: any = de_BlobIdRequiredException(body, context);
   const exception = new BlobIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7949,12 +8669,15 @@ const deserializeAws_json1_1BlobIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BranchDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BranchDoesNotExistExceptionRes
+ */
+const de_BranchDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BranchDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BranchDoesNotExistException(body, context);
+  const deserialized: any = de_BranchDoesNotExistException(body, context);
   const exception = new BranchDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7962,12 +8685,15 @@ const deserializeAws_json1_1BranchDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BranchNameExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BranchNameExistsExceptionRes
+ */
+const de_BranchNameExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BranchNameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BranchNameExistsException(body, context);
+  const deserialized: any = de_BranchNameExistsException(body, context);
   const exception = new BranchNameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7975,12 +8701,15 @@ const deserializeAws_json1_1BranchNameExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BranchNameIsTagNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BranchNameIsTagNameExceptionRes
+ */
+const de_BranchNameIsTagNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BranchNameIsTagNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BranchNameIsTagNameException(body, context);
+  const deserialized: any = de_BranchNameIsTagNameException(body, context);
   const exception = new BranchNameIsTagNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7988,12 +8717,15 @@ const deserializeAws_json1_1BranchNameIsTagNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BranchNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BranchNameRequiredExceptionRes
+ */
+const de_BranchNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BranchNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BranchNameRequiredException(body, context);
+  const deserialized: any = de_BranchNameRequiredException(body, context);
   const exception = new BranchNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8001,12 +8733,15 @@ const deserializeAws_json1_1BranchNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionRes
+ */
+const de_CannotDeleteApprovalRuleFromTemplateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CannotDeleteApprovalRuleFromTemplateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException(body, context);
+  const deserialized: any = de_CannotDeleteApprovalRuleFromTemplateException(body, context);
   const exception = new CannotDeleteApprovalRuleFromTemplateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8014,12 +8749,15 @@ const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionRespons
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionRes
+ */
+const de_CannotModifyApprovalRuleFromTemplateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CannotModifyApprovalRuleFromTemplateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException(body, context);
+  const deserialized: any = de_CannotModifyApprovalRuleFromTemplateException(body, context);
   const exception = new CannotModifyApprovalRuleFromTemplateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8027,12 +8765,15 @@ const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionRespons
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ClientRequestTokenRequiredExceptionRes
+ */
+const de_ClientRequestTokenRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientRequestTokenRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ClientRequestTokenRequiredException(body, context);
+  const deserialized: any = de_ClientRequestTokenRequiredException(body, context);
   const exception = new ClientRequestTokenRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8040,12 +8781,15 @@ const deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentContentRequiredExceptionRes
+ */
+const de_CommentContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentContentRequiredException(body, context);
+  const deserialized: any = de_CommentContentRequiredException(body, context);
   const exception = new CommentContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8053,12 +8797,15 @@ const deserializeAws_json1_1CommentContentRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentContentSizeLimitExceededExceptionRes
+ */
+const de_CommentContentSizeLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentContentSizeLimitExceededException(body, context);
+  const deserialized: any = de_CommentContentSizeLimitExceededException(body, context);
   const exception = new CommentContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8066,12 +8813,15 @@ const deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentDeletedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentDeletedExceptionRes
+ */
+const de_CommentDeletedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentDeletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentDeletedException(body, context);
+  const deserialized: any = de_CommentDeletedException(body, context);
   const exception = new CommentDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8079,12 +8829,15 @@ const deserializeAws_json1_1CommentDeletedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentDoesNotExistExceptionRes
+ */
+const de_CommentDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentDoesNotExistException(body, context);
+  const deserialized: any = de_CommentDoesNotExistException(body, context);
   const exception = new CommentDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8092,12 +8845,15 @@ const deserializeAws_json1_1CommentDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentIdRequiredExceptionRes
+ */
+const de_CommentIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentIdRequiredException(body, context);
+  const deserialized: any = de_CommentIdRequiredException(body, context);
   const exception = new CommentIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8105,12 +8861,15 @@ const deserializeAws_json1_1CommentIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommentNotCreatedByCallerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommentNotCreatedByCallerExceptionRes
+ */
+const de_CommentNotCreatedByCallerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommentNotCreatedByCallerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommentNotCreatedByCallerException(body, context);
+  const deserialized: any = de_CommentNotCreatedByCallerException(body, context);
   const exception = new CommentNotCreatedByCallerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8118,12 +8877,15 @@ const deserializeAws_json1_1CommentNotCreatedByCallerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitDoesNotExistExceptionRes
+ */
+const de_CommitDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitDoesNotExistException(body, context);
+  const deserialized: any = de_CommitDoesNotExistException(body, context);
   const exception = new CommitDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8131,12 +8893,15 @@ const deserializeAws_json1_1CommitDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitIdDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitIdDoesNotExistExceptionRes
+ */
+const de_CommitIdDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitIdDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitIdDoesNotExistException(body, context);
+  const deserialized: any = de_CommitIdDoesNotExistException(body, context);
   const exception = new CommitIdDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8144,12 +8909,15 @@ const deserializeAws_json1_1CommitIdDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitIdRequiredExceptionRes
+ */
+const de_CommitIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitIdRequiredException(body, context);
+  const deserialized: any = de_CommitIdRequiredException(body, context);
   const exception = new CommitIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8157,12 +8925,15 @@ const deserializeAws_json1_1CommitIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitIdsLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitIdsLimitExceededExceptionRes
+ */
+const de_CommitIdsLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitIdsLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitIdsLimitExceededException(body, context);
+  const deserialized: any = de_CommitIdsLimitExceededException(body, context);
   const exception = new CommitIdsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8170,12 +8941,15 @@ const deserializeAws_json1_1CommitIdsLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitIdsListRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitIdsListRequiredExceptionRes
+ */
+const de_CommitIdsListRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitIdsListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitIdsListRequiredException(body, context);
+  const deserialized: any = de_CommitIdsListRequiredException(body, context);
   const exception = new CommitIdsListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8183,12 +8957,15 @@ const deserializeAws_json1_1CommitIdsListRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitMessageLengthExceededExceptionRes
+ */
+const de_CommitMessageLengthExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitMessageLengthExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitMessageLengthExceededException(body, context);
+  const deserialized: any = de_CommitMessageLengthExceededException(body, context);
   const exception = new CommitMessageLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8196,12 +8973,15 @@ const deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CommitRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CommitRequiredExceptionRes
+ */
+const de_CommitRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CommitRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CommitRequiredException(body, context);
+  const deserialized: any = de_CommitRequiredException(body, context);
   const exception = new CommitRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8209,12 +8989,15 @@ const deserializeAws_json1_1CommitRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentReferenceUpdateExceptionRes
+ */
+const de_ConcurrentReferenceUpdateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentReferenceUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentReferenceUpdateException(body, context);
+  const deserialized: any = de_ConcurrentReferenceUpdateException(body, context);
   const exception = new ConcurrentReferenceUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8222,12 +9005,15 @@ const deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionRes
+ */
+const de_DefaultBranchCannotBeDeletedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DefaultBranchCannotBeDeletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DefaultBranchCannotBeDeletedException(body, context);
+  const deserialized: any = de_DefaultBranchCannotBeDeletedException(body, context);
   const exception = new DefaultBranchCannotBeDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8235,12 +9021,15 @@ const deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionRes
+ */
+const de_DirectoryNameConflictsWithFileNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryNameConflictsWithFileNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DirectoryNameConflictsWithFileNameException(body, context);
+  const deserialized: any = de_DirectoryNameConflictsWithFileNameException(body, context);
   const exception = new DirectoryNameConflictsWithFileNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8248,12 +9037,15 @@ const deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionRes
+ */
+const de_EncryptionIntegrityChecksFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EncryptionIntegrityChecksFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionIntegrityChecksFailedException(body, context);
+  const deserialized: any = de_EncryptionIntegrityChecksFailedException(body, context);
   const exception = new EncryptionIntegrityChecksFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8261,12 +9053,15 @@ const deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionRes
+ */
+const de_EncryptionKeyAccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EncryptionKeyAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionKeyAccessDeniedException(body, context);
+  const deserialized: any = de_EncryptionKeyAccessDeniedException(body, context);
   const exception = new EncryptionKeyAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8274,12 +9069,15 @@ const deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EncryptionKeyDisabledExceptionRes
+ */
+const de_EncryptionKeyDisabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EncryptionKeyDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionKeyDisabledException(body, context);
+  const deserialized: any = de_EncryptionKeyDisabledException(body, context);
   const exception = new EncryptionKeyDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8287,12 +9085,15 @@ const deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EncryptionKeyNotFoundExceptionRes
+ */
+const de_EncryptionKeyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EncryptionKeyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionKeyNotFoundException(body, context);
+  const deserialized: any = de_EncryptionKeyNotFoundException(body, context);
   const exception = new EncryptionKeyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8300,12 +9101,15 @@ const deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EncryptionKeyUnavailableExceptionRes
+ */
+const de_EncryptionKeyUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EncryptionKeyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionKeyUnavailableException(body, context);
+  const deserialized: any = de_EncryptionKeyUnavailableException(body, context);
   const exception = new EncryptionKeyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8313,12 +9117,15 @@ const deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionRes
+ */
+const de_FileContentAndSourceFileSpecifiedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileContentAndSourceFileSpecifiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileContentAndSourceFileSpecifiedException(body, context);
+  const deserialized: any = de_FileContentAndSourceFileSpecifiedException(body, context);
   const exception = new FileContentAndSourceFileSpecifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8326,12 +9133,15 @@ const deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileContentRequiredExceptionRes
+ */
+const de_FileContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileContentRequiredException(body, context);
+  const deserialized: any = de_FileContentRequiredException(body, context);
   const exception = new FileContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8339,12 +9149,15 @@ const deserializeAws_json1_1FileContentRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileContentSizeLimitExceededExceptionRes
+ */
+const de_FileContentSizeLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileContentSizeLimitExceededException(body, context);
+  const deserialized: any = de_FileContentSizeLimitExceededException(body, context);
   const exception = new FileContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8352,12 +9165,15 @@ const deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileDoesNotExistExceptionRes
+ */
+const de_FileDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileDoesNotExistException(body, context);
+  const deserialized: any = de_FileDoesNotExistException(body, context);
   const exception = new FileDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8365,12 +9181,15 @@ const deserializeAws_json1_1FileDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileEntryRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileEntryRequiredExceptionRes
+ */
+const de_FileEntryRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileEntryRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileEntryRequiredException(body, context);
+  const deserialized: any = de_FileEntryRequiredException(body, context);
   const exception = new FileEntryRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8378,12 +9197,15 @@ const deserializeAws_json1_1FileEntryRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileModeRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileModeRequiredExceptionRes
+ */
+const de_FileModeRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileModeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileModeRequiredException(body, context);
+  const deserialized: any = de_FileModeRequiredException(body, context);
   const exception = new FileModeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8391,12 +9213,15 @@ const deserializeAws_json1_1FileModeRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionRes
+ */
+const de_FileNameConflictsWithDirectoryNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileNameConflictsWithDirectoryNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileNameConflictsWithDirectoryNameException(body, context);
+  const deserialized: any = de_FileNameConflictsWithDirectoryNameException(body, context);
   const exception = new FileNameConflictsWithDirectoryNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8404,12 +9229,15 @@ const deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionRes
+ */
+const de_FilePathConflictsWithSubmodulePathExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FilePathConflictsWithSubmodulePathException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FilePathConflictsWithSubmodulePathException(body, context);
+  const deserialized: any = de_FilePathConflictsWithSubmodulePathException(body, context);
   const exception = new FilePathConflictsWithSubmodulePathException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8417,12 +9245,15 @@ const deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FileTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FileTooLargeExceptionRes
+ */
+const de_FileTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileTooLargeException(body, context);
+  const deserialized: any = de_FileTooLargeException(body, context);
   const exception = new FileTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8430,12 +9261,15 @@ const deserializeAws_json1_1FileTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FolderContentSizeLimitExceededExceptionRes
+ */
+const de_FolderContentSizeLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FolderContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FolderContentSizeLimitExceededException(body, context);
+  const deserialized: any = de_FolderContentSizeLimitExceededException(body, context);
   const exception = new FolderContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8443,12 +9277,15 @@ const deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FolderDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FolderDoesNotExistExceptionRes
+ */
+const de_FolderDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FolderDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FolderDoesNotExistException(body, context);
+  const deserialized: any = de_FolderDoesNotExistException(body, context);
   const exception = new FolderDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8456,12 +9293,15 @@ const deserializeAws_json1_1FolderDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IdempotencyParameterMismatchExceptionRes
+ */
+const de_IdempotencyParameterMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotencyParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IdempotencyParameterMismatchException(body, context);
+  const deserialized: any = de_IdempotencyParameterMismatchException(body, context);
   const exception = new IdempotencyParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8469,12 +9309,15 @@ const deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidActorArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidActorArnExceptionRes
+ */
+const de_InvalidActorArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidActorArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidActorArnException(body, context);
+  const deserialized: any = de_InvalidActorArnException(body, context);
   const exception = new InvalidActorArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8482,12 +9325,15 @@ const deserializeAws_json1_1InvalidActorArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleContentExceptionRes
+ */
+const de_InvalidApprovalRuleContentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalRuleContentException(body, context);
+  const deserialized: any = de_InvalidApprovalRuleContentException(body, context);
   const exception = new InvalidApprovalRuleContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8495,12 +9341,15 @@ const deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleNameExceptionRes
+ */
+const de_InvalidApprovalRuleNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalRuleNameException(body, context);
+  const deserialized: any = de_InvalidApprovalRuleNameException(body, context);
   const exception = new InvalidApprovalRuleNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8508,12 +9357,15 @@ const deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionRes
+ */
+const de_InvalidApprovalRuleTemplateContentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalRuleTemplateContentException(body, context);
+  const deserialized: any = de_InvalidApprovalRuleTemplateContentException(body, context);
   const exception = new InvalidApprovalRuleTemplateContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8521,12 +9373,15 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionRes
+ */
+const de_InvalidApprovalRuleTemplateDescriptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException(body, context);
+  const deserialized: any = de_InvalidApprovalRuleTemplateDescriptionException(body, context);
   const exception = new InvalidApprovalRuleTemplateDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8534,12 +9389,15 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionRespo
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionRes
+ */
+const de_InvalidApprovalRuleTemplateNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalRuleTemplateNameException(body, context);
+  const deserialized: any = de_InvalidApprovalRuleTemplateNameException(body, context);
   const exception = new InvalidApprovalRuleTemplateNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8547,12 +9405,15 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApprovalStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApprovalStateExceptionRes
+ */
+const de_InvalidApprovalStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalStateException(body, context);
+  const deserialized: any = de_InvalidApprovalStateException(body, context);
   const exception = new InvalidApprovalStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8560,12 +9421,15 @@ const deserializeAws_json1_1InvalidApprovalStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAuthorArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAuthorArnExceptionRes
+ */
+const de_InvalidAuthorArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAuthorArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAuthorArnException(body, context);
+  const deserialized: any = de_InvalidAuthorArnException(body, context);
   const exception = new InvalidAuthorArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8573,12 +9437,15 @@ const deserializeAws_json1_1InvalidAuthorArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidBlobIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidBlobIdExceptionRes
+ */
+const de_InvalidBlobIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBlobIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidBlobIdException(body, context);
+  const deserialized: any = de_InvalidBlobIdException(body, context);
   const exception = new InvalidBlobIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8586,12 +9453,15 @@ const deserializeAws_json1_1InvalidBlobIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidBranchNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidBranchNameExceptionRes
+ */
+const de_InvalidBranchNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBranchNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidBranchNameException(body, context);
+  const deserialized: any = de_InvalidBranchNameException(body, context);
   const exception = new InvalidBranchNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8599,12 +9469,15 @@ const deserializeAws_json1_1InvalidBranchNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidClientRequestTokenExceptionRes
+ */
+const de_InvalidClientRequestTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClientRequestTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidClientRequestTokenException(body, context);
+  const deserialized: any = de_InvalidClientRequestTokenException(body, context);
   const exception = new InvalidClientRequestTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8612,12 +9485,15 @@ const deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidCommentIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidCommentIdExceptionRes
+ */
+const de_InvalidCommentIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCommentIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidCommentIdException(body, context);
+  const deserialized: any = de_InvalidCommentIdException(body, context);
   const exception = new InvalidCommentIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8625,12 +9501,15 @@ const deserializeAws_json1_1InvalidCommentIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidCommitExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidCommitExceptionRes
+ */
+const de_InvalidCommitExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCommitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidCommitException(body, context);
+  const deserialized: any = de_InvalidCommitException(body, context);
   const exception = new InvalidCommitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8638,12 +9517,15 @@ const deserializeAws_json1_1InvalidCommitExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidCommitIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidCommitIdExceptionRes
+ */
+const de_InvalidCommitIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCommitIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidCommitIdException(body, context);
+  const deserialized: any = de_InvalidCommitIdException(body, context);
   const exception = new InvalidCommitIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8651,12 +9533,15 @@ const deserializeAws_json1_1InvalidCommitIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidConflictDetailLevelExceptionRes
+ */
+const de_InvalidConflictDetailLevelExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidConflictDetailLevelException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidConflictDetailLevelException(body, context);
+  const deserialized: any = de_InvalidConflictDetailLevelException(body, context);
   const exception = new InvalidConflictDetailLevelException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8664,12 +9549,15 @@ const deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidConflictResolutionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidConflictResolutionExceptionRes
+ */
+const de_InvalidConflictResolutionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidConflictResolutionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidConflictResolutionException(body, context);
+  const deserialized: any = de_InvalidConflictResolutionException(body, context);
   const exception = new InvalidConflictResolutionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8677,12 +9565,15 @@ const deserializeAws_json1_1InvalidConflictResolutionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionRes
+ */
+const de_InvalidConflictResolutionStrategyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidConflictResolutionStrategyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidConflictResolutionStrategyException(body, context);
+  const deserialized: any = de_InvalidConflictResolutionStrategyException(body, context);
   const exception = new InvalidConflictResolutionStrategyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8690,12 +9581,15 @@ const deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidContinuationTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidContinuationTokenExceptionRes
+ */
+const de_InvalidContinuationTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidContinuationTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidContinuationTokenException(body, context);
+  const deserialized: any = de_InvalidContinuationTokenException(body, context);
   const exception = new InvalidContinuationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8703,12 +9597,15 @@ const deserializeAws_json1_1InvalidContinuationTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeletionParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeletionParameterExceptionRes
+ */
+const de_InvalidDeletionParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeletionParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeletionParameterException(body, context);
+  const deserialized: any = de_InvalidDeletionParameterException(body, context);
   const exception = new InvalidDeletionParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8716,12 +9613,15 @@ const deserializeAws_json1_1InvalidDeletionParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDescriptionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDescriptionExceptionRes
+ */
+const de_InvalidDescriptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDescriptionException(body, context);
+  const deserialized: any = de_InvalidDescriptionException(body, context);
   const exception = new InvalidDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8729,12 +9629,15 @@ const deserializeAws_json1_1InvalidDescriptionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionRes
+ */
+const de_InvalidDestinationCommitSpecifierExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDestinationCommitSpecifierException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDestinationCommitSpecifierException(body, context);
+  const deserialized: any = de_InvalidDestinationCommitSpecifierException(body, context);
   const exception = new InvalidDestinationCommitSpecifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8742,12 +9645,15 @@ const deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidEmailExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidEmailExceptionRes
+ */
+const de_InvalidEmailExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEmailException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEmailException(body, context);
+  const deserialized: any = de_InvalidEmailException(body, context);
   const exception = new InvalidEmailException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8755,12 +9661,15 @@ const deserializeAws_json1_1InvalidEmailExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidFileLocationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidFileLocationExceptionRes
+ */
+const de_InvalidFileLocationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFileLocationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidFileLocationException(body, context);
+  const deserialized: any = de_InvalidFileLocationException(body, context);
   const exception = new InvalidFileLocationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8768,12 +9677,15 @@ const deserializeAws_json1_1InvalidFileLocationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidFileModeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidFileModeExceptionRes
+ */
+const de_InvalidFileModeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFileModeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidFileModeException(body, context);
+  const deserialized: any = de_InvalidFileModeException(body, context);
   const exception = new InvalidFileModeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8781,12 +9693,15 @@ const deserializeAws_json1_1InvalidFileModeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidFilePositionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidFilePositionExceptionRes
+ */
+const de_InvalidFilePositionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFilePositionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidFilePositionException(body, context);
+  const deserialized: any = de_InvalidFilePositionException(body, context);
   const exception = new InvalidFilePositionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8794,12 +9709,15 @@ const deserializeAws_json1_1InvalidFilePositionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMaxConflictFilesExceptionRes
+ */
+const de_InvalidMaxConflictFilesExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMaxConflictFilesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMaxConflictFilesException(body, context);
+  const deserialized: any = de_InvalidMaxConflictFilesException(body, context);
   const exception = new InvalidMaxConflictFilesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8807,12 +9725,15 @@ const deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMaxMergeHunksExceptionRes
+ */
+const de_InvalidMaxMergeHunksExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMaxMergeHunksException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMaxMergeHunksException(body, context);
+  const deserialized: any = de_InvalidMaxMergeHunksException(body, context);
   const exception = new InvalidMaxMergeHunksException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8820,12 +9741,15 @@ const deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMaxResultsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMaxResultsExceptionRes
+ */
+const de_InvalidMaxResultsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMaxResultsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMaxResultsException(body, context);
+  const deserialized: any = de_InvalidMaxResultsException(body, context);
   const exception = new InvalidMaxResultsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8833,12 +9757,15 @@ const deserializeAws_json1_1InvalidMaxResultsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMergeOptionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMergeOptionExceptionRes
+ */
+const de_InvalidMergeOptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMergeOptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMergeOptionException(body, context);
+  const deserialized: any = de_InvalidMergeOptionException(body, context);
   const exception = new InvalidMergeOptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8846,12 +9773,15 @@ const deserializeAws_json1_1InvalidMergeOptionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOrderExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOrderExceptionRes
+ */
+const de_InvalidOrderExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOrderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOrderException(body, context);
+  const deserialized: any = de_InvalidOrderException(body, context);
   const exception = new InvalidOrderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8859,12 +9789,15 @@ const deserializeAws_json1_1InvalidOrderExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOverrideStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOverrideStatusExceptionRes
+ */
+const de_InvalidOverrideStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOverrideStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOverrideStatusException(body, context);
+  const deserialized: any = de_InvalidOverrideStatusException(body, context);
   const exception = new InvalidOverrideStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8872,12 +9805,15 @@ const deserializeAws_json1_1InvalidOverrideStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParentCommitIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParentCommitIdExceptionRes
+ */
+const de_InvalidParentCommitIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParentCommitIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParentCommitIdException(body, context);
+  const deserialized: any = de_InvalidParentCommitIdException(body, context);
   const exception = new InvalidParentCommitIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8885,12 +9821,15 @@ const deserializeAws_json1_1InvalidParentCommitIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPathExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPathExceptionRes
+ */
+const de_InvalidPathExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPathException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPathException(body, context);
+  const deserialized: any = de_InvalidPathException(body, context);
   const exception = new InvalidPathException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8898,12 +9837,15 @@ const deserializeAws_json1_1InvalidPathExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPullRequestEventTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPullRequestEventTypeExceptionRes
+ */
+const de_InvalidPullRequestEventTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPullRequestEventTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPullRequestEventTypeException(body, context);
+  const deserialized: any = de_InvalidPullRequestEventTypeException(body, context);
   const exception = new InvalidPullRequestEventTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8911,12 +9853,15 @@ const deserializeAws_json1_1InvalidPullRequestEventTypeExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPullRequestIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPullRequestIdExceptionRes
+ */
+const de_InvalidPullRequestIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPullRequestIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPullRequestIdException(body, context);
+  const deserialized: any = de_InvalidPullRequestIdException(body, context);
   const exception = new InvalidPullRequestIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8924,12 +9869,15 @@ const deserializeAws_json1_1InvalidPullRequestIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPullRequestStatusExceptionRes
+ */
+const de_InvalidPullRequestStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPullRequestStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPullRequestStatusException(body, context);
+  const deserialized: any = de_InvalidPullRequestStatusException(body, context);
   const exception = new InvalidPullRequestStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8937,12 +9885,15 @@ const deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionRes
+ */
+const de_InvalidPullRequestStatusUpdateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPullRequestStatusUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPullRequestStatusUpdateException(body, context);
+  const deserialized: any = de_InvalidPullRequestStatusUpdateException(body, context);
   const exception = new InvalidPullRequestStatusUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8950,12 +9901,15 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidReactionUserArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidReactionUserArnExceptionRes
+ */
+const de_InvalidReactionUserArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReactionUserArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidReactionUserArnException(body, context);
+  const deserialized: any = de_InvalidReactionUserArnException(body, context);
   const exception = new InvalidReactionUserArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8963,12 +9917,15 @@ const deserializeAws_json1_1InvalidReactionUserArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidReactionValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidReactionValueExceptionRes
+ */
+const de_InvalidReactionValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReactionValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidReactionValueException(body, context);
+  const deserialized: any = de_InvalidReactionValueException(body, context);
   const exception = new InvalidReactionValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8976,12 +9933,15 @@ const deserializeAws_json1_1InvalidReactionValueExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidReferenceNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidReferenceNameExceptionRes
+ */
+const de_InvalidReferenceNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReferenceNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidReferenceNameException(body, context);
+  const deserialized: any = de_InvalidReferenceNameException(body, context);
   const exception = new InvalidReferenceNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8989,12 +9949,15 @@ const deserializeAws_json1_1InvalidReferenceNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionRes
+ */
+const de_InvalidRelativeFileVersionEnumExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRelativeFileVersionEnumException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRelativeFileVersionEnumException(body, context);
+  const deserialized: any = de_InvalidRelativeFileVersionEnumException(body, context);
   const exception = new InvalidRelativeFileVersionEnumException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9002,12 +9965,15 @@ const deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidReplacementContentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidReplacementContentExceptionRes
+ */
+const de_InvalidReplacementContentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReplacementContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidReplacementContentException(body, context);
+  const deserialized: any = de_InvalidReplacementContentException(body, context);
   const exception = new InvalidReplacementContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9015,12 +9981,15 @@ const deserializeAws_json1_1InvalidReplacementContentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidReplacementTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidReplacementTypeExceptionRes
+ */
+const de_InvalidReplacementTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReplacementTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidReplacementTypeException(body, context);
+  const deserialized: any = de_InvalidReplacementTypeException(body, context);
   const exception = new InvalidReplacementTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9028,12 +9997,15 @@ const deserializeAws_json1_1InvalidReplacementTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryDescriptionExceptionRes
+ */
+const de_InvalidRepositoryDescriptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryDescriptionException(body, context);
+  const deserialized: any = de_InvalidRepositoryDescriptionException(body, context);
   const exception = new InvalidRepositoryDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9041,12 +10013,15 @@ const deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryNameExceptionRes
+ */
+const de_InvalidRepositoryNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryNameException(body, context);
+  const deserialized: any = de_InvalidRepositoryNameException(body, context);
   const exception = new InvalidRepositoryNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9054,12 +10029,15 @@ const deserializeAws_json1_1InvalidRepositoryNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionRes
+ */
+const de_InvalidRepositoryTriggerBranchNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerBranchNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerBranchNameException(body, context);
   const exception = new InvalidRepositoryTriggerBranchNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9067,12 +10045,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionRes
+ */
+const de_InvalidRepositoryTriggerCustomDataExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerCustomDataException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerCustomDataException(body, context);
   const exception = new InvalidRepositoryTriggerCustomDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9080,12 +10061,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionRes
+ */
+const de_InvalidRepositoryTriggerDestinationArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerDestinationArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerDestinationArnException(body, context);
   const exception = new InvalidRepositoryTriggerDestinationArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9093,12 +10077,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionRespo
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionRes
+ */
+const de_InvalidRepositoryTriggerEventsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerEventsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerEventsException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerEventsException(body, context);
   const exception = new InvalidRepositoryTriggerEventsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9106,12 +10093,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionRes
+ */
+const de_InvalidRepositoryTriggerNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerNameException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerNameException(body, context);
   const exception = new InvalidRepositoryTriggerNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9119,12 +10109,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionRes
+ */
+const de_InvalidRepositoryTriggerRegionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRepositoryTriggerRegionException(body, context);
+  const deserialized: any = de_InvalidRepositoryTriggerRegionException(body, context);
   const exception = new InvalidRepositoryTriggerRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9132,12 +10125,15 @@ const deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidResourceArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidResourceArnExceptionRes
+ */
+const de_InvalidResourceArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidResourceArnException(body, context);
+  const deserialized: any = de_InvalidResourceArnException(body, context);
   const exception = new InvalidResourceArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9145,12 +10141,15 @@ const deserializeAws_json1_1InvalidResourceArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRevisionIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRevisionIdExceptionRes
+ */
+const de_InvalidRevisionIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRevisionIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRevisionIdException(body, context);
+  const deserialized: any = de_InvalidRevisionIdException(body, context);
   const exception = new InvalidRevisionIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9158,12 +10157,15 @@ const deserializeAws_json1_1InvalidRevisionIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRuleContentSha256ExceptionRes
+ */
+const de_InvalidRuleContentSha256ExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRuleContentSha256Exception> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRuleContentSha256Exception(body, context);
+  const deserialized: any = de_InvalidRuleContentSha256Exception(body, context);
   const exception = new InvalidRuleContentSha256Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9171,12 +10173,15 @@ const deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSortByExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSortByExceptionRes
+ */
+const de_InvalidSortByExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSortByException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSortByException(body, context);
+  const deserialized: any = de_InvalidSortByException(body, context);
   const exception = new InvalidSortByException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9184,12 +10189,15 @@ const deserializeAws_json1_1InvalidSortByExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionRes
+ */
+const de_InvalidSourceCommitSpecifierExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSourceCommitSpecifierException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSourceCommitSpecifierException(body, context);
+  const deserialized: any = de_InvalidSourceCommitSpecifierException(body, context);
   const exception = new InvalidSourceCommitSpecifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9197,12 +10205,15 @@ const deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSystemTagUsageExceptionRes
+ */
+const de_InvalidSystemTagUsageExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSystemTagUsageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSystemTagUsageException(body, context);
+  const deserialized: any = de_InvalidSystemTagUsageException(body, context);
   const exception = new InvalidSystemTagUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9210,12 +10221,15 @@ const deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagKeysListExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTagKeysListExceptionRes
+ */
+const de_InvalidTagKeysListExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagKeysListException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagKeysListException(body, context);
+  const deserialized: any = de_InvalidTagKeysListException(body, context);
   const exception = new InvalidTagKeysListException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9223,12 +10237,15 @@ const deserializeAws_json1_1InvalidTagKeysListExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagsMapExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTagsMapExceptionRes
+ */
+const de_InvalidTagsMapExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagsMapException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagsMapException(body, context);
+  const deserialized: any = de_InvalidTagsMapException(body, context);
   const exception = new InvalidTagsMapException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9236,12 +10253,15 @@ const deserializeAws_json1_1InvalidTagsMapExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetBranchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetBranchExceptionRes
+ */
+const de_InvalidTargetBranchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetBranchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetBranchException(body, context);
+  const deserialized: any = de_InvalidTargetBranchException(body, context);
   const exception = new InvalidTargetBranchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9249,12 +10269,15 @@ const deserializeAws_json1_1InvalidTargetBranchExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetExceptionRes
+ */
+const de_InvalidTargetExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetException(body, context);
+  const deserialized: any = de_InvalidTargetException(body, context);
   const exception = new InvalidTargetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9262,12 +10285,15 @@ const deserializeAws_json1_1InvalidTargetExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetsExceptionRes
+ */
+const de_InvalidTargetsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetsException(body, context);
+  const deserialized: any = de_InvalidTargetsException(body, context);
   const exception = new InvalidTargetsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9275,12 +10301,15 @@ const deserializeAws_json1_1InvalidTargetsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTitleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTitleExceptionRes
+ */
+const de_InvalidTitleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTitleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTitleException(body, context);
+  const deserialized: any = de_InvalidTitleException(body, context);
   const exception = new InvalidTitleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9288,12 +10317,15 @@ const deserializeAws_json1_1InvalidTitleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ManualMergeRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ManualMergeRequiredExceptionRes
+ */
+const de_ManualMergeRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ManualMergeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ManualMergeRequiredException(body, context);
+  const deserialized: any = de_ManualMergeRequiredException(body, context);
   const exception = new ManualMergeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9301,12 +10333,15 @@ const deserializeAws_json1_1ManualMergeRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumBranchesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumBranchesExceededExceptionRes
+ */
+const de_MaximumBranchesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumBranchesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumBranchesExceededException(body, context);
+  const deserialized: any = de_MaximumBranchesExceededException(body, context);
   const exception = new MaximumBranchesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9314,12 +10349,15 @@ const deserializeAws_json1_1MaximumBranchesExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionRes
+ */
+const de_MaximumConflictResolutionEntriesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumConflictResolutionEntriesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException(body, context);
+  const deserialized: any = de_MaximumConflictResolutionEntriesExceededException(body, context);
   const exception = new MaximumConflictResolutionEntriesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9327,12 +10365,15 @@ const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionRes
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionRes
+ */
+const de_MaximumFileContentToLoadExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumFileContentToLoadExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumFileContentToLoadExceededException(body, context);
+  const deserialized: any = de_MaximumFileContentToLoadExceededException(body, context);
   const exception = new MaximumFileContentToLoadExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9340,12 +10381,15 @@ const deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumFileEntriesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumFileEntriesExceededExceptionRes
+ */
+const de_MaximumFileEntriesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumFileEntriesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumFileEntriesExceededException(body, context);
+  const deserialized: any = de_MaximumFileEntriesExceededException(body, context);
   const exception = new MaximumFileEntriesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9353,12 +10397,15 @@ const deserializeAws_json1_1MaximumFileEntriesExceededExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumItemsToCompareExceededExceptionRes
+ */
+const de_MaximumItemsToCompareExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumItemsToCompareExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumItemsToCompareExceededException(body, context);
+  const deserialized: any = de_MaximumItemsToCompareExceededException(body, context);
   const exception = new MaximumItemsToCompareExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9366,12 +10413,15 @@ const deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionRes
+ */
+const de_MaximumNumberOfApprovalsExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumNumberOfApprovalsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumNumberOfApprovalsExceededException(body, context);
+  const deserialized: any = de_MaximumNumberOfApprovalsExceededException(body, context);
   const exception = new MaximumNumberOfApprovalsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9379,12 +10429,15 @@ const deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionRes
+ */
+const de_MaximumOpenPullRequestsExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumOpenPullRequestsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumOpenPullRequestsExceededException(body, context);
+  const deserialized: any = de_MaximumOpenPullRequestsExceededException(body, context);
   const exception = new MaximumOpenPullRequestsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9392,12 +10445,15 @@ const deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionRes
+ */
+const de_MaximumRepositoryNamesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumRepositoryNamesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumRepositoryNamesExceededException(body, context);
+  const deserialized: any = de_MaximumRepositoryNamesExceededException(body, context);
   const exception = new MaximumRepositoryNamesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9405,12 +10461,15 @@ const deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionRes
+ */
+const de_MaximumRepositoryTriggersExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumRepositoryTriggersExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumRepositoryTriggersExceededException(body, context);
+  const deserialized: any = de_MaximumRepositoryTriggersExceededException(body, context);
   const exception = new MaximumRepositoryTriggersExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9418,12 +10477,15 @@ const deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptionRes
+ */
+const de_MaximumRuleTemplatesAssociatedWithRepositoryExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaximumRuleTemplatesAssociatedWithRepositoryException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryException(body, context);
+  const deserialized: any = de_MaximumRuleTemplatesAssociatedWithRepositoryException(body, context);
   const exception = new MaximumRuleTemplatesAssociatedWithRepositoryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9431,12 +10493,15 @@ const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptio
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MergeOptionRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MergeOptionRequiredExceptionRes
+ */
+const de_MergeOptionRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MergeOptionRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MergeOptionRequiredException(body, context);
+  const deserialized: any = de_MergeOptionRequiredException(body, context);
   const exception = new MergeOptionRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9444,12 +10509,15 @@ const deserializeAws_json1_1MergeOptionRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionRes
+ */
+const de_MultipleConflictResolutionEntriesExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MultipleConflictResolutionEntriesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MultipleConflictResolutionEntriesException(body, context);
+  const deserialized: any = de_MultipleConflictResolutionEntriesException(body, context);
   const exception = new MultipleConflictResolutionEntriesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9457,12 +10525,15 @@ const deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionRes
+ */
+const de_MultipleRepositoriesInPullRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MultipleRepositoriesInPullRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MultipleRepositoriesInPullRequestException(body, context);
+  const deserialized: any = de_MultipleRepositoriesInPullRequestException(body, context);
   const exception = new MultipleRepositoriesInPullRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9470,12 +10541,15 @@ const deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NameLengthExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NameLengthExceededExceptionRes
+ */
+const de_NameLengthExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NameLengthExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NameLengthExceededException(body, context);
+  const deserialized: any = de_NameLengthExceededException(body, context);
   const exception = new NameLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9483,12 +10557,12 @@ const deserializeAws_json1_1NameLengthExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NoChangeExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NoChangeException> => {
+/**
+ * deserializeAws_json1_1NoChangeExceptionRes
+ */
+const de_NoChangeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoChangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoChangeException(body, context);
+  const deserialized: any = de_NoChangeException(body, context);
   const exception = new NoChangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9496,12 +10570,15 @@ const deserializeAws_json1_1NoChangeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NumberOfRulesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NumberOfRulesExceededExceptionRes
+ */
+const de_NumberOfRulesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NumberOfRulesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NumberOfRulesExceededException(body, context);
+  const deserialized: any = de_NumberOfRulesExceededException(body, context);
   const exception = new NumberOfRulesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9509,12 +10586,15 @@ const deserializeAws_json1_1NumberOfRulesExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionRes
+ */
+const de_NumberOfRuleTemplatesExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NumberOfRuleTemplatesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NumberOfRuleTemplatesExceededException(body, context);
+  const deserialized: any = de_NumberOfRuleTemplatesExceededException(body, context);
   const exception = new NumberOfRuleTemplatesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9522,12 +10602,15 @@ const deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OverrideAlreadySetExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OverrideAlreadySetExceptionRes
+ */
+const de_OverrideAlreadySetExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OverrideAlreadySetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OverrideAlreadySetException(body, context);
+  const deserialized: any = de_OverrideAlreadySetException(body, context);
   const exception = new OverrideAlreadySetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9535,12 +10618,15 @@ const deserializeAws_json1_1OverrideAlreadySetExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OverrideStatusRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OverrideStatusRequiredExceptionRes
+ */
+const de_OverrideStatusRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OverrideStatusRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OverrideStatusRequiredException(body, context);
+  const deserialized: any = de_OverrideStatusRequiredException(body, context);
   const exception = new OverrideStatusRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9548,12 +10634,15 @@ const deserializeAws_json1_1OverrideStatusRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ParentCommitDoesNotExistExceptionRes
+ */
+const de_ParentCommitDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParentCommitDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParentCommitDoesNotExistException(body, context);
+  const deserialized: any = de_ParentCommitDoesNotExistException(body, context);
   const exception = new ParentCommitDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9561,12 +10650,15 @@ const deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ParentCommitIdOutdatedExceptionRes
+ */
+const de_ParentCommitIdOutdatedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParentCommitIdOutdatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParentCommitIdOutdatedException(body, context);
+  const deserialized: any = de_ParentCommitIdOutdatedException(body, context);
   const exception = new ParentCommitIdOutdatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9574,12 +10666,15 @@ const deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ParentCommitIdRequiredExceptionRes
+ */
+const de_ParentCommitIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParentCommitIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParentCommitIdRequiredException(body, context);
+  const deserialized: any = de_ParentCommitIdRequiredException(body, context);
   const exception = new ParentCommitIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9587,12 +10682,15 @@ const deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PathDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PathDoesNotExistExceptionRes
+ */
+const de_PathDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PathDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PathDoesNotExistException(body, context);
+  const deserialized: any = de_PathDoesNotExistException(body, context);
   const exception = new PathDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9600,12 +10698,15 @@ const deserializeAws_json1_1PathDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PathRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PathRequiredExceptionRes
+ */
+const de_PathRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PathRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PathRequiredException(body, context);
+  const deserialized: any = de_PathRequiredException(body, context);
   const exception = new PathRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9613,12 +10714,15 @@ const deserializeAws_json1_1PathRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestAlreadyClosedExceptionRes
+ */
+const de_PullRequestAlreadyClosedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestAlreadyClosedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestAlreadyClosedException(body, context);
+  const deserialized: any = de_PullRequestAlreadyClosedException(body, context);
   const exception = new PullRequestAlreadyClosedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9626,12 +10730,15 @@ const deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionRes
+ */
+const de_PullRequestApprovalRulesNotSatisfiedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestApprovalRulesNotSatisfiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException(body, context);
+  const deserialized: any = de_PullRequestApprovalRulesNotSatisfiedException(body, context);
   const exception = new PullRequestApprovalRulesNotSatisfiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9639,12 +10746,15 @@ const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionRespons
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionRes
+ */
+const de_PullRequestCannotBeApprovedByAuthorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestCannotBeApprovedByAuthorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException(body, context);
+  const deserialized: any = de_PullRequestCannotBeApprovedByAuthorException(body, context);
   const exception = new PullRequestCannotBeApprovedByAuthorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9652,12 +10762,15 @@ const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionResponse
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestDoesNotExistExceptionRes
+ */
+const de_PullRequestDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestDoesNotExistException(body, context);
+  const deserialized: any = de_PullRequestDoesNotExistException(body, context);
   const exception = new PullRequestDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9665,12 +10778,15 @@ const deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestIdRequiredExceptionRes
+ */
+const de_PullRequestIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestIdRequiredException(body, context);
+  const deserialized: any = de_PullRequestIdRequiredException(body, context);
   const exception = new PullRequestIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9678,12 +10794,15 @@ const deserializeAws_json1_1PullRequestIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullRequestStatusRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullRequestStatusRequiredExceptionRes
+ */
+const de_PullRequestStatusRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullRequestStatusRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullRequestStatusRequiredException(body, context);
+  const deserialized: any = de_PullRequestStatusRequiredException(body, context);
   const exception = new PullRequestStatusRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9691,12 +10810,15 @@ const deserializeAws_json1_1PullRequestStatusRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PutFileEntryConflictExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PutFileEntryConflictExceptionRes
+ */
+const de_PutFileEntryConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PutFileEntryConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PutFileEntryConflictException(body, context);
+  const deserialized: any = de_PutFileEntryConflictException(body, context);
   const exception = new PutFileEntryConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9704,12 +10826,15 @@ const deserializeAws_json1_1PutFileEntryConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReactionLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReactionLimitExceededExceptionRes
+ */
+const de_ReactionLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReactionLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReactionLimitExceededException(body, context);
+  const deserialized: any = de_ReactionLimitExceededException(body, context);
   const exception = new ReactionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9717,12 +10842,15 @@ const deserializeAws_json1_1ReactionLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReactionValueRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReactionValueRequiredExceptionRes
+ */
+const de_ReactionValueRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReactionValueRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReactionValueRequiredException(body, context);
+  const deserialized: any = de_ReactionValueRequiredException(body, context);
   const exception = new ReactionValueRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9730,12 +10858,15 @@ const deserializeAws_json1_1ReactionValueRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReferenceDoesNotExistExceptionRes
+ */
+const de_ReferenceDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReferenceDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReferenceDoesNotExistException(body, context);
+  const deserialized: any = de_ReferenceDoesNotExistException(body, context);
   const exception = new ReferenceDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9743,12 +10874,15 @@ const deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReferenceNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReferenceNameRequiredExceptionRes
+ */
+const de_ReferenceNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReferenceNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReferenceNameRequiredException(body, context);
+  const deserialized: any = de_ReferenceNameRequiredException(body, context);
   const exception = new ReferenceNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9756,12 +10890,15 @@ const deserializeAws_json1_1ReferenceNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReferenceTypeNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReferenceTypeNotSupportedExceptionRes
+ */
+const de_ReferenceTypeNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReferenceTypeNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReferenceTypeNotSupportedException(body, context);
+  const deserialized: any = de_ReferenceTypeNotSupportedException(body, context);
   const exception = new ReferenceTypeNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9769,12 +10906,15 @@ const deserializeAws_json1_1ReferenceTypeNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReplacementContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReplacementContentRequiredExceptionRes
+ */
+const de_ReplacementContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplacementContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReplacementContentRequiredException(body, context);
+  const deserialized: any = de_ReplacementContentRequiredException(body, context);
   const exception = new ReplacementContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9782,12 +10922,15 @@ const deserializeAws_json1_1ReplacementContentRequiredExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReplacementTypeRequiredExceptionRes
+ */
+const de_ReplacementTypeRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplacementTypeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReplacementTypeRequiredException(body, context);
+  const deserialized: any = de_ReplacementTypeRequiredException(body, context);
   const exception = new ReplacementTypeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9795,12 +10938,15 @@ const deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryDoesNotExistExceptionRes
+ */
+const de_RepositoryDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryDoesNotExistException(body, context);
+  const deserialized: any = de_RepositoryDoesNotExistException(body, context);
   const exception = new RepositoryDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9808,12 +10954,15 @@ const deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryLimitExceededExceptionRes
+ */
+const de_RepositoryLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryLimitExceededException(body, context);
+  const deserialized: any = de_RepositoryLimitExceededException(body, context);
   const exception = new RepositoryLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9821,12 +10970,15 @@ const deserializeAws_json1_1RepositoryLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNameExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNameExistsExceptionRes
+ */
+const de_RepositoryNameExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNameExistsException(body, context);
+  const deserialized: any = de_RepositoryNameExistsException(body, context);
   const exception = new RepositoryNameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9834,12 +10986,15 @@ const deserializeAws_json1_1RepositoryNameExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNameRequiredExceptionRes
+ */
+const de_RepositoryNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNameRequiredException(body, context);
+  const deserialized: any = de_RepositoryNameRequiredException(body, context);
   const exception = new RepositoryNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9847,12 +11002,15 @@ const deserializeAws_json1_1RepositoryNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNamesRequiredExceptionRes
+ */
+const de_RepositoryNamesRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNamesRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNamesRequiredException(body, context);
+  const deserialized: any = de_RepositoryNamesRequiredException(body, context);
   const exception = new RepositoryNamesRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9860,12 +11018,15 @@ const deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionRes
+ */
+const de_RepositoryNotAssociatedWithPullRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNotAssociatedWithPullRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException(body, context);
+  const deserialized: any = de_RepositoryNotAssociatedWithPullRequestException(body, context);
   const exception = new RepositoryNotAssociatedWithPullRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9873,12 +11034,15 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionRespo
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionRes
+ */
+const de_RepositoryTriggerBranchNameListRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryTriggerBranchNameListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException(body, context);
+  const deserialized: any = de_RepositoryTriggerBranchNameListRequiredException(body, context);
   const exception = new RepositoryTriggerBranchNameListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9886,12 +11050,15 @@ const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResp
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionRes
+ */
+const de_RepositoryTriggerDestinationArnRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryTriggerDestinationArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException(body, context);
+  const deserialized: any = de_RepositoryTriggerDestinationArnRequiredException(body, context);
   const exception = new RepositoryTriggerDestinationArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9899,12 +11066,15 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResp
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionRes
+ */
+const de_RepositoryTriggerEventsListRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryTriggerEventsListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryTriggerEventsListRequiredException(body, context);
+  const deserialized: any = de_RepositoryTriggerEventsListRequiredException(body, context);
   const exception = new RepositoryTriggerEventsListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9912,12 +11082,15 @@ const deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionRes
+ */
+const de_RepositoryTriggerNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryTriggerNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryTriggerNameRequiredException(body, context);
+  const deserialized: any = de_RepositoryTriggerNameRequiredException(body, context);
   const exception = new RepositoryTriggerNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9925,12 +11098,15 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryTriggersListRequiredExceptionRes
+ */
+const de_RepositoryTriggersListRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryTriggersListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryTriggersListRequiredException(body, context);
+  const deserialized: any = de_RepositoryTriggersListRequiredException(body, context);
   const exception = new RepositoryTriggersListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9938,12 +11114,15 @@ const deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceArnRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceArnRequiredExceptionRes
+ */
+const de_ResourceArnRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceArnRequiredException(body, context);
+  const deserialized: any = de_ResourceArnRequiredException(body, context);
   const exception = new ResourceArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9951,12 +11130,15 @@ const deserializeAws_json1_1ResourceArnRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RestrictedSourceFileExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RestrictedSourceFileExceptionRes
+ */
+const de_RestrictedSourceFileExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RestrictedSourceFileException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RestrictedSourceFileException(body, context);
+  const deserialized: any = de_RestrictedSourceFileException(body, context);
   const exception = new RestrictedSourceFileException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9964,12 +11146,15 @@ const deserializeAws_json1_1RestrictedSourceFileExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RevisionIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RevisionIdRequiredExceptionRes
+ */
+const de_RevisionIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RevisionIdRequiredException(body, context);
+  const deserialized: any = de_RevisionIdRequiredException(body, context);
   const exception = new RevisionIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9977,12 +11162,15 @@ const deserializeAws_json1_1RevisionIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RevisionNotCurrentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RevisionNotCurrentExceptionRes
+ */
+const de_RevisionNotCurrentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionNotCurrentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RevisionNotCurrentException(body, context);
+  const deserialized: any = de_RevisionNotCurrentException(body, context);
   const exception = new RevisionNotCurrentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9990,12 +11178,15 @@ const deserializeAws_json1_1RevisionNotCurrentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SameFileContentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SameFileContentExceptionRes
+ */
+const de_SameFileContentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SameFileContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SameFileContentException(body, context);
+  const deserialized: any = de_SameFileContentException(body, context);
   const exception = new SameFileContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10003,12 +11194,15 @@ const deserializeAws_json1_1SameFileContentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SamePathRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SamePathRequestExceptionRes
+ */
+const de_SamePathRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SamePathRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SamePathRequestException(body, context);
+  const deserialized: any = de_SamePathRequestException(body, context);
   const exception = new SamePathRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10016,12 +11210,15 @@ const deserializeAws_json1_1SamePathRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SourceAndDestinationAreSameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SourceAndDestinationAreSameExceptionRes
+ */
+const de_SourceAndDestinationAreSameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SourceAndDestinationAreSameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SourceAndDestinationAreSameException(body, context);
+  const deserialized: any = de_SourceAndDestinationAreSameException(body, context);
   const exception = new SourceAndDestinationAreSameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10029,12 +11226,15 @@ const deserializeAws_json1_1SourceAndDestinationAreSameExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SourceFileOrContentRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SourceFileOrContentRequiredExceptionRes
+ */
+const de_SourceFileOrContentRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SourceFileOrContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SourceFileOrContentRequiredException(body, context);
+  const deserialized: any = de_SourceFileOrContentRequiredException(body, context);
   const exception = new SourceFileOrContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10042,12 +11242,15 @@ const deserializeAws_json1_1SourceFileOrContentRequiredExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagKeysListRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagKeysListRequiredExceptionRes
+ */
+const de_TagKeysListRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagKeysListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagKeysListRequiredException(body, context);
+  const deserialized: any = de_TagKeysListRequiredException(body, context);
   const exception = new TagKeysListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10055,12 +11258,12 @@ const deserializeAws_json1_1TagKeysListRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagPolicyExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagPolicyException> => {
+/**
+ * deserializeAws_json1_1TagPolicyExceptionRes
+ */
+const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagPolicyException(body, context);
+  const deserialized: any = de_TagPolicyException(body, context);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10068,12 +11271,15 @@ const deserializeAws_json1_1TagPolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagsMapRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagsMapRequiredExceptionRes
+ */
+const de_TagsMapRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagsMapRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagsMapRequiredException(body, context);
+  const deserialized: any = de_TagsMapRequiredException(body, context);
   const exception = new TagsMapRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10081,12 +11287,15 @@ const deserializeAws_json1_1TagsMapRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TargetRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TargetRequiredExceptionRes
+ */
+const de_TargetRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TargetRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TargetRequiredException(body, context);
+  const deserialized: any = de_TargetRequiredException(body, context);
   const exception = new TargetRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10094,12 +11303,15 @@ const deserializeAws_json1_1TargetRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TargetsRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TargetsRequiredExceptionRes
+ */
+const de_TargetsRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TargetsRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TargetsRequiredException(body, context);
+  const deserialized: any = de_TargetsRequiredException(body, context);
   const exception = new TargetsRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10107,12 +11319,15 @@ const deserializeAws_json1_1TargetsRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionRes
+ */
+const de_TipOfSourceReferenceIsDifferentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TipOfSourceReferenceIsDifferentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TipOfSourceReferenceIsDifferentException(body, context);
+  const deserialized: any = de_TipOfSourceReferenceIsDifferentException(body, context);
   const exception = new TipOfSourceReferenceIsDifferentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10120,12 +11335,15 @@ const deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TipsDivergenceExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TipsDivergenceExceededExceptionRes
+ */
+const de_TipsDivergenceExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TipsDivergenceExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TipsDivergenceExceededException(body, context);
+  const deserialized: any = de_TipsDivergenceExceededException(body, context);
   const exception = new TipsDivergenceExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10133,12 +11351,15 @@ const deserializeAws_json1_1TipsDivergenceExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TitleRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TitleRequiredExceptionRes
+ */
+const de_TitleRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TitleRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TitleRequiredException(body, context);
+  const deserialized: any = de_TitleRequiredException(body, context);
   const exception = new TitleRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10146,12 +11367,15 @@ const deserializeAws_json1_1TitleRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = de_TooManyTagsException(body, context);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10159,7 +11383,10 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput = (
+/**
+ * serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput
+ */
+const se_AssociateApprovalRuleTemplateWithRepositoryInput = (
   input: AssociateApprovalRuleTemplateWithRepositoryInput,
   context: __SerdeContext
 ): any => {
@@ -10169,27 +11396,28 @@ const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput = (
   };
 };
 
-const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput = (
+/**
+ * serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput
+ */
+const se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput = (
   input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryNames != null && {
-      repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
-    }),
+    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
   };
 };
 
-const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
-  input: BatchDescribeMergeConflictsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchDescribeMergeConflictsInput
+ */
+const se_BatchDescribeMergeConflictsInput = (input: BatchDescribeMergeConflictsInput, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.filePaths != null && { filePaths: serializeAws_json1_1FilePaths(input.filePaths, context) }),
+    ...(input.filePaths != null && { filePaths: se_FilePaths(input.filePaths, context) }),
     ...(input.maxConflictFiles != null && { maxConflictFiles: input.maxConflictFiles }),
     ...(input.maxMergeHunks != null && { maxMergeHunks: input.maxMergeHunks }),
     ...(input.mergeOption != null && { mergeOption: input.mergeOption }),
@@ -10199,37 +11427,42 @@ const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
   };
 };
 
-const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = (
+/**
+ * serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
+ */
+const se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = (
   input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryNames != null && {
-      repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
-    }),
+    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetCommitsInput = (input: BatchGetCommitsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BatchGetCommitsInput
+ */
+const se_BatchGetCommitsInput = (input: BatchGetCommitsInput, context: __SerdeContext): any => {
   return {
-    ...(input.commitIds != null && { commitIds: serializeAws_json1_1CommitIdsInputList(input.commitIds, context) }),
+    ...(input.commitIds != null && { commitIds: se_CommitIdsInputList(input.commitIds, context) }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1BatchGetRepositoriesInput = (
-  input: BatchGetRepositoriesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetRepositoriesInput
+ */
+const se_BatchGetRepositoriesInput = (input: BatchGetRepositoriesInput, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryNames != null && {
-      repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
-    }),
+    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
   };
 };
 
-const serializeAws_json1_1BranchNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BranchNameList
+ */
+const se_BranchNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10237,7 +11470,10 @@ const serializeAws_json1_1BranchNameList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1CommitIdsInputList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CommitIdsInputList
+ */
+const se_CommitIdsInputList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10245,24 +11481,21 @@ const serializeAws_json1_1CommitIdsInputList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1ConflictResolution = (input: ConflictResolution, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ConflictResolution
+ */
+const se_ConflictResolution = (input: ConflictResolution, context: __SerdeContext): any => {
   return {
-    ...(input.deleteFiles != null && {
-      deleteFiles: serializeAws_json1_1DeleteFileEntries(input.deleteFiles, context),
-    }),
-    ...(input.replaceContents != null && {
-      replaceContents: serializeAws_json1_1ReplaceContentEntries(input.replaceContents, context),
-    }),
-    ...(input.setFileModes != null && {
-      setFileModes: serializeAws_json1_1SetFileModeEntries(input.setFileModes, context),
-    }),
+    ...(input.deleteFiles != null && { deleteFiles: se_DeleteFileEntries(input.deleteFiles, context) }),
+    ...(input.replaceContents != null && { replaceContents: se_ReplaceContentEntries(input.replaceContents, context) }),
+    ...(input.setFileModes != null && { setFileModes: se_SetFileModeEntries(input.setFileModes, context) }),
   };
 };
 
-const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
-  input: CreateApprovalRuleTemplateInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateApprovalRuleTemplateInput
+ */
+const se_CreateApprovalRuleTemplateInput = (input: CreateApprovalRuleTemplateInput, context: __SerdeContext): any => {
   return {
     ...(input.approvalRuleTemplateContent != null && {
       approvalRuleTemplateContent: input.approvalRuleTemplateContent,
@@ -10274,7 +11507,10 @@ const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
   };
 };
 
-const serializeAws_json1_1CreateBranchInput = (input: CreateBranchInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateBranchInput
+ */
+const se_CreateBranchInput = (input: CreateBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.commitId != null && { commitId: input.commitId }),
@@ -10282,26 +11518,28 @@ const serializeAws_json1_1CreateBranchInput = (input: CreateBranchInput, context
   };
 };
 
-const serializeAws_json1_1CreateCommitInput = (input: CreateCommitInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateCommitInput
+ */
+const se_CreateCommitInput = (input: CreateCommitInput, context: __SerdeContext): any => {
   return {
     ...(input.authorName != null && { authorName: input.authorName }),
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.deleteFiles != null && {
-      deleteFiles: serializeAws_json1_1DeleteFileEntries(input.deleteFiles, context),
-    }),
+    ...(input.deleteFiles != null && { deleteFiles: se_DeleteFileEntries(input.deleteFiles, context) }),
     ...(input.email != null && { email: input.email }),
     ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
     ...(input.parentCommitId != null && { parentCommitId: input.parentCommitId }),
-    ...(input.putFiles != null && { putFiles: serializeAws_json1_1PutFileEntries(input.putFiles, context) }),
+    ...(input.putFiles != null && { putFiles: se_PutFileEntries(input.putFiles, context) }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.setFileModes != null && {
-      setFileModes: serializeAws_json1_1SetFileModeEntries(input.setFileModes, context),
-    }),
+    ...(input.setFileModes != null && { setFileModes: se_SetFileModeEntries(input.setFileModes, context) }),
   };
 };
 
-const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
+/**
+ * serializeAws_json1_1CreatePullRequestApprovalRuleInput
+ */
+const se_CreatePullRequestApprovalRuleInput = (
   input: CreatePullRequestApprovalRuleInput,
   context: __SerdeContext
 ): any => {
@@ -10312,24 +11550,33 @@ const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
   };
 };
 
-const serializeAws_json1_1CreatePullRequestInput = (input: CreatePullRequestInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreatePullRequestInput
+ */
+const se_CreatePullRequestInput = (input: CreatePullRequestInput, context: __SerdeContext): any => {
   return {
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
-    ...(input.targets != null && { targets: serializeAws_json1_1TargetList(input.targets, context) }),
+    ...(input.targets != null && { targets: se_TargetList(input.targets, context) }),
     ...(input.title != null && { title: input.title }),
   };
 };
 
-const serializeAws_json1_1CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateRepositoryInput
+ */
+const se_CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryDescription != null && { repositoryDescription: input.repositoryDescription }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagsMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
+/**
+ * serializeAws_json1_1CreateUnreferencedMergeCommitInput
+ */
+const se_CreateUnreferencedMergeCommitInput = (
   input: CreateUnreferencedMergeCommitInput,
   context: __SerdeContext
 ): any => {
@@ -10338,7 +11585,7 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution != null && {
-      conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
+      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
     }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
@@ -10350,46 +11597,58 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
   };
 };
 
-const serializeAws_json1_1DeleteApprovalRuleTemplateInput = (
-  input: DeleteApprovalRuleTemplateInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteApprovalRuleTemplateInput
+ */
+const se_DeleteApprovalRuleTemplateInput = (input: DeleteApprovalRuleTemplateInput, context: __SerdeContext): any => {
   return {
     ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
-const serializeAws_json1_1DeleteBranchInput = (input: DeleteBranchInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteBranchInput
+ */
+const se_DeleteBranchInput = (input: DeleteBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1DeleteCommentContentInput = (
-  input: DeleteCommentContentInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteCommentContentInput
+ */
+const se_DeleteCommentContentInput = (input: DeleteCommentContentInput, context: __SerdeContext): any => {
   return {
     ...(input.commentId != null && { commentId: input.commentId }),
   };
 };
 
-const serializeAws_json1_1DeleteFileEntries = (input: DeleteFileEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteFileEntries
+ */
+const se_DeleteFileEntries = (input: DeleteFileEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1DeleteFileEntry(entry, context);
+      return se_DeleteFileEntry(entry, context);
     });
 };
 
-const serializeAws_json1_1DeleteFileEntry = (input: DeleteFileEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteFileEntry
+ */
+const se_DeleteFileEntry = (input: DeleteFileEntry, context: __SerdeContext): any => {
   return {
     ...(input.filePath != null && { filePath: input.filePath }),
   };
 };
 
-const serializeAws_json1_1DeleteFileInput = (input: DeleteFileInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteFileInput
+ */
+const se_DeleteFileInput = (input: DeleteFileInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
@@ -10402,7 +11661,10 @@ const serializeAws_json1_1DeleteFileInput = (input: DeleteFileInput, context: __
   };
 };
 
-const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
+/**
+ * serializeAws_json1_1DeletePullRequestApprovalRuleInput
+ */
+const se_DeletePullRequestApprovalRuleInput = (
   input: DeletePullRequestApprovalRuleInput,
   context: __SerdeContext
 ): any => {
@@ -10412,16 +11674,19 @@ const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
   };
 };
 
-const serializeAws_json1_1DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteRepositoryInput
+ */
+const se_DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1DescribeMergeConflictsInput = (
-  input: DescribeMergeConflictsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeMergeConflictsInput
+ */
+const se_DescribeMergeConflictsInput = (input: DescribeMergeConflictsInput, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
@@ -10435,10 +11700,10 @@ const serializeAws_json1_1DescribeMergeConflictsInput = (
   };
 };
 
-const serializeAws_json1_1DescribePullRequestEventsInput = (
-  input: DescribePullRequestEventsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribePullRequestEventsInput
+ */
+const se_DescribePullRequestEventsInput = (input: DescribePullRequestEventsInput, context: __SerdeContext): any => {
   return {
     ...(input.actorArn != null && { actorArn: input.actorArn }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -10448,7 +11713,10 @@ const serializeAws_json1_1DescribePullRequestEventsInput = (
   };
 };
 
-const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = (
+/**
+ * serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput
+ */
+const se_DisassociateApprovalRuleTemplateFromRepositoryInput = (
   input: DisassociateApprovalRuleTemplateFromRepositoryInput,
   context: __SerdeContext
 ): any => {
@@ -10458,7 +11726,10 @@ const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = 
   };
 };
 
-const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
+/**
+ * serializeAws_json1_1EvaluatePullRequestApprovalRulesInput
+ */
+const se_EvaluatePullRequestApprovalRulesInput = (
   input: EvaluatePullRequestApprovalRulesInput,
   context: __SerdeContext
 ): any => {
@@ -10468,7 +11739,10 @@ const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
   };
 };
 
-const serializeAws_json1_1FilePaths = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilePaths
+ */
+const se_FilePaths = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10476,39 +11750,48 @@ const serializeAws_json1_1FilePaths = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_json1_1GetApprovalRuleTemplateInput = (
-  input: GetApprovalRuleTemplateInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetApprovalRuleTemplateInput
+ */
+const se_GetApprovalRuleTemplateInput = (input: GetApprovalRuleTemplateInput, context: __SerdeContext): any => {
   return {
     ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
-const serializeAws_json1_1GetBlobInput = (input: GetBlobInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetBlobInput
+ */
+const se_GetBlobInput = (input: GetBlobInput, context: __SerdeContext): any => {
   return {
     ...(input.blobId != null && { blobId: input.blobId }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1GetBranchInput = (input: GetBranchInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetBranchInput
+ */
+const se_GetBranchInput = (input: GetBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1GetCommentInput = (input: GetCommentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetCommentInput
+ */
+const se_GetCommentInput = (input: GetCommentInput, context: __SerdeContext): any => {
   return {
     ...(input.commentId != null && { commentId: input.commentId }),
   };
 };
 
-const serializeAws_json1_1GetCommentReactionsInput = (
-  input: GetCommentReactionsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetCommentReactionsInput
+ */
+const se_GetCommentReactionsInput = (input: GetCommentReactionsInput, context: __SerdeContext): any => {
   return {
     ...(input.commentId != null && { commentId: input.commentId }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -10517,7 +11800,10 @@ const serializeAws_json1_1GetCommentReactionsInput = (
   };
 };
 
-const serializeAws_json1_1GetCommentsForComparedCommitInput = (
+/**
+ * serializeAws_json1_1GetCommentsForComparedCommitInput
+ */
+const se_GetCommentsForComparedCommitInput = (
   input: GetCommentsForComparedCommitInput,
   context: __SerdeContext
 ): any => {
@@ -10530,10 +11816,10 @@ const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   };
 };
 
-const serializeAws_json1_1GetCommentsForPullRequestInput = (
-  input: GetCommentsForPullRequestInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetCommentsForPullRequestInput
+ */
+const se_GetCommentsForPullRequestInput = (input: GetCommentsForPullRequestInput, context: __SerdeContext): any => {
   return {
     ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
     ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
@@ -10544,14 +11830,20 @@ const serializeAws_json1_1GetCommentsForPullRequestInput = (
   };
 };
 
-const serializeAws_json1_1GetCommitInput = (input: GetCommitInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetCommitInput
+ */
+const se_GetCommitInput = (input: GetCommitInput, context: __SerdeContext): any => {
   return {
     ...(input.commitId != null && { commitId: input.commitId }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1GetDifferencesInput = (input: GetDifferencesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetDifferencesInput
+ */
+const se_GetDifferencesInput = (input: GetDifferencesInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -10563,7 +11855,10 @@ const serializeAws_json1_1GetDifferencesInput = (input: GetDifferencesInput, con
   };
 };
 
-const serializeAws_json1_1GetFileInput = (input: GetFileInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetFileInput
+ */
+const se_GetFileInput = (input: GetFileInput, context: __SerdeContext): any => {
   return {
     ...(input.commitSpecifier != null && { commitSpecifier: input.commitSpecifier }),
     ...(input.filePath != null && { filePath: input.filePath }),
@@ -10571,7 +11866,10 @@ const serializeAws_json1_1GetFileInput = (input: GetFileInput, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1GetFolderInput = (input: GetFolderInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetFolderInput
+ */
+const se_GetFolderInput = (input: GetFolderInput, context: __SerdeContext): any => {
   return {
     ...(input.commitSpecifier != null && { commitSpecifier: input.commitSpecifier }),
     ...(input.folderPath != null && { folderPath: input.folderPath }),
@@ -10579,7 +11877,10 @@ const serializeAws_json1_1GetFolderInput = (input: GetFolderInput, context: __Se
   };
 };
 
-const serializeAws_json1_1GetMergeCommitInput = (input: GetMergeCommitInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetMergeCommitInput
+ */
+const se_GetMergeCommitInput = (input: GetMergeCommitInput, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
@@ -10589,7 +11890,10 @@ const serializeAws_json1_1GetMergeCommitInput = (input: GetMergeCommitInput, con
   };
 };
 
-const serializeAws_json1_1GetMergeConflictsInput = (input: GetMergeConflictsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetMergeConflictsInput
+ */
+const se_GetMergeConflictsInput = (input: GetMergeConflictsInput, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
@@ -10602,7 +11906,10 @@ const serializeAws_json1_1GetMergeConflictsInput = (input: GetMergeConflictsInpu
   };
 };
 
-const serializeAws_json1_1GetMergeOptionsInput = (input: GetMergeOptionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetMergeOptionsInput
+ */
+const se_GetMergeOptionsInput = (input: GetMergeOptionsInput, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
@@ -10612,7 +11919,10 @@ const serializeAws_json1_1GetMergeOptionsInput = (input: GetMergeOptionsInput, c
   };
 };
 
-const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
+/**
+ * serializeAws_json1_1GetPullRequestApprovalStatesInput
+ */
+const se_GetPullRequestApprovalStatesInput = (
   input: GetPullRequestApprovalStatesInput,
   context: __SerdeContext
 ): any => {
@@ -10622,48 +11932,57 @@ const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
   };
 };
 
-const serializeAws_json1_1GetPullRequestInput = (input: GetPullRequestInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetPullRequestInput
+ */
+const se_GetPullRequestInput = (input: GetPullRequestInput, context: __SerdeContext): any => {
   return {
     ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
   };
 };
 
-const serializeAws_json1_1GetPullRequestOverrideStateInput = (
-  input: GetPullRequestOverrideStateInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetPullRequestOverrideStateInput
+ */
+const se_GetPullRequestOverrideStateInput = (input: GetPullRequestOverrideStateInput, context: __SerdeContext): any => {
   return {
     ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId != null && { revisionId: input.revisionId }),
   };
 };
 
-const serializeAws_json1_1GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetRepositoryInput
+ */
+const se_GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1GetRepositoryTriggersInput = (
-  input: GetRepositoryTriggersInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetRepositoryTriggersInput
+ */
+const se_GetRepositoryTriggersInput = (input: GetRepositoryTriggersInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1ListApprovalRuleTemplatesInput = (
-  input: ListApprovalRuleTemplatesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListApprovalRuleTemplatesInput
+ */
+const se_ListApprovalRuleTemplatesInput = (input: ListApprovalRuleTemplatesInput, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput = (
+/**
+ * serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput
+ */
+const se_ListAssociatedApprovalRuleTemplatesForRepositoryInput = (
   input: ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   context: __SerdeContext
 ): any => {
@@ -10674,14 +11993,20 @@ const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput 
   };
 };
 
-const serializeAws_json1_1ListBranchesInput = (input: ListBranchesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListBranchesInput
+ */
+const se_ListBranchesInput = (input: ListBranchesInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1ListPullRequestsInput = (input: ListPullRequestsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListPullRequestsInput
+ */
+const se_ListPullRequestsInput = (input: ListPullRequestsInput, context: __SerdeContext): any => {
   return {
     ...(input.authorArn != null && { authorArn: input.authorArn }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -10691,7 +12016,10 @@ const serializeAws_json1_1ListPullRequestsInput = (input: ListPullRequestsInput,
   };
 };
 
-const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
+/**
+ * serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput
+ */
+const se_ListRepositoriesForApprovalRuleTemplateInput = (
   input: ListRepositoriesForApprovalRuleTemplateInput,
   context: __SerdeContext
 ): any => {
@@ -10702,7 +12030,10 @@ const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
   };
 };
 
-const serializeAws_json1_1ListRepositoriesInput = (input: ListRepositoriesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListRepositoriesInput
+ */
+const se_ListRepositoriesInput = (input: ListRepositoriesInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.order != null && { order: input.order }),
@@ -10710,17 +12041,20 @@ const serializeAws_json1_1ListRepositoriesInput = (input: ListRepositoriesInput,
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceInput = (
-  input: ListTagsForResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceInput
+ */
+const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
-const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Location
+ */
+const se_Location = (input: Location, context: __SerdeContext): any => {
   return {
     ...(input.filePath != null && { filePath: input.filePath }),
     ...(input.filePosition != null && { filePosition: input.filePosition }),
@@ -10728,10 +12062,10 @@ const serializeAws_json1_1Location = (input: Location, context: __SerdeContext):
   };
 };
 
-const serializeAws_json1_1MergeBranchesByFastForwardInput = (
-  input: MergeBranchesByFastForwardInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1MergeBranchesByFastForwardInput
+ */
+const se_MergeBranchesByFastForwardInput = (input: MergeBranchesByFastForwardInput, context: __SerdeContext): any => {
   return {
     ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
@@ -10740,16 +12074,16 @@ const serializeAws_json1_1MergeBranchesByFastForwardInput = (
   };
 };
 
-const serializeAws_json1_1MergeBranchesBySquashInput = (
-  input: MergeBranchesBySquashInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1MergeBranchesBySquashInput
+ */
+const se_MergeBranchesBySquashInput = (input: MergeBranchesBySquashInput, context: __SerdeContext): any => {
   return {
     ...(input.authorName != null && { authorName: input.authorName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution != null && {
-      conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
+      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
     }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
@@ -10761,16 +12095,16 @@ const serializeAws_json1_1MergeBranchesBySquashInput = (
   };
 };
 
-const serializeAws_json1_1MergeBranchesByThreeWayInput = (
-  input: MergeBranchesByThreeWayInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1MergeBranchesByThreeWayInput
+ */
+const se_MergeBranchesByThreeWayInput = (input: MergeBranchesByThreeWayInput, context: __SerdeContext): any => {
   return {
     ...(input.authorName != null && { authorName: input.authorName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution != null && {
-      conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
+      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
     }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
@@ -10782,7 +12116,10 @@ const serializeAws_json1_1MergeBranchesByThreeWayInput = (
   };
 };
 
-const serializeAws_json1_1MergePullRequestByFastForwardInput = (
+/**
+ * serializeAws_json1_1MergePullRequestByFastForwardInput
+ */
+const se_MergePullRequestByFastForwardInput = (
   input: MergePullRequestByFastForwardInput,
   context: __SerdeContext
 ): any => {
@@ -10793,16 +12130,16 @@ const serializeAws_json1_1MergePullRequestByFastForwardInput = (
   };
 };
 
-const serializeAws_json1_1MergePullRequestBySquashInput = (
-  input: MergePullRequestBySquashInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1MergePullRequestBySquashInput
+ */
+const se_MergePullRequestBySquashInput = (input: MergePullRequestBySquashInput, context: __SerdeContext): any => {
   return {
     ...(input.authorName != null && { authorName: input.authorName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution != null && {
-      conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
+      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
     }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.email != null && { email: input.email }),
@@ -10813,16 +12150,16 @@ const serializeAws_json1_1MergePullRequestBySquashInput = (
   };
 };
 
-const serializeAws_json1_1MergePullRequestByThreeWayInput = (
-  input: MergePullRequestByThreeWayInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1MergePullRequestByThreeWayInput
+ */
+const se_MergePullRequestByThreeWayInput = (input: MergePullRequestByThreeWayInput, context: __SerdeContext): any => {
   return {
     ...(input.authorName != null && { authorName: input.authorName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
     ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution != null && {
-      conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
+      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
     }),
     ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
     ...(input.email != null && { email: input.email }),
@@ -10833,7 +12170,10 @@ const serializeAws_json1_1MergePullRequestByThreeWayInput = (
   };
 };
 
-const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
+/**
+ * serializeAws_json1_1OverridePullRequestApprovalRulesInput
+ */
+const se_OverridePullRequestApprovalRulesInput = (
   input: OverridePullRequestApprovalRulesInput,
   context: __SerdeContext
 ): any => {
@@ -10844,7 +12184,10 @@ const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
   };
 };
 
-const serializeAws_json1_1PostCommentForComparedCommitInput = (
+/**
+ * serializeAws_json1_1PostCommentForComparedCommitInput
+ */
+const se_PostCommentForComparedCommitInput = (
   input: PostCommentForComparedCommitInput,
   context: __SerdeContext
 ): any => {
@@ -10853,27 +12196,30 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
     ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content != null && { content: input.content }),
-    ...(input.location != null && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.location != null && { location: se_Location(input.location, context) }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1PostCommentForPullRequestInput = (
-  input: PostCommentForPullRequestInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PostCommentForPullRequestInput
+ */
+const se_PostCommentForPullRequestInput = (input: PostCommentForPullRequestInput, context: __SerdeContext): any => {
   return {
     ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
     ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content != null && { content: input.content }),
-    ...(input.location != null && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.location != null && { location: se_Location(input.location, context) }),
     ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1PostCommentReplyInput = (input: PostCommentReplyInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PostCommentReplyInput
+ */
+const se_PostCommentReplyInput = (input: PostCommentReplyInput, context: __SerdeContext): any => {
   return {
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content != null && { content: input.content }),
@@ -10881,31 +12227,43 @@ const serializeAws_json1_1PostCommentReplyInput = (input: PostCommentReplyInput,
   };
 };
 
-const serializeAws_json1_1PutCommentReactionInput = (input: PutCommentReactionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutCommentReactionInput
+ */
+const se_PutCommentReactionInput = (input: PutCommentReactionInput, context: __SerdeContext): any => {
   return {
     ...(input.commentId != null && { commentId: input.commentId }),
     ...(input.reactionValue != null && { reactionValue: input.reactionValue }),
   };
 };
 
-const serializeAws_json1_1PutFileEntries = (input: PutFileEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutFileEntries
+ */
+const se_PutFileEntries = (input: PutFileEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1PutFileEntry(entry, context);
+      return se_PutFileEntry(entry, context);
     });
 };
 
-const serializeAws_json1_1PutFileEntry = (input: PutFileEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutFileEntry
+ */
+const se_PutFileEntry = (input: PutFileEntry, context: __SerdeContext): any => {
   return {
     ...(input.fileContent != null && { fileContent: context.base64Encoder(input.fileContent) }),
     ...(input.fileMode != null && { fileMode: input.fileMode }),
     ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.sourceFile != null && { sourceFile: serializeAws_json1_1SourceFileSpecifier(input.sourceFile, context) }),
+    ...(input.sourceFile != null && { sourceFile: se_SourceFileSpecifier(input.sourceFile, context) }),
   };
 };
 
-const serializeAws_json1_1PutFileInput = (input: PutFileInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutFileInput
+ */
+const se_PutFileInput = (input: PutFileInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName != null && { branchName: input.branchName }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
@@ -10919,25 +12277,31 @@ const serializeAws_json1_1PutFileInput = (input: PutFileInput, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1PutRepositoryTriggersInput = (
-  input: PutRepositoryTriggersInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutRepositoryTriggersInput
+ */
+const se_PutRepositoryTriggersInput = (input: PutRepositoryTriggersInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.triggers != null && { triggers: serializeAws_json1_1RepositoryTriggersList(input.triggers, context) }),
+    ...(input.triggers != null && { triggers: se_RepositoryTriggersList(input.triggers, context) }),
   };
 };
 
-const serializeAws_json1_1ReplaceContentEntries = (input: ReplaceContentEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReplaceContentEntries
+ */
+const se_ReplaceContentEntries = (input: ReplaceContentEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ReplaceContentEntry(entry, context);
+      return se_ReplaceContentEntry(entry, context);
     });
 };
 
-const serializeAws_json1_1ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReplaceContentEntry
+ */
+const se_ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeContext): any => {
   return {
     ...(input.content != null && { content: context.base64Encoder(input.content) }),
     ...(input.fileMode != null && { fileMode: input.fileMode }),
@@ -10946,7 +12310,10 @@ const serializeAws_json1_1ReplaceContentEntry = (input: ReplaceContentEntry, con
   };
 };
 
-const serializeAws_json1_1RepositoryNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RepositoryNameList
+ */
+const se_RepositoryNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10954,17 +12321,23 @@ const serializeAws_json1_1RepositoryNameList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1RepositoryTrigger = (input: RepositoryTrigger, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RepositoryTrigger
+ */
+const se_RepositoryTrigger = (input: RepositoryTrigger, context: __SerdeContext): any => {
   return {
-    ...(input.branches != null && { branches: serializeAws_json1_1BranchNameList(input.branches, context) }),
+    ...(input.branches != null && { branches: se_BranchNameList(input.branches, context) }),
     ...(input.customData != null && { customData: input.customData }),
     ...(input.destinationArn != null && { destinationArn: input.destinationArn }),
-    ...(input.events != null && { events: serializeAws_json1_1RepositoryTriggerEventList(input.events, context) }),
+    ...(input.events != null && { events: se_RepositoryTriggerEventList(input.events, context) }),
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_1RepositoryTriggerEventList = (
+/**
+ * serializeAws_json1_1RepositoryTriggerEventList
+ */
+const se_RepositoryTriggerEventList = (
   input: (RepositoryTriggerEventEnum | string)[],
   context: __SerdeContext
 ): any => {
@@ -10975,37 +12348,52 @@ const serializeAws_json1_1RepositoryTriggerEventList = (
     });
 };
 
-const serializeAws_json1_1RepositoryTriggersList = (input: RepositoryTrigger[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RepositoryTriggersList
+ */
+const se_RepositoryTriggersList = (input: RepositoryTrigger[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1RepositoryTrigger(entry, context);
+      return se_RepositoryTrigger(entry, context);
     });
 };
 
-const serializeAws_json1_1SetFileModeEntries = (input: SetFileModeEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SetFileModeEntries
+ */
+const se_SetFileModeEntries = (input: SetFileModeEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1SetFileModeEntry(entry, context);
+      return se_SetFileModeEntry(entry, context);
     });
 };
 
-const serializeAws_json1_1SetFileModeEntry = (input: SetFileModeEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SetFileModeEntry
+ */
+const se_SetFileModeEntry = (input: SetFileModeEntry, context: __SerdeContext): any => {
   return {
     ...(input.fileMode != null && { fileMode: input.fileMode }),
     ...(input.filePath != null && { filePath: input.filePath }),
   };
 };
 
-const serializeAws_json1_1SourceFileSpecifier = (input: SourceFileSpecifier, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SourceFileSpecifier
+ */
+const se_SourceFileSpecifier = (input: SourceFileSpecifier, context: __SerdeContext): any => {
   return {
     ...(input.filePath != null && { filePath: input.filePath }),
     ...(input.isMove != null && { isMove: input.isMove }),
   };
 };
 
-const serializeAws_json1_1TagKeysList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeysList
+ */
+const se_TagKeysList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -11013,14 +12401,20 @@ const serializeAws_json1_1TagKeysList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceInput
+ */
+const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagsMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagsMap
+ */
+const se_TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -11030,7 +12424,10 @@ const serializeAws_json1_1TagsMap = (input: Record<string, string>, context: __S
   }, {});
 };
 
-const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Target
+ */
+const se_Target = (input: Target, context: __SerdeContext): any => {
   return {
     ...(input.destinationReference != null && { destinationReference: input.destinationReference }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
@@ -11038,32 +12435,41 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
   };
 };
 
-const serializeAws_json1_1TargetList = (input: Target[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetList
+ */
+const se_TargetList = (input: Target[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Target(entry, context);
+      return se_Target(entry, context);
     });
 };
 
-const serializeAws_json1_1TestRepositoryTriggersInput = (
-  input: TestRepositoryTriggersInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1TestRepositoryTriggersInput
+ */
+const se_TestRepositoryTriggersInput = (input: TestRepositoryTriggersInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.triggers != null && { triggers: serializeAws_json1_1RepositoryTriggersList(input.triggers, context) }),
+    ...(input.triggers != null && { triggers: se_RepositoryTriggersList(input.triggers, context) }),
   };
 };
 
-const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceInput
+ */
+const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeysList(input.tagKeys, context) }),
+    ...(input.tagKeys != null && { tagKeys: se_TagKeysList(input.tagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateContentInput
+ */
+const se_UpdateApprovalRuleTemplateContentInput = (
   input: UpdateApprovalRuleTemplateContentInput,
   context: __SerdeContext
 ): any => {
@@ -11074,7 +12480,10 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
   };
 };
 
-const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput
+ */
+const se_UpdateApprovalRuleTemplateDescriptionInput = (
   input: UpdateApprovalRuleTemplateDescriptionInput,
   context: __SerdeContext
 ): any => {
@@ -11086,7 +12495,10 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
   };
 };
 
-const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
+/**
+ * serializeAws_json1_1UpdateApprovalRuleTemplateNameInput
+ */
+const se_UpdateApprovalRuleTemplateNameInput = (
   input: UpdateApprovalRuleTemplateNameInput,
   context: __SerdeContext
 ): any => {
@@ -11100,24 +12512,30 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateNameInput = (
   };
 };
 
-const serializeAws_json1_1UpdateCommentInput = (input: UpdateCommentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateCommentInput
+ */
+const se_UpdateCommentInput = (input: UpdateCommentInput, context: __SerdeContext): any => {
   return {
     ...(input.commentId != null && { commentId: input.commentId }),
     ...(input.content != null && { content: input.content }),
   };
 };
 
-const serializeAws_json1_1UpdateDefaultBranchInput = (
-  input: UpdateDefaultBranchInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateDefaultBranchInput
+ */
+const se_UpdateDefaultBranchInput = (input: UpdateDefaultBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.defaultBranchName != null && { defaultBranchName: input.defaultBranchName }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
+/**
+ * serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput
+ */
+const se_UpdatePullRequestApprovalRuleContentInput = (
   input: UpdatePullRequestApprovalRuleContentInput,
   context: __SerdeContext
 ): any => {
@@ -11129,7 +12547,10 @@ const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
   };
 };
 
-const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
+/**
+ * serializeAws_json1_1UpdatePullRequestApprovalStateInput
+ */
+const se_UpdatePullRequestApprovalStateInput = (
   input: UpdatePullRequestApprovalStateInput,
   context: __SerdeContext
 ): any => {
@@ -11140,7 +12561,10 @@ const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
   };
 };
 
-const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
+/**
+ * serializeAws_json1_1UpdatePullRequestDescriptionInput
+ */
+const se_UpdatePullRequestDescriptionInput = (
   input: UpdatePullRequestDescriptionInput,
   context: __SerdeContext
 ): any => {
@@ -11150,75 +12574,84 @@ const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
   };
 };
 
-const serializeAws_json1_1UpdatePullRequestStatusInput = (
-  input: UpdatePullRequestStatusInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdatePullRequestStatusInput
+ */
+const se_UpdatePullRequestStatusInput = (input: UpdatePullRequestStatusInput, context: __SerdeContext): any => {
   return {
     ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
     ...(input.pullRequestStatus != null && { pullRequestStatus: input.pullRequestStatus }),
   };
 };
 
-const serializeAws_json1_1UpdatePullRequestTitleInput = (
-  input: UpdatePullRequestTitleInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdatePullRequestTitleInput
+ */
+const se_UpdatePullRequestTitleInput = (input: UpdatePullRequestTitleInput, context: __SerdeContext): any => {
   return {
     ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
     ...(input.title != null && { title: input.title }),
   };
 };
 
-const serializeAws_json1_1UpdateRepositoryDescriptionInput = (
-  input: UpdateRepositoryDescriptionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateRepositoryDescriptionInput
+ */
+const se_UpdateRepositoryDescriptionInput = (input: UpdateRepositoryDescriptionInput, context: __SerdeContext): any => {
   return {
     ...(input.repositoryDescription != null && { repositoryDescription: input.repositoryDescription }),
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
-const serializeAws_json1_1UpdateRepositoryNameInput = (
-  input: UpdateRepositoryNameInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateRepositoryNameInput
+ */
+const se_UpdateRepositoryNameInput = (input: UpdateRepositoryNameInput, context: __SerdeContext): any => {
   return {
     ...(input.newName != null && { newName: input.newName }),
     ...(input.oldName != null && { oldName: input.oldName }),
   };
 };
 
-const deserializeAws_json1_1ActorDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ActorDoesNotExistException => {
+/**
+ * deserializeAws_json1_1ActorDoesNotExistException
+ */
+const de_ActorDoesNotExistException = (output: any, context: __SerdeContext): ActorDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1Approval = (output: any, context: __SerdeContext): Approval => {
+/**
+ * deserializeAws_json1_1Approval
+ */
+const de_Approval = (output: any, context: __SerdeContext): Approval => {
   return {
     approvalState: __expectString(output.approvalState),
     userArn: __expectString(output.userArn),
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalList = (output: any, context: __SerdeContext): Approval[] => {
+/**
+ * deserializeAws_json1_1ApprovalList
+ */
+const de_ApprovalList = (output: any, context: __SerdeContext): Approval[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Approval(entry, context);
+      return de_Approval(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ApprovalRule = (output: any, context: __SerdeContext): ApprovalRule => {
+/**
+ * deserializeAws_json1_1ApprovalRule
+ */
+const de_ApprovalRule = (output: any, context: __SerdeContext): ApprovalRule => {
   return {
     approvalRuleContent: __expectString(output.approvalRuleContent),
     approvalRuleId: __expectString(output.approvalRuleId),
@@ -11234,13 +12667,16 @@ const deserializeAws_json1_1ApprovalRule = (output: any, context: __SerdeContext
     lastModifiedUser: __expectString(output.lastModifiedUser),
     originApprovalRuleTemplate:
       output.originApprovalRuleTemplate != null
-        ? deserializeAws_json1_1OriginApprovalRuleTemplate(output.originApprovalRuleTemplate, context)
+        ? de_OriginApprovalRuleTemplate(output.originApprovalRuleTemplate, context)
         : undefined,
     ruleContentSha256: __expectString(output.ruleContentSha256),
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleContentRequiredException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleContentRequiredException
+ */
+const de_ApprovalRuleContentRequiredException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleContentRequiredException => {
@@ -11249,7 +12685,10 @@ const deserializeAws_json1_1ApprovalRuleContentRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleDoesNotExistException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleDoesNotExistException
+ */
+const de_ApprovalRuleDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleDoesNotExistException => {
@@ -11258,10 +12697,10 @@ const deserializeAws_json1_1ApprovalRuleDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleEventMetadata => {
+/**
+ * deserializeAws_json1_1ApprovalRuleEventMetadata
+ */
+const de_ApprovalRuleEventMetadata = (output: any, context: __SerdeContext): ApprovalRuleEventMetadata => {
   return {
     approvalRuleContent: __expectString(output.approvalRuleContent),
     approvalRuleId: __expectString(output.approvalRuleId),
@@ -11269,7 +12708,10 @@ const deserializeAws_json1_1ApprovalRuleEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException
+ */
+const de_ApprovalRuleNameAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleNameAlreadyExistsException => {
@@ -11278,7 +12720,10 @@ const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleNameRequiredException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleNameRequiredException
+ */
+const de_ApprovalRuleNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleNameRequiredException => {
@@ -11287,7 +12732,10 @@ const deserializeAws_json1_1ApprovalRuleNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata = (
+/**
+ * deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata
+ */
+const de_ApprovalRuleOverriddenEventMetadata = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleOverriddenEventMetadata => {
@@ -11297,19 +12745,25 @@ const deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRulesList = (output: any, context: __SerdeContext): ApprovalRule[] => {
+/**
+ * deserializeAws_json1_1ApprovalRulesList
+ */
+const de_ApprovalRulesList = (output: any, context: __SerdeContext): ApprovalRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ApprovalRule(entry, context);
+      return de_ApprovalRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ApprovalRulesNotSatisfiedList
+ */
+const de_ApprovalRulesNotSatisfiedList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11321,7 +12775,10 @@ const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (output: any, contex
   return retVal;
 };
 
-const deserializeAws_json1_1ApprovalRulesSatisfiedList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ApprovalRulesSatisfiedList
+ */
+const de_ApprovalRulesSatisfiedList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11333,7 +12790,10 @@ const deserializeAws_json1_1ApprovalRulesSatisfiedList = (output: any, context: 
   return retVal;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplate = (output: any, context: __SerdeContext): ApprovalRuleTemplate => {
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplate
+ */
+const de_ApprovalRuleTemplate = (output: any, context: __SerdeContext): ApprovalRuleTemplate => {
   return {
     approvalRuleTemplateContent: __expectString(output.approvalRuleTemplateContent),
     approvalRuleTemplateDescription: __expectString(output.approvalRuleTemplateDescription),
@@ -11352,7 +12812,10 @@ const deserializeAws_json1_1ApprovalRuleTemplate = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException
+ */
+const de_ApprovalRuleTemplateContentRequiredException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleTemplateContentRequiredException => {
@@ -11361,7 +12824,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException
+ */
+const de_ApprovalRuleTemplateDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleTemplateDoesNotExistException => {
@@ -11370,7 +12836,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateInUseException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateInUseException
+ */
+const de_ApprovalRuleTemplateInUseException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleTemplateInUseException => {
@@ -11379,7 +12848,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateInUseException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException
+ */
+const de_ApprovalRuleTemplateNameAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleTemplateNameAlreadyExistsException => {
@@ -11388,7 +12860,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateNameList
+ */
+const de_ApprovalRuleTemplateNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11400,7 +12875,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameList = (output: any, context
   return retVal;
 };
 
-const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
+/**
+ * deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException
+ */
+const de_ApprovalRuleTemplateNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): ApprovalRuleTemplateNameRequiredException => {
@@ -11409,7 +12887,10 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalStateChangedEventMetadata = (
+/**
+ * deserializeAws_json1_1ApprovalStateChangedEventMetadata
+ */
+const de_ApprovalStateChangedEventMetadata = (
   output: any,
   context: __SerdeContext
 ): ApprovalStateChangedEventMetadata => {
@@ -11419,25 +12900,28 @@ const deserializeAws_json1_1ApprovalStateChangedEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1ApprovalStateRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalStateRequiredException => {
+/**
+ * deserializeAws_json1_1ApprovalStateRequiredException
+ */
+const de_ApprovalStateRequiredException = (output: any, context: __SerdeContext): ApprovalStateRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1AuthorDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): AuthorDoesNotExistException => {
+/**
+ * deserializeAws_json1_1AuthorDoesNotExistException
+ */
+const de_AuthorDoesNotExistException = (output: any, context: __SerdeContext): AuthorDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError = (
+/**
+ * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError
+ */
+const de_BatchAssociateApprovalRuleTemplateWithRepositoriesError = (
   output: any,
   context: __SerdeContext
 ): BatchAssociateApprovalRuleTemplateWithRepositoriesError => {
@@ -11448,7 +12932,10 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
   } as any;
 };
 
-const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = (
+/**
+ * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList
+ */
+const de_BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
 ): BatchAssociateApprovalRuleTemplateWithRepositoriesError[] => {
@@ -11458,28 +12945,34 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError(entry, context);
+      return de_BatchAssociateApprovalRuleTemplateWithRepositoriesError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput = (
+/**
+ * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
+ */
+const de_BatchAssociateApprovalRuleTemplateWithRepositoriesOutput = (
   output: any,
   context: __SerdeContext
 ): BatchAssociateApprovalRuleTemplateWithRepositoriesOutput => {
   return {
     associatedRepositoryNames:
       output.associatedRepositoryNames != null
-        ? deserializeAws_json1_1RepositoryNameList(output.associatedRepositoryNames, context)
+        ? de_RepositoryNameList(output.associatedRepositoryNames, context)
         : undefined,
     errors:
       output.errors != null
-        ? deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList(output.errors, context)
+        ? de_BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList(output.errors, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
+/**
+ * deserializeAws_json1_1BatchDescribeMergeConflictsError
+ */
+const de_BatchDescribeMergeConflictsError = (
   output: any,
   context: __SerdeContext
 ): BatchDescribeMergeConflictsError => {
@@ -11490,7 +12983,10 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
   } as any;
 };
 
-const deserializeAws_json1_1BatchDescribeMergeConflictsErrors = (
+/**
+ * deserializeAws_json1_1BatchDescribeMergeConflictsErrors
+ */
+const de_BatchDescribeMergeConflictsErrors = (
   output: any,
   context: __SerdeContext
 ): BatchDescribeMergeConflictsError[] => {
@@ -11500,29 +12996,32 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsErrors = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BatchDescribeMergeConflictsError(entry, context);
+      return de_BatchDescribeMergeConflictsError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BatchDescribeMergeConflictsOutput = (
+/**
+ * deserializeAws_json1_1BatchDescribeMergeConflictsOutput
+ */
+const de_BatchDescribeMergeConflictsOutput = (
   output: any,
   context: __SerdeContext
 ): BatchDescribeMergeConflictsOutput => {
   return {
     baseCommitId: __expectString(output.baseCommitId),
-    conflicts: output.conflicts != null ? deserializeAws_json1_1Conflicts(output.conflicts, context) : undefined,
+    conflicts: output.conflicts != null ? de_Conflicts(output.conflicts, context) : undefined,
     destinationCommitId: __expectString(output.destinationCommitId),
-    errors:
-      output.errors != null
-        ? deserializeAws_json1_1BatchDescribeMergeConflictsErrors(output.errors, context)
-        : undefined,
+    errors: output.errors != null ? de_BatchDescribeMergeConflictsErrors(output.errors, context) : undefined,
     nextToken: __expectString(output.nextToken),
     sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
-const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError = (
+/**
+ * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+ */
+const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesError = (
   output: any,
   context: __SerdeContext
 ): BatchDisassociateApprovalRuleTemplateFromRepositoriesError => {
@@ -11533,7 +13032,10 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
   } as any;
 };
 
-const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = (
+/**
+ * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList
+ */
+const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
 ): BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] => {
@@ -11543,28 +13045,34 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError(entry, context);
+      return de_BatchDisassociateApprovalRuleTemplateFromRepositoriesError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput = (
+/**
+ * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
+ */
+const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput = (
   output: any,
   context: __SerdeContext
 ): BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput => {
   return {
     disassociatedRepositoryNames:
       output.disassociatedRepositoryNames != null
-        ? deserializeAws_json1_1RepositoryNameList(output.disassociatedRepositoryNames, context)
+        ? de_RepositoryNameList(output.disassociatedRepositoryNames, context)
         : undefined,
     errors:
       output.errors != null
-        ? deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList(output.errors, context)
+        ? de_BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList(output.errors, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetCommitsError = (output: any, context: __SerdeContext): BatchGetCommitsError => {
+/**
+ * deserializeAws_json1_1BatchGetCommitsError
+ */
+const de_BatchGetCommitsError = (output: any, context: __SerdeContext): BatchGetCommitsError => {
   return {
     commitId: __expectString(output.commitId),
     errorCode: __expectString(output.errorCode),
@@ -11572,45 +13080,46 @@ const deserializeAws_json1_1BatchGetCommitsError = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetCommitsErrorsList = (
-  output: any,
-  context: __SerdeContext
-): BatchGetCommitsError[] => {
+/**
+ * deserializeAws_json1_1BatchGetCommitsErrorsList
+ */
+const de_BatchGetCommitsErrorsList = (output: any, context: __SerdeContext): BatchGetCommitsError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BatchGetCommitsError(entry, context);
+      return de_BatchGetCommitsError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BatchGetCommitsOutput = (output: any, context: __SerdeContext): BatchGetCommitsOutput => {
+/**
+ * deserializeAws_json1_1BatchGetCommitsOutput
+ */
+const de_BatchGetCommitsOutput = (output: any, context: __SerdeContext): BatchGetCommitsOutput => {
   return {
-    commits: output.commits != null ? deserializeAws_json1_1CommitObjectsList(output.commits, context) : undefined,
-    errors: output.errors != null ? deserializeAws_json1_1BatchGetCommitsErrorsList(output.errors, context) : undefined,
+    commits: output.commits != null ? de_CommitObjectsList(output.commits, context) : undefined,
+    errors: output.errors != null ? de_BatchGetCommitsErrorsList(output.errors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetRepositoriesOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRepositoriesOutput => {
+/**
+ * deserializeAws_json1_1BatchGetRepositoriesOutput
+ */
+const de_BatchGetRepositoriesOutput = (output: any, context: __SerdeContext): BatchGetRepositoriesOutput => {
   return {
-    repositories:
-      output.repositories != null
-        ? deserializeAws_json1_1RepositoryMetadataList(output.repositories, context)
-        : undefined,
+    repositories: output.repositories != null ? de_RepositoryMetadataList(output.repositories, context) : undefined,
     repositoriesNotFound:
-      output.repositoriesNotFound != null
-        ? deserializeAws_json1_1RepositoryNotFoundList(output.repositoriesNotFound, context)
-        : undefined,
+      output.repositoriesNotFound != null ? de_RepositoryNotFoundList(output.repositoriesNotFound, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException = (
+/**
+ * deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException
+ */
+const de_BeforeCommitIdAndAfterCommitIdAreSameException = (
   output: any,
   context: __SerdeContext
 ): BeforeCommitIdAndAfterCommitIdAreSameException => {
@@ -11619,25 +13128,28 @@ const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException = (
   } as any;
 };
 
-const deserializeAws_json1_1BlobIdDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): BlobIdDoesNotExistException => {
+/**
+ * deserializeAws_json1_1BlobIdDoesNotExistException
+ */
+const de_BlobIdDoesNotExistException = (output: any, context: __SerdeContext): BlobIdDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BlobIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): BlobIdRequiredException => {
+/**
+ * deserializeAws_json1_1BlobIdRequiredException
+ */
+const de_BlobIdRequiredException = (output: any, context: __SerdeContext): BlobIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BlobMetadata = (output: any, context: __SerdeContext): BlobMetadata => {
+/**
+ * deserializeAws_json1_1BlobMetadata
+ */
+const de_BlobMetadata = (output: any, context: __SerdeContext): BlobMetadata => {
   return {
     blobId: __expectString(output.blobId),
     mode: __expectString(output.mode),
@@ -11645,41 +13157,47 @@ const deserializeAws_json1_1BlobMetadata = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1BranchDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): BranchDoesNotExistException => {
+/**
+ * deserializeAws_json1_1BranchDoesNotExistException
+ */
+const de_BranchDoesNotExistException = (output: any, context: __SerdeContext): BranchDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BranchInfo = (output: any, context: __SerdeContext): BranchInfo => {
+/**
+ * deserializeAws_json1_1BranchInfo
+ */
+const de_BranchInfo = (output: any, context: __SerdeContext): BranchInfo => {
   return {
     branchName: __expectString(output.branchName),
     commitId: __expectString(output.commitId),
   } as any;
 };
 
-const deserializeAws_json1_1BranchNameExistsException = (
-  output: any,
-  context: __SerdeContext
-): BranchNameExistsException => {
+/**
+ * deserializeAws_json1_1BranchNameExistsException
+ */
+const de_BranchNameExistsException = (output: any, context: __SerdeContext): BranchNameExistsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BranchNameIsTagNameException = (
-  output: any,
-  context: __SerdeContext
-): BranchNameIsTagNameException => {
+/**
+ * deserializeAws_json1_1BranchNameIsTagNameException
+ */
+const de_BranchNameIsTagNameException = (output: any, context: __SerdeContext): BranchNameIsTagNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BranchNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1BranchNameList
+ */
+const de_BranchNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11691,16 +13209,19 @@ const deserializeAws_json1_1BranchNameList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1BranchNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): BranchNameRequiredException => {
+/**
+ * deserializeAws_json1_1BranchNameRequiredException
+ */
+const de_BranchNameRequiredException = (output: any, context: __SerdeContext): BranchNameRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CallerReactions = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1CallerReactions
+ */
+const de_CallerReactions = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11712,7 +13233,10 @@ const deserializeAws_json1_1CallerReactions = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException = (
+/**
+ * deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException
+ */
+const de_CannotDeleteApprovalRuleFromTemplateException = (
   output: any,
   context: __SerdeContext
 ): CannotDeleteApprovalRuleFromTemplateException => {
@@ -11721,7 +13245,10 @@ const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException = (
   } as any;
 };
 
-const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException = (
+/**
+ * deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException
+ */
+const de_CannotModifyApprovalRuleFromTemplateException = (
   output: any,
   context: __SerdeContext
 ): CannotModifyApprovalRuleFromTemplateException => {
@@ -11730,7 +13257,10 @@ const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException = (
   } as any;
 };
 
-const deserializeAws_json1_1ClientRequestTokenRequiredException = (
+/**
+ * deserializeAws_json1_1ClientRequestTokenRequiredException
+ */
+const de_ClientRequestTokenRequiredException = (
   output: any,
   context: __SerdeContext
 ): ClientRequestTokenRequiredException => {
@@ -11739,13 +13269,13 @@ const deserializeAws_json1_1ClientRequestTokenRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Comment => {
+/**
+ * deserializeAws_json1_1Comment
+ */
+const de_Comment = (output: any, context: __SerdeContext): Comment => {
   return {
     authorArn: __expectString(output.authorArn),
-    callerReactions:
-      output.callerReactions != null
-        ? deserializeAws_json1_1CallerReactions(output.callerReactions, context)
-        : undefined,
+    callerReactions: output.callerReactions != null ? de_CallerReactions(output.callerReactions, context) : undefined,
     clientRequestToken: __expectString(output.clientRequestToken),
     commentId: __expectString(output.commentId),
     content: __expectString(output.content),
@@ -11759,23 +13289,23 @@ const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Co
       output.lastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
-    reactionCounts:
-      output.reactionCounts != null
-        ? deserializeAws_json1_1ReactionCountsMap(output.reactionCounts, context)
-        : undefined,
+    reactionCounts: output.reactionCounts != null ? de_ReactionCountsMap(output.reactionCounts, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CommentContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): CommentContentRequiredException => {
+/**
+ * deserializeAws_json1_1CommentContentRequiredException
+ */
+const de_CommentContentRequiredException = (output: any, context: __SerdeContext): CommentContentRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommentContentSizeLimitExceededException = (
+/**
+ * deserializeAws_json1_1CommentContentSizeLimitExceededException
+ */
+const de_CommentContentSizeLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): CommentContentSizeLimitExceededException => {
@@ -11784,34 +13314,37 @@ const deserializeAws_json1_1CommentContentSizeLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1CommentDeletedException = (
-  output: any,
-  context: __SerdeContext
-): CommentDeletedException => {
+/**
+ * deserializeAws_json1_1CommentDeletedException
+ */
+const de_CommentDeletedException = (output: any, context: __SerdeContext): CommentDeletedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommentDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): CommentDoesNotExistException => {
+/**
+ * deserializeAws_json1_1CommentDoesNotExistException
+ */
+const de_CommentDoesNotExistException = (output: any, context: __SerdeContext): CommentDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommentIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): CommentIdRequiredException => {
+/**
+ * deserializeAws_json1_1CommentIdRequiredException
+ */
+const de_CommentIdRequiredException = (output: any, context: __SerdeContext): CommentIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommentNotCreatedByCallerException = (
+/**
+ * deserializeAws_json1_1CommentNotCreatedByCallerException
+ */
+const de_CommentNotCreatedByCallerException = (
   output: any,
   context: __SerdeContext
 ): CommentNotCreatedByCallerException => {
@@ -11820,134 +13353,146 @@ const deserializeAws_json1_1CommentNotCreatedByCallerException = (
   } as any;
 };
 
-const deserializeAws_json1_1Comments = (output: any, context: __SerdeContext): Comment[] => {
+/**
+ * deserializeAws_json1_1Comments
+ */
+const de_Comments = (output: any, context: __SerdeContext): Comment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Comment(entry, context);
+      return de_Comment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CommentsForComparedCommit = (
-  output: any,
-  context: __SerdeContext
-): CommentsForComparedCommit => {
+/**
+ * deserializeAws_json1_1CommentsForComparedCommit
+ */
+const de_CommentsForComparedCommit = (output: any, context: __SerdeContext): CommentsForComparedCommit => {
   return {
     afterBlobId: __expectString(output.afterBlobId),
     afterCommitId: __expectString(output.afterCommitId),
     beforeBlobId: __expectString(output.beforeBlobId),
     beforeCommitId: __expectString(output.beforeCommitId),
-    comments: output.comments != null ? deserializeAws_json1_1Comments(output.comments, context) : undefined,
-    location: output.location != null ? deserializeAws_json1_1Location(output.location, context) : undefined,
+    comments: output.comments != null ? de_Comments(output.comments, context) : undefined,
+    location: output.location != null ? de_Location(output.location, context) : undefined,
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1CommentsForComparedCommitData = (
-  output: any,
-  context: __SerdeContext
-): CommentsForComparedCommit[] => {
+/**
+ * deserializeAws_json1_1CommentsForComparedCommitData
+ */
+const de_CommentsForComparedCommitData = (output: any, context: __SerdeContext): CommentsForComparedCommit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CommentsForComparedCommit(entry, context);
+      return de_CommentsForComparedCommit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CommentsForPullRequest = (output: any, context: __SerdeContext): CommentsForPullRequest => {
+/**
+ * deserializeAws_json1_1CommentsForPullRequest
+ */
+const de_CommentsForPullRequest = (output: any, context: __SerdeContext): CommentsForPullRequest => {
   return {
     afterBlobId: __expectString(output.afterBlobId),
     afterCommitId: __expectString(output.afterCommitId),
     beforeBlobId: __expectString(output.beforeBlobId),
     beforeCommitId: __expectString(output.beforeCommitId),
-    comments: output.comments != null ? deserializeAws_json1_1Comments(output.comments, context) : undefined,
-    location: output.location != null ? deserializeAws_json1_1Location(output.location, context) : undefined,
+    comments: output.comments != null ? de_Comments(output.comments, context) : undefined,
+    location: output.location != null ? de_Location(output.location, context) : undefined,
     pullRequestId: __expectString(output.pullRequestId),
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1CommentsForPullRequestData = (
-  output: any,
-  context: __SerdeContext
-): CommentsForPullRequest[] => {
+/**
+ * deserializeAws_json1_1CommentsForPullRequestData
+ */
+const de_CommentsForPullRequestData = (output: any, context: __SerdeContext): CommentsForPullRequest[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CommentsForPullRequest(entry, context);
+      return de_CommentsForPullRequest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Commit = (output: any, context: __SerdeContext): Commit => {
+/**
+ * deserializeAws_json1_1Commit
+ */
+const de_Commit = (output: any, context: __SerdeContext): Commit => {
   return {
     additionalData: __expectString(output.additionalData),
-    author: output.author != null ? deserializeAws_json1_1UserInfo(output.author, context) : undefined,
+    author: output.author != null ? de_UserInfo(output.author, context) : undefined,
     commitId: __expectString(output.commitId),
-    committer: output.committer != null ? deserializeAws_json1_1UserInfo(output.committer, context) : undefined,
+    committer: output.committer != null ? de_UserInfo(output.committer, context) : undefined,
     message: __expectString(output.message),
-    parents: output.parents != null ? deserializeAws_json1_1ParentList(output.parents, context) : undefined,
+    parents: output.parents != null ? de_ParentList(output.parents, context) : undefined,
     treeId: __expectString(output.treeId),
   } as any;
 };
 
-const deserializeAws_json1_1CommitDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): CommitDoesNotExistException => {
+/**
+ * deserializeAws_json1_1CommitDoesNotExistException
+ */
+const de_CommitDoesNotExistException = (output: any, context: __SerdeContext): CommitDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommitIdDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): CommitIdDoesNotExistException => {
+/**
+ * deserializeAws_json1_1CommitIdDoesNotExistException
+ */
+const de_CommitIdDoesNotExistException = (output: any, context: __SerdeContext): CommitIdDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommitIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): CommitIdRequiredException => {
+/**
+ * deserializeAws_json1_1CommitIdRequiredException
+ */
+const de_CommitIdRequiredException = (output: any, context: __SerdeContext): CommitIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommitIdsLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): CommitIdsLimitExceededException => {
+/**
+ * deserializeAws_json1_1CommitIdsLimitExceededException
+ */
+const de_CommitIdsLimitExceededException = (output: any, context: __SerdeContext): CommitIdsLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommitIdsListRequiredException = (
-  output: any,
-  context: __SerdeContext
-): CommitIdsListRequiredException => {
+/**
+ * deserializeAws_json1_1CommitIdsListRequiredException
+ */
+const de_CommitIdsListRequiredException = (output: any, context: __SerdeContext): CommitIdsListRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CommitMessageLengthExceededException = (
+/**
+ * deserializeAws_json1_1CommitMessageLengthExceededException
+ */
+const de_CommitMessageLengthExceededException = (
   output: any,
   context: __SerdeContext
 ): CommitMessageLengthExceededException => {
@@ -11956,28 +13501,34 @@ const deserializeAws_json1_1CommitMessageLengthExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1CommitObjectsList = (output: any, context: __SerdeContext): Commit[] => {
+/**
+ * deserializeAws_json1_1CommitObjectsList
+ */
+const de_CommitObjectsList = (output: any, context: __SerdeContext): Commit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Commit(entry, context);
+      return de_Commit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CommitRequiredException = (
-  output: any,
-  context: __SerdeContext
-): CommitRequiredException => {
+/**
+ * deserializeAws_json1_1CommitRequiredException
+ */
+const de_CommitRequiredException = (output: any, context: __SerdeContext): CommitRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ConcurrentReferenceUpdateException = (
+/**
+ * deserializeAws_json1_1ConcurrentReferenceUpdateException
+ */
+const de_ConcurrentReferenceUpdateException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentReferenceUpdateException => {
@@ -11986,114 +13537,126 @@ const deserializeAws_json1_1ConcurrentReferenceUpdateException = (
   } as any;
 };
 
-const deserializeAws_json1_1Conflict = (output: any, context: __SerdeContext): Conflict => {
+/**
+ * deserializeAws_json1_1Conflict
+ */
+const de_Conflict = (output: any, context: __SerdeContext): Conflict => {
   return {
     conflictMetadata:
-      output.conflictMetadata != null
-        ? deserializeAws_json1_1ConflictMetadata(output.conflictMetadata, context)
-        : undefined,
-    mergeHunks: output.mergeHunks != null ? deserializeAws_json1_1MergeHunks(output.mergeHunks, context) : undefined,
+      output.conflictMetadata != null ? de_ConflictMetadata(output.conflictMetadata, context) : undefined,
+    mergeHunks: output.mergeHunks != null ? de_MergeHunks(output.mergeHunks, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConflictMetadata = (output: any, context: __SerdeContext): ConflictMetadata => {
+/**
+ * deserializeAws_json1_1ConflictMetadata
+ */
+const de_ConflictMetadata = (output: any, context: __SerdeContext): ConflictMetadata => {
   return {
     contentConflict: __expectBoolean(output.contentConflict),
     fileModeConflict: __expectBoolean(output.fileModeConflict),
-    fileModes: output.fileModes != null ? deserializeAws_json1_1FileModes(output.fileModes, context) : undefined,
+    fileModes: output.fileModes != null ? de_FileModes(output.fileModes, context) : undefined,
     filePath: __expectString(output.filePath),
-    fileSizes: output.fileSizes != null ? deserializeAws_json1_1FileSizes(output.fileSizes, context) : undefined,
-    isBinaryFile:
-      output.isBinaryFile != null ? deserializeAws_json1_1IsBinaryFile(output.isBinaryFile, context) : undefined,
-    mergeOperations:
-      output.mergeOperations != null
-        ? deserializeAws_json1_1MergeOperations(output.mergeOperations, context)
-        : undefined,
+    fileSizes: output.fileSizes != null ? de_FileSizes(output.fileSizes, context) : undefined,
+    isBinaryFile: output.isBinaryFile != null ? de_IsBinaryFile(output.isBinaryFile, context) : undefined,
+    mergeOperations: output.mergeOperations != null ? de_MergeOperations(output.mergeOperations, context) : undefined,
     numberOfConflicts: __expectInt32(output.numberOfConflicts),
     objectTypeConflict: __expectBoolean(output.objectTypeConflict),
-    objectTypes:
-      output.objectTypes != null ? deserializeAws_json1_1ObjectTypes(output.objectTypes, context) : undefined,
+    objectTypes: output.objectTypes != null ? de_ObjectTypes(output.objectTypes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConflictMetadataList = (output: any, context: __SerdeContext): ConflictMetadata[] => {
+/**
+ * deserializeAws_json1_1ConflictMetadataList
+ */
+const de_ConflictMetadataList = (output: any, context: __SerdeContext): ConflictMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ConflictMetadata(entry, context);
+      return de_ConflictMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Conflicts = (output: any, context: __SerdeContext): Conflict[] => {
+/**
+ * deserializeAws_json1_1Conflicts
+ */
+const de_Conflicts = (output: any, context: __SerdeContext): Conflict[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Conflict(entry, context);
+      return de_Conflict(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CreateApprovalRuleTemplateOutput = (
+/**
+ * deserializeAws_json1_1CreateApprovalRuleTemplateOutput
+ */
+const de_CreateApprovalRuleTemplateOutput = (
   output: any,
   context: __SerdeContext
 ): CreateApprovalRuleTemplateOutput => {
   return {
     approvalRuleTemplate:
-      output.approvalRuleTemplate != null
-        ? deserializeAws_json1_1ApprovalRuleTemplate(output.approvalRuleTemplate, context)
-        : undefined,
+      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateCommitOutput = (output: any, context: __SerdeContext): CreateCommitOutput => {
+/**
+ * deserializeAws_json1_1CreateCommitOutput
+ */
+const de_CreateCommitOutput = (output: any, context: __SerdeContext): CreateCommitOutput => {
   return {
     commitId: __expectString(output.commitId),
-    filesAdded: output.filesAdded != null ? deserializeAws_json1_1FilesMetadata(output.filesAdded, context) : undefined,
-    filesDeleted:
-      output.filesDeleted != null ? deserializeAws_json1_1FilesMetadata(output.filesDeleted, context) : undefined,
-    filesUpdated:
-      output.filesUpdated != null ? deserializeAws_json1_1FilesMetadata(output.filesUpdated, context) : undefined,
+    filesAdded: output.filesAdded != null ? de_FilesMetadata(output.filesAdded, context) : undefined,
+    filesDeleted: output.filesDeleted != null ? de_FilesMetadata(output.filesDeleted, context) : undefined,
+    filesUpdated: output.filesUpdated != null ? de_FilesMetadata(output.filesUpdated, context) : undefined,
     treeId: __expectString(output.treeId),
   } as any;
 };
 
-const deserializeAws_json1_1CreatePullRequestApprovalRuleOutput = (
+/**
+ * deserializeAws_json1_1CreatePullRequestApprovalRuleOutput
+ */
+const de_CreatePullRequestApprovalRuleOutput = (
   output: any,
   context: __SerdeContext
 ): CreatePullRequestApprovalRuleOutput => {
   return {
-    approvalRule:
-      output.approvalRule != null ? deserializeAws_json1_1ApprovalRule(output.approvalRule, context) : undefined,
+    approvalRule: output.approvalRule != null ? de_ApprovalRule(output.approvalRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreatePullRequestOutput = (
-  output: any,
-  context: __SerdeContext
-): CreatePullRequestOutput => {
+/**
+ * deserializeAws_json1_1CreatePullRequestOutput
+ */
+const de_CreatePullRequestOutput = (output: any, context: __SerdeContext): CreatePullRequestOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateRepositoryOutput = (output: any, context: __SerdeContext): CreateRepositoryOutput => {
+/**
+ * deserializeAws_json1_1CreateRepositoryOutput
+ */
+const de_CreateRepositoryOutput = (output: any, context: __SerdeContext): CreateRepositoryOutput => {
   return {
     repositoryMetadata:
-      output.repositoryMetadata != null
-        ? deserializeAws_json1_1RepositoryMetadata(output.repositoryMetadata, context)
-        : undefined,
+      output.repositoryMetadata != null ? de_RepositoryMetadata(output.repositoryMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateUnreferencedMergeCommitOutput = (
+/**
+ * deserializeAws_json1_1CreateUnreferencedMergeCommitOutput
+ */
+const de_CreateUnreferencedMergeCommitOutput = (
   output: any,
   context: __SerdeContext
 ): CreateUnreferencedMergeCommitOutput => {
@@ -12103,7 +13666,10 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DefaultBranchCannotBeDeletedException = (
+/**
+ * deserializeAws_json1_1DefaultBranchCannotBeDeletedException
+ */
+const de_DefaultBranchCannotBeDeletedException = (
   output: any,
   context: __SerdeContext
 ): DefaultBranchCannotBeDeletedException => {
@@ -12112,7 +13678,10 @@ const deserializeAws_json1_1DefaultBranchCannotBeDeletedException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteApprovalRuleTemplateOutput = (
+/**
+ * deserializeAws_json1_1DeleteApprovalRuleTemplateOutput
+ */
+const de_DeleteApprovalRuleTemplateOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteApprovalRuleTemplateOutput => {
@@ -12121,23 +13690,28 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteBranchOutput = (output: any, context: __SerdeContext): DeleteBranchOutput => {
+/**
+ * deserializeAws_json1_1DeleteBranchOutput
+ */
+const de_DeleteBranchOutput = (output: any, context: __SerdeContext): DeleteBranchOutput => {
   return {
-    deletedBranch:
-      output.deletedBranch != null ? deserializeAws_json1_1BranchInfo(output.deletedBranch, context) : undefined,
+    deletedBranch: output.deletedBranch != null ? de_BranchInfo(output.deletedBranch, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteCommentContentOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteCommentContentOutput => {
+/**
+ * deserializeAws_json1_1DeleteCommentContentOutput
+ */
+const de_DeleteCommentContentOutput = (output: any, context: __SerdeContext): DeleteCommentContentOutput => {
   return {
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFileOutput = (output: any, context: __SerdeContext): DeleteFileOutput => {
+/**
+ * deserializeAws_json1_1DeleteFileOutput
+ */
+const de_DeleteFileOutput = (output: any, context: __SerdeContext): DeleteFileOutput => {
   return {
     blobId: __expectString(output.blobId),
     commitId: __expectString(output.commitId),
@@ -12146,7 +13720,10 @@ const deserializeAws_json1_1DeleteFileOutput = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1DeletePullRequestApprovalRuleOutput = (
+/**
+ * deserializeAws_json1_1DeletePullRequestApprovalRuleOutput
+ */
+const de_DeletePullRequestApprovalRuleOutput = (
   output: any,
   context: __SerdeContext
 ): DeletePullRequestApprovalRuleOutput => {
@@ -12155,63 +13732,71 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
+/**
+ * deserializeAws_json1_1DeleteRepositoryOutput
+ */
+const de_DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
   return {
     repositoryId: __expectString(output.repositoryId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMergeConflictsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeMergeConflictsOutput => {
+/**
+ * deserializeAws_json1_1DescribeMergeConflictsOutput
+ */
+const de_DescribeMergeConflictsOutput = (output: any, context: __SerdeContext): DescribeMergeConflictsOutput => {
   return {
     baseCommitId: __expectString(output.baseCommitId),
     conflictMetadata:
-      output.conflictMetadata != null
-        ? deserializeAws_json1_1ConflictMetadata(output.conflictMetadata, context)
-        : undefined,
+      output.conflictMetadata != null ? de_ConflictMetadata(output.conflictMetadata, context) : undefined,
     destinationCommitId: __expectString(output.destinationCommitId),
-    mergeHunks: output.mergeHunks != null ? deserializeAws_json1_1MergeHunks(output.mergeHunks, context) : undefined,
+    mergeHunks: output.mergeHunks != null ? de_MergeHunks(output.mergeHunks, context) : undefined,
     nextToken: __expectString(output.nextToken),
     sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribePullRequestEventsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribePullRequestEventsOutput => {
+/**
+ * deserializeAws_json1_1DescribePullRequestEventsOutput
+ */
+const de_DescribePullRequestEventsOutput = (output: any, context: __SerdeContext): DescribePullRequestEventsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
     pullRequestEvents:
-      output.pullRequestEvents != null
-        ? deserializeAws_json1_1PullRequestEventList(output.pullRequestEvents, context)
-        : undefined,
+      output.pullRequestEvents != null ? de_PullRequestEventList(output.pullRequestEvents, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Difference = (output: any, context: __SerdeContext): Difference => {
+/**
+ * deserializeAws_json1_1Difference
+ */
+const de_Difference = (output: any, context: __SerdeContext): Difference => {
   return {
-    afterBlob: output.afterBlob != null ? deserializeAws_json1_1BlobMetadata(output.afterBlob, context) : undefined,
-    beforeBlob: output.beforeBlob != null ? deserializeAws_json1_1BlobMetadata(output.beforeBlob, context) : undefined,
+    afterBlob: output.afterBlob != null ? de_BlobMetadata(output.afterBlob, context) : undefined,
+    beforeBlob: output.beforeBlob != null ? de_BlobMetadata(output.beforeBlob, context) : undefined,
     changeType: __expectString(output.changeType),
   } as any;
 };
 
-const deserializeAws_json1_1DifferenceList = (output: any, context: __SerdeContext): Difference[] => {
+/**
+ * deserializeAws_json1_1DifferenceList
+ */
+const de_DifferenceList = (output: any, context: __SerdeContext): Difference[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Difference(entry, context);
+      return de_Difference(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DirectoryNameConflictsWithFileNameException = (
+/**
+ * deserializeAws_json1_1DirectoryNameConflictsWithFileNameException
+ */
+const de_DirectoryNameConflictsWithFileNameException = (
   output: any,
   context: __SerdeContext
 ): DirectoryNameConflictsWithFileNameException => {
@@ -12220,7 +13805,10 @@ const deserializeAws_json1_1DirectoryNameConflictsWithFileNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionIntegrityChecksFailedException = (
+/**
+ * deserializeAws_json1_1EncryptionIntegrityChecksFailedException
+ */
+const de_EncryptionIntegrityChecksFailedException = (
   output: any,
   context: __SerdeContext
 ): EncryptionIntegrityChecksFailedException => {
@@ -12229,7 +13817,10 @@ const deserializeAws_json1_1EncryptionIntegrityChecksFailedException = (
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionKeyAccessDeniedException = (
+/**
+ * deserializeAws_json1_1EncryptionKeyAccessDeniedException
+ */
+const de_EncryptionKeyAccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): EncryptionKeyAccessDeniedException => {
@@ -12238,25 +13829,28 @@ const deserializeAws_json1_1EncryptionKeyAccessDeniedException = (
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionKeyDisabledException = (
-  output: any,
-  context: __SerdeContext
-): EncryptionKeyDisabledException => {
+/**
+ * deserializeAws_json1_1EncryptionKeyDisabledException
+ */
+const de_EncryptionKeyDisabledException = (output: any, context: __SerdeContext): EncryptionKeyDisabledException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionKeyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): EncryptionKeyNotFoundException => {
+/**
+ * deserializeAws_json1_1EncryptionKeyNotFoundException
+ */
+const de_EncryptionKeyNotFoundException = (output: any, context: __SerdeContext): EncryptionKeyNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionKeyUnavailableException = (
+/**
+ * deserializeAws_json1_1EncryptionKeyUnavailableException
+ */
+const de_EncryptionKeyUnavailableException = (
   output: any,
   context: __SerdeContext
 ): EncryptionKeyUnavailableException => {
@@ -12265,31 +13859,40 @@ const deserializeAws_json1_1EncryptionKeyUnavailableException = (
   } as any;
 };
 
-const deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput = (
+/**
+ * deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput
+ */
+const de_EvaluatePullRequestApprovalRulesOutput = (
   output: any,
   context: __SerdeContext
 ): EvaluatePullRequestApprovalRulesOutput => {
   return {
-    evaluation: output.evaluation != null ? deserializeAws_json1_1Evaluation(output.evaluation, context) : undefined,
+    evaluation: output.evaluation != null ? de_Evaluation(output.evaluation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext): Evaluation => {
+/**
+ * deserializeAws_json1_1Evaluation
+ */
+const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
   return {
     approvalRulesNotSatisfied:
       output.approvalRulesNotSatisfied != null
-        ? deserializeAws_json1_1ApprovalRulesNotSatisfiedList(output.approvalRulesNotSatisfied, context)
+        ? de_ApprovalRulesNotSatisfiedList(output.approvalRulesNotSatisfied, context)
         : undefined,
     approvalRulesSatisfied:
       output.approvalRulesSatisfied != null
-        ? deserializeAws_json1_1ApprovalRulesSatisfiedList(output.approvalRulesSatisfied, context)
+        ? de_ApprovalRulesSatisfiedList(output.approvalRulesSatisfied, context)
         : undefined,
     approved: __expectBoolean(output.approved),
     overridden: __expectBoolean(output.overridden),
   } as any;
 };
 
-const deserializeAws_json1_1File = (output: any, context: __SerdeContext): File => {
+/**
+ * deserializeAws_json1_1File
+ */
+const de_File = (output: any, context: __SerdeContext): File => {
   return {
     absolutePath: __expectString(output.absolutePath),
     blobId: __expectString(output.blobId),
@@ -12298,7 +13901,10 @@ const deserializeAws_json1_1File = (output: any, context: __SerdeContext): File 
   } as any;
 };
 
-const deserializeAws_json1_1FileContentAndSourceFileSpecifiedException = (
+/**
+ * deserializeAws_json1_1FileContentAndSourceFileSpecifiedException
+ */
+const de_FileContentAndSourceFileSpecifiedException = (
   output: any,
   context: __SerdeContext
 ): FileContentAndSourceFileSpecifiedException => {
@@ -12307,16 +13913,19 @@ const deserializeAws_json1_1FileContentAndSourceFileSpecifiedException = (
   } as any;
 };
 
-const deserializeAws_json1_1FileContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): FileContentRequiredException => {
+/**
+ * deserializeAws_json1_1FileContentRequiredException
+ */
+const de_FileContentRequiredException = (output: any, context: __SerdeContext): FileContentRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1FileContentSizeLimitExceededException = (
+/**
+ * deserializeAws_json1_1FileContentSizeLimitExceededException
+ */
+const de_FileContentSizeLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): FileContentSizeLimitExceededException => {
@@ -12325,37 +13934,43 @@ const deserializeAws_json1_1FileContentSizeLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1FileDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): FileDoesNotExistException => {
+/**
+ * deserializeAws_json1_1FileDoesNotExistException
+ */
+const de_FileDoesNotExistException = (output: any, context: __SerdeContext): FileDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1FileEntryRequiredException = (
-  output: any,
-  context: __SerdeContext
-): FileEntryRequiredException => {
+/**
+ * deserializeAws_json1_1FileEntryRequiredException
+ */
+const de_FileEntryRequiredException = (output: any, context: __SerdeContext): FileEntryRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1FileList = (output: any, context: __SerdeContext): File[] => {
+/**
+ * deserializeAws_json1_1FileList
+ */
+const de_FileList = (output: any, context: __SerdeContext): File[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1File(entry, context);
+      return de_File(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileMetadata = (output: any, context: __SerdeContext): FileMetadata => {
+/**
+ * deserializeAws_json1_1FileMetadata
+ */
+const de_FileMetadata = (output: any, context: __SerdeContext): FileMetadata => {
   return {
     absolutePath: __expectString(output.absolutePath),
     blobId: __expectString(output.blobId),
@@ -12363,16 +13978,19 @@ const deserializeAws_json1_1FileMetadata = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1FileModeRequiredException = (
-  output: any,
-  context: __SerdeContext
-): FileModeRequiredException => {
+/**
+ * deserializeAws_json1_1FileModeRequiredException
+ */
+const de_FileModeRequiredException = (output: any, context: __SerdeContext): FileModeRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1FileModes = (output: any, context: __SerdeContext): FileModes => {
+/**
+ * deserializeAws_json1_1FileModes
+ */
+const de_FileModes = (output: any, context: __SerdeContext): FileModes => {
   return {
     base: __expectString(output.base),
     destination: __expectString(output.destination),
@@ -12380,7 +13998,10 @@ const deserializeAws_json1_1FileModes = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1FileNameConflictsWithDirectoryNameException = (
+/**
+ * deserializeAws_json1_1FileNameConflictsWithDirectoryNameException
+ */
+const de_FileNameConflictsWithDirectoryNameException = (
   output: any,
   context: __SerdeContext
 ): FileNameConflictsWithDirectoryNameException => {
@@ -12389,7 +14010,10 @@ const deserializeAws_json1_1FileNameConflictsWithDirectoryNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1FilePathConflictsWithSubmodulePathException = (
+/**
+ * deserializeAws_json1_1FilePathConflictsWithSubmodulePathException
+ */
+const de_FilePathConflictsWithSubmodulePathException = (
   output: any,
   context: __SerdeContext
 ): FilePathConflictsWithSubmodulePathException => {
@@ -12398,7 +14022,10 @@ const deserializeAws_json1_1FilePathConflictsWithSubmodulePathException = (
   } as any;
 };
 
-const deserializeAws_json1_1FileSizes = (output: any, context: __SerdeContext): FileSizes => {
+/**
+ * deserializeAws_json1_1FileSizes
+ */
+const de_FileSizes = (output: any, context: __SerdeContext): FileSizes => {
   return {
     base: __expectLong(output.base),
     destination: __expectLong(output.destination),
@@ -12406,25 +14033,34 @@ const deserializeAws_json1_1FileSizes = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1FilesMetadata = (output: any, context: __SerdeContext): FileMetadata[] => {
+/**
+ * deserializeAws_json1_1FilesMetadata
+ */
+const de_FilesMetadata = (output: any, context: __SerdeContext): FileMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FileMetadata(entry, context);
+      return de_FileMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileTooLargeException = (output: any, context: __SerdeContext): FileTooLargeException => {
+/**
+ * deserializeAws_json1_1FileTooLargeException
+ */
+const de_FileTooLargeException = (output: any, context: __SerdeContext): FileTooLargeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1Folder = (output: any, context: __SerdeContext): Folder => {
+/**
+ * deserializeAws_json1_1Folder
+ */
+const de_Folder = (output: any, context: __SerdeContext): Folder => {
   return {
     absolutePath: __expectString(output.absolutePath),
     relativePath: __expectString(output.relativePath),
@@ -12432,7 +14068,10 @@ const deserializeAws_json1_1Folder = (output: any, context: __SerdeContext): Fol
   } as any;
 };
 
-const deserializeAws_json1_1FolderContentSizeLimitExceededException = (
+/**
+ * deserializeAws_json1_1FolderContentSizeLimitExceededException
+ */
+const de_FolderContentSizeLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): FolderContentSizeLimitExceededException => {
@@ -12441,111 +14080,130 @@ const deserializeAws_json1_1FolderContentSizeLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1FolderDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): FolderDoesNotExistException => {
+/**
+ * deserializeAws_json1_1FolderDoesNotExistException
+ */
+const de_FolderDoesNotExistException = (output: any, context: __SerdeContext): FolderDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1FolderList = (output: any, context: __SerdeContext): Folder[] => {
+/**
+ * deserializeAws_json1_1FolderList
+ */
+const de_FolderList = (output: any, context: __SerdeContext): Folder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Folder(entry, context);
+      return de_Folder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetApprovalRuleTemplateOutput = (
-  output: any,
-  context: __SerdeContext
-): GetApprovalRuleTemplateOutput => {
+/**
+ * deserializeAws_json1_1GetApprovalRuleTemplateOutput
+ */
+const de_GetApprovalRuleTemplateOutput = (output: any, context: __SerdeContext): GetApprovalRuleTemplateOutput => {
   return {
     approvalRuleTemplate:
-      output.approvalRuleTemplate != null
-        ? deserializeAws_json1_1ApprovalRuleTemplate(output.approvalRuleTemplate, context)
-        : undefined,
+      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetBlobOutput = (output: any, context: __SerdeContext): GetBlobOutput => {
+/**
+ * deserializeAws_json1_1GetBlobOutput
+ */
+const de_GetBlobOutput = (output: any, context: __SerdeContext): GetBlobOutput => {
   return {
     content: output.content != null ? context.base64Decoder(output.content) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetBranchOutput = (output: any, context: __SerdeContext): GetBranchOutput => {
+/**
+ * deserializeAws_json1_1GetBranchOutput
+ */
+const de_GetBranchOutput = (output: any, context: __SerdeContext): GetBranchOutput => {
   return {
-    branch: output.branch != null ? deserializeAws_json1_1BranchInfo(output.branch, context) : undefined,
+    branch: output.branch != null ? de_BranchInfo(output.branch, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetCommentOutput = (output: any, context: __SerdeContext): GetCommentOutput => {
+/**
+ * deserializeAws_json1_1GetCommentOutput
+ */
+const de_GetCommentOutput = (output: any, context: __SerdeContext): GetCommentOutput => {
   return {
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetCommentReactionsOutput = (
-  output: any,
-  context: __SerdeContext
-): GetCommentReactionsOutput => {
+/**
+ * deserializeAws_json1_1GetCommentReactionsOutput
+ */
+const de_GetCommentReactionsOutput = (output: any, context: __SerdeContext): GetCommentReactionsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
     reactionsForComment:
-      output.reactionsForComment != null
-        ? deserializeAws_json1_1ReactionsForCommentList(output.reactionsForComment, context)
-        : undefined,
+      output.reactionsForComment != null ? de_ReactionsForCommentList(output.reactionsForComment, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetCommentsForComparedCommitOutput = (
+/**
+ * deserializeAws_json1_1GetCommentsForComparedCommitOutput
+ */
+const de_GetCommentsForComparedCommitOutput = (
   output: any,
   context: __SerdeContext
 ): GetCommentsForComparedCommitOutput => {
   return {
     commentsForComparedCommitData:
       output.commentsForComparedCommitData != null
-        ? deserializeAws_json1_1CommentsForComparedCommitData(output.commentsForComparedCommitData, context)
+        ? de_CommentsForComparedCommitData(output.commentsForComparedCommitData, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1GetCommentsForPullRequestOutput = (
-  output: any,
-  context: __SerdeContext
-): GetCommentsForPullRequestOutput => {
+/**
+ * deserializeAws_json1_1GetCommentsForPullRequestOutput
+ */
+const de_GetCommentsForPullRequestOutput = (output: any, context: __SerdeContext): GetCommentsForPullRequestOutput => {
   return {
     commentsForPullRequestData:
       output.commentsForPullRequestData != null
-        ? deserializeAws_json1_1CommentsForPullRequestData(output.commentsForPullRequestData, context)
+        ? de_CommentsForPullRequestData(output.commentsForPullRequestData, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1GetCommitOutput = (output: any, context: __SerdeContext): GetCommitOutput => {
+/**
+ * deserializeAws_json1_1GetCommitOutput
+ */
+const de_GetCommitOutput = (output: any, context: __SerdeContext): GetCommitOutput => {
   return {
-    commit: output.commit != null ? deserializeAws_json1_1Commit(output.commit, context) : undefined,
+    commit: output.commit != null ? de_Commit(output.commit, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDifferencesOutput = (output: any, context: __SerdeContext): GetDifferencesOutput => {
+/**
+ * deserializeAws_json1_1GetDifferencesOutput
+ */
+const de_GetDifferencesOutput = (output: any, context: __SerdeContext): GetDifferencesOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    differences:
-      output.differences != null ? deserializeAws_json1_1DifferenceList(output.differences, context) : undefined,
+    differences: output.differences != null ? de_DifferenceList(output.differences, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetFileOutput = (output: any, context: __SerdeContext): GetFileOutput => {
+/**
+ * deserializeAws_json1_1GetFileOutput
+ */
+const de_GetFileOutput = (output: any, context: __SerdeContext): GetFileOutput => {
   return {
     blobId: __expectString(output.blobId),
     commitId: __expectString(output.commitId),
@@ -12556,20 +14214,25 @@ const deserializeAws_json1_1GetFileOutput = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1GetFolderOutput = (output: any, context: __SerdeContext): GetFolderOutput => {
+/**
+ * deserializeAws_json1_1GetFolderOutput
+ */
+const de_GetFolderOutput = (output: any, context: __SerdeContext): GetFolderOutput => {
   return {
     commitId: __expectString(output.commitId),
-    files: output.files != null ? deserializeAws_json1_1FileList(output.files, context) : undefined,
+    files: output.files != null ? de_FileList(output.files, context) : undefined,
     folderPath: __expectString(output.folderPath),
-    subFolders: output.subFolders != null ? deserializeAws_json1_1FolderList(output.subFolders, context) : undefined,
-    subModules: output.subModules != null ? deserializeAws_json1_1SubModuleList(output.subModules, context) : undefined,
-    symbolicLinks:
-      output.symbolicLinks != null ? deserializeAws_json1_1SymbolicLinkList(output.symbolicLinks, context) : undefined,
+    subFolders: output.subFolders != null ? de_FolderList(output.subFolders, context) : undefined,
+    subModules: output.subModules != null ? de_SubModuleList(output.subModules, context) : undefined,
+    symbolicLinks: output.symbolicLinks != null ? de_SymbolicLinkList(output.symbolicLinks, context) : undefined,
     treeId: __expectString(output.treeId),
   } as any;
 };
 
-const deserializeAws_json1_1GetMergeCommitOutput = (output: any, context: __SerdeContext): GetMergeCommitOutput => {
+/**
+ * deserializeAws_json1_1GetMergeCommitOutput
+ */
+const de_GetMergeCommitOutput = (output: any, context: __SerdeContext): GetMergeCommitOutput => {
   return {
     baseCommitId: __expectString(output.baseCommitId),
     destinationCommitId: __expectString(output.destinationCommitId),
@@ -12578,16 +14241,14 @@ const deserializeAws_json1_1GetMergeCommitOutput = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1GetMergeConflictsOutput = (
-  output: any,
-  context: __SerdeContext
-): GetMergeConflictsOutput => {
+/**
+ * deserializeAws_json1_1GetMergeConflictsOutput
+ */
+const de_GetMergeConflictsOutput = (output: any, context: __SerdeContext): GetMergeConflictsOutput => {
   return {
     baseCommitId: __expectString(output.baseCommitId),
     conflictMetadataList:
-      output.conflictMetadataList != null
-        ? deserializeAws_json1_1ConflictMetadataList(output.conflictMetadataList, context)
-        : undefined,
+      output.conflictMetadataList != null ? de_ConflictMetadataList(output.conflictMetadataList, context) : undefined,
     destinationCommitId: __expectString(output.destinationCommitId),
     mergeable: __expectBoolean(output.mergeable),
     nextToken: __expectString(output.nextToken),
@@ -12595,33 +14256,43 @@ const deserializeAws_json1_1GetMergeConflictsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1GetMergeOptionsOutput = (output: any, context: __SerdeContext): GetMergeOptionsOutput => {
+/**
+ * deserializeAws_json1_1GetMergeOptionsOutput
+ */
+const de_GetMergeOptionsOutput = (output: any, context: __SerdeContext): GetMergeOptionsOutput => {
   return {
     baseCommitId: __expectString(output.baseCommitId),
     destinationCommitId: __expectString(output.destinationCommitId),
-    mergeOptions:
-      output.mergeOptions != null ? deserializeAws_json1_1MergeOptions(output.mergeOptions, context) : undefined,
+    mergeOptions: output.mergeOptions != null ? de_MergeOptions(output.mergeOptions, context) : undefined,
     sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
-const deserializeAws_json1_1GetPullRequestApprovalStatesOutput = (
+/**
+ * deserializeAws_json1_1GetPullRequestApprovalStatesOutput
+ */
+const de_GetPullRequestApprovalStatesOutput = (
   output: any,
   context: __SerdeContext
 ): GetPullRequestApprovalStatesOutput => {
   return {
-    approvals: output.approvals != null ? deserializeAws_json1_1ApprovalList(output.approvals, context) : undefined,
+    approvals: output.approvals != null ? de_ApprovalList(output.approvals, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetPullRequestOutput = (output: any, context: __SerdeContext): GetPullRequestOutput => {
+/**
+ * deserializeAws_json1_1GetPullRequestOutput
+ */
+const de_GetPullRequestOutput = (output: any, context: __SerdeContext): GetPullRequestOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetPullRequestOverrideStateOutput = (
+/**
+ * deserializeAws_json1_1GetPullRequestOverrideStateOutput
+ */
+const de_GetPullRequestOverrideStateOutput = (
   output: any,
   context: __SerdeContext
 ): GetPullRequestOverrideStateOutput => {
@@ -12631,27 +14302,30 @@ const deserializeAws_json1_1GetPullRequestOverrideStateOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1GetRepositoryOutput = (output: any, context: __SerdeContext): GetRepositoryOutput => {
+/**
+ * deserializeAws_json1_1GetRepositoryOutput
+ */
+const de_GetRepositoryOutput = (output: any, context: __SerdeContext): GetRepositoryOutput => {
   return {
     repositoryMetadata:
-      output.repositoryMetadata != null
-        ? deserializeAws_json1_1RepositoryMetadata(output.repositoryMetadata, context)
-        : undefined,
+      output.repositoryMetadata != null ? de_RepositoryMetadata(output.repositoryMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetRepositoryTriggersOutput = (
-  output: any,
-  context: __SerdeContext
-): GetRepositoryTriggersOutput => {
+/**
+ * deserializeAws_json1_1GetRepositoryTriggersOutput
+ */
+const de_GetRepositoryTriggersOutput = (output: any, context: __SerdeContext): GetRepositoryTriggersOutput => {
   return {
     configurationId: __expectString(output.configurationId),
-    triggers:
-      output.triggers != null ? deserializeAws_json1_1RepositoryTriggersList(output.triggers, context) : undefined,
+    triggers: output.triggers != null ? de_RepositoryTriggersList(output.triggers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1IdempotencyParameterMismatchException = (
+/**
+ * deserializeAws_json1_1IdempotencyParameterMismatchException
+ */
+const de_IdempotencyParameterMismatchException = (
   output: any,
   context: __SerdeContext
 ): IdempotencyParameterMismatchException => {
@@ -12660,16 +14334,19 @@ const deserializeAws_json1_1IdempotencyParameterMismatchException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidActorArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidActorArnException => {
+/**
+ * deserializeAws_json1_1InvalidActorArnException
+ */
+const de_InvalidActorArnException = (output: any, context: __SerdeContext): InvalidActorArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleContentException = (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleContentException
+ */
+const de_InvalidApprovalRuleContentException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalRuleContentException => {
@@ -12678,7 +14355,10 @@ const deserializeAws_json1_1InvalidApprovalRuleContentException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleNameException = (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleNameException
+ */
+const de_InvalidApprovalRuleNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalRuleNameException => {
@@ -12687,7 +14367,10 @@ const deserializeAws_json1_1InvalidApprovalRuleNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateContentException = (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateContentException
+ */
+const de_InvalidApprovalRuleTemplateContentException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateContentException => {
@@ -12696,7 +14379,10 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateContentException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException = (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException
+ */
+const de_InvalidApprovalRuleTemplateDescriptionException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateDescriptionException => {
@@ -12705,7 +14391,10 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalRuleTemplateNameException = (
+/**
+ * deserializeAws_json1_1InvalidApprovalRuleTemplateNameException
+ */
+const de_InvalidApprovalRuleTemplateNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateNameException => {
@@ -12714,40 +14403,46 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApprovalStateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalStateException => {
+/**
+ * deserializeAws_json1_1InvalidApprovalStateException
+ */
+const de_InvalidApprovalStateException = (output: any, context: __SerdeContext): InvalidApprovalStateException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidAuthorArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidAuthorArnException => {
+/**
+ * deserializeAws_json1_1InvalidAuthorArnException
+ */
+const de_InvalidAuthorArnException = (output: any, context: __SerdeContext): InvalidAuthorArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidBlobIdException = (output: any, context: __SerdeContext): InvalidBlobIdException => {
+/**
+ * deserializeAws_json1_1InvalidBlobIdException
+ */
+const de_InvalidBlobIdException = (output: any, context: __SerdeContext): InvalidBlobIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidBranchNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidBranchNameException => {
+/**
+ * deserializeAws_json1_1InvalidBranchNameException
+ */
+const de_InvalidBranchNameException = (output: any, context: __SerdeContext): InvalidBranchNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidClientRequestTokenException = (
+/**
+ * deserializeAws_json1_1InvalidClientRequestTokenException
+ */
+const de_InvalidClientRequestTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidClientRequestTokenException => {
@@ -12756,31 +14451,37 @@ const deserializeAws_json1_1InvalidClientRequestTokenException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidCommentIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCommentIdException => {
+/**
+ * deserializeAws_json1_1InvalidCommentIdException
+ */
+const de_InvalidCommentIdException = (output: any, context: __SerdeContext): InvalidCommentIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidCommitException = (output: any, context: __SerdeContext): InvalidCommitException => {
+/**
+ * deserializeAws_json1_1InvalidCommitException
+ */
+const de_InvalidCommitException = (output: any, context: __SerdeContext): InvalidCommitException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidCommitIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCommitIdException => {
+/**
+ * deserializeAws_json1_1InvalidCommitIdException
+ */
+const de_InvalidCommitIdException = (output: any, context: __SerdeContext): InvalidCommitIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidConflictDetailLevelException = (
+/**
+ * deserializeAws_json1_1InvalidConflictDetailLevelException
+ */
+const de_InvalidConflictDetailLevelException = (
   output: any,
   context: __SerdeContext
 ): InvalidConflictDetailLevelException => {
@@ -12789,7 +14490,10 @@ const deserializeAws_json1_1InvalidConflictDetailLevelException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidConflictResolutionException = (
+/**
+ * deserializeAws_json1_1InvalidConflictResolutionException
+ */
+const de_InvalidConflictResolutionException = (
   output: any,
   context: __SerdeContext
 ): InvalidConflictResolutionException => {
@@ -12798,7 +14502,10 @@ const deserializeAws_json1_1InvalidConflictResolutionException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidConflictResolutionStrategyException = (
+/**
+ * deserializeAws_json1_1InvalidConflictResolutionStrategyException
+ */
+const de_InvalidConflictResolutionStrategyException = (
   output: any,
   context: __SerdeContext
 ): InvalidConflictResolutionStrategyException => {
@@ -12807,7 +14514,10 @@ const deserializeAws_json1_1InvalidConflictResolutionStrategyException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidContinuationTokenException = (
+/**
+ * deserializeAws_json1_1InvalidContinuationTokenException
+ */
+const de_InvalidContinuationTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidContinuationTokenException => {
@@ -12816,7 +14526,10 @@ const deserializeAws_json1_1InvalidContinuationTokenException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeletionParameterException = (
+/**
+ * deserializeAws_json1_1InvalidDeletionParameterException
+ */
+const de_InvalidDeletionParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeletionParameterException => {
@@ -12825,16 +14538,19 @@ const deserializeAws_json1_1InvalidDeletionParameterException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDescriptionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDescriptionException => {
+/**
+ * deserializeAws_json1_1InvalidDescriptionException
+ */
+const de_InvalidDescriptionException = (output: any, context: __SerdeContext): InvalidDescriptionException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDestinationCommitSpecifierException = (
+/**
+ * deserializeAws_json1_1InvalidDestinationCommitSpecifierException
+ */
+const de_InvalidDestinationCommitSpecifierException = (
   output: any,
   context: __SerdeContext
 ): InvalidDestinationCommitSpecifierException => {
@@ -12843,40 +14559,46 @@ const deserializeAws_json1_1InvalidDestinationCommitSpecifierException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidEmailException = (output: any, context: __SerdeContext): InvalidEmailException => {
+/**
+ * deserializeAws_json1_1InvalidEmailException
+ */
+const de_InvalidEmailException = (output: any, context: __SerdeContext): InvalidEmailException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidFileLocationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidFileLocationException => {
+/**
+ * deserializeAws_json1_1InvalidFileLocationException
+ */
+const de_InvalidFileLocationException = (output: any, context: __SerdeContext): InvalidFileLocationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidFileModeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidFileModeException => {
+/**
+ * deserializeAws_json1_1InvalidFileModeException
+ */
+const de_InvalidFileModeException = (output: any, context: __SerdeContext): InvalidFileModeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidFilePositionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidFilePositionException => {
+/**
+ * deserializeAws_json1_1InvalidFilePositionException
+ */
+const de_InvalidFilePositionException = (output: any, context: __SerdeContext): InvalidFilePositionException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidMaxConflictFilesException = (
+/**
+ * deserializeAws_json1_1InvalidMaxConflictFilesException
+ */
+const de_InvalidMaxConflictFilesException = (
   output: any,
   context: __SerdeContext
 ): InvalidMaxConflictFilesException => {
@@ -12885,64 +14607,73 @@ const deserializeAws_json1_1InvalidMaxConflictFilesException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidMaxMergeHunksException = (
-  output: any,
-  context: __SerdeContext
-): InvalidMaxMergeHunksException => {
+/**
+ * deserializeAws_json1_1InvalidMaxMergeHunksException
+ */
+const de_InvalidMaxMergeHunksException = (output: any, context: __SerdeContext): InvalidMaxMergeHunksException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidMaxResultsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidMaxResultsException => {
+/**
+ * deserializeAws_json1_1InvalidMaxResultsException
+ */
+const de_InvalidMaxResultsException = (output: any, context: __SerdeContext): InvalidMaxResultsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidMergeOptionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidMergeOptionException => {
+/**
+ * deserializeAws_json1_1InvalidMergeOptionException
+ */
+const de_InvalidMergeOptionException = (output: any, context: __SerdeContext): InvalidMergeOptionException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOrderException = (output: any, context: __SerdeContext): InvalidOrderException => {
+/**
+ * deserializeAws_json1_1InvalidOrderException
+ */
+const de_InvalidOrderException = (output: any, context: __SerdeContext): InvalidOrderException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOverrideStatusException = (
-  output: any,
-  context: __SerdeContext
-): InvalidOverrideStatusException => {
+/**
+ * deserializeAws_json1_1InvalidOverrideStatusException
+ */
+const de_InvalidOverrideStatusException = (output: any, context: __SerdeContext): InvalidOverrideStatusException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParentCommitIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParentCommitIdException => {
+/**
+ * deserializeAws_json1_1InvalidParentCommitIdException
+ */
+const de_InvalidParentCommitIdException = (output: any, context: __SerdeContext): InvalidParentCommitIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPathException = (output: any, context: __SerdeContext): InvalidPathException => {
+/**
+ * deserializeAws_json1_1InvalidPathException
+ */
+const de_InvalidPathException = (output: any, context: __SerdeContext): InvalidPathException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPullRequestEventTypeException = (
+/**
+ * deserializeAws_json1_1InvalidPullRequestEventTypeException
+ */
+const de_InvalidPullRequestEventTypeException = (
   output: any,
   context: __SerdeContext
 ): InvalidPullRequestEventTypeException => {
@@ -12951,16 +14682,19 @@ const deserializeAws_json1_1InvalidPullRequestEventTypeException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPullRequestIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPullRequestIdException => {
+/**
+ * deserializeAws_json1_1InvalidPullRequestIdException
+ */
+const de_InvalidPullRequestIdException = (output: any, context: __SerdeContext): InvalidPullRequestIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPullRequestStatusException = (
+/**
+ * deserializeAws_json1_1InvalidPullRequestStatusException
+ */
+const de_InvalidPullRequestStatusException = (
   output: any,
   context: __SerdeContext
 ): InvalidPullRequestStatusException => {
@@ -12969,7 +14703,10 @@ const deserializeAws_json1_1InvalidPullRequestStatusException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPullRequestStatusUpdateException = (
+/**
+ * deserializeAws_json1_1InvalidPullRequestStatusUpdateException
+ */
+const de_InvalidPullRequestStatusUpdateException = (
   output: any,
   context: __SerdeContext
 ): InvalidPullRequestStatusUpdateException => {
@@ -12978,34 +14715,37 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidReactionUserArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidReactionUserArnException => {
+/**
+ * deserializeAws_json1_1InvalidReactionUserArnException
+ */
+const de_InvalidReactionUserArnException = (output: any, context: __SerdeContext): InvalidReactionUserArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidReactionValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidReactionValueException => {
+/**
+ * deserializeAws_json1_1InvalidReactionValueException
+ */
+const de_InvalidReactionValueException = (output: any, context: __SerdeContext): InvalidReactionValueException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidReferenceNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidReferenceNameException => {
+/**
+ * deserializeAws_json1_1InvalidReferenceNameException
+ */
+const de_InvalidReferenceNameException = (output: any, context: __SerdeContext): InvalidReferenceNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRelativeFileVersionEnumException = (
+/**
+ * deserializeAws_json1_1InvalidRelativeFileVersionEnumException
+ */
+const de_InvalidRelativeFileVersionEnumException = (
   output: any,
   context: __SerdeContext
 ): InvalidRelativeFileVersionEnumException => {
@@ -13014,7 +14754,10 @@ const deserializeAws_json1_1InvalidRelativeFileVersionEnumException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidReplacementContentException = (
+/**
+ * deserializeAws_json1_1InvalidReplacementContentException
+ */
+const de_InvalidReplacementContentException = (
   output: any,
   context: __SerdeContext
 ): InvalidReplacementContentException => {
@@ -13023,16 +14766,19 @@ const deserializeAws_json1_1InvalidReplacementContentException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidReplacementTypeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidReplacementTypeException => {
+/**
+ * deserializeAws_json1_1InvalidReplacementTypeException
+ */
+const de_InvalidReplacementTypeException = (output: any, context: __SerdeContext): InvalidReplacementTypeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryDescriptionException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryDescriptionException
+ */
+const de_InvalidRepositoryDescriptionException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryDescriptionException => {
@@ -13041,16 +14787,19 @@ const deserializeAws_json1_1InvalidRepositoryDescriptionException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryNameException => {
+/**
+ * deserializeAws_json1_1InvalidRepositoryNameException
+ */
+const de_InvalidRepositoryNameException = (output: any, context: __SerdeContext): InvalidRepositoryNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException
+ */
+const de_InvalidRepositoryTriggerBranchNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerBranchNameException => {
@@ -13059,7 +14808,10 @@ const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException
+ */
+const de_InvalidRepositoryTriggerCustomDataException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerCustomDataException => {
@@ -13068,7 +14820,10 @@ const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException
+ */
+const de_InvalidRepositoryTriggerDestinationArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerDestinationArnException => {
@@ -13077,7 +14832,10 @@ const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerEventsException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerEventsException
+ */
+const de_InvalidRepositoryTriggerEventsException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerEventsException => {
@@ -13086,7 +14844,10 @@ const deserializeAws_json1_1InvalidRepositoryTriggerEventsException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerNameException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerNameException
+ */
+const de_InvalidRepositoryTriggerNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerNameException => {
@@ -13095,7 +14856,10 @@ const deserializeAws_json1_1InvalidRepositoryTriggerNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRepositoryTriggerRegionException = (
+/**
+ * deserializeAws_json1_1InvalidRepositoryTriggerRegionException
+ */
+const de_InvalidRepositoryTriggerRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidRepositoryTriggerRegionException => {
@@ -13104,25 +14868,28 @@ const deserializeAws_json1_1InvalidRepositoryTriggerRegionException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidResourceArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidResourceArnException => {
+/**
+ * deserializeAws_json1_1InvalidResourceArnException
+ */
+const de_InvalidResourceArnException = (output: any, context: __SerdeContext): InvalidResourceArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRevisionIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRevisionIdException => {
+/**
+ * deserializeAws_json1_1InvalidRevisionIdException
+ */
+const de_InvalidRevisionIdException = (output: any, context: __SerdeContext): InvalidRevisionIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRuleContentSha256Exception = (
+/**
+ * deserializeAws_json1_1InvalidRuleContentSha256Exception
+ */
+const de_InvalidRuleContentSha256Exception = (
   output: any,
   context: __SerdeContext
 ): InvalidRuleContentSha256Exception => {
@@ -13131,13 +14898,19 @@ const deserializeAws_json1_1InvalidRuleContentSha256Exception = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
+/**
+ * deserializeAws_json1_1InvalidSortByException
+ */
+const de_InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSourceCommitSpecifierException = (
+/**
+ * deserializeAws_json1_1InvalidSourceCommitSpecifierException
+ */
+const de_InvalidSourceCommitSpecifierException = (
   output: any,
   context: __SerdeContext
 ): InvalidSourceCommitSpecifierException => {
@@ -13146,64 +14919,73 @@ const deserializeAws_json1_1InvalidSourceCommitSpecifierException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSystemTagUsageException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSystemTagUsageException => {
+/**
+ * deserializeAws_json1_1InvalidSystemTagUsageException
+ */
+const de_InvalidSystemTagUsageException = (output: any, context: __SerdeContext): InvalidSystemTagUsageException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagKeysListException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagKeysListException => {
+/**
+ * deserializeAws_json1_1InvalidTagKeysListException
+ */
+const de_InvalidTagKeysListException = (output: any, context: __SerdeContext): InvalidTagKeysListException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagsMapException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagsMapException => {
+/**
+ * deserializeAws_json1_1InvalidTagsMapException
+ */
+const de_InvalidTagsMapException = (output: any, context: __SerdeContext): InvalidTagsMapException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetBranchException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTargetBranchException => {
+/**
+ * deserializeAws_json1_1InvalidTargetBranchException
+ */
+const de_InvalidTargetBranchException = (output: any, context: __SerdeContext): InvalidTargetBranchException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
+/**
+ * deserializeAws_json1_1InvalidTargetException
+ */
+const de_InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTargetsException => {
+/**
+ * deserializeAws_json1_1InvalidTargetsException
+ */
+const de_InvalidTargetsException = (output: any, context: __SerdeContext): InvalidTargetsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTitleException = (output: any, context: __SerdeContext): InvalidTitleException => {
+/**
+ * deserializeAws_json1_1InvalidTitleException
+ */
+const de_InvalidTitleException = (output: any, context: __SerdeContext): InvalidTitleException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1IsBinaryFile = (output: any, context: __SerdeContext): IsBinaryFile => {
+/**
+ * deserializeAws_json1_1IsBinaryFile
+ */
+const de_IsBinaryFile = (output: any, context: __SerdeContext): IsBinaryFile => {
   return {
     base: __expectBoolean(output.base),
     destination: __expectBoolean(output.destination),
@@ -13211,83 +14993,93 @@ const deserializeAws_json1_1IsBinaryFile = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ListApprovalRuleTemplatesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListApprovalRuleTemplatesOutput => {
+/**
+ * deserializeAws_json1_1ListApprovalRuleTemplatesOutput
+ */
+const de_ListApprovalRuleTemplatesOutput = (output: any, context: __SerdeContext): ListApprovalRuleTemplatesOutput => {
   return {
     approvalRuleTemplateNames:
       output.approvalRuleTemplateNames != null
-        ? deserializeAws_json1_1ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
+        ? de_ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput = (
+/**
+ * deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput
+ */
+const de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput = (
   output: any,
   context: __SerdeContext
 ): ListAssociatedApprovalRuleTemplatesForRepositoryOutput => {
   return {
     approvalRuleTemplateNames:
       output.approvalRuleTemplateNames != null
-        ? deserializeAws_json1_1ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
+        ? de_ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListBranchesOutput = (output: any, context: __SerdeContext): ListBranchesOutput => {
+/**
+ * deserializeAws_json1_1ListBranchesOutput
+ */
+const de_ListBranchesOutput = (output: any, context: __SerdeContext): ListBranchesOutput => {
   return {
-    branches: output.branches != null ? deserializeAws_json1_1BranchNameList(output.branches, context) : undefined,
+    branches: output.branches != null ? de_BranchNameList(output.branches, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListPullRequestsOutput = (output: any, context: __SerdeContext): ListPullRequestsOutput => {
+/**
+ * deserializeAws_json1_1ListPullRequestsOutput
+ */
+const de_ListPullRequestsOutput = (output: any, context: __SerdeContext): ListPullRequestsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    pullRequestIds:
-      output.pullRequestIds != null
-        ? deserializeAws_json1_1PullRequestIdList(output.pullRequestIds, context)
-        : undefined,
+    pullRequestIds: output.pullRequestIds != null ? de_PullRequestIdList(output.pullRequestIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput = (
+/**
+ * deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput
+ */
+const de_ListRepositoriesForApprovalRuleTemplateOutput = (
   output: any,
   context: __SerdeContext
 ): ListRepositoriesForApprovalRuleTemplateOutput => {
   return {
     nextToken: __expectString(output.nextToken),
     repositoryNames:
-      output.repositoryNames != null
-        ? deserializeAws_json1_1RepositoryNameList(output.repositoryNames, context)
-        : undefined,
+      output.repositoryNames != null ? de_RepositoryNameList(output.repositoryNames, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListRepositoriesOutput = (output: any, context: __SerdeContext): ListRepositoriesOutput => {
+/**
+ * deserializeAws_json1_1ListRepositoriesOutput
+ */
+const de_ListRepositoriesOutput = (output: any, context: __SerdeContext): ListRepositoriesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    repositories:
-      output.repositories != null
-        ? deserializeAws_json1_1RepositoryNameIdPairList(output.repositories, context)
-        : undefined,
+    repositories: output.repositories != null ? de_RepositoryNameIdPairList(output.repositories, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceOutput => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceOutput
+ */
+const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? deserializeAws_json1_1TagsMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagsMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
+/**
+ * deserializeAws_json1_1Location
+ */
+const de_Location = (output: any, context: __SerdeContext): Location => {
   return {
     filePath: __expectString(output.filePath),
     filePosition: __expectLong(output.filePosition),
@@ -13295,16 +15087,19 @@ const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): L
   } as any;
 };
 
-const deserializeAws_json1_1ManualMergeRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ManualMergeRequiredException => {
+/**
+ * deserializeAws_json1_1ManualMergeRequiredException
+ */
+const de_ManualMergeRequiredException = (output: any, context: __SerdeContext): ManualMergeRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1MaximumBranchesExceededException = (
+/**
+ * deserializeAws_json1_1MaximumBranchesExceededException
+ */
+const de_MaximumBranchesExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumBranchesExceededException => {
@@ -13313,7 +15108,10 @@ const deserializeAws_json1_1MaximumBranchesExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException = (
+/**
+ * deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException
+ */
+const de_MaximumConflictResolutionEntriesExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumConflictResolutionEntriesExceededException => {
@@ -13322,7 +15120,10 @@ const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException = 
   } as any;
 };
 
-const deserializeAws_json1_1MaximumFileContentToLoadExceededException = (
+/**
+ * deserializeAws_json1_1MaximumFileContentToLoadExceededException
+ */
+const de_MaximumFileContentToLoadExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumFileContentToLoadExceededException => {
@@ -13331,7 +15132,10 @@ const deserializeAws_json1_1MaximumFileContentToLoadExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumFileEntriesExceededException = (
+/**
+ * deserializeAws_json1_1MaximumFileEntriesExceededException
+ */
+const de_MaximumFileEntriesExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumFileEntriesExceededException => {
@@ -13340,7 +15144,10 @@ const deserializeAws_json1_1MaximumFileEntriesExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumItemsToCompareExceededException = (
+/**
+ * deserializeAws_json1_1MaximumItemsToCompareExceededException
+ */
+const de_MaximumItemsToCompareExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumItemsToCompareExceededException => {
@@ -13349,7 +15156,10 @@ const deserializeAws_json1_1MaximumItemsToCompareExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumNumberOfApprovalsExceededException = (
+/**
+ * deserializeAws_json1_1MaximumNumberOfApprovalsExceededException
+ */
+const de_MaximumNumberOfApprovalsExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumNumberOfApprovalsExceededException => {
@@ -13358,7 +15168,10 @@ const deserializeAws_json1_1MaximumNumberOfApprovalsExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumOpenPullRequestsExceededException = (
+/**
+ * deserializeAws_json1_1MaximumOpenPullRequestsExceededException
+ */
+const de_MaximumOpenPullRequestsExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumOpenPullRequestsExceededException => {
@@ -13367,7 +15180,10 @@ const deserializeAws_json1_1MaximumOpenPullRequestsExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumRepositoryNamesExceededException = (
+/**
+ * deserializeAws_json1_1MaximumRepositoryNamesExceededException
+ */
+const de_MaximumRepositoryNamesExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumRepositoryNamesExceededException => {
@@ -13376,7 +15192,10 @@ const deserializeAws_json1_1MaximumRepositoryNamesExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumRepositoryTriggersExceededException = (
+/**
+ * deserializeAws_json1_1MaximumRepositoryTriggersExceededException
+ */
+const de_MaximumRepositoryTriggersExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumRepositoryTriggersExceededException => {
@@ -13385,7 +15204,10 @@ const deserializeAws_json1_1MaximumRepositoryTriggersExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryException = (
+/**
+ * deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryException
+ */
+const de_MaximumRuleTemplatesAssociatedWithRepositoryException = (
   output: any,
   context: __SerdeContext
 ): MaximumRuleTemplatesAssociatedWithRepositoryException => {
@@ -13394,7 +15216,10 @@ const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptio
   } as any;
 };
 
-const deserializeAws_json1_1MergeBranchesByFastForwardOutput = (
+/**
+ * deserializeAws_json1_1MergeBranchesByFastForwardOutput
+ */
+const de_MergeBranchesByFastForwardOutput = (
   output: any,
   context: __SerdeContext
 ): MergeBranchesByFastForwardOutput => {
@@ -13404,37 +15229,42 @@ const deserializeAws_json1_1MergeBranchesByFastForwardOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1MergeBranchesBySquashOutput = (
-  output: any,
-  context: __SerdeContext
-): MergeBranchesBySquashOutput => {
+/**
+ * deserializeAws_json1_1MergeBranchesBySquashOutput
+ */
+const de_MergeBranchesBySquashOutput = (output: any, context: __SerdeContext): MergeBranchesBySquashOutput => {
   return {
     commitId: __expectString(output.commitId),
     treeId: __expectString(output.treeId),
   } as any;
 };
 
-const deserializeAws_json1_1MergeBranchesByThreeWayOutput = (
-  output: any,
-  context: __SerdeContext
-): MergeBranchesByThreeWayOutput => {
+/**
+ * deserializeAws_json1_1MergeBranchesByThreeWayOutput
+ */
+const de_MergeBranchesByThreeWayOutput = (output: any, context: __SerdeContext): MergeBranchesByThreeWayOutput => {
   return {
     commitId: __expectString(output.commitId),
     treeId: __expectString(output.treeId),
   } as any;
 };
 
-const deserializeAws_json1_1MergeHunk = (output: any, context: __SerdeContext): MergeHunk => {
+/**
+ * deserializeAws_json1_1MergeHunk
+ */
+const de_MergeHunk = (output: any, context: __SerdeContext): MergeHunk => {
   return {
-    base: output.base != null ? deserializeAws_json1_1MergeHunkDetail(output.base, context) : undefined,
-    destination:
-      output.destination != null ? deserializeAws_json1_1MergeHunkDetail(output.destination, context) : undefined,
+    base: output.base != null ? de_MergeHunkDetail(output.base, context) : undefined,
+    destination: output.destination != null ? de_MergeHunkDetail(output.destination, context) : undefined,
     isConflict: __expectBoolean(output.isConflict),
-    source: output.source != null ? deserializeAws_json1_1MergeHunkDetail(output.source, context) : undefined,
+    source: output.source != null ? de_MergeHunkDetail(output.source, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MergeHunkDetail = (output: any, context: __SerdeContext): MergeHunkDetail => {
+/**
+ * deserializeAws_json1_1MergeHunkDetail
+ */
+const de_MergeHunkDetail = (output: any, context: __SerdeContext): MergeHunkDetail => {
   return {
     endLine: __expectInt32(output.endLine),
     hunkContent: __expectString(output.hunkContent),
@@ -13442,19 +15272,25 @@ const deserializeAws_json1_1MergeHunkDetail = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1MergeHunks = (output: any, context: __SerdeContext): MergeHunk[] => {
+/**
+ * deserializeAws_json1_1MergeHunks
+ */
+const de_MergeHunks = (output: any, context: __SerdeContext): MergeHunk[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MergeHunk(entry, context);
+      return de_MergeHunk(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MergeMetadata = (output: any, context: __SerdeContext): MergeMetadata => {
+/**
+ * deserializeAws_json1_1MergeMetadata
+ */
+const de_MergeMetadata = (output: any, context: __SerdeContext): MergeMetadata => {
   return {
     isMerged: __expectBoolean(output.isMerged),
     mergeCommitId: __expectString(output.mergeCommitId),
@@ -13463,23 +15299,29 @@ const deserializeAws_json1_1MergeMetadata = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1MergeOperations = (output: any, context: __SerdeContext): MergeOperations => {
+/**
+ * deserializeAws_json1_1MergeOperations
+ */
+const de_MergeOperations = (output: any, context: __SerdeContext): MergeOperations => {
   return {
     destination: __expectString(output.destination),
     source: __expectString(output.source),
   } as any;
 };
 
-const deserializeAws_json1_1MergeOptionRequiredException = (
-  output: any,
-  context: __SerdeContext
-): MergeOptionRequiredException => {
+/**
+ * deserializeAws_json1_1MergeOptionRequiredException
+ */
+const de_MergeOptionRequiredException = (output: any, context: __SerdeContext): MergeOptionRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1MergeOptions = (output: any, context: __SerdeContext): (MergeOptionTypeEnum | string)[] => {
+/**
+ * deserializeAws_json1_1MergeOptions
+ */
+const de_MergeOptions = (output: any, context: __SerdeContext): (MergeOptionTypeEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13491,37 +15333,43 @@ const deserializeAws_json1_1MergeOptions = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1MergePullRequestByFastForwardOutput = (
+/**
+ * deserializeAws_json1_1MergePullRequestByFastForwardOutput
+ */
+const de_MergePullRequestByFastForwardOutput = (
   output: any,
   context: __SerdeContext
 ): MergePullRequestByFastForwardOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MergePullRequestBySquashOutput = (
-  output: any,
-  context: __SerdeContext
-): MergePullRequestBySquashOutput => {
+/**
+ * deserializeAws_json1_1MergePullRequestBySquashOutput
+ */
+const de_MergePullRequestBySquashOutput = (output: any, context: __SerdeContext): MergePullRequestBySquashOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MergePullRequestByThreeWayOutput = (
+/**
+ * deserializeAws_json1_1MergePullRequestByThreeWayOutput
+ */
+const de_MergePullRequestByThreeWayOutput = (
   output: any,
   context: __SerdeContext
 ): MergePullRequestByThreeWayOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MultipleConflictResolutionEntriesException = (
+/**
+ * deserializeAws_json1_1MultipleConflictResolutionEntriesException
+ */
+const de_MultipleConflictResolutionEntriesException = (
   output: any,
   context: __SerdeContext
 ): MultipleConflictResolutionEntriesException => {
@@ -13530,7 +15378,10 @@ const deserializeAws_json1_1MultipleConflictResolutionEntriesException = (
   } as any;
 };
 
-const deserializeAws_json1_1MultipleRepositoriesInPullRequestException = (
+/**
+ * deserializeAws_json1_1MultipleRepositoriesInPullRequestException
+ */
+const de_MultipleRepositoriesInPullRequestException = (
   output: any,
   context: __SerdeContext
 ): MultipleRepositoriesInPullRequestException => {
@@ -13539,31 +15390,37 @@ const deserializeAws_json1_1MultipleRepositoriesInPullRequestException = (
   } as any;
 };
 
-const deserializeAws_json1_1NameLengthExceededException = (
-  output: any,
-  context: __SerdeContext
-): NameLengthExceededException => {
+/**
+ * deserializeAws_json1_1NameLengthExceededException
+ */
+const de_NameLengthExceededException = (output: any, context: __SerdeContext): NameLengthExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1NoChangeException = (output: any, context: __SerdeContext): NoChangeException => {
+/**
+ * deserializeAws_json1_1NoChangeException
+ */
+const de_NoChangeException = (output: any, context: __SerdeContext): NoChangeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1NumberOfRulesExceededException = (
-  output: any,
-  context: __SerdeContext
-): NumberOfRulesExceededException => {
+/**
+ * deserializeAws_json1_1NumberOfRulesExceededException
+ */
+const de_NumberOfRulesExceededException = (output: any, context: __SerdeContext): NumberOfRulesExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
+/**
+ * deserializeAws_json1_1NumberOfRuleTemplatesExceededException
+ */
+const de_NumberOfRuleTemplatesExceededException = (
   output: any,
   context: __SerdeContext
 ): NumberOfRuleTemplatesExceededException => {
@@ -13572,7 +15429,10 @@ const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1ObjectTypes = (output: any, context: __SerdeContext): ObjectTypes => {
+/**
+ * deserializeAws_json1_1ObjectTypes
+ */
+const de_ObjectTypes = (output: any, context: __SerdeContext): ObjectTypes => {
   return {
     base: __expectString(output.base),
     destination: __expectString(output.destination),
@@ -13580,35 +15440,38 @@ const deserializeAws_json1_1ObjectTypes = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1OriginApprovalRuleTemplate = (
-  output: any,
-  context: __SerdeContext
-): OriginApprovalRuleTemplate => {
+/**
+ * deserializeAws_json1_1OriginApprovalRuleTemplate
+ */
+const de_OriginApprovalRuleTemplate = (output: any, context: __SerdeContext): OriginApprovalRuleTemplate => {
   return {
     approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
     approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
   } as any;
 };
 
-const deserializeAws_json1_1OverrideAlreadySetException = (
-  output: any,
-  context: __SerdeContext
-): OverrideAlreadySetException => {
+/**
+ * deserializeAws_json1_1OverrideAlreadySetException
+ */
+const de_OverrideAlreadySetException = (output: any, context: __SerdeContext): OverrideAlreadySetException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1OverrideStatusRequiredException = (
-  output: any,
-  context: __SerdeContext
-): OverrideStatusRequiredException => {
+/**
+ * deserializeAws_json1_1OverrideStatusRequiredException
+ */
+const de_OverrideStatusRequiredException = (output: any, context: __SerdeContext): OverrideStatusRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ParentCommitDoesNotExistException = (
+/**
+ * deserializeAws_json1_1ParentCommitDoesNotExistException
+ */
+const de_ParentCommitDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ParentCommitDoesNotExistException => {
@@ -13617,25 +15480,28 @@ const deserializeAws_json1_1ParentCommitDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1ParentCommitIdOutdatedException = (
-  output: any,
-  context: __SerdeContext
-): ParentCommitIdOutdatedException => {
+/**
+ * deserializeAws_json1_1ParentCommitIdOutdatedException
+ */
+const de_ParentCommitIdOutdatedException = (output: any, context: __SerdeContext): ParentCommitIdOutdatedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ParentCommitIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ParentCommitIdRequiredException => {
+/**
+ * deserializeAws_json1_1ParentCommitIdRequiredException
+ */
+const de_ParentCommitIdRequiredException = (output: any, context: __SerdeContext): ParentCommitIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ParentList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ParentList
+ */
+const de_ParentList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13647,22 +15513,28 @@ const deserializeAws_json1_1ParentList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1PathDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): PathDoesNotExistException => {
+/**
+ * deserializeAws_json1_1PathDoesNotExistException
+ */
+const de_PathDoesNotExistException = (output: any, context: __SerdeContext): PathDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PathRequiredException = (output: any, context: __SerdeContext): PathRequiredException => {
+/**
+ * deserializeAws_json1_1PathRequiredException
+ */
+const de_PathRequiredException = (output: any, context: __SerdeContext): PathRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PostCommentForComparedCommitOutput = (
+/**
+ * deserializeAws_json1_1PostCommentForComparedCommitOutput
+ */
+const de_PostCommentForComparedCommitOutput = (
   output: any,
   context: __SerdeContext
 ): PostCommentForComparedCommitOutput => {
@@ -13671,38 +15543,43 @@ const deserializeAws_json1_1PostCommentForComparedCommitOutput = (
     afterCommitId: __expectString(output.afterCommitId),
     beforeBlobId: __expectString(output.beforeBlobId),
     beforeCommitId: __expectString(output.beforeCommitId),
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
-    location: output.location != null ? deserializeAws_json1_1Location(output.location, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
+    location: output.location != null ? de_Location(output.location, context) : undefined,
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1PostCommentForPullRequestOutput = (
-  output: any,
-  context: __SerdeContext
-): PostCommentForPullRequestOutput => {
+/**
+ * deserializeAws_json1_1PostCommentForPullRequestOutput
+ */
+const de_PostCommentForPullRequestOutput = (output: any, context: __SerdeContext): PostCommentForPullRequestOutput => {
   return {
     afterBlobId: __expectString(output.afterBlobId),
     afterCommitId: __expectString(output.afterCommitId),
     beforeBlobId: __expectString(output.beforeBlobId),
     beforeCommitId: __expectString(output.beforeCommitId),
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
-    location: output.location != null ? deserializeAws_json1_1Location(output.location, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
+    location: output.location != null ? de_Location(output.location, context) : undefined,
     pullRequestId: __expectString(output.pullRequestId),
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1PostCommentReplyOutput = (output: any, context: __SerdeContext): PostCommentReplyOutput => {
+/**
+ * deserializeAws_json1_1PostCommentReplyOutput
+ */
+const de_PostCommentReplyOutput = (output: any, context: __SerdeContext): PostCommentReplyOutput => {
   return {
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PullRequest = (output: any, context: __SerdeContext): PullRequest => {
+/**
+ * deserializeAws_json1_1PullRequest
+ */
+const de_PullRequest = (output: any, context: __SerdeContext): PullRequest => {
   return {
-    approvalRules:
-      output.approvalRules != null ? deserializeAws_json1_1ApprovalRulesList(output.approvalRules, context) : undefined,
+    approvalRules: output.approvalRules != null ? de_ApprovalRulesList(output.approvalRules, context) : undefined,
     authorArn: __expectString(output.authorArn),
     clientRequestToken: __expectString(output.clientRequestToken),
     creationDate:
@@ -13717,15 +15594,16 @@ const deserializeAws_json1_1PullRequest = (output: any, context: __SerdeContext)
     pullRequestId: __expectString(output.pullRequestId),
     pullRequestStatus: __expectString(output.pullRequestStatus),
     pullRequestTargets:
-      output.pullRequestTargets != null
-        ? deserializeAws_json1_1PullRequestTargetList(output.pullRequestTargets, context)
-        : undefined,
+      output.pullRequestTargets != null ? de_PullRequestTargetList(output.pullRequestTargets, context) : undefined,
     revisionId: __expectString(output.revisionId),
     title: __expectString(output.title),
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestAlreadyClosedException = (
+/**
+ * deserializeAws_json1_1PullRequestAlreadyClosedException
+ */
+const de_PullRequestAlreadyClosedException = (
   output: any,
   context: __SerdeContext
 ): PullRequestAlreadyClosedException => {
@@ -13734,7 +15612,10 @@ const deserializeAws_json1_1PullRequestAlreadyClosedException = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException = (
+/**
+ * deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException
+ */
+const de_PullRequestApprovalRulesNotSatisfiedException = (
   output: any,
   context: __SerdeContext
 ): PullRequestApprovalRulesNotSatisfiedException => {
@@ -13743,7 +15624,10 @@ const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException = (
+/**
+ * deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException
+ */
+const de_PullRequestCannotBeApprovedByAuthorException = (
   output: any,
   context: __SerdeContext
 ): PullRequestCannotBeApprovedByAuthorException => {
@@ -13752,10 +15636,10 @@ const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestCreatedEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): PullRequestCreatedEventMetadata => {
+/**
+ * deserializeAws_json1_1PullRequestCreatedEventMetadata
+ */
+const de_PullRequestCreatedEventMetadata = (output: any, context: __SerdeContext): PullRequestCreatedEventMetadata => {
   return {
     destinationCommitId: __expectString(output.destinationCommitId),
     mergeBase: __expectString(output.mergeBase),
@@ -13764,7 +15648,10 @@ const deserializeAws_json1_1PullRequestCreatedEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestDoesNotExistException = (
+/**
+ * deserializeAws_json1_1PullRequestDoesNotExistException
+ */
+const de_PullRequestDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): PullRequestDoesNotExistException => {
@@ -13773,66 +15660,69 @@ const deserializeAws_json1_1PullRequestDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestEvent = (output: any, context: __SerdeContext): PullRequestEvent => {
+/**
+ * deserializeAws_json1_1PullRequestEvent
+ */
+const de_PullRequestEvent = (output: any, context: __SerdeContext): PullRequestEvent => {
   return {
     actorArn: __expectString(output.actorArn),
     approvalRuleEventMetadata:
       output.approvalRuleEventMetadata != null
-        ? deserializeAws_json1_1ApprovalRuleEventMetadata(output.approvalRuleEventMetadata, context)
+        ? de_ApprovalRuleEventMetadata(output.approvalRuleEventMetadata, context)
         : undefined,
     approvalRuleOverriddenEventMetadata:
       output.approvalRuleOverriddenEventMetadata != null
-        ? deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata(output.approvalRuleOverriddenEventMetadata, context)
+        ? de_ApprovalRuleOverriddenEventMetadata(output.approvalRuleOverriddenEventMetadata, context)
         : undefined,
     approvalStateChangedEventMetadata:
       output.approvalStateChangedEventMetadata != null
-        ? deserializeAws_json1_1ApprovalStateChangedEventMetadata(output.approvalStateChangedEventMetadata, context)
+        ? de_ApprovalStateChangedEventMetadata(output.approvalStateChangedEventMetadata, context)
         : undefined,
     eventDate:
       output.eventDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventDate))) : undefined,
     pullRequestCreatedEventMetadata:
       output.pullRequestCreatedEventMetadata != null
-        ? deserializeAws_json1_1PullRequestCreatedEventMetadata(output.pullRequestCreatedEventMetadata, context)
+        ? de_PullRequestCreatedEventMetadata(output.pullRequestCreatedEventMetadata, context)
         : undefined,
     pullRequestEventType: __expectString(output.pullRequestEventType),
     pullRequestId: __expectString(output.pullRequestId),
     pullRequestMergedStateChangedEventMetadata:
       output.pullRequestMergedStateChangedEventMetadata != null
-        ? deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata(
-            output.pullRequestMergedStateChangedEventMetadata,
-            context
-          )
+        ? de_PullRequestMergedStateChangedEventMetadata(output.pullRequestMergedStateChangedEventMetadata, context)
         : undefined,
     pullRequestSourceReferenceUpdatedEventMetadata:
       output.pullRequestSourceReferenceUpdatedEventMetadata != null
-        ? deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata(
+        ? de_PullRequestSourceReferenceUpdatedEventMetadata(
             output.pullRequestSourceReferenceUpdatedEventMetadata,
             context
           )
         : undefined,
     pullRequestStatusChangedEventMetadata:
       output.pullRequestStatusChangedEventMetadata != null
-        ? deserializeAws_json1_1PullRequestStatusChangedEventMetadata(
-            output.pullRequestStatusChangedEventMetadata,
-            context
-          )
+        ? de_PullRequestStatusChangedEventMetadata(output.pullRequestStatusChangedEventMetadata, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestEventList = (output: any, context: __SerdeContext): PullRequestEvent[] => {
+/**
+ * deserializeAws_json1_1PullRequestEventList
+ */
+const de_PullRequestEventList = (output: any, context: __SerdeContext): PullRequestEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PullRequestEvent(entry, context);
+      return de_PullRequestEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PullRequestIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1PullRequestIdList
+ */
+const de_PullRequestIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13844,28 +15734,33 @@ const deserializeAws_json1_1PullRequestIdList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1PullRequestIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestIdRequiredException => {
+/**
+ * deserializeAws_json1_1PullRequestIdRequiredException
+ */
+const de_PullRequestIdRequiredException = (output: any, context: __SerdeContext): PullRequestIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata = (
+/**
+ * deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata
+ */
+const de_PullRequestMergedStateChangedEventMetadata = (
   output: any,
   context: __SerdeContext
 ): PullRequestMergedStateChangedEventMetadata => {
   return {
     destinationReference: __expectString(output.destinationReference),
-    mergeMetadata:
-      output.mergeMetadata != null ? deserializeAws_json1_1MergeMetadata(output.mergeMetadata, context) : undefined,
+    mergeMetadata: output.mergeMetadata != null ? de_MergeMetadata(output.mergeMetadata, context) : undefined,
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata = (
+/**
+ * deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata
+ */
+const de_PullRequestSourceReferenceUpdatedEventMetadata = (
   output: any,
   context: __SerdeContext
 ): PullRequestSourceReferenceUpdatedEventMetadata => {
@@ -13877,7 +15772,10 @@ const deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestStatusChangedEventMetadata = (
+/**
+ * deserializeAws_json1_1PullRequestStatusChangedEventMetadata
+ */
+const de_PullRequestStatusChangedEventMetadata = (
   output: any,
   context: __SerdeContext
 ): PullRequestStatusChangedEventMetadata => {
@@ -13886,7 +15784,10 @@ const deserializeAws_json1_1PullRequestStatusChangedEventMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestStatusRequiredException = (
+/**
+ * deserializeAws_json1_1PullRequestStatusRequiredException
+ */
+const de_PullRequestStatusRequiredException = (
   output: any,
   context: __SerdeContext
 ): PullRequestStatusRequiredException => {
@@ -13895,41 +15796,49 @@ const deserializeAws_json1_1PullRequestStatusRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestTarget = (output: any, context: __SerdeContext): PullRequestTarget => {
+/**
+ * deserializeAws_json1_1PullRequestTarget
+ */
+const de_PullRequestTarget = (output: any, context: __SerdeContext): PullRequestTarget => {
   return {
     destinationCommit: __expectString(output.destinationCommit),
     destinationReference: __expectString(output.destinationReference),
     mergeBase: __expectString(output.mergeBase),
-    mergeMetadata:
-      output.mergeMetadata != null ? deserializeAws_json1_1MergeMetadata(output.mergeMetadata, context) : undefined,
+    mergeMetadata: output.mergeMetadata != null ? de_MergeMetadata(output.mergeMetadata, context) : undefined,
     repositoryName: __expectString(output.repositoryName),
     sourceCommit: __expectString(output.sourceCommit),
     sourceReference: __expectString(output.sourceReference),
   } as any;
 };
 
-const deserializeAws_json1_1PullRequestTargetList = (output: any, context: __SerdeContext): PullRequestTarget[] => {
+/**
+ * deserializeAws_json1_1PullRequestTargetList
+ */
+const de_PullRequestTargetList = (output: any, context: __SerdeContext): PullRequestTarget[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PullRequestTarget(entry, context);
+      return de_PullRequestTarget(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PutFileEntryConflictException = (
-  output: any,
-  context: __SerdeContext
-): PutFileEntryConflictException => {
+/**
+ * deserializeAws_json1_1PutFileEntryConflictException
+ */
+const de_PutFileEntryConflictException = (output: any, context: __SerdeContext): PutFileEntryConflictException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PutFileOutput = (output: any, context: __SerdeContext): PutFileOutput => {
+/**
+ * deserializeAws_json1_1PutFileOutput
+ */
+const de_PutFileOutput = (output: any, context: __SerdeContext): PutFileOutput => {
   return {
     blobId: __expectString(output.blobId),
     commitId: __expectString(output.commitId),
@@ -13937,16 +15846,19 @@ const deserializeAws_json1_1PutFileOutput = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1PutRepositoryTriggersOutput = (
-  output: any,
-  context: __SerdeContext
-): PutRepositoryTriggersOutput => {
+/**
+ * deserializeAws_json1_1PutRepositoryTriggersOutput
+ */
+const de_PutRepositoryTriggersOutput = (output: any, context: __SerdeContext): PutRepositoryTriggersOutput => {
   return {
     configurationId: __expectString(output.configurationId),
   } as any;
 };
 
-const deserializeAws_json1_1ReactionCountsMap = (output: any, context: __SerdeContext): Record<string, number> => {
+/**
+ * deserializeAws_json1_1ReactionCountsMap
+ */
+const de_ReactionCountsMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13956,38 +15868,45 @@ const deserializeAws_json1_1ReactionCountsMap = (output: any, context: __SerdeCo
   }, {});
 };
 
-const deserializeAws_json1_1ReactionForComment = (output: any, context: __SerdeContext): ReactionForComment => {
+/**
+ * deserializeAws_json1_1ReactionForComment
+ */
+const de_ReactionForComment = (output: any, context: __SerdeContext): ReactionForComment => {
   return {
-    reaction:
-      output.reaction != null ? deserializeAws_json1_1ReactionValueFormats(output.reaction, context) : undefined,
-    reactionUsers:
-      output.reactionUsers != null ? deserializeAws_json1_1ReactionUsersList(output.reactionUsers, context) : undefined,
+    reaction: output.reaction != null ? de_ReactionValueFormats(output.reaction, context) : undefined,
+    reactionUsers: output.reactionUsers != null ? de_ReactionUsersList(output.reactionUsers, context) : undefined,
     reactionsFromDeletedUsersCount: __expectInt32(output.reactionsFromDeletedUsersCount),
   } as any;
 };
 
-const deserializeAws_json1_1ReactionLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): ReactionLimitExceededException => {
+/**
+ * deserializeAws_json1_1ReactionLimitExceededException
+ */
+const de_ReactionLimitExceededException = (output: any, context: __SerdeContext): ReactionLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ReactionsForCommentList = (output: any, context: __SerdeContext): ReactionForComment[] => {
+/**
+ * deserializeAws_json1_1ReactionsForCommentList
+ */
+const de_ReactionsForCommentList = (output: any, context: __SerdeContext): ReactionForComment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ReactionForComment(entry, context);
+      return de_ReactionForComment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ReactionUsersList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ReactionUsersList
+ */
+const de_ReactionUsersList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13999,7 +15918,10 @@ const deserializeAws_json1_1ReactionUsersList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1ReactionValueFormats = (output: any, context: __SerdeContext): ReactionValueFormats => {
+/**
+ * deserializeAws_json1_1ReactionValueFormats
+ */
+const de_ReactionValueFormats = (output: any, context: __SerdeContext): ReactionValueFormats => {
   return {
     emoji: __expectString(output.emoji),
     shortCode: __expectString(output.shortCode),
@@ -14007,34 +15929,37 @@ const deserializeAws_json1_1ReactionValueFormats = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1ReactionValueRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ReactionValueRequiredException => {
+/**
+ * deserializeAws_json1_1ReactionValueRequiredException
+ */
+const de_ReactionValueRequiredException = (output: any, context: __SerdeContext): ReactionValueRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ReferenceDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ReferenceDoesNotExistException => {
+/**
+ * deserializeAws_json1_1ReferenceDoesNotExistException
+ */
+const de_ReferenceDoesNotExistException = (output: any, context: __SerdeContext): ReferenceDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ReferenceNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ReferenceNameRequiredException => {
+/**
+ * deserializeAws_json1_1ReferenceNameRequiredException
+ */
+const de_ReferenceNameRequiredException = (output: any, context: __SerdeContext): ReferenceNameRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ReferenceTypeNotSupportedException = (
+/**
+ * deserializeAws_json1_1ReferenceTypeNotSupportedException
+ */
+const de_ReferenceTypeNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ReferenceTypeNotSupportedException => {
@@ -14043,7 +15968,10 @@ const deserializeAws_json1_1ReferenceTypeNotSupportedException = (
   } as any;
 };
 
-const deserializeAws_json1_1ReplacementContentRequiredException = (
+/**
+ * deserializeAws_json1_1ReplacementContentRequiredException
+ */
+const de_ReplacementContentRequiredException = (
   output: any,
   context: __SerdeContext
 ): ReplacementContentRequiredException => {
@@ -14052,7 +15980,10 @@ const deserializeAws_json1_1ReplacementContentRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ReplacementTypeRequiredException = (
+/**
+ * deserializeAws_json1_1ReplacementTypeRequiredException
+ */
+const de_ReplacementTypeRequiredException = (
   output: any,
   context: __SerdeContext
 ): ReplacementTypeRequiredException => {
@@ -14061,16 +15992,19 @@ const deserializeAws_json1_1ReplacementTypeRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryDoesNotExistException => {
+/**
+ * deserializeAws_json1_1RepositoryDoesNotExistException
+ */
+const de_RepositoryDoesNotExistException = (output: any, context: __SerdeContext): RepositoryDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryLimitExceededException = (
+/**
+ * deserializeAws_json1_1RepositoryLimitExceededException
+ */
+const de_RepositoryLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): RepositoryLimitExceededException => {
@@ -14079,7 +16013,10 @@ const deserializeAws_json1_1RepositoryLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryMetadata = (output: any, context: __SerdeContext): RepositoryMetadata => {
+/**
+ * deserializeAws_json1_1RepositoryMetadata
+ */
+const de_RepositoryMetadata = (output: any, context: __SerdeContext): RepositoryMetadata => {
   return {
     Arn: __expectString(output.Arn),
     accountId: __expectString(output.accountId),
@@ -14100,50 +16037,59 @@ const deserializeAws_json1_1RepositoryMetadata = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryMetadataList = (output: any, context: __SerdeContext): RepositoryMetadata[] => {
+/**
+ * deserializeAws_json1_1RepositoryMetadataList
+ */
+const de_RepositoryMetadataList = (output: any, context: __SerdeContext): RepositoryMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RepositoryMetadata(entry, context);
+      return de_RepositoryMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryNameExistsException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNameExistsException => {
+/**
+ * deserializeAws_json1_1RepositoryNameExistsException
+ */
+const de_RepositoryNameExistsException = (output: any, context: __SerdeContext): RepositoryNameExistsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryNameIdPair = (output: any, context: __SerdeContext): RepositoryNameIdPair => {
+/**
+ * deserializeAws_json1_1RepositoryNameIdPair
+ */
+const de_RepositoryNameIdPair = (output: any, context: __SerdeContext): RepositoryNameIdPair => {
   return {
     repositoryId: __expectString(output.repositoryId),
     repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryNameIdPairList = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNameIdPair[] => {
+/**
+ * deserializeAws_json1_1RepositoryNameIdPairList
+ */
+const de_RepositoryNameIdPairList = (output: any, context: __SerdeContext): RepositoryNameIdPair[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RepositoryNameIdPair(entry, context);
+      return de_RepositoryNameIdPair(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1RepositoryNameList
+ */
+const de_RepositoryNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14155,16 +16101,19 @@ const deserializeAws_json1_1RepositoryNameList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNameRequiredException => {
+/**
+ * deserializeAws_json1_1RepositoryNameRequiredException
+ */
+const de_RepositoryNameRequiredException = (output: any, context: __SerdeContext): RepositoryNameRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryNamesRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryNamesRequiredException
+ */
+const de_RepositoryNamesRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryNamesRequiredException => {
@@ -14173,7 +16122,10 @@ const deserializeAws_json1_1RepositoryNamesRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
+/**
+ * deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException
+ */
+const de_RepositoryNotAssociatedWithPullRequestException = (
   output: any,
   context: __SerdeContext
 ): RepositoryNotAssociatedWithPullRequestException => {
@@ -14182,7 +16134,10 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryNotFoundList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1RepositoryNotFoundList
+ */
+const de_RepositoryNotFoundList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14194,18 +16149,23 @@ const deserializeAws_json1_1RepositoryNotFoundList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryTrigger = (output: any, context: __SerdeContext): RepositoryTrigger => {
+/**
+ * deserializeAws_json1_1RepositoryTrigger
+ */
+const de_RepositoryTrigger = (output: any, context: __SerdeContext): RepositoryTrigger => {
   return {
-    branches: output.branches != null ? deserializeAws_json1_1BranchNameList(output.branches, context) : undefined,
+    branches: output.branches != null ? de_BranchNameList(output.branches, context) : undefined,
     customData: __expectString(output.customData),
     destinationArn: __expectString(output.destinationArn),
-    events:
-      output.events != null ? deserializeAws_json1_1RepositoryTriggerEventList(output.events, context) : undefined,
+    events: output.events != null ? de_RepositoryTriggerEventList(output.events, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException
+ */
+const de_RepositoryTriggerBranchNameListRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerBranchNameListRequiredException => {
@@ -14214,7 +16174,10 @@ const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException
+ */
+const de_RepositoryTriggerDestinationArnRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerDestinationArnRequiredException => {
@@ -14223,7 +16186,10 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggerEventList = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerEventList
+ */
+const de_RepositoryTriggerEventList = (
   output: any,
   context: __SerdeContext
 ): (RepositoryTriggerEventEnum | string)[] => {
@@ -14238,7 +16204,10 @@ const deserializeAws_json1_1RepositoryTriggerEventList = (
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryTriggerEventsListRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerEventsListRequiredException
+ */
+const de_RepositoryTriggerEventsListRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerEventsListRequiredException => {
@@ -14247,7 +16216,10 @@ const deserializeAws_json1_1RepositoryTriggerEventsListRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerExecutionFailure
+ */
+const de_RepositoryTriggerExecutionFailure = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerExecutionFailure => {
@@ -14257,7 +16229,10 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerExecutionFailureList
+ */
+const de_RepositoryTriggerExecutionFailureList = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerExecutionFailure[] => {
@@ -14267,12 +16242,15 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RepositoryTriggerExecutionFailure(entry, context);
+      return de_RepositoryTriggerExecutionFailure(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryTriggerNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1RepositoryTriggerNameList
+ */
+const de_RepositoryTriggerNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14284,7 +16262,10 @@ const deserializeAws_json1_1RepositoryTriggerNameList = (output: any, context: _
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryTriggerNameRequiredException
+ */
+const de_RepositoryTriggerNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggerNameRequiredException => {
@@ -14293,19 +16274,25 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1RepositoryTriggersList = (output: any, context: __SerdeContext): RepositoryTrigger[] => {
+/**
+ * deserializeAws_json1_1RepositoryTriggersList
+ */
+const de_RepositoryTriggersList = (output: any, context: __SerdeContext): RepositoryTrigger[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RepositoryTrigger(entry, context);
+      return de_RepositoryTrigger(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RepositoryTriggersListRequiredException = (
+/**
+ * deserializeAws_json1_1RepositoryTriggersListRequiredException
+ */
+const de_RepositoryTriggersListRequiredException = (
   output: any,
   context: __SerdeContext
 ): RepositoryTriggersListRequiredException => {
@@ -14314,61 +16301,64 @@ const deserializeAws_json1_1RepositoryTriggersListRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ResourceArnRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ResourceArnRequiredException => {
+/**
+ * deserializeAws_json1_1ResourceArnRequiredException
+ */
+const de_ResourceArnRequiredException = (output: any, context: __SerdeContext): ResourceArnRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RestrictedSourceFileException = (
-  output: any,
-  context: __SerdeContext
-): RestrictedSourceFileException => {
+/**
+ * deserializeAws_json1_1RestrictedSourceFileException
+ */
+const de_RestrictedSourceFileException = (output: any, context: __SerdeContext): RestrictedSourceFileException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RevisionIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RevisionIdRequiredException => {
+/**
+ * deserializeAws_json1_1RevisionIdRequiredException
+ */
+const de_RevisionIdRequiredException = (output: any, context: __SerdeContext): RevisionIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RevisionNotCurrentException = (
-  output: any,
-  context: __SerdeContext
-): RevisionNotCurrentException => {
+/**
+ * deserializeAws_json1_1RevisionNotCurrentException
+ */
+const de_RevisionNotCurrentException = (output: any, context: __SerdeContext): RevisionNotCurrentException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1SameFileContentException = (
-  output: any,
-  context: __SerdeContext
-): SameFileContentException => {
+/**
+ * deserializeAws_json1_1SameFileContentException
+ */
+const de_SameFileContentException = (output: any, context: __SerdeContext): SameFileContentException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1SamePathRequestException = (
-  output: any,
-  context: __SerdeContext
-): SamePathRequestException => {
+/**
+ * deserializeAws_json1_1SamePathRequestException
+ */
+const de_SamePathRequestException = (output: any, context: __SerdeContext): SamePathRequestException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1SourceAndDestinationAreSameException = (
+/**
+ * deserializeAws_json1_1SourceAndDestinationAreSameException
+ */
+const de_SourceAndDestinationAreSameException = (
   output: any,
   context: __SerdeContext
 ): SourceAndDestinationAreSameException => {
@@ -14377,7 +16367,10 @@ const deserializeAws_json1_1SourceAndDestinationAreSameException = (
   } as any;
 };
 
-const deserializeAws_json1_1SourceFileOrContentRequiredException = (
+/**
+ * deserializeAws_json1_1SourceFileOrContentRequiredException
+ */
+const de_SourceFileOrContentRequiredException = (
   output: any,
   context: __SerdeContext
 ): SourceFileOrContentRequiredException => {
@@ -14386,7 +16379,10 @@ const deserializeAws_json1_1SourceFileOrContentRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1SubModule = (output: any, context: __SerdeContext): SubModule => {
+/**
+ * deserializeAws_json1_1SubModule
+ */
+const de_SubModule = (output: any, context: __SerdeContext): SubModule => {
   return {
     absolutePath: __expectString(output.absolutePath),
     commitId: __expectString(output.commitId),
@@ -14394,19 +16390,25 @@ const deserializeAws_json1_1SubModule = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1SubModuleList = (output: any, context: __SerdeContext): SubModule[] => {
+/**
+ * deserializeAws_json1_1SubModuleList
+ */
+const de_SubModuleList = (output: any, context: __SerdeContext): SubModule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SubModule(entry, context);
+      return de_SubModule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SymbolicLink = (output: any, context: __SerdeContext): SymbolicLink => {
+/**
+ * deserializeAws_json1_1SymbolicLink
+ */
+const de_SymbolicLink = (output: any, context: __SerdeContext): SymbolicLink => {
   return {
     absolutePath: __expectString(output.absolutePath),
     blobId: __expectString(output.blobId),
@@ -14415,34 +16417,43 @@ const deserializeAws_json1_1SymbolicLink = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1SymbolicLinkList = (output: any, context: __SerdeContext): SymbolicLink[] => {
+/**
+ * deserializeAws_json1_1SymbolicLinkList
+ */
+const de_SymbolicLinkList = (output: any, context: __SerdeContext): SymbolicLink[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SymbolicLink(entry, context);
+      return de_SymbolicLink(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagKeysListRequiredException = (
-  output: any,
-  context: __SerdeContext
-): TagKeysListRequiredException => {
+/**
+ * deserializeAws_json1_1TagKeysListRequiredException
+ */
+const de_TagKeysListRequiredException = (output: any, context: __SerdeContext): TagKeysListRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
+/**
+ * deserializeAws_json1_1TagPolicyException
+ */
+const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1TagsMap
+ */
+const de_TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14452,50 +16463,53 @@ const deserializeAws_json1_1TagsMap = (output: any, context: __SerdeContext): Re
   }, {});
 };
 
-const deserializeAws_json1_1TagsMapRequiredException = (
-  output: any,
-  context: __SerdeContext
-): TagsMapRequiredException => {
+/**
+ * deserializeAws_json1_1TagsMapRequiredException
+ */
+const de_TagsMapRequiredException = (output: any, context: __SerdeContext): TagsMapRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TargetRequiredException = (
-  output: any,
-  context: __SerdeContext
-): TargetRequiredException => {
+/**
+ * deserializeAws_json1_1TargetRequiredException
+ */
+const de_TargetRequiredException = (output: any, context: __SerdeContext): TargetRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TargetsRequiredException = (
-  output: any,
-  context: __SerdeContext
-): TargetsRequiredException => {
+/**
+ * deserializeAws_json1_1TargetsRequiredException
+ */
+const de_TargetsRequiredException = (output: any, context: __SerdeContext): TargetsRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TestRepositoryTriggersOutput = (
-  output: any,
-  context: __SerdeContext
-): TestRepositoryTriggersOutput => {
+/**
+ * deserializeAws_json1_1TestRepositoryTriggersOutput
+ */
+const de_TestRepositoryTriggersOutput = (output: any, context: __SerdeContext): TestRepositoryTriggersOutput => {
   return {
     failedExecutions:
       output.failedExecutions != null
-        ? deserializeAws_json1_1RepositoryTriggerExecutionFailureList(output.failedExecutions, context)
+        ? de_RepositoryTriggerExecutionFailureList(output.failedExecutions, context)
         : undefined,
     successfulExecutions:
       output.successfulExecutions != null
-        ? deserializeAws_json1_1RepositoryTriggerNameList(output.successfulExecutions, context)
+        ? de_RepositoryTriggerNameList(output.successfulExecutions, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TipOfSourceReferenceIsDifferentException = (
+/**
+ * deserializeAws_json1_1TipOfSourceReferenceIsDifferentException
+ */
+const de_TipOfSourceReferenceIsDifferentException = (
   output: any,
   context: __SerdeContext
 ): TipOfSourceReferenceIsDifferentException => {
@@ -14504,110 +16518,127 @@ const deserializeAws_json1_1TipOfSourceReferenceIsDifferentException = (
   } as any;
 };
 
-const deserializeAws_json1_1TipsDivergenceExceededException = (
-  output: any,
-  context: __SerdeContext
-): TipsDivergenceExceededException => {
+/**
+ * deserializeAws_json1_1TipsDivergenceExceededException
+ */
+const de_TipsDivergenceExceededException = (output: any, context: __SerdeContext): TipsDivergenceExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TitleRequiredException = (output: any, context: __SerdeContext): TitleRequiredException => {
+/**
+ * deserializeAws_json1_1TitleRequiredException
+ */
+const de_TitleRequiredException = (output: any, context: __SerdeContext): TitleRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+/**
+ * deserializeAws_json1_1TooManyTagsException
+ */
+const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput = (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput
+ */
+const de_UpdateApprovalRuleTemplateContentOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateContentOutput => {
   return {
     approvalRuleTemplate:
-      output.approvalRuleTemplate != null
-        ? deserializeAws_json1_1ApprovalRuleTemplate(output.approvalRuleTemplate, context)
-        : undefined,
+      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput = (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput
+ */
+const de_UpdateApprovalRuleTemplateDescriptionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateDescriptionOutput => {
   return {
     approvalRuleTemplate:
-      output.approvalRuleTemplate != null
-        ? deserializeAws_json1_1ApprovalRuleTemplate(output.approvalRuleTemplate, context)
-        : undefined,
+      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput = (
+/**
+ * deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput
+ */
+const de_UpdateApprovalRuleTemplateNameOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateNameOutput => {
   return {
     approvalRuleTemplate:
-      output.approvalRuleTemplate != null
-        ? deserializeAws_json1_1ApprovalRuleTemplate(output.approvalRuleTemplate, context)
-        : undefined,
+      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateCommentOutput = (output: any, context: __SerdeContext): UpdateCommentOutput => {
+/**
+ * deserializeAws_json1_1UpdateCommentOutput
+ */
+const de_UpdateCommentOutput = (output: any, context: __SerdeContext): UpdateCommentOutput => {
   return {
-    comment: output.comment != null ? deserializeAws_json1_1Comment(output.comment, context) : undefined,
+    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput = (
+/**
+ * deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput
+ */
+const de_UpdatePullRequestApprovalRuleContentOutput = (
   output: any,
   context: __SerdeContext
 ): UpdatePullRequestApprovalRuleContentOutput => {
   return {
-    approvalRule:
-      output.approvalRule != null ? deserializeAws_json1_1ApprovalRule(output.approvalRule, context) : undefined,
+    approvalRule: output.approvalRule != null ? de_ApprovalRule(output.approvalRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePullRequestDescriptionOutput = (
+/**
+ * deserializeAws_json1_1UpdatePullRequestDescriptionOutput
+ */
+const de_UpdatePullRequestDescriptionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdatePullRequestDescriptionOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePullRequestStatusOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdatePullRequestStatusOutput => {
+/**
+ * deserializeAws_json1_1UpdatePullRequestStatusOutput
+ */
+const de_UpdatePullRequestStatusOutput = (output: any, context: __SerdeContext): UpdatePullRequestStatusOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePullRequestTitleOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdatePullRequestTitleOutput => {
+/**
+ * deserializeAws_json1_1UpdatePullRequestTitleOutput
+ */
+const de_UpdatePullRequestTitleOutput = (output: any, context: __SerdeContext): UpdatePullRequestTitleOutput => {
   return {
-    pullRequest:
-      output.pullRequest != null ? deserializeAws_json1_1PullRequest(output.pullRequest, context) : undefined,
+    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserInfo = (output: any, context: __SerdeContext): UserInfo => {
+/**
+ * deserializeAws_json1_1UserInfo
+ */
+const de_UserInfo = (output: any, context: __SerdeContext): UserInfo => {
   return {
     date: __expectString(output.date),
     email: __expectString(output.email),

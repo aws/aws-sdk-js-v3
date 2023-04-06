@@ -19,10 +19,7 @@ import {
   CreateRoomMembershipResponse,
   CreateRoomMembershipResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoomMembershipCommand,
-  serializeAws_restJson1CreateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRoomMembershipCommand, se_CreateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class CreateRoomMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoomMembershipCommand(input, context);
+    return se_CreateRoomMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1CreateRoomMembershipCommand(output, context);
+    return de_CreateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

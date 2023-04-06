@@ -19,10 +19,7 @@ import {
   CreateVirtualMFADeviceResponse,
   CreateVirtualMFADeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_queryCreateVirtualMFADeviceCommand,
-  serializeAws_queryCreateVirtualMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { de_CreateVirtualMFADeviceCommand, se_CreateVirtualMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateVirtualMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateVirtualMFADeviceCommand(input, context);
+    return se_CreateVirtualMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualMFADeviceCommandOutput> {
-    return deserializeAws_queryCreateVirtualMFADeviceCommand(output, context);
+    return de_CreateVirtualMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

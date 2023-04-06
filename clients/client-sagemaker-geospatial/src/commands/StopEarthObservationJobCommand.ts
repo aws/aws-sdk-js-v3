@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopEarthObservationJobInput, StopEarthObservationJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopEarthObservationJobCommand,
-  serializeAws_restJson1StopEarthObservationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopEarthObservationJobCommand, se_StopEarthObservationJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class StopEarthObservationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopEarthObservationJobCommand(input, context);
+    return se_StopEarthObservationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEarthObservationJobCommandOutput> {
-    return deserializeAws_restJson1StopEarthObservationJobCommand(output, context);
+    return de_StopEarthObservationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

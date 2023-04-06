@@ -19,10 +19,7 @@ import {
   UpdateBackupPlanInputFilterSensitiveLog,
   UpdateBackupPlanOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackupPlanCommand,
-  serializeAws_restJson1UpdateBackupPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBackupPlanCommand, se_UpdateBackupPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class UpdateBackupPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackupPlanCommand(input, context);
+    return se_UpdateBackupPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackupPlanCommandOutput> {
-    return deserializeAws_restJson1UpdateBackupPlanCommand(output, context);
+    return de_UpdateBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

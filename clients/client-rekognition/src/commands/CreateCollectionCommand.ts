@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCollectionCommand,
-  serializeAws_json1_1CreateCollectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCollectionCommand, se_CreateCollectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -179,14 +176,14 @@ export class CreateCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCollectionCommand(input, context);
+    return se_CreateCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollectionCommandOutput> {
-    return deserializeAws_json1_1CreateCollectionCommand(output, context);
+    return de_CreateCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

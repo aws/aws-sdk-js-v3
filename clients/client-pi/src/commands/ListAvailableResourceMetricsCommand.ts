@@ -16,8 +16,8 @@ import {
 import { ListAvailableResourceMetricsRequest, ListAvailableResourceMetricsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
-  deserializeAws_json1_1ListAvailableResourceMetricsCommand,
-  serializeAws_json1_1ListAvailableResourceMetricsCommand,
+  de_ListAvailableResourceMetricsCommand,
+  se_ListAvailableResourceMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class ListAvailableResourceMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAvailableResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableResourceMetricsCommand(input, context);
+    return se_ListAvailableResourceMetricsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListAvailableResourceMetricsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableResourceMetricsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableResourceMetricsCommand(output, context);
+    return de_ListAvailableResourceMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,10 +23,7 @@ import {
   ChannelFlowCallbackRequestFilterSensitiveLog,
   ChannelFlowCallbackResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ChannelFlowCallbackCommand,
-  serializeAws_restJson1ChannelFlowCallbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ChannelFlowCallbackCommand, se_ChannelFlowCallbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class ChannelFlowCallbackCommand extends $Command<
    * @internal
    */
   private serialize(input: ChannelFlowCallbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ChannelFlowCallbackCommand(input, context);
+    return se_ChannelFlowCallbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChannelFlowCallbackCommandOutput> {
-    return deserializeAws_restJson1ChannelFlowCallbackCommand(output, context);
+    return de_ChannelFlowCallbackCommand(output, context);
   }
 
   // Start section: command_body_extra

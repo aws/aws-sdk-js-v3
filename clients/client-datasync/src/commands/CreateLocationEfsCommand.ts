@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CreateLocationEfsRequest, CreateLocationEfsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationEfsCommand,
-  serializeAws_json1_1CreateLocationEfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationEfsCommand, se_CreateLocationEfsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateLocationEfsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationEfsCommand(input, context);
+    return se_CreateLocationEfsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationEfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationEfsCommand(output, context);
+    return de_CreateLocationEfsCommand(output, context);
   }
 
   // Start section: command_body_extra

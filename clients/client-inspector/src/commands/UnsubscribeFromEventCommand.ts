@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { UnsubscribeFromEventRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UnsubscribeFromEventCommand,
-  serializeAws_json1_1UnsubscribeFromEventCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnsubscribeFromEventCommand, se_UnsubscribeFromEventCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class UnsubscribeFromEventCommand extends $Command<
    * @internal
    */
   private serialize(input: UnsubscribeFromEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnsubscribeFromEventCommand(input, context);
+    return se_UnsubscribeFromEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromEventCommandOutput> {
-    return deserializeAws_json1_1UnsubscribeFromEventCommand(output, context);
+    return de_UnsubscribeFromEventCommand(output, context);
   }
 
   // Start section: command_body_extra

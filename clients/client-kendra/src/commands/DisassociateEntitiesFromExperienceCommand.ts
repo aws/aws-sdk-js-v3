@@ -19,8 +19,8 @@ import {
   DisassociateEntitiesFromExperienceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
-  serializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
+  de_DisassociateEntitiesFromExperienceCommand,
+  se_DisassociateEntitiesFromExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     input: DisassociateEntitiesFromExperienceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateEntitiesFromExperienceCommand(input, context);
+    return se_DisassociateEntitiesFromExperienceCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateEntitiesFromExperienceCommandOutput> {
-    return deserializeAws_json1_1DisassociateEntitiesFromExperienceCommand(output, context);
+    return de_DisassociateEntitiesFromExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

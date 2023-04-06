@@ -15,8 +15,8 @@ import {
 
 import { UpdateConfigurationSetSendingEnabledRequest } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
-  serializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
+  de_UpdateConfigurationSetSendingEnabledCommand,
+  se_UpdateConfigurationSetSendingEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -144,7 +144,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     input: UpdateConfigurationSetSendingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(input, context);
+    return se_UpdateConfigurationSetSendingEnabledCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(output, context);
+    return de_UpdateConfigurationSetSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

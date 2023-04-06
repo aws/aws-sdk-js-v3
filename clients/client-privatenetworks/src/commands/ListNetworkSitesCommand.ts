@@ -15,10 +15,7 @@ import {
 
 import { ListNetworkSitesRequest, ListNetworkSitesResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListNetworkSitesCommand,
-  serializeAws_restJson1ListNetworkSitesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNetworkSitesCommand, se_ListNetworkSitesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListNetworkSitesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNetworkSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkSitesCommand(input, context);
+    return se_ListNetworkSitesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkSitesCommandOutput> {
-    return deserializeAws_restJson1ListNetworkSitesCommand(output, context);
+    return de_ListNetworkSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

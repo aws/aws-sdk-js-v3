@@ -15,10 +15,7 @@ import {
 
 import { CancelOrderInput, CancelOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CancelOrderCommand,
-  serializeAws_restJson1CancelOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelOrderCommand, se_CancelOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class CancelOrderCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelOrderCommand(input, context);
+    return se_CancelOrderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelOrderCommandOutput> {
-    return deserializeAws_restJson1CancelOrderCommand(output, context);
+    return de_CancelOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

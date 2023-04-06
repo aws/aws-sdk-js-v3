@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetCostEstimateRequest, GetCostEstimateResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCostEstimateCommand,
-  serializeAws_json1_1GetCostEstimateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCostEstimateCommand, se_GetCostEstimateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetCostEstimateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCostEstimateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCostEstimateCommand(input, context);
+    return se_GetCostEstimateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimateCommandOutput> {
-    return deserializeAws_json1_1GetCostEstimateCommand(output, context);
+    return de_GetCostEstimateCommand(output, context);
   }
 
   // Start section: command_body_extra

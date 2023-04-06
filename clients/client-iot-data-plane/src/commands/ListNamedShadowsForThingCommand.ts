@@ -15,10 +15,7 @@ import {
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNamedShadowsForThingCommand,
-  serializeAws_restJson1ListNamedShadowsForThingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNamedShadowsForThingCommand, se_ListNamedShadowsForThingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListNamedShadowsForThingCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNamedShadowsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNamedShadowsForThingCommand(input, context);
+    return se_ListNamedShadowsForThingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedShadowsForThingCommandOutput> {
-    return deserializeAws_restJson1ListNamedShadowsForThingCommand(output, context);
+    return de_ListNamedShadowsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

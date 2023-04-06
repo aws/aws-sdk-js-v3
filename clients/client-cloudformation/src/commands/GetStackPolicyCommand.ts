@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { GetStackPolicyInput, GetStackPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_queryGetStackPolicyCommand,
-  serializeAws_queryGetStackPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_GetStackPolicyCommand, se_GetStackPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class GetStackPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStackPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetStackPolicyCommand(input, context);
+    return se_GetStackPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStackPolicyCommandOutput> {
-    return deserializeAws_queryGetStackPolicyCommand(output, context);
+    return de_GetStackPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

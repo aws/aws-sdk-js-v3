@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateSecurityRequest, UpdateSecurityResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSecurityCommand,
-  serializeAws_restJson1UpdateSecurityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSecurityCommand, se_UpdateSecurityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class UpdateSecurityCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSecurityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSecurityCommand(input, context);
+    return se_UpdateSecurityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityCommandOutput> {
-    return deserializeAws_restJson1UpdateSecurityCommand(output, context);
+    return de_UpdateSecurityCommand(output, context);
   }
 
   // Start section: command_body_extra

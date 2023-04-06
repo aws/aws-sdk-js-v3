@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateCanaryRequest, CreateCanaryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCanaryCommand,
-  serializeAws_restJson1CreateCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCanaryCommand, se_CreateCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -181,14 +178,14 @@ export class CreateCanaryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCanaryCommand(input, context);
+    return se_CreateCanaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCanaryCommandOutput> {
-    return deserializeAws_restJson1CreateCanaryCommand(output, context);
+    return de_CreateCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

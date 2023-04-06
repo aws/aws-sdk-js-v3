@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { ModifyListenerInput, ModifyListenerOutput } from "../models/models_0";
-import {
-  deserializeAws_queryModifyListenerCommand,
-  serializeAws_queryModifyListenerCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyListenerCommand, se_ModifyListenerCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -332,14 +329,14 @@ export class ModifyListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyListenerCommand(input, context);
+    return se_ModifyListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyListenerCommandOutput> {
-    return deserializeAws_queryModifyListenerCommand(output, context);
+    return de_ModifyListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

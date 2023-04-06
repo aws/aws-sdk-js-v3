@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPrincipalsCommand,
-  serializeAws_restJson1ListPrincipalsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPrincipalsCommand, se_ListPrincipalsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -149,14 +146,14 @@ export class ListPrincipalsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPrincipalsCommand(input, context);
+    return se_ListPrincipalsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrincipalsCommandOutput> {
-    return deserializeAws_restJson1ListPrincipalsCommand(output, context);
+    return de_ListPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

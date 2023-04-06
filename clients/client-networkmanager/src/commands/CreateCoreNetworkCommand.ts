@@ -15,10 +15,7 @@ import {
 
 import { CreateCoreNetworkRequest, CreateCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateCoreNetworkCommand,
-  serializeAws_restJson1CreateCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCoreNetworkCommand, se_CreateCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateCoreNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCoreNetworkCommand(input, context);
+    return se_CreateCoreNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1CreateCoreNetworkCommand(output, context);
+    return de_CreateCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

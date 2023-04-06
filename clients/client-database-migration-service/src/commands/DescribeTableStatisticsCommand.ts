@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTableStatisticsCommand,
-  serializeAws_json1_1DescribeTableStatisticsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class DescribeTableStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTableStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTableStatisticsCommand(input, context);
+    return se_DescribeTableStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTableStatisticsCommandOutput> {
-    return deserializeAws_json1_1DescribeTableStatisticsCommand(output, context);
+    return de_DescribeTableStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

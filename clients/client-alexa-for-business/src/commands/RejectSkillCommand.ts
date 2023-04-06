@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { RejectSkillRequest, RejectSkillResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectSkillCommand,
-  serializeAws_json1_1RejectSkillCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectSkillCommand, se_RejectSkillCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class RejectSkillCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectSkillCommand(input, context);
+    return se_RejectSkillCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSkillCommandOutput> {
-    return deserializeAws_json1_1RejectSkillCommand(output, context);
+    return de_RejectSkillCommand(output, context);
   }
 
   // Start section: command_body_extra

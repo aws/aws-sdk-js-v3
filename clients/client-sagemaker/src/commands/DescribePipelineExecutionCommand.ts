@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePipelineExecutionRequest, DescribePipelineExecutionResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribePipelineExecutionCommand,
-  serializeAws_json1_1DescribePipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePipelineExecutionCommand, se_DescribePipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,7 +120,7 @@ export class DescribePipelineExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePipelineExecutionCommand(input, context);
+    return se_DescribePipelineExecutionCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class DescribePipelineExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribePipelineExecutionCommand(output, context);
+    return de_DescribePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

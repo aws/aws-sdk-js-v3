@@ -15,10 +15,7 @@ import {
 
 import { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0UpdateLoggingConfigurationCommand,
-  serializeAws_json1_0UpdateLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateLoggingConfigurationCommand, se_UpdateLoggingConfigurationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -189,7 +186,7 @@ export class UpdateLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateLoggingConfigurationCommand(input, context);
+    return se_UpdateLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -199,7 +196,7 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_0UpdateLoggingConfigurationCommand(output, context);
+    return de_UpdateLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

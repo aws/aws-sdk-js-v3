@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeStaleSecurityGroupsCommand,
-  serializeAws_ec2DescribeStaleSecurityGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeStaleSecurityGroupsCommand, se_DescribeStaleSecurityGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStaleSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeStaleSecurityGroupsCommand(input, context);
+    return se_DescribeStaleSecurityGroupsCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStaleSecurityGroupsCommandOutput> {
-    return deserializeAws_ec2DescribeStaleSecurityGroupsCommand(output, context);
+    return de_DescribeStaleSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

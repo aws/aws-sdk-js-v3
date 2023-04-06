@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReceiptRuleCommand,
-  serializeAws_queryDeleteReceiptRuleCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteReceiptRuleCommand, se_DeleteReceiptRuleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteReceiptRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReceiptRuleCommand(input, context);
+    return se_DeleteReceiptRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptRuleCommandOutput> {
-    return deserializeAws_queryDeleteReceiptRuleCommand(output, context);
+    return de_DeleteReceiptRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

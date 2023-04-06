@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { UpdateEvaluationInput, UpdateEvaluationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEvaluationCommand,
-  serializeAws_json1_1UpdateEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateEvaluationCommand, se_UpdateEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class UpdateEvaluationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEvaluationCommand(input, context);
+    return se_UpdateEvaluationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEvaluationCommandOutput> {
-    return deserializeAws_json1_1UpdateEvaluationCommand(output, context);
+    return de_UpdateEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
 import { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeStreamCommand,
-  serializeAws_json1_0DescribeStreamCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeStreamCommand, se_DescribeStreamCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -203,14 +200,14 @@ export class DescribeStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStreamCommand(input, context);
+    return se_DescribeStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput> {
-    return deserializeAws_json1_0DescribeStreamCommand(output, context);
+    return de_DescribeStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_4";
-import { deserializeAws_ec2DescribeRegionsCommand, serializeAws_ec2DescribeRegionsCommand } from "../protocols/Aws_ec2";
+import { de_DescribeRegionsCommand, se_DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -191,14 +191,14 @@ export class DescribeRegionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeRegionsCommand(input, context);
+    return se_DescribeRegionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionsCommandOutput> {
-    return deserializeAws_ec2DescribeRegionsCommand(output, context);
+    return de_DescribeRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeliverConfigSnapshotCommand,
-  serializeAws_json1_1DeliverConfigSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeliverConfigSnapshotCommand, se_DeliverConfigSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeliverConfigSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeliverConfigSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeliverConfigSnapshotCommand(input, context);
+    return se_DeliverConfigSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeliverConfigSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeliverConfigSnapshotCommand(output, context);
+    return de_DeliverConfigSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

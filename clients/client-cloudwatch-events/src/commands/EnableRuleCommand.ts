@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { EnableRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableRuleCommand,
-  serializeAws_json1_1EnableRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableRuleCommand, se_EnableRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class EnableRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableRuleCommand(input, context);
+    return se_EnableRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRuleCommandOutput> {
-    return deserializeAws_json1_1EnableRuleCommand(output, context);
+    return de_EnableRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

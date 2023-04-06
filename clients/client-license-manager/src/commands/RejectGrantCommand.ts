@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { RejectGrantRequest, RejectGrantResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectGrantCommand,
-  serializeAws_json1_1RejectGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectGrantCommand, se_RejectGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class RejectGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectGrantCommand(input, context);
+    return se_RejectGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectGrantCommandOutput> {
-    return deserializeAws_json1_1RejectGrantCommand(output, context);
+    return de_RejectGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

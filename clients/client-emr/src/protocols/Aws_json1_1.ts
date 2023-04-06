@@ -369,7 +369,10 @@ import {
   VolumeSpecification,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AddInstanceFleetCommand = async (
+/**
+ * serializeAws_json1_1AddInstanceFleetCommand
+ */
+export const se_AddInstanceFleetCommand = async (
   input: AddInstanceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,11 +381,14 @@ export const serializeAws_json1_1AddInstanceFleetCommand = async (
     "x-amz-target": "ElasticMapReduce.AddInstanceFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddInstanceFleetInput(input, context));
+  body = JSON.stringify(se_AddInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddInstanceGroupsCommand = async (
+/**
+ * serializeAws_json1_1AddInstanceGroupsCommand
+ */
+export const se_AddInstanceGroupsCommand = async (
   input: AddInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -391,11 +397,14 @@ export const serializeAws_json1_1AddInstanceGroupsCommand = async (
     "x-amz-target": "ElasticMapReduce.AddInstanceGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddInstanceGroupsInput(input, context));
+  body = JSON.stringify(se_AddInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddJobFlowStepsCommand = async (
+/**
+ * serializeAws_json1_1AddJobFlowStepsCommand
+ */
+export const se_AddJobFlowStepsCommand = async (
   input: AddJobFlowStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -404,11 +413,14 @@ export const serializeAws_json1_1AddJobFlowStepsCommand = async (
     "x-amz-target": "ElasticMapReduce.AddJobFlowSteps",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddJobFlowStepsInput(input, context));
+  body = JSON.stringify(se_AddJobFlowStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddTagsCommand = async (
+/**
+ * serializeAws_json1_1AddTagsCommand
+ */
+export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -417,11 +429,14 @@ export const serializeAws_json1_1AddTagsCommand = async (
     "x-amz-target": "ElasticMapReduce.AddTags",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
+  body = JSON.stringify(se_AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelStepsCommand = async (
+/**
+ * serializeAws_json1_1CancelStepsCommand
+ */
+export const se_CancelStepsCommand = async (
   input: CancelStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -430,11 +445,14 @@ export const serializeAws_json1_1CancelStepsCommand = async (
     "x-amz-target": "ElasticMapReduce.CancelSteps",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelStepsInput(input, context));
+  body = JSON.stringify(se_CancelStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1CreateSecurityConfigurationCommand
+ */
+export const se_CreateSecurityConfigurationCommand = async (
   input: CreateSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -443,11 +461,14 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
     "x-amz-target": "ElasticMapReduce.CreateSecurityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSecurityConfigurationInput(input, context));
+  body = JSON.stringify(se_CreateSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateStudioCommand = async (
+/**
+ * serializeAws_json1_1CreateStudioCommand
+ */
+export const se_CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -456,11 +477,14 @@ export const serializeAws_json1_1CreateStudioCommand = async (
     "x-amz-target": "ElasticMapReduce.CreateStudio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateStudioInput(input, context));
+  body = JSON.stringify(se_CreateStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateStudioSessionMappingCommand = async (
+/**
+ * serializeAws_json1_1CreateStudioSessionMappingCommand
+ */
+export const se_CreateStudioSessionMappingCommand = async (
   input: CreateStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -469,11 +493,14 @@ export const serializeAws_json1_1CreateStudioSessionMappingCommand = async (
     "x-amz-target": "ElasticMapReduce.CreateStudioSessionMapping",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateStudioSessionMappingInput(input, context));
+  body = JSON.stringify(se_CreateStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DeleteSecurityConfigurationCommand
+ */
+export const se_DeleteSecurityConfigurationCommand = async (
   input: DeleteSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -482,11 +509,14 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
     "x-amz-target": "ElasticMapReduce.DeleteSecurityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationInput(input, context));
+  body = JSON.stringify(se_DeleteSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteStudioCommand = async (
+/**
+ * serializeAws_json1_1DeleteStudioCommand
+ */
+export const se_DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -495,11 +525,14 @@ export const serializeAws_json1_1DeleteStudioCommand = async (
     "x-amz-target": "ElasticMapReduce.DeleteStudio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteStudioInput(input, context));
+  body = JSON.stringify(se_DeleteStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteStudioSessionMappingCommand = async (
+/**
+ * serializeAws_json1_1DeleteStudioSessionMappingCommand
+ */
+export const se_DeleteStudioSessionMappingCommand = async (
   input: DeleteStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -508,11 +541,14 @@ export const serializeAws_json1_1DeleteStudioSessionMappingCommand = async (
     "x-amz-target": "ElasticMapReduce.DeleteStudioSessionMapping",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteStudioSessionMappingInput(input, context));
+  body = JSON.stringify(se_DeleteStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeClusterCommand = async (
+/**
+ * serializeAws_json1_1DescribeClusterCommand
+ */
+export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,11 +557,14 @@ export const serializeAws_json1_1DescribeClusterCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeCluster",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeClusterInput(input, context));
+  body = JSON.stringify(se_DescribeClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeJobFlowsCommand = async (
+/**
+ * serializeAws_json1_1DescribeJobFlowsCommand
+ */
+export const se_DescribeJobFlowsCommand = async (
   input: DescribeJobFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -534,11 +573,14 @@ export const serializeAws_json1_1DescribeJobFlowsCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeJobFlows",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeJobFlowsInput(input, context));
+  body = JSON.stringify(se_DescribeJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeNotebookExecutionCommand = async (
+/**
+ * serializeAws_json1_1DescribeNotebookExecutionCommand
+ */
+export const se_DescribeNotebookExecutionCommand = async (
   input: DescribeNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -547,11 +589,14 @@ export const serializeAws_json1_1DescribeNotebookExecutionCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeNotebookExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeNotebookExecutionInput(input, context));
+  body = JSON.stringify(se_DescribeNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeReleaseLabelCommand = async (
+/**
+ * serializeAws_json1_1DescribeReleaseLabelCommand
+ */
+export const se_DescribeReleaseLabelCommand = async (
   input: DescribeReleaseLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -560,11 +605,14 @@ export const serializeAws_json1_1DescribeReleaseLabelCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeReleaseLabel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeReleaseLabelInput(input, context));
+  body = JSON.stringify(se_DescribeReleaseLabelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSecurityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DescribeSecurityConfigurationCommand
+ */
+export const se_DescribeSecurityConfigurationCommand = async (
   input: DescribeSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -573,11 +621,14 @@ export const serializeAws_json1_1DescribeSecurityConfigurationCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeSecurityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSecurityConfigurationInput(input, context));
+  body = JSON.stringify(se_DescribeSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStepCommand = async (
+/**
+ * serializeAws_json1_1DescribeStepCommand
+ */
+export const se_DescribeStepCommand = async (
   input: DescribeStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -586,11 +637,14 @@ export const serializeAws_json1_1DescribeStepCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeStep",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeStepInput(input, context));
+  body = JSON.stringify(se_DescribeStepInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStudioCommand = async (
+/**
+ * serializeAws_json1_1DescribeStudioCommand
+ */
+export const se_DescribeStudioCommand = async (
   input: DescribeStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -599,11 +653,14 @@ export const serializeAws_json1_1DescribeStudioCommand = async (
     "x-amz-target": "ElasticMapReduce.DescribeStudio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeStudioInput(input, context));
+  body = JSON.stringify(se_DescribeStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAutoTerminationPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetAutoTerminationPolicyCommand
+ */
+export const se_GetAutoTerminationPolicyCommand = async (
   input: GetAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -612,11 +669,14 @@ export const serializeAws_json1_1GetAutoTerminationPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.GetAutoTerminationPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAutoTerminationPolicyInput(input, context));
+  body = JSON.stringify(se_GetAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
+/**
+ * serializeAws_json1_1GetBlockPublicAccessConfigurationCommand
+ */
+export const se_GetBlockPublicAccessConfigurationCommand = async (
   input: GetBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -625,11 +685,14 @@ export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = asyn
     "x-amz-target": "ElasticMapReduce.GetBlockPublicAccessConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context));
+  body = JSON.stringify(se_GetBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetClusterSessionCredentialsCommand = async (
+/**
+ * serializeAws_json1_1GetClusterSessionCredentialsCommand
+ */
+export const se_GetClusterSessionCredentialsCommand = async (
   input: GetClusterSessionCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -638,11 +701,14 @@ export const serializeAws_json1_1GetClusterSessionCredentialsCommand = async (
     "x-amz-target": "ElasticMapReduce.GetClusterSessionCredentials",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetClusterSessionCredentialsInput(input, context));
+  body = JSON.stringify(se_GetClusterSessionCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetManagedScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetManagedScalingPolicyCommand
+ */
+export const se_GetManagedScalingPolicyCommand = async (
   input: GetManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -651,11 +717,14 @@ export const serializeAws_json1_1GetManagedScalingPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.GetManagedScalingPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetManagedScalingPolicyInput(input, context));
+  body = JSON.stringify(se_GetManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetStudioSessionMappingCommand = async (
+/**
+ * serializeAws_json1_1GetStudioSessionMappingCommand
+ */
+export const se_GetStudioSessionMappingCommand = async (
   input: GetStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -664,11 +733,14 @@ export const serializeAws_json1_1GetStudioSessionMappingCommand = async (
     "x-amz-target": "ElasticMapReduce.GetStudioSessionMapping",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetStudioSessionMappingInput(input, context));
+  body = JSON.stringify(se_GetStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBootstrapActionsCommand = async (
+/**
+ * serializeAws_json1_1ListBootstrapActionsCommand
+ */
+export const se_ListBootstrapActionsCommand = async (
   input: ListBootstrapActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -677,11 +749,14 @@ export const serializeAws_json1_1ListBootstrapActionsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListBootstrapActions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBootstrapActionsInput(input, context));
+  body = JSON.stringify(se_ListBootstrapActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListClustersCommand = async (
+/**
+ * serializeAws_json1_1ListClustersCommand
+ */
+export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -690,11 +765,14 @@ export const serializeAws_json1_1ListClustersCommand = async (
     "x-amz-target": "ElasticMapReduce.ListClusters",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListClustersInput(input, context));
+  body = JSON.stringify(se_ListClustersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListInstanceFleetsCommand = async (
+/**
+ * serializeAws_json1_1ListInstanceFleetsCommand
+ */
+export const se_ListInstanceFleetsCommand = async (
   input: ListInstanceFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -703,11 +781,14 @@ export const serializeAws_json1_1ListInstanceFleetsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListInstanceFleets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListInstanceFleetsInput(input, context));
+  body = JSON.stringify(se_ListInstanceFleetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListInstanceGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListInstanceGroupsCommand
+ */
+export const se_ListInstanceGroupsCommand = async (
   input: ListInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -716,11 +797,14 @@ export const serializeAws_json1_1ListInstanceGroupsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListInstanceGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListInstanceGroupsInput(input, context));
+  body = JSON.stringify(se_ListInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListInstancesCommand = async (
+/**
+ * serializeAws_json1_1ListInstancesCommand
+ */
+export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -729,11 +813,14 @@ export const serializeAws_json1_1ListInstancesCommand = async (
     "x-amz-target": "ElasticMapReduce.ListInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListInstancesInput(input, context));
+  body = JSON.stringify(se_ListInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListNotebookExecutionsCommand = async (
+/**
+ * serializeAws_json1_1ListNotebookExecutionsCommand
+ */
+export const se_ListNotebookExecutionsCommand = async (
   input: ListNotebookExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -742,11 +829,14 @@ export const serializeAws_json1_1ListNotebookExecutionsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListNotebookExecutions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListNotebookExecutionsInput(input, context));
+  body = JSON.stringify(se_ListNotebookExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReleaseLabelsCommand = async (
+/**
+ * serializeAws_json1_1ListReleaseLabelsCommand
+ */
+export const se_ListReleaseLabelsCommand = async (
   input: ListReleaseLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -755,11 +845,14 @@ export const serializeAws_json1_1ListReleaseLabelsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListReleaseLabels",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReleaseLabelsInput(input, context));
+  body = JSON.stringify(se_ListReleaseLabelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSecurityConfigurationsCommand = async (
+/**
+ * serializeAws_json1_1ListSecurityConfigurationsCommand
+ */
+export const se_ListSecurityConfigurationsCommand = async (
   input: ListSecurityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -768,11 +861,14 @@ export const serializeAws_json1_1ListSecurityConfigurationsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListSecurityConfigurations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSecurityConfigurationsInput(input, context));
+  body = JSON.stringify(se_ListSecurityConfigurationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListStepsCommand = async (
+/**
+ * serializeAws_json1_1ListStepsCommand
+ */
+export const se_ListStepsCommand = async (
   input: ListStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -781,11 +877,14 @@ export const serializeAws_json1_1ListStepsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListSteps",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListStepsInput(input, context));
+  body = JSON.stringify(se_ListStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListStudiosCommand = async (
+/**
+ * serializeAws_json1_1ListStudiosCommand
+ */
+export const se_ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -794,11 +893,14 @@ export const serializeAws_json1_1ListStudiosCommand = async (
     "x-amz-target": "ElasticMapReduce.ListStudios",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListStudiosInput(input, context));
+  body = JSON.stringify(se_ListStudiosInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListStudioSessionMappingsCommand = async (
+/**
+ * serializeAws_json1_1ListStudioSessionMappingsCommand
+ */
+export const se_ListStudioSessionMappingsCommand = async (
   input: ListStudioSessionMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -807,11 +909,14 @@ export const serializeAws_json1_1ListStudioSessionMappingsCommand = async (
     "x-amz-target": "ElasticMapReduce.ListStudioSessionMappings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListStudioSessionMappingsInput(input, context));
+  body = JSON.stringify(se_ListStudioSessionMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ModifyClusterCommand = async (
+/**
+ * serializeAws_json1_1ModifyClusterCommand
+ */
+export const se_ModifyClusterCommand = async (
   input: ModifyClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -820,11 +925,14 @@ export const serializeAws_json1_1ModifyClusterCommand = async (
     "x-amz-target": "ElasticMapReduce.ModifyCluster",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ModifyClusterInput(input, context));
+  body = JSON.stringify(se_ModifyClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ModifyInstanceFleetCommand = async (
+/**
+ * serializeAws_json1_1ModifyInstanceFleetCommand
+ */
+export const se_ModifyInstanceFleetCommand = async (
   input: ModifyInstanceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -833,11 +941,14 @@ export const serializeAws_json1_1ModifyInstanceFleetCommand = async (
     "x-amz-target": "ElasticMapReduce.ModifyInstanceFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ModifyInstanceFleetInput(input, context));
+  body = JSON.stringify(se_ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ModifyInstanceGroupsCommand = async (
+/**
+ * serializeAws_json1_1ModifyInstanceGroupsCommand
+ */
+export const se_ModifyInstanceGroupsCommand = async (
   input: ModifyInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -846,11 +957,14 @@ export const serializeAws_json1_1ModifyInstanceGroupsCommand = async (
     "x-amz-target": "ElasticMapReduce.ModifyInstanceGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ModifyInstanceGroupsInput(input, context));
+  body = JSON.stringify(se_ModifyInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutAutoScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutAutoScalingPolicyCommand
+ */
+export const se_PutAutoScalingPolicyCommand = async (
   input: PutAutoScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -859,11 +973,14 @@ export const serializeAws_json1_1PutAutoScalingPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.PutAutoScalingPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAutoScalingPolicyInput(input, context));
+  body = JSON.stringify(se_PutAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutAutoTerminationPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutAutoTerminationPolicyCommand
+ */
+export const se_PutAutoTerminationPolicyCommand = async (
   input: PutAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -872,11 +989,14 @@ export const serializeAws_json1_1PutAutoTerminationPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.PutAutoTerminationPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAutoTerminationPolicyInput(input, context));
+  body = JSON.stringify(se_PutAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutBlockPublicAccessConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutBlockPublicAccessConfigurationCommand
+ */
+export const se_PutBlockPublicAccessConfigurationCommand = async (
   input: PutBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -885,11 +1005,14 @@ export const serializeAws_json1_1PutBlockPublicAccessConfigurationCommand = asyn
     "x-amz-target": "ElasticMapReduce.PutBlockPublicAccessConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context));
+  body = JSON.stringify(se_PutBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutManagedScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutManagedScalingPolicyCommand
+ */
+export const se_PutManagedScalingPolicyCommand = async (
   input: PutManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -898,11 +1021,14 @@ export const serializeAws_json1_1PutManagedScalingPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.PutManagedScalingPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutManagedScalingPolicyInput(input, context));
+  body = JSON.stringify(se_PutManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1RemoveAutoScalingPolicyCommand
+ */
+export const se_RemoveAutoScalingPolicyCommand = async (
   input: RemoveAutoScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -911,11 +1037,14 @@ export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.RemoveAutoScalingPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context));
+  body = JSON.stringify(se_RemoveAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
+/**
+ * serializeAws_json1_1RemoveAutoTerminationPolicyCommand
+ */
+export const se_RemoveAutoTerminationPolicyCommand = async (
   input: RemoveAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -924,11 +1053,14 @@ export const serializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.RemoveAutoTerminationPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveAutoTerminationPolicyInput(input, context));
+  body = JSON.stringify(se_RemoveAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1RemoveManagedScalingPolicyCommand
+ */
+export const se_RemoveManagedScalingPolicyCommand = async (
   input: RemoveManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -937,11 +1069,14 @@ export const serializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
     "x-amz-target": "ElasticMapReduce.RemoveManagedScalingPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveManagedScalingPolicyInput(input, context));
+  body = JSON.stringify(se_RemoveManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveTagsCommand = async (
+/**
+ * serializeAws_json1_1RemoveTagsCommand
+ */
+export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -950,11 +1085,14 @@ export const serializeAws_json1_1RemoveTagsCommand = async (
     "x-amz-target": "ElasticMapReduce.RemoveTags",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveTagsInput(input, context));
+  body = JSON.stringify(se_RemoveTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RunJobFlowCommand = async (
+/**
+ * serializeAws_json1_1RunJobFlowCommand
+ */
+export const se_RunJobFlowCommand = async (
   input: RunJobFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -963,11 +1101,14 @@ export const serializeAws_json1_1RunJobFlowCommand = async (
     "x-amz-target": "ElasticMapReduce.RunJobFlow",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RunJobFlowInput(input, context));
+  body = JSON.stringify(se_RunJobFlowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetTerminationProtectionCommand = async (
+/**
+ * serializeAws_json1_1SetTerminationProtectionCommand
+ */
+export const se_SetTerminationProtectionCommand = async (
   input: SetTerminationProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -976,11 +1117,14 @@ export const serializeAws_json1_1SetTerminationProtectionCommand = async (
     "x-amz-target": "ElasticMapReduce.SetTerminationProtection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetTerminationProtectionInput(input, context));
+  body = JSON.stringify(se_SetTerminationProtectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetVisibleToAllUsersCommand = async (
+/**
+ * serializeAws_json1_1SetVisibleToAllUsersCommand
+ */
+export const se_SetVisibleToAllUsersCommand = async (
   input: SetVisibleToAllUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -989,11 +1133,14 @@ export const serializeAws_json1_1SetVisibleToAllUsersCommand = async (
     "x-amz-target": "ElasticMapReduce.SetVisibleToAllUsers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetVisibleToAllUsersInput(input, context));
+  body = JSON.stringify(se_SetVisibleToAllUsersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartNotebookExecutionCommand = async (
+/**
+ * serializeAws_json1_1StartNotebookExecutionCommand
+ */
+export const se_StartNotebookExecutionCommand = async (
   input: StartNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1002,11 +1149,14 @@ export const serializeAws_json1_1StartNotebookExecutionCommand = async (
     "x-amz-target": "ElasticMapReduce.StartNotebookExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartNotebookExecutionInput(input, context));
+  body = JSON.stringify(se_StartNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopNotebookExecutionCommand = async (
+/**
+ * serializeAws_json1_1StopNotebookExecutionCommand
+ */
+export const se_StopNotebookExecutionCommand = async (
   input: StopNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1015,11 +1165,14 @@ export const serializeAws_json1_1StopNotebookExecutionCommand = async (
     "x-amz-target": "ElasticMapReduce.StopNotebookExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopNotebookExecutionInput(input, context));
+  body = JSON.stringify(se_StopNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TerminateJobFlowsCommand = async (
+/**
+ * serializeAws_json1_1TerminateJobFlowsCommand
+ */
+export const se_TerminateJobFlowsCommand = async (
   input: TerminateJobFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1028,11 +1181,14 @@ export const serializeAws_json1_1TerminateJobFlowsCommand = async (
     "x-amz-target": "ElasticMapReduce.TerminateJobFlows",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TerminateJobFlowsInput(input, context));
+  body = JSON.stringify(se_TerminateJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateStudioCommand = async (
+/**
+ * serializeAws_json1_1UpdateStudioCommand
+ */
+export const se_UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1041,11 +1197,14 @@ export const serializeAws_json1_1UpdateStudioCommand = async (
     "x-amz-target": "ElasticMapReduce.UpdateStudio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateStudioInput(input, context));
+  body = JSON.stringify(se_UpdateStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateStudioSessionMappingCommand = async (
+/**
+ * serializeAws_json1_1UpdateStudioSessionMappingCommand
+ */
+export const se_UpdateStudioSessionMappingCommand = async (
   input: UpdateStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1054,20 +1213,23 @@ export const serializeAws_json1_1UpdateStudioSessionMappingCommand = async (
     "x-amz-target": "ElasticMapReduce.UpdateStudioSessionMapping",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateStudioSessionMappingInput(input, context));
+  body = JSON.stringify(se_UpdateStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddInstanceFleetCommand = async (
+/**
+ * deserializeAws_json1_1AddInstanceFleetCommand
+ */
+export const de_AddInstanceFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddInstanceFleetCommandError(output, context);
+    return de_AddInstanceFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddInstanceFleetOutput(data, context);
+  contents = de_AddInstanceFleetOutput(data, context);
   const response: AddInstanceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1075,7 +1237,10 @@ export const deserializeAws_json1_1AddInstanceFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddInstanceFleetCommandError = async (
+/**
+ * deserializeAws_json1_1AddInstanceFleetCommandError
+ */
+const de_AddInstanceFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceFleetCommandOutput> => {
@@ -1087,10 +1252,10 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1102,16 +1267,19 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddInstanceGroupsCommand = async (
+/**
+ * deserializeAws_json1_1AddInstanceGroupsCommand
+ */
+export const de_AddInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddInstanceGroupsCommandError(output, context);
+    return de_AddInstanceGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddInstanceGroupsOutput(data, context);
+  contents = de_AddInstanceGroupsOutput(data, context);
   const response: AddInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1119,7 +1287,10 @@ export const deserializeAws_json1_1AddInstanceGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddInstanceGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1AddInstanceGroupsCommandError
+ */
+const de_AddInstanceGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceGroupsCommandOutput> => {
@@ -1131,7 +1302,7 @@ const deserializeAws_json1_1AddInstanceGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1143,16 +1314,19 @@ const deserializeAws_json1_1AddInstanceGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddJobFlowStepsCommand = async (
+/**
+ * deserializeAws_json1_1AddJobFlowStepsCommand
+ */
+export const de_AddJobFlowStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddJobFlowStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddJobFlowStepsCommandError(output, context);
+    return de_AddJobFlowStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddJobFlowStepsOutput(data, context);
+  contents = de_AddJobFlowStepsOutput(data, context);
   const response: AddJobFlowStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1160,7 +1334,10 @@ export const deserializeAws_json1_1AddJobFlowStepsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddJobFlowStepsCommandError = async (
+/**
+ * deserializeAws_json1_1AddJobFlowStepsCommandError
+ */
+const de_AddJobFlowStepsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddJobFlowStepsCommandOutput> => {
@@ -1172,7 +1349,7 @@ const deserializeAws_json1_1AddJobFlowStepsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1184,16 +1361,19 @@ const deserializeAws_json1_1AddJobFlowStepsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddTagsCommand = async (
+/**
+ * deserializeAws_json1_1AddTagsCommand
+ */
+export const de_AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddTagsCommandError(output, context);
+    return de_AddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsOutput(data, context);
+  contents = de_AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1201,7 +1381,10 @@ export const deserializeAws_json1_1AddTagsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddTagsCommandError = async (
+/**
+ * deserializeAws_json1_1AddTagsCommandError
+ */
+const de_AddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
@@ -1213,10 +1396,10 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1228,16 +1411,19 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CancelStepsCommand = async (
+/**
+ * deserializeAws_json1_1CancelStepsCommand
+ */
+export const de_CancelStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelStepsCommandError(output, context);
+    return de_CancelStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelStepsOutput(data, context);
+  contents = de_CancelStepsOutput(data, context);
   const response: CancelStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1245,7 +1431,10 @@ export const deserializeAws_json1_1CancelStepsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelStepsCommandError = async (
+/**
+ * deserializeAws_json1_1CancelStepsCommandError
+ */
+const de_CancelStepsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelStepsCommandOutput> => {
@@ -1257,10 +1446,10 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1272,16 +1461,19 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1CreateSecurityConfigurationCommand
+ */
+export const de_CreateSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(output, context);
+    return de_CreateSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(data, context);
+  contents = de_CreateSecurityConfigurationOutput(data, context);
   const response: CreateSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1289,7 +1481,10 @@ export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSecurityConfigurationCommandError
+ */
+const de_CreateSecurityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
@@ -1301,10 +1496,10 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1316,16 +1511,19 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateStudioCommand = async (
+/**
+ * deserializeAws_json1_1CreateStudioCommand
+ */
+export const de_CreateStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateStudioCommandError(output, context);
+    return de_CreateStudioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStudioOutput(data, context);
+  contents = de_CreateStudioOutput(data, context);
   const response: CreateStudioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1333,7 +1531,10 @@ export const deserializeAws_json1_1CreateStudioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateStudioCommandError = async (
+/**
+ * deserializeAws_json1_1CreateStudioCommandError
+ */
+const de_CreateStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioCommandOutput> => {
@@ -1345,10 +1546,10 @@ const deserializeAws_json1_1CreateStudioCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1360,12 +1561,15 @@ const deserializeAws_json1_1CreateStudioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateStudioSessionMappingCommand = async (
+/**
+ * deserializeAws_json1_1CreateStudioSessionMappingCommand
+ */
+export const de_CreateStudioSessionMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateStudioSessionMappingCommandError(output, context);
+    return de_CreateStudioSessionMappingCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateStudioSessionMappingCommandOutput = {
@@ -1374,7 +1578,10 @@ export const deserializeAws_json1_1CreateStudioSessionMappingCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateStudioSessionMappingCommandError = async (
+/**
+ * deserializeAws_json1_1CreateStudioSessionMappingCommandError
+ */
+const de_CreateStudioSessionMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioSessionMappingCommandOutput> => {
@@ -1386,10 +1593,10 @@ const deserializeAws_json1_1CreateStudioSessionMappingCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1401,16 +1608,19 @@ const deserializeAws_json1_1CreateStudioSessionMappingCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSecurityConfigurationCommand
+ */
+export const de_DeleteSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(output, context);
+    return de_DeleteSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(data, context);
+  contents = de_DeleteSecurityConfigurationOutput(data, context);
   const response: DeleteSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1418,7 +1628,10 @@ export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSecurityConfigurationCommandError
+ */
+const de_DeleteSecurityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
@@ -1430,10 +1643,10 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1445,12 +1658,15 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteStudioCommand = async (
+/**
+ * deserializeAws_json1_1DeleteStudioCommand
+ */
+export const de_DeleteStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteStudioCommandError(output, context);
+    return de_DeleteStudioCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStudioCommandOutput = {
@@ -1459,7 +1675,10 @@ export const deserializeAws_json1_1DeleteStudioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteStudioCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteStudioCommandError
+ */
+const de_DeleteStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioCommandOutput> => {
@@ -1471,10 +1690,10 @@ const deserializeAws_json1_1DeleteStudioCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1486,12 +1705,15 @@ const deserializeAws_json1_1DeleteStudioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteStudioSessionMappingCommand = async (
+/**
+ * deserializeAws_json1_1DeleteStudioSessionMappingCommand
+ */
+export const de_DeleteStudioSessionMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteStudioSessionMappingCommandError(output, context);
+    return de_DeleteStudioSessionMappingCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStudioSessionMappingCommandOutput = {
@@ -1500,7 +1722,10 @@ export const deserializeAws_json1_1DeleteStudioSessionMappingCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteStudioSessionMappingCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteStudioSessionMappingCommandError
+ */
+const de_DeleteStudioSessionMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioSessionMappingCommandOutput> => {
@@ -1512,10 +1737,10 @@ const deserializeAws_json1_1DeleteStudioSessionMappingCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1527,16 +1752,19 @@ const deserializeAws_json1_1DeleteStudioSessionMappingCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeClusterCommand = async (
+/**
+ * deserializeAws_json1_1DescribeClusterCommand
+ */
+export const de_DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeClusterCommandError(output, context);
+    return de_DescribeClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClusterOutput(data, context);
+  contents = de_DescribeClusterOutput(data, context);
   const response: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1544,7 +1772,10 @@ export const deserializeAws_json1_1DescribeClusterCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeClusterCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeClusterCommandError
+ */
+const de_DescribeClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
@@ -1556,10 +1787,10 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1571,16 +1802,19 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeJobFlowsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeJobFlowsCommand
+ */
+export const de_DescribeJobFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobFlowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeJobFlowsCommandError(output, context);
+    return de_DescribeJobFlowsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeJobFlowsOutput(data, context);
+  contents = de_DescribeJobFlowsOutput(data, context);
   const response: DescribeJobFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1588,7 +1822,10 @@ export const deserializeAws_json1_1DescribeJobFlowsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeJobFlowsCommandError
+ */
+const de_DescribeJobFlowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobFlowsCommandOutput> => {
@@ -1600,7 +1837,7 @@ const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1612,16 +1849,19 @@ const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeNotebookExecutionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeNotebookExecutionCommand
+ */
+export const de_DescribeNotebookExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeNotebookExecutionCommandError(output, context);
+    return de_DescribeNotebookExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeNotebookExecutionOutput(data, context);
+  contents = de_DescribeNotebookExecutionOutput(data, context);
   const response: DescribeNotebookExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1629,7 +1869,10 @@ export const deserializeAws_json1_1DescribeNotebookExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeNotebookExecutionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeNotebookExecutionCommandError
+ */
+const de_DescribeNotebookExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotebookExecutionCommandOutput> => {
@@ -1641,10 +1884,10 @@ const deserializeAws_json1_1DescribeNotebookExecutionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1656,16 +1899,19 @@ const deserializeAws_json1_1DescribeNotebookExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeReleaseLabelCommand = async (
+/**
+ * deserializeAws_json1_1DescribeReleaseLabelCommand
+ */
+export const de_DescribeReleaseLabelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReleaseLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeReleaseLabelCommandError(output, context);
+    return de_DescribeReleaseLabelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeReleaseLabelOutput(data, context);
+  contents = de_DescribeReleaseLabelOutput(data, context);
   const response: DescribeReleaseLabelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1673,7 +1919,10 @@ export const deserializeAws_json1_1DescribeReleaseLabelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeReleaseLabelCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeReleaseLabelCommandError
+ */
+const de_DescribeReleaseLabelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReleaseLabelCommandOutput> => {
@@ -1685,10 +1934,10 @@ const deserializeAws_json1_1DescribeReleaseLabelCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1700,16 +1949,19 @@ const deserializeAws_json1_1DescribeReleaseLabelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSecurityConfigurationCommand
+ */
+export const de_DescribeSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(output, context);
+    return de_DescribeSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(data, context);
+  contents = de_DescribeSecurityConfigurationOutput(data, context);
   const response: DescribeSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1717,7 +1969,10 @@ export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSecurityConfigurationCommandError
+ */
+const de_DescribeSecurityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> => {
@@ -1729,10 +1984,10 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1744,16 +1999,19 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeStepCommand = async (
+/**
+ * deserializeAws_json1_1DescribeStepCommand
+ */
+export const de_DescribeStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStepCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeStepCommandError(output, context);
+    return de_DescribeStepCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStepOutput(data, context);
+  contents = de_DescribeStepOutput(data, context);
   const response: DescribeStepCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1761,7 +2019,10 @@ export const deserializeAws_json1_1DescribeStepCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeStepCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeStepCommandError
+ */
+const de_DescribeStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStepCommandOutput> => {
@@ -1773,10 +2034,10 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1788,16 +2049,19 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeStudioCommand = async (
+/**
+ * deserializeAws_json1_1DescribeStudioCommand
+ */
+export const de_DescribeStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeStudioCommandError(output, context);
+    return de_DescribeStudioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStudioOutput(data, context);
+  contents = de_DescribeStudioOutput(data, context);
   const response: DescribeStudioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1805,7 +2069,10 @@ export const deserializeAws_json1_1DescribeStudioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeStudioCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeStudioCommandError
+ */
+const de_DescribeStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStudioCommandOutput> => {
@@ -1817,10 +2084,10 @@ const deserializeAws_json1_1DescribeStudioCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1832,16 +2099,19 @@ const deserializeAws_json1_1DescribeStudioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAutoTerminationPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetAutoTerminationPolicyCommand
+ */
+export const de_GetAutoTerminationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAutoTerminationPolicyCommandError(output, context);
+    return de_GetAutoTerminationPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAutoTerminationPolicyOutput(data, context);
+  contents = de_GetAutoTerminationPolicyOutput(data, context);
   const response: GetAutoTerminationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1849,7 +2119,10 @@ export const deserializeAws_json1_1GetAutoTerminationPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAutoTerminationPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetAutoTerminationPolicyCommandError
+ */
+const de_GetAutoTerminationPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAutoTerminationPolicyCommandOutput> => {
@@ -1867,16 +2140,19 @@ const deserializeAws_json1_1GetAutoTerminationPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand
+ */
+export const de_GetBlockPublicAccessConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(output, context);
+    return de_GetBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(data, context);
+  contents = de_GetBlockPublicAccessConfigurationOutput(data, context);
   const response: GetBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1884,7 +2160,10 @@ export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError
+ */
+const de_GetBlockPublicAccessConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
@@ -1896,10 +2175,10 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1911,16 +2190,19 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1GetClusterSessionCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1GetClusterSessionCredentialsCommand
+ */
+export const de_GetClusterSessionCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClusterSessionCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetClusterSessionCredentialsCommandError(output, context);
+    return de_GetClusterSessionCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetClusterSessionCredentialsOutput(data, context);
+  contents = de_GetClusterSessionCredentialsOutput(data, context);
   const response: GetClusterSessionCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1928,7 +2210,10 @@ export const deserializeAws_json1_1GetClusterSessionCredentialsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetClusterSessionCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1GetClusterSessionCredentialsCommandError
+ */
+const de_GetClusterSessionCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClusterSessionCredentialsCommandOutput> => {
@@ -1940,10 +2225,10 @@ const deserializeAws_json1_1GetClusterSessionCredentialsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1955,16 +2240,19 @@ const deserializeAws_json1_1GetClusterSessionCredentialsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetManagedScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetManagedScalingPolicyCommand
+ */
+export const de_GetManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetManagedScalingPolicyCommandError(output, context);
+    return de_GetManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetManagedScalingPolicyOutput(data, context);
+  contents = de_GetManagedScalingPolicyOutput(data, context);
   const response: GetManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1972,7 +2260,10 @@ export const deserializeAws_json1_1GetManagedScalingPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetManagedScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetManagedScalingPolicyCommandError
+ */
+const de_GetManagedScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedScalingPolicyCommandOutput> => {
@@ -1990,16 +2281,19 @@ const deserializeAws_json1_1GetManagedScalingPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1GetStudioSessionMappingCommand = async (
+/**
+ * deserializeAws_json1_1GetStudioSessionMappingCommand
+ */
+export const de_GetStudioSessionMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetStudioSessionMappingCommandError(output, context);
+    return de_GetStudioSessionMappingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetStudioSessionMappingOutput(data, context);
+  contents = de_GetStudioSessionMappingOutput(data, context);
   const response: GetStudioSessionMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2007,7 +2301,10 @@ export const deserializeAws_json1_1GetStudioSessionMappingCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetStudioSessionMappingCommandError = async (
+/**
+ * deserializeAws_json1_1GetStudioSessionMappingCommandError
+ */
+const de_GetStudioSessionMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioSessionMappingCommandOutput> => {
@@ -2019,10 +2316,10 @@ const deserializeAws_json1_1GetStudioSessionMappingCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2034,16 +2331,19 @@ const deserializeAws_json1_1GetStudioSessionMappingCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
+/**
+ * deserializeAws_json1_1ListBootstrapActionsCommand
+ */
+export const de_ListBootstrapActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBootstrapActionsCommandError(output, context);
+    return de_ListBootstrapActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBootstrapActionsOutput(data, context);
+  contents = de_ListBootstrapActionsOutput(data, context);
   const response: ListBootstrapActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2051,7 +2351,10 @@ export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListBootstrapActionsCommandError
+ */
+const de_ListBootstrapActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> => {
@@ -2063,10 +2366,10 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2078,16 +2381,19 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListClustersCommand = async (
+/**
+ * deserializeAws_json1_1ListClustersCommand
+ */
+export const de_ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListClustersCommandError(output, context);
+    return de_ListClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListClustersOutput(data, context);
+  contents = de_ListClustersOutput(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2095,7 +2401,10 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListClustersCommandError = async (
+/**
+ * deserializeAws_json1_1ListClustersCommandError
+ */
+const de_ListClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
@@ -2107,10 +2416,10 @@ const deserializeAws_json1_1ListClustersCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2122,16 +2431,19 @@ const deserializeAws_json1_1ListClustersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListInstanceFleetsCommand = async (
+/**
+ * deserializeAws_json1_1ListInstanceFleetsCommand
+ */
+export const de_ListInstanceFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListInstanceFleetsCommandError(output, context);
+    return de_ListInstanceFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstanceFleetsOutput(data, context);
+  contents = de_ListInstanceFleetsOutput(data, context);
   const response: ListInstanceFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2139,7 +2451,10 @@ export const deserializeAws_json1_1ListInstanceFleetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListInstanceFleetsCommandError
+ */
+const de_ListInstanceFleetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> => {
@@ -2151,10 +2466,10 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2166,16 +2481,19 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListInstanceGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListInstanceGroupsCommand
+ */
+export const de_ListInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListInstanceGroupsCommandError(output, context);
+    return de_ListInstanceGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstanceGroupsOutput(data, context);
+  contents = de_ListInstanceGroupsOutput(data, context);
   const response: ListInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2183,7 +2501,10 @@ export const deserializeAws_json1_1ListInstanceGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListInstanceGroupsCommandError
+ */
+const de_ListInstanceGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> => {
@@ -2195,10 +2516,10 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2210,16 +2531,19 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListInstancesCommand = async (
+/**
+ * deserializeAws_json1_1ListInstancesCommand
+ */
+export const de_ListInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListInstancesCommandError(output, context);
+    return de_ListInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstancesOutput(data, context);
+  contents = de_ListInstancesOutput(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2227,7 +2551,10 @@ export const deserializeAws_json1_1ListInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1ListInstancesCommandError
+ */
+const de_ListInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
@@ -2239,10 +2566,10 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2254,16 +2581,19 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListNotebookExecutionsCommand = async (
+/**
+ * deserializeAws_json1_1ListNotebookExecutionsCommand
+ */
+export const de_ListNotebookExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotebookExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListNotebookExecutionsCommandError(output, context);
+    return de_ListNotebookExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNotebookExecutionsOutput(data, context);
+  contents = de_ListNotebookExecutionsOutput(data, context);
   const response: ListNotebookExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2271,7 +2601,10 @@ export const deserializeAws_json1_1ListNotebookExecutionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListNotebookExecutionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListNotebookExecutionsCommandError
+ */
+const de_ListNotebookExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotebookExecutionsCommandOutput> => {
@@ -2283,10 +2616,10 @@ const deserializeAws_json1_1ListNotebookExecutionsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2298,16 +2631,19 @@ const deserializeAws_json1_1ListNotebookExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListReleaseLabelsCommand = async (
+/**
+ * deserializeAws_json1_1ListReleaseLabelsCommand
+ */
+export const de_ListReleaseLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReleaseLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReleaseLabelsCommandError(output, context);
+    return de_ListReleaseLabelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReleaseLabelsOutput(data, context);
+  contents = de_ListReleaseLabelsOutput(data, context);
   const response: ListReleaseLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2315,7 +2651,10 @@ export const deserializeAws_json1_1ListReleaseLabelsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListReleaseLabelsCommandError = async (
+/**
+ * deserializeAws_json1_1ListReleaseLabelsCommandError
+ */
+const de_ListReleaseLabelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReleaseLabelsCommandOutput> => {
@@ -2327,10 +2666,10 @@ const deserializeAws_json1_1ListReleaseLabelsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2342,16 +2681,19 @@ const deserializeAws_json1_1ListReleaseLabelsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListSecurityConfigurationsCommand = async (
+/**
+ * deserializeAws_json1_1ListSecurityConfigurationsCommand
+ */
+export const de_ListSecurityConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommandError(output, context);
+    return de_ListSecurityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(data, context);
+  contents = de_ListSecurityConfigurationsOutput(data, context);
   const response: ListSecurityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2359,7 +2701,10 @@ export const deserializeAws_json1_1ListSecurityConfigurationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSecurityConfigurationsCommandError
+ */
+const de_ListSecurityConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
@@ -2371,10 +2716,10 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2386,16 +2731,19 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListStepsCommand = async (
+/**
+ * deserializeAws_json1_1ListStepsCommand
+ */
+export const de_ListStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListStepsCommandError(output, context);
+    return de_ListStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStepsOutput(data, context);
+  contents = de_ListStepsOutput(data, context);
   const response: ListStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2403,7 +2751,10 @@ export const deserializeAws_json1_1ListStepsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListStepsCommandError = async (
+/**
+ * deserializeAws_json1_1ListStepsCommandError
+ */
+const de_ListStepsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStepsCommandOutput> => {
@@ -2415,10 +2766,10 @@ const deserializeAws_json1_1ListStepsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2430,16 +2781,19 @@ const deserializeAws_json1_1ListStepsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListStudiosCommand = async (
+/**
+ * deserializeAws_json1_1ListStudiosCommand
+ */
+export const de_ListStudiosCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudiosCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListStudiosCommandError(output, context);
+    return de_ListStudiosCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStudiosOutput(data, context);
+  contents = de_ListStudiosOutput(data, context);
   const response: ListStudiosCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2447,7 +2801,10 @@ export const deserializeAws_json1_1ListStudiosCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListStudiosCommandError = async (
+/**
+ * deserializeAws_json1_1ListStudiosCommandError
+ */
+const de_ListStudiosCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudiosCommandOutput> => {
@@ -2459,10 +2816,10 @@ const deserializeAws_json1_1ListStudiosCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2474,16 +2831,19 @@ const deserializeAws_json1_1ListStudiosCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListStudioSessionMappingsCommand = async (
+/**
+ * deserializeAws_json1_1ListStudioSessionMappingsCommand
+ */
+export const de_ListStudioSessionMappingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioSessionMappingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListStudioSessionMappingsCommandError(output, context);
+    return de_ListStudioSessionMappingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStudioSessionMappingsOutput(data, context);
+  contents = de_ListStudioSessionMappingsOutput(data, context);
   const response: ListStudioSessionMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2491,7 +2851,10 @@ export const deserializeAws_json1_1ListStudioSessionMappingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListStudioSessionMappingsCommandError = async (
+/**
+ * deserializeAws_json1_1ListStudioSessionMappingsCommandError
+ */
+const de_ListStudioSessionMappingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioSessionMappingsCommandOutput> => {
@@ -2503,10 +2866,10 @@ const deserializeAws_json1_1ListStudioSessionMappingsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2518,16 +2881,19 @@ const deserializeAws_json1_1ListStudioSessionMappingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ModifyClusterCommand = async (
+/**
+ * deserializeAws_json1_1ModifyClusterCommand
+ */
+export const de_ModifyClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ModifyClusterCommandError(output, context);
+    return de_ModifyClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyClusterOutput(data, context);
+  contents = de_ModifyClusterOutput(data, context);
   const response: ModifyClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2535,7 +2901,10 @@ export const deserializeAws_json1_1ModifyClusterCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ModifyClusterCommandError = async (
+/**
+ * deserializeAws_json1_1ModifyClusterCommandError
+ */
+const de_ModifyClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> => {
@@ -2547,10 +2916,10 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2562,12 +2931,15 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ModifyInstanceFleetCommand = async (
+/**
+ * deserializeAws_json1_1ModifyInstanceFleetCommand
+ */
+export const de_ModifyInstanceFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ModifyInstanceFleetCommandError(output, context);
+    return de_ModifyInstanceFleetCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceFleetCommandOutput = {
@@ -2576,7 +2948,10 @@ export const deserializeAws_json1_1ModifyInstanceFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
+/**
+ * deserializeAws_json1_1ModifyInstanceFleetCommandError
+ */
+const de_ModifyInstanceFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> => {
@@ -2588,10 +2963,10 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2603,12 +2978,15 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ModifyInstanceGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ModifyInstanceGroupsCommand
+ */
+export const de_ModifyInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ModifyInstanceGroupsCommandError(output, context);
+    return de_ModifyInstanceGroupsCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceGroupsCommandOutput = {
@@ -2617,7 +2995,10 @@ export const deserializeAws_json1_1ModifyInstanceGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ModifyInstanceGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ModifyInstanceGroupsCommandError
+ */
+const de_ModifyInstanceGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> => {
@@ -2629,7 +3010,7 @@ const deserializeAws_json1_1ModifyInstanceGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2641,16 +3022,19 @@ const deserializeAws_json1_1ModifyInstanceGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutAutoScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutAutoScalingPolicyCommand
+ */
+export const de_PutAutoScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAutoScalingPolicyCommandError(output, context);
+    return de_PutAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAutoScalingPolicyOutput(data, context);
+  contents = de_PutAutoScalingPolicyOutput(data, context);
   const response: PutAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2658,7 +3042,10 @@ export const deserializeAws_json1_1PutAutoScalingPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutAutoScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutAutoScalingPolicyCommandError
+ */
+const de_PutAutoScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> => {
@@ -2676,16 +3063,19 @@ const deserializeAws_json1_1PutAutoScalingPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1PutAutoTerminationPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutAutoTerminationPolicyCommand
+ */
+export const de_PutAutoTerminationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAutoTerminationPolicyCommandError(output, context);
+    return de_PutAutoTerminationPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAutoTerminationPolicyOutput(data, context);
+  contents = de_PutAutoTerminationPolicyOutput(data, context);
   const response: PutAutoTerminationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2693,7 +3083,10 @@ export const deserializeAws_json1_1PutAutoTerminationPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutAutoTerminationPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutAutoTerminationPolicyCommandError
+ */
+const de_PutAutoTerminationPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAutoTerminationPolicyCommandOutput> => {
@@ -2711,16 +3104,19 @@ const deserializeAws_json1_1PutAutoTerminationPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand
+ */
+export const de_PutBlockPublicAccessConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(output, context);
+    return de_PutBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(data, context);
+  contents = de_PutBlockPublicAccessConfigurationOutput(data, context);
   const response: PutBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2728,7 +3124,10 @@ export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError
+ */
+const de_PutBlockPublicAccessConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
@@ -2740,10 +3139,10 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2755,16 +3154,19 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1PutManagedScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutManagedScalingPolicyCommand
+ */
+export const de_PutManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutManagedScalingPolicyCommandError(output, context);
+    return de_PutManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutManagedScalingPolicyOutput(data, context);
+  contents = de_PutManagedScalingPolicyOutput(data, context);
   const response: PutManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2772,7 +3174,10 @@ export const deserializeAws_json1_1PutManagedScalingPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutManagedScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutManagedScalingPolicyCommandError
+ */
+const de_PutManagedScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutManagedScalingPolicyCommandOutput> => {
@@ -2790,16 +3195,19 @@ const deserializeAws_json1_1PutManagedScalingPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1RemoveAutoScalingPolicyCommand
+ */
+export const de_RemoveAutoScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(output, context);
+    return de_RemoveAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveAutoScalingPolicyOutput(data, context);
+  contents = de_RemoveAutoScalingPolicyOutput(data, context);
   const response: RemoveAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2807,7 +3215,10 @@ export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveAutoScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveAutoScalingPolicyCommandError
+ */
+const de_RemoveAutoScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
@@ -2825,16 +3236,19 @@ const deserializeAws_json1_1RemoveAutoScalingPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
+/**
+ * deserializeAws_json1_1RemoveAutoTerminationPolicyCommand
+ */
+export const de_RemoveAutoTerminationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError(output, context);
+    return de_RemoveAutoTerminationPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveAutoTerminationPolicyOutput(data, context);
+  contents = de_RemoveAutoTerminationPolicyOutput(data, context);
   const response: RemoveAutoTerminationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2842,7 +3256,10 @@ export const deserializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError
+ */
+const de_RemoveAutoTerminationPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
@@ -2860,16 +3277,19 @@ const deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1RemoveManagedScalingPolicyCommand
+ */
+export const de_RemoveManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveManagedScalingPolicyCommandError(output, context);
+    return de_RemoveManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveManagedScalingPolicyOutput(data, context);
+  contents = de_RemoveManagedScalingPolicyOutput(data, context);
   const response: RemoveManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2877,7 +3297,10 @@ export const deserializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveManagedScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveManagedScalingPolicyCommandError
+ */
+const de_RemoveManagedScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveManagedScalingPolicyCommandOutput> => {
@@ -2895,16 +3318,19 @@ const deserializeAws_json1_1RemoveManagedScalingPolicyCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1RemoveTagsCommand = async (
+/**
+ * deserializeAws_json1_1RemoveTagsCommand
+ */
+export const de_RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveTagsCommandError(output, context);
+    return de_RemoveTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
+  contents = de_RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2912,7 +3338,10 @@ export const deserializeAws_json1_1RemoveTagsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveTagsCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveTagsCommandError
+ */
+const de_RemoveTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
@@ -2924,10 +3353,10 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2939,16 +3368,19 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RunJobFlowCommand = async (
+/**
+ * deserializeAws_json1_1RunJobFlowCommand
+ */
+export const de_RunJobFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunJobFlowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RunJobFlowCommandError(output, context);
+    return de_RunJobFlowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RunJobFlowOutput(data, context);
+  contents = de_RunJobFlowOutput(data, context);
   const response: RunJobFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2956,7 +3388,10 @@ export const deserializeAws_json1_1RunJobFlowCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RunJobFlowCommandError = async (
+/**
+ * deserializeAws_json1_1RunJobFlowCommandError
+ */
+const de_RunJobFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunJobFlowCommandOutput> => {
@@ -2968,7 +3403,7 @@ const deserializeAws_json1_1RunJobFlowCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2980,12 +3415,15 @@ const deserializeAws_json1_1RunJobFlowCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetTerminationProtectionCommand = async (
+/**
+ * deserializeAws_json1_1SetTerminationProtectionCommand
+ */
+export const de_SetTerminationProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetTerminationProtectionCommandError(output, context);
+    return de_SetTerminationProtectionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetTerminationProtectionCommandOutput = {
@@ -2994,7 +3432,10 @@ export const deserializeAws_json1_1SetTerminationProtectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetTerminationProtectionCommandError = async (
+/**
+ * deserializeAws_json1_1SetTerminationProtectionCommandError
+ */
+const de_SetTerminationProtectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> => {
@@ -3006,7 +3447,7 @@ const deserializeAws_json1_1SetTerminationProtectionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3018,12 +3459,15 @@ const deserializeAws_json1_1SetTerminationProtectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetVisibleToAllUsersCommand = async (
+/**
+ * deserializeAws_json1_1SetVisibleToAllUsersCommand
+ */
+export const de_SetVisibleToAllUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetVisibleToAllUsersCommandError(output, context);
+    return de_SetVisibleToAllUsersCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetVisibleToAllUsersCommandOutput = {
@@ -3032,7 +3476,10 @@ export const deserializeAws_json1_1SetVisibleToAllUsersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
+/**
+ * deserializeAws_json1_1SetVisibleToAllUsersCommandError
+ */
+const de_SetVisibleToAllUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> => {
@@ -3044,7 +3491,7 @@ const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3056,16 +3503,19 @@ const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartNotebookExecutionCommand = async (
+/**
+ * deserializeAws_json1_1StartNotebookExecutionCommand
+ */
+export const de_StartNotebookExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartNotebookExecutionCommandError(output, context);
+    return de_StartNotebookExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartNotebookExecutionOutput(data, context);
+  contents = de_StartNotebookExecutionOutput(data, context);
   const response: StartNotebookExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3073,7 +3523,10 @@ export const deserializeAws_json1_1StartNotebookExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartNotebookExecutionCommandError = async (
+/**
+ * deserializeAws_json1_1StartNotebookExecutionCommandError
+ */
+const de_StartNotebookExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNotebookExecutionCommandOutput> => {
@@ -3085,10 +3538,10 @@ const deserializeAws_json1_1StartNotebookExecutionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3100,12 +3553,15 @@ const deserializeAws_json1_1StartNotebookExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StopNotebookExecutionCommand = async (
+/**
+ * deserializeAws_json1_1StopNotebookExecutionCommand
+ */
+export const de_StopNotebookExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopNotebookExecutionCommandError(output, context);
+    return de_StopNotebookExecutionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopNotebookExecutionCommandOutput = {
@@ -3114,7 +3570,10 @@ export const deserializeAws_json1_1StopNotebookExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopNotebookExecutionCommandError = async (
+/**
+ * deserializeAws_json1_1StopNotebookExecutionCommandError
+ */
+const de_StopNotebookExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopNotebookExecutionCommandOutput> => {
@@ -3126,10 +3585,10 @@ const deserializeAws_json1_1StopNotebookExecutionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3141,12 +3600,15 @@ const deserializeAws_json1_1StopNotebookExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TerminateJobFlowsCommand = async (
+/**
+ * deserializeAws_json1_1TerminateJobFlowsCommand
+ */
+export const de_TerminateJobFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateJobFlowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TerminateJobFlowsCommandError(output, context);
+    return de_TerminateJobFlowsCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TerminateJobFlowsCommandOutput = {
@@ -3155,7 +3617,10 @@ export const deserializeAws_json1_1TerminateJobFlowsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
+/**
+ * deserializeAws_json1_1TerminateJobFlowsCommandError
+ */
+const de_TerminateJobFlowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateJobFlowsCommandOutput> => {
@@ -3167,7 +3632,7 @@ const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3179,12 +3644,15 @@ const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateStudioCommand = async (
+/**
+ * deserializeAws_json1_1UpdateStudioCommand
+ */
+export const de_UpdateStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateStudioCommandError(output, context);
+    return de_UpdateStudioCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateStudioCommandOutput = {
@@ -3193,7 +3661,10 @@ export const deserializeAws_json1_1UpdateStudioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateStudioCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateStudioCommandError
+ */
+const de_UpdateStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioCommandOutput> => {
@@ -3205,10 +3676,10 @@ const deserializeAws_json1_1UpdateStudioCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3220,12 +3691,15 @@ const deserializeAws_json1_1UpdateStudioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateStudioSessionMappingCommand = async (
+/**
+ * deserializeAws_json1_1UpdateStudioSessionMappingCommand
+ */
+export const de_UpdateStudioSessionMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateStudioSessionMappingCommandError(output, context);
+    return de_UpdateStudioSessionMappingCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateStudioSessionMappingCommandOutput = {
@@ -3234,7 +3708,10 @@ export const deserializeAws_json1_1UpdateStudioSessionMappingCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateStudioSessionMappingCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateStudioSessionMappingCommandError
+ */
+const de_UpdateStudioSessionMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioSessionMappingCommandOutput> => {
@@ -3246,10 +3723,10 @@ const deserializeAws_json1_1UpdateStudioSessionMappingCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3261,12 +3738,12 @@ const deserializeAws_json1_1UpdateStudioSessionMappingCommandError = async (
   }
 };
 
-const deserializeAws_json1_1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
+  const deserialized: any = de_InternalServerError(body, context);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3274,12 +3751,15 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3287,12 +3767,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
+  const deserialized: any = de_InvalidRequestException(body, context);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3300,130 +3783,147 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddInstanceFleetInput = (input: AddInstanceFleetInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddInstanceFleetInput
+ */
+const se_AddInstanceFleetInput = (input: AddInstanceFleetInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
-    ...(input.InstanceFleet != null && {
-      InstanceFleet: serializeAws_json1_1InstanceFleetConfig(input.InstanceFleet, context),
-    }),
+    ...(input.InstanceFleet != null && { InstanceFleet: se_InstanceFleetConfig(input.InstanceFleet, context) }),
   };
 };
 
-const serializeAws_json1_1AddInstanceGroupsInput = (input: AddInstanceGroupsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddInstanceGroupsInput
+ */
+const se_AddInstanceGroupsInput = (input: AddInstanceGroupsInput, context: __SerdeContext): any => {
   return {
-    ...(input.InstanceGroups != null && {
-      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context),
-    }),
+    ...(input.InstanceGroups != null && { InstanceGroups: se_InstanceGroupConfigList(input.InstanceGroups, context) }),
     ...(input.JobFlowId != null && { JobFlowId: input.JobFlowId }),
   };
 };
 
-const serializeAws_json1_1AddJobFlowStepsInput = (input: AddJobFlowStepsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddJobFlowStepsInput
+ */
+const se_AddJobFlowStepsInput = (input: AddJobFlowStepsInput, context: __SerdeContext): any => {
   return {
     ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.JobFlowId != null && { JobFlowId: input.JobFlowId }),
-    ...(input.Steps != null && { Steps: serializeAws_json1_1StepConfigList(input.Steps, context) }),
+    ...(input.Steps != null && { Steps: se_StepConfigList(input.Steps, context) }),
   };
 };
 
-const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddTagsInput
+ */
+const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1Application = (input: Application, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Application
+ */
+const se_Application = (input: Application, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalInfo != null && {
-      AdditionalInfo: serializeAws_json1_1StringMap(input.AdditionalInfo, context),
-    }),
-    ...(input.Args != null && { Args: serializeAws_json1_1StringList(input.Args, context) }),
+    ...(input.AdditionalInfo != null && { AdditionalInfo: se_StringMap(input.AdditionalInfo, context) }),
+    ...(input.Args != null && { Args: se_StringList(input.Args, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Version != null && { Version: input.Version }),
   };
 };
 
-const serializeAws_json1_1ApplicationList = (input: Application[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ApplicationList
+ */
+const se_ApplicationList = (input: Application[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Application(entry, context);
+      return se_Application(entry, context);
     });
 };
 
-const serializeAws_json1_1AutoScalingPolicy = (input: AutoScalingPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AutoScalingPolicy
+ */
+const se_AutoScalingPolicy = (input: AutoScalingPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Constraints != null && {
-      Constraints: serializeAws_json1_1ScalingConstraints(input.Constraints, context),
-    }),
-    ...(input.Rules != null && { Rules: serializeAws_json1_1ScalingRuleList(input.Rules, context) }),
+    ...(input.Constraints != null && { Constraints: se_ScalingConstraints(input.Constraints, context) }),
+    ...(input.Rules != null && { Rules: se_ScalingRuleList(input.Rules, context) }),
   };
 };
 
-const serializeAws_json1_1AutoTerminationPolicy = (input: AutoTerminationPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AutoTerminationPolicy
+ */
+const se_AutoTerminationPolicy = (input: AutoTerminationPolicy, context: __SerdeContext): any => {
   return {
     ...(input.IdleTimeout != null && { IdleTimeout: input.IdleTimeout }),
   };
 };
 
-const serializeAws_json1_1BlockPublicAccessConfiguration = (
-  input: BlockPublicAccessConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BlockPublicAccessConfiguration
+ */
+const se_BlockPublicAccessConfiguration = (input: BlockPublicAccessConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.BlockPublicSecurityGroupRules != null && {
       BlockPublicSecurityGroupRules: input.BlockPublicSecurityGroupRules,
     }),
     ...(input.Classification != null && { Classification: input.Classification }),
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
     ...(input.PermittedPublicSecurityGroupRuleRanges != null && {
-      PermittedPublicSecurityGroupRuleRanges: serializeAws_json1_1PortRanges(
-        input.PermittedPublicSecurityGroupRuleRanges,
-        context
-      ),
+      PermittedPublicSecurityGroupRuleRanges: se_PortRanges(input.PermittedPublicSecurityGroupRuleRanges, context),
     }),
-    ...(input.Properties != null && { Properties: serializeAws_json1_1StringMap(input.Properties, context) }),
+    ...(input.Properties != null && { Properties: se_StringMap(input.Properties, context) }),
   };
 };
 
-const serializeAws_json1_1BootstrapActionConfig = (input: BootstrapActionConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BootstrapActionConfig
+ */
+const se_BootstrapActionConfig = (input: BootstrapActionConfig, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ScriptBootstrapAction != null && {
-      ScriptBootstrapAction: serializeAws_json1_1ScriptBootstrapActionConfig(input.ScriptBootstrapAction, context),
+      ScriptBootstrapAction: se_ScriptBootstrapActionConfig(input.ScriptBootstrapAction, context),
     }),
   };
 };
 
-const serializeAws_json1_1BootstrapActionConfigList = (
-  input: BootstrapActionConfig[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BootstrapActionConfigList
+ */
+const se_BootstrapActionConfigList = (input: BootstrapActionConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1BootstrapActionConfig(entry, context);
+      return se_BootstrapActionConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1CancelStepsInput = (input: CancelStepsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CancelStepsInput
+ */
+const se_CancelStepsInput = (input: CancelStepsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.StepCancellationOption != null && { StepCancellationOption: input.StepCancellationOption }),
-    ...(input.StepIds != null && { StepIds: serializeAws_json1_1StepIdsList(input.StepIds, context) }),
+    ...(input.StepIds != null && { StepIds: se_StepIdsList(input.StepIds, context) }),
   };
 };
 
-const serializeAws_json1_1CloudWatchAlarmDefinition = (
-  input: CloudWatchAlarmDefinition,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CloudWatchAlarmDefinition
+ */
+const se_CloudWatchAlarmDefinition = (input: CloudWatchAlarmDefinition, context: __SerdeContext): any => {
   return {
     ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1MetricDimensionList(input.Dimensions, context) }),
+    ...(input.Dimensions != null && { Dimensions: se_MetricDimensionList(input.Dimensions, context) }),
     ...(input.EvaluationPeriods != null && { EvaluationPeriods: input.EvaluationPeriods }),
     ...(input.MetricName != null && { MetricName: input.MetricName }),
     ...(input.Namespace != null && { Namespace: input.Namespace }),
@@ -3434,7 +3934,10 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
   };
 };
 
-const serializeAws_json1_1ClusterStateList = (input: (ClusterState | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ClusterStateList
+ */
+const se_ClusterStateList = (input: (ClusterState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3442,7 +3945,10 @@ const serializeAws_json1_1ClusterStateList = (input: (ClusterState | string)[], 
     });
 };
 
-const serializeAws_json1_1ComputeLimits = (input: ComputeLimits, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ComputeLimits
+ */
+const se_ComputeLimits = (input: ComputeLimits, context: __SerdeContext): any => {
   return {
     ...(input.MaximumCapacityUnits != null && { MaximumCapacityUnits: input.MaximumCapacityUnits }),
     ...(input.MaximumCoreCapacityUnits != null && { MaximumCoreCapacityUnits: input.MaximumCoreCapacityUnits }),
@@ -3454,35 +3960,42 @@ const serializeAws_json1_1ComputeLimits = (input: ComputeLimits, context: __Serd
   };
 };
 
-const serializeAws_json1_1Configuration = (input: Configuration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Configuration
+ */
+const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
     ...(input.Classification != null && { Classification: input.Classification }),
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
-    ...(input.Properties != null && { Properties: serializeAws_json1_1StringMap(input.Properties, context) }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
+    ...(input.Properties != null && { Properties: se_StringMap(input.Properties, context) }),
   };
 };
 
-const serializeAws_json1_1ConfigurationList = (input: Configuration[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ConfigurationList
+ */
+const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Configuration(entry, context);
+      return se_Configuration(entry, context);
     });
 };
 
-const serializeAws_json1_1CreateSecurityConfigurationInput = (
-  input: CreateSecurityConfigurationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateSecurityConfigurationInput
+ */
+const se_CreateSecurityConfigurationInput = (input: CreateSecurityConfigurationInput, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SecurityConfiguration != null && { SecurityConfiguration: input.SecurityConfiguration }),
   };
 };
 
-const serializeAws_json1_1CreateStudioInput = (input: CreateStudioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateStudioInput
+ */
+const se_CreateStudioInput = (input: CreateStudioInput, context: __SerdeContext): any => {
   return {
     ...(input.AuthMode != null && { AuthMode: input.AuthMode }),
     ...(input.DefaultS3Location != null && { DefaultS3Location: input.DefaultS3Location }),
@@ -3492,18 +4005,18 @@ const serializeAws_json1_1CreateStudioInput = (input: CreateStudioInput, context
     ...(input.IdpRelayStateParameterName != null && { IdpRelayStateParameterName: input.IdpRelayStateParameterName }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIdList(input.SubnetIds, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.UserRole != null && { UserRole: input.UserRole }),
     ...(input.VpcId != null && { VpcId: input.VpcId }),
     ...(input.WorkspaceSecurityGroupId != null && { WorkspaceSecurityGroupId: input.WorkspaceSecurityGroupId }),
   };
 };
 
-const serializeAws_json1_1CreateStudioSessionMappingInput = (
-  input: CreateStudioSessionMappingInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateStudioSessionMappingInput
+ */
+const se_CreateStudioSessionMappingInput = (input: CreateStudioSessionMappingInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
     ...(input.IdentityName != null && { IdentityName: input.IdentityName }),
@@ -3513,25 +4026,28 @@ const serializeAws_json1_1CreateStudioSessionMappingInput = (
   };
 };
 
-const serializeAws_json1_1DeleteSecurityConfigurationInput = (
-  input: DeleteSecurityConfigurationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteSecurityConfigurationInput
+ */
+const se_DeleteSecurityConfigurationInput = (input: DeleteSecurityConfigurationInput, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1DeleteStudioInput = (input: DeleteStudioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteStudioInput
+ */
+const se_DeleteStudioInput = (input: DeleteStudioInput, context: __SerdeContext): any => {
   return {
     ...(input.StudioId != null && { StudioId: input.StudioId }),
   };
 };
 
-const serializeAws_json1_1DeleteStudioSessionMappingInput = (
-  input: DeleteStudioSessionMappingInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteStudioSessionMappingInput
+ */
+const se_DeleteStudioSessionMappingInput = (input: DeleteStudioSessionMappingInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
     ...(input.IdentityName != null && { IdentityName: input.IdentityName }),
@@ -3540,36 +4056,40 @@ const serializeAws_json1_1DeleteStudioSessionMappingInput = (
   };
 };
 
-const serializeAws_json1_1DescribeClusterInput = (input: DescribeClusterInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeClusterInput
+ */
+const se_DescribeClusterInput = (input: DescribeClusterInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeJobFlowsInput
+ */
+const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __SerdeContext): any => {
   return {
     ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
     ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
-    ...(input.JobFlowIds != null && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
-    ...(input.JobFlowStates != null && {
-      JobFlowStates: serializeAws_json1_1JobFlowExecutionStateList(input.JobFlowStates, context),
-    }),
+    ...(input.JobFlowIds != null && { JobFlowIds: se_XmlStringList(input.JobFlowIds, context) }),
+    ...(input.JobFlowStates != null && { JobFlowStates: se_JobFlowExecutionStateList(input.JobFlowStates, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeNotebookExecutionInput = (
-  input: DescribeNotebookExecutionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeNotebookExecutionInput
+ */
+const se_DescribeNotebookExecutionInput = (input: DescribeNotebookExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.NotebookExecutionId != null && { NotebookExecutionId: input.NotebookExecutionId }),
   };
 };
 
-const serializeAws_json1_1DescribeReleaseLabelInput = (
-  input: DescribeReleaseLabelInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeReleaseLabelInput
+ */
+const se_DescribeReleaseLabelInput = (input: DescribeReleaseLabelInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -3577,7 +4097,10 @@ const serializeAws_json1_1DescribeReleaseLabelInput = (
   };
 };
 
-const serializeAws_json1_1DescribeSecurityConfigurationInput = (
+/**
+ * serializeAws_json1_1DescribeSecurityConfigurationInput
+ */
+const se_DescribeSecurityConfigurationInput = (
   input: DescribeSecurityConfigurationInput,
   context: __SerdeContext
 ): any => {
@@ -3586,46 +4109,64 @@ const serializeAws_json1_1DescribeSecurityConfigurationInput = (
   };
 };
 
-const serializeAws_json1_1DescribeStepInput = (input: DescribeStepInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeStepInput
+ */
+const se_DescribeStepInput = (input: DescribeStepInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.StepId != null && { StepId: input.StepId }),
   };
 };
 
-const serializeAws_json1_1DescribeStudioInput = (input: DescribeStudioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeStudioInput
+ */
+const se_DescribeStudioInput = (input: DescribeStudioInput, context: __SerdeContext): any => {
   return {
     ...(input.StudioId != null && { StudioId: input.StudioId }),
   };
 };
 
-const serializeAws_json1_1EbsBlockDeviceConfig = (input: EbsBlockDeviceConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EbsBlockDeviceConfig
+ */
+const se_EbsBlockDeviceConfig = (input: EbsBlockDeviceConfig, context: __SerdeContext): any => {
   return {
     ...(input.VolumeSpecification != null && {
-      VolumeSpecification: serializeAws_json1_1VolumeSpecification(input.VolumeSpecification, context),
+      VolumeSpecification: se_VolumeSpecification(input.VolumeSpecification, context),
     }),
     ...(input.VolumesPerInstance != null && { VolumesPerInstance: input.VolumesPerInstance }),
   };
 };
 
-const serializeAws_json1_1EbsBlockDeviceConfigList = (input: EbsBlockDeviceConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EbsBlockDeviceConfigList
+ */
+const se_EbsBlockDeviceConfigList = (input: EbsBlockDeviceConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EbsBlockDeviceConfig(entry, context);
+      return se_EbsBlockDeviceConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1EbsConfiguration = (input: EbsConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EbsConfiguration
+ */
+const se_EbsConfiguration = (input: EbsConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.EbsBlockDeviceConfigs != null && {
-      EbsBlockDeviceConfigs: serializeAws_json1_1EbsBlockDeviceConfigList(input.EbsBlockDeviceConfigs, context),
+      EbsBlockDeviceConfigs: se_EbsBlockDeviceConfigList(input.EbsBlockDeviceConfigs, context),
     }),
     ...(input.EbsOptimized != null && { EbsOptimized: input.EbsOptimized }),
   };
 };
 
-const serializeAws_json1_1EC2InstanceIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2InstanceIdsList
+ */
+const se_EC2InstanceIdsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3633,7 +4174,10 @@ const serializeAws_json1_1EC2InstanceIdsList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1EC2InstanceIdsToTerminateList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2InstanceIdsToTerminateList
+ */
+const se_EC2InstanceIdsToTerminateList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3641,7 +4185,10 @@ const serializeAws_json1_1EC2InstanceIdsToTerminateList = (input: string[], cont
     });
 };
 
-const serializeAws_json1_1ExecutionEngineConfig = (input: ExecutionEngineConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ExecutionEngineConfig
+ */
+const se_ExecutionEngineConfig = (input: ExecutionEngineConfig, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
     ...(input.MasterInstanceSecurityGroupId != null && {
@@ -3651,23 +4198,29 @@ const serializeAws_json1_1ExecutionEngineConfig = (input: ExecutionEngineConfig,
   };
 };
 
-const serializeAws_json1_1GetAutoTerminationPolicyInput = (
-  input: GetAutoTerminationPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetAutoTerminationPolicyInput
+ */
+const se_GetAutoTerminationPolicyInput = (input: GetAutoTerminationPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
+/**
+ * serializeAws_json1_1GetBlockPublicAccessConfigurationInput
+ */
+const se_GetBlockPublicAccessConfigurationInput = (
   input: GetBlockPublicAccessConfigurationInput,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_1GetClusterSessionCredentialsInput = (
+/**
+ * serializeAws_json1_1GetClusterSessionCredentialsInput
+ */
+const se_GetClusterSessionCredentialsInput = (
   input: GetClusterSessionCredentialsInput,
   context: __SerdeContext
 ): any => {
@@ -3677,19 +4230,19 @@ const serializeAws_json1_1GetClusterSessionCredentialsInput = (
   };
 };
 
-const serializeAws_json1_1GetManagedScalingPolicyInput = (
-  input: GetManagedScalingPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetManagedScalingPolicyInput
+ */
+const se_GetManagedScalingPolicyInput = (input: GetManagedScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1GetStudioSessionMappingInput = (
-  input: GetStudioSessionMappingInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetStudioSessionMappingInput
+ */
+const se_GetStudioSessionMappingInput = (input: GetStudioSessionMappingInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
     ...(input.IdentityName != null && { IdentityName: input.IdentityName }),
@@ -3698,111 +4251,110 @@ const serializeAws_json1_1GetStudioSessionMappingInput = (
   };
 };
 
-const serializeAws_json1_1HadoopJarStepConfig = (input: HadoopJarStepConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HadoopJarStepConfig
+ */
+const se_HadoopJarStepConfig = (input: HadoopJarStepConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Args != null && { Args: serializeAws_json1_1XmlStringList(input.Args, context) }),
+    ...(input.Args != null && { Args: se_XmlStringList(input.Args, context) }),
     ...(input.Jar != null && { Jar: input.Jar }),
     ...(input.MainClass != null && { MainClass: input.MainClass }),
-    ...(input.Properties != null && { Properties: serializeAws_json1_1KeyValueList(input.Properties, context) }),
+    ...(input.Properties != null && { Properties: se_KeyValueList(input.Properties, context) }),
   };
 };
 
-const serializeAws_json1_1InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceFleetConfig
+ */
+const se_InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceFleetType != null && { InstanceFleetType: input.InstanceFleetType }),
     ...(input.InstanceTypeConfigs != null && {
-      InstanceTypeConfigs: serializeAws_json1_1InstanceTypeConfigList(input.InstanceTypeConfigs, context),
+      InstanceTypeConfigs: se_InstanceTypeConfigList(input.InstanceTypeConfigs, context),
     }),
     ...(input.LaunchSpecifications != null && {
-      LaunchSpecifications: serializeAws_json1_1InstanceFleetProvisioningSpecifications(
-        input.LaunchSpecifications,
-        context
-      ),
+      LaunchSpecifications: se_InstanceFleetProvisioningSpecifications(input.LaunchSpecifications, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResizeSpecifications != null && {
-      ResizeSpecifications: serializeAws_json1_1InstanceFleetResizingSpecifications(
-        input.ResizeSpecifications,
-        context
-      ),
+      ResizeSpecifications: se_InstanceFleetResizingSpecifications(input.ResizeSpecifications, context),
     }),
     ...(input.TargetOnDemandCapacity != null && { TargetOnDemandCapacity: input.TargetOnDemandCapacity }),
     ...(input.TargetSpotCapacity != null && { TargetSpotCapacity: input.TargetSpotCapacity }),
   };
 };
 
-const serializeAws_json1_1InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceFleetConfigList
+ */
+const se_InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1InstanceFleetConfig(entry, context);
+      return se_InstanceFleetConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1InstanceFleetModifyConfig = (
-  input: InstanceFleetModifyConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1InstanceFleetModifyConfig
+ */
+const se_InstanceFleetModifyConfig = (input: InstanceFleetModifyConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceFleetId != null && { InstanceFleetId: input.InstanceFleetId }),
     ...(input.ResizeSpecifications != null && {
-      ResizeSpecifications: serializeAws_json1_1InstanceFleetResizingSpecifications(
-        input.ResizeSpecifications,
-        context
-      ),
+      ResizeSpecifications: se_InstanceFleetResizingSpecifications(input.ResizeSpecifications, context),
     }),
     ...(input.TargetOnDemandCapacity != null && { TargetOnDemandCapacity: input.TargetOnDemandCapacity }),
     ...(input.TargetSpotCapacity != null && { TargetSpotCapacity: input.TargetSpotCapacity }),
   };
 };
 
-const serializeAws_json1_1InstanceFleetProvisioningSpecifications = (
+/**
+ * serializeAws_json1_1InstanceFleetProvisioningSpecifications
+ */
+const se_InstanceFleetProvisioningSpecifications = (
   input: InstanceFleetProvisioningSpecifications,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.OnDemandSpecification != null && {
-      OnDemandSpecification: serializeAws_json1_1OnDemandProvisioningSpecification(
-        input.OnDemandSpecification,
-        context
-      ),
+      OnDemandSpecification: se_OnDemandProvisioningSpecification(input.OnDemandSpecification, context),
     }),
     ...(input.SpotSpecification != null && {
-      SpotSpecification: serializeAws_json1_1SpotProvisioningSpecification(input.SpotSpecification, context),
+      SpotSpecification: se_SpotProvisioningSpecification(input.SpotSpecification, context),
     }),
   };
 };
 
-const serializeAws_json1_1InstanceFleetResizingSpecifications = (
+/**
+ * serializeAws_json1_1InstanceFleetResizingSpecifications
+ */
+const se_InstanceFleetResizingSpecifications = (
   input: InstanceFleetResizingSpecifications,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.OnDemandResizeSpecification != null && {
-      OnDemandResizeSpecification: serializeAws_json1_1OnDemandResizingSpecification(
-        input.OnDemandResizeSpecification,
-        context
-      ),
+      OnDemandResizeSpecification: se_OnDemandResizingSpecification(input.OnDemandResizeSpecification, context),
     }),
     ...(input.SpotResizeSpecification != null && {
-      SpotResizeSpecification: serializeAws_json1_1SpotResizingSpecification(input.SpotResizeSpecification, context),
+      SpotResizeSpecification: se_SpotResizingSpecification(input.SpotResizeSpecification, context),
     }),
   };
 };
 
-const serializeAws_json1_1InstanceGroupConfig = (input: InstanceGroupConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceGroupConfig
+ */
+const se_InstanceGroupConfig = (input: InstanceGroupConfig, context: __SerdeContext): any => {
   return {
     ...(input.AutoScalingPolicy != null && {
-      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context),
+      AutoScalingPolicy: se_AutoScalingPolicy(input.AutoScalingPolicy, context),
     }),
     ...(input.BidPrice != null && { BidPrice: input.BidPrice }),
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
     ...(input.CustomAmiId != null && { CustomAmiId: input.CustomAmiId }),
-    ...(input.EbsConfiguration != null && {
-      EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context),
-    }),
+    ...(input.EbsConfiguration != null && { EbsConfiguration: se_EbsConfiguration(input.EbsConfiguration, context) }),
     ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
     ...(input.InstanceRole != null && { InstanceRole: input.InstanceRole }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
@@ -3811,50 +4363,48 @@ const serializeAws_json1_1InstanceGroupConfig = (input: InstanceGroupConfig, con
   };
 };
 
-const serializeAws_json1_1InstanceGroupConfigList = (input: InstanceGroupConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceGroupConfigList
+ */
+const se_InstanceGroupConfigList = (input: InstanceGroupConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1InstanceGroupConfig(entry, context);
+      return se_InstanceGroupConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1InstanceGroupModifyConfig = (
-  input: InstanceGroupModifyConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1InstanceGroupModifyConfig
+ */
+const se_InstanceGroupModifyConfig = (input: InstanceGroupModifyConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
     ...(input.EC2InstanceIdsToTerminate != null && {
-      EC2InstanceIdsToTerminate: serializeAws_json1_1EC2InstanceIdsToTerminateList(
-        input.EC2InstanceIdsToTerminate,
-        context
-      ),
+      EC2InstanceIdsToTerminate: se_EC2InstanceIdsToTerminateList(input.EC2InstanceIdsToTerminate, context),
     }),
     ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
     ...(input.InstanceGroupId != null && { InstanceGroupId: input.InstanceGroupId }),
     ...(input.ReconfigurationType != null && { ReconfigurationType: input.ReconfigurationType }),
-    ...(input.ShrinkPolicy != null && { ShrinkPolicy: serializeAws_json1_1ShrinkPolicy(input.ShrinkPolicy, context) }),
+    ...(input.ShrinkPolicy != null && { ShrinkPolicy: se_ShrinkPolicy(input.ShrinkPolicy, context) }),
   };
 };
 
-const serializeAws_json1_1InstanceGroupModifyConfigList = (
-  input: InstanceGroupModifyConfig[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1InstanceGroupModifyConfigList
+ */
+const se_InstanceGroupModifyConfigList = (input: InstanceGroupModifyConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1InstanceGroupModifyConfig(entry, context);
+      return se_InstanceGroupModifyConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1InstanceGroupTypeList = (
-  input: (InstanceGroupType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1InstanceGroupTypeList
+ */
+const se_InstanceGroupTypeList = (input: (InstanceGroupType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3862,19 +4412,25 @@ const serializeAws_json1_1InstanceGroupTypeList = (
     });
 };
 
-const serializeAws_json1_1InstanceResizePolicy = (input: InstanceResizePolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceResizePolicy
+ */
+const se_InstanceResizePolicy = (input: InstanceResizePolicy, context: __SerdeContext): any => {
   return {
     ...(input.InstanceTerminationTimeout != null && { InstanceTerminationTimeout: input.InstanceTerminationTimeout }),
     ...(input.InstancesToProtect != null && {
-      InstancesToProtect: serializeAws_json1_1EC2InstanceIdsList(input.InstancesToProtect, context),
+      InstancesToProtect: se_EC2InstanceIdsList(input.InstancesToProtect, context),
     }),
     ...(input.InstancesToTerminate != null && {
-      InstancesToTerminate: serializeAws_json1_1EC2InstanceIdsList(input.InstancesToTerminate, context),
+      InstancesToTerminate: se_EC2InstanceIdsList(input.InstancesToTerminate, context),
     }),
   };
 };
 
-const serializeAws_json1_1InstanceStateList = (input: (InstanceState | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceStateList
+ */
+const se_InstanceStateList = (input: (InstanceState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3882,36 +4438,38 @@ const serializeAws_json1_1InstanceStateList = (input: (InstanceState | string)[]
     });
 };
 
-const serializeAws_json1_1InstanceTypeConfig = (input: InstanceTypeConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceTypeConfig
+ */
+const se_InstanceTypeConfig = (input: InstanceTypeConfig, context: __SerdeContext): any => {
   return {
     ...(input.BidPrice != null && { BidPrice: input.BidPrice }),
     ...(input.BidPriceAsPercentageOfOnDemandPrice != null && {
       BidPriceAsPercentageOfOnDemandPrice: __serializeFloat(input.BidPriceAsPercentageOfOnDemandPrice),
     }),
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
     ...(input.CustomAmiId != null && { CustomAmiId: input.CustomAmiId }),
-    ...(input.EbsConfiguration != null && {
-      EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context),
-    }),
+    ...(input.EbsConfiguration != null && { EbsConfiguration: se_EbsConfiguration(input.EbsConfiguration, context) }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
     ...(input.WeightedCapacity != null && { WeightedCapacity: input.WeightedCapacity }),
   };
 };
 
-const serializeAws_json1_1InstanceTypeConfigList = (input: InstanceTypeConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceTypeConfigList
+ */
+const se_InstanceTypeConfigList = (input: InstanceTypeConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1InstanceTypeConfig(entry, context);
+      return se_InstanceTypeConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1JobFlowExecutionStateList = (
-  input: (JobFlowExecutionState | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1JobFlowExecutionStateList
+ */
+const se_JobFlowExecutionStateList = (input: (JobFlowExecutionState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3919,25 +4477,20 @@ const serializeAws_json1_1JobFlowExecutionStateList = (
     });
 };
 
-const serializeAws_json1_1JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1JobFlowInstancesConfig
+ */
+const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalMasterSecurityGroups != null && {
-      AdditionalMasterSecurityGroups: serializeAws_json1_1SecurityGroupsList(
-        input.AdditionalMasterSecurityGroups,
-        context
-      ),
+      AdditionalMasterSecurityGroups: se_SecurityGroupsList(input.AdditionalMasterSecurityGroups, context),
     }),
     ...(input.AdditionalSlaveSecurityGroups != null && {
-      AdditionalSlaveSecurityGroups: serializeAws_json1_1SecurityGroupsList(
-        input.AdditionalSlaveSecurityGroups,
-        context
-      ),
+      AdditionalSlaveSecurityGroups: se_SecurityGroupsList(input.AdditionalSlaveSecurityGroups, context),
     }),
     ...(input.Ec2KeyName != null && { Ec2KeyName: input.Ec2KeyName }),
     ...(input.Ec2SubnetId != null && { Ec2SubnetId: input.Ec2SubnetId }),
-    ...(input.Ec2SubnetIds != null && {
-      Ec2SubnetIds: serializeAws_json1_1XmlStringMaxLen256List(input.Ec2SubnetIds, context),
-    }),
+    ...(input.Ec2SubnetIds != null && { Ec2SubnetIds: se_XmlStringMaxLen256List(input.Ec2SubnetIds, context) }),
     ...(input.EmrManagedMasterSecurityGroup != null && {
       EmrManagedMasterSecurityGroup: input.EmrManagedMasterSecurityGroup,
     }),
@@ -3946,24 +4499,23 @@ const serializeAws_json1_1JobFlowInstancesConfig = (input: JobFlowInstancesConfi
     }),
     ...(input.HadoopVersion != null && { HadoopVersion: input.HadoopVersion }),
     ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.InstanceFleets != null && {
-      InstanceFleets: serializeAws_json1_1InstanceFleetConfigList(input.InstanceFleets, context),
-    }),
-    ...(input.InstanceGroups != null && {
-      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context),
-    }),
+    ...(input.InstanceFleets != null && { InstanceFleets: se_InstanceFleetConfigList(input.InstanceFleets, context) }),
+    ...(input.InstanceGroups != null && { InstanceGroups: se_InstanceGroupConfigList(input.InstanceGroups, context) }),
     ...(input.KeepJobFlowAliveWhenNoSteps != null && {
       KeepJobFlowAliveWhenNoSteps: input.KeepJobFlowAliveWhenNoSteps,
     }),
     ...(input.MasterInstanceType != null && { MasterInstanceType: input.MasterInstanceType }),
-    ...(input.Placement != null && { Placement: serializeAws_json1_1PlacementType(input.Placement, context) }),
+    ...(input.Placement != null && { Placement: se_PlacementType(input.Placement, context) }),
     ...(input.ServiceAccessSecurityGroup != null && { ServiceAccessSecurityGroup: input.ServiceAccessSecurityGroup }),
     ...(input.SlaveInstanceType != null && { SlaveInstanceType: input.SlaveInstanceType }),
     ...(input.TerminationProtected != null && { TerminationProtected: input.TerminationProtected }),
   };
 };
 
-const serializeAws_json1_1KerberosAttributes = (input: KerberosAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1KerberosAttributes
+ */
+const se_KerberosAttributes = (input: KerberosAttributes, context: __SerdeContext): any => {
   return {
     ...(input.ADDomainJoinPassword != null && { ADDomainJoinPassword: input.ADDomainJoinPassword }),
     ...(input.ADDomainJoinUser != null && { ADDomainJoinUser: input.ADDomainJoinUser }),
@@ -3975,76 +4527,90 @@ const serializeAws_json1_1KerberosAttributes = (input: KerberosAttributes, conte
   };
 };
 
-const serializeAws_json1_1KeyValue = (input: KeyValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1KeyValue
+ */
+const se_KeyValue = (input: KeyValue, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1KeyValueList = (input: KeyValue[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1KeyValueList
+ */
+const se_KeyValueList = (input: KeyValue[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1KeyValue(entry, context);
+      return se_KeyValue(entry, context);
     });
 };
 
-const serializeAws_json1_1ListBootstrapActionsInput = (
-  input: ListBootstrapActionsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListBootstrapActionsInput
+ */
+const se_ListBootstrapActionsInput = (input: ListBootstrapActionsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListClustersInput = (input: ListClustersInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListClustersInput
+ */
+const se_ListClustersInput = (input: ListClustersInput, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterStates != null && {
-      ClusterStates: serializeAws_json1_1ClusterStateList(input.ClusterStates, context),
-    }),
+    ...(input.ClusterStates != null && { ClusterStates: se_ClusterStateList(input.ClusterStates, context) }),
     ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
     ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListInstanceFleetsInput = (input: ListInstanceFleetsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListInstanceFleetsInput
+ */
+const se_ListInstanceFleetsInput = (input: ListInstanceFleetsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListInstanceGroupsInput = (input: ListInstanceGroupsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListInstanceGroupsInput
+ */
+const se_ListInstanceGroupsInput = (input: ListInstanceGroupsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListInstancesInput = (input: ListInstancesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListInstancesInput
+ */
+const se_ListInstancesInput = (input: ListInstancesInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.InstanceFleetId != null && { InstanceFleetId: input.InstanceFleetId }),
     ...(input.InstanceFleetType != null && { InstanceFleetType: input.InstanceFleetType }),
     ...(input.InstanceGroupId != null && { InstanceGroupId: input.InstanceGroupId }),
     ...(input.InstanceGroupTypes != null && {
-      InstanceGroupTypes: serializeAws_json1_1InstanceGroupTypeList(input.InstanceGroupTypes, context),
+      InstanceGroupTypes: se_InstanceGroupTypeList(input.InstanceGroupTypes, context),
     }),
-    ...(input.InstanceStates != null && {
-      InstanceStates: serializeAws_json1_1InstanceStateList(input.InstanceStates, context),
-    }),
+    ...(input.InstanceStates != null && { InstanceStates: se_InstanceStateList(input.InstanceStates, context) }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListNotebookExecutionsInput = (
-  input: ListNotebookExecutionsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListNotebookExecutionsInput
+ */
+const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, context: __SerdeContext): any => {
   return {
     ...(input.EditorId != null && { EditorId: input.EditorId }),
     ...(input.From != null && { From: Math.round(input.From.getTime() / 1000) }),
@@ -4054,36 +4620,42 @@ const serializeAws_json1_1ListNotebookExecutionsInput = (
   };
 };
 
-const serializeAws_json1_1ListReleaseLabelsInput = (input: ListReleaseLabelsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListReleaseLabelsInput
+ */
+const se_ListReleaseLabelsInput = (input: ListReleaseLabelsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ReleaseLabelFilter(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ReleaseLabelFilter(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListSecurityConfigurationsInput = (
-  input: ListSecurityConfigurationsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListSecurityConfigurationsInput
+ */
+const se_ListSecurityConfigurationsInput = (input: ListSecurityConfigurationsInput, context: __SerdeContext): any => {
   return {
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListStepsInput = (input: ListStepsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListStepsInput
+ */
+const se_ListStepsInput = (input: ListStepsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.StepIds != null && { StepIds: serializeAws_json1_1XmlStringList(input.StepIds, context) }),
-    ...(input.StepStates != null && { StepStates: serializeAws_json1_1StepStateList(input.StepStates, context) }),
+    ...(input.StepIds != null && { StepIds: se_XmlStringList(input.StepIds, context) }),
+    ...(input.StepStates != null && { StepStates: se_StepStateList(input.StepStates, context) }),
   };
 };
 
-const serializeAws_json1_1ListStudioSessionMappingsInput = (
-  input: ListStudioSessionMappingsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListStudioSessionMappingsInput
+ */
+const se_ListStudioSessionMappingsInput = (input: ListStudioSessionMappingsInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityType != null && { IdentityType: input.IdentityType }),
     ...(input.Marker != null && { Marker: input.Marker }),
@@ -4091,78 +4663,92 @@ const serializeAws_json1_1ListStudioSessionMappingsInput = (
   };
 };
 
-const serializeAws_json1_1ListStudiosInput = (input: ListStudiosInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListStudiosInput
+ */
+const se_ListStudiosInput = (input: ListStudiosInput, context: __SerdeContext): any => {
   return {
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ManagedScalingPolicy = (input: ManagedScalingPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ManagedScalingPolicy
+ */
+const se_ManagedScalingPolicy = (input: ManagedScalingPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.ComputeLimits != null && {
-      ComputeLimits: serializeAws_json1_1ComputeLimits(input.ComputeLimits, context),
-    }),
+    ...(input.ComputeLimits != null && { ComputeLimits: se_ComputeLimits(input.ComputeLimits, context) }),
   };
 };
 
-const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MetricDimension
+ */
+const se_MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1MetricDimensionList = (input: MetricDimension[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MetricDimensionList
+ */
+const se_MetricDimensionList = (input: MetricDimension[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1MetricDimension(entry, context);
+      return se_MetricDimension(entry, context);
     });
 };
 
-const serializeAws_json1_1ModifyClusterInput = (input: ModifyClusterInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ModifyClusterInput
+ */
+const se_ModifyClusterInput = (input: ModifyClusterInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.StepConcurrencyLevel != null && { StepConcurrencyLevel: input.StepConcurrencyLevel }),
   };
 };
 
-const serializeAws_json1_1ModifyInstanceFleetInput = (
-  input: ModifyInstanceFleetInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ModifyInstanceFleetInput
+ */
+const se_ModifyInstanceFleetInput = (input: ModifyInstanceFleetInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
-    ...(input.InstanceFleet != null && {
-      InstanceFleet: serializeAws_json1_1InstanceFleetModifyConfig(input.InstanceFleet, context),
-    }),
+    ...(input.InstanceFleet != null && { InstanceFleet: se_InstanceFleetModifyConfig(input.InstanceFleet, context) }),
   };
 };
 
-const serializeAws_json1_1ModifyInstanceGroupsInput = (
-  input: ModifyInstanceGroupsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ModifyInstanceGroupsInput
+ */
+const se_ModifyInstanceGroupsInput = (input: ModifyInstanceGroupsInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.InstanceGroups != null && {
-      InstanceGroups: serializeAws_json1_1InstanceGroupModifyConfigList(input.InstanceGroups, context),
+      InstanceGroups: se_InstanceGroupModifyConfigList(input.InstanceGroups, context),
     }),
   };
 };
 
-const serializeAws_json1_1NewSupportedProductsList = (
-  input: SupportedProductConfig[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1NewSupportedProductsList
+ */
+const se_NewSupportedProductsList = (input: SupportedProductConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1SupportedProductConfig(entry, context);
+      return se_SupportedProductConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1OnDemandCapacityReservationOptions = (
+/**
+ * serializeAws_json1_1OnDemandCapacityReservationOptions
+ */
+const se_OnDemandCapacityReservationOptions = (
   input: OnDemandCapacityReservationOptions,
   context: __SerdeContext
 ): any => {
@@ -4177,198 +4763,218 @@ const serializeAws_json1_1OnDemandCapacityReservationOptions = (
   };
 };
 
-const serializeAws_json1_1OnDemandProvisioningSpecification = (
+/**
+ * serializeAws_json1_1OnDemandProvisioningSpecification
+ */
+const se_OnDemandProvisioningSpecification = (
   input: OnDemandProvisioningSpecification,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AllocationStrategy != null && { AllocationStrategy: input.AllocationStrategy }),
     ...(input.CapacityReservationOptions != null && {
-      CapacityReservationOptions: serializeAws_json1_1OnDemandCapacityReservationOptions(
-        input.CapacityReservationOptions,
-        context
-      ),
+      CapacityReservationOptions: se_OnDemandCapacityReservationOptions(input.CapacityReservationOptions, context),
     }),
   };
 };
 
-const serializeAws_json1_1OnDemandResizingSpecification = (
-  input: OnDemandResizingSpecification,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1OnDemandResizingSpecification
+ */
+const se_OnDemandResizingSpecification = (input: OnDemandResizingSpecification, context: __SerdeContext): any => {
   return {
     ...(input.TimeoutDurationMinutes != null && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
   };
 };
 
-const serializeAws_json1_1PlacementGroupConfig = (input: PlacementGroupConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PlacementGroupConfig
+ */
+const se_PlacementGroupConfig = (input: PlacementGroupConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceRole != null && { InstanceRole: input.InstanceRole }),
     ...(input.PlacementStrategy != null && { PlacementStrategy: input.PlacementStrategy }),
   };
 };
 
-const serializeAws_json1_1PlacementGroupConfigList = (input: PlacementGroupConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PlacementGroupConfigList
+ */
+const se_PlacementGroupConfigList = (input: PlacementGroupConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1PlacementGroupConfig(entry, context);
+      return se_PlacementGroupConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1PlacementType = (input: PlacementType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PlacementType
+ */
+const se_PlacementType = (input: PlacementType, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
     ...(input.AvailabilityZones != null && {
-      AvailabilityZones: serializeAws_json1_1XmlStringMaxLen256List(input.AvailabilityZones, context),
+      AvailabilityZones: se_XmlStringMaxLen256List(input.AvailabilityZones, context),
     }),
   };
 };
 
-const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PortRange
+ */
+const se_PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.MaxRange != null && { MaxRange: input.MaxRange }),
     ...(input.MinRange != null && { MinRange: input.MinRange }),
   };
 };
 
-const serializeAws_json1_1PortRanges = (input: PortRange[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PortRanges
+ */
+const se_PortRanges = (input: PortRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1PortRange(entry, context);
+      return se_PortRange(entry, context);
     });
 };
 
-const serializeAws_json1_1PutAutoScalingPolicyInput = (
-  input: PutAutoScalingPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutAutoScalingPolicyInput
+ */
+const se_PutAutoScalingPolicyInput = (input: PutAutoScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.AutoScalingPolicy != null && {
-      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context),
+      AutoScalingPolicy: se_AutoScalingPolicy(input.AutoScalingPolicy, context),
     }),
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.InstanceGroupId != null && { InstanceGroupId: input.InstanceGroupId }),
   };
 };
 
-const serializeAws_json1_1PutAutoTerminationPolicyInput = (
-  input: PutAutoTerminationPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutAutoTerminationPolicyInput
+ */
+const se_PutAutoTerminationPolicyInput = (input: PutAutoTerminationPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.AutoTerminationPolicy != null && {
-      AutoTerminationPolicy: serializeAws_json1_1AutoTerminationPolicy(input.AutoTerminationPolicy, context),
+      AutoTerminationPolicy: se_AutoTerminationPolicy(input.AutoTerminationPolicy, context),
     }),
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1PutBlockPublicAccessConfigurationInput = (
+/**
+ * serializeAws_json1_1PutBlockPublicAccessConfigurationInput
+ */
+const se_PutBlockPublicAccessConfigurationInput = (
   input: PutBlockPublicAccessConfigurationInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BlockPublicAccessConfiguration != null && {
-      BlockPublicAccessConfiguration: serializeAws_json1_1BlockPublicAccessConfiguration(
-        input.BlockPublicAccessConfiguration,
-        context
-      ),
+      BlockPublicAccessConfiguration: se_BlockPublicAccessConfiguration(input.BlockPublicAccessConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_1PutManagedScalingPolicyInput = (
-  input: PutManagedScalingPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutManagedScalingPolicyInput
+ */
+const se_PutManagedScalingPolicyInput = (input: PutManagedScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.ManagedScalingPolicy != null && {
-      ManagedScalingPolicy: serializeAws_json1_1ManagedScalingPolicy(input.ManagedScalingPolicy, context),
+      ManagedScalingPolicy: se_ManagedScalingPolicy(input.ManagedScalingPolicy, context),
     }),
   };
 };
 
-const serializeAws_json1_1ReleaseLabelFilter = (input: ReleaseLabelFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReleaseLabelFilter
+ */
+const se_ReleaseLabelFilter = (input: ReleaseLabelFilter, context: __SerdeContext): any => {
   return {
     ...(input.Application != null && { Application: input.Application }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
-const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
-  input: RemoveAutoScalingPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RemoveAutoScalingPolicyInput
+ */
+const se_RemoveAutoScalingPolicyInput = (input: RemoveAutoScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
     ...(input.InstanceGroupId != null && { InstanceGroupId: input.InstanceGroupId }),
   };
 };
 
-const serializeAws_json1_1RemoveAutoTerminationPolicyInput = (
-  input: RemoveAutoTerminationPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RemoveAutoTerminationPolicyInput
+ */
+const se_RemoveAutoTerminationPolicyInput = (input: RemoveAutoTerminationPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1RemoveManagedScalingPolicyInput = (
-  input: RemoveManagedScalingPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RemoveManagedScalingPolicyInput
+ */
+const se_RemoveManagedScalingPolicyInput = (input: RemoveManagedScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
-const serializeAws_json1_1RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RemoveTagsInput
+ */
+const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1StringList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_StringList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RunJobFlowInput
+ */
+const se_RunJobFlowInput = (input: RunJobFlowInput, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalInfo != null && { AdditionalInfo: input.AdditionalInfo }),
     ...(input.AmiVersion != null && { AmiVersion: input.AmiVersion }),
-    ...(input.Applications != null && {
-      Applications: serializeAws_json1_1ApplicationList(input.Applications, context),
-    }),
+    ...(input.Applications != null && { Applications: se_ApplicationList(input.Applications, context) }),
     ...(input.AutoScalingRole != null && { AutoScalingRole: input.AutoScalingRole }),
     ...(input.AutoTerminationPolicy != null && {
-      AutoTerminationPolicy: serializeAws_json1_1AutoTerminationPolicy(input.AutoTerminationPolicy, context),
+      AutoTerminationPolicy: se_AutoTerminationPolicy(input.AutoTerminationPolicy, context),
     }),
     ...(input.BootstrapActions != null && {
-      BootstrapActions: serializeAws_json1_1BootstrapActionConfigList(input.BootstrapActions, context),
+      BootstrapActions: se_BootstrapActionConfigList(input.BootstrapActions, context),
     }),
-    ...(input.Configurations != null && {
-      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
-    }),
+    ...(input.Configurations != null && { Configurations: se_ConfigurationList(input.Configurations, context) }),
     ...(input.CustomAmiId != null && { CustomAmiId: input.CustomAmiId }),
     ...(input.EbsRootVolumeSize != null && { EbsRootVolumeSize: input.EbsRootVolumeSize }),
-    ...(input.Instances != null && { Instances: serializeAws_json1_1JobFlowInstancesConfig(input.Instances, context) }),
+    ...(input.Instances != null && { Instances: se_JobFlowInstancesConfig(input.Instances, context) }),
     ...(input.JobFlowRole != null && { JobFlowRole: input.JobFlowRole }),
     ...(input.KerberosAttributes != null && {
-      KerberosAttributes: serializeAws_json1_1KerberosAttributes(input.KerberosAttributes, context),
+      KerberosAttributes: se_KerberosAttributes(input.KerberosAttributes, context),
     }),
     ...(input.LogEncryptionKmsKeyId != null && { LogEncryptionKmsKeyId: input.LogEncryptionKmsKeyId }),
     ...(input.LogUri != null && { LogUri: input.LogUri }),
     ...(input.ManagedScalingPolicy != null && {
-      ManagedScalingPolicy: serializeAws_json1_1ManagedScalingPolicy(input.ManagedScalingPolicy, context),
+      ManagedScalingPolicy: se_ManagedScalingPolicy(input.ManagedScalingPolicy, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.NewSupportedProducts != null && {
-      NewSupportedProducts: serializeAws_json1_1NewSupportedProductsList(input.NewSupportedProducts, context),
+      NewSupportedProducts: se_NewSupportedProductsList(input.NewSupportedProducts, context),
     }),
     ...(input.OSReleaseLabel != null && { OSReleaseLabel: input.OSReleaseLabel }),
     ...(input.PlacementGroupConfigs != null && {
-      PlacementGroupConfigs: serializeAws_json1_1PlacementGroupConfigList(input.PlacementGroupConfigs, context),
+      PlacementGroupConfigs: se_PlacementGroupConfigList(input.PlacementGroupConfigs, context),
     }),
     ...(input.ReleaseLabel != null && { ReleaseLabel: input.ReleaseLabel }),
     ...(input.RepoUpgradeOnBoot != null && { RepoUpgradeOnBoot: input.RepoUpgradeOnBoot }),
@@ -4376,20 +4982,23 @@ const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __
     ...(input.SecurityConfiguration != null && { SecurityConfiguration: input.SecurityConfiguration }),
     ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
     ...(input.StepConcurrencyLevel != null && { StepConcurrencyLevel: input.StepConcurrencyLevel }),
-    ...(input.Steps != null && { Steps: serializeAws_json1_1StepConfigList(input.Steps, context) }),
+    ...(input.Steps != null && { Steps: se_StepConfigList(input.Steps, context) }),
     ...(input.SupportedProducts != null && {
-      SupportedProducts: serializeAws_json1_1SupportedProductsList(input.SupportedProducts, context),
+      SupportedProducts: se_SupportedProductsList(input.SupportedProducts, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.VisibleToAllUsers != null && { VisibleToAllUsers: input.VisibleToAllUsers }),
   };
 };
 
-const serializeAws_json1_1ScalingAction = (input: ScalingAction, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScalingAction
+ */
+const se_ScalingAction = (input: ScalingAction, context: __SerdeContext): any => {
   return {
     ...(input.Market != null && { Market: input.Market }),
     ...(input.SimpleScalingPolicyConfiguration != null && {
-      SimpleScalingPolicyConfiguration: serializeAws_json1_1SimpleScalingPolicyConfiguration(
+      SimpleScalingPolicyConfiguration: se_SimpleScalingPolicyConfiguration(
         input.SimpleScalingPolicyConfiguration,
         context
       ),
@@ -4397,52 +5006,64 @@ const serializeAws_json1_1ScalingAction = (input: ScalingAction, context: __Serd
   };
 };
 
-const serializeAws_json1_1ScalingConstraints = (input: ScalingConstraints, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScalingConstraints
+ */
+const se_ScalingConstraints = (input: ScalingConstraints, context: __SerdeContext): any => {
   return {
     ...(input.MaxCapacity != null && { MaxCapacity: input.MaxCapacity }),
     ...(input.MinCapacity != null && { MinCapacity: input.MinCapacity }),
   };
 };
 
-const serializeAws_json1_1ScalingRule = (input: ScalingRule, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScalingRule
+ */
+const se_ScalingRule = (input: ScalingRule, context: __SerdeContext): any => {
   return {
-    ...(input.Action != null && { Action: serializeAws_json1_1ScalingAction(input.Action, context) }),
+    ...(input.Action != null && { Action: se_ScalingAction(input.Action, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Trigger != null && { Trigger: serializeAws_json1_1ScalingTrigger(input.Trigger, context) }),
+    ...(input.Trigger != null && { Trigger: se_ScalingTrigger(input.Trigger, context) }),
   };
 };
 
-const serializeAws_json1_1ScalingRuleList = (input: ScalingRule[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScalingRuleList
+ */
+const se_ScalingRuleList = (input: ScalingRule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ScalingRule(entry, context);
+      return se_ScalingRule(entry, context);
     });
 };
 
-const serializeAws_json1_1ScalingTrigger = (input: ScalingTrigger, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScalingTrigger
+ */
+const se_ScalingTrigger = (input: ScalingTrigger, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchAlarmDefinition != null && {
-      CloudWatchAlarmDefinition: serializeAws_json1_1CloudWatchAlarmDefinition(
-        input.CloudWatchAlarmDefinition,
-        context
-      ),
+      CloudWatchAlarmDefinition: se_CloudWatchAlarmDefinition(input.CloudWatchAlarmDefinition, context),
     }),
   };
 };
 
-const serializeAws_json1_1ScriptBootstrapActionConfig = (
-  input: ScriptBootstrapActionConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ScriptBootstrapActionConfig
+ */
+const se_ScriptBootstrapActionConfig = (input: ScriptBootstrapActionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Args != null && { Args: serializeAws_json1_1XmlStringList(input.Args, context) }),
+    ...(input.Args != null && { Args: se_XmlStringList(input.Args, context) }),
     ...(input.Path != null && { Path: input.Path }),
   };
 };
 
-const serializeAws_json1_1SecurityGroupsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecurityGroupsList
+ */
+const se_SecurityGroupsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4450,39 +5071,42 @@ const serializeAws_json1_1SecurityGroupsList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1SetTerminationProtectionInput = (
-  input: SetTerminationProtectionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetTerminationProtectionInput
+ */
+const se_SetTerminationProtectionInput = (input: SetTerminationProtectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.JobFlowIds != null && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
+    ...(input.JobFlowIds != null && { JobFlowIds: se_XmlStringList(input.JobFlowIds, context) }),
     ...(input.TerminationProtected != null && { TerminationProtected: input.TerminationProtected }),
   };
 };
 
-const serializeAws_json1_1SetVisibleToAllUsersInput = (
-  input: SetVisibleToAllUsersInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetVisibleToAllUsersInput
+ */
+const se_SetVisibleToAllUsersInput = (input: SetVisibleToAllUsersInput, context: __SerdeContext): any => {
   return {
-    ...(input.JobFlowIds != null && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
+    ...(input.JobFlowIds != null && { JobFlowIds: se_XmlStringList(input.JobFlowIds, context) }),
     ...(input.VisibleToAllUsers != null && { VisibleToAllUsers: input.VisibleToAllUsers }),
   };
 };
 
-const serializeAws_json1_1ShrinkPolicy = (input: ShrinkPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ShrinkPolicy
+ */
+const se_ShrinkPolicy = (input: ShrinkPolicy, context: __SerdeContext): any => {
   return {
     ...(input.DecommissionTimeout != null && { DecommissionTimeout: input.DecommissionTimeout }),
     ...(input.InstanceResizePolicy != null && {
-      InstanceResizePolicy: serializeAws_json1_1InstanceResizePolicy(input.InstanceResizePolicy, context),
+      InstanceResizePolicy: se_InstanceResizePolicy(input.InstanceResizePolicy, context),
     }),
   };
 };
 
-const serializeAws_json1_1SimpleScalingPolicyConfiguration = (
-  input: SimpleScalingPolicyConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SimpleScalingPolicyConfiguration
+ */
+const se_SimpleScalingPolicyConfiguration = (input: SimpleScalingPolicyConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AdjustmentType != null && { AdjustmentType: input.AdjustmentType }),
     ...(input.CoolDown != null && { CoolDown: input.CoolDown }),
@@ -4490,10 +5114,10 @@ const serializeAws_json1_1SimpleScalingPolicyConfiguration = (
   };
 };
 
-const serializeAws_json1_1SpotProvisioningSpecification = (
-  input: SpotProvisioningSpecification,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SpotProvisioningSpecification
+ */
+const se_SpotProvisioningSpecification = (input: SpotProvisioningSpecification, context: __SerdeContext): any => {
   return {
     ...(input.AllocationStrategy != null && { AllocationStrategy: input.AllocationStrategy }),
     ...(input.BlockDurationMinutes != null && { BlockDurationMinutes: input.BlockDurationMinutes }),
@@ -4502,24 +5126,22 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
   };
 };
 
-const serializeAws_json1_1SpotResizingSpecification = (
-  input: SpotResizingSpecification,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SpotResizingSpecification
+ */
+const se_SpotResizingSpecification = (input: SpotResizingSpecification, context: __SerdeContext): any => {
   return {
     ...(input.TimeoutDurationMinutes != null && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
   };
 };
 
-const serializeAws_json1_1StartNotebookExecutionInput = (
-  input: StartNotebookExecutionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartNotebookExecutionInput
+ */
+const se_StartNotebookExecutionInput = (input: StartNotebookExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.EditorId != null && { EditorId: input.EditorId }),
-    ...(input.ExecutionEngine != null && {
-      ExecutionEngine: serializeAws_json1_1ExecutionEngineConfig(input.ExecutionEngine, context),
-    }),
+    ...(input.ExecutionEngine != null && { ExecutionEngine: se_ExecutionEngineConfig(input.ExecutionEngine, context) }),
     ...(input.NotebookExecutionName != null && { NotebookExecutionName: input.NotebookExecutionName }),
     ...(input.NotebookInstanceSecurityGroupId != null && {
       NotebookInstanceSecurityGroupId: input.NotebookInstanceSecurityGroupId,
@@ -4527,29 +5149,36 @@ const serializeAws_json1_1StartNotebookExecutionInput = (
     ...(input.NotebookParams != null && { NotebookParams: input.NotebookParams }),
     ...(input.RelativePath != null && { RelativePath: input.RelativePath }),
     ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1StepConfig = (input: StepConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StepConfig
+ */
+const se_StepConfig = (input: StepConfig, context: __SerdeContext): any => {
   return {
     ...(input.ActionOnFailure != null && { ActionOnFailure: input.ActionOnFailure }),
-    ...(input.HadoopJarStep != null && {
-      HadoopJarStep: serializeAws_json1_1HadoopJarStepConfig(input.HadoopJarStep, context),
-    }),
+    ...(input.HadoopJarStep != null && { HadoopJarStep: se_HadoopJarStepConfig(input.HadoopJarStep, context) }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1StepConfigList = (input: StepConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StepConfigList
+ */
+const se_StepConfigList = (input: StepConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1StepConfig(entry, context);
+      return se_StepConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1StepIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StepIdsList
+ */
+const se_StepIdsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4557,7 +5186,10 @@ const serializeAws_json1_1StepIdsList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1StepStateList = (input: (StepState | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StepStateList
+ */
+const se_StepStateList = (input: (StepState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4565,16 +5197,19 @@ const serializeAws_json1_1StepStateList = (input: (StepState | string)[], contex
     });
 };
 
-const serializeAws_json1_1StopNotebookExecutionInput = (
-  input: StopNotebookExecutionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StopNotebookExecutionInput
+ */
+const se_StopNotebookExecutionInput = (input: StopNotebookExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.NotebookExecutionId != null && { NotebookExecutionId: input.NotebookExecutionId }),
   };
 };
 
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4582,7 +5217,10 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StringMap
+ */
+const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4592,7 +5230,10 @@ const serializeAws_json1_1StringMap = (input: Record<string, string>, context: _
   }, {});
 };
 
-const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SubnetIdList
+ */
+const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4600,14 +5241,20 @@ const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1SupportedProductConfig = (input: SupportedProductConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SupportedProductConfig
+ */
+const se_SupportedProductConfig = (input: SupportedProductConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Args != null && { Args: serializeAws_json1_1XmlStringList(input.Args, context) }),
+    ...(input.Args != null && { Args: se_XmlStringList(input.Args, context) }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1SupportedProductsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SupportedProductsList
+ */
+const se_SupportedProductsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4615,41 +5262,53 @@ const serializeAws_json1_1SupportedProductsList = (input: string[], context: __S
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TerminateJobFlowsInput = (input: TerminateJobFlowsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TerminateJobFlowsInput
+ */
+const se_TerminateJobFlowsInput = (input: TerminateJobFlowsInput, context: __SerdeContext): any => {
   return {
-    ...(input.JobFlowIds != null && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
+    ...(input.JobFlowIds != null && { JobFlowIds: se_XmlStringList(input.JobFlowIds, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateStudioInput = (input: UpdateStudioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateStudioInput
+ */
+const se_UpdateStudioInput = (input: UpdateStudioInput, context: __SerdeContext): any => {
   return {
     ...(input.DefaultS3Location != null && { DefaultS3Location: input.DefaultS3Location }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.StudioId != null && { StudioId: input.StudioId }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
+    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIdList(input.SubnetIds, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateStudioSessionMappingInput = (
-  input: UpdateStudioSessionMappingInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateStudioSessionMappingInput
+ */
+const se_UpdateStudioSessionMappingInput = (input: UpdateStudioSessionMappingInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
     ...(input.IdentityName != null && { IdentityName: input.IdentityName }),
@@ -4659,7 +5318,10 @@ const serializeAws_json1_1UpdateStudioSessionMappingInput = (
   };
 };
 
-const serializeAws_json1_1VolumeSpecification = (input: VolumeSpecification, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1VolumeSpecification
+ */
+const se_VolumeSpecification = (input: VolumeSpecification, context: __SerdeContext): any => {
   return {
     ...(input.Iops != null && { Iops: input.Iops }),
     ...(input.SizeInGB != null && { SizeInGB: input.SizeInGB }),
@@ -4668,7 +5330,10 @@ const serializeAws_json1_1VolumeSpecification = (input: VolumeSpecification, con
   };
 };
 
-const serializeAws_json1_1XmlStringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1XmlStringList
+ */
+const se_XmlStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4676,7 +5341,10 @@ const serializeAws_json1_1XmlStringList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1XmlStringMaxLen256List = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1XmlStringMaxLen256List
+ */
+const se_XmlStringMaxLen256List = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4684,7 +5352,10 @@ const serializeAws_json1_1XmlStringMaxLen256List = (input: string[], context: __
     });
 };
 
-const deserializeAws_json1_1AddInstanceFleetOutput = (output: any, context: __SerdeContext): AddInstanceFleetOutput => {
+/**
+ * deserializeAws_json1_1AddInstanceFleetOutput
+ */
+const de_AddInstanceFleetOutput = (output: any, context: __SerdeContext): AddInstanceFleetOutput => {
   return {
     ClusterArn: __expectString(output.ClusterArn),
     ClusterId: __expectString(output.ClusterId),
@@ -4692,65 +5363,76 @@ const deserializeAws_json1_1AddInstanceFleetOutput = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1AddInstanceGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): AddInstanceGroupsOutput => {
+/**
+ * deserializeAws_json1_1AddInstanceGroupsOutput
+ */
+const de_AddInstanceGroupsOutput = (output: any, context: __SerdeContext): AddInstanceGroupsOutput => {
   return {
     ClusterArn: __expectString(output.ClusterArn),
     InstanceGroupIds:
-      output.InstanceGroupIds != null
-        ? deserializeAws_json1_1InstanceGroupIdsList(output.InstanceGroupIds, context)
-        : undefined,
+      output.InstanceGroupIds != null ? de_InstanceGroupIdsList(output.InstanceGroupIds, context) : undefined,
     JobFlowId: __expectString(output.JobFlowId),
   } as any;
 };
 
-const deserializeAws_json1_1AddJobFlowStepsOutput = (output: any, context: __SerdeContext): AddJobFlowStepsOutput => {
+/**
+ * deserializeAws_json1_1AddJobFlowStepsOutput
+ */
+const de_AddJobFlowStepsOutput = (output: any, context: __SerdeContext): AddJobFlowStepsOutput => {
   return {
-    StepIds: output.StepIds != null ? deserializeAws_json1_1StepIdsList(output.StepIds, context) : undefined,
+    StepIds: output.StepIds != null ? de_StepIdsList(output.StepIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
+/**
+ * deserializeAws_json1_1AddTagsOutput
+ */
+const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
+/**
+ * deserializeAws_json1_1Application
+ */
+const de_Application = (output: any, context: __SerdeContext): Application => {
   return {
-    AdditionalInfo:
-      output.AdditionalInfo != null ? deserializeAws_json1_1StringMap(output.AdditionalInfo, context) : undefined,
-    Args: output.Args != null ? deserializeAws_json1_1StringList(output.Args, context) : undefined,
+    AdditionalInfo: output.AdditionalInfo != null ? de_StringMap(output.AdditionalInfo, context) : undefined,
+    Args: output.Args != null ? de_StringList(output.Args, context) : undefined,
     Name: __expectString(output.Name),
     Version: __expectString(output.Version),
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationList = (output: any, context: __SerdeContext): Application[] => {
+/**
+ * deserializeAws_json1_1ApplicationList
+ */
+const de_ApplicationList = (output: any, context: __SerdeContext): Application[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Application(entry, context);
+      return de_Application(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AutoScalingPolicyDescription = (
-  output: any,
-  context: __SerdeContext
-): AutoScalingPolicyDescription => {
+/**
+ * deserializeAws_json1_1AutoScalingPolicyDescription
+ */
+const de_AutoScalingPolicyDescription = (output: any, context: __SerdeContext): AutoScalingPolicyDescription => {
   return {
-    Constraints:
-      output.Constraints != null ? deserializeAws_json1_1ScalingConstraints(output.Constraints, context) : undefined,
-    Rules: output.Rules != null ? deserializeAws_json1_1ScalingRuleList(output.Rules, context) : undefined,
-    Status: output.Status != null ? deserializeAws_json1_1AutoScalingPolicyStatus(output.Status, context) : undefined,
+    Constraints: output.Constraints != null ? de_ScalingConstraints(output.Constraints, context) : undefined,
+    Rules: output.Rules != null ? de_ScalingRuleList(output.Rules, context) : undefined,
+    Status: output.Status != null ? de_AutoScalingPolicyStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
+/**
+ * deserializeAws_json1_1AutoScalingPolicyStateChangeReason
+ */
+const de_AutoScalingPolicyStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): AutoScalingPolicyStateChangeReason => {
@@ -4760,45 +5442,48 @@ const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
   } as any;
 };
 
-const deserializeAws_json1_1AutoScalingPolicyStatus = (
-  output: any,
-  context: __SerdeContext
-): AutoScalingPolicyStatus => {
+/**
+ * deserializeAws_json1_1AutoScalingPolicyStatus
+ */
+const de_AutoScalingPolicyStatus = (output: any, context: __SerdeContext): AutoScalingPolicyStatus => {
   return {
     State: __expectString(output.State),
     StateChangeReason:
       output.StateChangeReason != null
-        ? deserializeAws_json1_1AutoScalingPolicyStateChangeReason(output.StateChangeReason, context)
+        ? de_AutoScalingPolicyStateChangeReason(output.StateChangeReason, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AutoTerminationPolicy = (output: any, context: __SerdeContext): AutoTerminationPolicy => {
+/**
+ * deserializeAws_json1_1AutoTerminationPolicy
+ */
+const de_AutoTerminationPolicy = (output: any, context: __SerdeContext): AutoTerminationPolicy => {
   return {
     IdleTimeout: __expectLong(output.IdleTimeout),
   } as any;
 };
 
-const deserializeAws_json1_1BlockPublicAccessConfiguration = (
-  output: any,
-  context: __SerdeContext
-): BlockPublicAccessConfiguration => {
+/**
+ * deserializeAws_json1_1BlockPublicAccessConfiguration
+ */
+const de_BlockPublicAccessConfiguration = (output: any, context: __SerdeContext): BlockPublicAccessConfiguration => {
   return {
     BlockPublicSecurityGroupRules: __expectBoolean(output.BlockPublicSecurityGroupRules),
     Classification: __expectString(output.Classification),
-    Configurations:
-      output.Configurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
-        : undefined,
+    Configurations: output.Configurations != null ? de_ConfigurationList(output.Configurations, context) : undefined,
     PermittedPublicSecurityGroupRuleRanges:
       output.PermittedPublicSecurityGroupRuleRanges != null
-        ? deserializeAws_json1_1PortRanges(output.PermittedPublicSecurityGroupRuleRanges, context)
+        ? de_PortRanges(output.PermittedPublicSecurityGroupRuleRanges, context)
         : undefined,
-    Properties: output.Properties != null ? deserializeAws_json1_1StringMap(output.Properties, context) : undefined,
+    Properties: output.Properties != null ? de_StringMap(output.Properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
+/**
+ * deserializeAws_json1_1BlockPublicAccessConfigurationMetadata
+ */
+const de_BlockPublicAccessConfigurationMetadata = (
   output: any,
   context: __SerdeContext
 ): BlockPublicAccessConfigurationMetadata => {
@@ -4811,41 +5496,50 @@ const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1BootstrapActionConfig = (output: any, context: __SerdeContext): BootstrapActionConfig => {
+/**
+ * deserializeAws_json1_1BootstrapActionConfig
+ */
+const de_BootstrapActionConfig = (output: any, context: __SerdeContext): BootstrapActionConfig => {
   return {
     Name: __expectString(output.Name),
     ScriptBootstrapAction:
       output.ScriptBootstrapAction != null
-        ? deserializeAws_json1_1ScriptBootstrapActionConfig(output.ScriptBootstrapAction, context)
+        ? de_ScriptBootstrapActionConfig(output.ScriptBootstrapAction, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BootstrapActionDetail = (output: any, context: __SerdeContext): BootstrapActionDetail => {
+/**
+ * deserializeAws_json1_1BootstrapActionDetail
+ */
+const de_BootstrapActionDetail = (output: any, context: __SerdeContext): BootstrapActionDetail => {
   return {
     BootstrapActionConfig:
       output.BootstrapActionConfig != null
-        ? deserializeAws_json1_1BootstrapActionConfig(output.BootstrapActionConfig, context)
+        ? de_BootstrapActionConfig(output.BootstrapActionConfig, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BootstrapActionDetailList = (
-  output: any,
-  context: __SerdeContext
-): BootstrapActionDetail[] => {
+/**
+ * deserializeAws_json1_1BootstrapActionDetailList
+ */
+const de_BootstrapActionDetailList = (output: any, context: __SerdeContext): BootstrapActionDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BootstrapActionDetail(entry, context);
+      return de_BootstrapActionDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CancelStepsInfo = (output: any, context: __SerdeContext): CancelStepsInfo => {
+/**
+ * deserializeAws_json1_1CancelStepsInfo
+ */
+const de_CancelStepsInfo = (output: any, context: __SerdeContext): CancelStepsInfo => {
   return {
     Reason: __expectString(output.Reason),
     Status: __expectString(output.Status),
@@ -4853,35 +5547,38 @@ const deserializeAws_json1_1CancelStepsInfo = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1CancelStepsInfoList = (output: any, context: __SerdeContext): CancelStepsInfo[] => {
+/**
+ * deserializeAws_json1_1CancelStepsInfoList
+ */
+const de_CancelStepsInfoList = (output: any, context: __SerdeContext): CancelStepsInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CancelStepsInfo(entry, context);
+      return de_CancelStepsInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CancelStepsOutput = (output: any, context: __SerdeContext): CancelStepsOutput => {
+/**
+ * deserializeAws_json1_1CancelStepsOutput
+ */
+const de_CancelStepsOutput = (output: any, context: __SerdeContext): CancelStepsOutput => {
   return {
     CancelStepsInfoList:
-      output.CancelStepsInfoList != null
-        ? deserializeAws_json1_1CancelStepsInfoList(output.CancelStepsInfoList, context)
-        : undefined,
+      output.CancelStepsInfoList != null ? de_CancelStepsInfoList(output.CancelStepsInfoList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CloudWatchAlarmDefinition = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchAlarmDefinition => {
+/**
+ * deserializeAws_json1_1CloudWatchAlarmDefinition
+ */
+const de_CloudWatchAlarmDefinition = (output: any, context: __SerdeContext): CloudWatchAlarmDefinition => {
   return {
     ComparisonOperator: __expectString(output.ComparisonOperator),
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_json1_1MetricDimensionList(output.Dimensions, context) : undefined,
+    Dimensions: output.Dimensions != null ? de_MetricDimensionList(output.Dimensions, context) : undefined,
     EvaluationPeriods: __expectInt32(output.EvaluationPeriods),
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
@@ -4892,29 +5589,26 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
   } as any;
 };
 
-const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
+/**
+ * deserializeAws_json1_1Cluster
+ */
+const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    Applications:
-      output.Applications != null ? deserializeAws_json1_1ApplicationList(output.Applications, context) : undefined,
+    Applications: output.Applications != null ? de_ApplicationList(output.Applications, context) : undefined,
     AutoScalingRole: __expectString(output.AutoScalingRole),
     AutoTerminate: __expectBoolean(output.AutoTerminate),
     ClusterArn: __expectString(output.ClusterArn),
-    Configurations:
-      output.Configurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
-        : undefined,
+    Configurations: output.Configurations != null ? de_ConfigurationList(output.Configurations, context) : undefined,
     CustomAmiId: __expectString(output.CustomAmiId),
     EbsRootVolumeSize: __expectInt32(output.EbsRootVolumeSize),
     Ec2InstanceAttributes:
       output.Ec2InstanceAttributes != null
-        ? deserializeAws_json1_1Ec2InstanceAttributes(output.Ec2InstanceAttributes, context)
+        ? de_Ec2InstanceAttributes(output.Ec2InstanceAttributes, context)
         : undefined,
     Id: __expectString(output.Id),
     InstanceCollectionType: __expectString(output.InstanceCollectionType),
     KerberosAttributes:
-      output.KerberosAttributes != null
-        ? deserializeAws_json1_1KerberosAttributes(output.KerberosAttributes, context)
-        : undefined,
+      output.KerberosAttributes != null ? de_KerberosAttributes(output.KerberosAttributes, context) : undefined,
     LogEncryptionKmsKeyId: __expectString(output.LogEncryptionKmsKeyId),
     LogUri: __expectString(output.LogUri),
     MasterPublicDnsName: __expectString(output.MasterPublicDnsName),
@@ -4923,9 +5617,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     OSReleaseLabel: __expectString(output.OSReleaseLabel),
     OutpostArn: __expectString(output.OutpostArn),
     PlacementGroups:
-      output.PlacementGroups != null
-        ? deserializeAws_json1_1PlacementGroupConfigList(output.PlacementGroups, context)
-        : undefined,
+      output.PlacementGroups != null ? de_PlacementGroupConfigList(output.PlacementGroups, context) : undefined,
     ReleaseLabel: __expectString(output.ReleaseLabel),
     RepoUpgradeOnBoot: __expectString(output.RepoUpgradeOnBoot),
     RequestedAmiVersion: __expectString(output.RequestedAmiVersion),
@@ -4933,61 +5625,70 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     ScaleDownBehavior: __expectString(output.ScaleDownBehavior),
     SecurityConfiguration: __expectString(output.SecurityConfiguration),
     ServiceRole: __expectString(output.ServiceRole),
-    Status: output.Status != null ? deserializeAws_json1_1ClusterStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_ClusterStatus(output.Status, context) : undefined,
     StepConcurrencyLevel: __expectInt32(output.StepConcurrencyLevel),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
     TerminationProtected: __expectBoolean(output.TerminationProtected),
     VisibleToAllUsers: __expectBoolean(output.VisibleToAllUsers),
   } as any;
 };
 
-const deserializeAws_json1_1ClusterStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): ClusterStateChangeReason => {
+/**
+ * deserializeAws_json1_1ClusterStateChangeReason
+ */
+const de_ClusterStateChangeReason = (output: any, context: __SerdeContext): ClusterStateChangeReason => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ClusterStatus = (output: any, context: __SerdeContext): ClusterStatus => {
+/**
+ * deserializeAws_json1_1ClusterStatus
+ */
+const de_ClusterStatus = (output: any, context: __SerdeContext): ClusterStatus => {
   return {
-    ErrorDetails:
-      output.ErrorDetails != null ? deserializeAws_json1_1ErrorDetailList(output.ErrorDetails, context) : undefined,
+    ErrorDetails: output.ErrorDetails != null ? de_ErrorDetailList(output.ErrorDetails, context) : undefined,
     State: __expectString(output.State),
     StateChangeReason:
-      output.StateChangeReason != null
-        ? deserializeAws_json1_1ClusterStateChangeReason(output.StateChangeReason, context)
-        : undefined,
-    Timeline: output.Timeline != null ? deserializeAws_json1_1ClusterTimeline(output.Timeline, context) : undefined,
+      output.StateChangeReason != null ? de_ClusterStateChangeReason(output.StateChangeReason, context) : undefined,
+    Timeline: output.Timeline != null ? de_ClusterTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary => {
+/**
+ * deserializeAws_json1_1ClusterSummary
+ */
+const de_ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary => {
   return {
     ClusterArn: __expectString(output.ClusterArn),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
     OutpostArn: __expectString(output.OutpostArn),
-    Status: output.Status != null ? deserializeAws_json1_1ClusterStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_ClusterStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ClusterSummaryList = (output: any, context: __SerdeContext): ClusterSummary[] => {
+/**
+ * deserializeAws_json1_1ClusterSummaryList
+ */
+const de_ClusterSummaryList = (output: any, context: __SerdeContext): ClusterSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ClusterSummary(entry, context);
+      return de_ClusterSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ClusterTimeline = (output: any, context: __SerdeContext): ClusterTimeline => {
+/**
+ * deserializeAws_json1_1ClusterTimeline
+ */
+const de_ClusterTimeline = (output: any, context: __SerdeContext): ClusterTimeline => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -5004,27 +5705,36 @@ const deserializeAws_json1_1ClusterTimeline = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Command => {
+/**
+ * deserializeAws_json1_1Command
+ */
+const de_Command = (output: any, context: __SerdeContext): Command => {
   return {
-    Args: output.Args != null ? deserializeAws_json1_1StringList(output.Args, context) : undefined,
+    Args: output.Args != null ? de_StringList(output.Args, context) : undefined,
     Name: __expectString(output.Name),
     ScriptPath: __expectString(output.ScriptPath),
   } as any;
 };
 
-const deserializeAws_json1_1CommandList = (output: any, context: __SerdeContext): Command[] => {
+/**
+ * deserializeAws_json1_1CommandList
+ */
+const de_CommandList = (output: any, context: __SerdeContext): Command[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Command(entry, context);
+      return de_Command(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContext): ComputeLimits => {
+/**
+ * deserializeAws_json1_1ComputeLimits
+ */
+const de_ComputeLimits = (output: any, context: __SerdeContext): ComputeLimits => {
   return {
     MaximumCapacityUnits: __expectInt32(output.MaximumCapacityUnits),
     MaximumCoreCapacityUnits: __expectInt32(output.MaximumCoreCapacityUnits),
@@ -5034,30 +5744,36 @@ const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): Configuration => {
+/**
+ * deserializeAws_json1_1Configuration
+ */
+const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
     Classification: __expectString(output.Classification),
-    Configurations:
-      output.Configurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
-        : undefined,
-    Properties: output.Properties != null ? deserializeAws_json1_1StringMap(output.Properties, context) : undefined,
+    Configurations: output.Configurations != null ? de_ConfigurationList(output.Configurations, context) : undefined,
+    Properties: output.Properties != null ? de_StringMap(output.Properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConfigurationList = (output: any, context: __SerdeContext): Configuration[] => {
+/**
+ * deserializeAws_json1_1ConfigurationList
+ */
+const de_ConfigurationList = (output: any, context: __SerdeContext): Configuration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Configuration(entry, context);
+      return de_Configuration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
+/**
+ * deserializeAws_json1_1CreateSecurityConfigurationOutput
+ */
+const de_CreateSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSecurityConfigurationOutput => {
@@ -5070,72 +5786,83 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateStudioOutput = (output: any, context: __SerdeContext): CreateStudioOutput => {
+/**
+ * deserializeAws_json1_1CreateStudioOutput
+ */
+const de_CreateStudioOutput = (output: any, context: __SerdeContext): CreateStudioOutput => {
   return {
     StudioId: __expectString(output.StudioId),
     Url: __expectString(output.Url),
   } as any;
 };
 
-const deserializeAws_json1_1Credentials = (output: any, context: __SerdeContext): Credentials => {
+/**
+ * deserializeAws_json1_1Credentials
+ */
+const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
   if (output.UsernamePassword != null) {
     return {
-      UsernamePassword: deserializeAws_json1_1UsernamePassword(output.UsernamePassword, context),
+      UsernamePassword: de_UsernamePassword(output.UsernamePassword, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
+/**
+ * deserializeAws_json1_1DeleteSecurityConfigurationOutput
+ */
+const de_DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteSecurityConfigurationOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeClusterOutput = (output: any, context: __SerdeContext): DescribeClusterOutput => {
+/**
+ * deserializeAws_json1_1DescribeClusterOutput
+ */
+const de_DescribeClusterOutput = (output: any, context: __SerdeContext): DescribeClusterOutput => {
   return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
+    Cluster: output.Cluster != null ? de_Cluster(output.Cluster, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeJobFlowsOutput = (output: any, context: __SerdeContext): DescribeJobFlowsOutput => {
+/**
+ * deserializeAws_json1_1DescribeJobFlowsOutput
+ */
+const de_DescribeJobFlowsOutput = (output: any, context: __SerdeContext): DescribeJobFlowsOutput => {
   return {
-    JobFlows: output.JobFlows != null ? deserializeAws_json1_1JobFlowDetailList(output.JobFlows, context) : undefined,
+    JobFlows: output.JobFlows != null ? de_JobFlowDetailList(output.JobFlows, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeNotebookExecutionOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeNotebookExecutionOutput => {
+/**
+ * deserializeAws_json1_1DescribeNotebookExecutionOutput
+ */
+const de_DescribeNotebookExecutionOutput = (output: any, context: __SerdeContext): DescribeNotebookExecutionOutput => {
   return {
     NotebookExecution:
-      output.NotebookExecution != null
-        ? deserializeAws_json1_1NotebookExecution(output.NotebookExecution, context)
-        : undefined,
+      output.NotebookExecution != null ? de_NotebookExecution(output.NotebookExecution, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeReleaseLabelOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeReleaseLabelOutput => {
+/**
+ * deserializeAws_json1_1DescribeReleaseLabelOutput
+ */
+const de_DescribeReleaseLabelOutput = (output: any, context: __SerdeContext): DescribeReleaseLabelOutput => {
   return {
-    Applications:
-      output.Applications != null
-        ? deserializeAws_json1_1SimplifiedApplicationList(output.Applications, context)
-        : undefined,
+    Applications: output.Applications != null ? de_SimplifiedApplicationList(output.Applications, context) : undefined,
     AvailableOSReleases:
-      output.AvailableOSReleases != null
-        ? deserializeAws_json1_1OSReleaseList(output.AvailableOSReleases, context)
-        : undefined,
+      output.AvailableOSReleases != null ? de_OSReleaseList(output.AvailableOSReleases, context) : undefined,
     NextToken: __expectString(output.NextToken),
     ReleaseLabel: __expectString(output.ReleaseLabel),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
+/**
+ * deserializeAws_json1_1DescribeSecurityConfigurationOutput
+ */
+const de_DescribeSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityConfigurationOutput => {
@@ -5149,68 +5876,87 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeStepOutput = (output: any, context: __SerdeContext): DescribeStepOutput => {
+/**
+ * deserializeAws_json1_1DescribeStepOutput
+ */
+const de_DescribeStepOutput = (output: any, context: __SerdeContext): DescribeStepOutput => {
   return {
-    Step: output.Step != null ? deserializeAws_json1_1Step(output.Step, context) : undefined,
+    Step: output.Step != null ? de_Step(output.Step, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeStudioOutput = (output: any, context: __SerdeContext): DescribeStudioOutput => {
+/**
+ * deserializeAws_json1_1DescribeStudioOutput
+ */
+const de_DescribeStudioOutput = (output: any, context: __SerdeContext): DescribeStudioOutput => {
   return {
-    Studio: output.Studio != null ? deserializeAws_json1_1Studio(output.Studio, context) : undefined,
+    Studio: output.Studio != null ? de_Studio(output.Studio, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
+/**
+ * deserializeAws_json1_1EbsBlockDevice
+ */
+const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
   return {
     Device: __expectString(output.Device),
     VolumeSpecification:
-      output.VolumeSpecification != null
-        ? deserializeAws_json1_1VolumeSpecification(output.VolumeSpecification, context)
-        : undefined,
+      output.VolumeSpecification != null ? de_VolumeSpecification(output.VolumeSpecification, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EbsBlockDeviceList = (output: any, context: __SerdeContext): EbsBlockDevice[] => {
+/**
+ * deserializeAws_json1_1EbsBlockDeviceList
+ */
+const de_EbsBlockDeviceList = (output: any, context: __SerdeContext): EbsBlockDevice[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EbsBlockDevice(entry, context);
+      return de_EbsBlockDevice(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EbsVolume = (output: any, context: __SerdeContext): EbsVolume => {
+/**
+ * deserializeAws_json1_1EbsVolume
+ */
+const de_EbsVolume = (output: any, context: __SerdeContext): EbsVolume => {
   return {
     Device: __expectString(output.Device),
     VolumeId: __expectString(output.VolumeId),
   } as any;
 };
 
-const deserializeAws_json1_1EbsVolumeList = (output: any, context: __SerdeContext): EbsVolume[] => {
+/**
+ * deserializeAws_json1_1EbsVolumeList
+ */
+const de_EbsVolumeList = (output: any, context: __SerdeContext): EbsVolume[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EbsVolume(entry, context);
+      return de_EbsVolume(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Ec2InstanceAttributes = (output: any, context: __SerdeContext): Ec2InstanceAttributes => {
+/**
+ * deserializeAws_json1_1Ec2InstanceAttributes
+ */
+const de_Ec2InstanceAttributes = (output: any, context: __SerdeContext): Ec2InstanceAttributes => {
   return {
     AdditionalMasterSecurityGroups:
       output.AdditionalMasterSecurityGroups != null
-        ? deserializeAws_json1_1StringList(output.AdditionalMasterSecurityGroups, context)
+        ? de_StringList(output.AdditionalMasterSecurityGroups, context)
         : undefined,
     AdditionalSlaveSecurityGroups:
       output.AdditionalSlaveSecurityGroups != null
-        ? deserializeAws_json1_1StringList(output.AdditionalSlaveSecurityGroups, context)
+        ? de_StringList(output.AdditionalSlaveSecurityGroups, context)
         : undefined,
     Ec2AvailabilityZone: __expectString(output.Ec2AvailabilityZone),
     Ec2KeyName: __expectString(output.Ec2KeyName),
@@ -5220,17 +5966,20 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (output: any, context: __Ser
     IamInstanceProfile: __expectString(output.IamInstanceProfile),
     RequestedEc2AvailabilityZones:
       output.RequestedEc2AvailabilityZones != null
-        ? deserializeAws_json1_1XmlStringMaxLen256List(output.RequestedEc2AvailabilityZones, context)
+        ? de_XmlStringMaxLen256List(output.RequestedEc2AvailabilityZones, context)
         : undefined,
     RequestedEc2SubnetIds:
       output.RequestedEc2SubnetIds != null
-        ? deserializeAws_json1_1XmlStringMaxLen256List(output.RequestedEc2SubnetIds, context)
+        ? de_XmlStringMaxLen256List(output.RequestedEc2SubnetIds, context)
         : undefined,
     ServiceAccessSecurityGroup: __expectString(output.ServiceAccessSecurityGroup),
   } as any;
 };
 
-const deserializeAws_json1_1EC2InstanceIdsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1EC2InstanceIdsList
+ */
+const de_EC2InstanceIdsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5242,39 +5991,51 @@ const deserializeAws_json1_1EC2InstanceIdsList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_json1_1ErrorData = (output: any, context: __SerdeContext): Record<string, string>[] => {
+/**
+ * deserializeAws_json1_1ErrorData
+ */
+const de_ErrorData = (output: any, context: __SerdeContext): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StringMap(entry, context);
+      return de_StringMap(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
+/**
+ * deserializeAws_json1_1ErrorDetail
+ */
+const de_ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
-    ErrorData: output.ErrorData != null ? deserializeAws_json1_1ErrorData(output.ErrorData, context) : undefined,
+    ErrorData: output.ErrorData != null ? de_ErrorData(output.ErrorData, context) : undefined,
     ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 
-const deserializeAws_json1_1ErrorDetailList = (output: any, context: __SerdeContext): ErrorDetail[] => {
+/**
+ * deserializeAws_json1_1ErrorDetailList
+ */
+const de_ErrorDetailList = (output: any, context: __SerdeContext): ErrorDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ErrorDetail(entry, context);
+      return de_ErrorDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExecutionEngineConfig = (output: any, context: __SerdeContext): ExecutionEngineConfig => {
+/**
+ * deserializeAws_json1_1ExecutionEngineConfig
+ */
+const de_ExecutionEngineConfig = (output: any, context: __SerdeContext): ExecutionEngineConfig => {
   return {
     Id: __expectString(output.Id),
     MasterInstanceSecurityGroupId: __expectString(output.MasterInstanceSecurityGroupId),
@@ -5282,7 +6043,10 @@ const deserializeAws_json1_1ExecutionEngineConfig = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
+/**
+ * deserializeAws_json1_1FailureDetails
+ */
+const de_FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
   return {
     LogFile: __expectString(output.LogFile),
     Message: __expectString(output.Message),
@@ -5290,96 +6054,100 @@ const deserializeAws_json1_1FailureDetails = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1GetAutoTerminationPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): GetAutoTerminationPolicyOutput => {
+/**
+ * deserializeAws_json1_1GetAutoTerminationPolicyOutput
+ */
+const de_GetAutoTerminationPolicyOutput = (output: any, context: __SerdeContext): GetAutoTerminationPolicyOutput => {
   return {
     AutoTerminationPolicy:
       output.AutoTerminationPolicy != null
-        ? deserializeAws_json1_1AutoTerminationPolicy(output.AutoTerminationPolicy, context)
+        ? de_AutoTerminationPolicy(output.AutoTerminationPolicy, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
+/**
+ * deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput
+ */
+const de_GetBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): GetBlockPublicAccessConfigurationOutput => {
   return {
     BlockPublicAccessConfiguration:
       output.BlockPublicAccessConfiguration != null
-        ? deserializeAws_json1_1BlockPublicAccessConfiguration(output.BlockPublicAccessConfiguration, context)
+        ? de_BlockPublicAccessConfiguration(output.BlockPublicAccessConfiguration, context)
         : undefined,
     BlockPublicAccessConfigurationMetadata:
       output.BlockPublicAccessConfigurationMetadata != null
-        ? deserializeAws_json1_1BlockPublicAccessConfigurationMetadata(
-            output.BlockPublicAccessConfigurationMetadata,
-            context
-          )
+        ? de_BlockPublicAccessConfigurationMetadata(output.BlockPublicAccessConfigurationMetadata, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetClusterSessionCredentialsOutput = (
+/**
+ * deserializeAws_json1_1GetClusterSessionCredentialsOutput
+ */
+const de_GetClusterSessionCredentialsOutput = (
   output: any,
   context: __SerdeContext
 ): GetClusterSessionCredentialsOutput => {
   return {
-    Credentials:
-      output.Credentials != null
-        ? deserializeAws_json1_1Credentials(__expectUnion(output.Credentials), context)
-        : undefined,
+    Credentials: output.Credentials != null ? de_Credentials(__expectUnion(output.Credentials), context) : undefined,
     ExpiresAt:
       output.ExpiresAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiresAt))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetManagedScalingPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): GetManagedScalingPolicyOutput => {
+/**
+ * deserializeAws_json1_1GetManagedScalingPolicyOutput
+ */
+const de_GetManagedScalingPolicyOutput = (output: any, context: __SerdeContext): GetManagedScalingPolicyOutput => {
   return {
     ManagedScalingPolicy:
-      output.ManagedScalingPolicy != null
-        ? deserializeAws_json1_1ManagedScalingPolicy(output.ManagedScalingPolicy, context)
-        : undefined,
+      output.ManagedScalingPolicy != null ? de_ManagedScalingPolicy(output.ManagedScalingPolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetStudioSessionMappingOutput = (
-  output: any,
-  context: __SerdeContext
-): GetStudioSessionMappingOutput => {
+/**
+ * deserializeAws_json1_1GetStudioSessionMappingOutput
+ */
+const de_GetStudioSessionMappingOutput = (output: any, context: __SerdeContext): GetStudioSessionMappingOutput => {
   return {
-    SessionMapping:
-      output.SessionMapping != null
-        ? deserializeAws_json1_1SessionMappingDetail(output.SessionMapping, context)
-        : undefined,
+    SessionMapping: output.SessionMapping != null ? de_SessionMappingDetail(output.SessionMapping, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HadoopJarStepConfig = (output: any, context: __SerdeContext): HadoopJarStepConfig => {
+/**
+ * deserializeAws_json1_1HadoopJarStepConfig
+ */
+const de_HadoopJarStepConfig = (output: any, context: __SerdeContext): HadoopJarStepConfig => {
   return {
-    Args: output.Args != null ? deserializeAws_json1_1XmlStringList(output.Args, context) : undefined,
+    Args: output.Args != null ? de_XmlStringList(output.Args, context) : undefined,
     Jar: __expectString(output.Jar),
     MainClass: __expectString(output.MainClass),
-    Properties: output.Properties != null ? deserializeAws_json1_1KeyValueList(output.Properties, context) : undefined,
+    Properties: output.Properties != null ? de_KeyValueList(output.Properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HadoopStepConfig = (output: any, context: __SerdeContext): HadoopStepConfig => {
+/**
+ * deserializeAws_json1_1HadoopStepConfig
+ */
+const de_HadoopStepConfig = (output: any, context: __SerdeContext): HadoopStepConfig => {
   return {
-    Args: output.Args != null ? deserializeAws_json1_1StringList(output.Args, context) : undefined,
+    Args: output.Args != null ? de_StringList(output.Args, context) : undefined,
     Jar: __expectString(output.Jar),
     MainClass: __expectString(output.MainClass),
-    Properties: output.Properties != null ? deserializeAws_json1_1StringMap(output.Properties, context) : undefined,
+    Properties: output.Properties != null ? de_StringMap(output.Properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
+/**
+ * deserializeAws_json1_1Instance
+ */
+const de_Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    EbsVolumes: output.EbsVolumes != null ? deserializeAws_json1_1EbsVolumeList(output.EbsVolumes, context) : undefined,
+    EbsVolumes: output.EbsVolumes != null ? de_EbsVolumeList(output.EbsVolumes, context) : undefined,
     Ec2InstanceId: __expectString(output.Ec2InstanceId),
     Id: __expectString(output.Id),
     InstanceFleetId: __expectString(output.InstanceFleetId),
@@ -5390,102 +6158,119 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
     PrivateIpAddress: __expectString(output.PrivateIpAddress),
     PublicDnsName: __expectString(output.PublicDnsName),
     PublicIpAddress: __expectString(output.PublicIpAddress),
-    Status: output.Status != null ? deserializeAws_json1_1InstanceStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_InstanceStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
+/**
+ * deserializeAws_json1_1InstanceFleet
+ */
+const de_InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
   return {
     Id: __expectString(output.Id),
     InstanceFleetType: __expectString(output.InstanceFleetType),
     InstanceTypeSpecifications:
       output.InstanceTypeSpecifications != null
-        ? deserializeAws_json1_1InstanceTypeSpecificationList(output.InstanceTypeSpecifications, context)
+        ? de_InstanceTypeSpecificationList(output.InstanceTypeSpecifications, context)
         : undefined,
     LaunchSpecifications:
       output.LaunchSpecifications != null
-        ? deserializeAws_json1_1InstanceFleetProvisioningSpecifications(output.LaunchSpecifications, context)
+        ? de_InstanceFleetProvisioningSpecifications(output.LaunchSpecifications, context)
         : undefined,
     Name: __expectString(output.Name),
     ProvisionedOnDemandCapacity: __expectInt32(output.ProvisionedOnDemandCapacity),
     ProvisionedSpotCapacity: __expectInt32(output.ProvisionedSpotCapacity),
     ResizeSpecifications:
       output.ResizeSpecifications != null
-        ? deserializeAws_json1_1InstanceFleetResizingSpecifications(output.ResizeSpecifications, context)
+        ? de_InstanceFleetResizingSpecifications(output.ResizeSpecifications, context)
         : undefined,
-    Status: output.Status != null ? deserializeAws_json1_1InstanceFleetStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_InstanceFleetStatus(output.Status, context) : undefined,
     TargetOnDemandCapacity: __expectInt32(output.TargetOnDemandCapacity),
     TargetSpotCapacity: __expectInt32(output.TargetSpotCapacity),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleetList = (output: any, context: __SerdeContext): InstanceFleet[] => {
+/**
+ * deserializeAws_json1_1InstanceFleetList
+ */
+const de_InstanceFleetList = (output: any, context: __SerdeContext): InstanceFleet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceFleet(entry, context);
+      return de_InstanceFleet(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
+/**
+ * deserializeAws_json1_1InstanceFleetProvisioningSpecifications
+ */
+const de_InstanceFleetProvisioningSpecifications = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetProvisioningSpecifications => {
   return {
     OnDemandSpecification:
       output.OnDemandSpecification != null
-        ? deserializeAws_json1_1OnDemandProvisioningSpecification(output.OnDemandSpecification, context)
+        ? de_OnDemandProvisioningSpecification(output.OnDemandSpecification, context)
         : undefined,
     SpotSpecification:
       output.SpotSpecification != null
-        ? deserializeAws_json1_1SpotProvisioningSpecification(output.SpotSpecification, context)
+        ? de_SpotProvisioningSpecification(output.SpotSpecification, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleetResizingSpecifications = (
+/**
+ * deserializeAws_json1_1InstanceFleetResizingSpecifications
+ */
+const de_InstanceFleetResizingSpecifications = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetResizingSpecifications => {
   return {
     OnDemandResizeSpecification:
       output.OnDemandResizeSpecification != null
-        ? deserializeAws_json1_1OnDemandResizingSpecification(output.OnDemandResizeSpecification, context)
+        ? de_OnDemandResizingSpecification(output.OnDemandResizeSpecification, context)
         : undefined,
     SpotResizeSpecification:
       output.SpotResizeSpecification != null
-        ? deserializeAws_json1_1SpotResizingSpecification(output.SpotResizeSpecification, context)
+        ? de_SpotResizingSpecification(output.SpotResizeSpecification, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleetStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): InstanceFleetStateChangeReason => {
+/**
+ * deserializeAws_json1_1InstanceFleetStateChangeReason
+ */
+const de_InstanceFleetStateChangeReason = (output: any, context: __SerdeContext): InstanceFleetStateChangeReason => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleetStatus = (output: any, context: __SerdeContext): InstanceFleetStatus => {
+/**
+ * deserializeAws_json1_1InstanceFleetStatus
+ */
+const de_InstanceFleetStatus = (output: any, context: __SerdeContext): InstanceFleetStatus => {
   return {
     State: __expectString(output.State),
     StateChangeReason:
       output.StateChangeReason != null
-        ? deserializeAws_json1_1InstanceFleetStateChangeReason(output.StateChangeReason, context)
+        ? de_InstanceFleetStateChangeReason(output.StateChangeReason, context)
         : undefined,
-    Timeline:
-      output.Timeline != null ? deserializeAws_json1_1InstanceFleetTimeline(output.Timeline, context) : undefined,
+    Timeline: output.Timeline != null ? de_InstanceFleetTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceFleetTimeline = (output: any, context: __SerdeContext): InstanceFleetTimeline => {
+/**
+ * deserializeAws_json1_1InstanceFleetTimeline
+ */
+const de_InstanceFleetTimeline = (output: any, context: __SerdeContext): InstanceFleetTimeline => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -5502,43 +6287,41 @@ const deserializeAws_json1_1InstanceFleetTimeline = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContext): InstanceGroup => {
+/**
+ * deserializeAws_json1_1InstanceGroup
+ */
+const de_InstanceGroup = (output: any, context: __SerdeContext): InstanceGroup => {
   return {
     AutoScalingPolicy:
-      output.AutoScalingPolicy != null
-        ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
-        : undefined,
+      output.AutoScalingPolicy != null ? de_AutoScalingPolicyDescription(output.AutoScalingPolicy, context) : undefined,
     BidPrice: __expectString(output.BidPrice),
-    Configurations:
-      output.Configurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
-        : undefined,
+    Configurations: output.Configurations != null ? de_ConfigurationList(output.Configurations, context) : undefined,
     ConfigurationsVersion: __expectLong(output.ConfigurationsVersion),
     CustomAmiId: __expectString(output.CustomAmiId),
     EbsBlockDevices:
-      output.EbsBlockDevices != null
-        ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)
-        : undefined,
+      output.EbsBlockDevices != null ? de_EbsBlockDeviceList(output.EbsBlockDevices, context) : undefined,
     EbsOptimized: __expectBoolean(output.EbsOptimized),
     Id: __expectString(output.Id),
     InstanceGroupType: __expectString(output.InstanceGroupType),
     InstanceType: __expectString(output.InstanceType),
     LastSuccessfullyAppliedConfigurations:
       output.LastSuccessfullyAppliedConfigurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.LastSuccessfullyAppliedConfigurations, context)
+        ? de_ConfigurationList(output.LastSuccessfullyAppliedConfigurations, context)
         : undefined,
     LastSuccessfullyAppliedConfigurationsVersion: __expectLong(output.LastSuccessfullyAppliedConfigurationsVersion),
     Market: __expectString(output.Market),
     Name: __expectString(output.Name),
     RequestedInstanceCount: __expectInt32(output.RequestedInstanceCount),
     RunningInstanceCount: __expectInt32(output.RunningInstanceCount),
-    ShrinkPolicy:
-      output.ShrinkPolicy != null ? deserializeAws_json1_1ShrinkPolicy(output.ShrinkPolicy, context) : undefined,
-    Status: output.Status != null ? deserializeAws_json1_1InstanceGroupStatus(output.Status, context) : undefined,
+    ShrinkPolicy: output.ShrinkPolicy != null ? de_ShrinkPolicy(output.ShrinkPolicy, context) : undefined,
+    Status: output.Status != null ? de_InstanceGroupStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceGroupDetail = (output: any, context: __SerdeContext): InstanceGroupDetail => {
+/**
+ * deserializeAws_json1_1InstanceGroupDetail
+ */
+const de_InstanceGroupDetail = (output: any, context: __SerdeContext): InstanceGroupDetail => {
   return {
     BidPrice: __expectString(output.BidPrice),
     CreationDateTime:
@@ -5570,19 +6353,25 @@ const deserializeAws_json1_1InstanceGroupDetail = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1InstanceGroupDetailList = (output: any, context: __SerdeContext): InstanceGroupDetail[] => {
+/**
+ * deserializeAws_json1_1InstanceGroupDetailList
+ */
+const de_InstanceGroupDetailList = (output: any, context: __SerdeContext): InstanceGroupDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceGroupDetail(entry, context);
+      return de_InstanceGroupDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceGroupIdsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1InstanceGroupIdsList
+ */
+const de_InstanceGroupIdsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5594,41 +6383,49 @@ const deserializeAws_json1_1InstanceGroupIdsList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceGroupList = (output: any, context: __SerdeContext): InstanceGroup[] => {
+/**
+ * deserializeAws_json1_1InstanceGroupList
+ */
+const de_InstanceGroupList = (output: any, context: __SerdeContext): InstanceGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceGroup(entry, context);
+      return de_InstanceGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceGroupStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): InstanceGroupStateChangeReason => {
+/**
+ * deserializeAws_json1_1InstanceGroupStateChangeReason
+ */
+const de_InstanceGroupStateChangeReason = (output: any, context: __SerdeContext): InstanceGroupStateChangeReason => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceGroupStatus = (output: any, context: __SerdeContext): InstanceGroupStatus => {
+/**
+ * deserializeAws_json1_1InstanceGroupStatus
+ */
+const de_InstanceGroupStatus = (output: any, context: __SerdeContext): InstanceGroupStatus => {
   return {
     State: __expectString(output.State),
     StateChangeReason:
       output.StateChangeReason != null
-        ? deserializeAws_json1_1InstanceGroupStateChangeReason(output.StateChangeReason, context)
+        ? de_InstanceGroupStateChangeReason(output.StateChangeReason, context)
         : undefined,
-    Timeline:
-      output.Timeline != null ? deserializeAws_json1_1InstanceGroupTimeline(output.Timeline, context) : undefined,
+    Timeline: output.Timeline != null ? de_InstanceGroupTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceGroupTimeline = (output: any, context: __SerdeContext): InstanceGroupTimeline => {
+/**
+ * deserializeAws_json1_1InstanceGroupTimeline
+ */
+const de_InstanceGroupTimeline = (output: any, context: __SerdeContext): InstanceGroupTimeline => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -5645,54 +6442,60 @@ const deserializeAws_json1_1InstanceGroupTimeline = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext): Instance[] => {
+/**
+ * deserializeAws_json1_1InstanceList
+ */
+const de_InstanceList = (output: any, context: __SerdeContext): Instance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Instance(entry, context);
+      return de_Instance(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceResizePolicy = (output: any, context: __SerdeContext): InstanceResizePolicy => {
+/**
+ * deserializeAws_json1_1InstanceResizePolicy
+ */
+const de_InstanceResizePolicy = (output: any, context: __SerdeContext): InstanceResizePolicy => {
   return {
     InstanceTerminationTimeout: __expectInt32(output.InstanceTerminationTimeout),
     InstancesToProtect:
-      output.InstancesToProtect != null
-        ? deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToProtect, context)
-        : undefined,
+      output.InstancesToProtect != null ? de_EC2InstanceIdsList(output.InstancesToProtect, context) : undefined,
     InstancesToTerminate:
-      output.InstancesToTerminate != null
-        ? deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToTerminate, context)
-        : undefined,
+      output.InstancesToTerminate != null ? de_EC2InstanceIdsList(output.InstancesToTerminate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): InstanceStateChangeReason => {
+/**
+ * deserializeAws_json1_1InstanceStateChangeReason
+ */
+const de_InstanceStateChangeReason = (output: any, context: __SerdeContext): InstanceStateChangeReason => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
+/**
+ * deserializeAws_json1_1InstanceStatus
+ */
+const de_InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
   return {
     State: __expectString(output.State),
     StateChangeReason:
-      output.StateChangeReason != null
-        ? deserializeAws_json1_1InstanceStateChangeReason(output.StateChangeReason, context)
-        : undefined,
-    Timeline: output.Timeline != null ? deserializeAws_json1_1InstanceTimeline(output.Timeline, context) : undefined,
+      output.StateChangeReason != null ? de_InstanceStateChangeReason(output.StateChangeReason, context) : undefined,
+    Timeline: output.Timeline != null ? de_InstanceTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceTimeline = (output: any, context: __SerdeContext): InstanceTimeline => {
+/**
+ * deserializeAws_json1_1InstanceTimeline
+ */
+const de_InstanceTimeline = (output: any, context: __SerdeContext): InstanceTimeline => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -5709,80 +6512,78 @@ const deserializeAws_json1_1InstanceTimeline = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1InstanceTypeSpecification = (
-  output: any,
-  context: __SerdeContext
-): InstanceTypeSpecification => {
+/**
+ * deserializeAws_json1_1InstanceTypeSpecification
+ */
+const de_InstanceTypeSpecification = (output: any, context: __SerdeContext): InstanceTypeSpecification => {
   return {
     BidPrice: __expectString(output.BidPrice),
     BidPriceAsPercentageOfOnDemandPrice: __limitedParseDouble(output.BidPriceAsPercentageOfOnDemandPrice),
-    Configurations:
-      output.Configurations != null
-        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
-        : undefined,
+    Configurations: output.Configurations != null ? de_ConfigurationList(output.Configurations, context) : undefined,
     CustomAmiId: __expectString(output.CustomAmiId),
     EbsBlockDevices:
-      output.EbsBlockDevices != null
-        ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)
-        : undefined,
+      output.EbsBlockDevices != null ? de_EbsBlockDeviceList(output.EbsBlockDevices, context) : undefined,
     EbsOptimized: __expectBoolean(output.EbsOptimized),
     InstanceType: __expectString(output.InstanceType),
     WeightedCapacity: __expectInt32(output.WeightedCapacity),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceTypeSpecificationList = (
-  output: any,
-  context: __SerdeContext
-): InstanceTypeSpecification[] => {
+/**
+ * deserializeAws_json1_1InstanceTypeSpecificationList
+ */
+const de_InstanceTypeSpecificationList = (output: any, context: __SerdeContext): InstanceTypeSpecification[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceTypeSpecification(entry, context);
+      return de_InstanceTypeSpecification(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
+/**
+ * deserializeAws_json1_1InternalServerError
+ */
+const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {} as any;
 };
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_1InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
+/**
+ * deserializeAws_json1_1InvalidRequestException
+ */
+const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1JobFlowDetail = (output: any, context: __SerdeContext): JobFlowDetail => {
+/**
+ * deserializeAws_json1_1JobFlowDetail
+ */
+const de_JobFlowDetail = (output: any, context: __SerdeContext): JobFlowDetail => {
   return {
     AmiVersion: __expectString(output.AmiVersion),
     AutoScalingRole: __expectString(output.AutoScalingRole),
     BootstrapActions:
-      output.BootstrapActions != null
-        ? deserializeAws_json1_1BootstrapActionDetailList(output.BootstrapActions, context)
-        : undefined,
+      output.BootstrapActions != null ? de_BootstrapActionDetailList(output.BootstrapActions, context) : undefined,
     ExecutionStatusDetail:
       output.ExecutionStatusDetail != null
-        ? deserializeAws_json1_1JobFlowExecutionStatusDetail(output.ExecutionStatusDetail, context)
+        ? de_JobFlowExecutionStatusDetail(output.ExecutionStatusDetail, context)
         : undefined,
-    Instances:
-      output.Instances != null ? deserializeAws_json1_1JobFlowInstancesDetail(output.Instances, context) : undefined,
+    Instances: output.Instances != null ? de_JobFlowInstancesDetail(output.Instances, context) : undefined,
     JobFlowId: __expectString(output.JobFlowId),
     JobFlowRole: __expectString(output.JobFlowRole),
     LogEncryptionKmsKeyId: __expectString(output.LogEncryptionKmsKeyId),
@@ -5790,31 +6591,32 @@ const deserializeAws_json1_1JobFlowDetail = (output: any, context: __SerdeContex
     Name: __expectString(output.Name),
     ScaleDownBehavior: __expectString(output.ScaleDownBehavior),
     ServiceRole: __expectString(output.ServiceRole),
-    Steps: output.Steps != null ? deserializeAws_json1_1StepDetailList(output.Steps, context) : undefined,
+    Steps: output.Steps != null ? de_StepDetailList(output.Steps, context) : undefined,
     SupportedProducts:
-      output.SupportedProducts != null
-        ? deserializeAws_json1_1SupportedProductsList(output.SupportedProducts, context)
-        : undefined,
+      output.SupportedProducts != null ? de_SupportedProductsList(output.SupportedProducts, context) : undefined,
     VisibleToAllUsers: __expectBoolean(output.VisibleToAllUsers),
   } as any;
 };
 
-const deserializeAws_json1_1JobFlowDetailList = (output: any, context: __SerdeContext): JobFlowDetail[] => {
+/**
+ * deserializeAws_json1_1JobFlowDetailList
+ */
+const de_JobFlowDetailList = (output: any, context: __SerdeContext): JobFlowDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1JobFlowDetail(entry, context);
+      return de_JobFlowDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
-  output: any,
-  context: __SerdeContext
-): JobFlowExecutionStatusDetail => {
+/**
+ * deserializeAws_json1_1JobFlowExecutionStatusDetail
+ */
+const de_JobFlowExecutionStatusDetail = (output: any, context: __SerdeContext): JobFlowExecutionStatusDetail => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -5837,28 +6639,32 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
   } as any;
 };
 
-const deserializeAws_json1_1JobFlowInstancesDetail = (output: any, context: __SerdeContext): JobFlowInstancesDetail => {
+/**
+ * deserializeAws_json1_1JobFlowInstancesDetail
+ */
+const de_JobFlowInstancesDetail = (output: any, context: __SerdeContext): JobFlowInstancesDetail => {
   return {
     Ec2KeyName: __expectString(output.Ec2KeyName),
     Ec2SubnetId: __expectString(output.Ec2SubnetId),
     HadoopVersion: __expectString(output.HadoopVersion),
     InstanceCount: __expectInt32(output.InstanceCount),
     InstanceGroups:
-      output.InstanceGroups != null
-        ? deserializeAws_json1_1InstanceGroupDetailList(output.InstanceGroups, context)
-        : undefined,
+      output.InstanceGroups != null ? de_InstanceGroupDetailList(output.InstanceGroups, context) : undefined,
     KeepJobFlowAliveWhenNoSteps: __expectBoolean(output.KeepJobFlowAliveWhenNoSteps),
     MasterInstanceId: __expectString(output.MasterInstanceId),
     MasterInstanceType: __expectString(output.MasterInstanceType),
     MasterPublicDnsName: __expectString(output.MasterPublicDnsName),
     NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
-    Placement: output.Placement != null ? deserializeAws_json1_1PlacementType(output.Placement, context) : undefined,
+    Placement: output.Placement != null ? de_PlacementType(output.Placement, context) : undefined,
     SlaveInstanceType: __expectString(output.SlaveInstanceType),
     TerminationProtected: __expectBoolean(output.TerminationProtected),
   } as any;
 };
 
-const deserializeAws_json1_1KerberosAttributes = (output: any, context: __SerdeContext): KerberosAttributes => {
+/**
+ * deserializeAws_json1_1KerberosAttributes
+ */
+const de_KerberosAttributes = (output: any, context: __SerdeContext): KerberosAttributes => {
   return {
     ADDomainJoinPassword: __expectString(output.ADDomainJoinPassword),
     ADDomainJoinUser: __expectString(output.ADDomainJoinUser),
@@ -5868,101 +6674,108 @@ const deserializeAws_json1_1KerberosAttributes = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1KeyValue = (output: any, context: __SerdeContext): KeyValue => {
+/**
+ * deserializeAws_json1_1KeyValue
+ */
+const de_KeyValue = (output: any, context: __SerdeContext): KeyValue => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1KeyValueList = (output: any, context: __SerdeContext): KeyValue[] => {
+/**
+ * deserializeAws_json1_1KeyValueList
+ */
+const de_KeyValueList = (output: any, context: __SerdeContext): KeyValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1KeyValue(entry, context);
+      return de_KeyValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListBootstrapActionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListBootstrapActionsOutput => {
+/**
+ * deserializeAws_json1_1ListBootstrapActionsOutput
+ */
+const de_ListBootstrapActionsOutput = (output: any, context: __SerdeContext): ListBootstrapActionsOutput => {
   return {
-    BootstrapActions:
-      output.BootstrapActions != null ? deserializeAws_json1_1CommandList(output.BootstrapActions, context) : undefined,
+    BootstrapActions: output.BootstrapActions != null ? de_CommandList(output.BootstrapActions, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListClustersOutput = (output: any, context: __SerdeContext): ListClustersOutput => {
+/**
+ * deserializeAws_json1_1ListClustersOutput
+ */
+const de_ListClustersOutput = (output: any, context: __SerdeContext): ListClustersOutput => {
   return {
-    Clusters: output.Clusters != null ? deserializeAws_json1_1ClusterSummaryList(output.Clusters, context) : undefined,
+    Clusters: output.Clusters != null ? de_ClusterSummaryList(output.Clusters, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListInstanceFleetsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListInstanceFleetsOutput => {
+/**
+ * deserializeAws_json1_1ListInstanceFleetsOutput
+ */
+const de_ListInstanceFleetsOutput = (output: any, context: __SerdeContext): ListInstanceFleetsOutput => {
   return {
-    InstanceFleets:
-      output.InstanceFleets != null
-        ? deserializeAws_json1_1InstanceFleetList(output.InstanceFleets, context)
-        : undefined,
+    InstanceFleets: output.InstanceFleets != null ? de_InstanceFleetList(output.InstanceFleets, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListInstanceGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListInstanceGroupsOutput => {
+/**
+ * deserializeAws_json1_1ListInstanceGroupsOutput
+ */
+const de_ListInstanceGroupsOutput = (output: any, context: __SerdeContext): ListInstanceGroupsOutput => {
   return {
-    InstanceGroups:
-      output.InstanceGroups != null
-        ? deserializeAws_json1_1InstanceGroupList(output.InstanceGroups, context)
-        : undefined,
+    InstanceGroups: output.InstanceGroups != null ? de_InstanceGroupList(output.InstanceGroups, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListInstancesOutput = (output: any, context: __SerdeContext): ListInstancesOutput => {
+/**
+ * deserializeAws_json1_1ListInstancesOutput
+ */
+const de_ListInstancesOutput = (output: any, context: __SerdeContext): ListInstancesOutput => {
   return {
-    Instances: output.Instances != null ? deserializeAws_json1_1InstanceList(output.Instances, context) : undefined,
+    Instances: output.Instances != null ? de_InstanceList(output.Instances, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListNotebookExecutionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListNotebookExecutionsOutput => {
+/**
+ * deserializeAws_json1_1ListNotebookExecutionsOutput
+ */
+const de_ListNotebookExecutionsOutput = (output: any, context: __SerdeContext): ListNotebookExecutionsOutput => {
   return {
     Marker: __expectString(output.Marker),
     NotebookExecutions:
       output.NotebookExecutions != null
-        ? deserializeAws_json1_1NotebookExecutionSummaryList(output.NotebookExecutions, context)
+        ? de_NotebookExecutionSummaryList(output.NotebookExecutions, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListReleaseLabelsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListReleaseLabelsOutput => {
+/**
+ * deserializeAws_json1_1ListReleaseLabelsOutput
+ */
+const de_ListReleaseLabelsOutput = (output: any, context: __SerdeContext): ListReleaseLabelsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    ReleaseLabels:
-      output.ReleaseLabels != null ? deserializeAws_json1_1StringList(output.ReleaseLabels, context) : undefined,
+    ReleaseLabels: output.ReleaseLabels != null ? de_StringList(output.ReleaseLabels, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
+/**
+ * deserializeAws_json1_1ListSecurityConfigurationsOutput
+ */
+const de_ListSecurityConfigurationsOutput = (
   output: any,
   context: __SerdeContext
 ): ListSecurityConfigurationsOutput => {
@@ -5970,80 +6783,96 @@ const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
     Marker: __expectString(output.Marker),
     SecurityConfigurations:
       output.SecurityConfigurations != null
-        ? deserializeAws_json1_1SecurityConfigurationList(output.SecurityConfigurations, context)
+        ? de_SecurityConfigurationList(output.SecurityConfigurations, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListStepsOutput = (output: any, context: __SerdeContext): ListStepsOutput => {
+/**
+ * deserializeAws_json1_1ListStepsOutput
+ */
+const de_ListStepsOutput = (output: any, context: __SerdeContext): ListStepsOutput => {
   return {
     Marker: __expectString(output.Marker),
-    Steps: output.Steps != null ? deserializeAws_json1_1StepSummaryList(output.Steps, context) : undefined,
+    Steps: output.Steps != null ? de_StepSummaryList(output.Steps, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListStudioSessionMappingsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListStudioSessionMappingsOutput => {
+/**
+ * deserializeAws_json1_1ListStudioSessionMappingsOutput
+ */
+const de_ListStudioSessionMappingsOutput = (output: any, context: __SerdeContext): ListStudioSessionMappingsOutput => {
   return {
     Marker: __expectString(output.Marker),
     SessionMappings:
-      output.SessionMappings != null
-        ? deserializeAws_json1_1SessionMappingSummaryList(output.SessionMappings, context)
-        : undefined,
+      output.SessionMappings != null ? de_SessionMappingSummaryList(output.SessionMappings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListStudiosOutput = (output: any, context: __SerdeContext): ListStudiosOutput => {
+/**
+ * deserializeAws_json1_1ListStudiosOutput
+ */
+const de_ListStudiosOutput = (output: any, context: __SerdeContext): ListStudiosOutput => {
   return {
     Marker: __expectString(output.Marker),
-    Studios: output.Studios != null ? deserializeAws_json1_1StudioSummaryList(output.Studios, context) : undefined,
+    Studios: output.Studios != null ? de_StudioSummaryList(output.Studios, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ManagedScalingPolicy = (output: any, context: __SerdeContext): ManagedScalingPolicy => {
+/**
+ * deserializeAws_json1_1ManagedScalingPolicy
+ */
+const de_ManagedScalingPolicy = (output: any, context: __SerdeContext): ManagedScalingPolicy => {
   return {
-    ComputeLimits:
-      output.ComputeLimits != null ? deserializeAws_json1_1ComputeLimits(output.ComputeLimits, context) : undefined,
+    ComputeLimits: output.ComputeLimits != null ? de_ComputeLimits(output.ComputeLimits, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
+/**
+ * deserializeAws_json1_1MetricDimension
+ */
+const de_MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1MetricDimensionList = (output: any, context: __SerdeContext): MetricDimension[] => {
+/**
+ * deserializeAws_json1_1MetricDimensionList
+ */
+const de_MetricDimensionList = (output: any, context: __SerdeContext): MetricDimension[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MetricDimension(entry, context);
+      return de_MetricDimension(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ModifyClusterOutput = (output: any, context: __SerdeContext): ModifyClusterOutput => {
+/**
+ * deserializeAws_json1_1ModifyClusterOutput
+ */
+const de_ModifyClusterOutput = (output: any, context: __SerdeContext): ModifyClusterOutput => {
   return {
     StepConcurrencyLevel: __expectInt32(output.StepConcurrencyLevel),
   } as any;
 };
 
-const deserializeAws_json1_1NotebookExecution = (output: any, context: __SerdeContext): NotebookExecution => {
+/**
+ * deserializeAws_json1_1NotebookExecution
+ */
+const de_NotebookExecution = (output: any, context: __SerdeContext): NotebookExecution => {
   return {
     Arn: __expectString(output.Arn),
     EditorId: __expectString(output.EditorId),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     ExecutionEngine:
-      output.ExecutionEngine != null
-        ? deserializeAws_json1_1ExecutionEngineConfig(output.ExecutionEngine, context)
-        : undefined,
+      output.ExecutionEngine != null ? de_ExecutionEngineConfig(output.ExecutionEngine, context) : undefined,
     LastStateChangeReason: __expectString(output.LastStateChangeReason),
     NotebookExecutionId: __expectString(output.NotebookExecutionId),
     NotebookExecutionName: __expectString(output.NotebookExecutionName),
@@ -6053,14 +6882,14 @@ const deserializeAws_json1_1NotebookExecution = (output: any, context: __SerdeCo
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1NotebookExecutionSummary = (
-  output: any,
-  context: __SerdeContext
-): NotebookExecutionSummary => {
+/**
+ * deserializeAws_json1_1NotebookExecutionSummary
+ */
+const de_NotebookExecutionSummary = (output: any, context: __SerdeContext): NotebookExecutionSummary => {
   return {
     EditorId: __expectString(output.EditorId),
     EndTime:
@@ -6073,22 +6902,25 @@ const deserializeAws_json1_1NotebookExecutionSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1NotebookExecutionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): NotebookExecutionSummary[] => {
+/**
+ * deserializeAws_json1_1NotebookExecutionSummaryList
+ */
+const de_NotebookExecutionSummaryList = (output: any, context: __SerdeContext): NotebookExecutionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1NotebookExecutionSummary(entry, context);
+      return de_NotebookExecutionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OnDemandCapacityReservationOptions = (
+/**
+ * deserializeAws_json1_1OnDemandCapacityReservationOptions
+ */
+const de_OnDemandCapacityReservationOptions = (
   output: any,
   context: __SerdeContext
 ): OnDemandCapacityReservationOptions => {
@@ -6099,7 +6931,10 @@ const deserializeAws_json1_1OnDemandCapacityReservationOptions = (
   } as any;
 };
 
-const deserializeAws_json1_1OnDemandProvisioningSpecification = (
+/**
+ * deserializeAws_json1_1OnDemandProvisioningSpecification
+ */
+const de_OnDemandProvisioningSpecification = (
   output: any,
   context: __SerdeContext
 ): OnDemandProvisioningSpecification => {
@@ -6107,233 +6942,277 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
     AllocationStrategy: __expectString(output.AllocationStrategy),
     CapacityReservationOptions:
       output.CapacityReservationOptions != null
-        ? deserializeAws_json1_1OnDemandCapacityReservationOptions(output.CapacityReservationOptions, context)
+        ? de_OnDemandCapacityReservationOptions(output.CapacityReservationOptions, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1OnDemandResizingSpecification = (
-  output: any,
-  context: __SerdeContext
-): OnDemandResizingSpecification => {
+/**
+ * deserializeAws_json1_1OnDemandResizingSpecification
+ */
+const de_OnDemandResizingSpecification = (output: any, context: __SerdeContext): OnDemandResizingSpecification => {
   return {
     TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1OSRelease = (output: any, context: __SerdeContext): OSRelease => {
+/**
+ * deserializeAws_json1_1OSRelease
+ */
+const de_OSRelease = (output: any, context: __SerdeContext): OSRelease => {
   return {
     Label: __expectString(output.Label),
   } as any;
 };
 
-const deserializeAws_json1_1OSReleaseList = (output: any, context: __SerdeContext): OSRelease[] => {
+/**
+ * deserializeAws_json1_1OSReleaseList
+ */
+const de_OSReleaseList = (output: any, context: __SerdeContext): OSRelease[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OSRelease(entry, context);
+      return de_OSRelease(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PlacementGroupConfig = (output: any, context: __SerdeContext): PlacementGroupConfig => {
+/**
+ * deserializeAws_json1_1PlacementGroupConfig
+ */
+const de_PlacementGroupConfig = (output: any, context: __SerdeContext): PlacementGroupConfig => {
   return {
     InstanceRole: __expectString(output.InstanceRole),
     PlacementStrategy: __expectString(output.PlacementStrategy),
   } as any;
 };
 
-const deserializeAws_json1_1PlacementGroupConfigList = (
-  output: any,
-  context: __SerdeContext
-): PlacementGroupConfig[] => {
+/**
+ * deserializeAws_json1_1PlacementGroupConfigList
+ */
+const de_PlacementGroupConfigList = (output: any, context: __SerdeContext): PlacementGroupConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PlacementGroupConfig(entry, context);
+      return de_PlacementGroupConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PlacementType = (output: any, context: __SerdeContext): PlacementType => {
+/**
+ * deserializeAws_json1_1PlacementType
+ */
+const de_PlacementType = (output: any, context: __SerdeContext): PlacementType => {
   return {
     AvailabilityZone: __expectString(output.AvailabilityZone),
     AvailabilityZones:
-      output.AvailabilityZones != null
-        ? deserializeAws_json1_1XmlStringMaxLen256List(output.AvailabilityZones, context)
-        : undefined,
+      output.AvailabilityZones != null ? de_XmlStringMaxLen256List(output.AvailabilityZones, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
+/**
+ * deserializeAws_json1_1PortRange
+ */
+const de_PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
     MaxRange: __expectInt32(output.MaxRange),
     MinRange: __expectInt32(output.MinRange),
   } as any;
 };
 
-const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
+/**
+ * deserializeAws_json1_1PortRanges
+ */
+const de_PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PortRange(entry, context);
+      return de_PortRange(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): PutAutoScalingPolicyOutput => {
+/**
+ * deserializeAws_json1_1PutAutoScalingPolicyOutput
+ */
+const de_PutAutoScalingPolicyOutput = (output: any, context: __SerdeContext): PutAutoScalingPolicyOutput => {
   return {
     AutoScalingPolicy:
-      output.AutoScalingPolicy != null
-        ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
-        : undefined,
+      output.AutoScalingPolicy != null ? de_AutoScalingPolicyDescription(output.AutoScalingPolicy, context) : undefined,
     ClusterArn: __expectString(output.ClusterArn),
     ClusterId: __expectString(output.ClusterId),
     InstanceGroupId: __expectString(output.InstanceGroupId),
   } as any;
 };
 
-const deserializeAws_json1_1PutAutoTerminationPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): PutAutoTerminationPolicyOutput => {
+/**
+ * deserializeAws_json1_1PutAutoTerminationPolicyOutput
+ */
+const de_PutAutoTerminationPolicyOutput = (output: any, context: __SerdeContext): PutAutoTerminationPolicyOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
+/**
+ * deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput
+ */
+const de_PutBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): PutBlockPublicAccessConfigurationOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutManagedScalingPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): PutManagedScalingPolicyOutput => {
+/**
+ * deserializeAws_json1_1PutManagedScalingPolicyOutput
+ */
+const de_PutManagedScalingPolicyOutput = (output: any, context: __SerdeContext): PutManagedScalingPolicyOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): RemoveAutoScalingPolicyOutput => {
+/**
+ * deserializeAws_json1_1RemoveAutoScalingPolicyOutput
+ */
+const de_RemoveAutoScalingPolicyOutput = (output: any, context: __SerdeContext): RemoveAutoScalingPolicyOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RemoveAutoTerminationPolicyOutput = (
+/**
+ * deserializeAws_json1_1RemoveAutoTerminationPolicyOutput
+ */
+const de_RemoveAutoTerminationPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoTerminationPolicyOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RemoveManagedScalingPolicyOutput = (
+/**
+ * deserializeAws_json1_1RemoveManagedScalingPolicyOutput
+ */
+const de_RemoveManagedScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveManagedScalingPolicyOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
+/**
+ * deserializeAws_json1_1RemoveTagsOutput
+ */
+const de_RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RunJobFlowOutput = (output: any, context: __SerdeContext): RunJobFlowOutput => {
+/**
+ * deserializeAws_json1_1RunJobFlowOutput
+ */
+const de_RunJobFlowOutput = (output: any, context: __SerdeContext): RunJobFlowOutput => {
   return {
     ClusterArn: __expectString(output.ClusterArn),
     JobFlowId: __expectString(output.JobFlowId),
   } as any;
 };
 
-const deserializeAws_json1_1ScalingAction = (output: any, context: __SerdeContext): ScalingAction => {
+/**
+ * deserializeAws_json1_1ScalingAction
+ */
+const de_ScalingAction = (output: any, context: __SerdeContext): ScalingAction => {
   return {
     Market: __expectString(output.Market),
     SimpleScalingPolicyConfiguration:
       output.SimpleScalingPolicyConfiguration != null
-        ? deserializeAws_json1_1SimpleScalingPolicyConfiguration(output.SimpleScalingPolicyConfiguration, context)
+        ? de_SimpleScalingPolicyConfiguration(output.SimpleScalingPolicyConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ScalingConstraints = (output: any, context: __SerdeContext): ScalingConstraints => {
+/**
+ * deserializeAws_json1_1ScalingConstraints
+ */
+const de_ScalingConstraints = (output: any, context: __SerdeContext): ScalingConstraints => {
   return {
     MaxCapacity: __expectInt32(output.MaxCapacity),
     MinCapacity: __expectInt32(output.MinCapacity),
   } as any;
 };
 
-const deserializeAws_json1_1ScalingRule = (output: any, context: __SerdeContext): ScalingRule => {
+/**
+ * deserializeAws_json1_1ScalingRule
+ */
+const de_ScalingRule = (output: any, context: __SerdeContext): ScalingRule => {
   return {
-    Action: output.Action != null ? deserializeAws_json1_1ScalingAction(output.Action, context) : undefined,
+    Action: output.Action != null ? de_ScalingAction(output.Action, context) : undefined,
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
-    Trigger: output.Trigger != null ? deserializeAws_json1_1ScalingTrigger(output.Trigger, context) : undefined,
+    Trigger: output.Trigger != null ? de_ScalingTrigger(output.Trigger, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ScalingRuleList = (output: any, context: __SerdeContext): ScalingRule[] => {
+/**
+ * deserializeAws_json1_1ScalingRuleList
+ */
+const de_ScalingRuleList = (output: any, context: __SerdeContext): ScalingRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ScalingRule(entry, context);
+      return de_ScalingRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ScalingTrigger = (output: any, context: __SerdeContext): ScalingTrigger => {
+/**
+ * deserializeAws_json1_1ScalingTrigger
+ */
+const de_ScalingTrigger = (output: any, context: __SerdeContext): ScalingTrigger => {
   return {
     CloudWatchAlarmDefinition:
       output.CloudWatchAlarmDefinition != null
-        ? deserializeAws_json1_1CloudWatchAlarmDefinition(output.CloudWatchAlarmDefinition, context)
+        ? de_CloudWatchAlarmDefinition(output.CloudWatchAlarmDefinition, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ScriptBootstrapActionConfig = (
-  output: any,
-  context: __SerdeContext
-): ScriptBootstrapActionConfig => {
+/**
+ * deserializeAws_json1_1ScriptBootstrapActionConfig
+ */
+const de_ScriptBootstrapActionConfig = (output: any, context: __SerdeContext): ScriptBootstrapActionConfig => {
   return {
-    Args: output.Args != null ? deserializeAws_json1_1XmlStringList(output.Args, context) : undefined,
+    Args: output.Args != null ? de_XmlStringList(output.Args, context) : undefined,
     Path: __expectString(output.Path),
   } as any;
 };
 
-const deserializeAws_json1_1SecurityConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): SecurityConfigurationSummary[] => {
+/**
+ * deserializeAws_json1_1SecurityConfigurationList
+ */
+const de_SecurityConfigurationList = (output: any, context: __SerdeContext): SecurityConfigurationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SecurityConfigurationSummary(entry, context);
+      return de_SecurityConfigurationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityConfigurationSummary = (
-  output: any,
-  context: __SerdeContext
-): SecurityConfigurationSummary => {
+/**
+ * deserializeAws_json1_1SecurityConfigurationSummary
+ */
+const de_SecurityConfigurationSummary = (output: any, context: __SerdeContext): SecurityConfigurationSummary => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -6343,7 +7222,10 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1SessionMappingDetail = (output: any, context: __SerdeContext): SessionMappingDetail => {
+/**
+ * deserializeAws_json1_1SessionMappingDetail
+ */
+const de_SessionMappingDetail = (output: any, context: __SerdeContext): SessionMappingDetail => {
   return {
     CreationTime:
       output.CreationTime != null
@@ -6361,7 +7243,10 @@ const deserializeAws_json1_1SessionMappingDetail = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1SessionMappingSummary = (output: any, context: __SerdeContext): SessionMappingSummary => {
+/**
+ * deserializeAws_json1_1SessionMappingSummary
+ */
+const de_SessionMappingSummary = (output: any, context: __SerdeContext): SessionMappingSummary => {
   return {
     CreationTime:
       output.CreationTime != null
@@ -6375,32 +7260,36 @@ const deserializeAws_json1_1SessionMappingSummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1SessionMappingSummaryList = (
-  output: any,
-  context: __SerdeContext
-): SessionMappingSummary[] => {
+/**
+ * deserializeAws_json1_1SessionMappingSummaryList
+ */
+const de_SessionMappingSummaryList = (output: any, context: __SerdeContext): SessionMappingSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SessionMappingSummary(entry, context);
+      return de_SessionMappingSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
+/**
+ * deserializeAws_json1_1ShrinkPolicy
+ */
+const de_ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
   return {
     DecommissionTimeout: __expectInt32(output.DecommissionTimeout),
     InstanceResizePolicy:
-      output.InstanceResizePolicy != null
-        ? deserializeAws_json1_1InstanceResizePolicy(output.InstanceResizePolicy, context)
-        : undefined,
+      output.InstanceResizePolicy != null ? de_InstanceResizePolicy(output.InstanceResizePolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
+/**
+ * deserializeAws_json1_1SimpleScalingPolicyConfiguration
+ */
+const de_SimpleScalingPolicyConfiguration = (
   output: any,
   context: __SerdeContext
 ): SimpleScalingPolicyConfiguration => {
@@ -6411,32 +7300,35 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_1SimplifiedApplication = (output: any, context: __SerdeContext): SimplifiedApplication => {
+/**
+ * deserializeAws_json1_1SimplifiedApplication
+ */
+const de_SimplifiedApplication = (output: any, context: __SerdeContext): SimplifiedApplication => {
   return {
     Name: __expectString(output.Name),
     Version: __expectString(output.Version),
   } as any;
 };
 
-const deserializeAws_json1_1SimplifiedApplicationList = (
-  output: any,
-  context: __SerdeContext
-): SimplifiedApplication[] => {
+/**
+ * deserializeAws_json1_1SimplifiedApplicationList
+ */
+const de_SimplifiedApplicationList = (output: any, context: __SerdeContext): SimplifiedApplication[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SimplifiedApplication(entry, context);
+      return de_SimplifiedApplication(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SpotProvisioningSpecification = (
-  output: any,
-  context: __SerdeContext
-): SpotProvisioningSpecification => {
+/**
+ * deserializeAws_json1_1SpotProvisioningSpecification
+ */
+const de_SpotProvisioningSpecification = (output: any, context: __SerdeContext): SpotProvisioningSpecification => {
   return {
     AllocationStrategy: __expectString(output.AllocationStrategy),
     BlockDurationMinutes: __expectInt32(output.BlockDurationMinutes),
@@ -6445,72 +7337,81 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
   } as any;
 };
 
-const deserializeAws_json1_1SpotResizingSpecification = (
-  output: any,
-  context: __SerdeContext
-): SpotResizingSpecification => {
+/**
+ * deserializeAws_json1_1SpotResizingSpecification
+ */
+const de_SpotResizingSpecification = (output: any, context: __SerdeContext): SpotResizingSpecification => {
   return {
     TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1StartNotebookExecutionOutput = (
-  output: any,
-  context: __SerdeContext
-): StartNotebookExecutionOutput => {
+/**
+ * deserializeAws_json1_1StartNotebookExecutionOutput
+ */
+const de_StartNotebookExecutionOutput = (output: any, context: __SerdeContext): StartNotebookExecutionOutput => {
   return {
     NotebookExecutionId: __expectString(output.NotebookExecutionId),
   } as any;
 };
 
-const deserializeAws_json1_1Step = (output: any, context: __SerdeContext): Step => {
+/**
+ * deserializeAws_json1_1Step
+ */
+const de_Step = (output: any, context: __SerdeContext): Step => {
   return {
     ActionOnFailure: __expectString(output.ActionOnFailure),
-    Config: output.Config != null ? deserializeAws_json1_1HadoopStepConfig(output.Config, context) : undefined,
+    Config: output.Config != null ? de_HadoopStepConfig(output.Config, context) : undefined,
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Status: output.Status != null ? deserializeAws_json1_1StepStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_StepStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StepConfig = (output: any, context: __SerdeContext): StepConfig => {
+/**
+ * deserializeAws_json1_1StepConfig
+ */
+const de_StepConfig = (output: any, context: __SerdeContext): StepConfig => {
   return {
     ActionOnFailure: __expectString(output.ActionOnFailure),
-    HadoopJarStep:
-      output.HadoopJarStep != null
-        ? deserializeAws_json1_1HadoopJarStepConfig(output.HadoopJarStep, context)
-        : undefined,
+    HadoopJarStep: output.HadoopJarStep != null ? de_HadoopJarStepConfig(output.HadoopJarStep, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1StepDetail = (output: any, context: __SerdeContext): StepDetail => {
+/**
+ * deserializeAws_json1_1StepDetail
+ */
+const de_StepDetail = (output: any, context: __SerdeContext): StepDetail => {
   return {
     ExecutionStatusDetail:
       output.ExecutionStatusDetail != null
-        ? deserializeAws_json1_1StepExecutionStatusDetail(output.ExecutionStatusDetail, context)
+        ? de_StepExecutionStatusDetail(output.ExecutionStatusDetail, context)
         : undefined,
-    StepConfig: output.StepConfig != null ? deserializeAws_json1_1StepConfig(output.StepConfig, context) : undefined,
+    StepConfig: output.StepConfig != null ? de_StepConfig(output.StepConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StepDetailList = (output: any, context: __SerdeContext): StepDetail[] => {
+/**
+ * deserializeAws_json1_1StepDetailList
+ */
+const de_StepDetailList = (output: any, context: __SerdeContext): StepDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StepDetail(entry, context);
+      return de_StepDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StepExecutionStatusDetail = (
-  output: any,
-  context: __SerdeContext
-): StepExecutionStatusDetail => {
+/**
+ * deserializeAws_json1_1StepExecutionStatusDetail
+ */
+const de_StepExecutionStatusDetail = (output: any, context: __SerdeContext): StepExecutionStatusDetail => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -6529,7 +7430,10 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
   } as any;
 };
 
-const deserializeAws_json1_1StepIdsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1StepIdsList
+ */
+const de_StepIdsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6541,49 +7445,61 @@ const deserializeAws_json1_1StepIdsList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1StepStateChangeReason = (output: any, context: __SerdeContext): StepStateChangeReason => {
+/**
+ * deserializeAws_json1_1StepStateChangeReason
+ */
+const de_StepStateChangeReason = (output: any, context: __SerdeContext): StepStateChangeReason => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1StepStatus = (output: any, context: __SerdeContext): StepStatus => {
+/**
+ * deserializeAws_json1_1StepStatus
+ */
+const de_StepStatus = (output: any, context: __SerdeContext): StepStatus => {
   return {
-    FailureDetails:
-      output.FailureDetails != null ? deserializeAws_json1_1FailureDetails(output.FailureDetails, context) : undefined,
+    FailureDetails: output.FailureDetails != null ? de_FailureDetails(output.FailureDetails, context) : undefined,
     State: __expectString(output.State),
     StateChangeReason:
-      output.StateChangeReason != null
-        ? deserializeAws_json1_1StepStateChangeReason(output.StateChangeReason, context)
-        : undefined,
-    Timeline: output.Timeline != null ? deserializeAws_json1_1StepTimeline(output.Timeline, context) : undefined,
+      output.StateChangeReason != null ? de_StepStateChangeReason(output.StateChangeReason, context) : undefined,
+    Timeline: output.Timeline != null ? de_StepTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StepSummary = (output: any, context: __SerdeContext): StepSummary => {
+/**
+ * deserializeAws_json1_1StepSummary
+ */
+const de_StepSummary = (output: any, context: __SerdeContext): StepSummary => {
   return {
     ActionOnFailure: __expectString(output.ActionOnFailure),
-    Config: output.Config != null ? deserializeAws_json1_1HadoopStepConfig(output.Config, context) : undefined,
+    Config: output.Config != null ? de_HadoopStepConfig(output.Config, context) : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Status: output.Status != null ? deserializeAws_json1_1StepStatus(output.Status, context) : undefined,
+    Status: output.Status != null ? de_StepStatus(output.Status, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StepSummaryList = (output: any, context: __SerdeContext): StepSummary[] => {
+/**
+ * deserializeAws_json1_1StepSummaryList
+ */
+const de_StepSummaryList = (output: any, context: __SerdeContext): StepSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StepSummary(entry, context);
+      return de_StepSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StepTimeline = (output: any, context: __SerdeContext): StepTimeline => {
+/**
+ * deserializeAws_json1_1StepTimeline
+ */
+const de_StepTimeline = (output: any, context: __SerdeContext): StepTimeline => {
   return {
     CreationDateTime:
       output.CreationDateTime != null
@@ -6600,7 +7516,10 @@ const deserializeAws_json1_1StepTimeline = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6612,7 +7531,10 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1StringMap
+ */
+const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6622,7 +7544,10 @@ const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
-const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Studio => {
+/**
+ * deserializeAws_json1_1Studio
+ */
+const de_Studio = (output: any, context: __SerdeContext): Studio => {
   return {
     AuthMode: __expectString(output.AuthMode),
     CreationTime:
@@ -6638,8 +7563,8 @@ const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Stu
     ServiceRole: __expectString(output.ServiceRole),
     StudioArn: __expectString(output.StudioArn),
     StudioId: __expectString(output.StudioId),
-    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? de_SubnetIdList(output.SubnetIds, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
     Url: __expectString(output.Url),
     UserRole: __expectString(output.UserRole),
     VpcId: __expectString(output.VpcId),
@@ -6647,7 +7572,10 @@ const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Stu
   } as any;
 };
 
-const deserializeAws_json1_1StudioSummary = (output: any, context: __SerdeContext): StudioSummary => {
+/**
+ * deserializeAws_json1_1StudioSummary
+ */
+const de_StudioSummary = (output: any, context: __SerdeContext): StudioSummary => {
   return {
     AuthMode: __expectString(output.AuthMode),
     CreationTime:
@@ -6662,19 +7590,25 @@ const deserializeAws_json1_1StudioSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1StudioSummaryList = (output: any, context: __SerdeContext): StudioSummary[] => {
+/**
+ * deserializeAws_json1_1StudioSummaryList
+ */
+const de_StudioSummaryList = (output: any, context: __SerdeContext): StudioSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StudioSummary(entry, context);
+      return de_StudioSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SubnetIdList
+ */
+const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6686,7 +7620,10 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1SupportedProductsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SupportedProductsList
+ */
+const de_SupportedProductsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6698,33 +7635,45 @@ const deserializeAws_json1_1SupportedProductsList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UsernamePassword = (output: any, context: __SerdeContext): UsernamePassword => {
+/**
+ * deserializeAws_json1_1UsernamePassword
+ */
+const de_UsernamePassword = (output: any, context: __SerdeContext): UsernamePassword => {
   return {
     Password: __expectString(output.Password),
     Username: __expectString(output.Username),
   } as any;
 };
 
-const deserializeAws_json1_1VolumeSpecification = (output: any, context: __SerdeContext): VolumeSpecification => {
+/**
+ * deserializeAws_json1_1VolumeSpecification
+ */
+const de_VolumeSpecification = (output: any, context: __SerdeContext): VolumeSpecification => {
   return {
     Iops: __expectInt32(output.Iops),
     SizeInGB: __expectInt32(output.SizeInGB),
@@ -6733,7 +7682,10 @@ const deserializeAws_json1_1VolumeSpecification = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1XmlStringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1XmlStringList
+ */
+const de_XmlStringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6745,7 +7697,10 @@ const deserializeAws_json1_1XmlStringList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1XmlStringMaxLen256List = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1XmlStringMaxLen256List
+ */
+const de_XmlStringMaxLen256List = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

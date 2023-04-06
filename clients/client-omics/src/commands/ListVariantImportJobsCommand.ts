@@ -15,10 +15,7 @@ import {
 
 import { ListVariantImportJobsRequest, ListVariantImportJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListVariantImportJobsCommand,
-  serializeAws_restJson1ListVariantImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVariantImportJobsCommand, se_ListVariantImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListVariantImportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVariantImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVariantImportJobsCommand(input, context);
+    return se_ListVariantImportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVariantImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListVariantImportJobsCommand(output, context);
+    return de_ListVariantImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

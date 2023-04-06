@@ -18,10 +18,7 @@ import {
 
 import { GetReadSetRequest, GetReadSetResponse, GetReadSetResponseFilterSensitiveLog } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetCommand,
-  serializeAws_restJson1GetReadSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetCommand, se_GetReadSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,7 +147,7 @@ export class GetReadSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReadSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetCommand(input, context);
+    return se_GetReadSetCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class GetReadSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetReadSetCommandOutput> {
-    return deserializeAws_restJson1GetReadSetCommand(output, context);
+    return de_GetReadSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetOrganizationAdminAccountRequest, GetOrganizationAdminAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetOrganizationAdminAccountCommand,
-  serializeAws_restJson1GetOrganizationAdminAccountCommand,
+  de_GetOrganizationAdminAccountCommand,
+  se_GetOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class GetOrganizationAdminAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOrganizationAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOrganizationAdminAccountCommand(input, context);
+    return se_GetOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class GetOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1GetOrganizationAdminAccountCommand(output, context);
+    return de_GetOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CreateSinkInput, CreateSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1CreateSinkCommand,
-  serializeAws_restJson1CreateSinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSinkCommand, se_CreateSinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateSinkCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSinkCommand(input, context);
+    return se_CreateSinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSinkCommandOutput> {
-    return deserializeAws_restJson1CreateSinkCommand(output, context);
+    return de_CreateSinkCommand(output, context);
   }
 
   // Start section: command_body_extra

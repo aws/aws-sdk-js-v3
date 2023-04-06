@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetBucketStatisticsRequest, GetBucketStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBucketStatisticsCommand,
-  serializeAws_restJson1GetBucketStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBucketStatisticsCommand, se_GetBucketStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetBucketStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBucketStatisticsCommand(input, context);
+    return se_GetBucketStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetBucketStatisticsCommand(output, context);
+    return de_GetBucketStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

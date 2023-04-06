@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutJobTaggingCommand,
-  serializeAws_restXmlPutJobTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutJobTaggingCommand, se_PutJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -208,14 +205,14 @@ export class PutJobTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: PutJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutJobTaggingCommand(input, context);
+    return se_PutJobTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobTaggingCommandOutput> {
-    return deserializeAws_restXmlPutJobTaggingCommand(output, context);
+    return de_PutJobTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

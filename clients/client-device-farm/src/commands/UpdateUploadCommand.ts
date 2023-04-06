@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { UpdateUploadRequest, UpdateUploadResult, UpdateUploadResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateUploadCommand,
-  serializeAws_json1_1UpdateUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUploadCommand, se_UpdateUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UpdateUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUploadCommand(input, context);
+    return se_UpdateUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUploadCommandOutput> {
-    return deserializeAws_json1_1UpdateUploadCommand(output, context);
+    return de_UpdateUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

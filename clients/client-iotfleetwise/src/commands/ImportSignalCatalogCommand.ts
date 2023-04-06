@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { ImportSignalCatalogRequest, ImportSignalCatalogResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ImportSignalCatalogCommand,
-  serializeAws_json1_0ImportSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ImportSignalCatalogCommand, se_ImportSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ImportSignalCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ImportSignalCatalogCommand(input, context);
+    return se_ImportSignalCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0ImportSignalCatalogCommand(output, context);
+    return de_ImportSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

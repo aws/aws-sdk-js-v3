@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { GetPropertyValueRequest, GetPropertyValueResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPropertyValueCommand,
-  serializeAws_restJson1GetPropertyValueCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPropertyValueCommand, se_GetPropertyValueCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -201,14 +198,14 @@ export class GetPropertyValueCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPropertyValueCommand(input, context);
+    return se_GetPropertyValueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPropertyValueCommandOutput> {
-    return deserializeAws_restJson1GetPropertyValueCommand(output, context);
+    return de_GetPropertyValueCommand(output, context);
   }
 
   // Start section: command_body_extra

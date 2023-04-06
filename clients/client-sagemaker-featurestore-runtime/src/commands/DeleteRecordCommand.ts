@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRecordRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecordCommand,
-  serializeAws_restJson1DeleteRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRecordCommand, se_DeleteRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -166,14 +163,14 @@ export class DeleteRecordCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecordCommand(input, context);
+    return se_DeleteRecordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecordCommandOutput> {
-    return deserializeAws_restJson1DeleteRecordCommand(output, context);
+    return de_DeleteRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

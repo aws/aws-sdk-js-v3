@@ -15,10 +15,7 @@ import {
 
 import { ListFirewallsRequest, ListFirewallsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0ListFirewallsCommand,
-  serializeAws_json1_0ListFirewallsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListFirewallsCommand, se_ListFirewallsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListFirewallsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFirewallsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFirewallsCommand(input, context);
+    return se_ListFirewallsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallsCommandOutput> {
-    return deserializeAws_json1_0ListFirewallsCommand(output, context);
+    return de_ListFirewallsCommand(output, context);
   }
 
   // Start section: command_body_extra

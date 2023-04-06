@@ -19,8 +19,8 @@ import {
   DeleteDirectConnectGatewayAssociationProposalResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
+  de_DeleteDirectConnectGatewayAssociationProposalCommand,
+  se_DeleteDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
+    return se_DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
+    return de_DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

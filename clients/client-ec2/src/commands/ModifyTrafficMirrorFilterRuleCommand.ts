@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyTrafficMirrorFilterRuleRequest, ModifyTrafficMirrorFilterRuleResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand,
-  serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyTrafficMirrorFilterRuleCommand, se_ModifyTrafficMirrorFilterRuleCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(input, context);
+    return se_ModifyTrafficMirrorFilterRuleCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(output, context);
+    return de_ModifyTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

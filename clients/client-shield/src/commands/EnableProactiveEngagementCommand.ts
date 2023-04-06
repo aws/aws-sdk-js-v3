@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EnableProactiveEngagementRequest, EnableProactiveEngagementResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableProactiveEngagementCommand,
-  serializeAws_json1_1EnableProactiveEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableProactiveEngagementCommand, se_EnableProactiveEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -134,7 +131,7 @@ export class EnableProactiveEngagementCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableProactiveEngagementCommand(input, context);
+    return se_EnableProactiveEngagementCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class EnableProactiveEngagementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableProactiveEngagementCommandOutput> {
-    return deserializeAws_json1_1EnableProactiveEngagementCommand(output, context);
+    return de_EnableProactiveEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

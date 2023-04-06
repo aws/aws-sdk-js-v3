@@ -15,10 +15,7 @@ import {
 
 import { ExportTask } from "../models/models_0";
 import { StartExportTaskMessage } from "../models/models_1";
-import {
-  deserializeAws_queryStartExportTaskCommand,
-  serializeAws_queryStartExportTaskCommand,
-} from "../protocols/Aws_query";
+import { de_StartExportTaskCommand, se_StartExportTaskCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -110,6 +107,34 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  *
+ * @example To export a snapshot to Amazon S3
+ * ```javascript
+ * // The following example exports a DB snapshot named db5-snapshot-test to the Amazon S3 bucket named mybucket.
+ * const input = {
+ *   "ExportTaskIdentifier": "my-s3-export",
+ *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *   "S3BucketName": "mybucket",
+ *   "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test"
+ * };
+ * const command = new StartExportTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ExportTaskIdentifier": "my-s3-export",
+ *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *   "PercentProgress": 0,
+ *   "S3Bucket": "mybucket",
+ *   "SnapshotTime": "2020-03-27T20:48:42.023Z",
+ *   "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test",
+ *   "Status": "STARTING",
+ *   "TotalExtractedDataInGB": 0
+ * }
+ * *\/
+ * // example id: to-export-a-snapshot-to-amazon-s3-1679950669718
+ * ```
+ *
  */
 export class StartExportTaskCommand extends $Command<
   StartExportTaskCommandInput,
@@ -174,14 +199,14 @@ export class StartExportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StartExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartExportTaskCommand(input, context);
+    return se_StartExportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportTaskCommandOutput> {
-    return deserializeAws_queryStartExportTaskCommand(output, context);
+    return de_StartExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

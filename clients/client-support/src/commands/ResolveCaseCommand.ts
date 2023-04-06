@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveCaseCommand,
-  serializeAws_json1_1ResolveCaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResolveCaseCommand, se_ResolveCaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -139,14 +136,14 @@ export class ResolveCaseCommand extends $Command<
    * @internal
    */
   private serialize(input: ResolveCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveCaseCommand(input, context);
+    return se_ResolveCaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCaseCommandOutput> {
-    return deserializeAws_json1_1ResolveCaseCommand(output, context);
+    return de_ResolveCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

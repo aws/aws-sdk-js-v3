@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationsCommand,
-  serializeAws_restJson1ListApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListApplicationsCommand, se_ListApplicationsCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -137,14 +134,14 @@ export class ListApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationsCommand(input, context);
+    return se_ListApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationsCommand(output, context);
+    return de_ListApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

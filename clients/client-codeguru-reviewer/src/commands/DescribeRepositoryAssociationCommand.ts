@@ -16,8 +16,8 @@ import {
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeRepositoryAssociationCommand,
-  serializeAws_restJson1DescribeRepositoryAssociationCommand,
+  de_DescribeRepositoryAssociationCommand,
+  se_DescribeRepositoryAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRepositoryAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRepositoryAssociationCommand(input, context);
+    return se_DescribeRepositoryAssociationCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
-    return deserializeAws_restJson1DescribeRepositoryAssociationCommand(output, context);
+    return de_DescribeRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

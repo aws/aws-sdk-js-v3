@@ -15,10 +15,7 @@ import {
 
 import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteGcmChannelCommand,
-  serializeAws_restJson1DeleteGcmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGcmChannelCommand, se_DeleteGcmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteGcmChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGcmChannelCommand(input, context);
+    return se_DeleteGcmChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGcmChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteGcmChannelCommand(output, context);
+    return de_DeleteGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CreateOrderInput, CreateOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateOrderCommand,
-  serializeAws_restJson1CreateOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOrderCommand, se_CreateOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateOrderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOrderCommand(input, context);
+    return se_CreateOrderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrderCommandOutput> {
-    return deserializeAws_restJson1CreateOrderCommand(output, context);
+    return de_CreateOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

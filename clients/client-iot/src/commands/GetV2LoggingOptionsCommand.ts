@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetV2LoggingOptionsCommand,
-  serializeAws_restJson1GetV2LoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetV2LoggingOptionsCommand, se_GetV2LoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetV2LoggingOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetV2LoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetV2LoggingOptionsCommand(input, context);
+    return se_GetV2LoggingOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetV2LoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1GetV2LoggingOptionsCommand(output, context);
+    return de_GetV2LoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

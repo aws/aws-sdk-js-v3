@@ -20,8 +20,8 @@ import {
   HostedConfigurationVersionFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetHostedConfigurationVersionCommand,
-  serializeAws_restJson1GetHostedConfigurationVersionCommand,
+  de_GetHostedConfigurationVersionCommand,
+  se_GetHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class GetHostedConfigurationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHostedConfigurationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHostedConfigurationVersionCommand(input, context);
+    return se_GetHostedConfigurationVersionCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostedConfigurationVersionCommandOutput> {
-    return deserializeAws_restJson1GetHostedConfigurationVersionCommand(output, context);
+    return de_GetHostedConfigurationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

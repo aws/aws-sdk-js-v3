@@ -20,10 +20,7 @@ import {
   UpdateFunctionCodeRequest,
   UpdateFunctionCodeRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionCodeCommand,
-  serializeAws_restJson1UpdateFunctionCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFunctionCodeCommand, se_UpdateFunctionCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -184,14 +181,14 @@ export class UpdateFunctionCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFunctionCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionCodeCommand(input, context);
+    return se_UpdateFunctionCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCodeCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionCodeCommand(output, context);
+    return de_UpdateFunctionCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

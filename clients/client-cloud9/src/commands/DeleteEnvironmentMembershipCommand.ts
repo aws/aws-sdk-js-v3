@@ -15,10 +15,7 @@ import {
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEnvironmentMembershipCommand,
-  serializeAws_json1_1DeleteEnvironmentMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEnvironmentMembershipCommand, se_DeleteEnvironmentMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEnvironmentMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEnvironmentMembershipCommand(input, context);
+    return se_DeleteEnvironmentMembershipCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1DeleteEnvironmentMembershipCommand(output, context);
+    return de_DeleteEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

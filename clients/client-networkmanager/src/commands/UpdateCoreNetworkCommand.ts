@@ -15,10 +15,7 @@ import {
 
 import { UpdateCoreNetworkRequest, UpdateCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateCoreNetworkCommand,
-  serializeAws_restJson1UpdateCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCoreNetworkCommand, se_UpdateCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateCoreNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCoreNetworkCommand(input, context);
+    return se_UpdateCoreNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1UpdateCoreNetworkCommand(output, context);
+    return de_UpdateCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

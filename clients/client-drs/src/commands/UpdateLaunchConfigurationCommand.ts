@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { LaunchConfiguration, UpdateLaunchConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLaunchConfigurationCommand,
-  serializeAws_restJson1UpdateLaunchConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchConfigurationCommand, se_UpdateLaunchConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class UpdateLaunchConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchConfigurationCommand(input, context);
+    return se_UpdateLaunchConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class UpdateLaunchConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLaunchConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchConfigurationCommand(output, context);
+    return de_UpdateLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

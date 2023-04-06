@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeregisterWirelessDeviceRequest, DeregisterWirelessDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterWirelessDeviceCommand,
-  serializeAws_restJson1DeregisterWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterWirelessDeviceCommand, se_DeregisterWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeregisterWirelessDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterWirelessDeviceCommand(input, context);
+    return se_DeregisterWirelessDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1DeregisterWirelessDeviceCommand(output, context);
+    return de_DeregisterWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

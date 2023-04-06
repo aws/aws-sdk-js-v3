@@ -20,8 +20,8 @@ import {
   GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
-  serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
+  de_GenerateEmbedUrlForAnonymousUserCommand,
+  se_GenerateEmbedUrlForAnonymousUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -215,7 +215,7 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     input: GenerateEmbedUrlForAnonymousUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand(input, context);
+    return se_GenerateEmbedUrlForAnonymousUserCommand(input, context);
   }
 
   /**
@@ -225,7 +225,7 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> {
-    return deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand(output, context);
+    return de_GenerateEmbedUrlForAnonymousUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExperimentCommand,
-  serializeAws_restJson1DeleteExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteExperimentCommand, se_DeleteExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExperimentCommand(input, context);
+    return se_DeleteExperimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
-    return deserializeAws_restJson1DeleteExperimentCommand(output, context);
+    return de_DeleteExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

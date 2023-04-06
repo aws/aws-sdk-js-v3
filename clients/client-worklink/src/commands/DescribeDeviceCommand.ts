@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDeviceRequest, DescribeDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeviceCommand,
-  serializeAws_restJson1DescribeDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDeviceCommand, se_DescribeDeviceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -138,14 +135,14 @@ export class DescribeDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceCommand(input, context);
+    return se_DescribeDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceCommand(output, context);
+    return de_DescribeDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

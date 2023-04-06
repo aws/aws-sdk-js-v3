@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { SendEventRequest, SendEventResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendEventCommand,
-  serializeAws_restJson1SendEventCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendEventCommand, se_SendEventCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class SendEventCommand extends $Command<
    * @internal
    */
   private serialize(input: SendEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendEventCommand(input, context);
+    return se_SendEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEventCommandOutput> {
-    return deserializeAws_restJson1SendEventCommand(output, context);
+    return de_SendEventCommand(output, context);
   }
 
   // Start section: command_body_extra

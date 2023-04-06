@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateAccountAuditConfigurationRequest, UpdateAccountAuditConfigurationResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1UpdateAccountAuditConfigurationCommand,
-  serializeAws_restJson1UpdateAccountAuditConfigurationCommand,
+  de_UpdateAccountAuditConfigurationCommand,
+  se_UpdateAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     input: UpdateAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountAuditConfigurationCommand(input, context);
+    return se_UpdateAccountAuditConfigurationCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountAuditConfigurationCommand(output, context);
+    return de_UpdateAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

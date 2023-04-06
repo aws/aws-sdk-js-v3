@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateFieldLevelEncryptionProfileRequest, UpdateFieldLevelEncryptionProfileResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand,
-  serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand,
+  de_UpdateFieldLevelEncryptionProfileCommand,
+  se_UpdateFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -186,7 +186,7 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
     input: UpdateFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(input, context);
+    return se_UpdateFieldLevelEncryptionProfileCommand(input, context);
   }
 
   /**
@@ -196,7 +196,7 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(output, context);
+    return de_UpdateFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

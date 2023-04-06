@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { SetCognitoEventsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1SetCognitoEventsCommand,
-  serializeAws_restJson1SetCognitoEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SetCognitoEventsCommand, se_SetCognitoEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class SetCognitoEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: SetCognitoEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetCognitoEventsCommand(input, context);
+    return se_SetCognitoEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetCognitoEventsCommandOutput> {
-    return deserializeAws_restJson1SetCognitoEventsCommand(output, context);
+    return de_SetCognitoEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

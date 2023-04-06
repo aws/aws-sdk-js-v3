@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DisassociateMemberRequest, DisassociateMemberResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateMemberCommand,
-  serializeAws_restJson1DisassociateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateMemberCommand, se_DisassociateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DisassociateMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMemberCommand(input, context);
+    return se_DisassociateMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMemberCommandOutput> {
-    return deserializeAws_restJson1DisassociateMemberCommand(output, context);
+    return de_DisassociateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

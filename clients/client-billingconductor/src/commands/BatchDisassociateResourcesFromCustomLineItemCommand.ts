@@ -19,8 +19,8 @@ import {
   BatchDisassociateResourcesFromCustomLineItemOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemCommand,
-  serializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemCommand,
+  de_BatchDisassociateResourcesFromCustomLineItemCommand,
+  se_BatchDisassociateResourcesFromCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -167,7 +167,7 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
     input: BatchDisassociateResourcesFromCustomLineItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemCommand(input, context);
+    return se_BatchDisassociateResourcesFromCustomLineItemCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateResourcesFromCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemCommand(output, context);
+    return de_BatchDisassociateResourcesFromCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

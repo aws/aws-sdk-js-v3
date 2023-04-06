@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetAutoMergingPreviewRequest, GetAutoMergingPreviewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAutoMergingPreviewCommand,
-  serializeAws_restJson1GetAutoMergingPreviewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAutoMergingPreviewCommand, se_GetAutoMergingPreviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class GetAutoMergingPreviewCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAutoMergingPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAutoMergingPreviewCommand(input, context);
+    return se_GetAutoMergingPreviewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoMergingPreviewCommandOutput> {
-    return deserializeAws_restJson1GetAutoMergingPreviewCommand(output, context);
+    return de_GetAutoMergingPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UngroupResourcesInput, UngroupResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UngroupResourcesCommand,
-  serializeAws_restJson1UngroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UngroupResourcesCommand, se_UngroupResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -156,14 +153,14 @@ export class UngroupResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: UngroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UngroupResourcesCommand(input, context);
+    return se_UngroupResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UngroupResourcesCommandOutput> {
-    return deserializeAws_restJson1UngroupResourcesCommand(output, context);
+    return de_UngroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

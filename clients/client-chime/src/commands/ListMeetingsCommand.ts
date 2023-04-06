@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { ListMeetingsRequest, ListMeetingsResponse, ListMeetingsResponseFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMeetingsCommand,
-  serializeAws_restJson1ListMeetingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMeetingsCommand, se_ListMeetingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListMeetingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMeetingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeetingsCommand(input, context);
+    return se_ListMeetingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingsCommandOutput> {
-    return deserializeAws_restJson1ListMeetingsCommand(output, context);
+    return de_ListMeetingsCommand(output, context);
   }
 
   // Start section: command_body_extra

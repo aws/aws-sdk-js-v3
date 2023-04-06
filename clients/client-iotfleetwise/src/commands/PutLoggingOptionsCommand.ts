@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0PutLoggingOptionsCommand,
-  serializeAws_json1_0PutLoggingOptionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutLoggingOptionsCommand, se_PutLoggingOptionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class PutLoggingOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutLoggingOptionsCommand(input, context);
+    return se_PutLoggingOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingOptionsCommandOutput> {
-    return deserializeAws_json1_0PutLoggingOptionsCommand(output, context);
+    return de_PutLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

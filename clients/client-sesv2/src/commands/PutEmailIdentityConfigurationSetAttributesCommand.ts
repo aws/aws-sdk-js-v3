@@ -18,8 +18,8 @@ import {
   PutEmailIdentityConfigurationSetAttributesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand,
+  de_PutEmailIdentityConfigurationSetAttributesCommand,
+  se_PutEmailIdentityConfigurationSetAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -145,7 +145,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     input: PutEmailIdentityConfigurationSetAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand(input, context);
+    return se_PutEmailIdentityConfigurationSetAttributesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand(output, context);
+    return de_PutEmailIdentityConfigurationSetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

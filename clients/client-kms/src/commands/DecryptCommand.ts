@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DecryptRequest, DecryptResponse, DecryptResponseFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
+import { de_DecryptCommand, se_DecryptCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -299,14 +299,14 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
    * @internal
    */
   private serialize(input: DecryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DecryptCommand(input, context);
+    return se_DecryptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecryptCommandOutput> {
-    return deserializeAws_json1_1DecryptCommand(output, context);
+    return de_DecryptCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCredentialsForIdentityCommand,
-  serializeAws_json1_1GetCredentialsForIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCredentialsForIdentityCommand, se_GetCredentialsForIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,7 +153,7 @@ export class GetCredentialsForIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCredentialsForIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCredentialsForIdentityCommand(input, context);
+    return se_GetCredentialsForIdentityCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class GetCredentialsForIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCredentialsForIdentityCommandOutput> {
-    return deserializeAws_json1_1GetCredentialsForIdentityCommand(output, context);
+    return de_GetCredentialsForIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

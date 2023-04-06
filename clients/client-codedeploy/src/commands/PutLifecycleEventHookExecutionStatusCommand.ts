@@ -19,8 +19,8 @@ import {
   PutLifecycleEventHookExecutionStatusOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
-  serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
+  de_PutLifecycleEventHookExecutionStatusCommand,
+  se_PutLifecycleEventHookExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -164,7 +164,7 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     input: PutLifecycleEventHookExecutionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand(input, context);
+    return se_PutLifecycleEventHookExecutionStatusCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> {
-    return deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand(output, context);
+    return de_PutLifecycleEventHookExecutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

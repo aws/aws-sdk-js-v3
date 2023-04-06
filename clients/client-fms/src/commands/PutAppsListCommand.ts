@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutAppsListRequest, PutAppsListResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppsListCommand,
-  serializeAws_json1_1PutAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAppsListCommand, se_PutAppsListCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class PutAppsListCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppsListCommand(input, context);
+    return se_PutAppsListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAppsListCommandOutput> {
-    return deserializeAws_json1_1PutAppsListCommand(output, context);
+    return de_PutAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

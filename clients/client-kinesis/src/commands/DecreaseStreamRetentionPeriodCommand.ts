@@ -16,8 +16,8 @@ import {
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { DecreaseStreamRetentionPeriodInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
-  serializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
+  de_DecreaseStreamRetentionPeriodCommand,
+  se_DecreaseStreamRetentionPeriodCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
    * @internal
    */
   private serialize(input: DecreaseStreamRetentionPeriodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(input, context);
+    return se_DecreaseStreamRetentionPeriodCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecreaseStreamRetentionPeriodCommandOutput> {
-    return deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand(output, context);
+    return de_DecreaseStreamRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

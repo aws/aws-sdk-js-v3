@@ -15,8 +15,8 @@ import {
 
 import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeDataSourcePermissionsCommand,
-  serializeAws_restJson1DescribeDataSourcePermissionsCommand,
+  de_DescribeDataSourcePermissionsCommand,
+  se_DescribeDataSourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -141,7 +141,7 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSourcePermissionsCommand(input, context);
+    return se_DescribeDataSourcePermissionsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSourcePermissionsCommand(output, context);
+    return de_DescribeDataSourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

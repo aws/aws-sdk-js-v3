@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteBucketLifecycleRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketLifecycleCommand,
-  serializeAws_restXmlDeleteBucketLifecycleCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteBucketLifecycleCommand, se_DeleteBucketLifecycleCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -160,14 +157,14 @@ export class DeleteBucketLifecycleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBucketLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketLifecycleCommand(input, context);
+    return se_DeleteBucketLifecycleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketLifecycleCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketLifecycleCommand(output, context);
+    return de_DeleteBucketLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

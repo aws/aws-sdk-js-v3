@@ -16,8 +16,8 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { UpdateDataRepositoryAssociationRequest, UpdateDataRepositoryAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDataRepositoryAssociationCommand,
-  serializeAws_json1_1UpdateDataRepositoryAssociationCommand,
+  de_UpdateDataRepositoryAssociationCommand,
+  se_UpdateDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
     input: UpdateDataRepositoryAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDataRepositoryAssociationCommand(input, context);
+    return se_UpdateDataRepositoryAssociationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataRepositoryAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateDataRepositoryAssociationCommand(output, context);
+    return de_UpdateDataRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

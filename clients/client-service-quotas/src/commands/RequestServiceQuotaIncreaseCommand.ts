@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RequestServiceQuotaIncreaseRequest, RequestServiceQuotaIncreaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-  serializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RequestServiceQuotaIncreaseCommand, se_RequestServiceQuotaIncreaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -153,7 +150,7 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
    * @internal
    */
   private serialize(input: RequestServiceQuotaIncreaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestServiceQuotaIncreaseCommand(input, context);
+    return se_RequestServiceQuotaIncreaseCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestServiceQuotaIncreaseCommandOutput> {
-    return deserializeAws_json1_1RequestServiceQuotaIncreaseCommand(output, context);
+    return de_RequestServiceQuotaIncreaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlPublishFunctionCommand,
-  serializeAws_restXmlPublishFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_PublishFunctionCommand, se_PublishFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PublishFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPublishFunctionCommand(input, context);
+    return se_PublishFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishFunctionCommandOutput> {
-    return deserializeAws_restXmlPublishFunctionCommand(output, context);
+    return de_PublishFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

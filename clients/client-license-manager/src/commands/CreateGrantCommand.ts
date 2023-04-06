@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGrantCommand,
-  serializeAws_json1_1CreateGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateGrantCommand, se_CreateGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGrantCommand(input, context);
+    return se_CreateGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
-    return deserializeAws_json1_1CreateGrantCommand(output, context);
+    return de_CreateGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

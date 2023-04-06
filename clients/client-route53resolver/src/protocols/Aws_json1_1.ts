@@ -396,7 +396,10 @@ import {
 } from "../models/models_0";
 import { Route53ResolverServiceException as __BaseException } from "../models/Route53ResolverServiceException";
 
-export const serializeAws_json1_1AssociateFirewallRuleGroupCommand = async (
+/**
+ * serializeAws_json1_1AssociateFirewallRuleGroupCommand
+ */
+export const se_AssociateFirewallRuleGroupCommand = async (
   input: AssociateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -405,11 +408,14 @@ export const serializeAws_json1_1AssociateFirewallRuleGroupCommand = async (
     "x-amz-target": "Route53Resolver.AssociateFirewallRuleGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateFirewallRuleGroupRequest(input, context));
+  body = JSON.stringify(se_AssociateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateResolverEndpointIpAddressCommand = async (
+/**
+ * serializeAws_json1_1AssociateResolverEndpointIpAddressCommand
+ */
+export const se_AssociateResolverEndpointIpAddressCommand = async (
   input: AssociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -418,11 +424,14 @@ export const serializeAws_json1_1AssociateResolverEndpointIpAddressCommand = asy
     "x-amz-target": "Route53Resolver.AssociateResolverEndpointIpAddress",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateResolverEndpointIpAddressRequest(input, context));
+  body = JSON.stringify(se_AssociateResolverEndpointIpAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateResolverQueryLogConfigCommand = async (
+/**
+ * serializeAws_json1_1AssociateResolverQueryLogConfigCommand
+ */
+export const se_AssociateResolverQueryLogConfigCommand = async (
   input: AssociateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -431,11 +440,14 @@ export const serializeAws_json1_1AssociateResolverQueryLogConfigCommand = async 
     "x-amz-target": "Route53Resolver.AssociateResolverQueryLogConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateResolverQueryLogConfigRequest(input, context));
+  body = JSON.stringify(se_AssociateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1AssociateResolverRuleCommand
+ */
+export const se_AssociateResolverRuleCommand = async (
   input: AssociateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -444,11 +456,14 @@ export const serializeAws_json1_1AssociateResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.AssociateResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateResolverRuleRequest(input, context));
+  body = JSON.stringify(se_AssociateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateFirewallDomainListCommand = async (
+/**
+ * serializeAws_json1_1CreateFirewallDomainListCommand
+ */
+export const se_CreateFirewallDomainListCommand = async (
   input: CreateFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -457,11 +472,14 @@ export const serializeAws_json1_1CreateFirewallDomainListCommand = async (
     "x-amz-target": "Route53Resolver.CreateFirewallDomainList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateFirewallDomainListRequest(input, context));
+  body = JSON.stringify(se_CreateFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateFirewallRuleCommand = async (
+/**
+ * serializeAws_json1_1CreateFirewallRuleCommand
+ */
+export const se_CreateFirewallRuleCommand = async (
   input: CreateFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -470,11 +488,14 @@ export const serializeAws_json1_1CreateFirewallRuleCommand = async (
     "x-amz-target": "Route53Resolver.CreateFirewallRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateFirewallRuleRequest(input, context));
+  body = JSON.stringify(se_CreateFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateFirewallRuleGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateFirewallRuleGroupCommand
+ */
+export const se_CreateFirewallRuleGroupCommand = async (
   input: CreateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -483,11 +504,14 @@ export const serializeAws_json1_1CreateFirewallRuleGroupCommand = async (
     "x-amz-target": "Route53Resolver.CreateFirewallRuleGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateFirewallRuleGroupRequest(input, context));
+  body = JSON.stringify(se_CreateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateResolverEndpointCommand = async (
+/**
+ * serializeAws_json1_1CreateResolverEndpointCommand
+ */
+export const se_CreateResolverEndpointCommand = async (
   input: CreateResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -496,11 +520,14 @@ export const serializeAws_json1_1CreateResolverEndpointCommand = async (
     "x-amz-target": "Route53Resolver.CreateResolverEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateResolverEndpointRequest(input, context));
+  body = JSON.stringify(se_CreateResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateResolverQueryLogConfigCommand = async (
+/**
+ * serializeAws_json1_1CreateResolverQueryLogConfigCommand
+ */
+export const se_CreateResolverQueryLogConfigCommand = async (
   input: CreateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -509,11 +536,14 @@ export const serializeAws_json1_1CreateResolverQueryLogConfigCommand = async (
     "x-amz-target": "Route53Resolver.CreateResolverQueryLogConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateResolverQueryLogConfigRequest(input, context));
+  body = JSON.stringify(se_CreateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1CreateResolverRuleCommand
+ */
+export const se_CreateResolverRuleCommand = async (
   input: CreateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -522,11 +552,14 @@ export const serializeAws_json1_1CreateResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.CreateResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateResolverRuleRequest(input, context));
+  body = JSON.stringify(se_CreateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFirewallDomainListCommand = async (
+/**
+ * serializeAws_json1_1DeleteFirewallDomainListCommand
+ */
+export const se_DeleteFirewallDomainListCommand = async (
   input: DeleteFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -535,11 +568,14 @@ export const serializeAws_json1_1DeleteFirewallDomainListCommand = async (
     "x-amz-target": "Route53Resolver.DeleteFirewallDomainList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFirewallDomainListRequest(input, context));
+  body = JSON.stringify(se_DeleteFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFirewallRuleCommand = async (
+/**
+ * serializeAws_json1_1DeleteFirewallRuleCommand
+ */
+export const se_DeleteFirewallRuleCommand = async (
   input: DeleteFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -548,11 +584,14 @@ export const serializeAws_json1_1DeleteFirewallRuleCommand = async (
     "x-amz-target": "Route53Resolver.DeleteFirewallRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFirewallRuleRequest(input, context));
+  body = JSON.stringify(se_DeleteFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFirewallRuleGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteFirewallRuleGroupCommand
+ */
+export const se_DeleteFirewallRuleGroupCommand = async (
   input: DeleteFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -561,11 +600,14 @@ export const serializeAws_json1_1DeleteFirewallRuleGroupCommand = async (
     "x-amz-target": "Route53Resolver.DeleteFirewallRuleGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFirewallRuleGroupRequest(input, context));
+  body = JSON.stringify(se_DeleteFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResolverEndpointCommand = async (
+/**
+ * serializeAws_json1_1DeleteResolverEndpointCommand
+ */
+export const se_DeleteResolverEndpointCommand = async (
   input: DeleteResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -574,11 +616,14 @@ export const serializeAws_json1_1DeleteResolverEndpointCommand = async (
     "x-amz-target": "Route53Resolver.DeleteResolverEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResolverEndpointRequest(input, context));
+  body = JSON.stringify(se_DeleteResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResolverQueryLogConfigCommand = async (
+/**
+ * serializeAws_json1_1DeleteResolverQueryLogConfigCommand
+ */
+export const se_DeleteResolverQueryLogConfigCommand = async (
   input: DeleteResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -587,11 +632,14 @@ export const serializeAws_json1_1DeleteResolverQueryLogConfigCommand = async (
     "x-amz-target": "Route53Resolver.DeleteResolverQueryLogConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResolverQueryLogConfigRequest(input, context));
+  body = JSON.stringify(se_DeleteResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1DeleteResolverRuleCommand
+ */
+export const se_DeleteResolverRuleCommand = async (
   input: DeleteResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -600,11 +648,14 @@ export const serializeAws_json1_1DeleteResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.DeleteResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResolverRuleRequest(input, context));
+  body = JSON.stringify(se_DeleteResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateFirewallRuleGroupCommand = async (
+/**
+ * serializeAws_json1_1DisassociateFirewallRuleGroupCommand
+ */
+export const se_DisassociateFirewallRuleGroupCommand = async (
   input: DisassociateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -613,11 +664,14 @@ export const serializeAws_json1_1DisassociateFirewallRuleGroupCommand = async (
     "x-amz-target": "Route53Resolver.DisassociateFirewallRuleGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateFirewallRuleGroupRequest(input, context));
+  body = JSON.stringify(se_DisassociateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = async (
+/**
+ * serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand
+ */
+export const se_DisassociateResolverEndpointIpAddressCommand = async (
   input: DisassociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -626,11 +680,14 @@ export const serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = 
     "x-amz-target": "Route53Resolver.DisassociateResolverEndpointIpAddress",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest(input, context));
+  body = JSON.stringify(se_DisassociateResolverEndpointIpAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateResolverQueryLogConfigCommand = async (
+/**
+ * serializeAws_json1_1DisassociateResolverQueryLogConfigCommand
+ */
+export const se_DisassociateResolverQueryLogConfigCommand = async (
   input: DisassociateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -639,11 +696,14 @@ export const serializeAws_json1_1DisassociateResolverQueryLogConfigCommand = asy
     "x-amz-target": "Route53Resolver.DisassociateResolverQueryLogConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateResolverQueryLogConfigRequest(input, context));
+  body = JSON.stringify(se_DisassociateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1DisassociateResolverRuleCommand
+ */
+export const se_DisassociateResolverRuleCommand = async (
   input: DisassociateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -652,11 +712,14 @@ export const serializeAws_json1_1DisassociateResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.DisassociateResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateResolverRuleRequest(input, context));
+  body = JSON.stringify(se_DisassociateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFirewallConfigCommand = async (
+/**
+ * serializeAws_json1_1GetFirewallConfigCommand
+ */
+export const se_GetFirewallConfigCommand = async (
   input: GetFirewallConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -665,11 +728,14 @@ export const serializeAws_json1_1GetFirewallConfigCommand = async (
     "x-amz-target": "Route53Resolver.GetFirewallConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFirewallConfigRequest(input, context));
+  body = JSON.stringify(se_GetFirewallConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFirewallDomainListCommand = async (
+/**
+ * serializeAws_json1_1GetFirewallDomainListCommand
+ */
+export const se_GetFirewallDomainListCommand = async (
   input: GetFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -678,11 +744,14 @@ export const serializeAws_json1_1GetFirewallDomainListCommand = async (
     "x-amz-target": "Route53Resolver.GetFirewallDomainList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFirewallDomainListRequest(input, context));
+  body = JSON.stringify(se_GetFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFirewallRuleGroupCommand = async (
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupCommand
+ */
+export const se_GetFirewallRuleGroupCommand = async (
   input: GetFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -691,11 +760,14 @@ export const serializeAws_json1_1GetFirewallRuleGroupCommand = async (
     "x-amz-target": "Route53Resolver.GetFirewallRuleGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFirewallRuleGroupRequest(input, context));
+  body = JSON.stringify(se_GetFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFirewallRuleGroupAssociationCommand = async (
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupAssociationCommand
+ */
+export const se_GetFirewallRuleGroupAssociationCommand = async (
   input: GetFirewallRuleGroupAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -704,11 +776,14 @@ export const serializeAws_json1_1GetFirewallRuleGroupAssociationCommand = async 
     "x-amz-target": "Route53Resolver.GetFirewallRuleGroupAssociation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFirewallRuleGroupAssociationRequest(input, context));
+  body = JSON.stringify(se_GetFirewallRuleGroupAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFirewallRuleGroupPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupPolicyCommand
+ */
+export const se_GetFirewallRuleGroupPolicyCommand = async (
   input: GetFirewallRuleGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -717,11 +792,14 @@ export const serializeAws_json1_1GetFirewallRuleGroupPolicyCommand = async (
     "x-amz-target": "Route53Resolver.GetFirewallRuleGroupPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFirewallRuleGroupPolicyRequest(input, context));
+  body = JSON.stringify(se_GetFirewallRuleGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverConfigCommand = async (
+/**
+ * serializeAws_json1_1GetResolverConfigCommand
+ */
+export const se_GetResolverConfigCommand = async (
   input: GetResolverConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -730,11 +808,14 @@ export const serializeAws_json1_1GetResolverConfigCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverConfigRequest(input, context));
+  body = JSON.stringify(se_GetResolverConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverDnssecConfigCommand = async (
+/**
+ * serializeAws_json1_1GetResolverDnssecConfigCommand
+ */
+export const se_GetResolverDnssecConfigCommand = async (
   input: GetResolverDnssecConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -743,11 +824,14 @@ export const serializeAws_json1_1GetResolverDnssecConfigCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverDnssecConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverDnssecConfigRequest(input, context));
+  body = JSON.stringify(se_GetResolverDnssecConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverEndpointCommand = async (
+/**
+ * serializeAws_json1_1GetResolverEndpointCommand
+ */
+export const se_GetResolverEndpointCommand = async (
   input: GetResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -756,11 +840,14 @@ export const serializeAws_json1_1GetResolverEndpointCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverEndpointRequest(input, context));
+  body = JSON.stringify(se_GetResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverQueryLogConfigCommand = async (
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigCommand
+ */
+export const se_GetResolverQueryLogConfigCommand = async (
   input: GetResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -769,11 +856,14 @@ export const serializeAws_json1_1GetResolverQueryLogConfigCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverQueryLogConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverQueryLogConfigRequest(input, context));
+  body = JSON.stringify(se_GetResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverQueryLogConfigAssociationCommand = async (
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigAssociationCommand
+ */
+export const se_GetResolverQueryLogConfigAssociationCommand = async (
   input: GetResolverQueryLogConfigAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -782,11 +872,14 @@ export const serializeAws_json1_1GetResolverQueryLogConfigAssociationCommand = a
     "x-amz-target": "Route53Resolver.GetResolverQueryLogConfigAssociation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest(input, context));
+  body = JSON.stringify(se_GetResolverQueryLogConfigAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand
+ */
+export const se_GetResolverQueryLogConfigPolicyCommand = async (
   input: GetResolverQueryLogConfigPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -795,11 +888,14 @@ export const serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand = async 
     "x-amz-target": "Route53Resolver.GetResolverQueryLogConfigPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest(input, context));
+  body = JSON.stringify(se_GetResolverQueryLogConfigPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1GetResolverRuleCommand
+ */
+export const se_GetResolverRuleCommand = async (
   input: GetResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -808,11 +904,14 @@ export const serializeAws_json1_1GetResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverRuleRequest(input, context));
+  body = JSON.stringify(se_GetResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverRuleAssociationCommand = async (
+/**
+ * serializeAws_json1_1GetResolverRuleAssociationCommand
+ */
+export const se_GetResolverRuleAssociationCommand = async (
   input: GetResolverRuleAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -821,11 +920,14 @@ export const serializeAws_json1_1GetResolverRuleAssociationCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverRuleAssociation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverRuleAssociationRequest(input, context));
+  body = JSON.stringify(se_GetResolverRuleAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResolverRulePolicyCommand = async (
+/**
+ * serializeAws_json1_1GetResolverRulePolicyCommand
+ */
+export const se_GetResolverRulePolicyCommand = async (
   input: GetResolverRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -834,11 +936,14 @@ export const serializeAws_json1_1GetResolverRulePolicyCommand = async (
     "x-amz-target": "Route53Resolver.GetResolverRulePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResolverRulePolicyRequest(input, context));
+  body = JSON.stringify(se_GetResolverRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportFirewallDomainsCommand = async (
+/**
+ * serializeAws_json1_1ImportFirewallDomainsCommand
+ */
+export const se_ImportFirewallDomainsCommand = async (
   input: ImportFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -847,11 +952,14 @@ export const serializeAws_json1_1ImportFirewallDomainsCommand = async (
     "x-amz-target": "Route53Resolver.ImportFirewallDomains",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportFirewallDomainsRequest(input, context));
+  body = JSON.stringify(se_ImportFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallConfigsCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallConfigsCommand
+ */
+export const se_ListFirewallConfigsCommand = async (
   input: ListFirewallConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -860,11 +968,14 @@ export const serializeAws_json1_1ListFirewallConfigsCommand = async (
     "x-amz-target": "Route53Resolver.ListFirewallConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallConfigsRequest(input, context));
+  body = JSON.stringify(se_ListFirewallConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallDomainListsCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallDomainListsCommand
+ */
+export const se_ListFirewallDomainListsCommand = async (
   input: ListFirewallDomainListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -873,11 +984,14 @@ export const serializeAws_json1_1ListFirewallDomainListsCommand = async (
     "x-amz-target": "Route53Resolver.ListFirewallDomainLists",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallDomainListsRequest(input, context));
+  body = JSON.stringify(se_ListFirewallDomainListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallDomainsCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallDomainsCommand
+ */
+export const se_ListFirewallDomainsCommand = async (
   input: ListFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -886,11 +1000,14 @@ export const serializeAws_json1_1ListFirewallDomainsCommand = async (
     "x-amz-target": "Route53Resolver.ListFirewallDomains",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallDomainsRequest(input, context));
+  body = JSON.stringify(se_ListFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand
+ */
+export const se_ListFirewallRuleGroupAssociationsCommand = async (
   input: ListFirewallRuleGroupAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -899,11 +1016,14 @@ export const serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand = asyn
     "x-amz-target": "Route53Resolver.ListFirewallRuleGroupAssociations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallRuleGroupAssociationsRequest(input, context));
+  body = JSON.stringify(se_ListFirewallRuleGroupAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallRuleGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallRuleGroupsCommand
+ */
+export const se_ListFirewallRuleGroupsCommand = async (
   input: ListFirewallRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -912,11 +1032,14 @@ export const serializeAws_json1_1ListFirewallRuleGroupsCommand = async (
     "x-amz-target": "Route53Resolver.ListFirewallRuleGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallRuleGroupsRequest(input, context));
+  body = JSON.stringify(se_ListFirewallRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFirewallRulesCommand = async (
+/**
+ * serializeAws_json1_1ListFirewallRulesCommand
+ */
+export const se_ListFirewallRulesCommand = async (
   input: ListFirewallRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -925,11 +1048,14 @@ export const serializeAws_json1_1ListFirewallRulesCommand = async (
     "x-amz-target": "Route53Resolver.ListFirewallRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFirewallRulesRequest(input, context));
+  body = JSON.stringify(se_ListFirewallRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverConfigsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverConfigsCommand
+ */
+export const se_ListResolverConfigsCommand = async (
   input: ListResolverConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -938,11 +1064,14 @@ export const serializeAws_json1_1ListResolverConfigsCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverConfigsRequest(input, context));
+  body = JSON.stringify(se_ListResolverConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverDnssecConfigsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverDnssecConfigsCommand
+ */
+export const se_ListResolverDnssecConfigsCommand = async (
   input: ListResolverDnssecConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -951,11 +1080,14 @@ export const serializeAws_json1_1ListResolverDnssecConfigsCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverDnssecConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverDnssecConfigsRequest(input, context));
+  body = JSON.stringify(se_ListResolverDnssecConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverEndpointIpAddressesCommand = async (
+/**
+ * serializeAws_json1_1ListResolverEndpointIpAddressesCommand
+ */
+export const se_ListResolverEndpointIpAddressesCommand = async (
   input: ListResolverEndpointIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -964,11 +1096,14 @@ export const serializeAws_json1_1ListResolverEndpointIpAddressesCommand = async 
     "x-amz-target": "Route53Resolver.ListResolverEndpointIpAddresses",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverEndpointIpAddressesRequest(input, context));
+  body = JSON.stringify(se_ListResolverEndpointIpAddressesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverEndpointsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverEndpointsCommand
+ */
+export const se_ListResolverEndpointsCommand = async (
   input: ListResolverEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -977,11 +1112,14 @@ export const serializeAws_json1_1ListResolverEndpointsCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverEndpoints",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverEndpointsRequest(input, context));
+  body = JSON.stringify(se_ListResolverEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand
+ */
+export const se_ListResolverQueryLogConfigAssociationsCommand = async (
   input: ListResolverQueryLogConfigAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -990,11 +1128,14 @@ export const serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand =
     "x-amz-target": "Route53Resolver.ListResolverQueryLogConfigAssociations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest(input, context));
+  body = JSON.stringify(se_ListResolverQueryLogConfigAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverQueryLogConfigsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverQueryLogConfigsCommand
+ */
+export const se_ListResolverQueryLogConfigsCommand = async (
   input: ListResolverQueryLogConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1003,11 +1144,14 @@ export const serializeAws_json1_1ListResolverQueryLogConfigsCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverQueryLogConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverQueryLogConfigsRequest(input, context));
+  body = JSON.stringify(se_ListResolverQueryLogConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverRuleAssociationsCommand = async (
+/**
+ * serializeAws_json1_1ListResolverRuleAssociationsCommand
+ */
+export const se_ListResolverRuleAssociationsCommand = async (
   input: ListResolverRuleAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1016,11 +1160,14 @@ export const serializeAws_json1_1ListResolverRuleAssociationsCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverRuleAssociations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverRuleAssociationsRequest(input, context));
+  body = JSON.stringify(se_ListResolverRuleAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResolverRulesCommand = async (
+/**
+ * serializeAws_json1_1ListResolverRulesCommand
+ */
+export const se_ListResolverRulesCommand = async (
   input: ListResolverRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1029,11 +1176,14 @@ export const serializeAws_json1_1ListResolverRulesCommand = async (
     "x-amz-target": "Route53Resolver.ListResolverRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResolverRulesRequest(input, context));
+  body = JSON.stringify(se_ListResolverRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1042,11 +1192,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "Route53Resolver.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutFirewallRuleGroupPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutFirewallRuleGroupPolicyCommand
+ */
+export const se_PutFirewallRuleGroupPolicyCommand = async (
   input: PutFirewallRuleGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1055,11 +1208,14 @@ export const serializeAws_json1_1PutFirewallRuleGroupPolicyCommand = async (
     "x-amz-target": "Route53Resolver.PutFirewallRuleGroupPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutFirewallRuleGroupPolicyRequest(input, context));
+  body = JSON.stringify(se_PutFirewallRuleGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand
+ */
+export const se_PutResolverQueryLogConfigPolicyCommand = async (
   input: PutResolverQueryLogConfigPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1068,11 +1224,14 @@ export const serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand = async 
     "x-amz-target": "Route53Resolver.PutResolverQueryLogConfigPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest(input, context));
+  body = JSON.stringify(se_PutResolverQueryLogConfigPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResolverRulePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResolverRulePolicyCommand
+ */
+export const se_PutResolverRulePolicyCommand = async (
   input: PutResolverRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1081,11 +1240,14 @@ export const serializeAws_json1_1PutResolverRulePolicyCommand = async (
     "x-amz-target": "Route53Resolver.PutResolverRulePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResolverRulePolicyRequest(input, context));
+  body = JSON.stringify(se_PutResolverRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1094,11 +1256,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "Route53Resolver.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1107,11 +1272,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "Route53Resolver.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFirewallConfigCommand = async (
+/**
+ * serializeAws_json1_1UpdateFirewallConfigCommand
+ */
+export const se_UpdateFirewallConfigCommand = async (
   input: UpdateFirewallConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1120,11 +1288,14 @@ export const serializeAws_json1_1UpdateFirewallConfigCommand = async (
     "x-amz-target": "Route53Resolver.UpdateFirewallConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFirewallConfigRequest(input, context));
+  body = JSON.stringify(se_UpdateFirewallConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFirewallDomainsCommand = async (
+/**
+ * serializeAws_json1_1UpdateFirewallDomainsCommand
+ */
+export const se_UpdateFirewallDomainsCommand = async (
   input: UpdateFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1133,11 +1304,14 @@ export const serializeAws_json1_1UpdateFirewallDomainsCommand = async (
     "x-amz-target": "Route53Resolver.UpdateFirewallDomains",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFirewallDomainsRequest(input, context));
+  body = JSON.stringify(se_UpdateFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFirewallRuleCommand = async (
+/**
+ * serializeAws_json1_1UpdateFirewallRuleCommand
+ */
+export const se_UpdateFirewallRuleCommand = async (
   input: UpdateFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1146,11 +1320,14 @@ export const serializeAws_json1_1UpdateFirewallRuleCommand = async (
     "x-amz-target": "Route53Resolver.UpdateFirewallRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFirewallRuleRequest(input, context));
+  body = JSON.stringify(se_UpdateFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand = async (
+/**
+ * serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand
+ */
+export const se_UpdateFirewallRuleGroupAssociationCommand = async (
   input: UpdateFirewallRuleGroupAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1159,11 +1336,14 @@ export const serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand = asy
     "x-amz-target": "Route53Resolver.UpdateFirewallRuleGroupAssociation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFirewallRuleGroupAssociationRequest(input, context));
+  body = JSON.stringify(se_UpdateFirewallRuleGroupAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResolverConfigCommand = async (
+/**
+ * serializeAws_json1_1UpdateResolverConfigCommand
+ */
+export const se_UpdateResolverConfigCommand = async (
   input: UpdateResolverConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1172,11 +1352,14 @@ export const serializeAws_json1_1UpdateResolverConfigCommand = async (
     "x-amz-target": "Route53Resolver.UpdateResolverConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResolverConfigRequest(input, context));
+  body = JSON.stringify(se_UpdateResolverConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResolverDnssecConfigCommand = async (
+/**
+ * serializeAws_json1_1UpdateResolverDnssecConfigCommand
+ */
+export const se_UpdateResolverDnssecConfigCommand = async (
   input: UpdateResolverDnssecConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1185,11 +1368,14 @@ export const serializeAws_json1_1UpdateResolverDnssecConfigCommand = async (
     "x-amz-target": "Route53Resolver.UpdateResolverDnssecConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResolverDnssecConfigRequest(input, context));
+  body = JSON.stringify(se_UpdateResolverDnssecConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResolverEndpointCommand = async (
+/**
+ * serializeAws_json1_1UpdateResolverEndpointCommand
+ */
+export const se_UpdateResolverEndpointCommand = async (
   input: UpdateResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1198,11 +1384,14 @@ export const serializeAws_json1_1UpdateResolverEndpointCommand = async (
     "x-amz-target": "Route53Resolver.UpdateResolverEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResolverEndpointRequest(input, context));
+  body = JSON.stringify(se_UpdateResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResolverRuleCommand = async (
+/**
+ * serializeAws_json1_1UpdateResolverRuleCommand
+ */
+export const se_UpdateResolverRuleCommand = async (
   input: UpdateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1211,20 +1400,23 @@ export const serializeAws_json1_1UpdateResolverRuleCommand = async (
     "x-amz-target": "Route53Resolver.UpdateResolverRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResolverRuleRequest(input, context));
+  body = JSON.stringify(se_UpdateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateFirewallRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_1AssociateFirewallRuleGroupCommand
+ */
+export const de_AssociateFirewallRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateFirewallRuleGroupCommandError(output, context);
+    return de_AssociateFirewallRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateFirewallRuleGroupResponse(data, context);
+  contents = de_AssociateFirewallRuleGroupResponse(data, context);
   const response: AssociateFirewallRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1232,7 +1424,10 @@ export const deserializeAws_json1_1AssociateFirewallRuleGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateFirewallRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateFirewallRuleGroupCommandError
+ */
+const de_AssociateFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFirewallRuleGroupCommandOutput> => {
@@ -1244,25 +1439,25 @@ const deserializeAws_json1_1AssociateFirewallRuleGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1274,16 +1469,19 @@ const deserializeAws_json1_1AssociateFirewallRuleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand = async (
+/**
+ * deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand
+ */
+export const de_AssociateResolverEndpointIpAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError(output, context);
+    return de_AssociateResolverEndpointIpAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse(data, context);
+  contents = de_AssociateResolverEndpointIpAddressResponse(data, context);
   const response: AssociateResolverEndpointIpAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1291,7 +1489,10 @@ export const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError
+ */
+const de_AssociateResolverEndpointIpAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
@@ -1303,25 +1504,25 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = asy
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1333,16 +1534,19 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1AssociateResolverQueryLogConfigCommand = async (
+/**
+ * deserializeAws_json1_1AssociateResolverQueryLogConfigCommand
+ */
+export const de_AssociateResolverQueryLogConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError(output, context);
+    return de_AssociateResolverQueryLogConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateResolverQueryLogConfigResponse(data, context);
+  contents = de_AssociateResolverQueryLogConfigResponse(data, context);
   const response: AssociateResolverQueryLogConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1350,7 +1554,10 @@ export const deserializeAws_json1_1AssociateResolverQueryLogConfigCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError
+ */
+const de_AssociateResolverQueryLogConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverQueryLogConfigCommandOutput> => {
@@ -1362,28 +1569,28 @@ const deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1395,16 +1602,19 @@ const deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1AssociateResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1AssociateResolverRuleCommand
+ */
+export const de_AssociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateResolverRuleCommandError(output, context);
+    return de_AssociateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateResolverRuleResponse(data, context);
+  contents = de_AssociateResolverRuleResponse(data, context);
   const response: AssociateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1412,7 +1622,10 @@ export const deserializeAws_json1_1AssociateResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateResolverRuleCommandError
+ */
+const de_AssociateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverRuleCommandOutput> => {
@@ -1424,28 +1637,28 @@ const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1457,16 +1670,19 @@ const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateFirewallDomainListCommand = async (
+/**
+ * deserializeAws_json1_1CreateFirewallDomainListCommand
+ */
+export const de_CreateFirewallDomainListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateFirewallDomainListCommandError(output, context);
+    return de_CreateFirewallDomainListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFirewallDomainListResponse(data, context);
+  contents = de_CreateFirewallDomainListResponse(data, context);
   const response: CreateFirewallDomainListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1474,7 +1690,10 @@ export const deserializeAws_json1_1CreateFirewallDomainListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateFirewallDomainListCommandError = async (
+/**
+ * deserializeAws_json1_1CreateFirewallDomainListCommandError
+ */
+const de_CreateFirewallDomainListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallDomainListCommandOutput> => {
@@ -1486,19 +1705,19 @@ const deserializeAws_json1_1CreateFirewallDomainListCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1510,16 +1729,19 @@ const deserializeAws_json1_1CreateFirewallDomainListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateFirewallRuleCommand = async (
+/**
+ * deserializeAws_json1_1CreateFirewallRuleCommand
+ */
+export const de_CreateFirewallRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateFirewallRuleCommandError(output, context);
+    return de_CreateFirewallRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFirewallRuleResponse(data, context);
+  contents = de_CreateFirewallRuleResponse(data, context);
   const response: CreateFirewallRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1527,7 +1749,10 @@ export const deserializeAws_json1_1CreateFirewallRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateFirewallRuleCommandError = async (
+/**
+ * deserializeAws_json1_1CreateFirewallRuleCommandError
+ */
+const de_CreateFirewallRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallRuleCommandOutput> => {
@@ -1539,22 +1764,22 @@ const deserializeAws_json1_1CreateFirewallRuleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1566,16 +1791,19 @@ const deserializeAws_json1_1CreateFirewallRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateFirewallRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateFirewallRuleGroupCommand
+ */
+export const de_CreateFirewallRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateFirewallRuleGroupCommandError(output, context);
+    return de_CreateFirewallRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFirewallRuleGroupResponse(data, context);
+  contents = de_CreateFirewallRuleGroupResponse(data, context);
   const response: CreateFirewallRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1583,7 +1811,10 @@ export const deserializeAws_json1_1CreateFirewallRuleGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateFirewallRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateFirewallRuleGroupCommandError
+ */
+const de_CreateFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallRuleGroupCommandOutput> => {
@@ -1595,19 +1826,19 @@ const deserializeAws_json1_1CreateFirewallRuleGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1619,16 +1850,19 @@ const deserializeAws_json1_1CreateFirewallRuleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateResolverEndpointCommand = async (
+/**
+ * deserializeAws_json1_1CreateResolverEndpointCommand
+ */
+export const de_CreateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateResolverEndpointCommandError(output, context);
+    return de_CreateResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResolverEndpointResponse(data, context);
+  contents = de_CreateResolverEndpointResponse(data, context);
   const response: CreateResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1636,7 +1870,10 @@ export const deserializeAws_json1_1CreateResolverEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1CreateResolverEndpointCommandError
+ */
+const de_CreateResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverEndpointCommandOutput> => {
@@ -1648,25 +1885,25 @@ const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1678,16 +1915,19 @@ const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateResolverQueryLogConfigCommand = async (
+/**
+ * deserializeAws_json1_1CreateResolverQueryLogConfigCommand
+ */
+export const de_CreateResolverQueryLogConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateResolverQueryLogConfigCommandError(output, context);
+    return de_CreateResolverQueryLogConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResolverQueryLogConfigResponse(data, context);
+  contents = de_CreateResolverQueryLogConfigResponse(data, context);
   const response: CreateResolverQueryLogConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1695,7 +1935,10 @@ export const deserializeAws_json1_1CreateResolverQueryLogConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateResolverQueryLogConfigCommandError = async (
+/**
+ * deserializeAws_json1_1CreateResolverQueryLogConfigCommandError
+ */
+const de_CreateResolverQueryLogConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverQueryLogConfigCommandOutput> => {
@@ -1707,28 +1950,28 @@ const deserializeAws_json1_1CreateResolverQueryLogConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1740,16 +1983,19 @@ const deserializeAws_json1_1CreateResolverQueryLogConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1CreateResolverRuleCommand
+ */
+export const de_CreateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateResolverRuleCommandError(output, context);
+    return de_CreateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResolverRuleResponse(data, context);
+  contents = de_CreateResolverRuleResponse(data, context);
   const response: CreateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1757,7 +2003,10 @@ export const deserializeAws_json1_1CreateResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1CreateResolverRuleCommandError
+ */
+const de_CreateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverRuleCommandOutput> => {
@@ -1769,28 +2018,28 @@ const deserializeAws_json1_1CreateResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1802,16 +2051,19 @@ const deserializeAws_json1_1CreateResolverRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteFirewallDomainListCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallDomainListCommand
+ */
+export const de_DeleteFirewallDomainListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFirewallDomainListCommandError(output, context);
+    return de_DeleteFirewallDomainListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFirewallDomainListResponse(data, context);
+  contents = de_DeleteFirewallDomainListResponse(data, context);
   const response: DeleteFirewallDomainListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1819,7 +2071,10 @@ export const deserializeAws_json1_1DeleteFirewallDomainListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteFirewallDomainListCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallDomainListCommandError
+ */
+const de_DeleteFirewallDomainListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallDomainListCommandOutput> => {
@@ -1831,19 +2086,19 @@ const deserializeAws_json1_1DeleteFirewallDomainListCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1855,16 +2110,19 @@ const deserializeAws_json1_1DeleteFirewallDomainListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteFirewallRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleCommand
+ */
+export const de_DeleteFirewallRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFirewallRuleCommandError(output, context);
+    return de_DeleteFirewallRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFirewallRuleResponse(data, context);
+  contents = de_DeleteFirewallRuleResponse(data, context);
   const response: DeleteFirewallRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1872,7 +2130,10 @@ export const deserializeAws_json1_1DeleteFirewallRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteFirewallRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleCommandError
+ */
+const de_DeleteFirewallRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleCommandOutput> => {
@@ -1884,16 +2145,16 @@ const deserializeAws_json1_1DeleteFirewallRuleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1905,16 +2166,19 @@ const deserializeAws_json1_1DeleteFirewallRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteFirewallRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleGroupCommand
+ */
+export const de_DeleteFirewallRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFirewallRuleGroupCommandError(output, context);
+    return de_DeleteFirewallRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFirewallRuleGroupResponse(data, context);
+  contents = de_DeleteFirewallRuleGroupResponse(data, context);
   const response: DeleteFirewallRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1922,7 +2186,10 @@ export const deserializeAws_json1_1DeleteFirewallRuleGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteFirewallRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleGroupCommandError
+ */
+const de_DeleteFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleGroupCommandOutput> => {
@@ -1934,22 +2201,22 @@ const deserializeAws_json1_1DeleteFirewallRuleGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1961,16 +2228,19 @@ const deserializeAws_json1_1DeleteFirewallRuleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResolverEndpointCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResolverEndpointCommand
+ */
+export const de_DeleteResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResolverEndpointCommandError(output, context);
+    return de_DeleteResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResolverEndpointResponse(data, context);
+  contents = de_DeleteResolverEndpointResponse(data, context);
   const response: DeleteResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1978,7 +2248,10 @@ export const deserializeAws_json1_1DeleteResolverEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResolverEndpointCommandError
+ */
+const de_DeleteResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverEndpointCommandOutput> => {
@@ -1990,19 +2263,19 @@ const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2014,16 +2287,19 @@ const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResolverQueryLogConfigCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResolverQueryLogConfigCommand
+ */
+export const de_DeleteResolverQueryLogConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError(output, context);
+    return de_DeleteResolverQueryLogConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResolverQueryLogConfigResponse(data, context);
+  contents = de_DeleteResolverQueryLogConfigResponse(data, context);
   const response: DeleteResolverQueryLogConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2031,7 +2307,10 @@ export const deserializeAws_json1_1DeleteResolverQueryLogConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError
+ */
+const de_DeleteResolverQueryLogConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverQueryLogConfigCommandOutput> => {
@@ -2043,22 +2322,22 @@ const deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2070,16 +2349,19 @@ const deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResolverRuleCommand
+ */
+export const de_DeleteResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResolverRuleCommandError(output, context);
+    return de_DeleteResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResolverRuleResponse(data, context);
+  contents = de_DeleteResolverRuleResponse(data, context);
   const response: DeleteResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2087,7 +2369,10 @@ export const deserializeAws_json1_1DeleteResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResolverRuleCommandError
+ */
+const de_DeleteResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverRuleCommandOutput> => {
@@ -2099,19 +2384,19 @@ const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.route53resolver#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2123,16 +2408,19 @@ const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateFirewallRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateFirewallRuleGroupCommand
+ */
+export const de_DisassociateFirewallRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError(output, context);
+    return de_DisassociateFirewallRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateFirewallRuleGroupResponse(data, context);
+  contents = de_DisassociateFirewallRuleGroupResponse(data, context);
   const response: DisassociateFirewallRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2140,7 +2428,10 @@ export const deserializeAws_json1_1DisassociateFirewallRuleGroupCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError
+ */
+const de_DisassociateFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFirewallRuleGroupCommandOutput> => {
@@ -2152,22 +2443,22 @@ const deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2179,16 +2470,19 @@ const deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand
+ */
+export const de_DisassociateResolverEndpointIpAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError(output, context);
+    return de_DisassociateResolverEndpointIpAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse(data, context);
+  contents = de_DisassociateResolverEndpointIpAddressResponse(data, context);
   const response: DisassociateResolverEndpointIpAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2196,7 +2490,10 @@ export const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError
+ */
+const de_DisassociateResolverEndpointIpAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
@@ -2208,22 +2505,22 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = 
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2235,16 +2532,19 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = 
   }
 };
 
-export const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand
+ */
+export const de_DisassociateResolverQueryLogConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError(output, context);
+    return de_DisassociateResolverQueryLogConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateResolverQueryLogConfigResponse(data, context);
+  contents = de_DisassociateResolverQueryLogConfigResponse(data, context);
   const response: DisassociateResolverQueryLogConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2252,7 +2552,10 @@ export const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError
+ */
+const de_DisassociateResolverQueryLogConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverQueryLogConfigCommandOutput> => {
@@ -2264,22 +2567,22 @@ const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2291,16 +2594,19 @@ const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1DisassociateResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverRuleCommand
+ */
+export const de_DisassociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateResolverRuleCommandError(output, context);
+    return de_DisassociateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateResolverRuleResponse(data, context);
+  contents = de_DisassociateResolverRuleResponse(data, context);
   const response: DisassociateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2308,7 +2614,10 @@ export const deserializeAws_json1_1DisassociateResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateResolverRuleCommandError
+ */
+const de_DisassociateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverRuleCommandOutput> => {
@@ -2320,16 +2629,16 @@ const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2341,16 +2650,19 @@ const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFirewallConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetFirewallConfigCommand
+ */
+export const de_GetFirewallConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFirewallConfigCommandError(output, context);
+    return de_GetFirewallConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFirewallConfigResponse(data, context);
+  contents = de_GetFirewallConfigResponse(data, context);
   const response: GetFirewallConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2358,7 +2670,10 @@ export const deserializeAws_json1_1GetFirewallConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFirewallConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetFirewallConfigCommandError
+ */
+const de_GetFirewallConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallConfigCommandOutput> => {
@@ -2370,19 +2685,19 @@ const deserializeAws_json1_1GetFirewallConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2394,16 +2709,19 @@ const deserializeAws_json1_1GetFirewallConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFirewallDomainListCommand = async (
+/**
+ * deserializeAws_json1_1GetFirewallDomainListCommand
+ */
+export const de_GetFirewallDomainListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFirewallDomainListCommandError(output, context);
+    return de_GetFirewallDomainListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFirewallDomainListResponse(data, context);
+  contents = de_GetFirewallDomainListResponse(data, context);
   const response: GetFirewallDomainListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2411,7 +2729,10 @@ export const deserializeAws_json1_1GetFirewallDomainListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFirewallDomainListCommandError = async (
+/**
+ * deserializeAws_json1_1GetFirewallDomainListCommandError
+ */
+const de_GetFirewallDomainListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallDomainListCommandOutput> => {
@@ -2423,16 +2744,16 @@ const deserializeAws_json1_1GetFirewallDomainListCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2444,16 +2765,19 @@ const deserializeAws_json1_1GetFirewallDomainListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFirewallRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupCommand
+ */
+export const de_GetFirewallRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFirewallRuleGroupCommandError(output, context);
+    return de_GetFirewallRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFirewallRuleGroupResponse(data, context);
+  contents = de_GetFirewallRuleGroupResponse(data, context);
   const response: GetFirewallRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2461,7 +2785,10 @@ export const deserializeAws_json1_1GetFirewallRuleGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupCommandError
+ */
+const de_GetFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupCommandOutput> => {
@@ -2473,16 +2800,16 @@ const deserializeAws_json1_1GetFirewallRuleGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2494,16 +2821,19 @@ const deserializeAws_json1_1GetFirewallRuleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand
+ */
+export const de_GetFirewallRuleGroupAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError(output, context);
+    return de_GetFirewallRuleGroupAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFirewallRuleGroupAssociationResponse(data, context);
+  contents = de_GetFirewallRuleGroupAssociationResponse(data, context);
   const response: GetFirewallRuleGroupAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2511,7 +2841,10 @@ export const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError
+ */
+const de_GetFirewallRuleGroupAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupAssociationCommandOutput> => {
@@ -2523,16 +2856,16 @@ const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2544,16 +2877,19 @@ const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand
+ */
+export const de_GetFirewallRuleGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError(output, context);
+    return de_GetFirewallRuleGroupPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFirewallRuleGroupPolicyResponse(data, context);
+  contents = de_GetFirewallRuleGroupPolicyResponse(data, context);
   const response: GetFirewallRuleGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2561,7 +2897,10 @@ export const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError
+ */
+const de_GetFirewallRuleGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
@@ -2573,19 +2912,19 @@ const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2597,16 +2936,19 @@ const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverConfigCommand
+ */
+export const de_GetResolverConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverConfigCommandError(output, context);
+    return de_GetResolverConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverConfigResponse(data, context);
+  contents = de_GetResolverConfigResponse(data, context);
   const response: GetResolverConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2614,7 +2956,10 @@ export const deserializeAws_json1_1GetResolverConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverConfigCommandError
+ */
+const de_GetResolverConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverConfigCommandOutput> => {
@@ -2626,22 +2971,22 @@ const deserializeAws_json1_1GetResolverConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2653,16 +2998,19 @@ const deserializeAws_json1_1GetResolverConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverDnssecConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverDnssecConfigCommand
+ */
+export const de_GetResolverDnssecConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverDnssecConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverDnssecConfigCommandError(output, context);
+    return de_GetResolverDnssecConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverDnssecConfigResponse(data, context);
+  contents = de_GetResolverDnssecConfigResponse(data, context);
   const response: GetResolverDnssecConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2670,7 +3018,10 @@ export const deserializeAws_json1_1GetResolverDnssecConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverDnssecConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverDnssecConfigCommandError
+ */
+const de_GetResolverDnssecConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverDnssecConfigCommandOutput> => {
@@ -2682,22 +3033,22 @@ const deserializeAws_json1_1GetResolverDnssecConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2709,16 +3060,19 @@ const deserializeAws_json1_1GetResolverDnssecConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverEndpointCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverEndpointCommand
+ */
+export const de_GetResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverEndpointCommandError(output, context);
+    return de_GetResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverEndpointResponse(data, context);
+  contents = de_GetResolverEndpointResponse(data, context);
   const response: GetResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2726,7 +3080,10 @@ export const deserializeAws_json1_1GetResolverEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverEndpointCommandError
+ */
+const de_GetResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverEndpointCommandOutput> => {
@@ -2738,16 +3095,16 @@ const deserializeAws_json1_1GetResolverEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2759,16 +3116,19 @@ const deserializeAws_json1_1GetResolverEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverQueryLogConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigCommand
+ */
+export const de_GetResolverQueryLogConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverQueryLogConfigCommandError(output, context);
+    return de_GetResolverQueryLogConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverQueryLogConfigResponse(data, context);
+  contents = de_GetResolverQueryLogConfigResponse(data, context);
   const response: GetResolverQueryLogConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2776,7 +3136,10 @@ export const deserializeAws_json1_1GetResolverQueryLogConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigCommandError
+ */
+const de_GetResolverQueryLogConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigCommandOutput> => {
@@ -2788,22 +3151,22 @@ const deserializeAws_json1_1GetResolverQueryLogConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2815,16 +3178,19 @@ const deserializeAws_json1_1GetResolverQueryLogConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommand
+ */
+export const de_GetResolverQueryLogConfigAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError(output, context);
+    return de_GetResolverQueryLogConfigAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverQueryLogConfigAssociationResponse(data, context);
+  contents = de_GetResolverQueryLogConfigAssociationResponse(data, context);
   const response: GetResolverQueryLogConfigAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2832,7 +3198,10 @@ export const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError
+ */
+const de_GetResolverQueryLogConfigAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigAssociationCommandOutput> => {
@@ -2844,22 +3213,22 @@ const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2871,16 +3240,19 @@ const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError = a
   }
 };
 
-export const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand
+ */
+export const de_GetResolverQueryLogConfigPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError(output, context);
+    return de_GetResolverQueryLogConfigPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverQueryLogConfigPolicyResponse(data, context);
+  contents = de_GetResolverQueryLogConfigPolicyResponse(data, context);
   const response: GetResolverQueryLogConfigPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2888,7 +3260,10 @@ export const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError
+ */
+const de_GetResolverQueryLogConfigPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> => {
@@ -2900,19 +3275,19 @@ const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await deserializeAws_json1_1UnknownResourceExceptionResponse(parsedOutput, context);
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2924,16 +3299,19 @@ const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1GetResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverRuleCommand
+ */
+export const de_GetResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverRuleCommandError(output, context);
+    return de_GetResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverRuleResponse(data, context);
+  contents = de_GetResolverRuleResponse(data, context);
   const response: GetResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2941,7 +3319,10 @@ export const deserializeAws_json1_1GetResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverRuleCommandError
+ */
+const de_GetResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleCommandOutput> => {
@@ -2953,16 +3334,16 @@ const deserializeAws_json1_1GetResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2974,16 +3355,19 @@ const deserializeAws_json1_1GetResolverRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverRuleAssociationCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverRuleAssociationCommand
+ */
+export const de_GetResolverRuleAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverRuleAssociationCommandError(output, context);
+    return de_GetResolverRuleAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverRuleAssociationResponse(data, context);
+  contents = de_GetResolverRuleAssociationResponse(data, context);
   const response: GetResolverRuleAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2991,7 +3375,10 @@ export const deserializeAws_json1_1GetResolverRuleAssociationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverRuleAssociationCommandError
+ */
+const de_GetResolverRuleAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleAssociationCommandOutput> => {
@@ -3003,16 +3390,16 @@ const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3024,16 +3411,19 @@ const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResolverRulePolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetResolverRulePolicyCommand
+ */
+export const de_GetResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResolverRulePolicyCommandError(output, context);
+    return de_GetResolverRulePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverRulePolicyResponse(data, context);
+  contents = de_GetResolverRulePolicyResponse(data, context);
   const response: GetResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3041,7 +3431,10 @@ export const deserializeAws_json1_1GetResolverRulePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetResolverRulePolicyCommandError
+ */
+const de_GetResolverRulePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRulePolicyCommandOutput> => {
@@ -3053,16 +3446,16 @@ const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await deserializeAws_json1_1UnknownResourceExceptionResponse(parsedOutput, context);
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3074,16 +3467,19 @@ const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ImportFirewallDomainsCommand = async (
+/**
+ * deserializeAws_json1_1ImportFirewallDomainsCommand
+ */
+export const de_ImportFirewallDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportFirewallDomainsCommandError(output, context);
+    return de_ImportFirewallDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportFirewallDomainsResponse(data, context);
+  contents = de_ImportFirewallDomainsResponse(data, context);
   const response: ImportFirewallDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3091,7 +3487,10 @@ export const deserializeAws_json1_1ImportFirewallDomainsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ImportFirewallDomainsCommandError = async (
+/**
+ * deserializeAws_json1_1ImportFirewallDomainsCommandError
+ */
+const de_ImportFirewallDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportFirewallDomainsCommandOutput> => {
@@ -3103,25 +3502,25 @@ const deserializeAws_json1_1ImportFirewallDomainsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3133,16 +3532,19 @@ const deserializeAws_json1_1ImportFirewallDomainsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFirewallConfigsCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallConfigsCommand
+ */
+export const de_ListFirewallConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallConfigsCommandError(output, context);
+    return de_ListFirewallConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallConfigsResponse(data, context);
+  contents = de_ListFirewallConfigsResponse(data, context);
   const response: ListFirewallConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3150,7 +3552,10 @@ export const deserializeAws_json1_1ListFirewallConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallConfigsCommandError
+ */
+const de_ListFirewallConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallConfigsCommandOutput> => {
@@ -3162,16 +3567,16 @@ const deserializeAws_json1_1ListFirewallConfigsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3183,16 +3588,19 @@ const deserializeAws_json1_1ListFirewallConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFirewallDomainListsCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallDomainListsCommand
+ */
+export const de_ListFirewallDomainListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallDomainListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallDomainListsCommandError(output, context);
+    return de_ListFirewallDomainListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallDomainListsResponse(data, context);
+  contents = de_ListFirewallDomainListsResponse(data, context);
   const response: ListFirewallDomainListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3200,7 +3608,10 @@ export const deserializeAws_json1_1ListFirewallDomainListsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallDomainListsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallDomainListsCommandError
+ */
+const de_ListFirewallDomainListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallDomainListsCommandOutput> => {
@@ -3212,16 +3623,16 @@ const deserializeAws_json1_1ListFirewallDomainListsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3233,16 +3644,19 @@ const deserializeAws_json1_1ListFirewallDomainListsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFirewallDomainsCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallDomainsCommand
+ */
+export const de_ListFirewallDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallDomainsCommandError(output, context);
+    return de_ListFirewallDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallDomainsResponse(data, context);
+  contents = de_ListFirewallDomainsResponse(data, context);
   const response: ListFirewallDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3250,7 +3664,10 @@ export const deserializeAws_json1_1ListFirewallDomainsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallDomainsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallDomainsCommandError
+ */
+const de_ListFirewallDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallDomainsCommandOutput> => {
@@ -3262,19 +3679,19 @@ const deserializeAws_json1_1ListFirewallDomainsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3286,16 +3703,19 @@ const deserializeAws_json1_1ListFirewallDomainsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand
+ */
+export const de_ListFirewallRuleGroupAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError(output, context);
+    return de_ListFirewallRuleGroupAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallRuleGroupAssociationsResponse(data, context);
+  contents = de_ListFirewallRuleGroupAssociationsResponse(data, context);
   const response: ListFirewallRuleGroupAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3303,7 +3723,10 @@ export const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError
+ */
+const de_ListFirewallRuleGroupAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> => {
@@ -3315,16 +3738,16 @@ const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3336,16 +3759,19 @@ const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1ListFirewallRuleGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupsCommand
+ */
+export const de_ListFirewallRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallRuleGroupsCommandError(output, context);
+    return de_ListFirewallRuleGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallRuleGroupsResponse(data, context);
+  contents = de_ListFirewallRuleGroupsResponse(data, context);
   const response: ListFirewallRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3353,7 +3779,10 @@ export const deserializeAws_json1_1ListFirewallRuleGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallRuleGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupsCommandError
+ */
+const de_ListFirewallRuleGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupsCommandOutput> => {
@@ -3365,16 +3794,16 @@ const deserializeAws_json1_1ListFirewallRuleGroupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3386,16 +3815,19 @@ const deserializeAws_json1_1ListFirewallRuleGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFirewallRulesCommand = async (
+/**
+ * deserializeAws_json1_1ListFirewallRulesCommand
+ */
+export const de_ListFirewallRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFirewallRulesCommandError(output, context);
+    return de_ListFirewallRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFirewallRulesResponse(data, context);
+  contents = de_ListFirewallRulesResponse(data, context);
   const response: ListFirewallRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3403,7 +3835,10 @@ export const deserializeAws_json1_1ListFirewallRulesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFirewallRulesCommandError = async (
+/**
+ * deserializeAws_json1_1ListFirewallRulesCommandError
+ */
+const de_ListFirewallRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRulesCommandOutput> => {
@@ -3415,19 +3850,19 @@ const deserializeAws_json1_1ListFirewallRulesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3439,16 +3874,19 @@ const deserializeAws_json1_1ListFirewallRulesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverConfigsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverConfigsCommand
+ */
+export const de_ListResolverConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverConfigsCommandError(output, context);
+    return de_ListResolverConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverConfigsResponse(data, context);
+  contents = de_ListResolverConfigsResponse(data, context);
   const response: ListResolverConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3456,7 +3894,10 @@ export const deserializeAws_json1_1ListResolverConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverConfigsCommandError
+ */
+const de_ListResolverConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverConfigsCommandOutput> => {
@@ -3468,25 +3909,25 @@ const deserializeAws_json1_1ListResolverConfigsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3498,16 +3939,19 @@ const deserializeAws_json1_1ListResolverConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverDnssecConfigsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverDnssecConfigsCommand
+ */
+export const de_ListResolverDnssecConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverDnssecConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverDnssecConfigsCommandError(output, context);
+    return de_ListResolverDnssecConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverDnssecConfigsResponse(data, context);
+  contents = de_ListResolverDnssecConfigsResponse(data, context);
   const response: ListResolverDnssecConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3515,7 +3959,10 @@ export const deserializeAws_json1_1ListResolverDnssecConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverDnssecConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverDnssecConfigsCommandError
+ */
+const de_ListResolverDnssecConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverDnssecConfigsCommandOutput> => {
@@ -3527,22 +3974,22 @@ const deserializeAws_json1_1ListResolverDnssecConfigsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3554,16 +4001,19 @@ const deserializeAws_json1_1ListResolverDnssecConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverEndpointIpAddressesCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverEndpointIpAddressesCommand
+ */
+export const de_ListResolverEndpointIpAddressesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError(output, context);
+    return de_ListResolverEndpointIpAddressesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverEndpointIpAddressesResponse(data, context);
+  contents = de_ListResolverEndpointIpAddressesResponse(data, context);
   const response: ListResolverEndpointIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3571,7 +4021,10 @@ export const deserializeAws_json1_1ListResolverEndpointIpAddressesCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
+ */
+const de_ListResolverEndpointIpAddressesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
@@ -3583,19 +4036,19 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async 
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3607,16 +4060,19 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1ListResolverEndpointsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverEndpointsCommand
+ */
+export const de_ListResolverEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverEndpointsCommandError(output, context);
+    return de_ListResolverEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverEndpointsResponse(data, context);
+  contents = de_ListResolverEndpointsResponse(data, context);
   const response: ListResolverEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3624,7 +4080,10 @@ export const deserializeAws_json1_1ListResolverEndpointsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverEndpointsCommandError
+ */
+const de_ListResolverEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointsCommandOutput> => {
@@ -3636,19 +4095,19 @@ const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3660,16 +4119,19 @@ const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand
+ */
+export const de_ListResolverQueryLogConfigAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError(output, context);
+    return de_ListResolverQueryLogConfigAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse(data, context);
+  contents = de_ListResolverQueryLogConfigAssociationsResponse(data, context);
   const response: ListResolverQueryLogConfigAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3677,7 +4139,10 @@ export const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError
+ */
+const de_ListResolverQueryLogConfigAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
@@ -3689,22 +4154,22 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3716,16 +4181,19 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError =
   }
 };
 
-export const deserializeAws_json1_1ListResolverQueryLogConfigsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigsCommand
+ */
+export const de_ListResolverQueryLogConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverQueryLogConfigsCommandError(output, context);
+    return de_ListResolverQueryLogConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverQueryLogConfigsResponse(data, context);
+  contents = de_ListResolverQueryLogConfigsResponse(data, context);
   const response: ListResolverQueryLogConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3733,7 +4201,10 @@ export const deserializeAws_json1_1ListResolverQueryLogConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverQueryLogConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigsCommandError
+ */
+const de_ListResolverQueryLogConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigsCommandOutput> => {
@@ -3745,22 +4216,22 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3772,16 +4243,19 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverRuleAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverRuleAssociationsCommand
+ */
+export const de_ListResolverRuleAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverRuleAssociationsCommandError(output, context);
+    return de_ListResolverRuleAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverRuleAssociationsResponse(data, context);
+  contents = de_ListResolverRuleAssociationsResponse(data, context);
   const response: ListResolverRuleAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3789,7 +4263,10 @@ export const deserializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverRuleAssociationsCommandError
+ */
+const de_ListResolverRuleAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
@@ -3801,19 +4278,19 @@ const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3825,16 +4302,19 @@ const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResolverRulesCommand = async (
+/**
+ * deserializeAws_json1_1ListResolverRulesCommand
+ */
+export const de_ListResolverRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResolverRulesCommandError(output, context);
+    return de_ListResolverRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverRulesResponse(data, context);
+  contents = de_ListResolverRulesResponse(data, context);
   const response: ListResolverRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3842,7 +4322,10 @@ export const deserializeAws_json1_1ListResolverRulesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResolverRulesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResolverRulesCommandError
+ */
+const de_ListResolverRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRulesCommandOutput> => {
@@ -3854,19 +4337,19 @@ const deserializeAws_json1_1ListResolverRulesCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3878,16 +4361,19 @@ const deserializeAws_json1_1ListResolverRulesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3895,7 +4381,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3907,22 +4396,22 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3934,16 +4423,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand
+ */
+export const de_PutFirewallRuleGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFirewallRuleGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError(output, context);
+    return de_PutFirewallRuleGroupPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutFirewallRuleGroupPolicyResponse(data, context);
+  contents = de_PutFirewallRuleGroupPolicyResponse(data, context);
   const response: PutFirewallRuleGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3951,7 +4443,10 @@ export const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError
+ */
+const de_PutFirewallRuleGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFirewallRuleGroupPolicyCommandOutput> => {
@@ -3963,19 +4458,19 @@ const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3987,16 +4482,19 @@ const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand
+ */
+export const de_PutResolverQueryLogConfigPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError(output, context);
+    return de_PutResolverQueryLogConfigPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResolverQueryLogConfigPolicyResponse(data, context);
+  contents = de_PutResolverQueryLogConfigPolicyResponse(data, context);
   const response: PutResolverQueryLogConfigPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4004,7 +4502,10 @@ export const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError
+ */
+const de_PutResolverQueryLogConfigPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> => {
@@ -4016,22 +4517,22 @@ const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPolicyDocument":
     case "com.amazonaws.route53resolver#InvalidPolicyDocument":
-      throw await deserializeAws_json1_1InvalidPolicyDocumentResponse(parsedOutput, context);
+      throw await de_InvalidPolicyDocumentRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await deserializeAws_json1_1UnknownResourceExceptionResponse(parsedOutput, context);
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4043,16 +4544,19 @@ const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1PutResolverRulePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResolverRulePolicyCommand
+ */
+export const de_PutResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResolverRulePolicyCommandError(output, context);
+    return de_PutResolverRulePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResolverRulePolicyResponse(data, context);
+  contents = de_PutResolverRulePolicyResponse(data, context);
   const response: PutResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4060,7 +4564,10 @@ export const deserializeAws_json1_1PutResolverRulePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResolverRulePolicyCommandError
+ */
+const de_PutResolverRulePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResolverRulePolicyCommandOutput> => {
@@ -4072,19 +4579,19 @@ const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPolicyDocument":
     case "com.amazonaws.route53resolver#InvalidPolicyDocument":
-      throw await deserializeAws_json1_1InvalidPolicyDocumentResponse(parsedOutput, context);
+      throw await de_InvalidPolicyDocumentRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await deserializeAws_json1_1UnknownResourceExceptionResponse(parsedOutput, context);
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4096,16 +4603,19 @@ const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4113,7 +4623,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -4125,25 +4638,25 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.route53resolver#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4155,16 +4668,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4172,7 +4688,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -4184,19 +4703,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4208,16 +4727,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateFirewallConfigCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallConfigCommand
+ */
+export const de_UpdateFirewallConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFirewallConfigCommandError(output, context);
+    return de_UpdateFirewallConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFirewallConfigResponse(data, context);
+  contents = de_UpdateFirewallConfigResponse(data, context);
   const response: UpdateFirewallConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4225,7 +4747,10 @@ export const deserializeAws_json1_1UpdateFirewallConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateFirewallConfigCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallConfigCommandError
+ */
+const de_UpdateFirewallConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallConfigCommandOutput> => {
@@ -4237,19 +4762,19 @@ const deserializeAws_json1_1UpdateFirewallConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4261,16 +4786,19 @@ const deserializeAws_json1_1UpdateFirewallConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateFirewallDomainsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallDomainsCommand
+ */
+export const de_UpdateFirewallDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFirewallDomainsCommandError(output, context);
+    return de_UpdateFirewallDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFirewallDomainsResponse(data, context);
+  contents = de_UpdateFirewallDomainsResponse(data, context);
   const response: UpdateFirewallDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4278,7 +4806,10 @@ export const deserializeAws_json1_1UpdateFirewallDomainsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateFirewallDomainsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallDomainsCommandError
+ */
+const de_UpdateFirewallDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDomainsCommandOutput> => {
@@ -4290,25 +4821,25 @@ const deserializeAws_json1_1UpdateFirewallDomainsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4320,16 +4851,19 @@ const deserializeAws_json1_1UpdateFirewallDomainsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateFirewallRuleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleCommand
+ */
+export const de_UpdateFirewallRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFirewallRuleCommandError(output, context);
+    return de_UpdateFirewallRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFirewallRuleResponse(data, context);
+  contents = de_UpdateFirewallRuleResponse(data, context);
   const response: UpdateFirewallRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4337,7 +4871,10 @@ export const deserializeAws_json1_1UpdateFirewallRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateFirewallRuleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleCommandError
+ */
+const de_UpdateFirewallRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleCommandOutput> => {
@@ -4349,22 +4886,22 @@ const deserializeAws_json1_1UpdateFirewallRuleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4376,16 +4913,19 @@ const deserializeAws_json1_1UpdateFirewallRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand
+ */
+export const de_UpdateFirewallRuleGroupAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError(output, context);
+    return de_UpdateFirewallRuleGroupAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFirewallRuleGroupAssociationResponse(data, context);
+  contents = de_UpdateFirewallRuleGroupAssociationResponse(data, context);
   const response: UpdateFirewallRuleGroupAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4393,7 +4933,10 @@ export const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError
+ */
+const de_UpdateFirewallRuleGroupAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> => {
@@ -4405,22 +4948,22 @@ const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53resolver#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4432,16 +4975,19 @@ const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1UpdateResolverConfigCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResolverConfigCommand
+ */
+export const de_UpdateResolverConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResolverConfigCommandError(output, context);
+    return de_UpdateResolverConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResolverConfigResponse(data, context);
+  contents = de_UpdateResolverConfigResponse(data, context);
   const response: UpdateResolverConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4449,7 +4995,10 @@ export const deserializeAws_json1_1UpdateResolverConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResolverConfigCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResolverConfigCommandError
+ */
+const de_UpdateResolverConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverConfigCommandOutput> => {
@@ -4461,31 +5010,31 @@ const deserializeAws_json1_1UpdateResolverConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53resolver#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4497,16 +5046,19 @@ const deserializeAws_json1_1UpdateResolverConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateResolverDnssecConfigCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResolverDnssecConfigCommand
+ */
+export const de_UpdateResolverDnssecConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverDnssecConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResolverDnssecConfigCommandError(output, context);
+    return de_UpdateResolverDnssecConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResolverDnssecConfigResponse(data, context);
+  contents = de_UpdateResolverDnssecConfigResponse(data, context);
   const response: UpdateResolverDnssecConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4514,7 +5066,10 @@ export const deserializeAws_json1_1UpdateResolverDnssecConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResolverDnssecConfigCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResolverDnssecConfigCommandError
+ */
+const de_UpdateResolverDnssecConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverDnssecConfigCommandOutput> => {
@@ -4526,22 +5081,22 @@ const deserializeAws_json1_1UpdateResolverDnssecConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4553,16 +5108,19 @@ const deserializeAws_json1_1UpdateResolverDnssecConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateResolverEndpointCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResolverEndpointCommand
+ */
+export const de_UpdateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResolverEndpointCommandError(output, context);
+    return de_UpdateResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResolverEndpointResponse(data, context);
+  contents = de_UpdateResolverEndpointResponse(data, context);
   const response: UpdateResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4570,7 +5128,10 @@ export const deserializeAws_json1_1UpdateResolverEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResolverEndpointCommandError
+ */
+const de_UpdateResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverEndpointCommandOutput> => {
@@ -4582,19 +5143,19 @@ const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4606,16 +5167,19 @@ const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateResolverRuleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResolverRuleCommand
+ */
+export const de_UpdateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResolverRuleCommandError(output, context);
+    return de_UpdateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResolverRuleResponse(data, context);
+  contents = de_UpdateResolverRuleResponse(data, context);
   const response: UpdateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4623,7 +5187,10 @@ export const deserializeAws_json1_1UpdateResolverRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResolverRuleCommandError
+ */
+const de_UpdateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverRuleCommandOutput> => {
@@ -4635,25 +5202,25 @@ const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4665,12 +5232,15 @@ const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4678,12 +5248,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4691,12 +5261,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(body, context);
+  const deserialized: any = de_InternalServiceErrorException(body, context);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4704,12 +5277,15 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = de_InvalidNextTokenException(body, context);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4717,12 +5293,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4730,12 +5309,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPolicyDocumentResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPolicyDocumentRes
+ */
+const de_InvalidPolicyDocumentRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPolicyDocument> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPolicyDocument(body, context);
+  const deserialized: any = de_InvalidPolicyDocument(body, context);
   const exception = new InvalidPolicyDocument({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4743,12 +5325,15 @@ const deserializeAws_json1_1InvalidPolicyDocumentResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
+  const deserialized: any = de_InvalidRequestException(body, context);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4756,12 +5341,12 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidTagException> => {
+/**
+ * deserializeAws_json1_1InvalidTagExceptionRes
+ */
+const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const deserialized: any = de_InvalidTagException(body, context);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4769,12 +5354,15 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4782,12 +5370,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceExistsExceptionRes
+ */
+const de_ResourceExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceExistsException(body, context);
+  const deserialized: any = de_ResourceExistsException(body, context);
   const exception = new ResourceExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4795,12 +5386,15 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = de_ResourceInUseException(body, context);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4808,12 +5402,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4821,12 +5418,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceUnavailableExceptionRes
+ */
+const de_ResourceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(body, context);
+  const deserialized: any = de_ResourceUnavailableException(body, context);
   const exception = new ResourceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4834,12 +5434,12 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4847,12 +5447,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnknownResourceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnknownResourceExceptionRes
+ */
+const de_UnknownResourceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnknownResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnknownResourceException(body, context);
+  const deserialized: any = de_UnknownResourceException(body, context);
   const exception = new UnknownResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4860,12 +5463,12 @@ const deserializeAws_json1_1UnknownResourceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4873,7 +5476,10 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AssociateFirewallRuleGroupRequest = (
+/**
+ * serializeAws_json1_1AssociateFirewallRuleGroupRequest
+ */
+const se_AssociateFirewallRuleGroupRequest = (
   input: AssociateFirewallRuleGroupRequest,
   context: __SerdeContext
 ): any => {
@@ -4883,22 +5489,28 @@ const serializeAws_json1_1AssociateFirewallRuleGroupRequest = (
     ...(input.MutationProtection != null && { MutationProtection: input.MutationProtection }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
-const serializeAws_json1_1AssociateResolverEndpointIpAddressRequest = (
+/**
+ * serializeAws_json1_1AssociateResolverEndpointIpAddressRequest
+ */
+const se_AssociateResolverEndpointIpAddressRequest = (
   input: AssociateResolverEndpointIpAddressRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress != null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.IpAddress != null && { IpAddress: se_IpAddressUpdate(input.IpAddress, context) }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
-const serializeAws_json1_1AssociateResolverQueryLogConfigRequest = (
+/**
+ * serializeAws_json1_1AssociateResolverQueryLogConfigRequest
+ */
+const se_AssociateResolverQueryLogConfigRequest = (
   input: AssociateResolverQueryLogConfigRequest,
   context: __SerdeContext
 ): any => {
@@ -4908,10 +5520,10 @@ const serializeAws_json1_1AssociateResolverQueryLogConfigRequest = (
   };
 };
 
-const serializeAws_json1_1AssociateResolverRuleRequest = (
-  input: AssociateResolverRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateResolverRuleRequest
+ */
+const se_AssociateResolverRuleRequest = (input: AssociateResolverRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
@@ -4919,32 +5531,32 @@ const serializeAws_json1_1AssociateResolverRuleRequest = (
   };
 };
 
-const serializeAws_json1_1CreateFirewallDomainListRequest = (
-  input: CreateFirewallDomainListRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateFirewallDomainListRequest
+ */
+const se_CreateFirewallDomainListRequest = (input: CreateFirewallDomainListRequest, context: __SerdeContext): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateFirewallRuleGroupRequest = (
-  input: CreateFirewallRuleGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateFirewallRuleGroupRequest
+ */
+const se_CreateFirewallRuleGroupRequest = (input: CreateFirewallRuleGroupRequest, context: __SerdeContext): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateFirewallRuleRequest = (
-  input: CreateFirewallRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateFirewallRuleRequest
+ */
+const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
     ...(input.BlockOverrideDnsType != null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
@@ -4959,26 +5571,25 @@ const serializeAws_json1_1CreateFirewallRuleRequest = (
   };
 };
 
-const serializeAws_json1_1CreateResolverEndpointRequest = (
-  input: CreateResolverEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateResolverEndpointRequest
+ */
+const se_CreateResolverEndpointRequest = (input: CreateResolverEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
     ...(input.Direction != null && { Direction: input.Direction }),
-    ...(input.IpAddresses != null && {
-      IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
-    }),
+    ...(input.IpAddresses != null && { IpAddresses: se_IpAddressesRequest(input.IpAddresses, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverEndpointType != null && { ResolverEndpointType: input.ResolverEndpointType }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateResolverQueryLogConfigRequest = (
+/**
+ * serializeAws_json1_1CreateResolverQueryLogConfigRequest
+ */
+const se_CreateResolverQueryLogConfigRequest = (
   input: CreateResolverQueryLogConfigRequest,
   context: __SerdeContext
 ): any => {
@@ -4986,63 +5597,66 @@ const serializeAws_json1_1CreateResolverQueryLogConfigRequest = (
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.DestinationArn != null && { DestinationArn: input.DestinationArn }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateResolverRuleRequest = (
-  input: CreateResolverRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateResolverRuleRequest
+ */
+const se_CreateResolverRuleRequest = (input: CreateResolverRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
     ...(input.RuleType != null && { RuleType: input.RuleType }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.TargetIps != null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
+    ...(input.TargetIps != null && { TargetIps: se_TargetList(input.TargetIps, context) }),
   };
 };
 
-const serializeAws_json1_1DeleteFirewallDomainListRequest = (
-  input: DeleteFirewallDomainListRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteFirewallDomainListRequest
+ */
+const se_DeleteFirewallDomainListRequest = (input: DeleteFirewallDomainListRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
   };
 };
 
-const serializeAws_json1_1DeleteFirewallRuleGroupRequest = (
-  input: DeleteFirewallRuleGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteFirewallRuleGroupRequest
+ */
+const se_DeleteFirewallRuleGroupRequest = (input: DeleteFirewallRuleGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
-const serializeAws_json1_1DeleteFirewallRuleRequest = (
-  input: DeleteFirewallRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteFirewallRuleRequest
+ */
+const se_DeleteFirewallRuleRequest = (input: DeleteFirewallRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
     ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
-const serializeAws_json1_1DeleteResolverEndpointRequest = (
-  input: DeleteResolverEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResolverEndpointRequest
+ */
+const se_DeleteResolverEndpointRequest = (input: DeleteResolverEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
-const serializeAws_json1_1DeleteResolverQueryLogConfigRequest = (
+/**
+ * serializeAws_json1_1DeleteResolverQueryLogConfigRequest
+ */
+const se_DeleteResolverQueryLogConfigRequest = (
   input: DeleteResolverQueryLogConfigRequest,
   context: __SerdeContext
 ): any => {
@@ -5051,16 +5665,19 @@ const serializeAws_json1_1DeleteResolverQueryLogConfigRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteResolverRuleRequest = (
-  input: DeleteResolverRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResolverRuleRequest
+ */
+const se_DeleteResolverRuleRequest = (input: DeleteResolverRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
-const serializeAws_json1_1DisassociateFirewallRuleGroupRequest = (
+/**
+ * serializeAws_json1_1DisassociateFirewallRuleGroupRequest
+ */
+const se_DisassociateFirewallRuleGroupRequest = (
   input: DisassociateFirewallRuleGroupRequest,
   context: __SerdeContext
 ): any => {
@@ -5071,17 +5688,23 @@ const serializeAws_json1_1DisassociateFirewallRuleGroupRequest = (
   };
 };
 
-const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
+/**
+ * serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest
+ */
+const se_DisassociateResolverEndpointIpAddressRequest = (
   input: DisassociateResolverEndpointIpAddressRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress != null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.IpAddress != null && { IpAddress: se_IpAddressUpdate(input.IpAddress, context) }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
-const serializeAws_json1_1DisassociateResolverQueryLogConfigRequest = (
+/**
+ * serializeAws_json1_1DisassociateResolverQueryLogConfigRequest
+ */
+const se_DisassociateResolverQueryLogConfigRequest = (
   input: DisassociateResolverQueryLogConfigRequest,
   context: __SerdeContext
 ): any => {
@@ -5091,32 +5714,41 @@ const serializeAws_json1_1DisassociateResolverQueryLogConfigRequest = (
   };
 };
 
-const serializeAws_json1_1DisassociateResolverRuleRequest = (
-  input: DisassociateResolverRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DisassociateResolverRuleRequest
+ */
+const se_DisassociateResolverRuleRequest = (input: DisassociateResolverRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
     ...(input.VPCId != null && { VPCId: input.VPCId }),
   };
 };
 
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filters
+ */
+const se_Filters = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterValues
+ */
+const se_FilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5124,7 +5756,10 @@ const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1FirewallDomains = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FirewallDomains
+ */
+const se_FirewallDomains = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5132,25 +5767,28 @@ const serializeAws_json1_1FirewallDomains = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1GetFirewallConfigRequest = (
-  input: GetFirewallConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetFirewallConfigRequest
+ */
+const se_GetFirewallConfigRequest = (input: GetFirewallConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1GetFirewallDomainListRequest = (
-  input: GetFirewallDomainListRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetFirewallDomainListRequest
+ */
+const se_GetFirewallDomainListRequest = (input: GetFirewallDomainListRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
   };
 };
 
-const serializeAws_json1_1GetFirewallRuleGroupAssociationRequest = (
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupAssociationRequest
+ */
+const se_GetFirewallRuleGroupAssociationRequest = (
   input: GetFirewallRuleGroupAssociationRequest,
   context: __SerdeContext
 ): any => {
@@ -5161,7 +5799,10 @@ const serializeAws_json1_1GetFirewallRuleGroupAssociationRequest = (
   };
 };
 
-const serializeAws_json1_1GetFirewallRuleGroupPolicyRequest = (
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupPolicyRequest
+ */
+const se_GetFirewallRuleGroupPolicyRequest = (
   input: GetFirewallRuleGroupPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -5170,43 +5811,46 @@ const serializeAws_json1_1GetFirewallRuleGroupPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1GetFirewallRuleGroupRequest = (
-  input: GetFirewallRuleGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetFirewallRuleGroupRequest
+ */
+const se_GetFirewallRuleGroupRequest = (input: GetFirewallRuleGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
-const serializeAws_json1_1GetResolverConfigRequest = (
-  input: GetResolverConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResolverConfigRequest
+ */
+const se_GetResolverConfigRequest = (input: GetResolverConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1GetResolverDnssecConfigRequest = (
-  input: GetResolverDnssecConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResolverDnssecConfigRequest
+ */
+const se_GetResolverDnssecConfigRequest = (input: GetResolverDnssecConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1GetResolverEndpointRequest = (
-  input: GetResolverEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResolverEndpointRequest
+ */
+const se_GetResolverEndpointRequest = (input: GetResolverEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
-const serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest = (
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest
+ */
+const se_GetResolverQueryLogConfigAssociationRequest = (
   input: GetResolverQueryLogConfigAssociationRequest,
   context: __SerdeContext
 ): any => {
@@ -5217,7 +5861,10 @@ const serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest = (
   };
 };
 
-const serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest = (
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest
+ */
+const se_GetResolverQueryLogConfigPolicyRequest = (
   input: GetResolverQueryLogConfigPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -5226,16 +5873,19 @@ const serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1GetResolverQueryLogConfigRequest = (
-  input: GetResolverQueryLogConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResolverQueryLogConfigRequest
+ */
+const se_GetResolverQueryLogConfigRequest = (input: GetResolverQueryLogConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverQueryLogConfigId != null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
   };
 };
 
-const serializeAws_json1_1GetResolverRuleAssociationRequest = (
+/**
+ * serializeAws_json1_1GetResolverRuleAssociationRequest
+ */
+const se_GetResolverRuleAssociationRequest = (
   input: GetResolverRuleAssociationRequest,
   context: __SerdeContext
 ): any => {
@@ -5244,25 +5894,28 @@ const serializeAws_json1_1GetResolverRuleAssociationRequest = (
   };
 };
 
-const serializeAws_json1_1GetResolverRulePolicyRequest = (
-  input: GetResolverRulePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResolverRulePolicyRequest
+ */
+const se_GetResolverRulePolicyRequest = (input: GetResolverRulePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
-const serializeAws_json1_1GetResolverRuleRequest = (input: GetResolverRuleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetResolverRuleRequest
+ */
+const se_GetResolverRuleRequest = (input: GetResolverRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
-const serializeAws_json1_1ImportFirewallDomainsRequest = (
-  input: ImportFirewallDomainsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ImportFirewallDomainsRequest
+ */
+const se_ImportFirewallDomainsRequest = (input: ImportFirewallDomainsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainFileUrl != null && { DomainFileUrl: input.DomainFileUrl }),
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
@@ -5270,15 +5923,21 @@ const serializeAws_json1_1ImportFirewallDomainsRequest = (
   };
 };
 
-const serializeAws_json1_1IpAddressesRequest = (input: IpAddressRequest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IpAddressesRequest
+ */
+const se_IpAddressesRequest = (input: IpAddressRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1IpAddressRequest(entry, context);
+      return se_IpAddressRequest(entry, context);
     });
 };
 
-const serializeAws_json1_1IpAddressRequest = (input: IpAddressRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IpAddressRequest
+ */
+const se_IpAddressRequest = (input: IpAddressRequest, context: __SerdeContext): any => {
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
     ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
@@ -5286,7 +5945,10 @@ const serializeAws_json1_1IpAddressRequest = (input: IpAddressRequest, context: 
   };
 };
 
-const serializeAws_json1_1IpAddressUpdate = (input: IpAddressUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IpAddressUpdate
+ */
+const se_IpAddressUpdate = (input: IpAddressUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
     ...(input.IpId != null && { IpId: input.IpId }),
@@ -5295,30 +5957,30 @@ const serializeAws_json1_1IpAddressUpdate = (input: IpAddressUpdate, context: __
   };
 };
 
-const serializeAws_json1_1ListFirewallConfigsRequest = (
-  input: ListFirewallConfigsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFirewallConfigsRequest
+ */
+const se_ListFirewallConfigsRequest = (input: ListFirewallConfigsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListFirewallDomainListsRequest = (
-  input: ListFirewallDomainListsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFirewallDomainListsRequest
+ */
+const se_ListFirewallDomainListsRequest = (input: ListFirewallDomainListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListFirewallDomainsRequest = (
-  input: ListFirewallDomainsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFirewallDomainsRequest
+ */
+const se_ListFirewallDomainsRequest = (input: ListFirewallDomainsRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5326,7 +5988,10 @@ const serializeAws_json1_1ListFirewallDomainsRequest = (
   };
 };
 
-const serializeAws_json1_1ListFirewallRuleGroupAssociationsRequest = (
+/**
+ * serializeAws_json1_1ListFirewallRuleGroupAssociationsRequest
+ */
+const se_ListFirewallRuleGroupAssociationsRequest = (
   input: ListFirewallRuleGroupAssociationsRequest,
   context: __SerdeContext
 ): any => {
@@ -5340,20 +6005,20 @@ const serializeAws_json1_1ListFirewallRuleGroupAssociationsRequest = (
   };
 };
 
-const serializeAws_json1_1ListFirewallRuleGroupsRequest = (
-  input: ListFirewallRuleGroupsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFirewallRuleGroupsRequest
+ */
+const se_ListFirewallRuleGroupsRequest = (input: ListFirewallRuleGroupsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListFirewallRulesRequest = (
-  input: ListFirewallRulesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFirewallRulesRequest
+ */
+const se_ListFirewallRulesRequest = (input: ListFirewallRulesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
     ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
@@ -5363,28 +6028,31 @@ const serializeAws_json1_1ListFirewallRulesRequest = (
   };
 };
 
-const serializeAws_json1_1ListResolverConfigsRequest = (
-  input: ListResolverConfigsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResolverConfigsRequest
+ */
+const se_ListResolverConfigsRequest = (input: ListResolverConfigsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResolverDnssecConfigsRequest = (
-  input: ListResolverDnssecConfigsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResolverDnssecConfigsRequest
+ */
+const se_ListResolverDnssecConfigsRequest = (input: ListResolverDnssecConfigsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
+/**
+ * serializeAws_json1_1ListResolverEndpointIpAddressesRequest
+ */
+const se_ListResolverEndpointIpAddressesRequest = (
   input: ListResolverEndpointIpAddressesRequest,
   context: __SerdeContext
 ): any => {
@@ -5395,23 +6063,26 @@ const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
   };
 };
 
-const serializeAws_json1_1ListResolverEndpointsRequest = (
-  input: ListResolverEndpointsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResolverEndpointsRequest
+ */
+const se_ListResolverEndpointsRequest = (input: ListResolverEndpointsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest = (
+/**
+ * serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest
+ */
+const se_ListResolverQueryLogConfigAssociationsRequest = (
   input: ListResolverQueryLogConfigAssociationsRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
@@ -5419,12 +6090,15 @@ const serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest = (
   };
 };
 
-const serializeAws_json1_1ListResolverQueryLogConfigsRequest = (
+/**
+ * serializeAws_json1_1ListResolverQueryLogConfigsRequest
+ */
+const se_ListResolverQueryLogConfigsRequest = (
   input: ListResolverQueryLogConfigsRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
@@ -5432,32 +6106,35 @@ const serializeAws_json1_1ListResolverQueryLogConfigsRequest = (
   };
 };
 
-const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
+/**
+ * serializeAws_json1_1ListResolverRuleAssociationsRequest
+ */
+const se_ListResolverRuleAssociationsRequest = (
   input: ListResolverRuleAssociationsRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResolverRulesRequest = (
-  input: ListResolverRulesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResolverRulesRequest
+ */
+const se_ListResolverRulesRequest = (input: ListResolverRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -5465,7 +6142,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1PutFirewallRuleGroupPolicyRequest = (
+/**
+ * serializeAws_json1_1PutFirewallRuleGroupPolicyRequest
+ */
+const se_PutFirewallRuleGroupPolicyRequest = (
   input: PutFirewallRuleGroupPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -5475,7 +6155,10 @@ const serializeAws_json1_1PutFirewallRuleGroupPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest = (
+/**
+ * serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest
+ */
+const se_PutResolverQueryLogConfigPolicyRequest = (
   input: PutResolverQueryLogConfigPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -5487,25 +6170,31 @@ const serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1PutResolverRulePolicyRequest = (
-  input: PutResolverRulePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutResolverRulePolicyRequest
+ */
+const se_PutResolverRulePolicyRequest = (input: PutResolverRulePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
     ...(input.ResolverRulePolicy != null && { ResolverRulePolicy: input.ResolverRulePolicy }),
   };
 };
 
-const serializeAws_json1_1ResolverRuleConfig = (input: ResolverRuleConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResolverRuleConfig
+ */
+const se_ResolverRuleConfig = (input: ResolverRuleConfig, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
-    ...(input.TargetIps != null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.TargetIps != null && { TargetIps: se_TargetList(input.TargetIps, context) }),
   };
 };
 
-const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecurityGroupIds
+ */
+const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5513,14 +6202,20 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5528,22 +6223,31 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TargetAddress = (input: TargetAddress, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetAddress
+ */
+const se_TargetAddress = (input: TargetAddress, context: __SerdeContext): any => {
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
     ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
@@ -5551,43 +6255,52 @@ const serializeAws_json1_1TargetAddress = (input: TargetAddress, context: __Serd
   };
 };
 
-const serializeAws_json1_1TargetList = (input: TargetAddress[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetList
+ */
+const se_TargetList = (input: TargetAddress[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TargetAddress(entry, context);
+      return se_TargetAddress(entry, context);
     });
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateFirewallConfigRequest = (
-  input: UpdateFirewallConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateFirewallConfigRequest
+ */
+const se_UpdateFirewallConfigRequest = (input: UpdateFirewallConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.FirewallFailOpen != null && { FirewallFailOpen: input.FirewallFailOpen }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1UpdateFirewallDomainsRequest = (
-  input: UpdateFirewallDomainsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateFirewallDomainsRequest
+ */
+const se_UpdateFirewallDomainsRequest = (input: UpdateFirewallDomainsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Domains != null && { Domains: serializeAws_json1_1FirewallDomains(input.Domains, context) }),
+    ...(input.Domains != null && { Domains: se_FirewallDomains(input.Domains, context) }),
     ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
     ...(input.Operation != null && { Operation: input.Operation }),
   };
 };
 
-const serializeAws_json1_1UpdateFirewallRuleGroupAssociationRequest = (
+/**
+ * serializeAws_json1_1UpdateFirewallRuleGroupAssociationRequest
+ */
+const se_UpdateFirewallRuleGroupAssociationRequest = (
   input: UpdateFirewallRuleGroupAssociationRequest,
   context: __SerdeContext
 ): any => {
@@ -5601,10 +6314,10 @@ const serializeAws_json1_1UpdateFirewallRuleGroupAssociationRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateFirewallRuleRequest = (
-  input: UpdateFirewallRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateFirewallRuleRequest
+ */
+const se_UpdateFirewallRuleRequest = (input: UpdateFirewallRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
     ...(input.BlockOverrideDnsType != null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
@@ -5618,32 +6331,41 @@ const serializeAws_json1_1UpdateFirewallRuleRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateIpAddress = (input: UpdateIpAddress, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateIpAddress
+ */
+const se_UpdateIpAddress = (input: UpdateIpAddress, context: __SerdeContext): any => {
   return {
     ...(input.IpId != null && { IpId: input.IpId }),
     ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
   };
 };
 
-const serializeAws_json1_1UpdateIpAddresses = (input: UpdateIpAddress[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateIpAddresses
+ */
+const se_UpdateIpAddresses = (input: UpdateIpAddress[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1UpdateIpAddress(entry, context);
+      return se_UpdateIpAddress(entry, context);
     });
 };
 
-const serializeAws_json1_1UpdateResolverConfigRequest = (
-  input: UpdateResolverConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateResolverConfigRequest
+ */
+const se_UpdateResolverConfigRequest = (input: UpdateResolverConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.AutodefinedReverseFlag != null && { AutodefinedReverseFlag: input.AutodefinedReverseFlag }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1UpdateResolverDnssecConfigRequest = (
+/**
+ * serializeAws_json1_1UpdateResolverDnssecConfigRequest
+ */
+const se_UpdateResolverDnssecConfigRequest = (
   input: UpdateResolverDnssecConfigRequest,
   context: __SerdeContext
 ): any => {
@@ -5653,275 +6375,297 @@ const serializeAws_json1_1UpdateResolverDnssecConfigRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateResolverEndpointRequest = (
-  input: UpdateResolverEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateResolverEndpointRequest
+ */
+const se_UpdateResolverEndpointRequest = (input: UpdateResolverEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
     ...(input.ResolverEndpointType != null && { ResolverEndpointType: input.ResolverEndpointType }),
     ...(input.UpdateIpAddresses != null && {
-      UpdateIpAddresses: serializeAws_json1_1UpdateIpAddresses(input.UpdateIpAddresses, context),
+      UpdateIpAddresses: se_UpdateIpAddresses(input.UpdateIpAddresses, context),
     }),
   };
 };
 
-const serializeAws_json1_1UpdateResolverRuleRequest = (
-  input: UpdateResolverRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateResolverRuleRequest
+ */
+const se_UpdateResolverRuleRequest = (input: UpdateResolverRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Config != null && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
+    ...(input.Config != null && { Config: se_ResolverRuleConfig(input.Config, context) }),
     ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AssociateFirewallRuleGroupResponse = (
+/**
+ * deserializeAws_json1_1AssociateFirewallRuleGroupResponse
+ */
+const de_AssociateFirewallRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroupAssociation:
       output.FirewallRuleGroupAssociation != null
-        ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
+        ? de_FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (
+/**
+ * deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse
+ */
+const de_AssociateResolverEndpointIpAddressResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateResolverEndpointIpAddressResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AssociateResolverQueryLogConfigResponse = (
+/**
+ * deserializeAws_json1_1AssociateResolverQueryLogConfigResponse
+ */
+const de_AssociateResolverQueryLogConfigResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfigAssociation:
       output.ResolverQueryLogConfigAssociation != null
-        ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
+        ? de_ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AssociateResolverRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateResolverRuleResponse => {
+/**
+ * deserializeAws_json1_1AssociateResolverRuleResponse
+ */
+const de_AssociateResolverRuleResponse = (output: any, context: __SerdeContext): AssociateResolverRuleResponse => {
   return {
     ResolverRuleAssociation:
       output.ResolverRuleAssociation != null
-        ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
+        ? de_ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1CreateFirewallDomainListResponse = (
+/**
+ * deserializeAws_json1_1CreateFirewallDomainListResponse
+ */
+const de_CreateFirewallDomainListResponse = (
   output: any,
   context: __SerdeContext
 ): CreateFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList != null
-        ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
-        : undefined,
+      output.FirewallDomainList != null ? de_FirewallDomainList(output.FirewallDomainList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateFirewallRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateFirewallRuleGroupResponse => {
+/**
+ * deserializeAws_json1_1CreateFirewallRuleGroupResponse
+ */
+const de_CreateFirewallRuleGroupResponse = (output: any, context: __SerdeContext): CreateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup != null
-        ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
-        : undefined,
+      output.FirewallRuleGroup != null ? de_FirewallRuleGroup(output.FirewallRuleGroup, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateFirewallRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateFirewallRuleResponse => {
+/**
+ * deserializeAws_json1_1CreateFirewallRuleResponse
+ */
+const de_CreateFirewallRuleResponse = (output: any, context: __SerdeContext): CreateFirewallRuleResponse => {
   return {
-    FirewallRule:
-      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
+    FirewallRule: output.FirewallRule != null ? de_FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateResolverEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateResolverEndpointResponse => {
+/**
+ * deserializeAws_json1_1CreateResolverEndpointResponse
+ */
+const de_CreateResolverEndpointResponse = (output: any, context: __SerdeContext): CreateResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateResolverQueryLogConfigResponse = (
+/**
+ * deserializeAws_json1_1CreateResolverQueryLogConfigResponse
+ */
+const de_CreateResolverQueryLogConfigResponse = (
   output: any,
   context: __SerdeContext
 ): CreateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
       output.ResolverQueryLogConfig != null
-        ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
+        ? de_ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateResolverRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateResolverRuleResponse => {
+/**
+ * deserializeAws_json1_1CreateResolverRuleResponse
+ */
+const de_CreateResolverRuleResponse = (output: any, context: __SerdeContext): CreateResolverRuleResponse => {
   return {
-    ResolverRule:
-      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
+    ResolverRule: output.ResolverRule != null ? de_ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFirewallDomainListResponse = (
+/**
+ * deserializeAws_json1_1DeleteFirewallDomainListResponse
+ */
+const de_DeleteFirewallDomainListResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList != null
-        ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
-        : undefined,
+      output.FirewallDomainList != null ? de_FirewallDomainList(output.FirewallDomainList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFirewallRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteFirewallRuleGroupResponse => {
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleGroupResponse
+ */
+const de_DeleteFirewallRuleGroupResponse = (output: any, context: __SerdeContext): DeleteFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup != null
-        ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
-        : undefined,
+      output.FirewallRuleGroup != null ? de_FirewallRuleGroup(output.FirewallRuleGroup, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFirewallRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteFirewallRuleResponse => {
+/**
+ * deserializeAws_json1_1DeleteFirewallRuleResponse
+ */
+const de_DeleteFirewallRuleResponse = (output: any, context: __SerdeContext): DeleteFirewallRuleResponse => {
   return {
-    FirewallRule:
-      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
+    FirewallRule: output.FirewallRule != null ? de_FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResolverEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteResolverEndpointResponse => {
+/**
+ * deserializeAws_json1_1DeleteResolverEndpointResponse
+ */
+const de_DeleteResolverEndpointResponse = (output: any, context: __SerdeContext): DeleteResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResolverQueryLogConfigResponse = (
+/**
+ * deserializeAws_json1_1DeleteResolverQueryLogConfigResponse
+ */
+const de_DeleteResolverQueryLogConfigResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
       output.ResolverQueryLogConfig != null
-        ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
+        ? de_ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResolverRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteResolverRuleResponse => {
+/**
+ * deserializeAws_json1_1DeleteResolverRuleResponse
+ */
+const de_DeleteResolverRuleResponse = (output: any, context: __SerdeContext): DeleteResolverRuleResponse => {
   return {
-    ResolverRule:
-      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
+    ResolverRule: output.ResolverRule != null ? de_ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateFirewallRuleGroupResponse = (
+/**
+ * deserializeAws_json1_1DisassociateFirewallRuleGroupResponse
+ */
+const de_DisassociateFirewallRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroupAssociation:
       output.FirewallRuleGroupAssociation != null
-        ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
+        ? de_FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse = (
+/**
+ * deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse
+ */
+const de_DisassociateResolverEndpointIpAddressResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateResolverEndpointIpAddressResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateResolverQueryLogConfigResponse = (
+/**
+ * deserializeAws_json1_1DisassociateResolverQueryLogConfigResponse
+ */
+const de_DisassociateResolverQueryLogConfigResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfigAssociation:
       output.ResolverQueryLogConfigAssociation != null
-        ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
+        ? de_ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateResolverRuleResponse = (
+/**
+ * deserializeAws_json1_1DisassociateResolverRuleResponse
+ */
+const de_DisassociateResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateResolverRuleResponse => {
   return {
     ResolverRuleAssociation:
       output.ResolverRuleAssociation != null
-        ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
+        ? de_ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1FirewallConfig = (output: any, context: __SerdeContext): FirewallConfig => {
+/**
+ * deserializeAws_json1_1FirewallConfig
+ */
+const de_FirewallConfig = (output: any, context: __SerdeContext): FirewallConfig => {
   return {
     FirewallFailOpen: __expectString(output.FirewallFailOpen),
     Id: __expectString(output.Id),
@@ -5930,19 +6674,25 @@ const deserializeAws_json1_1FirewallConfig = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1FirewallConfigList = (output: any, context: __SerdeContext): FirewallConfig[] => {
+/**
+ * deserializeAws_json1_1FirewallConfigList
+ */
+const de_FirewallConfigList = (output: any, context: __SerdeContext): FirewallConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FirewallConfig(entry, context);
+      return de_FirewallConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallDomainList = (output: any, context: __SerdeContext): FirewallDomainList => {
+/**
+ * deserializeAws_json1_1FirewallDomainList
+ */
+const de_FirewallDomainList = (output: any, context: __SerdeContext): FirewallDomainList => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
@@ -5957,10 +6707,10 @@ const deserializeAws_json1_1FirewallDomainList = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1FirewallDomainListMetadata = (
-  output: any,
-  context: __SerdeContext
-): FirewallDomainListMetadata => {
+/**
+ * deserializeAws_json1_1FirewallDomainListMetadata
+ */
+const de_FirewallDomainListMetadata = (output: any, context: __SerdeContext): FirewallDomainListMetadata => {
   return {
     Arn: __expectString(output.Arn),
     CreatorRequestId: __expectString(output.CreatorRequestId),
@@ -5970,22 +6720,25 @@ const deserializeAws_json1_1FirewallDomainListMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1FirewallDomainListMetadataList = (
-  output: any,
-  context: __SerdeContext
-): FirewallDomainListMetadata[] => {
+/**
+ * deserializeAws_json1_1FirewallDomainListMetadataList
+ */
+const de_FirewallDomainListMetadataList = (output: any, context: __SerdeContext): FirewallDomainListMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FirewallDomainListMetadata(entry, context);
+      return de_FirewallDomainListMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallDomains = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1FirewallDomains
+ */
+const de_FirewallDomains = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5997,7 +6750,10 @@ const deserializeAws_json1_1FirewallDomains = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallRule = (output: any, context: __SerdeContext): FirewallRule => {
+/**
+ * deserializeAws_json1_1FirewallRule
+ */
+const de_FirewallRule = (output: any, context: __SerdeContext): FirewallRule => {
   return {
     Action: __expectString(output.Action),
     BlockOverrideDnsType: __expectString(output.BlockOverrideDnsType),
@@ -6014,7 +6770,10 @@ const deserializeAws_json1_1FirewallRule = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1FirewallRuleGroup = (output: any, context: __SerdeContext): FirewallRuleGroup => {
+/**
+ * deserializeAws_json1_1FirewallRuleGroup
+ */
+const de_FirewallRuleGroup = (output: any, context: __SerdeContext): FirewallRuleGroup => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
@@ -6030,10 +6789,10 @@ const deserializeAws_json1_1FirewallRuleGroup = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1FirewallRuleGroupAssociation = (
-  output: any,
-  context: __SerdeContext
-): FirewallRuleGroupAssociation => {
+/**
+ * deserializeAws_json1_1FirewallRuleGroupAssociation
+ */
+const de_FirewallRuleGroupAssociation = (output: any, context: __SerdeContext): FirewallRuleGroupAssociation => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
@@ -6051,25 +6810,25 @@ const deserializeAws_json1_1FirewallRuleGroupAssociation = (
   } as any;
 };
 
-const deserializeAws_json1_1FirewallRuleGroupAssociations = (
-  output: any,
-  context: __SerdeContext
-): FirewallRuleGroupAssociation[] => {
+/**
+ * deserializeAws_json1_1FirewallRuleGroupAssociations
+ */
+const de_FirewallRuleGroupAssociations = (output: any, context: __SerdeContext): FirewallRuleGroupAssociation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FirewallRuleGroupAssociation(entry, context);
+      return de_FirewallRuleGroupAssociation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallRuleGroupMetadata = (
-  output: any,
-  context: __SerdeContext
-): FirewallRuleGroupMetadata => {
+/**
+ * deserializeAws_json1_1FirewallRuleGroupMetadata
+ */
+const de_FirewallRuleGroupMetadata = (output: any, context: __SerdeContext): FirewallRuleGroupMetadata => {
   return {
     Arn: __expectString(output.Arn),
     CreatorRequestId: __expectString(output.CreatorRequestId),
@@ -6080,68 +6839,74 @@ const deserializeAws_json1_1FirewallRuleGroupMetadata = (
   } as any;
 };
 
-const deserializeAws_json1_1FirewallRuleGroupMetadataList = (
-  output: any,
-  context: __SerdeContext
-): FirewallRuleGroupMetadata[] => {
+/**
+ * deserializeAws_json1_1FirewallRuleGroupMetadataList
+ */
+const de_FirewallRuleGroupMetadataList = (output: any, context: __SerdeContext): FirewallRuleGroupMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FirewallRuleGroupMetadata(entry, context);
+      return de_FirewallRuleGroupMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallRules = (output: any, context: __SerdeContext): FirewallRule[] => {
+/**
+ * deserializeAws_json1_1FirewallRules
+ */
+const de_FirewallRules = (output: any, context: __SerdeContext): FirewallRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FirewallRule(entry, context);
+      return de_FirewallRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetFirewallConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): GetFirewallConfigResponse => {
+/**
+ * deserializeAws_json1_1GetFirewallConfigResponse
+ */
+const de_GetFirewallConfigResponse = (output: any, context: __SerdeContext): GetFirewallConfigResponse => {
   return {
-    FirewallConfig:
-      output.FirewallConfig != null ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context) : undefined,
+    FirewallConfig: output.FirewallConfig != null ? de_FirewallConfig(output.FirewallConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetFirewallDomainListResponse = (
-  output: any,
-  context: __SerdeContext
-): GetFirewallDomainListResponse => {
+/**
+ * deserializeAws_json1_1GetFirewallDomainListResponse
+ */
+const de_GetFirewallDomainListResponse = (output: any, context: __SerdeContext): GetFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList != null
-        ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
-        : undefined,
+      output.FirewallDomainList != null ? de_FirewallDomainList(output.FirewallDomainList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupAssociationResponse = (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupAssociationResponse
+ */
+const de_GetFirewallRuleGroupAssociationResponse = (
   output: any,
   context: __SerdeContext
 ): GetFirewallRuleGroupAssociationResponse => {
   return {
     FirewallRuleGroupAssociation:
       output.FirewallRuleGroupAssociation != null
-        ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
+        ? de_FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupPolicyResponse = (
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupPolicyResponse
+ */
+const de_GetFirewallRuleGroupPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetFirewallRuleGroupPolicyResponse => {
@@ -6150,65 +6915,64 @@ const deserializeAws_json1_1GetFirewallRuleGroupPolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetFirewallRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): GetFirewallRuleGroupResponse => {
+/**
+ * deserializeAws_json1_1GetFirewallRuleGroupResponse
+ */
+const de_GetFirewallRuleGroupResponse = (output: any, context: __SerdeContext): GetFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup != null
-        ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
-        : undefined,
+      output.FirewallRuleGroup != null ? de_FirewallRuleGroup(output.FirewallRuleGroup, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResolverConfigResponse => {
+/**
+ * deserializeAws_json1_1GetResolverConfigResponse
+ */
+const de_GetResolverConfigResponse = (output: any, context: __SerdeContext): GetResolverConfigResponse => {
   return {
-    ResolverConfig:
-      output.ResolverConfig != null ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context) : undefined,
+    ResolverConfig: output.ResolverConfig != null ? de_ResolverConfig(output.ResolverConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverDnssecConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResolverDnssecConfigResponse => {
+/**
+ * deserializeAws_json1_1GetResolverDnssecConfigResponse
+ */
+const de_GetResolverDnssecConfigResponse = (output: any, context: __SerdeContext): GetResolverDnssecConfigResponse => {
   return {
     ResolverDNSSECConfig:
-      output.ResolverDNSSECConfig != null
-        ? deserializeAws_json1_1ResolverDnssecConfig(output.ResolverDNSSECConfig, context)
-        : undefined,
+      output.ResolverDNSSECConfig != null ? de_ResolverDnssecConfig(output.ResolverDNSSECConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResolverEndpointResponse => {
+/**
+ * deserializeAws_json1_1GetResolverEndpointResponse
+ */
+const de_GetResolverEndpointResponse = (output: any, context: __SerdeContext): GetResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigAssociationResponse = (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigAssociationResponse
+ */
+const de_GetResolverQueryLogConfigAssociationResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverQueryLogConfigAssociationResponse => {
   return {
     ResolverQueryLogConfigAssociation:
       output.ResolverQueryLogConfigAssociation != null
-        ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
+        ? de_ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigPolicyResponse = (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigPolicyResponse
+ */
+const de_GetResolverQueryLogConfigPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverQueryLogConfigPolicyResponse => {
@@ -6217,53 +6981,58 @@ const deserializeAws_json1_1GetResolverQueryLogConfigPolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverQueryLogConfigResponse = (
+/**
+ * deserializeAws_json1_1GetResolverQueryLogConfigResponse
+ */
+const de_GetResolverQueryLogConfigResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
       output.ResolverQueryLogConfig != null
-        ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
+        ? de_ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverRuleAssociationResponse = (
+/**
+ * deserializeAws_json1_1GetResolverRuleAssociationResponse
+ */
+const de_GetResolverRuleAssociationResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverRuleAssociationResponse => {
   return {
     ResolverRuleAssociation:
       output.ResolverRuleAssociation != null
-        ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
+        ? de_ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverRulePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResolverRulePolicyResponse => {
+/**
+ * deserializeAws_json1_1GetResolverRulePolicyResponse
+ */
+const de_GetResolverRulePolicyResponse = (output: any, context: __SerdeContext): GetResolverRulePolicyResponse => {
   return {
     ResolverRulePolicy: __expectString(output.ResolverRulePolicy),
   } as any;
 };
 
-const deserializeAws_json1_1GetResolverRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResolverRuleResponse => {
+/**
+ * deserializeAws_json1_1GetResolverRuleResponse
+ */
+const de_GetResolverRuleResponse = (output: any, context: __SerdeContext): GetResolverRuleResponse => {
   return {
-    ResolverRule:
-      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
+    ResolverRule: output.ResolverRule != null ? de_ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImportFirewallDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportFirewallDomainsResponse => {
+/**
+ * deserializeAws_json1_1ImportFirewallDomainsResponse
+ */
+const de_ImportFirewallDomainsResponse = (output: any, context: __SerdeContext): ImportFirewallDomainsResponse => {
   return {
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -6272,68 +7041,80 @@ const deserializeAws_json1_1ImportFirewallDomainsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceErrorException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceErrorException => {
+/**
+ * deserializeAws_json1_1InternalServiceErrorException
+ */
+const de_InternalServiceErrorException = (output: any, context: __SerdeContext): InternalServiceErrorException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
+/**
+ * deserializeAws_json1_1InvalidNextTokenException
+ */
+const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     FieldName: __expectString(output.FieldName),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPolicyDocument = (output: any, context: __SerdeContext): InvalidPolicyDocument => {
+/**
+ * deserializeAws_json1_1InvalidPolicyDocument
+ */
+const de_InvalidPolicyDocument = (output: any, context: __SerdeContext): InvalidPolicyDocument => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
+/**
+ * deserializeAws_json1_1InvalidRequestException
+ */
+const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
+/**
+ * deserializeAws_json1_1InvalidTagException
+ */
+const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1IpAddressesResponse = (output: any, context: __SerdeContext): IpAddressResponse[] => {
+/**
+ * deserializeAws_json1_1IpAddressesResponse
+ */
+const de_IpAddressesResponse = (output: any, context: __SerdeContext): IpAddressResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1IpAddressResponse(entry, context);
+      return de_IpAddressResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeContext): IpAddressResponse => {
+/**
+ * deserializeAws_json1_1IpAddressResponse
+ */
+const de_IpAddressResponse = (output: any, context: __SerdeContext): IpAddressResponse => {
   return {
     CreationTime: __expectString(output.CreationTime),
     Ip: __expectString(output.Ip),
@@ -6346,100 +7127,104 @@ const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallConfigsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallConfigsResponse => {
+/**
+ * deserializeAws_json1_1ListFirewallConfigsResponse
+ */
+const de_ListFirewallConfigsResponse = (output: any, context: __SerdeContext): ListFirewallConfigsResponse => {
   return {
     FirewallConfigs:
-      output.FirewallConfigs != null
-        ? deserializeAws_json1_1FirewallConfigList(output.FirewallConfigs, context)
-        : undefined,
+      output.FirewallConfigs != null ? de_FirewallConfigList(output.FirewallConfigs, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallDomainListsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallDomainListsResponse => {
+/**
+ * deserializeAws_json1_1ListFirewallDomainListsResponse
+ */
+const de_ListFirewallDomainListsResponse = (output: any, context: __SerdeContext): ListFirewallDomainListsResponse => {
   return {
     FirewallDomainLists:
       output.FirewallDomainLists != null
-        ? deserializeAws_json1_1FirewallDomainListMetadataList(output.FirewallDomainLists, context)
+        ? de_FirewallDomainListMetadataList(output.FirewallDomainLists, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallDomainsResponse => {
+/**
+ * deserializeAws_json1_1ListFirewallDomainsResponse
+ */
+const de_ListFirewallDomainsResponse = (output: any, context: __SerdeContext): ListFirewallDomainsResponse => {
   return {
-    Domains: output.Domains != null ? deserializeAws_json1_1FirewallDomains(output.Domains, context) : undefined,
+    Domains: output.Domains != null ? de_FirewallDomains(output.Domains, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallRuleGroupAssociationsResponse = (
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupAssociationsResponse
+ */
+const de_ListFirewallRuleGroupAssociationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListFirewallRuleGroupAssociationsResponse => {
   return {
     FirewallRuleGroupAssociations:
       output.FirewallRuleGroupAssociations != null
-        ? deserializeAws_json1_1FirewallRuleGroupAssociations(output.FirewallRuleGroupAssociations, context)
+        ? de_FirewallRuleGroupAssociations(output.FirewallRuleGroupAssociations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallRuleGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallRuleGroupsResponse => {
+/**
+ * deserializeAws_json1_1ListFirewallRuleGroupsResponse
+ */
+const de_ListFirewallRuleGroupsResponse = (output: any, context: __SerdeContext): ListFirewallRuleGroupsResponse => {
   return {
     FirewallRuleGroups:
       output.FirewallRuleGroups != null
-        ? deserializeAws_json1_1FirewallRuleGroupMetadataList(output.FirewallRuleGroups, context)
+        ? de_FirewallRuleGroupMetadataList(output.FirewallRuleGroups, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFirewallRulesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallRulesResponse => {
+/**
+ * deserializeAws_json1_1ListFirewallRulesResponse
+ */
+const de_ListFirewallRulesResponse = (output: any, context: __SerdeContext): ListFirewallRulesResponse => {
   return {
-    FirewallRules:
-      output.FirewallRules != null ? deserializeAws_json1_1FirewallRules(output.FirewallRules, context) : undefined,
+    FirewallRules: output.FirewallRules != null ? de_FirewallRules(output.FirewallRules, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverConfigsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResolverConfigsResponse => {
+/**
+ * deserializeAws_json1_1ListResolverConfigsResponse
+ */
+const de_ListResolverConfigsResponse = (output: any, context: __SerdeContext): ListResolverConfigsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ResolverConfigs:
-      output.ResolverConfigs != null
-        ? deserializeAws_json1_1ResolverConfigList(output.ResolverConfigs, context)
-        : undefined,
+      output.ResolverConfigs != null ? de_ResolverConfigList(output.ResolverConfigs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverDnssecConfigsResponse = (
+/**
+ * deserializeAws_json1_1ListResolverDnssecConfigsResponse
+ */
+const de_ListResolverDnssecConfigsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverDnssecConfigsResponse => {
@@ -6447,38 +7232,41 @@ const deserializeAws_json1_1ListResolverDnssecConfigsResponse = (
     NextToken: __expectString(output.NextToken),
     ResolverDnssecConfigs:
       output.ResolverDnssecConfigs != null
-        ? deserializeAws_json1_1ResolverDnssecConfigList(output.ResolverDnssecConfigs, context)
+        ? de_ResolverDnssecConfigList(output.ResolverDnssecConfigs, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
+/**
+ * deserializeAws_json1_1ListResolverEndpointIpAddressesResponse
+ */
+const de_ListResolverEndpointIpAddressesResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverEndpointIpAddressesResponse => {
   return {
-    IpAddresses:
-      output.IpAddresses != null ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context) : undefined,
+    IpAddresses: output.IpAddresses != null ? de_IpAddressesResponse(output.IpAddresses, context) : undefined,
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResolverEndpointsResponse => {
+/**
+ * deserializeAws_json1_1ListResolverEndpointsResponse
+ */
+const de_ListResolverEndpointsResponse = (output: any, context: __SerdeContext): ListResolverEndpointsResponse => {
   return {
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverEndpoints:
-      output.ResolverEndpoints != null
-        ? deserializeAws_json1_1ResolverEndpoints(output.ResolverEndpoints, context)
-        : undefined,
+      output.ResolverEndpoints != null ? de_ResolverEndpoints(output.ResolverEndpoints, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse = (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse
+ */
+const de_ListResolverQueryLogConfigAssociationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverQueryLogConfigAssociationsResponse => {
@@ -6486,17 +7274,17 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse = (
     NextToken: __expectString(output.NextToken),
     ResolverQueryLogConfigAssociations:
       output.ResolverQueryLogConfigAssociations != null
-        ? deserializeAws_json1_1ResolverQueryLogConfigAssociationList(
-            output.ResolverQueryLogConfigAssociations,
-            context
-          )
+        ? de_ResolverQueryLogConfigAssociationList(output.ResolverQueryLogConfigAssociations, context)
         : undefined,
     TotalCount: __expectInt32(output.TotalCount),
     TotalFilteredCount: __expectInt32(output.TotalFilteredCount),
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverQueryLogConfigsResponse = (
+/**
+ * deserializeAws_json1_1ListResolverQueryLogConfigsResponse
+ */
+const de_ListResolverQueryLogConfigsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverQueryLogConfigsResponse => {
@@ -6504,14 +7292,17 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsResponse = (
     NextToken: __expectString(output.NextToken),
     ResolverQueryLogConfigs:
       output.ResolverQueryLogConfigs != null
-        ? deserializeAws_json1_1ResolverQueryLogConfigList(output.ResolverQueryLogConfigs, context)
+        ? de_ResolverQueryLogConfigList(output.ResolverQueryLogConfigs, context)
         : undefined,
     TotalCount: __expectInt32(output.TotalCount),
     TotalFilteredCount: __expectInt32(output.TotalFilteredCount),
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
+/**
+ * deserializeAws_json1_1ListResolverRuleAssociationsResponse
+ */
+const de_ListResolverRuleAssociationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverRuleAssociationsResponse => {
@@ -6520,34 +7311,36 @@ const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
     NextToken: __expectString(output.NextToken),
     ResolverRuleAssociations:
       output.ResolverRuleAssociations != null
-        ? deserializeAws_json1_1ResolverRuleAssociations(output.ResolverRuleAssociations, context)
+        ? de_ResolverRuleAssociations(output.ResolverRuleAssociations, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResolverRulesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResolverRulesResponse => {
+/**
+ * deserializeAws_json1_1ListResolverRulesResponse
+ */
+const de_ListResolverRulesResponse = (output: any, context: __SerdeContext): ListResolverRulesResponse => {
   return {
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
-    ResolverRules:
-      output.ResolverRules != null ? deserializeAws_json1_1ResolverRules(output.ResolverRules, context) : undefined,
+    ResolverRules: output.ResolverRules != null ? de_ResolverRules(output.ResolverRules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PutFirewallRuleGroupPolicyResponse = (
+/**
+ * deserializeAws_json1_1PutFirewallRuleGroupPolicyResponse
+ */
+const de_PutFirewallRuleGroupPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutFirewallRuleGroupPolicyResponse => {
@@ -6556,7 +7349,10 @@ const deserializeAws_json1_1PutFirewallRuleGroupPolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1PutResolverQueryLogConfigPolicyResponse = (
+/**
+ * deserializeAws_json1_1PutResolverQueryLogConfigPolicyResponse
+ */
+const de_PutResolverQueryLogConfigPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutResolverQueryLogConfigPolicyResponse => {
@@ -6565,16 +7361,19 @@ const deserializeAws_json1_1PutResolverQueryLogConfigPolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1PutResolverRulePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutResolverRulePolicyResponse => {
+/**
+ * deserializeAws_json1_1PutResolverRulePolicyResponse
+ */
+const de_PutResolverRulePolicyResponse = (output: any, context: __SerdeContext): PutResolverRulePolicyResponse => {
   return {
     ReturnValue: __expectBoolean(output.ReturnValue),
   } as any;
 };
 
-const deserializeAws_json1_1ResolverConfig = (output: any, context: __SerdeContext): ResolverConfig => {
+/**
+ * deserializeAws_json1_1ResolverConfig
+ */
+const de_ResolverConfig = (output: any, context: __SerdeContext): ResolverConfig => {
   return {
     AutodefinedReverse: __expectString(output.AutodefinedReverse),
     Id: __expectString(output.Id),
@@ -6583,19 +7382,25 @@ const deserializeAws_json1_1ResolverConfig = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1ResolverConfigList = (output: any, context: __SerdeContext): ResolverConfig[] => {
+/**
+ * deserializeAws_json1_1ResolverConfigList
+ */
+const de_ResolverConfigList = (output: any, context: __SerdeContext): ResolverConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverConfig(entry, context);
+      return de_ResolverConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverDnssecConfig = (output: any, context: __SerdeContext): ResolverDnssecConfig => {
+/**
+ * deserializeAws_json1_1ResolverDnssecConfig
+ */
+const de_ResolverDnssecConfig = (output: any, context: __SerdeContext): ResolverDnssecConfig => {
   return {
     Id: __expectString(output.Id),
     OwnerId: __expectString(output.OwnerId),
@@ -6604,22 +7409,25 @@ const deserializeAws_json1_1ResolverDnssecConfig = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1ResolverDnssecConfigList = (
-  output: any,
-  context: __SerdeContext
-): ResolverDnssecConfig[] => {
+/**
+ * deserializeAws_json1_1ResolverDnssecConfigList
+ */
+const de_ResolverDnssecConfigList = (output: any, context: __SerdeContext): ResolverDnssecConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverDnssecConfig(entry, context);
+      return de_ResolverDnssecConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeContext): ResolverEndpoint => {
+/**
+ * deserializeAws_json1_1ResolverEndpoint
+ */
+const de_ResolverEndpoint = (output: any, context: __SerdeContext): ResolverEndpoint => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
@@ -6632,27 +7440,31 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
     Name: __expectString(output.Name),
     ResolverEndpointType: __expectString(output.ResolverEndpointType),
     SecurityGroupIds:
-      output.SecurityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
-        : undefined,
+      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
 };
 
-const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeContext): ResolverEndpoint[] => {
+/**
+ * deserializeAws_json1_1ResolverEndpoints
+ */
+const de_ResolverEndpoints = (output: any, context: __SerdeContext): ResolverEndpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverEndpoint(entry, context);
+      return de_ResolverEndpoint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverQueryLogConfig = (output: any, context: __SerdeContext): ResolverQueryLogConfig => {
+/**
+ * deserializeAws_json1_1ResolverQueryLogConfig
+ */
+const de_ResolverQueryLogConfig = (output: any, context: __SerdeContext): ResolverQueryLogConfig => {
   return {
     Arn: __expectString(output.Arn),
     AssociationCount: __expectInt32(output.AssociationCount),
@@ -6667,7 +7479,10 @@ const deserializeAws_json1_1ResolverQueryLogConfig = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1ResolverQueryLogConfigAssociation = (
+/**
+ * deserializeAws_json1_1ResolverQueryLogConfigAssociation
+ */
+const de_ResolverQueryLogConfigAssociation = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfigAssociation => {
@@ -6682,7 +7497,10 @@ const deserializeAws_json1_1ResolverQueryLogConfigAssociation = (
   } as any;
 };
 
-const deserializeAws_json1_1ResolverQueryLogConfigAssociationList = (
+/**
+ * deserializeAws_json1_1ResolverQueryLogConfigAssociationList
+ */
+const de_ResolverQueryLogConfigAssociationList = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfigAssociation[] => {
@@ -6692,27 +7510,30 @@ const deserializeAws_json1_1ResolverQueryLogConfigAssociationList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverQueryLogConfigAssociation(entry, context);
+      return de_ResolverQueryLogConfigAssociation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverQueryLogConfigList = (
-  output: any,
-  context: __SerdeContext
-): ResolverQueryLogConfig[] => {
+/**
+ * deserializeAws_json1_1ResolverQueryLogConfigList
+ */
+const de_ResolverQueryLogConfigList = (output: any, context: __SerdeContext): ResolverQueryLogConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverQueryLogConfig(entry, context);
+      return de_ResolverQueryLogConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext): ResolverRule => {
+/**
+ * deserializeAws_json1_1ResolverRule
+ */
+const de_ResolverRule = (output: any, context: __SerdeContext): ResolverRule => {
   return {
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
@@ -6727,14 +7548,14 @@ const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext
     ShareStatus: __expectString(output.ShareStatus),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    TargetIps: output.TargetIps != null ? deserializeAws_json1_1TargetList(output.TargetIps, context) : undefined,
+    TargetIps: output.TargetIps != null ? de_TargetList(output.TargetIps, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResolverRuleAssociation = (
-  output: any,
-  context: __SerdeContext
-): ResolverRuleAssociation => {
+/**
+ * deserializeAws_json1_1ResolverRuleAssociation
+ */
+const de_ResolverRuleAssociation = (output: any, context: __SerdeContext): ResolverRuleAssociation => {
   return {
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -6745,71 +7566,80 @@ const deserializeAws_json1_1ResolverRuleAssociation = (
   } as any;
 };
 
-const deserializeAws_json1_1ResolverRuleAssociations = (
-  output: any,
-  context: __SerdeContext
-): ResolverRuleAssociation[] => {
+/**
+ * deserializeAws_json1_1ResolverRuleAssociations
+ */
+const de_ResolverRuleAssociations = (output: any, context: __SerdeContext): ResolverRuleAssociation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverRuleAssociation(entry, context);
+      return de_ResolverRuleAssociation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResolverRules = (output: any, context: __SerdeContext): ResolverRule[] => {
+/**
+ * deserializeAws_json1_1ResolverRules
+ */
+const de_ResolverRules = (output: any, context: __SerdeContext): ResolverRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResolverRule(entry, context);
+      return de_ResolverRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceExistsException => {
+/**
+ * deserializeAws_json1_1ResourceExistsException
+ */
+const de_ResourceExistsException = (output: any, context: __SerdeContext): ResourceExistsException => {
   return {
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
+/**
+ * deserializeAws_json1_1ResourceInUseException
+ */
+const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ResourceUnavailableException => {
+/**
+ * deserializeAws_json1_1ResourceUnavailableException
+ */
+const de_ResourceUnavailableException = (output: any, context: __SerdeContext): ResourceUnavailableException => {
   return {
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecurityGroupIds
+ */
+const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6821,30 +7651,42 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContext): TargetAddress => {
+/**
+ * deserializeAws_json1_1TargetAddress
+ */
+const de_TargetAddress = (output: any, context: __SerdeContext): TargetAddress => {
   return {
     Ip: __expectString(output.Ip),
     Ipv6: __expectString(output.Ipv6),
@@ -6852,51 +7694,59 @@ const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext): TargetAddress[] => {
+/**
+ * deserializeAws_json1_1TargetList
+ */
+const de_TargetList = (output: any, context: __SerdeContext): TargetAddress[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TargetAddress(entry, context);
+      return de_TargetAddress(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UnknownResourceException = (
-  output: any,
-  context: __SerdeContext
-): UnknownResourceException => {
+/**
+ * deserializeAws_json1_1UnknownResourceException
+ */
+const de_UnknownResourceException = (output: any, context: __SerdeContext): UnknownResourceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateFirewallConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallConfigResponse => {
+/**
+ * deserializeAws_json1_1UpdateFirewallConfigResponse
+ */
+const de_UpdateFirewallConfigResponse = (output: any, context: __SerdeContext): UpdateFirewallConfigResponse => {
   return {
-    FirewallConfig:
-      output.FirewallConfig != null ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context) : undefined,
+    FirewallConfig: output.FirewallConfig != null ? de_FirewallConfig(output.FirewallConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateFirewallDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallDomainsResponse => {
+/**
+ * deserializeAws_json1_1UpdateFirewallDomainsResponse
+ */
+const de_UpdateFirewallDomainsResponse = (output: any, context: __SerdeContext): UpdateFirewallDomainsResponse => {
   return {
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -6905,73 +7755,75 @@ const deserializeAws_json1_1UpdateFirewallDomainsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationResponse = (
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleGroupAssociationResponse
+ */
+const de_UpdateFirewallRuleGroupAssociationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateFirewallRuleGroupAssociationResponse => {
   return {
     FirewallRuleGroupAssociation:
       output.FirewallRuleGroupAssociation != null
-        ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
+        ? de_FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateFirewallRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallRuleResponse => {
+/**
+ * deserializeAws_json1_1UpdateFirewallRuleResponse
+ */
+const de_UpdateFirewallRuleResponse = (output: any, context: __SerdeContext): UpdateFirewallRuleResponse => {
   return {
-    FirewallRule:
-      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
+    FirewallRule: output.FirewallRule != null ? de_FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateResolverConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateResolverConfigResponse => {
+/**
+ * deserializeAws_json1_1UpdateResolverConfigResponse
+ */
+const de_UpdateResolverConfigResponse = (output: any, context: __SerdeContext): UpdateResolverConfigResponse => {
   return {
-    ResolverConfig:
-      output.ResolverConfig != null ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context) : undefined,
+    ResolverConfig: output.ResolverConfig != null ? de_ResolverConfig(output.ResolverConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateResolverDnssecConfigResponse = (
+/**
+ * deserializeAws_json1_1UpdateResolverDnssecConfigResponse
+ */
+const de_UpdateResolverDnssecConfigResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateResolverDnssecConfigResponse => {
   return {
     ResolverDNSSECConfig:
-      output.ResolverDNSSECConfig != null
-        ? deserializeAws_json1_1ResolverDnssecConfig(output.ResolverDNSSECConfig, context)
-        : undefined,
+      output.ResolverDNSSECConfig != null ? de_ResolverDnssecConfig(output.ResolverDNSSECConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateResolverEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateResolverEndpointResponse => {
+/**
+ * deserializeAws_json1_1UpdateResolverEndpointResponse
+ */
+const de_UpdateResolverEndpointResponse = (output: any, context: __SerdeContext): UpdateResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint != null
-        ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
-        : undefined,
+      output.ResolverEndpoint != null ? de_ResolverEndpoint(output.ResolverEndpoint, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateResolverRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateResolverRuleResponse => {
+/**
+ * deserializeAws_json1_1UpdateResolverRuleResponse
+ */
+const de_UpdateResolverRuleResponse = (output: any, context: __SerdeContext): UpdateResolverRuleResponse => {
   return {
-    ResolverRule:
-      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
+    ResolverRule: output.ResolverRule != null ? de_ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_1ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

@@ -18,8 +18,8 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand,
-  serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand,
+  de_DeleteInstanceAccessControlAttributeConfigurationCommand,
+  se_DeleteInstanceAccessControlAttributeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -161,7 +161,7 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     input: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand(input, context);
+    return se_DeleteInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand(output, context);
+    return de_DeleteInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

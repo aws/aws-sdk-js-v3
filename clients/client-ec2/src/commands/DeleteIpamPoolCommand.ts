@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteIpamPoolRequest, DeleteIpamPoolResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteIpamPoolCommand, serializeAws_ec2DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
+import { de_DeleteIpamPoolCommand, se_DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +125,14 @@ export class DeleteIpamPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteIpamPoolCommand(input, context);
+    return se_DeleteIpamPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpamPoolCommandOutput> {
-    return deserializeAws_ec2DeleteIpamPoolCommand(output, context);
+    return de_DeleteIpamPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

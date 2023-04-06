@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ListTagsForVaultInput, ListTagsForVaultOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTagsForVaultCommand,
-  serializeAws_restJson1ListTagsForVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTagsForVaultCommand, se_ListTagsForVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ListTagsForVaultCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsForVaultCommand(input, context);
+    return se_ListTagsForVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForVaultCommandOutput> {
-    return deserializeAws_restJson1ListTagsForVaultCommand(output, context);
+    return de_ListTagsForVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchDeleteRequest, BatchDeleteResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchDeleteCommand,
-  serializeAws_restJson1BatchDeleteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteCommand, se_BatchDeleteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class BatchDeleteCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteCommand(input, context);
+    return se_BatchDeleteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteCommand(output, context);
+    return de_BatchDeleteCommand(output, context);
   }
 
   // Start section: command_body_extra

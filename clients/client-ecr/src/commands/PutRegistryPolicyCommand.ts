@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { PutRegistryPolicyRequest, PutRegistryPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRegistryPolicyCommand,
-  serializeAws_json1_1PutRegistryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRegistryPolicyCommand, se_PutRegistryPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class PutRegistryPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRegistryPolicyCommand(input, context);
+    return se_PutRegistryPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRegistryPolicyCommandOutput> {
-    return deserializeAws_json1_1PutRegistryPolicyCommand(output, context);
+    return de_PutRegistryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

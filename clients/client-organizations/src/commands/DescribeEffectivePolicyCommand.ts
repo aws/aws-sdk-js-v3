@@ -15,10 +15,7 @@ import {
 
 import { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeEffectivePolicyCommand,
-  serializeAws_json1_1DescribeEffectivePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEffectivePolicyCommand, se_DescribeEffectivePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -466,14 +463,14 @@ export class DescribeEffectivePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEffectivePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectivePolicyCommand(input, context);
+    return se_DescribeEffectivePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEffectivePolicyCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectivePolicyCommand(output, context);
+    return de_DescribeEffectivePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

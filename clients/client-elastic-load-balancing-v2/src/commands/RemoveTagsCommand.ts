@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
-import { deserializeAws_queryRemoveTagsCommand, serializeAws_queryRemoveTagsCommand } from "../protocols/Aws_query";
+import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -158,14 +158,14 @@ export class RemoveTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveTagsCommand(input, context);
+    return se_RemoveTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
-    return deserializeAws_queryRemoveTagsCommand(output, context);
+    return de_RemoveTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DisassociateLinkCommand,
-  serializeAws_restJson1DisassociateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateLinkCommand, se_DisassociateLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DisassociateLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLinkCommand(input, context);
+    return se_DisassociateLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLinkCommandOutput> {
-    return deserializeAws_restJson1DisassociateLinkCommand(output, context);
+    return de_DisassociateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

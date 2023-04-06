@@ -15,10 +15,7 @@ import {
 
 import { ListCoreNetworksRequest, ListCoreNetworksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListCoreNetworksCommand,
-  serializeAws_restJson1ListCoreNetworksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCoreNetworksCommand, se_ListCoreNetworksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListCoreNetworksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCoreNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoreNetworksCommand(input, context);
+    return se_ListCoreNetworksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoreNetworksCommandOutput> {
-    return deserializeAws_restJson1ListCoreNetworksCommand(output, context);
+    return de_ListCoreNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetColumnStatisticsForTableCommand,
-  serializeAws_json1_1GetColumnStatisticsForTableCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetColumnStatisticsForTableCommand, se_GetColumnStatisticsForTableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class GetColumnStatisticsForTableCommand extends $Command<
    * @internal
    */
   private serialize(input: GetColumnStatisticsForTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetColumnStatisticsForTableCommand(input, context);
+    return se_GetColumnStatisticsForTableCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1GetColumnStatisticsForTableCommand(output, context);
+    return de_GetColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

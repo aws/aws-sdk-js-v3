@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteFileCacheRequest, DeleteFileCacheResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileCacheCommand,
-  serializeAws_json1_1DeleteFileCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFileCacheCommand, se_DeleteFileCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteFileCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileCacheCommand(input, context);
+    return se_DeleteFileCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCacheCommandOutput> {
-    return deserializeAws_json1_1DeleteFileCacheCommand(output, context);
+    return de_DeleteFileCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

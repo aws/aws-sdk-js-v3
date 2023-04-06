@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListGroupCertificateAuthoritiesRequest, ListGroupCertificateAuthoritiesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand,
-  serializeAws_restJson1ListGroupCertificateAuthoritiesCommand,
+  de_ListGroupCertificateAuthoritiesCommand,
+  se_ListGroupCertificateAuthoritiesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -131,7 +131,7 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     input: ListGroupCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupCertificateAuthoritiesCommand(input, context);
+    return se_ListGroupCertificateAuthoritiesCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand(output, context);
+    return de_ListGroupCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

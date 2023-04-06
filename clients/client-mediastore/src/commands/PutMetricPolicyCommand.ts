@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { PutMetricPolicyInput, PutMetricPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutMetricPolicyCommand,
-  serializeAws_json1_1PutMetricPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutMetricPolicyCommand, se_PutMetricPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class PutMetricPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutMetricPolicyCommand(input, context);
+    return se_PutMetricPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricPolicyCommandOutput> {
-    return deserializeAws_json1_1PutMetricPolicyCommand(output, context);
+    return de_PutMetricPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

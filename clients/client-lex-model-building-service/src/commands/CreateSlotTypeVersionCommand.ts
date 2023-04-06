@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { CreateSlotTypeVersionRequest, CreateSlotTypeVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSlotTypeVersionCommand,
-  serializeAws_restJson1CreateSlotTypeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSlotTypeVersionCommand, se_CreateSlotTypeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateSlotTypeVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSlotTypeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSlotTypeVersionCommand(input, context);
+    return se_CreateSlotTypeVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSlotTypeVersionCommand(output, context);
+    return de_CreateSlotTypeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

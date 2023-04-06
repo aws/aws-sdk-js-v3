@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { BatchGetCommitsInput, BatchGetCommitsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetCommitsCommand,
-  serializeAws_json1_1BatchGetCommitsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetCommitsCommand, se_BatchGetCommitsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class BatchGetCommitsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetCommitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetCommitsCommand(input, context);
+    return se_BatchGetCommitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCommitsCommandOutput> {
-    return deserializeAws_json1_1BatchGetCommitsCommand(output, context);
+    return de_BatchGetCommitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendAlexaOfferToMasterCommand,
-  serializeAws_restJson1SendAlexaOfferToMasterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendAlexaOfferToMasterCommand, se_SendAlexaOfferToMasterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class SendAlexaOfferToMasterCommand extends $Command<
    * @internal
    */
   private serialize(input: SendAlexaOfferToMasterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendAlexaOfferToMasterCommand(input, context);
+    return se_SendAlexaOfferToMasterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAlexaOfferToMasterCommandOutput> {
-    return deserializeAws_restJson1SendAlexaOfferToMasterCommand(output, context);
+    return de_SendAlexaOfferToMasterCommand(output, context);
   }
 
   // Start section: command_body_extra

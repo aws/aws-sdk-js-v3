@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { DeleteDeploymentConfigInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeploymentConfigCommand,
-  serializeAws_json1_1DeleteDeploymentConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeploymentConfigCommand, se_DeleteDeploymentConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDeploymentConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeploymentConfigCommand(input, context);
+    return se_DeleteDeploymentConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteDeploymentConfigCommand(output, context);
+    return de_DeleteDeploymentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

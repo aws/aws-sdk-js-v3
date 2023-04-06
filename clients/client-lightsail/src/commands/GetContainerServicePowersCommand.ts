@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetContainerServicePowersRequest, GetContainerServicePowersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerServicePowersCommand,
-  serializeAws_json1_1GetContainerServicePowersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetContainerServicePowersCommand, se_GetContainerServicePowersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class GetContainerServicePowersCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContainerServicePowersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerServicePowersCommand(input, context);
+    return se_GetContainerServicePowersCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class GetContainerServicePowersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContainerServicePowersCommandOutput> {
-    return deserializeAws_json1_1GetContainerServicePowersCommand(output, context);
+    return de_GetContainerServicePowersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateScheduledAuditRequest, CreateScheduledAuditResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateScheduledAuditCommand,
-  serializeAws_restJson1CreateScheduledAuditCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateScheduledAuditCommand, se_CreateScheduledAuditCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreateScheduledAuditCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateScheduledAuditCommand(input, context);
+    return se_CreateScheduledAuditCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1CreateScheduledAuditCommand(output, context);
+    return de_CreateScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

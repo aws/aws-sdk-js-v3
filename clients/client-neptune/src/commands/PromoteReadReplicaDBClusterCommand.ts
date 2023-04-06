@@ -15,10 +15,7 @@ import {
 
 import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryPromoteReadReplicaDBClusterCommand,
-  serializeAws_queryPromoteReadReplicaDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_PromoteReadReplicaDBClusterCommand, se_PromoteReadReplicaDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: PromoteReadReplicaDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPromoteReadReplicaDBClusterCommand(input, context);
+    return se_PromoteReadReplicaDBClusterCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(output, context);
+    return de_PromoteReadReplicaDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

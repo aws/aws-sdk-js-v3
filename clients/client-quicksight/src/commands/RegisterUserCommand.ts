@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterUserRequest, RegisterUserResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1RegisterUserCommand,
-  serializeAws_restJson1RegisterUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterUserCommand, se_RegisterUserCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -159,14 +156,14 @@ export class RegisterUserCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterUserCommand(input, context);
+    return se_RegisterUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUserCommandOutput> {
-    return deserializeAws_restJson1RegisterUserCommand(output, context);
+    return de_RegisterUserCommand(output, context);
   }
 
   // Start section: command_body_extra

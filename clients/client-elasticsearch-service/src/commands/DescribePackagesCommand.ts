@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { DescribePackagesRequest, DescribePackagesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePackagesCommand,
-  serializeAws_restJson1DescribePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackagesCommand, se_DescribePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DescribePackagesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackagesCommand(input, context);
+    return se_DescribePackagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackagesCommandOutput> {
-    return deserializeAws_restJson1DescribePackagesCommand(output, context);
+    return de_DescribePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

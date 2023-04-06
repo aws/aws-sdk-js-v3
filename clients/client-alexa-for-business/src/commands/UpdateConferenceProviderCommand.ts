@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateConferenceProviderRequest, UpdateConferenceProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConferenceProviderCommand,
-  serializeAws_json1_1UpdateConferenceProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConferenceProviderCommand, se_UpdateConferenceProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class UpdateConferenceProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConferenceProviderCommand(input, context);
+    return se_UpdateConferenceProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateConferenceProviderCommand(output, context);
+    return de_UpdateConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

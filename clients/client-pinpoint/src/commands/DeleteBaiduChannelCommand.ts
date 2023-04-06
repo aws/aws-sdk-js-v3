@@ -15,10 +15,7 @@ import {
 
 import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteBaiduChannelCommand,
-  serializeAws_restJson1DeleteBaiduChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBaiduChannelCommand, se_DeleteBaiduChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteBaiduChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBaiduChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBaiduChannelCommand(input, context);
+    return se_DeleteBaiduChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBaiduChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteBaiduChannelCommand(output, context);
+    return de_DeleteBaiduChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

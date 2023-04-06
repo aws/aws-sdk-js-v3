@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListRemoteAccessSessionsRequest, ListRemoteAccessSessionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRemoteAccessSessionsCommand,
-  serializeAws_json1_1ListRemoteAccessSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRemoteAccessSessionsCommand, se_ListRemoteAccessSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ListRemoteAccessSessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRemoteAccessSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRemoteAccessSessionsCommand(input, context);
+    return se_ListRemoteAccessSessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRemoteAccessSessionsCommandOutput> {
-    return deserializeAws_json1_1ListRemoteAccessSessionsCommand(output, context);
+    return de_ListRemoteAccessSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

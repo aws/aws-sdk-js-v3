@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivityTaskStatus, RecordActivityTaskHeartbeatInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0RecordActivityTaskHeartbeatCommand,
-  serializeAws_json1_0RecordActivityTaskHeartbeatCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RecordActivityTaskHeartbeatCommand, se_RecordActivityTaskHeartbeatCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -174,7 +171,7 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
    * @internal
    */
   private serialize(input: RecordActivityTaskHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(input, context);
+    return se_RecordActivityTaskHeartbeatCommand(input, context);
   }
 
   /**
@@ -184,7 +181,7 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RecordActivityTaskHeartbeatCommandOutput> {
-    return deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(output, context);
+    return de_RecordActivityTaskHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

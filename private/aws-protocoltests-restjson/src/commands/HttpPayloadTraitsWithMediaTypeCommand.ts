@@ -14,8 +14,8 @@ import {
 
 import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
-  serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
+  de_HttpPayloadTraitsWithMediaTypeCommand,
+  se_HttpPayloadTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -114,7 +114,7 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     input: HttpPayloadTraitsWithMediaTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(input, context);
+    return se_HttpPayloadTraitsWithMediaTypeCommand(input, context);
   }
 
   /**
@@ -124,7 +124,7 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(output, context);
+    return de_HttpPayloadTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

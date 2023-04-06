@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ResetJobBookmarkCommand,
-  serializeAws_json1_1ResetJobBookmarkCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetJobBookmarkCommand, se_ResetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ResetJobBookmarkCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetJobBookmarkCommand(input, context);
+    return se_ResetJobBookmarkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetJobBookmarkCommandOutput> {
-    return deserializeAws_json1_1ResetJobBookmarkCommand(output, context);
+    return de_ResetJobBookmarkCommand(output, context);
   }
 
   // Start section: command_body_extra

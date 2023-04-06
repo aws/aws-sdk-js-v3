@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceAccessDetailsCommand,
-  serializeAws_json1_1GetInstanceAccessDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceAccessDetailsCommand, se_GetInstanceAccessDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class GetInstanceAccessDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceAccessDetailsCommand(input, context);
+    return se_GetInstanceAccessDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessDetailsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(output, context);
+    return de_GetInstanceAccessDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

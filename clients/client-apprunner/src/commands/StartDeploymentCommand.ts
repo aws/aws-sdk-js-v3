@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { StartDeploymentRequest, StartDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartDeploymentCommand,
-  serializeAws_json1_0StartDeploymentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class StartDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartDeploymentCommand(input, context);
+    return se_StartDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
-    return deserializeAws_json1_0StartDeploymentCommand(output, context);
+    return de_StartDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

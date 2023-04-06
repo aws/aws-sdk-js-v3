@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { AutoScalingInstancesType, DescribeAutoScalingInstancesType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAutoScalingInstancesCommand,
-  serializeAws_queryDescribeAutoScalingInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAutoScalingInstancesCommand, se_DescribeAutoScalingInstancesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAutoScalingInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingInstancesCommand(input, context);
+    return se_DescribeAutoScalingInstancesCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingInstancesCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingInstancesCommand(output, context);
+    return de_DescribeAutoScalingInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

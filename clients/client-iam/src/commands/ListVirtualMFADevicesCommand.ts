@@ -19,10 +19,7 @@ import {
   ListVirtualMFADevicesResponse,
   ListVirtualMFADevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_queryListVirtualMFADevicesCommand,
-  serializeAws_queryListVirtualMFADevicesCommand,
-} from "../protocols/Aws_query";
+import { de_ListVirtualMFADevicesCommand, se_ListVirtualMFADevicesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ListVirtualMFADevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVirtualMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListVirtualMFADevicesCommand(input, context);
+    return se_ListVirtualMFADevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMFADevicesCommandOutput> {
-    return deserializeAws_queryListVirtualMFADevicesCommand(output, context);
+    return de_ListVirtualMFADevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

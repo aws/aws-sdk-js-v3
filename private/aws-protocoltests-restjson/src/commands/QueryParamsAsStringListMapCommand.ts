@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryParamsAsStringListMapInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1QueryParamsAsStringListMapCommand,
-  serializeAws_restJson1QueryParamsAsStringListMapCommand,
-} from "../protocols/Aws_restJson1";
+import { de_QueryParamsAsStringListMapCommand, se_QueryParamsAsStringListMapCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,7 +80,7 @@ export class QueryParamsAsStringListMapCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryParamsAsStringListMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1QueryParamsAsStringListMapCommand(input, context);
+    return se_QueryParamsAsStringListMapCommand(input, context);
   }
 
   /**
@@ -93,7 +90,7 @@ export class QueryParamsAsStringListMapCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryParamsAsStringListMapCommandOutput> {
-    return deserializeAws_restJson1QueryParamsAsStringListMapCommand(output, context);
+    return de_QueryParamsAsStringListMapCommand(output, context);
   }
 
   // Start section: command_body_extra

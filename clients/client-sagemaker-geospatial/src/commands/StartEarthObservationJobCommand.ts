@@ -19,10 +19,7 @@ import {
   StartEarthObservationJobOutput,
   StartEarthObservationJobOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartEarthObservationJobCommand,
-  serializeAws_restJson1StartEarthObservationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartEarthObservationJobCommand, se_StartEarthObservationJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -300,14 +297,14 @@ export class StartEarthObservationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartEarthObservationJobCommand(input, context);
+    return se_StartEarthObservationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEarthObservationJobCommandOutput> {
-    return deserializeAws_restJson1StartEarthObservationJobCommand(output, context);
+    return de_StartEarthObservationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteSessionCommand,
-  serializeAws_json1_1DeleteSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSessionCommand(input, context);
+    return se_DeleteSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
-    return deserializeAws_json1_1DeleteSessionCommand(output, context);
+    return de_DeleteSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

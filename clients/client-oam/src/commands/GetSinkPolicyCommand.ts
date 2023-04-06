@@ -15,10 +15,7 @@ import {
 
 import { GetSinkPolicyInput, GetSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1GetSinkPolicyCommand,
-  serializeAws_restJson1GetSinkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSinkPolicyCommand, se_GetSinkPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetSinkPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSinkPolicyCommand(input, context);
+    return se_GetSinkPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkPolicyCommandOutput> {
-    return deserializeAws_restJson1GetSinkPolicyCommand(output, context);
+    return de_GetSinkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

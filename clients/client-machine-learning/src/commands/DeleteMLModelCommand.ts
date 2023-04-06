@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteMLModelInput, DeleteMLModelOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMLModelCommand,
-  serializeAws_json1_1DeleteMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMLModelCommand, se_DeleteMLModelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteMLModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMLModelCommand(input, context);
+    return se_DeleteMLModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLModelCommandOutput> {
-    return deserializeAws_json1_1DeleteMLModelCommand(output, context);
+    return de_DeleteMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

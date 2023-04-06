@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
-  serializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReportTaskRunnerHeartbeatCommand, se_ReportTaskRunnerHeartbeatCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,7 +157,7 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
    * @internal
    */
   private serialize(input: ReportTaskRunnerHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReportTaskRunnerHeartbeatCommand(input, context);
+    return se_ReportTaskRunnerHeartbeatCommand(input, context);
   }
 
   /**
@@ -170,7 +167,7 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
-    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(output, context);
+    return de_ReportTaskRunnerHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

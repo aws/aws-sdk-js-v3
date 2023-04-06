@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeMonitorRequest, DescribeMonitorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMonitorCommand,
-  serializeAws_json1_1DescribeMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMonitorCommand, se_DescribeMonitorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class DescribeMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMonitorCommand(input, context);
+    return se_DescribeMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMonitorCommandOutput> {
-    return deserializeAws_json1_1DescribeMonitorCommand(output, context);
+    return de_DescribeMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

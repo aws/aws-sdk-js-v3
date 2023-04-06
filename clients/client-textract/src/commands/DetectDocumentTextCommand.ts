@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectDocumentTextRequest, DetectDocumentTextResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectDocumentTextCommand,
-  serializeAws_json1_1DetectDocumentTextCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectDocumentTextCommand, se_DetectDocumentTextCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -177,14 +174,14 @@ export class DetectDocumentTextCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectDocumentTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectDocumentTextCommand(input, context);
+    return se_DetectDocumentTextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDocumentTextCommandOutput> {
-    return deserializeAws_json1_1DetectDocumentTextCommand(output, context);
+    return de_DetectDocumentTextCommand(output, context);
   }
 
   // Start section: command_body_extra

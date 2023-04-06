@@ -15,10 +15,7 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFlowCommand,
-  serializeAws_restJson1DeleteFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFlowCommand, se_DeleteFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFlowCommand(input, context);
+    return se_DeleteFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowCommandOutput> {
-    return deserializeAws_restJson1DeleteFlowCommand(output, context);
+    return de_DeleteFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

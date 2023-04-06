@@ -19,10 +19,7 @@ import {
   GetContactInformationResponse,
   GetContactInformationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactInformationCommand,
-  serializeAws_restJson1GetContactInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetContactInformationCommand, se_GetContactInformationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetContactInformationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactInformationCommand(input, context);
+    return se_GetContactInformationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactInformationCommandOutput> {
-    return deserializeAws_restJson1GetContactInformationCommand(output, context);
+    return de_GetContactInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

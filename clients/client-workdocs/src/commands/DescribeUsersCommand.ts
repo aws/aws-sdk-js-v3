@@ -19,10 +19,7 @@ import {
   DescribeUsersResponse,
   DescribeUsersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUsersCommand,
-  serializeAws_restJson1DescribeUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeUsersCommand, se_DescribeUsersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -159,14 +156,14 @@ export class DescribeUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUsersCommand(input, context);
+    return se_DescribeUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsersCommandOutput> {
-    return deserializeAws_restJson1DescribeUsersCommand(output, context);
+    return de_DescribeUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0ListRuleGroupsCommand,
-  serializeAws_json1_0ListRuleGroupsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListRuleGroupsCommand, se_ListRuleGroupsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ListRuleGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRuleGroupsCommand(input, context);
+    return se_ListRuleGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsCommandOutput> {
-    return deserializeAws_json1_0ListRuleGroupsCommand(output, context);
+    return de_ListRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

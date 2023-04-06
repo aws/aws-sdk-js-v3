@@ -19,10 +19,7 @@ import {
   GetParametersForImportResponse,
   GetParametersForImportResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetParametersForImportCommand,
-  serializeAws_json1_1GetParametersForImportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetParametersForImportCommand, se_GetParametersForImportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -218,14 +215,14 @@ export class GetParametersForImportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetParametersForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParametersForImportCommand(input, context);
+    return se_GetParametersForImportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersForImportCommandOutput> {
-    return deserializeAws_json1_1GetParametersForImportCommand(output, context);
+    return de_GetParametersForImportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProfileCommand,
-  serializeAws_json1_1UpdateProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -139,14 +136,14 @@ export class UpdateProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProfileCommand(input, context);
+    return se_UpdateProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateProfileCommand(output, context);
+    return de_UpdateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

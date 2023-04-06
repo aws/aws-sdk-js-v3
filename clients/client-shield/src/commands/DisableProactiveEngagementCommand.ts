@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableProactiveEngagementCommand,
-  serializeAws_json1_1DisableProactiveEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableProactiveEngagementCommand, se_DisableProactiveEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -134,7 +131,7 @@ export class DisableProactiveEngagementCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableProactiveEngagementCommand(input, context);
+    return se_DisableProactiveEngagementCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DisableProactiveEngagementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableProactiveEngagementCommandOutput> {
-    return deserializeAws_json1_1DisableProactiveEngagementCommand(output, context);
+    return de_DisableProactiveEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

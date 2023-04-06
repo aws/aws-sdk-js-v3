@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssetCommand,
-  serializeAws_restJson1CreateAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAssetCommand, se_CreateAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateAssetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssetCommand(input, context);
+    return se_CreateAssetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetCommandOutput> {
-    return deserializeAws_restJson1CreateAssetCommand(output, context);
+    return de_CreateAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

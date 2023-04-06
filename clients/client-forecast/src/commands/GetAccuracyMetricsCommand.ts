@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccuracyMetricsCommand,
-  serializeAws_json1_1GetAccuracyMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccuracyMetricsCommand, se_GetAccuracyMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetAccuracyMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccuracyMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccuracyMetricsCommand(input, context);
+    return se_GetAccuracyMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccuracyMetricsCommandOutput> {
-    return deserializeAws_json1_1GetAccuracyMetricsCommand(output, context);
+    return de_GetAccuracyMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

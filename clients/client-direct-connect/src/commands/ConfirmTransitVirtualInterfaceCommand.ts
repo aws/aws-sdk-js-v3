@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmTransitVirtualInterfaceRequest, ConfirmTransitVirtualInterfaceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
+  de_ConfirmTransitVirtualInterfaceCommand,
+  se_ConfirmTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -133,7 +133,7 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     input: ConfirmTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(input, context);
+    return se_ConfirmTransitVirtualInterfaceCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(output, context);
+    return de_ConfirmTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

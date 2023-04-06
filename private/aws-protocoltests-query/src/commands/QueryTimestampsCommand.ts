@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryTimestampsInput } from "../models/models_0";
-import {
-  deserializeAws_queryQueryTimestampsCommand,
-  serializeAws_queryQueryTimestampsCommand,
-} from "../protocols/Aws_query";
+import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -113,14 +110,14 @@ export class QueryTimestampsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryQueryTimestampsCommand(input, context);
+    return se_QueryTimestampsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTimestampsCommandOutput> {
-    return deserializeAws_queryQueryTimestampsCommand(output, context);
+    return de_QueryTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

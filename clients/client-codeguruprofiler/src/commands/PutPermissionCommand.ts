@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { PutPermissionRequest, PutPermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPermissionCommand,
-  serializeAws_restJson1PutPermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutPermissionCommand, se_PutPermissionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class PutPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPermissionCommand(input, context);
+    return se_PutPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
-    return deserializeAws_restJson1PutPermissionCommand(output, context);
+    return de_PutPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeReservationCommand,
-  serializeAws_restJson1DescribeReservationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeReservationCommand, se_DescribeReservationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeReservationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservationCommand(input, context);
+    return se_DescribeReservationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservationCommandOutput> {
-    return deserializeAws_restJson1DescribeReservationCommand(output, context);
+    return de_DescribeReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

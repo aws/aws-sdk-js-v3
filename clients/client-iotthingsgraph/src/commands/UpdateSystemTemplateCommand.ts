@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { UpdateSystemTemplateRequest, UpdateSystemTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSystemTemplateCommand,
-  serializeAws_json1_1UpdateSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSystemTemplateCommand, se_UpdateSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateSystemTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSystemTemplateCommand(input, context);
+    return se_UpdateSystemTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1UpdateSystemTemplateCommand(output, context);
+    return de_UpdateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

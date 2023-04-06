@@ -15,10 +15,7 @@ import {
 
 import { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteEventStreamCommand,
-  serializeAws_restJson1DeleteEventStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventStreamCommand, se_DeleteEventStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteEventStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventStreamCommand(input, context);
+    return se_DeleteEventStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventStreamCommandOutput> {
-    return deserializeAws_restJson1DeleteEventStreamCommand(output, context);
+    return de_DeleteEventStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

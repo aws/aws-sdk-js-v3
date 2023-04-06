@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DeleteRuleInput, DeleteRuleOutput } from "../models/models_0";
-import { deserializeAws_queryDeleteRuleCommand, serializeAws_queryDeleteRuleCommand } from "../protocols/Aws_query";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +137,14 @@ export class DeleteRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRuleCommand(input, context);
+    return se_DeleteRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
-    return deserializeAws_queryDeleteRuleCommand(output, context);
+    return de_DeleteRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeletePlaybackConfigurationCommand,
-  serializeAws_restJson1DeletePlaybackConfigurationCommand,
+  de_DeletePlaybackConfigurationCommand,
+  se_DeletePlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -122,7 +122,7 @@ export class DeletePlaybackConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlaybackConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePlaybackConfigurationCommand(input, context);
+    return se_DeletePlaybackConfigurationCommand(input, context);
   }
 
   /**
@@ -132,7 +132,7 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeletePlaybackConfigurationCommand(output, context);
+    return de_DeletePlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

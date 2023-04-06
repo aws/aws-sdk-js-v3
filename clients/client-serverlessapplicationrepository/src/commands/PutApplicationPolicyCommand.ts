@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutApplicationPolicyRequest, PutApplicationPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutApplicationPolicyCommand,
-  serializeAws_restJson1PutApplicationPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutApplicationPolicyCommand, se_PutApplicationPolicyCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -156,14 +153,14 @@ export class PutApplicationPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutApplicationPolicyCommand(input, context);
+    return se_PutApplicationPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApplicationPolicyCommandOutput> {
-    return deserializeAws_restJson1PutApplicationPolicyCommand(output, context);
+    return de_PutApplicationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

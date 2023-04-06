@@ -14,10 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
-import {
-  deserializeAws_ec2SimpleScalarXmlPropertiesCommand,
-  serializeAws_ec2SimpleScalarXmlPropertiesCommand,
-} from "../protocols/Aws_ec2";
+import { de_SimpleScalarXmlPropertiesCommand, se_SimpleScalarXmlPropertiesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -83,7 +80,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: SimpleScalarXmlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SimpleScalarXmlPropertiesCommand(input, context);
+    return se_SimpleScalarXmlPropertiesCommand(input, context);
   }
 
   /**
@@ -93,7 +90,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SimpleScalarXmlPropertiesCommandOutput> {
-    return deserializeAws_ec2SimpleScalarXmlPropertiesCommand(output, context);
+    return de_SimpleScalarXmlPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

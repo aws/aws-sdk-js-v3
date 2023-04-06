@@ -19,10 +19,7 @@ import {
   OptOutSpeakerResponse,
   OptOutSpeakerResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0OptOutSpeakerCommand,
-  serializeAws_json1_0OptOutSpeakerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_OptOutSpeakerCommand, se_OptOutSpeakerCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -157,14 +154,14 @@ export class OptOutSpeakerCommand extends $Command<
    * @internal
    */
   private serialize(input: OptOutSpeakerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0OptOutSpeakerCommand(input, context);
+    return se_OptOutSpeakerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OptOutSpeakerCommandOutput> {
-    return deserializeAws_json1_0OptOutSpeakerCommand(output, context);
+    return de_OptOutSpeakerCommand(output, context);
   }
 
   // Start section: command_body_extra

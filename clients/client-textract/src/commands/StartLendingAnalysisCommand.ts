@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartLendingAnalysisRequest, StartLendingAnalysisResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLendingAnalysisCommand,
-  serializeAws_json1_1StartLendingAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartLendingAnalysisCommand, se_StartLendingAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -223,14 +220,14 @@ export class StartLendingAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: StartLendingAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLendingAnalysisCommand(input, context);
+    return se_StartLendingAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLendingAnalysisCommandOutput> {
-    return deserializeAws_json1_1StartLendingAnalysisCommand(output, context);
+    return de_StartLendingAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

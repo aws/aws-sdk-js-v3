@@ -16,8 +16,8 @@ import {
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { DeleteInstanceOnboardingJobRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteInstanceOnboardingJobCommand,
-  serializeAws_restJson1DeleteInstanceOnboardingJobCommand,
+  de_DeleteInstanceOnboardingJobCommand,
+  se_DeleteInstanceOnboardingJobCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceOnboardingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInstanceOnboardingJobCommand(input, context);
+    return se_DeleteInstanceOnboardingJobCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInstanceOnboardingJobCommandOutput> {
-    return deserializeAws_restJson1DeleteInstanceOnboardingJobCommand(output, context);
+    return de_DeleteInstanceOnboardingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

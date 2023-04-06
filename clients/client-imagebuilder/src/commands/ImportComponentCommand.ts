@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ImportComponentRequest, ImportComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportComponentCommand,
-  serializeAws_restJson1ImportComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportComponentCommand, se_ImportComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class ImportComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportComponentCommand(input, context);
+    return se_ImportComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportComponentCommandOutput> {
-    return deserializeAws_restJson1ImportComponentCommand(output, context);
+    return de_ImportComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

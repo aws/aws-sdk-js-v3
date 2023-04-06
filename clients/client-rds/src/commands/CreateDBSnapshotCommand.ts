@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBSnapshotMessage, CreateDBSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSnapshotCommand,
-  serializeAws_queryCreateDBSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBSnapshotCommand, se_CreateDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -79,21 +76,45 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  *             snapshots.</p>
  *
  *
- * @example To create a DB snapshot.
+ * @example To create a DB snapshot
  * ```javascript
- * // This example creates a DB snapshot.
+ * // The following example creates a DB snapshot.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "DBSnapshotIdentifier": "mydbsnapshot"
+ *   "DBInstanceIdentifier": "mydbsnapshot",
+ *   "DBSnapshotIdentifier": "database-mysql"
  * };
  * const command = new CreateDBSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshot": {}
+ *   "DBSnapshot": {
+ *     "AllocatedStorage": 100,
+ *     "AvailabilityZone": "us-east-1b",
+ *     "DBInstanceIdentifier": "database-mysql",
+ *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *     "DBSnapshotIdentifier": "mydbsnapshot",
+ *     "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
+ *     "Encrypted": true,
+ *     "Engine": "mysql",
+ *     "EngineVersion": "8.0.32",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
+ *     "Iops": 1000,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:mysql-8-0",
+ *     "PercentProgress": 0,
+ *     "Port": 3306,
+ *     "ProcessorFeatures": [],
+ *     "SnapshotType": "manual",
+ *     "Status": "creating",
+ *     "StorageType": "io1",
+ *     "VpcId": "vpc-6594f31c"
+ *   }
  * }
  * *\/
- * // example id: create-db-snapshot-e10e0e2c-9ac4-426d-9b17-6b6a3e382ce2
+ * // example id: to-create-a-db-snapshot-1679939585361
  * ```
  *
  */
@@ -160,14 +181,14 @@ export class CreateDBSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSnapshotCommand(input, context);
+    return se_CreateDBSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSnapshotCommandOutput> {
-    return deserializeAws_queryCreateDBSnapshotCommand(output, context);
+    return de_CreateDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

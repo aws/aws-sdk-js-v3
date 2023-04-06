@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPublicKeysCommand,
-  serializeAws_json1_1ListPublicKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPublicKeysCommand, se_ListPublicKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListPublicKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPublicKeysCommand(input, context);
+    return se_ListPublicKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
-    return deserializeAws_json1_1ListPublicKeysCommand(output, context);
+    return de_ListPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

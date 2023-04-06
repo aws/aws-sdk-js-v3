@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { CreateTrustRequest, CreateTrustRequestFilterSensitiveLog, CreateTrustResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTrustCommand,
-  serializeAws_json1_1CreateTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTrustCommand, se_CreateTrustCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateTrustCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTrustCommand(input, context);
+    return se_CreateTrustCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustCommandOutput> {
-    return deserializeAws_json1_1CreateTrustCommand(output, context);
+    return de_CreateTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

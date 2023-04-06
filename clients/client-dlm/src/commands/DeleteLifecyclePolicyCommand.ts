@@ -15,10 +15,7 @@ import {
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLifecyclePolicyCommand,
-  serializeAws_restJson1DeleteLifecyclePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteLifecyclePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLifecyclePolicyCommand(input, context);
+    return se_DeleteLifecyclePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteLifecyclePolicyCommand(output, context);
+    return de_DeleteLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   UpdateAutomatedDiscoveryConfigurationResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
-  serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
+  de_UpdateAutomatedDiscoveryConfigurationCommand,
+  se_UpdateAutomatedDiscoveryConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     input: UpdateAutomatedDiscoveryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(input, context);
+    return se_UpdateAutomatedDiscoveryConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(output, context);
+    return de_UpdateAutomatedDiscoveryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

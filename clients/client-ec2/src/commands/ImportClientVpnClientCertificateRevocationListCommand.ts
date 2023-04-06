@@ -19,8 +19,8 @@ import {
   ImportClientVpnClientCertificateRevocationListResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand,
-  serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand,
+  de_ImportClientVpnClientCertificateRevocationListCommand,
+  se_ImportClientVpnClientCertificateRevocationListCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     input: ImportClientVpnClientCertificateRevocationListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(input, context);
+    return se_ImportClientVpnClientCertificateRevocationListCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> {
-    return deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(output, context);
+    return de_ImportClientVpnClientCertificateRevocationListCommand(output, context);
   }
 
   // Start section: command_body_extra

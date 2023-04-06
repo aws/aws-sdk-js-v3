@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutResolverRulePolicyRequest, PutResolverRulePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResolverRulePolicyCommand,
-  serializeAws_json1_1PutResolverRulePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutResolverRulePolicyCommand, se_PutResolverRulePolicyCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -137,14 +134,14 @@ export class PutResolverRulePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResolverRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResolverRulePolicyCommand(input, context);
+    return se_PutResolverRulePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResolverRulePolicyCommandOutput> {
-    return deserializeAws_json1_1PutResolverRulePolicyCommand(output, context);
+    return de_PutResolverRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

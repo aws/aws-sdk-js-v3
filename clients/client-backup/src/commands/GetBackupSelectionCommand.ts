@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { GetBackupSelectionInput, GetBackupSelectionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackupSelectionCommand,
-  serializeAws_restJson1GetBackupSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBackupSelectionCommand, se_GetBackupSelectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetBackupSelectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupSelectionCommand(input, context);
+    return se_GetBackupSelectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1GetBackupSelectionCommand(output, context);
+    return de_GetBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { DeleteConfiguredTableAnalysisRuleInput, DeleteConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand,
-  serializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand,
+  de_DeleteConfiguredTableAnalysisRuleCommand,
+  se_DeleteConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command<
     input: DeleteConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand(input, context);
+    return se_DeleteConfiguredTableAnalysisRuleCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfiguredTableAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand(output, context);
+    return de_DeleteConfiguredTableAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

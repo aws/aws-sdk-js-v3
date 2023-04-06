@@ -54,7 +54,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteReportDefinitionCommand
+ */
+export const se_DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -75,7 +78,10 @@ export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetReportDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetReportDefinitionCommand
+ */
+export const se_GetReportDefinitionCommand = async (
   input: GetReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -96,7 +102,10 @@ export const serializeAws_restJson1GetReportDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1ImportApplicationUsageCommand = async (
+/**
+ * serializeAws_restJson1ImportApplicationUsageCommand
+ */
+export const se_ImportApplicationUsageCommand = async (
   input: ImportApplicationUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -108,9 +117,7 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
   body = JSON.stringify({
-    ...(input.sourceS3Location != null && {
-      sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
-    }),
+    ...(input.sourceS3Location != null && { sourceS3Location: se_SourceS3Location(input.sourceS3Location, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -123,7 +130,10 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListReportDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListReportDefinitionsCommand
+ */
+export const se_ListReportDefinitionsCommand = async (
   input: ListReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -147,7 +157,10 @@ export const serializeAws_restJson1ListReportDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutReportDefinitionCommand = async (
+/**
+ * serializeAws_restJson1PutReportDefinitionCommand
+ */
+export const se_PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -159,7 +172,7 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.destinationS3Location != null && {
-      destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
+      destinationS3Location: se_S3Location(input.destinationS3Location, context),
     }),
     ...(input.format != null && { format: input.format }),
     ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
@@ -177,7 +190,10 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateReportDefinitionCommand
+ */
+export const se_UpdateReportDefinitionCommand = async (
   input: UpdateReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -191,7 +207,7 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.destinationS3Location != null && {
-      destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
+      destinationS3Location: se_S3Location(input.destinationS3Location, context),
     }),
     ...(input.format != null && { format: input.format }),
     ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
@@ -208,12 +224,15 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteReportDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteReportDefinitionCommand
+ */
+export const de_DeleteReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteReportDefinitionCommandError(output, context);
+    return de_DeleteReportDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -225,7 +244,10 @@ export const deserializeAws_restJson1DeleteReportDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteReportDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteReportDefinitionCommandError
+ */
+const de_DeleteReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
@@ -237,16 +259,16 @@ const deserializeAws_restJson1DeleteReportDefinitionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -258,12 +280,15 @@ const deserializeAws_restJson1DeleteReportDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetReportDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetReportDefinitionCommand
+ */
+export const de_GetReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReportDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetReportDefinitionCommandError(output, context);
+    return de_GetReportDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -273,7 +298,7 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
     contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.destinationS3Location != null) {
-    contents.destinationS3Location = deserializeAws_restJson1S3Location(data.destinationS3Location, context);
+    contents.destinationS3Location = de_S3Location(data.destinationS3Location, context);
   }
   if (data.format != null) {
     contents.format = __expectString(data.format);
@@ -293,7 +318,10 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetReportDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetReportDefinitionCommandError
+ */
+const de_GetReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReportDefinitionCommandOutput> => {
@@ -305,16 +333,16 @@ const deserializeAws_restJson1GetReportDefinitionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -326,12 +354,15 @@ const deserializeAws_restJson1GetReportDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ImportApplicationUsageCommand = async (
+/**
+ * deserializeAws_restJson1ImportApplicationUsageCommand
+ */
+export const de_ImportApplicationUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportApplicationUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ImportApplicationUsageCommandError(output, context);
+    return de_ImportApplicationUsageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -343,7 +374,10 @@ export const deserializeAws_restJson1ImportApplicationUsageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ImportApplicationUsageCommandError = async (
+/**
+ * deserializeAws_restJson1ImportApplicationUsageCommandError
+ */
+const de_ImportApplicationUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportApplicationUsageCommandOutput> => {
@@ -355,16 +389,16 @@ const deserializeAws_restJson1ImportApplicationUsageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -376,12 +410,15 @@ const deserializeAws_restJson1ImportApplicationUsageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListReportDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListReportDefinitionsCommand
+ */
+export const de_ListReportDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListReportDefinitionsCommandError(output, context);
+    return de_ListReportDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -391,12 +428,15 @@ export const deserializeAws_restJson1ListReportDefinitionsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.reportDefinitions != null) {
-    contents.reportDefinitions = deserializeAws_restJson1ReportDefinitionList(data.reportDefinitions, context);
+    contents.reportDefinitions = de_ReportDefinitionList(data.reportDefinitions, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListReportDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListReportDefinitionsCommandError
+ */
+const de_ListReportDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportDefinitionsCommandOutput> => {
@@ -408,16 +448,16 @@ const deserializeAws_restJson1ListReportDefinitionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -429,12 +469,15 @@ const deserializeAws_restJson1ListReportDefinitionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutReportDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1PutReportDefinitionCommand
+ */
+export const de_PutReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutReportDefinitionCommandError(output, context);
+    return de_PutReportDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -446,7 +489,10 @@ export const deserializeAws_restJson1PutReportDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutReportDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1PutReportDefinitionCommandError
+ */
+const de_PutReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
@@ -458,19 +504,19 @@ const deserializeAws_restJson1PutReportDefinitionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.applicationcostprofiler#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -482,12 +528,15 @@ const deserializeAws_restJson1PutReportDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateReportDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateReportDefinitionCommand
+ */
+export const de_UpdateReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateReportDefinitionCommandError(output, context);
+    return de_UpdateReportDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -499,7 +548,10 @@ export const deserializeAws_restJson1UpdateReportDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateReportDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateReportDefinitionCommandError
+ */
+const de_UpdateReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportDefinitionCommandOutput> => {
@@ -511,16 +563,16 @@ const deserializeAws_restJson1UpdateReportDefinitionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationcostprofiler#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationcostprofiler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.applicationcostprofiler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationcostprofiler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -533,7 +585,10 @@ const deserializeAws_restJson1UpdateReportDefinitionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -549,7 +604,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -565,7 +623,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -581,10 +642,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -597,10 +658,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -613,14 +674,20 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1S3Location
+ */
+const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucket != null && { bucket: input.bucket }),
     ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
-const serializeAws_restJson1SourceS3Location = (input: SourceS3Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourceS3Location
+ */
+const se_SourceS3Location = (input: SourceS3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucket != null && { bucket: input.bucket }),
     ...(input.key != null && { key: input.key }),
@@ -628,14 +695,15 @@ const serializeAws_restJson1SourceS3Location = (input: SourceS3Location, context
   };
 };
 
-const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
+/**
+ * deserializeAws_restJson1ReportDefinition
+ */
+const de_ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     destinationS3Location:
-      output.destinationS3Location != null
-        ? deserializeAws_restJson1S3Location(output.destinationS3Location, context)
-        : undefined,
+      output.destinationS3Location != null ? de_S3Location(output.destinationS3Location, context) : undefined,
     format: __expectString(output.format),
     lastUpdatedAt:
       output.lastUpdatedAt != null
@@ -647,19 +715,25 @@ const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
+/**
+ * deserializeAws_restJson1ReportDefinitionList
+ */
+const de_ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ReportDefinition(entry, context);
+      return de_ReportDefinition(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
+/**
+ * deserializeAws_restJson1S3Location
+ */
+const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     bucket: __expectString(output.bucket),
     prefix: __expectString(output.prefix),

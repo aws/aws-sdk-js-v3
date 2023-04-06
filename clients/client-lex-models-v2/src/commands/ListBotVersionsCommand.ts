@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListBotVersionsRequest, ListBotVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotVersionsCommand,
-  serializeAws_restJson1ListBotVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBotVersionsCommand, se_ListBotVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListBotVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBotVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotVersionsCommand(input, context);
+    return se_ListBotVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotVersionsCommandOutput> {
-    return deserializeAws_restJson1ListBotVersionsCommand(output, context);
+    return de_ListBotVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

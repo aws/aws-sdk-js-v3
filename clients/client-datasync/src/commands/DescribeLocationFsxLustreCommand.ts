@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeLocationFsxLustreRequest, DescribeLocationFsxLustreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationFsxLustreCommand,
-  serializeAws_json1_1DescribeLocationFsxLustreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLocationFsxLustreCommand, se_DescribeLocationFsxLustreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DescribeLocationFsxLustreCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocationFsxLustreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationFsxLustreCommand(input, context);
+    return se_DescribeLocationFsxLustreCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DescribeLocationFsxLustreCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocationFsxLustreCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationFsxLustreCommand(output, context);
+    return de_DescribeLocationFsxLustreCommand(output, context);
   }
 
   // Start section: command_body_extra

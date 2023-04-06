@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteDataQualityRulesetRequest, DeleteDataQualityRulesetResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDataQualityRulesetCommand,
-  serializeAws_json1_1DeleteDataQualityRulesetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDataQualityRulesetCommand, se_DeleteDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteDataQualityRulesetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataQualityRulesetCommand(input, context);
+    return se_DeleteDataQualityRulesetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataQualityRulesetCommandOutput> {
-    return deserializeAws_json1_1DeleteDataQualityRulesetCommand(output, context);
+    return de_DeleteDataQualityRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryAddListenerCertificatesCommand,
-  serializeAws_queryAddListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_AddListenerCertificatesCommand, se_AddListenerCertificatesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class AddListenerCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: AddListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddListenerCertificatesCommand(input, context);
+    return se_AddListenerCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddListenerCertificatesCommandOutput> {
-    return deserializeAws_queryAddListenerCertificatesCommand(output, context);
+    return de_AddListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

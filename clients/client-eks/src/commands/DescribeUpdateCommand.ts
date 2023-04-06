@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUpdateCommand,
-  serializeAws_restJson1DescribeUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeUpdateCommand, se_DescribeUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DescribeUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUpdateCommand(input, context);
+    return se_DescribeUpdateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateCommandOutput> {
-    return deserializeAws_restJson1DescribeUpdateCommand(output, context);
+    return de_DescribeUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { BatchDisassociateResourceRequest, BatchDisassociateResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDisassociateResourceCommand,
-  serializeAws_json1_1BatchDisassociateResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDisassociateResourceCommand, se_BatchDisassociateResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class BatchDisassociateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateResourceCommand(input, context);
+    return se_BatchDisassociateResourceCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class BatchDisassociateResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateResourceCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateResourceCommand(output, context);
+    return de_BatchDisassociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

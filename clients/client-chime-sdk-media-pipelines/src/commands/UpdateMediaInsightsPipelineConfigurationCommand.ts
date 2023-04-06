@@ -25,8 +25,8 @@ import {
   UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand,
-  serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand,
+  de_UpdateMediaInsightsPipelineConfigurationCommand,
+  se_UpdateMediaInsightsPipelineConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -250,7 +250,7 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
     input: UpdateMediaInsightsPipelineConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand(input, context);
+    return se_UpdateMediaInsightsPipelineConfigurationCommand(input, context);
   }
 
   /**
@@ -260,7 +260,7 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand(output, context);
+    return de_UpdateMediaInsightsPipelineConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

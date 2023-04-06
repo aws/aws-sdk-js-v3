@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsageStatisticsCommand,
-  serializeAws_restJson1GetUsageStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUsageStatisticsCommand, se_GetUsageStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetUsageStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUsageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsageStatisticsCommand(input, context);
+    return se_GetUsageStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetUsageStatisticsCommand(output, context);
+    return de_GetUsageStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

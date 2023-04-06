@@ -23,8 +23,8 @@ import {
   DeleteInboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand,
-  serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand,
+  de_DeleteInboundCrossClusterSearchConnectionCommand,
+  se_DeleteInboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     input: DeleteInboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand(input, context);
+    return se_DeleteInboundCrossClusterSearchConnectionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> {
-    return deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand(output, context);
+    return de_DeleteInboundCrossClusterSearchConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

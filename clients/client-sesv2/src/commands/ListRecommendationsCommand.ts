@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecommendationsCommand,
-  serializeAws_restJson1ListRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -134,14 +131,14 @@ export class ListRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationsCommand(input, context);
+    return se_ListRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationsCommand(output, context);
+    return de_ListRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

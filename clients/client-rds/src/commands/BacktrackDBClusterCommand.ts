@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/models_0";
-import {
-  deserializeAws_queryBacktrackDBClusterCommand,
-  serializeAws_queryBacktrackDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_BacktrackDBClusterCommand, se_BacktrackDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -137,14 +134,14 @@ export class BacktrackDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: BacktrackDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBacktrackDBClusterCommand(input, context);
+    return se_BacktrackDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BacktrackDBClusterCommandOutput> {
-    return deserializeAws_queryBacktrackDBClusterCommand(output, context);
+    return de_BacktrackDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

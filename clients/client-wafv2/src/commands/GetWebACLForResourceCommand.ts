@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetWebACLForResourceCommand,
-  serializeAws_json1_1GetWebACLForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetWebACLForResourceCommand, se_GetWebACLForResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -161,14 +158,14 @@ export class GetWebACLForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWebACLForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetWebACLForResourceCommand(input, context);
+    return se_GetWebACLForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLForResourceCommandOutput> {
-    return deserializeAws_json1_1GetWebACLForResourceCommand(output, context);
+    return de_GetWebACLForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

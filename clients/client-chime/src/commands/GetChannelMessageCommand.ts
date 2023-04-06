@@ -19,10 +19,7 @@ import {
   GetChannelMessageResponse,
   GetChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelMessageCommand,
-  serializeAws_restJson1GetChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChannelMessageCommand, se_GetChannelMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class GetChannelMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelMessageCommand(input, context);
+    return se_GetChannelMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelMessageCommandOutput> {
-    return deserializeAws_restJson1GetChannelMessageCommand(output, context);
+    return de_GetChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

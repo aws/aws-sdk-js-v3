@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteUserPermissionsBoundaryRequest } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteUserPermissionsBoundaryCommand,
-  serializeAws_queryDeleteUserPermissionsBoundaryCommand,
+  de_DeleteUserPermissionsBoundaryCommand,
+  se_DeleteUserPermissionsBoundaryCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -133,7 +133,7 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserPermissionsBoundaryCommand(input, context);
+    return se_DeleteUserPermissionsBoundaryCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryDeleteUserPermissionsBoundaryCommand(output, context);
+    return de_DeleteUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

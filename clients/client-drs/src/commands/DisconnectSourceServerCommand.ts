@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { DisconnectSourceServerRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectSourceServerCommand,
-  serializeAws_restJson1DisconnectSourceServerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisconnectSourceServerCommand, se_DisconnectSourceServerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DisconnectSourceServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectSourceServerCommand(input, context);
+    return se_DisconnectSourceServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectSourceServerCommandOutput> {
-    return deserializeAws_restJson1DisconnectSourceServerCommand(output, context);
+    return de_DisconnectSourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

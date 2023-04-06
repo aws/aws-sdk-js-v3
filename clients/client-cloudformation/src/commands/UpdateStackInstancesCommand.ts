@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { UpdateStackInstancesInput, UpdateStackInstancesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateStackInstancesCommand,
-  serializeAws_queryUpdateStackInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateStackInstancesCommand, se_UpdateStackInstancesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class UpdateStackInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateStackInstancesCommand(input, context);
+    return se_UpdateStackInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackInstancesCommandOutput> {
-    return deserializeAws_queryUpdateStackInstancesCommand(output, context);
+    return de_UpdateStackInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

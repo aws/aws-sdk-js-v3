@@ -19,10 +19,7 @@ import {
   BatchEvaluateGeofencesRequestFilterSensitiveLog,
   BatchEvaluateGeofencesResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchEvaluateGeofencesCommand,
-  serializeAws_restJson1BatchEvaluateGeofencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchEvaluateGeofencesCommand, se_BatchEvaluateGeofencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class BatchEvaluateGeofencesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchEvaluateGeofencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchEvaluateGeofencesCommand(input, context);
+    return se_BatchEvaluateGeofencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateGeofencesCommandOutput> {
-    return deserializeAws_restJson1BatchEvaluateGeofencesCommand(output, context);
+    return de_BatchEvaluateGeofencesCommand(output, context);
   }
 
   // Start section: command_body_extra

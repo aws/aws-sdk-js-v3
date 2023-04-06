@@ -15,7 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { EnableSsoRequest, EnableSsoRequestFilterSensitiveLog, EnableSsoResult } from "../models/models_0";
-import { deserializeAws_json1_1EnableSsoCommand, serializeAws_json1_1EnableSsoCommand } from "../protocols/Aws_json1_1";
+import { de_EnableSsoCommand, se_EnableSsoCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +134,14 @@ export class EnableSsoCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableSsoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableSsoCommand(input, context);
+    return se_EnableSsoCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSsoCommandOutput> {
-    return deserializeAws_json1_1EnableSsoCommand(output, context);
+    return de_EnableSsoCommand(output, context);
   }
 
   // Start section: command_body_extra

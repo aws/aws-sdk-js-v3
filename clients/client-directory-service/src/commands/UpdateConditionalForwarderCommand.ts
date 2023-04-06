@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { UpdateConditionalForwarderRequest, UpdateConditionalForwarderResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConditionalForwarderCommand,
-  serializeAws_json1_1UpdateConditionalForwarderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConditionalForwarderCommand, se_UpdateConditionalForwarderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class UpdateConditionalForwarderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConditionalForwarderCommand(input, context);
+    return se_UpdateConditionalForwarderCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class UpdateConditionalForwarderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConditionalForwarderCommandOutput> {
-    return deserializeAws_json1_1UpdateConditionalForwarderCommand(output, context);
+    return de_UpdateConditionalForwarderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteVerifiedEmailAddressRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteVerifiedEmailAddressCommand,
-  serializeAws_queryDeleteVerifiedEmailAddressCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteVerifiedEmailAddressCommand, se_DeleteVerifiedEmailAddressCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -132,7 +129,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVerifiedEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteVerifiedEmailAddressCommand(input, context);
+    return se_DeleteVerifiedEmailAddressCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedEmailAddressCommandOutput> {
-    return deserializeAws_queryDeleteVerifiedEmailAddressCommand(output, context);
+    return de_DeleteVerifiedEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

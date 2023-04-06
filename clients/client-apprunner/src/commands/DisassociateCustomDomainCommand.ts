@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DisassociateCustomDomainRequest, DisassociateCustomDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DisassociateCustomDomainCommand,
-  serializeAws_json1_0DisassociateCustomDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DisassociateCustomDomainCommand, se_DisassociateCustomDomainCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DisassociateCustomDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateCustomDomainCommand(input, context);
+    return se_DisassociateCustomDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCustomDomainCommandOutput> {
-    return deserializeAws_json1_0DisassociateCustomDomainCommand(output, context);
+    return de_DisassociateCustomDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateApprovedOriginRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateApprovedOriginCommand,
-  serializeAws_restJson1DisassociateApprovedOriginCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateApprovedOriginCommand, se_DisassociateApprovedOriginCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DisassociateApprovedOriginCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateApprovedOriginCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateApprovedOriginCommand(input, context);
+    return se_DisassociateApprovedOriginCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DisassociateApprovedOriginCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateApprovedOriginCommandOutput> {
-    return deserializeAws_restJson1DisassociateApprovedOriginCommand(output, context);
+    return de_DisassociateApprovedOriginCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { DeletePhoneNumberRequest, DeletePhoneNumberRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePhoneNumberCommand,
-  serializeAws_restJson1DeletePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePhoneNumberCommand, se_DeletePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeletePhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePhoneNumberCommand(input, context);
+    return se_DeletePhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1DeletePhoneNumberCommand(output, context);
+    return de_DeletePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

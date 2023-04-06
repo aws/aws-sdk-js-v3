@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UntagQueueRequest } from "../models/models_0";
-import { deserializeAws_queryUntagQueueCommand, serializeAws_queryUntagQueueCommand } from "../protocols/Aws_query";
+import { de_UntagQueueCommand, se_UntagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -124,14 +124,14 @@ export class UntagQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagQueueCommand(input, context);
+    return se_UntagQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagQueueCommandOutput> {
-    return deserializeAws_queryUntagQueueCommand(output, context);
+    return de_UntagQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

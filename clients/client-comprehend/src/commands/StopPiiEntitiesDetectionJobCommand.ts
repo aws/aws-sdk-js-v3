@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand,
-  serializeAws_json1_1StopPiiEntitiesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopPiiEntitiesDetectionJobCommand, se_StopPiiEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopPiiEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopPiiEntitiesDetectionJobCommand(input, context);
+    return se_StopPiiEntitiesDetectionJobCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopPiiEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand(output, context);
+    return de_StopPiiEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

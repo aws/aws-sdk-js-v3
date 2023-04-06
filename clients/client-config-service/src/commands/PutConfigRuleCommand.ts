@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutConfigRuleRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConfigRuleCommand,
-  serializeAws_json1_1PutConfigRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutConfigRuleCommand, se_PutConfigRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -269,14 +266,14 @@ export class PutConfigRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: PutConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConfigRuleCommand(input, context);
+    return se_PutConfigRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigRuleCommandOutput> {
-    return deserializeAws_json1_1PutConfigRuleCommand(output, context);
+    return de_PutConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

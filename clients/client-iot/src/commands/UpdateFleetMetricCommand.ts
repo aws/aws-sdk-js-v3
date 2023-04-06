@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateFleetMetricRequest } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateFleetMetricCommand,
-  serializeAws_restJson1UpdateFleetMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFleetMetricCommand, se_UpdateFleetMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class UpdateFleetMetricCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFleetMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFleetMetricCommand(input, context);
+    return se_UpdateFleetMetricCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetMetricCommandOutput> {
-    return deserializeAws_restJson1UpdateFleetMetricCommand(output, context);
+    return de_UpdateFleetMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

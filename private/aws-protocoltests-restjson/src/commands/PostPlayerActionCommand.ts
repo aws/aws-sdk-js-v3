@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PostPlayerActionInput, PostPlayerActionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostPlayerActionCommand,
-  serializeAws_restJson1PostPlayerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostPlayerActionCommand, se_PostPlayerActionCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -109,14 +106,14 @@ export class PostPlayerActionCommand extends $Command<
    * @internal
    */
   private serialize(input: PostPlayerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostPlayerActionCommand(input, context);
+    return se_PostPlayerActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostPlayerActionCommandOutput> {
-    return deserializeAws_restJson1PostPlayerActionCommand(output, context);
+    return de_PostPlayerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

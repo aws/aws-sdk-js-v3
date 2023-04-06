@@ -14,8 +14,8 @@ import {
 
 import { MalformedTimestampQueryHttpDateInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedTimestampQueryHttpDateCommand,
-  serializeAws_restJson1MalformedTimestampQueryHttpDateCommand,
+  de_MalformedTimestampQueryHttpDateCommand,
+  se_MalformedTimestampQueryHttpDateCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -86,7 +86,7 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command<
     input: MalformedTimestampQueryHttpDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedTimestampQueryHttpDateCommand(input, context);
+    return se_MalformedTimestampQueryHttpDateCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedTimestampQueryHttpDateCommandOutput> {
-    return deserializeAws_restJson1MalformedTimestampQueryHttpDateCommand(output, context);
+    return de_MalformedTimestampQueryHttpDateCommand(output, context);
   }
 
   // Start section: command_body_extra

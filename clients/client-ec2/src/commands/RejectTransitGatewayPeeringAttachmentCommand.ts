@@ -19,8 +19,8 @@ import {
   RejectTransitGatewayPeeringAttachmentResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
-  serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
+  de_RejectTransitGatewayPeeringAttachmentCommand,
+  se_RejectTransitGatewayPeeringAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     input: RejectTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(input, context);
+    return se_RejectTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(output, context);
+    return de_RejectTransitGatewayPeeringAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

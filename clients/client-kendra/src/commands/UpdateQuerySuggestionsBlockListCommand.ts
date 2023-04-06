@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateQuerySuggestionsBlockListRequest } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand,
+  de_UpdateQuerySuggestionsBlockListCommand,
+  se_UpdateQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -165,7 +165,7 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     input: UpdateQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand(input, context);
+    return se_UpdateQuerySuggestionsBlockListCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommand(output, context);
+    return de_UpdateQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

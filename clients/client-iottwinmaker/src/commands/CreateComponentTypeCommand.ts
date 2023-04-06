@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { CreateComponentTypeRequest, CreateComponentTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentTypeCommand,
-  serializeAws_restJson1CreateComponentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateComponentTypeCommand, se_CreateComponentTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -236,14 +233,14 @@ export class CreateComponentTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentTypeCommand(input, context);
+    return se_CreateComponentTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentTypeCommandOutput> {
-    return deserializeAws_restJson1CreateComponentTypeCommand(output, context);
+    return de_CreateComponentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

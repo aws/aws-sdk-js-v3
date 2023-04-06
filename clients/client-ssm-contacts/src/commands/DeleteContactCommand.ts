@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteContactRequest, DeleteContactResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContactCommand,
-  serializeAws_json1_1DeleteContactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteContactCommand, se_DeleteContactCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -140,14 +137,14 @@ export class DeleteContactCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactCommand(input, context);
+    return se_DeleteContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactCommandOutput> {
-    return deserializeAws_json1_1DeleteContactCommand(output, context);
+    return de_DeleteContactCommand(output, context);
   }
 
   // Start section: command_body_extra

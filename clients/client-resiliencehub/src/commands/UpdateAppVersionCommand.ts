@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAppVersionRequest, UpdateAppVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppVersionCommand,
-  serializeAws_restJson1UpdateAppVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAppVersionCommand, se_UpdateAppVersionCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -154,14 +151,14 @@ export class UpdateAppVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppVersionCommand(input, context);
+    return se_UpdateAppVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateAppVersionCommand(output, context);
+    return de_UpdateAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

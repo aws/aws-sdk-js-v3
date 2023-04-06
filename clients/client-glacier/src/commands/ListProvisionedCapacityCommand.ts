@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProvisionedCapacityCommand,
-  serializeAws_restJson1ListProvisionedCapacityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProvisionedCapacityCommand, se_ListProvisionedCapacityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ListProvisionedCapacityCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisionedCapacityCommand(input, context);
+    return se_ListProvisionedCapacityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1ListProvisionedCapacityCommand(output, context);
+    return de_ListProvisionedCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

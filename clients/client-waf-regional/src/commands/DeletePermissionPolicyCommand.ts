@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePermissionPolicyCommand,
-  serializeAws_json1_1DeletePermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePermissionPolicyCommand, se_DeletePermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeletePermissionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionPolicyCommand(input, context);
+    return se_DeletePermissionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionPolicyCommand(output, context);
+    return de_DeletePermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

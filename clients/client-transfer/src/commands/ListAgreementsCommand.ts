@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAgreementsRequest, ListAgreementsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAgreementsCommand,
-  serializeAws_json1_1ListAgreementsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAgreementsCommand, se_ListAgreementsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -142,14 +139,14 @@ export class ListAgreementsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAgreementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAgreementsCommand(input, context);
+    return se_ListAgreementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgreementsCommandOutput> {
-    return deserializeAws_json1_1ListAgreementsCommand(output, context);
+    return de_ListAgreementsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateProductInput, CreateProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProductCommand,
-  serializeAws_json1_1CreateProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateProductCommand, se_CreateProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -170,14 +167,14 @@ export class CreateProductCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProductCommand(input, context);
+    return se_CreateProductCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProductCommandOutput> {
-    return deserializeAws_json1_1CreateProductCommand(output, context);
+    return de_CreateProductCommand(output, context);
   }
 
   // Start section: command_body_extra

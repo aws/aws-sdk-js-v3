@@ -597,7 +597,10 @@ import {
   VerifyUserAttributeResponse,
 } from "../models/models_1";
 
-export const serializeAws_json1_1AddCustomAttributesCommand = async (
+/**
+ * serializeAws_json1_1AddCustomAttributesCommand
+ */
+export const se_AddCustomAttributesCommand = async (
   input: AddCustomAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -606,11 +609,14 @@ export const serializeAws_json1_1AddCustomAttributesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AddCustomAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddCustomAttributesRequest(input, context));
+  body = JSON.stringify(se_AddCustomAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminAddUserToGroupCommand = async (
+/**
+ * serializeAws_json1_1AdminAddUserToGroupCommand
+ */
+export const se_AdminAddUserToGroupCommand = async (
   input: AdminAddUserToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -619,11 +625,14 @@ export const serializeAws_json1_1AdminAddUserToGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminAddUserToGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminAddUserToGroupRequest(input, context));
+  body = JSON.stringify(se_AdminAddUserToGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminConfirmSignUpCommand = async (
+/**
+ * serializeAws_json1_1AdminConfirmSignUpCommand
+ */
+export const se_AdminConfirmSignUpCommand = async (
   input: AdminConfirmSignUpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -632,11 +641,14 @@ export const serializeAws_json1_1AdminConfirmSignUpCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminConfirmSignUp",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminConfirmSignUpRequest(input, context));
+  body = JSON.stringify(se_AdminConfirmSignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminCreateUserCommand = async (
+/**
+ * serializeAws_json1_1AdminCreateUserCommand
+ */
+export const se_AdminCreateUserCommand = async (
   input: AdminCreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -645,11 +657,14 @@ export const serializeAws_json1_1AdminCreateUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminCreateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminCreateUserRequest(input, context));
+  body = JSON.stringify(se_AdminCreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminDeleteUserCommand = async (
+/**
+ * serializeAws_json1_1AdminDeleteUserCommand
+ */
+export const se_AdminDeleteUserCommand = async (
   input: AdminDeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -658,11 +673,14 @@ export const serializeAws_json1_1AdminDeleteUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminDeleteUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminDeleteUserRequest(input, context));
+  body = JSON.stringify(se_AdminDeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminDeleteUserAttributesCommand = async (
+/**
+ * serializeAws_json1_1AdminDeleteUserAttributesCommand
+ */
+export const se_AdminDeleteUserAttributesCommand = async (
   input: AdminDeleteUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -671,11 +689,14 @@ export const serializeAws_json1_1AdminDeleteUserAttributesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminDeleteUserAttributesRequest(input, context));
+  body = JSON.stringify(se_AdminDeleteUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminDisableProviderForUserCommand = async (
+/**
+ * serializeAws_json1_1AdminDisableProviderForUserCommand
+ */
+export const se_AdminDisableProviderForUserCommand = async (
   input: AdminDisableProviderForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,11 +705,14 @@ export const serializeAws_json1_1AdminDisableProviderForUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminDisableProviderForUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminDisableProviderForUserRequest(input, context));
+  body = JSON.stringify(se_AdminDisableProviderForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminDisableUserCommand = async (
+/**
+ * serializeAws_json1_1AdminDisableUserCommand
+ */
+export const se_AdminDisableUserCommand = async (
   input: AdminDisableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -697,11 +721,14 @@ export const serializeAws_json1_1AdminDisableUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminDisableUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminDisableUserRequest(input, context));
+  body = JSON.stringify(se_AdminDisableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminEnableUserCommand = async (
+/**
+ * serializeAws_json1_1AdminEnableUserCommand
+ */
+export const se_AdminEnableUserCommand = async (
   input: AdminEnableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -710,11 +737,14 @@ export const serializeAws_json1_1AdminEnableUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminEnableUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminEnableUserRequest(input, context));
+  body = JSON.stringify(se_AdminEnableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminForgetDeviceCommand = async (
+/**
+ * serializeAws_json1_1AdminForgetDeviceCommand
+ */
+export const se_AdminForgetDeviceCommand = async (
   input: AdminForgetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -723,11 +753,14 @@ export const serializeAws_json1_1AdminForgetDeviceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminForgetDevice",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminForgetDeviceRequest(input, context));
+  body = JSON.stringify(se_AdminForgetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminGetDeviceCommand = async (
+/**
+ * serializeAws_json1_1AdminGetDeviceCommand
+ */
+export const se_AdminGetDeviceCommand = async (
   input: AdminGetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,11 +769,14 @@ export const serializeAws_json1_1AdminGetDeviceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminGetDevice",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminGetDeviceRequest(input, context));
+  body = JSON.stringify(se_AdminGetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminGetUserCommand = async (
+/**
+ * serializeAws_json1_1AdminGetUserCommand
+ */
+export const se_AdminGetUserCommand = async (
   input: AdminGetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -749,11 +785,14 @@ export const serializeAws_json1_1AdminGetUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminGetUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminGetUserRequest(input, context));
+  body = JSON.stringify(se_AdminGetUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminInitiateAuthCommand = async (
+/**
+ * serializeAws_json1_1AdminInitiateAuthCommand
+ */
+export const se_AdminInitiateAuthCommand = async (
   input: AdminInitiateAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -762,11 +801,14 @@ export const serializeAws_json1_1AdminInitiateAuthCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminInitiateAuth",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminInitiateAuthRequest(input, context));
+  body = JSON.stringify(se_AdminInitiateAuthRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminLinkProviderForUserCommand = async (
+/**
+ * serializeAws_json1_1AdminLinkProviderForUserCommand
+ */
+export const se_AdminLinkProviderForUserCommand = async (
   input: AdminLinkProviderForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -775,11 +817,14 @@ export const serializeAws_json1_1AdminLinkProviderForUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminLinkProviderForUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminLinkProviderForUserRequest(input, context));
+  body = JSON.stringify(se_AdminLinkProviderForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminListDevicesCommand = async (
+/**
+ * serializeAws_json1_1AdminListDevicesCommand
+ */
+export const se_AdminListDevicesCommand = async (
   input: AdminListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -788,11 +833,14 @@ export const serializeAws_json1_1AdminListDevicesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminListDevices",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminListDevicesRequest(input, context));
+  body = JSON.stringify(se_AdminListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminListGroupsForUserCommand = async (
+/**
+ * serializeAws_json1_1AdminListGroupsForUserCommand
+ */
+export const se_AdminListGroupsForUserCommand = async (
   input: AdminListGroupsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -801,11 +849,14 @@ export const serializeAws_json1_1AdminListGroupsForUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminListGroupsForUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminListGroupsForUserRequest(input, context));
+  body = JSON.stringify(se_AdminListGroupsForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminListUserAuthEventsCommand = async (
+/**
+ * serializeAws_json1_1AdminListUserAuthEventsCommand
+ */
+export const se_AdminListUserAuthEventsCommand = async (
   input: AdminListUserAuthEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -814,11 +865,14 @@ export const serializeAws_json1_1AdminListUserAuthEventsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminListUserAuthEvents",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminListUserAuthEventsRequest(input, context));
+  body = JSON.stringify(se_AdminListUserAuthEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminRemoveUserFromGroupCommand = async (
+/**
+ * serializeAws_json1_1AdminRemoveUserFromGroupCommand
+ */
+export const se_AdminRemoveUserFromGroupCommand = async (
   input: AdminRemoveUserFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -827,11 +881,14 @@ export const serializeAws_json1_1AdminRemoveUserFromGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminRemoveUserFromGroupRequest(input, context));
+  body = JSON.stringify(se_AdminRemoveUserFromGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminResetUserPasswordCommand = async (
+/**
+ * serializeAws_json1_1AdminResetUserPasswordCommand
+ */
+export const se_AdminResetUserPasswordCommand = async (
   input: AdminResetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -840,11 +897,14 @@ export const serializeAws_json1_1AdminResetUserPasswordCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminResetUserPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminResetUserPasswordRequest(input, context));
+  body = JSON.stringify(se_AdminResetUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminRespondToAuthChallengeCommand = async (
+/**
+ * serializeAws_json1_1AdminRespondToAuthChallengeCommand
+ */
+export const se_AdminRespondToAuthChallengeCommand = async (
   input: AdminRespondToAuthChallengeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -853,11 +913,14 @@ export const serializeAws_json1_1AdminRespondToAuthChallengeCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminRespondToAuthChallengeRequest(input, context));
+  body = JSON.stringify(se_AdminRespondToAuthChallengeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminSetUserMFAPreferenceCommand = async (
+/**
+ * serializeAws_json1_1AdminSetUserMFAPreferenceCommand
+ */
+export const se_AdminSetUserMFAPreferenceCommand = async (
   input: AdminSetUserMFAPreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -866,11 +929,14 @@ export const serializeAws_json1_1AdminSetUserMFAPreferenceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminSetUserMFAPreferenceRequest(input, context));
+  body = JSON.stringify(se_AdminSetUserMFAPreferenceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminSetUserPasswordCommand = async (
+/**
+ * serializeAws_json1_1AdminSetUserPasswordCommand
+ */
+export const se_AdminSetUserPasswordCommand = async (
   input: AdminSetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -879,11 +945,14 @@ export const serializeAws_json1_1AdminSetUserPasswordCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminSetUserPasswordRequest(input, context));
+  body = JSON.stringify(se_AdminSetUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminSetUserSettingsCommand = async (
+/**
+ * serializeAws_json1_1AdminSetUserSettingsCommand
+ */
+export const se_AdminSetUserSettingsCommand = async (
   input: AdminSetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -892,11 +961,14 @@ export const serializeAws_json1_1AdminSetUserSettingsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminSetUserSettingsRequest(input, context));
+  body = JSON.stringify(se_AdminSetUserSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand = async (
+/**
+ * serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand
+ */
+export const se_AdminUpdateAuthEventFeedbackCommand = async (
   input: AdminUpdateAuthEventFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -905,11 +977,14 @@ export const serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(input, context));
+  body = JSON.stringify(se_AdminUpdateAuthEventFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminUpdateDeviceStatusCommand = async (
+/**
+ * serializeAws_json1_1AdminUpdateDeviceStatusCommand
+ */
+export const se_AdminUpdateDeviceStatusCommand = async (
   input: AdminUpdateDeviceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -918,11 +993,14 @@ export const serializeAws_json1_1AdminUpdateDeviceStatusCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminUpdateDeviceStatusRequest(input, context));
+  body = JSON.stringify(se_AdminUpdateDeviceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminUpdateUserAttributesCommand = async (
+/**
+ * serializeAws_json1_1AdminUpdateUserAttributesCommand
+ */
+export const se_AdminUpdateUserAttributesCommand = async (
   input: AdminUpdateUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -931,11 +1009,14 @@ export const serializeAws_json1_1AdminUpdateUserAttributesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminUpdateUserAttributesRequest(input, context));
+  body = JSON.stringify(se_AdminUpdateUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AdminUserGlobalSignOutCommand = async (
+/**
+ * serializeAws_json1_1AdminUserGlobalSignOutCommand
+ */
+export const se_AdminUserGlobalSignOutCommand = async (
   input: AdminUserGlobalSignOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -944,11 +1025,14 @@ export const serializeAws_json1_1AdminUserGlobalSignOutCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AdminUserGlobalSignOutRequest(input, context));
+  body = JSON.stringify(se_AdminUserGlobalSignOutRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateSoftwareTokenCommand = async (
+/**
+ * serializeAws_json1_1AssociateSoftwareTokenCommand
+ */
+export const se_AssociateSoftwareTokenCommand = async (
   input: AssociateSoftwareTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -957,11 +1041,14 @@ export const serializeAws_json1_1AssociateSoftwareTokenCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.AssociateSoftwareToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateSoftwareTokenRequest(input, context));
+  body = JSON.stringify(se_AssociateSoftwareTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ChangePasswordCommand = async (
+/**
+ * serializeAws_json1_1ChangePasswordCommand
+ */
+export const se_ChangePasswordCommand = async (
   input: ChangePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -970,11 +1057,14 @@ export const serializeAws_json1_1ChangePasswordCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ChangePassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ChangePasswordRequest(input, context));
+  body = JSON.stringify(se_ChangePasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ConfirmDeviceCommand = async (
+/**
+ * serializeAws_json1_1ConfirmDeviceCommand
+ */
+export const se_ConfirmDeviceCommand = async (
   input: ConfirmDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -983,11 +1073,14 @@ export const serializeAws_json1_1ConfirmDeviceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmDevice",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ConfirmDeviceRequest(input, context));
+  body = JSON.stringify(se_ConfirmDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ConfirmForgotPasswordCommand = async (
+/**
+ * serializeAws_json1_1ConfirmForgotPasswordCommand
+ */
+export const se_ConfirmForgotPasswordCommand = async (
   input: ConfirmForgotPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -996,11 +1089,14 @@ export const serializeAws_json1_1ConfirmForgotPasswordCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmForgotPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ConfirmForgotPasswordRequest(input, context));
+  body = JSON.stringify(se_ConfirmForgotPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ConfirmSignUpCommand = async (
+/**
+ * serializeAws_json1_1ConfirmSignUpCommand
+ */
+export const se_ConfirmSignUpCommand = async (
   input: ConfirmSignUpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1009,11 +1105,14 @@ export const serializeAws_json1_1ConfirmSignUpCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmSignUp",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ConfirmSignUpRequest(input, context));
+  body = JSON.stringify(se_ConfirmSignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateGroupCommand
+ */
+export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1022,11 +1121,14 @@ export const serializeAws_json1_1CreateGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
+  body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateIdentityProviderCommand = async (
+/**
+ * serializeAws_json1_1CreateIdentityProviderCommand
+ */
+export const se_CreateIdentityProviderCommand = async (
   input: CreateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1035,11 +1137,14 @@ export const serializeAws_json1_1CreateIdentityProviderCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateIdentityProvider",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateIdentityProviderRequest(input, context));
+  body = JSON.stringify(se_CreateIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateResourceServerCommand = async (
+/**
+ * serializeAws_json1_1CreateResourceServerCommand
+ */
+export const se_CreateResourceServerCommand = async (
   input: CreateResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1048,11 +1153,14 @@ export const serializeAws_json1_1CreateResourceServerCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateResourceServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateResourceServerRequest(input, context));
+  body = JSON.stringify(se_CreateResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserImportJobCommand = async (
+/**
+ * serializeAws_json1_1CreateUserImportJobCommand
+ */
+export const se_CreateUserImportJobCommand = async (
   input: CreateUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1061,11 +1169,14 @@ export const serializeAws_json1_1CreateUserImportJobCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserImportJobRequest(input, context));
+  body = JSON.stringify(se_CreateUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserPoolCommand = async (
+/**
+ * serializeAws_json1_1CreateUserPoolCommand
+ */
+export const se_CreateUserPoolCommand = async (
   input: CreateUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1074,11 +1185,14 @@ export const serializeAws_json1_1CreateUserPoolCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserPoolRequest(input, context));
+  body = JSON.stringify(se_CreateUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserPoolClientCommand = async (
+/**
+ * serializeAws_json1_1CreateUserPoolClientCommand
+ */
+export const se_CreateUserPoolClientCommand = async (
   input: CreateUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1087,11 +1201,14 @@ export const serializeAws_json1_1CreateUserPoolClientCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPoolClient",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserPoolClientRequest(input, context));
+  body = JSON.stringify(se_CreateUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserPoolDomainCommand = async (
+/**
+ * serializeAws_json1_1CreateUserPoolDomainCommand
+ */
+export const se_CreateUserPoolDomainCommand = async (
   input: CreateUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1100,11 +1217,14 @@ export const serializeAws_json1_1CreateUserPoolDomainCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPoolDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserPoolDomainRequest(input, context));
+  body = JSON.stringify(se_CreateUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteGroupCommand
+ */
+export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1113,11 +1233,14 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
+  body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteIdentityProviderCommand = async (
+/**
+ * serializeAws_json1_1DeleteIdentityProviderCommand
+ */
+export const se_DeleteIdentityProviderCommand = async (
   input: DeleteIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1126,11 +1249,14 @@ export const serializeAws_json1_1DeleteIdentityProviderCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteIdentityProvider",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteIdentityProviderRequest(input, context));
+  body = JSON.stringify(se_DeleteIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourceServerCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourceServerCommand
+ */
+export const se_DeleteResourceServerCommand = async (
   input: DeleteResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1139,11 +1265,14 @@ export const serializeAws_json1_1DeleteResourceServerCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteResourceServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourceServerRequest(input, context));
+  body = JSON.stringify(se_DeleteResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1152,11 +1281,14 @@ export const serializeAws_json1_1DeleteUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserAttributesCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserAttributesCommand
+ */
+export const se_DeleteUserAttributesCommand = async (
   input: DeleteUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1165,11 +1297,14 @@ export const serializeAws_json1_1DeleteUserAttributesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserAttributesRequest(input, context));
+  body = JSON.stringify(se_DeleteUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserPoolCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserPoolCommand
+ */
+export const se_DeleteUserPoolCommand = async (
   input: DeleteUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1178,11 +1313,14 @@ export const serializeAws_json1_1DeleteUserPoolCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserPoolRequest(input, context));
+  body = JSON.stringify(se_DeleteUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserPoolClientCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserPoolClientCommand
+ */
+export const se_DeleteUserPoolClientCommand = async (
   input: DeleteUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1191,11 +1329,14 @@ export const serializeAws_json1_1DeleteUserPoolClientCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPoolClient",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserPoolClientRequest(input, context));
+  body = JSON.stringify(se_DeleteUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserPoolDomainCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserPoolDomainCommand
+ */
+export const se_DeleteUserPoolDomainCommand = async (
   input: DeleteUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1204,11 +1345,14 @@ export const serializeAws_json1_1DeleteUserPoolDomainCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPoolDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserPoolDomainRequest(input, context));
+  body = JSON.stringify(se_DeleteUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeIdentityProviderCommand = async (
+/**
+ * serializeAws_json1_1DescribeIdentityProviderCommand
+ */
+export const se_DescribeIdentityProviderCommand = async (
   input: DescribeIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1217,11 +1361,14 @@ export const serializeAws_json1_1DescribeIdentityProviderCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeIdentityProvider",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeIdentityProviderRequest(input, context));
+  body = JSON.stringify(se_DescribeIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeResourceServerCommand = async (
+/**
+ * serializeAws_json1_1DescribeResourceServerCommand
+ */
+export const se_DescribeResourceServerCommand = async (
   input: DescribeResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1230,11 +1377,14 @@ export const serializeAws_json1_1DescribeResourceServerCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeResourceServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeResourceServerRequest(input, context));
+  body = JSON.stringify(se_DescribeResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeRiskConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DescribeRiskConfigurationCommand
+ */
+export const se_DescribeRiskConfigurationCommand = async (
   input: DescribeRiskConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1243,11 +1393,14 @@ export const serializeAws_json1_1DescribeRiskConfigurationCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeRiskConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeRiskConfigurationRequest(input, context));
+  body = JSON.stringify(se_DescribeRiskConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserImportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserImportJobCommand
+ */
+export const se_DescribeUserImportJobCommand = async (
   input: DescribeUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1256,11 +1409,14 @@ export const serializeAws_json1_1DescribeUserImportJobCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserImportJobRequest(input, context));
+  body = JSON.stringify(se_DescribeUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserPoolCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserPoolCommand
+ */
+export const se_DescribeUserPoolCommand = async (
   input: DescribeUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1269,11 +1425,14 @@ export const serializeAws_json1_1DescribeUserPoolCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserPoolRequest(input, context));
+  body = JSON.stringify(se_DescribeUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserPoolClientCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserPoolClientCommand
+ */
+export const se_DescribeUserPoolClientCommand = async (
   input: DescribeUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1282,11 +1441,14 @@ export const serializeAws_json1_1DescribeUserPoolClientCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPoolClient",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserPoolClientRequest(input, context));
+  body = JSON.stringify(se_DescribeUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserPoolDomainCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserPoolDomainCommand
+ */
+export const se_DescribeUserPoolDomainCommand = async (
   input: DescribeUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1295,11 +1457,14 @@ export const serializeAws_json1_1DescribeUserPoolDomainCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPoolDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserPoolDomainRequest(input, context));
+  body = JSON.stringify(se_DescribeUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ForgetDeviceCommand = async (
+/**
+ * serializeAws_json1_1ForgetDeviceCommand
+ */
+export const se_ForgetDeviceCommand = async (
   input: ForgetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1308,11 +1473,14 @@ export const serializeAws_json1_1ForgetDeviceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ForgetDevice",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ForgetDeviceRequest(input, context));
+  body = JSON.stringify(se_ForgetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ForgotPasswordCommand = async (
+/**
+ * serializeAws_json1_1ForgotPasswordCommand
+ */
+export const se_ForgotPasswordCommand = async (
   input: ForgotPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1321,11 +1489,14 @@ export const serializeAws_json1_1ForgotPasswordCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ForgotPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ForgotPasswordRequest(input, context));
+  body = JSON.stringify(se_ForgotPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCSVHeaderCommand = async (
+/**
+ * serializeAws_json1_1GetCSVHeaderCommand
+ */
+export const se_GetCSVHeaderCommand = async (
   input: GetCSVHeaderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1334,11 +1505,14 @@ export const serializeAws_json1_1GetCSVHeaderCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetCSVHeader",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCSVHeaderRequest(input, context));
+  body = JSON.stringify(se_GetCSVHeaderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeviceCommand = async (
+/**
+ * serializeAws_json1_1GetDeviceCommand
+ */
+export const se_GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1347,11 +1521,14 @@ export const serializeAws_json1_1GetDeviceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetDevice",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
+  body = JSON.stringify(se_GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetGroupCommand = async (
+/**
+ * serializeAws_json1_1GetGroupCommand
+ */
+export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1360,11 +1537,14 @@ export const serializeAws_json1_1GetGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetGroupRequest(input, context));
+  body = JSON.stringify(se_GetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetIdentityProviderByIdentifierCommand = async (
+/**
+ * serializeAws_json1_1GetIdentityProviderByIdentifierCommand
+ */
+export const se_GetIdentityProviderByIdentifierCommand = async (
   input: GetIdentityProviderByIdentifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1373,11 +1553,14 @@ export const serializeAws_json1_1GetIdentityProviderByIdentifierCommand = async 
     "x-amz-target": "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetIdentityProviderByIdentifierRequest(input, context));
+  body = JSON.stringify(se_GetIdentityProviderByIdentifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetSigningCertificateCommand = async (
+/**
+ * serializeAws_json1_1GetSigningCertificateCommand
+ */
+export const se_GetSigningCertificateCommand = async (
   input: GetSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1386,11 +1569,14 @@ export const serializeAws_json1_1GetSigningCertificateCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetSigningCertificate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetSigningCertificateRequest(input, context));
+  body = JSON.stringify(se_GetSigningCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUICustomizationCommand = async (
+/**
+ * serializeAws_json1_1GetUICustomizationCommand
+ */
+export const se_GetUICustomizationCommand = async (
   input: GetUICustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1399,11 +1585,14 @@ export const serializeAws_json1_1GetUICustomizationCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetUICustomization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUICustomizationRequest(input, context));
+  body = JSON.stringify(se_GetUICustomizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUserCommand = async (
+/**
+ * serializeAws_json1_1GetUserCommand
+ */
+export const se_GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1412,11 +1601,14 @@ export const serializeAws_json1_1GetUserCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUserRequest(input, context));
+  body = JSON.stringify(se_GetUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUserAttributeVerificationCodeCommand = async (
+/**
+ * serializeAws_json1_1GetUserAttributeVerificationCodeCommand
+ */
+export const se_GetUserAttributeVerificationCodeCommand = async (
   input: GetUserAttributeVerificationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1425,11 +1617,14 @@ export const serializeAws_json1_1GetUserAttributeVerificationCodeCommand = async
     "x-amz-target": "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUserAttributeVerificationCodeRequest(input, context));
+  body = JSON.stringify(se_GetUserAttributeVerificationCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUserPoolMfaConfigCommand = async (
+/**
+ * serializeAws_json1_1GetUserPoolMfaConfigCommand
+ */
+export const se_GetUserPoolMfaConfigCommand = async (
   input: GetUserPoolMfaConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1438,11 +1633,14 @@ export const serializeAws_json1_1GetUserPoolMfaConfigCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUserPoolMfaConfigRequest(input, context));
+  body = JSON.stringify(se_GetUserPoolMfaConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GlobalSignOutCommand = async (
+/**
+ * serializeAws_json1_1GlobalSignOutCommand
+ */
+export const se_GlobalSignOutCommand = async (
   input: GlobalSignOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1451,11 +1649,14 @@ export const serializeAws_json1_1GlobalSignOutCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.GlobalSignOut",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GlobalSignOutRequest(input, context));
+  body = JSON.stringify(se_GlobalSignOutRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1InitiateAuthCommand = async (
+/**
+ * serializeAws_json1_1InitiateAuthCommand
+ */
+export const se_InitiateAuthCommand = async (
   input: InitiateAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1464,11 +1665,14 @@ export const serializeAws_json1_1InitiateAuthCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.InitiateAuth",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1InitiateAuthRequest(input, context));
+  body = JSON.stringify(se_InitiateAuthRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDevicesCommand = async (
+/**
+ * serializeAws_json1_1ListDevicesCommand
+ */
+export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1477,11 +1681,14 @@ export const serializeAws_json1_1ListDevicesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListDevices",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDevicesRequest(input, context));
+  body = JSON.stringify(se_ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListGroupsCommand
+ */
+export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1490,11 +1697,14 @@ export const serializeAws_json1_1ListGroupsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
+  body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListIdentityProvidersCommand = async (
+/**
+ * serializeAws_json1_1ListIdentityProvidersCommand
+ */
+export const se_ListIdentityProvidersCommand = async (
   input: ListIdentityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1503,11 +1713,14 @@ export const serializeAws_json1_1ListIdentityProvidersCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListIdentityProviders",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListIdentityProvidersRequest(input, context));
+  body = JSON.stringify(se_ListIdentityProvidersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceServersCommand = async (
+/**
+ * serializeAws_json1_1ListResourceServersCommand
+ */
+export const se_ListResourceServersCommand = async (
   input: ListResourceServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1516,11 +1729,14 @@ export const serializeAws_json1_1ListResourceServersCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListResourceServers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceServersRequest(input, context));
+  body = JSON.stringify(se_ListResourceServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1529,11 +1745,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUserImportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListUserImportJobsCommand
+ */
+export const se_ListUserImportJobsCommand = async (
   input: ListUserImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1542,11 +1761,14 @@ export const serializeAws_json1_1ListUserImportJobsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListUserImportJobs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUserImportJobsRequest(input, context));
+  body = JSON.stringify(se_ListUserImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUserPoolClientsCommand = async (
+/**
+ * serializeAws_json1_1ListUserPoolClientsCommand
+ */
+export const se_ListUserPoolClientsCommand = async (
   input: ListUserPoolClientsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1555,11 +1777,14 @@ export const serializeAws_json1_1ListUserPoolClientsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListUserPoolClients",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUserPoolClientsRequest(input, context));
+  body = JSON.stringify(se_ListUserPoolClientsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUserPoolsCommand = async (
+/**
+ * serializeAws_json1_1ListUserPoolsCommand
+ */
+export const se_ListUserPoolsCommand = async (
   input: ListUserPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1568,11 +1793,14 @@ export const serializeAws_json1_1ListUserPoolsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListUserPools",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUserPoolsRequest(input, context));
+  body = JSON.stringify(se_ListUserPoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsersCommand = async (
+/**
+ * serializeAws_json1_1ListUsersCommand
+ */
+export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1581,11 +1809,14 @@ export const serializeAws_json1_1ListUsersCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListUsers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
+  body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsersInGroupCommand = async (
+/**
+ * serializeAws_json1_1ListUsersInGroupCommand
+ */
+export const se_ListUsersInGroupCommand = async (
   input: ListUsersInGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1594,11 +1825,14 @@ export const serializeAws_json1_1ListUsersInGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ListUsersInGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsersInGroupRequest(input, context));
+  body = JSON.stringify(se_ListUsersInGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ResendConfirmationCodeCommand = async (
+/**
+ * serializeAws_json1_1ResendConfirmationCodeCommand
+ */
+export const se_ResendConfirmationCodeCommand = async (
   input: ResendConfirmationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1607,11 +1841,14 @@ export const serializeAws_json1_1ResendConfirmationCodeCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.ResendConfirmationCode",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ResendConfirmationCodeRequest(input, context));
+  body = JSON.stringify(se_ResendConfirmationCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RespondToAuthChallengeCommand = async (
+/**
+ * serializeAws_json1_1RespondToAuthChallengeCommand
+ */
+export const se_RespondToAuthChallengeCommand = async (
   input: RespondToAuthChallengeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1620,11 +1857,14 @@ export const serializeAws_json1_1RespondToAuthChallengeCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.RespondToAuthChallenge",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RespondToAuthChallengeRequest(input, context));
+  body = JSON.stringify(se_RespondToAuthChallengeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RevokeTokenCommand = async (
+/**
+ * serializeAws_json1_1RevokeTokenCommand
+ */
+export const se_RevokeTokenCommand = async (
   input: RevokeTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1633,11 +1873,14 @@ export const serializeAws_json1_1RevokeTokenCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.RevokeToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RevokeTokenRequest(input, context));
+  body = JSON.stringify(se_RevokeTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetRiskConfigurationCommand = async (
+/**
+ * serializeAws_json1_1SetRiskConfigurationCommand
+ */
+export const se_SetRiskConfigurationCommand = async (
   input: SetRiskConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1646,11 +1889,14 @@ export const serializeAws_json1_1SetRiskConfigurationCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.SetRiskConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetRiskConfigurationRequest(input, context));
+  body = JSON.stringify(se_SetRiskConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetUICustomizationCommand = async (
+/**
+ * serializeAws_json1_1SetUICustomizationCommand
+ */
+export const se_SetUICustomizationCommand = async (
   input: SetUICustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1659,11 +1905,14 @@ export const serializeAws_json1_1SetUICustomizationCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.SetUICustomization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetUICustomizationRequest(input, context));
+  body = JSON.stringify(se_SetUICustomizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetUserMFAPreferenceCommand = async (
+/**
+ * serializeAws_json1_1SetUserMFAPreferenceCommand
+ */
+export const se_SetUserMFAPreferenceCommand = async (
   input: SetUserMFAPreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1672,11 +1921,14 @@ export const serializeAws_json1_1SetUserMFAPreferenceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.SetUserMFAPreference",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetUserMFAPreferenceRequest(input, context));
+  body = JSON.stringify(se_SetUserMFAPreferenceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetUserPoolMfaConfigCommand = async (
+/**
+ * serializeAws_json1_1SetUserPoolMfaConfigCommand
+ */
+export const se_SetUserPoolMfaConfigCommand = async (
   input: SetUserPoolMfaConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1685,11 +1937,14 @@ export const serializeAws_json1_1SetUserPoolMfaConfigCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetUserPoolMfaConfigRequest(input, context));
+  body = JSON.stringify(se_SetUserPoolMfaConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetUserSettingsCommand = async (
+/**
+ * serializeAws_json1_1SetUserSettingsCommand
+ */
+export const se_SetUserSettingsCommand = async (
   input: SetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1698,24 +1953,27 @@ export const serializeAws_json1_1SetUserSettingsCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.SetUserSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetUserSettingsRequest(input, context));
+  body = JSON.stringify(se_SetUserSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SignUpCommand = async (
-  input: SignUpCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_json1_1SignUpCommand
+ */
+export const se_SignUpCommand = async (input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSCognitoIdentityProviderService.SignUp",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SignUpRequest(input, context));
+  body = JSON.stringify(se_SignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartUserImportJobCommand = async (
+/**
+ * serializeAws_json1_1StartUserImportJobCommand
+ */
+export const se_StartUserImportJobCommand = async (
   input: StartUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1724,11 +1982,14 @@ export const serializeAws_json1_1StartUserImportJobCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.StartUserImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartUserImportJobRequest(input, context));
+  body = JSON.stringify(se_StartUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopUserImportJobCommand = async (
+/**
+ * serializeAws_json1_1StopUserImportJobCommand
+ */
+export const se_StopUserImportJobCommand = async (
   input: StopUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1737,11 +1998,14 @@ export const serializeAws_json1_1StopUserImportJobCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.StopUserImportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopUserImportJobRequest(input, context));
+  body = JSON.stringify(se_StopUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1750,11 +2014,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1763,11 +2030,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAuthEventFeedbackCommand = async (
+/**
+ * serializeAws_json1_1UpdateAuthEventFeedbackCommand
+ */
+export const se_UpdateAuthEventFeedbackCommand = async (
   input: UpdateAuthEventFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1776,11 +2046,14 @@ export const serializeAws_json1_1UpdateAuthEventFeedbackCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAuthEventFeedbackRequest(input, context));
+  body = JSON.stringify(se_UpdateAuthEventFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDeviceStatusCommand = async (
+/**
+ * serializeAws_json1_1UpdateDeviceStatusCommand
+ */
+export const se_UpdateDeviceStatusCommand = async (
   input: UpdateDeviceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1789,11 +2062,14 @@ export const serializeAws_json1_1UpdateDeviceStatusCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateDeviceStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDeviceStatusRequest(input, context));
+  body = JSON.stringify(se_UpdateDeviceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateGroupCommand
+ */
+export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1802,11 +2078,14 @@ export const serializeAws_json1_1UpdateGroupCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateGroupRequest(input, context));
+  body = JSON.stringify(se_UpdateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateIdentityProviderCommand = async (
+/**
+ * serializeAws_json1_1UpdateIdentityProviderCommand
+ */
+export const se_UpdateIdentityProviderCommand = async (
   input: UpdateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1815,11 +2094,14 @@ export const serializeAws_json1_1UpdateIdentityProviderCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateIdentityProvider",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateIdentityProviderRequest(input, context));
+  body = JSON.stringify(se_UpdateIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResourceServerCommand = async (
+/**
+ * serializeAws_json1_1UpdateResourceServerCommand
+ */
+export const se_UpdateResourceServerCommand = async (
   input: UpdateResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1828,11 +2110,14 @@ export const serializeAws_json1_1UpdateResourceServerCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateResourceServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResourceServerRequest(input, context));
+  body = JSON.stringify(se_UpdateResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserAttributesCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserAttributesCommand
+ */
+export const se_UpdateUserAttributesCommand = async (
   input: UpdateUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1841,11 +2126,14 @@ export const serializeAws_json1_1UpdateUserAttributesCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserAttributesRequest(input, context));
+  body = JSON.stringify(se_UpdateUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserPoolCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserPoolCommand
+ */
+export const se_UpdateUserPoolCommand = async (
   input: UpdateUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1854,11 +2142,14 @@ export const serializeAws_json1_1UpdateUserPoolCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserPoolRequest(input, context));
+  body = JSON.stringify(se_UpdateUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserPoolClientCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserPoolClientCommand
+ */
+export const se_UpdateUserPoolClientCommand = async (
   input: UpdateUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1867,11 +2158,14 @@ export const serializeAws_json1_1UpdateUserPoolClientCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPoolClient",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserPoolClientRequest(input, context));
+  body = JSON.stringify(se_UpdateUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserPoolDomainCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserPoolDomainCommand
+ */
+export const se_UpdateUserPoolDomainCommand = async (
   input: UpdateUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1880,11 +2174,14 @@ export const serializeAws_json1_1UpdateUserPoolDomainCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPoolDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserPoolDomainRequest(input, context));
+  body = JSON.stringify(se_UpdateUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1VerifySoftwareTokenCommand = async (
+/**
+ * serializeAws_json1_1VerifySoftwareTokenCommand
+ */
+export const se_VerifySoftwareTokenCommand = async (
   input: VerifySoftwareTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1893,11 +2190,14 @@ export const serializeAws_json1_1VerifySoftwareTokenCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.VerifySoftwareToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1VerifySoftwareTokenRequest(input, context));
+  body = JSON.stringify(se_VerifySoftwareTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1VerifyUserAttributeCommand = async (
+/**
+ * serializeAws_json1_1VerifyUserAttributeCommand
+ */
+export const se_VerifyUserAttributeCommand = async (
   input: VerifyUserAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1906,20 +2206,23 @@ export const serializeAws_json1_1VerifyUserAttributeCommand = async (
     "x-amz-target": "AWSCognitoIdentityProviderService.VerifyUserAttribute",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1VerifyUserAttributeRequest(input, context));
+  body = JSON.stringify(se_VerifyUserAttributeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddCustomAttributesCommand = async (
+/**
+ * deserializeAws_json1_1AddCustomAttributesCommand
+ */
+export const de_AddCustomAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCustomAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddCustomAttributesCommandError(output, context);
+    return de_AddCustomAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCustomAttributesResponse(data, context);
+  contents = de_AddCustomAttributesResponse(data, context);
   const response: AddCustomAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1927,7 +2230,10 @@ export const deserializeAws_json1_1AddCustomAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddCustomAttributesCommandError = async (
+/**
+ * deserializeAws_json1_1AddCustomAttributesCommandError
+ */
+const de_AddCustomAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCustomAttributesCommandOutput> => {
@@ -1939,22 +2245,22 @@ const deserializeAws_json1_1AddCustomAttributesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserImportInProgressException":
     case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
+      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1966,12 +2272,15 @@ const deserializeAws_json1_1AddCustomAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminAddUserToGroupCommand = async (
+/**
+ * deserializeAws_json1_1AdminAddUserToGroupCommand
+ */
+export const de_AdminAddUserToGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminAddUserToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminAddUserToGroupCommandError(output, context);
+    return de_AdminAddUserToGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminAddUserToGroupCommandOutput = {
@@ -1980,7 +2289,10 @@ export const deserializeAws_json1_1AdminAddUserToGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminAddUserToGroupCommandError = async (
+/**
+ * deserializeAws_json1_1AdminAddUserToGroupCommandError
+ */
+const de_AdminAddUserToGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminAddUserToGroupCommandOutput> => {
@@ -1992,22 +2304,22 @@ const deserializeAws_json1_1AdminAddUserToGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2019,16 +2331,19 @@ const deserializeAws_json1_1AdminAddUserToGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminConfirmSignUpCommand = async (
+/**
+ * deserializeAws_json1_1AdminConfirmSignUpCommand
+ */
+export const de_AdminConfirmSignUpCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminConfirmSignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminConfirmSignUpCommandError(output, context);
+    return de_AdminConfirmSignUpCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminConfirmSignUpResponse(data, context);
+  contents = de_AdminConfirmSignUpResponse(data, context);
   const response: AdminConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2036,7 +2351,10 @@ export const deserializeAws_json1_1AdminConfirmSignUpCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminConfirmSignUpCommandError = async (
+/**
+ * deserializeAws_json1_1AdminConfirmSignUpCommandError
+ */
+const de_AdminConfirmSignUpCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminConfirmSignUpCommandOutput> => {
@@ -2048,37 +2366,37 @@ const deserializeAws_json1_1AdminConfirmSignUpCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2090,16 +2408,19 @@ const deserializeAws_json1_1AdminConfirmSignUpCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminCreateUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminCreateUserCommand
+ */
+export const de_AdminCreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminCreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminCreateUserCommandError(output, context);
+    return de_AdminCreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminCreateUserResponse(data, context);
+  contents = de_AdminCreateUserResponse(data, context);
   const response: AdminCreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2107,7 +2428,10 @@ export const deserializeAws_json1_1AdminCreateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminCreateUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminCreateUserCommandError
+ */
+const de_AdminCreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminCreateUserCommandOutput> => {
@@ -2119,52 +2443,52 @@ const deserializeAws_json1_1AdminCreateUserCommandError = async (
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UnsupportedUserStateException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedUserStateException":
-      throw await deserializeAws_json1_1UnsupportedUserStateExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedUserStateExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     case "UsernameExistsException":
     case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
+      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2176,12 +2500,15 @@ const deserializeAws_json1_1AdminCreateUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminDeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminDeleteUserCommand
+ */
+export const de_AdminDeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminDeleteUserCommandError(output, context);
+    return de_AdminDeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminDeleteUserCommandOutput = {
@@ -2190,7 +2517,10 @@ export const deserializeAws_json1_1AdminDeleteUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminDeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminDeleteUserCommandError
+ */
+const de_AdminDeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDeleteUserCommandOutput> => {
@@ -2202,22 +2532,22 @@ const deserializeAws_json1_1AdminDeleteUserCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2229,16 +2559,19 @@ const deserializeAws_json1_1AdminDeleteUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminDeleteUserAttributesCommand = async (
+/**
+ * deserializeAws_json1_1AdminDeleteUserAttributesCommand
+ */
+export const de_AdminDeleteUserAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDeleteUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminDeleteUserAttributesCommandError(output, context);
+    return de_AdminDeleteUserAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDeleteUserAttributesResponse(data, context);
+  contents = de_AdminDeleteUserAttributesResponse(data, context);
   const response: AdminDeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2246,7 +2579,10 @@ export const deserializeAws_json1_1AdminDeleteUserAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminDeleteUserAttributesCommandError = async (
+/**
+ * deserializeAws_json1_1AdminDeleteUserAttributesCommandError
+ */
+const de_AdminDeleteUserAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDeleteUserAttributesCommandOutput> => {
@@ -2258,22 +2594,22 @@ const deserializeAws_json1_1AdminDeleteUserAttributesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2285,16 +2621,19 @@ const deserializeAws_json1_1AdminDeleteUserAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminDisableProviderForUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminDisableProviderForUserCommand
+ */
+export const de_AdminDisableProviderForUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDisableProviderForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminDisableProviderForUserCommandError(output, context);
+    return de_AdminDisableProviderForUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDisableProviderForUserResponse(data, context);
+  contents = de_AdminDisableProviderForUserResponse(data, context);
   const response: AdminDisableProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2302,7 +2641,10 @@ export const deserializeAws_json1_1AdminDisableProviderForUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminDisableProviderForUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminDisableProviderForUserCommandError
+ */
+const de_AdminDisableProviderForUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDisableProviderForUserCommandOutput> => {
@@ -2314,25 +2656,25 @@ const deserializeAws_json1_1AdminDisableProviderForUserCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2344,16 +2686,19 @@ const deserializeAws_json1_1AdminDisableProviderForUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminDisableUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminDisableUserCommand
+ */
+export const de_AdminDisableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDisableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminDisableUserCommandError(output, context);
+    return de_AdminDisableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDisableUserResponse(data, context);
+  contents = de_AdminDisableUserResponse(data, context);
   const response: AdminDisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2361,7 +2706,10 @@ export const deserializeAws_json1_1AdminDisableUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminDisableUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminDisableUserCommandError
+ */
+const de_AdminDisableUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminDisableUserCommandOutput> => {
@@ -2373,22 +2721,22 @@ const deserializeAws_json1_1AdminDisableUserCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2400,16 +2748,19 @@ const deserializeAws_json1_1AdminDisableUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminEnableUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminEnableUserCommand
+ */
+export const de_AdminEnableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminEnableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminEnableUserCommandError(output, context);
+    return de_AdminEnableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminEnableUserResponse(data, context);
+  contents = de_AdminEnableUserResponse(data, context);
   const response: AdminEnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2417,7 +2768,10 @@ export const deserializeAws_json1_1AdminEnableUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminEnableUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminEnableUserCommandError
+ */
+const de_AdminEnableUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminEnableUserCommandOutput> => {
@@ -2429,22 +2783,22 @@ const deserializeAws_json1_1AdminEnableUserCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2456,12 +2810,15 @@ const deserializeAws_json1_1AdminEnableUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminForgetDeviceCommand = async (
+/**
+ * deserializeAws_json1_1AdminForgetDeviceCommand
+ */
+export const de_AdminForgetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminForgetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminForgetDeviceCommandError(output, context);
+    return de_AdminForgetDeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminForgetDeviceCommandOutput = {
@@ -2470,7 +2827,10 @@ export const deserializeAws_json1_1AdminForgetDeviceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminForgetDeviceCommandError = async (
+/**
+ * deserializeAws_json1_1AdminForgetDeviceCommandError
+ */
+const de_AdminForgetDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminForgetDeviceCommandOutput> => {
@@ -2482,25 +2842,25 @@ const deserializeAws_json1_1AdminForgetDeviceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2512,16 +2872,19 @@ const deserializeAws_json1_1AdminForgetDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminGetDeviceCommand = async (
+/**
+ * deserializeAws_json1_1AdminGetDeviceCommand
+ */
+export const de_AdminGetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminGetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminGetDeviceCommandError(output, context);
+    return de_AdminGetDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminGetDeviceResponse(data, context);
+  contents = de_AdminGetDeviceResponse(data, context);
   const response: AdminGetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2529,7 +2892,10 @@ export const deserializeAws_json1_1AdminGetDeviceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminGetDeviceCommandError = async (
+/**
+ * deserializeAws_json1_1AdminGetDeviceCommandError
+ */
+const de_AdminGetDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminGetDeviceCommandOutput> => {
@@ -2541,22 +2907,22 @@ const deserializeAws_json1_1AdminGetDeviceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2568,16 +2934,19 @@ const deserializeAws_json1_1AdminGetDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminGetUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminGetUserCommand
+ */
+export const de_AdminGetUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminGetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminGetUserCommandError(output, context);
+    return de_AdminGetUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminGetUserResponse(data, context);
+  contents = de_AdminGetUserResponse(data, context);
   const response: AdminGetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2585,7 +2954,10 @@ export const deserializeAws_json1_1AdminGetUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminGetUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminGetUserCommandError
+ */
+const de_AdminGetUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminGetUserCommandOutput> => {
@@ -2597,22 +2969,22 @@ const deserializeAws_json1_1AdminGetUserCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2624,16 +2996,19 @@ const deserializeAws_json1_1AdminGetUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminInitiateAuthCommand = async (
+/**
+ * deserializeAws_json1_1AdminInitiateAuthCommand
+ */
+export const de_AdminInitiateAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminInitiateAuthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminInitiateAuthCommandError(output, context);
+    return de_AdminInitiateAuthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminInitiateAuthResponse(data, context);
+  contents = de_AdminInitiateAuthResponse(data, context);
   const response: AdminInitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2641,7 +3016,10 @@ export const deserializeAws_json1_1AdminInitiateAuthCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminInitiateAuthCommandError = async (
+/**
+ * deserializeAws_json1_1AdminInitiateAuthCommandError
+ */
+const de_AdminInitiateAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminInitiateAuthCommandOutput> => {
@@ -2653,49 +3031,49 @@ const deserializeAws_json1_1AdminInitiateAuthCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2707,16 +3085,19 @@ const deserializeAws_json1_1AdminInitiateAuthCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminLinkProviderForUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminLinkProviderForUserCommand
+ */
+export const de_AdminLinkProviderForUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminLinkProviderForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminLinkProviderForUserCommandError(output, context);
+    return de_AdminLinkProviderForUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminLinkProviderForUserResponse(data, context);
+  contents = de_AdminLinkProviderForUserResponse(data, context);
   const response: AdminLinkProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2724,7 +3105,10 @@ export const deserializeAws_json1_1AdminLinkProviderForUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminLinkProviderForUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminLinkProviderForUserCommandError
+ */
+const de_AdminLinkProviderForUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminLinkProviderForUserCommandOutput> => {
@@ -2736,28 +3120,28 @@ const deserializeAws_json1_1AdminLinkProviderForUserCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2769,16 +3153,19 @@ const deserializeAws_json1_1AdminLinkProviderForUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminListDevicesCommand = async (
+/**
+ * deserializeAws_json1_1AdminListDevicesCommand
+ */
+export const de_AdminListDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminListDevicesCommandError(output, context);
+    return de_AdminListDevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListDevicesResponse(data, context);
+  contents = de_AdminListDevicesResponse(data, context);
   const response: AdminListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2786,7 +3173,10 @@ export const deserializeAws_json1_1AdminListDevicesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminListDevicesCommandError = async (
+/**
+ * deserializeAws_json1_1AdminListDevicesCommandError
+ */
+const de_AdminListDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListDevicesCommandOutput> => {
@@ -2798,22 +3188,22 @@ const deserializeAws_json1_1AdminListDevicesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2825,16 +3215,19 @@ const deserializeAws_json1_1AdminListDevicesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminListGroupsForUserCommand = async (
+/**
+ * deserializeAws_json1_1AdminListGroupsForUserCommand
+ */
+export const de_AdminListGroupsForUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListGroupsForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminListGroupsForUserCommandError(output, context);
+    return de_AdminListGroupsForUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListGroupsForUserResponse(data, context);
+  contents = de_AdminListGroupsForUserResponse(data, context);
   const response: AdminListGroupsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2842,7 +3235,10 @@ export const deserializeAws_json1_1AdminListGroupsForUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminListGroupsForUserCommandError = async (
+/**
+ * deserializeAws_json1_1AdminListGroupsForUserCommandError
+ */
+const de_AdminListGroupsForUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListGroupsForUserCommandOutput> => {
@@ -2854,22 +3250,22 @@ const deserializeAws_json1_1AdminListGroupsForUserCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2881,16 +3277,19 @@ const deserializeAws_json1_1AdminListGroupsForUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminListUserAuthEventsCommand = async (
+/**
+ * deserializeAws_json1_1AdminListUserAuthEventsCommand
+ */
+export const de_AdminListUserAuthEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListUserAuthEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminListUserAuthEventsCommandError(output, context);
+    return de_AdminListUserAuthEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListUserAuthEventsResponse(data, context);
+  contents = de_AdminListUserAuthEventsResponse(data, context);
   const response: AdminListUserAuthEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2898,7 +3297,10 @@ export const deserializeAws_json1_1AdminListUserAuthEventsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminListUserAuthEventsCommandError = async (
+/**
+ * deserializeAws_json1_1AdminListUserAuthEventsCommandError
+ */
+const de_AdminListUserAuthEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminListUserAuthEventsCommandOutput> => {
@@ -2910,25 +3312,25 @@ const deserializeAws_json1_1AdminListUserAuthEventsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2940,12 +3342,15 @@ const deserializeAws_json1_1AdminListUserAuthEventsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminRemoveUserFromGroupCommand = async (
+/**
+ * deserializeAws_json1_1AdminRemoveUserFromGroupCommand
+ */
+export const de_AdminRemoveUserFromGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminRemoveUserFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(output, context);
+    return de_AdminRemoveUserFromGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminRemoveUserFromGroupCommandOutput = {
@@ -2954,7 +3359,10 @@ export const deserializeAws_json1_1AdminRemoveUserFromGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminRemoveUserFromGroupCommandError = async (
+/**
+ * deserializeAws_json1_1AdminRemoveUserFromGroupCommandError
+ */
+const de_AdminRemoveUserFromGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminRemoveUserFromGroupCommandOutput> => {
@@ -2966,22 +3374,22 @@ const deserializeAws_json1_1AdminRemoveUserFromGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2993,16 +3401,19 @@ const deserializeAws_json1_1AdminRemoveUserFromGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminResetUserPasswordCommand = async (
+/**
+ * deserializeAws_json1_1AdminResetUserPasswordCommand
+ */
+export const de_AdminResetUserPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminResetUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminResetUserPasswordCommandError(output, context);
+    return de_AdminResetUserPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminResetUserPasswordResponse(data, context);
+  contents = de_AdminResetUserPasswordResponse(data, context);
   const response: AdminResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3010,7 +3421,10 @@ export const deserializeAws_json1_1AdminResetUserPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminResetUserPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1AdminResetUserPasswordCommandError
+ */
+const de_AdminResetUserPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminResetUserPasswordCommandOutput> => {
@@ -3022,43 +3436,43 @@ const deserializeAws_json1_1AdminResetUserPasswordCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3070,16 +3484,19 @@ const deserializeAws_json1_1AdminResetUserPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminRespondToAuthChallengeCommand = async (
+/**
+ * deserializeAws_json1_1AdminRespondToAuthChallengeCommand
+ */
+export const de_AdminRespondToAuthChallengeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminRespondToAuthChallengeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(output, context);
+    return de_AdminRespondToAuthChallengeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminRespondToAuthChallengeResponse(data, context);
+  contents = de_AdminRespondToAuthChallengeResponse(data, context);
   const response: AdminRespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3087,7 +3504,10 @@ export const deserializeAws_json1_1AdminRespondToAuthChallengeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminRespondToAuthChallengeCommandError = async (
+/**
+ * deserializeAws_json1_1AdminRespondToAuthChallengeCommandError
+ */
+const de_AdminRespondToAuthChallengeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminRespondToAuthChallengeCommandOutput> => {
@@ -3099,64 +3519,64 @@ const deserializeAws_json1_1AdminRespondToAuthChallengeCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
+      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3168,16 +3588,19 @@ const deserializeAws_json1_1AdminRespondToAuthChallengeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminSetUserMFAPreferenceCommand = async (
+/**
+ * deserializeAws_json1_1AdminSetUserMFAPreferenceCommand
+ */
+export const de_AdminSetUserMFAPreferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserMFAPreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(output, context);
+    return de_AdminSetUserMFAPreferenceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserMFAPreferenceResponse(data, context);
+  contents = de_AdminSetUserMFAPreferenceResponse(data, context);
   const response: AdminSetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3185,7 +3608,10 @@ export const deserializeAws_json1_1AdminSetUserMFAPreferenceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError = async (
+/**
+ * deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError
+ */
+const de_AdminSetUserMFAPreferenceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserMFAPreferenceCommandOutput> => {
@@ -3197,25 +3623,25 @@ const deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3227,16 +3653,19 @@ const deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminSetUserPasswordCommand = async (
+/**
+ * deserializeAws_json1_1AdminSetUserPasswordCommand
+ */
+export const de_AdminSetUserPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminSetUserPasswordCommandError(output, context);
+    return de_AdminSetUserPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserPasswordResponse(data, context);
+  contents = de_AdminSetUserPasswordResponse(data, context);
   const response: AdminSetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3244,7 +3673,10 @@ export const deserializeAws_json1_1AdminSetUserPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminSetUserPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1AdminSetUserPasswordCommandError
+ */
+const de_AdminSetUserPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserPasswordCommandOutput> => {
@@ -3256,25 +3688,25 @@ const deserializeAws_json1_1AdminSetUserPasswordCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3286,16 +3718,19 @@ const deserializeAws_json1_1AdminSetUserPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminSetUserSettingsCommand = async (
+/**
+ * deserializeAws_json1_1AdminSetUserSettingsCommand
+ */
+export const de_AdminSetUserSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminSetUserSettingsCommandError(output, context);
+    return de_AdminSetUserSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserSettingsResponse(data, context);
+  contents = de_AdminSetUserSettingsResponse(data, context);
   const response: AdminSetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3303,7 +3738,10 @@ export const deserializeAws_json1_1AdminSetUserSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminSetUserSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1AdminSetUserSettingsCommandError
+ */
+const de_AdminSetUserSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminSetUserSettingsCommandOutput> => {
@@ -3315,19 +3753,19 @@ const deserializeAws_json1_1AdminSetUserSettingsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3339,16 +3777,19 @@ const deserializeAws_json1_1AdminSetUserSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand = async (
+/**
+ * deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand
+ */
+export const de_AdminUpdateAuthEventFeedbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(output, context);
+    return de_AdminUpdateAuthEventFeedbackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse(data, context);
+  contents = de_AdminUpdateAuthEventFeedbackResponse(data, context);
   const response: AdminUpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3356,7 +3797,10 @@ export const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError = async (
+/**
+ * deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError
+ */
+const de_AdminUpdateAuthEventFeedbackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> => {
@@ -3368,25 +3812,25 @@ const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3398,16 +3842,19 @@ const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminUpdateDeviceStatusCommand = async (
+/**
+ * deserializeAws_json1_1AdminUpdateDeviceStatusCommand
+ */
+export const de_AdminUpdateDeviceStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateDeviceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(output, context);
+    return de_AdminUpdateDeviceStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateDeviceStatusResponse(data, context);
+  contents = de_AdminUpdateDeviceStatusResponse(data, context);
   const response: AdminUpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3415,7 +3862,10 @@ export const deserializeAws_json1_1AdminUpdateDeviceStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminUpdateDeviceStatusCommandError = async (
+/**
+ * deserializeAws_json1_1AdminUpdateDeviceStatusCommandError
+ */
+const de_AdminUpdateDeviceStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateDeviceStatusCommandOutput> => {
@@ -3427,25 +3877,25 @@ const deserializeAws_json1_1AdminUpdateDeviceStatusCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3457,16 +3907,19 @@ const deserializeAws_json1_1AdminUpdateDeviceStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminUpdateUserAttributesCommand = async (
+/**
+ * deserializeAws_json1_1AdminUpdateUserAttributesCommand
+ */
+export const de_AdminUpdateUserAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommandError(output, context);
+    return de_AdminUpdateUserAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateUserAttributesResponse(data, context);
+  contents = de_AdminUpdateUserAttributesResponse(data, context);
   const response: AdminUpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3474,7 +3927,10 @@ export const deserializeAws_json1_1AdminUpdateUserAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminUpdateUserAttributesCommandError = async (
+/**
+ * deserializeAws_json1_1AdminUpdateUserAttributesCommandError
+ */
+const de_AdminUpdateUserAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUpdateUserAttributesCommandOutput> => {
@@ -3486,43 +3942,43 @@ const deserializeAws_json1_1AdminUpdateUserAttributesCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3534,16 +3990,19 @@ const deserializeAws_json1_1AdminUpdateUserAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AdminUserGlobalSignOutCommand = async (
+/**
+ * deserializeAws_json1_1AdminUserGlobalSignOutCommand
+ */
+export const de_AdminUserGlobalSignOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUserGlobalSignOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AdminUserGlobalSignOutCommandError(output, context);
+    return de_AdminUserGlobalSignOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUserGlobalSignOutResponse(data, context);
+  contents = de_AdminUserGlobalSignOutResponse(data, context);
   const response: AdminUserGlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3551,7 +4010,10 @@ export const deserializeAws_json1_1AdminUserGlobalSignOutCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AdminUserGlobalSignOutCommandError = async (
+/**
+ * deserializeAws_json1_1AdminUserGlobalSignOutCommandError
+ */
+const de_AdminUserGlobalSignOutCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdminUserGlobalSignOutCommandOutput> => {
@@ -3563,22 +4025,22 @@ const deserializeAws_json1_1AdminUserGlobalSignOutCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3590,16 +4052,19 @@ const deserializeAws_json1_1AdminUserGlobalSignOutCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateSoftwareTokenCommand = async (
+/**
+ * deserializeAws_json1_1AssociateSoftwareTokenCommand
+ */
+export const de_AssociateSoftwareTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSoftwareTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateSoftwareTokenCommandError(output, context);
+    return de_AssociateSoftwareTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateSoftwareTokenResponse(data, context);
+  contents = de_AssociateSoftwareTokenResponse(data, context);
   const response: AssociateSoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3607,7 +4072,10 @@ export const deserializeAws_json1_1AssociateSoftwareTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateSoftwareTokenCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateSoftwareTokenCommandError
+ */
+const de_AssociateSoftwareTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSoftwareTokenCommandOutput> => {
@@ -3619,25 +4087,25 @@ const deserializeAws_json1_1AssociateSoftwareTokenCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
+      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3649,16 +4117,19 @@ const deserializeAws_json1_1AssociateSoftwareTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ChangePasswordCommand = async (
+/**
+ * deserializeAws_json1_1ChangePasswordCommand
+ */
+export const de_ChangePasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ChangePasswordCommandError(output, context);
+    return de_ChangePasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ChangePasswordResponse(data, context);
+  contents = de_ChangePasswordResponse(data, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3666,7 +4137,10 @@ export const deserializeAws_json1_1ChangePasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ChangePasswordCommandError = async (
+/**
+ * deserializeAws_json1_1ChangePasswordCommandError
+ */
+const de_ChangePasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
@@ -3678,37 +4152,37 @@ const deserializeAws_json1_1ChangePasswordCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3720,16 +4194,19 @@ const deserializeAws_json1_1ChangePasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ConfirmDeviceCommand = async (
+/**
+ * deserializeAws_json1_1ConfirmDeviceCommand
+ */
+export const de_ConfirmDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ConfirmDeviceCommandError(output, context);
+    return de_ConfirmDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmDeviceResponse(data, context);
+  contents = de_ConfirmDeviceResponse(data, context);
   const response: ConfirmDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3737,7 +4214,10 @@ export const deserializeAws_json1_1ConfirmDeviceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ConfirmDeviceCommandError = async (
+/**
+ * deserializeAws_json1_1ConfirmDeviceCommandError
+ */
+const de_ConfirmDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmDeviceCommandOutput> => {
@@ -3749,43 +4229,43 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     case "UsernameExistsException":
     case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
+      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3797,16 +4277,19 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ConfirmForgotPasswordCommand = async (
+/**
+ * deserializeAws_json1_1ConfirmForgotPasswordCommand
+ */
+export const de_ConfirmForgotPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmForgotPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ConfirmForgotPasswordCommandError(output, context);
+    return de_ConfirmForgotPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmForgotPasswordResponse(data, context);
+  contents = de_ConfirmForgotPasswordResponse(data, context);
   const response: ConfirmForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3814,7 +4297,10 @@ export const deserializeAws_json1_1ConfirmForgotPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ConfirmForgotPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1ConfirmForgotPasswordCommandError
+ */
+const de_ConfirmForgotPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmForgotPasswordCommandOutput> => {
@@ -3826,52 +4312,52 @@ const deserializeAws_json1_1ConfirmForgotPasswordCommandError = async (
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3883,16 +4369,19 @@ const deserializeAws_json1_1ConfirmForgotPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ConfirmSignUpCommand = async (
+/**
+ * deserializeAws_json1_1ConfirmSignUpCommand
+ */
+export const de_ConfirmSignUpCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmSignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ConfirmSignUpCommandError(output, context);
+    return de_ConfirmSignUpCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmSignUpResponse(data, context);
+  contents = de_ConfirmSignUpResponse(data, context);
   const response: ConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3900,7 +4389,10 @@ export const deserializeAws_json1_1ConfirmSignUpCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ConfirmSignUpCommandError = async (
+/**
+ * deserializeAws_json1_1ConfirmSignUpCommandError
+ */
+const de_ConfirmSignUpCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmSignUpCommandOutput> => {
@@ -3912,49 +4404,49 @@ const deserializeAws_json1_1ConfirmSignUpCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3966,16 +4458,19 @@ const deserializeAws_json1_1ConfirmSignUpCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommand
+ */
+export const de_CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGroupCommandError(output, context);
+    return de_CreateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGroupResponse(data, context);
+  contents = de_CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3983,7 +4478,10 @@ export const deserializeAws_json1_1CreateGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommandError
+ */
+const de_CreateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
@@ -3995,25 +4493,25 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   switch (errorCode) {
     case "GroupExistsException":
     case "com.amazonaws.cognitoidentityprovider#GroupExistsException":
-      throw await deserializeAws_json1_1GroupExistsExceptionResponse(parsedOutput, context);
+      throw await de_GroupExistsExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4025,16 +4523,19 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateIdentityProviderCommand = async (
+/**
+ * deserializeAws_json1_1CreateIdentityProviderCommand
+ */
+export const de_CreateIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateIdentityProviderCommandError(output, context);
+    return de_CreateIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateIdentityProviderResponse(data, context);
+  contents = de_CreateIdentityProviderResponse(data, context);
   const response: CreateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4042,7 +4543,10 @@ export const deserializeAws_json1_1CreateIdentityProviderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateIdentityProviderCommandError = async (
+/**
+ * deserializeAws_json1_1CreateIdentityProviderCommandError
+ */
+const de_CreateIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIdentityProviderCommandOutput> => {
@@ -4054,25 +4558,25 @@ const deserializeAws_json1_1CreateIdentityProviderCommandError = async (
   switch (errorCode) {
     case "DuplicateProviderException":
     case "com.amazonaws.cognitoidentityprovider#DuplicateProviderException":
-      throw await deserializeAws_json1_1DuplicateProviderExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateProviderExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4084,16 +4588,19 @@ const deserializeAws_json1_1CreateIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateResourceServerCommand = async (
+/**
+ * deserializeAws_json1_1CreateResourceServerCommand
+ */
+export const de_CreateResourceServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateResourceServerCommandError(output, context);
+    return de_CreateResourceServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResourceServerResponse(data, context);
+  contents = de_CreateResourceServerResponse(data, context);
   const response: CreateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4101,7 +4608,10 @@ export const deserializeAws_json1_1CreateResourceServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateResourceServerCommandError = async (
+/**
+ * deserializeAws_json1_1CreateResourceServerCommandError
+ */
+const de_CreateResourceServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceServerCommandOutput> => {
@@ -4113,22 +4623,22 @@ const deserializeAws_json1_1CreateResourceServerCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4140,16 +4650,19 @@ const deserializeAws_json1_1CreateResourceServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserImportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserImportJobCommand
+ */
+export const de_CreateUserImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserImportJobCommandError(output, context);
+    return de_CreateUserImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserImportJobResponse(data, context);
+  contents = de_CreateUserImportJobResponse(data, context);
   const response: CreateUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4157,7 +4670,10 @@ export const deserializeAws_json1_1CreateUserImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserImportJobCommandError
+ */
+const de_CreateUserImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserImportJobCommandOutput> => {
@@ -4169,25 +4685,25 @@ const deserializeAws_json1_1CreateUserImportJobCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4199,16 +4715,19 @@ const deserializeAws_json1_1CreateUserImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserPoolCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolCommand
+ */
+export const de_CreateUserPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserPoolCommandError(output, context);
+    return de_CreateUserPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolResponse(data, context);
+  contents = de_CreateUserPoolResponse(data, context);
   const response: CreateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4216,7 +4735,10 @@ export const deserializeAws_json1_1CreateUserPoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserPoolCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolCommandError
+ */
+const de_CreateUserPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolCommandOutput> => {
@@ -4228,31 +4750,31 @@ const deserializeAws_json1_1CreateUserPoolCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserPoolTaggingException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4264,16 +4786,19 @@ const deserializeAws_json1_1CreateUserPoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserPoolClientCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolClientCommand
+ */
+export const de_CreateUserPoolClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserPoolClientCommandError(output, context);
+    return de_CreateUserPoolClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolClientResponse(data, context);
+  contents = de_CreateUserPoolClientResponse(data, context);
   const response: CreateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4281,7 +4806,10 @@ export const deserializeAws_json1_1CreateUserPoolClientCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserPoolClientCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolClientCommandError
+ */
+const de_CreateUserPoolClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolClientCommandOutput> => {
@@ -4293,28 +4821,28 @@ const deserializeAws_json1_1CreateUserPoolClientCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException":
-      throw await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOAuthFlowExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException":
-      throw await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ScopeDoesNotExistExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4326,16 +4854,19 @@ const deserializeAws_json1_1CreateUserPoolClientCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserPoolDomainCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolDomainCommand
+ */
+export const de_CreateUserPoolDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserPoolDomainCommandError(output, context);
+    return de_CreateUserPoolDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolDomainResponse(data, context);
+  contents = de_CreateUserPoolDomainResponse(data, context);
   const response: CreateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4343,7 +4874,10 @@ export const deserializeAws_json1_1CreateUserPoolDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserPoolDomainCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserPoolDomainCommandError
+ */
+const de_CreateUserPoolDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserPoolDomainCommandOutput> => {
@@ -4355,19 +4889,19 @@ const deserializeAws_json1_1CreateUserPoolDomainCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4379,12 +4913,15 @@ const deserializeAws_json1_1CreateUserPoolDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommand
+ */
+export const de_DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGroupCommandError(output, context);
+    return de_DeleteGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
@@ -4393,7 +4930,10 @@ export const deserializeAws_json1_1DeleteGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommandError
+ */
+const de_DeleteGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
@@ -4405,19 +4945,19 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4429,12 +4969,15 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteIdentityProviderCommand = async (
+/**
+ * deserializeAws_json1_1DeleteIdentityProviderCommand
+ */
+export const de_DeleteIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteIdentityProviderCommandError(output, context);
+    return de_DeleteIdentityProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteIdentityProviderCommandOutput = {
@@ -4443,7 +4986,10 @@ export const deserializeAws_json1_1DeleteIdentityProviderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteIdentityProviderCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteIdentityProviderCommandError
+ */
+const de_DeleteIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentityProviderCommandOutput> => {
@@ -4455,25 +5001,25 @@ const deserializeAws_json1_1DeleteIdentityProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
-      throw await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4485,12 +5031,15 @@ const deserializeAws_json1_1DeleteIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourceServerCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourceServerCommand
+ */
+export const de_DeleteResourceServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourceServerCommandError(output, context);
+    return de_DeleteResourceServerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceServerCommandOutput = {
@@ -4499,7 +5048,10 @@ export const deserializeAws_json1_1DeleteResourceServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourceServerCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourceServerCommandError
+ */
+const de_DeleteResourceServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceServerCommandOutput> => {
@@ -4511,19 +5063,19 @@ const deserializeAws_json1_1DeleteResourceServerCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4535,12 +5087,15 @@ const deserializeAws_json1_1DeleteResourceServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
@@ -4549,7 +5104,10 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -4561,31 +5119,31 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4597,16 +5155,19 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserAttributesCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserAttributesCommand
+ */
+export const de_DeleteUserAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserAttributesCommandError(output, context);
+    return de_DeleteUserAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserAttributesResponse(data, context);
+  contents = de_DeleteUserAttributesResponse(data, context);
   const response: DeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4614,7 +5175,10 @@ export const deserializeAws_json1_1DeleteUserAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserAttributesCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserAttributesCommandError
+ */
+const de_DeleteUserAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserAttributesCommandOutput> => {
@@ -4626,31 +5190,31 @@ const deserializeAws_json1_1DeleteUserAttributesCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4662,12 +5226,15 @@ const deserializeAws_json1_1DeleteUserAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserPoolCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolCommand
+ */
+export const de_DeleteUserPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserPoolCommandError(output, context);
+    return de_DeleteUserPoolCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPoolCommandOutput = {
@@ -4676,7 +5243,10 @@ export const deserializeAws_json1_1DeleteUserPoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserPoolCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolCommandError
+ */
+const de_DeleteUserPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolCommandOutput> => {
@@ -4688,22 +5258,22 @@ const deserializeAws_json1_1DeleteUserPoolCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserImportInProgressException":
     case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
+      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4715,12 +5285,15 @@ const deserializeAws_json1_1DeleteUserPoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserPoolClientCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolClientCommand
+ */
+export const de_DeleteUserPoolClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserPoolClientCommandError(output, context);
+    return de_DeleteUserPoolClientCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPoolClientCommandOutput = {
@@ -4729,7 +5302,10 @@ export const deserializeAws_json1_1DeleteUserPoolClientCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserPoolClientCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolClientCommandError
+ */
+const de_DeleteUserPoolClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolClientCommandOutput> => {
@@ -4741,22 +5317,22 @@ const deserializeAws_json1_1DeleteUserPoolClientCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4768,16 +5344,19 @@ const deserializeAws_json1_1DeleteUserPoolClientCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserPoolDomainCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolDomainCommand
+ */
+export const de_DeleteUserPoolDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserPoolDomainCommandError(output, context);
+    return de_DeleteUserPoolDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserPoolDomainResponse(data, context);
+  contents = de_DeleteUserPoolDomainResponse(data, context);
   const response: DeleteUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4785,7 +5364,10 @@ export const deserializeAws_json1_1DeleteUserPoolDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserPoolDomainCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserPoolDomainCommandError
+ */
+const de_DeleteUserPoolDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPoolDomainCommandOutput> => {
@@ -4797,16 +5379,16 @@ const deserializeAws_json1_1DeleteUserPoolDomainCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4818,16 +5400,19 @@ const deserializeAws_json1_1DeleteUserPoolDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeIdentityProviderCommand = async (
+/**
+ * deserializeAws_json1_1DescribeIdentityProviderCommand
+ */
+export const de_DescribeIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeIdentityProviderCommandError(output, context);
+    return de_DescribeIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeIdentityProviderResponse(data, context);
+  contents = de_DescribeIdentityProviderResponse(data, context);
   const response: DescribeIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4835,7 +5420,10 @@ export const deserializeAws_json1_1DescribeIdentityProviderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeIdentityProviderCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeIdentityProviderCommandError
+ */
+const de_DescribeIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderCommandOutput> => {
@@ -4847,19 +5435,19 @@ const deserializeAws_json1_1DescribeIdentityProviderCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4871,16 +5459,19 @@ const deserializeAws_json1_1DescribeIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeResourceServerCommand = async (
+/**
+ * deserializeAws_json1_1DescribeResourceServerCommand
+ */
+export const de_DescribeResourceServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeResourceServerCommandError(output, context);
+    return de_DescribeResourceServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourceServerResponse(data, context);
+  contents = de_DescribeResourceServerResponse(data, context);
   const response: DescribeResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4888,7 +5479,10 @@ export const deserializeAws_json1_1DescribeResourceServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeResourceServerCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeResourceServerCommandError
+ */
+const de_DescribeResourceServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourceServerCommandOutput> => {
@@ -4900,19 +5494,19 @@ const deserializeAws_json1_1DescribeResourceServerCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4924,16 +5518,19 @@ const deserializeAws_json1_1DescribeResourceServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeRiskConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeRiskConfigurationCommand
+ */
+export const de_DescribeRiskConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRiskConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeRiskConfigurationCommandError(output, context);
+    return de_DescribeRiskConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRiskConfigurationResponse(data, context);
+  contents = de_DescribeRiskConfigurationResponse(data, context);
   const response: DescribeRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4941,7 +5538,10 @@ export const deserializeAws_json1_1DescribeRiskConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeRiskConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeRiskConfigurationCommandError
+ */
+const de_DescribeRiskConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRiskConfigurationCommandOutput> => {
@@ -4953,22 +5553,22 @@ const deserializeAws_json1_1DescribeRiskConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4980,16 +5580,19 @@ const deserializeAws_json1_1DescribeRiskConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserImportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserImportJobCommand
+ */
+export const de_DescribeUserImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserImportJobCommandError(output, context);
+    return de_DescribeUserImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserImportJobResponse(data, context);
+  contents = de_DescribeUserImportJobResponse(data, context);
   const response: DescribeUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4997,7 +5600,10 @@ export const deserializeAws_json1_1DescribeUserImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserImportJobCommandError
+ */
+const de_DescribeUserImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserImportJobCommandOutput> => {
@@ -5009,19 +5615,19 @@ const deserializeAws_json1_1DescribeUserImportJobCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5033,16 +5639,19 @@ const deserializeAws_json1_1DescribeUserImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserPoolCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolCommand
+ */
+export const de_DescribeUserPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserPoolCommandError(output, context);
+    return de_DescribeUserPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolResponse(data, context);
+  contents = de_DescribeUserPoolResponse(data, context);
   const response: DescribeUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5050,7 +5659,10 @@ export const deserializeAws_json1_1DescribeUserPoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserPoolCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolCommandError
+ */
+const de_DescribeUserPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolCommandOutput> => {
@@ -5062,22 +5674,22 @@ const deserializeAws_json1_1DescribeUserPoolCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserPoolTaggingException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5089,16 +5701,19 @@ const deserializeAws_json1_1DescribeUserPoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserPoolClientCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolClientCommand
+ */
+export const de_DescribeUserPoolClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserPoolClientCommandError(output, context);
+    return de_DescribeUserPoolClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolClientResponse(data, context);
+  contents = de_DescribeUserPoolClientResponse(data, context);
   const response: DescribeUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5106,7 +5721,10 @@ export const deserializeAws_json1_1DescribeUserPoolClientCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserPoolClientCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolClientCommandError
+ */
+const de_DescribeUserPoolClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolClientCommandOutput> => {
@@ -5118,19 +5736,19 @@ const deserializeAws_json1_1DescribeUserPoolClientCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5142,16 +5760,19 @@ const deserializeAws_json1_1DescribeUserPoolClientCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserPoolDomainCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolDomainCommand
+ */
+export const de_DescribeUserPoolDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserPoolDomainCommandError(output, context);
+    return de_DescribeUserPoolDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolDomainResponse(data, context);
+  contents = de_DescribeUserPoolDomainResponse(data, context);
   const response: DescribeUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5159,7 +5780,10 @@ export const deserializeAws_json1_1DescribeUserPoolDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserPoolDomainCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserPoolDomainCommandError
+ */
+const de_DescribeUserPoolDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserPoolDomainCommandOutput> => {
@@ -5171,16 +5795,16 @@ const deserializeAws_json1_1DescribeUserPoolDomainCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5192,12 +5816,15 @@ const deserializeAws_json1_1DescribeUserPoolDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ForgetDeviceCommand = async (
+/**
+ * deserializeAws_json1_1ForgetDeviceCommand
+ */
+export const de_ForgetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ForgetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ForgetDeviceCommandError(output, context);
+    return de_ForgetDeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ForgetDeviceCommandOutput = {
@@ -5206,7 +5833,10 @@ export const deserializeAws_json1_1ForgetDeviceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ForgetDeviceCommandError = async (
+/**
+ * deserializeAws_json1_1ForgetDeviceCommandError
+ */
+const de_ForgetDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ForgetDeviceCommandOutput> => {
@@ -5218,34 +5848,34 @@ const deserializeAws_json1_1ForgetDeviceCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5257,16 +5887,19 @@ const deserializeAws_json1_1ForgetDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ForgotPasswordCommand = async (
+/**
+ * deserializeAws_json1_1ForgotPasswordCommand
+ */
+export const de_ForgotPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ForgotPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ForgotPasswordCommandError(output, context);
+    return de_ForgotPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ForgotPasswordResponse(data, context);
+  contents = de_ForgotPasswordResponse(data, context);
   const response: ForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5274,7 +5907,10 @@ export const deserializeAws_json1_1ForgotPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ForgotPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1ForgotPasswordCommandError
+ */
+const de_ForgotPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ForgotPasswordCommandOutput> => {
@@ -5286,49 +5922,49 @@ const deserializeAws_json1_1ForgotPasswordCommandError = async (
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5340,16 +5976,19 @@ const deserializeAws_json1_1ForgotPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetCSVHeaderCommand = async (
+/**
+ * deserializeAws_json1_1GetCSVHeaderCommand
+ */
+export const de_GetCSVHeaderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCSVHeaderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCSVHeaderCommandError(output, context);
+    return de_GetCSVHeaderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCSVHeaderResponse(data, context);
+  contents = de_GetCSVHeaderResponse(data, context);
   const response: GetCSVHeaderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5357,7 +5996,10 @@ export const deserializeAws_json1_1GetCSVHeaderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetCSVHeaderCommandError = async (
+/**
+ * deserializeAws_json1_1GetCSVHeaderCommandError
+ */
+const de_GetCSVHeaderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCSVHeaderCommandOutput> => {
@@ -5369,19 +6011,19 @@ const deserializeAws_json1_1GetCSVHeaderCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5393,16 +6035,19 @@ const deserializeAws_json1_1GetCSVHeaderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeviceCommand = async (
+/**
+ * deserializeAws_json1_1GetDeviceCommand
+ */
+export const de_GetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeviceCommandError(output, context);
+    return de_GetDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceResponse(data, context);
+  contents = de_GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5410,7 +6055,10 @@ export const deserializeAws_json1_1GetDeviceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeviceCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeviceCommandError
+ */
+const de_GetDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
@@ -5422,34 +6070,34 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5461,16 +6109,19 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetGroupCommand = async (
+/**
+ * deserializeAws_json1_1GetGroupCommand
+ */
+export const de_GetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetGroupCommandError(output, context);
+    return de_GetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGroupResponse(data, context);
+  contents = de_GetGroupResponse(data, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5478,7 +6129,10 @@ export const deserializeAws_json1_1GetGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1GetGroupCommandError
+ */
+const de_GetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
@@ -5490,19 +6144,19 @@ const deserializeAws_json1_1GetGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5514,16 +6168,19 @@ const deserializeAws_json1_1GetGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetIdentityProviderByIdentifierCommand = async (
+/**
+ * deserializeAws_json1_1GetIdentityProviderByIdentifierCommand
+ */
+export const de_GetIdentityProviderByIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityProviderByIdentifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError(output, context);
+    return de_GetIdentityProviderByIdentifierCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetIdentityProviderByIdentifierResponse(data, context);
+  contents = de_GetIdentityProviderByIdentifierResponse(data, context);
   const response: GetIdentityProviderByIdentifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5531,7 +6188,10 @@ export const deserializeAws_json1_1GetIdentityProviderByIdentifierCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError = async (
+/**
+ * deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
+ */
+const de_GetIdentityProviderByIdentifierCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityProviderByIdentifierCommandOutput> => {
@@ -5543,19 +6203,19 @@ const deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError = async 
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5567,16 +6227,19 @@ const deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1GetSigningCertificateCommand = async (
+/**
+ * deserializeAws_json1_1GetSigningCertificateCommand
+ */
+export const de_GetSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetSigningCertificateCommandError(output, context);
+    return de_GetSigningCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSigningCertificateResponse(data, context);
+  contents = de_GetSigningCertificateResponse(data, context);
   const response: GetSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5584,7 +6247,10 @@ export const deserializeAws_json1_1GetSigningCertificateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetSigningCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1GetSigningCertificateCommandError
+ */
+const de_GetSigningCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningCertificateCommandOutput> => {
@@ -5596,13 +6262,13 @@ const deserializeAws_json1_1GetSigningCertificateCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5614,16 +6280,19 @@ const deserializeAws_json1_1GetSigningCertificateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetUICustomizationCommand = async (
+/**
+ * deserializeAws_json1_1GetUICustomizationCommand
+ */
+export const de_GetUICustomizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUICustomizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUICustomizationCommandError(output, context);
+    return de_GetUICustomizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUICustomizationResponse(data, context);
+  contents = de_GetUICustomizationResponse(data, context);
   const response: GetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5631,7 +6300,10 @@ export const deserializeAws_json1_1GetUICustomizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetUICustomizationCommandError = async (
+/**
+ * deserializeAws_json1_1GetUICustomizationCommandError
+ */
+const de_GetUICustomizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUICustomizationCommandOutput> => {
@@ -5643,19 +6315,19 @@ const deserializeAws_json1_1GetUICustomizationCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5667,16 +6339,19 @@ const deserializeAws_json1_1GetUICustomizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetUserCommand = async (
+/**
+ * deserializeAws_json1_1GetUserCommand
+ */
+export const de_GetUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUserCommandError(output, context);
+    return de_GetUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserResponse(data, context);
+  contents = de_GetUserResponse(data, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5684,7 +6359,10 @@ export const deserializeAws_json1_1GetUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetUserCommandError = async (
+/**
+ * deserializeAws_json1_1GetUserCommandError
+ */
+const de_GetUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
@@ -5696,31 +6374,31 @@ const deserializeAws_json1_1GetUserCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5732,16 +6410,19 @@ const deserializeAws_json1_1GetUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetUserAttributeVerificationCodeCommand = async (
+/**
+ * deserializeAws_json1_1GetUserAttributeVerificationCodeCommand
+ */
+export const de_GetUserAttributeVerificationCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserAttributeVerificationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError(output, context);
+    return de_GetUserAttributeVerificationCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserAttributeVerificationCodeResponse(data, context);
+  contents = de_GetUserAttributeVerificationCodeResponse(data, context);
   const response: GetUserAttributeVerificationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5749,7 +6430,10 @@ export const deserializeAws_json1_1GetUserAttributeVerificationCodeCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError = async (
+/**
+ * deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError
+ */
+const de_GetUserAttributeVerificationCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserAttributeVerificationCodeCommandOutput> => {
@@ -5761,55 +6445,55 @@ const deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError = async
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5821,16 +6505,19 @@ const deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError = async
   }
 };
 
-export const deserializeAws_json1_1GetUserPoolMfaConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetUserPoolMfaConfigCommand
+ */
+export const de_GetUserPoolMfaConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserPoolMfaConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUserPoolMfaConfigCommandError(output, context);
+    return de_GetUserPoolMfaConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserPoolMfaConfigResponse(data, context);
+  contents = de_GetUserPoolMfaConfigResponse(data, context);
   const response: GetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5838,7 +6525,10 @@ export const deserializeAws_json1_1GetUserPoolMfaConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetUserPoolMfaConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetUserPoolMfaConfigCommandError
+ */
+const de_GetUserPoolMfaConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserPoolMfaConfigCommandOutput> => {
@@ -5850,19 +6540,19 @@ const deserializeAws_json1_1GetUserPoolMfaConfigCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5874,16 +6564,19 @@ const deserializeAws_json1_1GetUserPoolMfaConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GlobalSignOutCommand = async (
+/**
+ * deserializeAws_json1_1GlobalSignOutCommand
+ */
+export const de_GlobalSignOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GlobalSignOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GlobalSignOutCommandError(output, context);
+    return de_GlobalSignOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GlobalSignOutResponse(data, context);
+  contents = de_GlobalSignOutResponse(data, context);
   const response: GlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5891,7 +6584,10 @@ export const deserializeAws_json1_1GlobalSignOutCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GlobalSignOutCommandError = async (
+/**
+ * deserializeAws_json1_1GlobalSignOutCommandError
+ */
+const de_GlobalSignOutCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GlobalSignOutCommandOutput> => {
@@ -5903,28 +6599,28 @@ const deserializeAws_json1_1GlobalSignOutCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5936,16 +6632,19 @@ const deserializeAws_json1_1GlobalSignOutCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1InitiateAuthCommand = async (
+/**
+ * deserializeAws_json1_1InitiateAuthCommand
+ */
+export const de_InitiateAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateAuthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1InitiateAuthCommandError(output, context);
+    return de_InitiateAuthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitiateAuthResponse(data, context);
+  contents = de_InitiateAuthResponse(data, context);
   const response: InitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5953,7 +6652,10 @@ export const deserializeAws_json1_1InitiateAuthCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1InitiateAuthCommandError = async (
+/**
+ * deserializeAws_json1_1InitiateAuthCommandError
+ */
+const de_InitiateAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateAuthCommandOutput> => {
@@ -5965,49 +6667,49 @@ const deserializeAws_json1_1InitiateAuthCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6019,16 +6721,19 @@ const deserializeAws_json1_1InitiateAuthCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDevicesCommand = async (
+/**
+ * deserializeAws_json1_1ListDevicesCommand
+ */
+export const de_ListDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDevicesCommandError(output, context);
+    return de_ListDevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDevicesResponse(data, context);
+  contents = de_ListDevicesResponse(data, context);
   const response: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6036,7 +6741,10 @@ export const deserializeAws_json1_1ListDevicesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDevicesCommandError = async (
+/**
+ * deserializeAws_json1_1ListDevicesCommandError
+ */
+const de_ListDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
@@ -6048,34 +6756,34 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6087,16 +6795,19 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommand
+ */
+export const de_ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupsCommandError(output, context);
+    return de_ListGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupsResponse(data, context);
+  contents = de_ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6104,7 +6815,10 @@ export const deserializeAws_json1_1ListGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommandError
+ */
+const de_ListGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
@@ -6116,19 +6830,19 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6140,16 +6854,19 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListIdentityProvidersCommand = async (
+/**
+ * deserializeAws_json1_1ListIdentityProvidersCommand
+ */
+export const de_ListIdentityProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListIdentityProvidersCommandError(output, context);
+    return de_ListIdentityProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIdentityProvidersResponse(data, context);
+  contents = de_ListIdentityProvidersResponse(data, context);
   const response: ListIdentityProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6157,7 +6874,10 @@ export const deserializeAws_json1_1ListIdentityProvidersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListIdentityProvidersCommandError = async (
+/**
+ * deserializeAws_json1_1ListIdentityProvidersCommandError
+ */
+const de_ListIdentityProvidersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
@@ -6169,19 +6889,19 @@ const deserializeAws_json1_1ListIdentityProvidersCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6193,16 +6913,19 @@ const deserializeAws_json1_1ListIdentityProvidersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourceServersCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceServersCommand
+ */
+export const de_ListResourceServersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceServersCommandError(output, context);
+    return de_ListResourceServersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceServersResponse(data, context);
+  contents = de_ListResourceServersResponse(data, context);
   const response: ListResourceServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6210,7 +6933,10 @@ export const deserializeAws_json1_1ListResourceServersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourceServersCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceServersCommandError
+ */
+const de_ListResourceServersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceServersCommandOutput> => {
@@ -6222,19 +6948,19 @@ const deserializeAws_json1_1ListResourceServersCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6246,16 +6972,19 @@ const deserializeAws_json1_1ListResourceServersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6263,7 +6992,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -6275,19 +7007,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6299,16 +7031,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUserImportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListUserImportJobsCommand
+ */
+export const de_ListUserImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUserImportJobsCommandError(output, context);
+    return de_ListUserImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserImportJobsResponse(data, context);
+  contents = de_ListUserImportJobsResponse(data, context);
   const response: ListUserImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6316,7 +7051,10 @@ export const deserializeAws_json1_1ListUserImportJobsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUserImportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListUserImportJobsCommandError
+ */
+const de_ListUserImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserImportJobsCommandOutput> => {
@@ -6328,19 +7066,19 @@ const deserializeAws_json1_1ListUserImportJobsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6352,16 +7090,19 @@ const deserializeAws_json1_1ListUserImportJobsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUserPoolClientsCommand = async (
+/**
+ * deserializeAws_json1_1ListUserPoolClientsCommand
+ */
+export const de_ListUserPoolClientsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoolClientsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUserPoolClientsCommandError(output, context);
+    return de_ListUserPoolClientsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserPoolClientsResponse(data, context);
+  contents = de_ListUserPoolClientsResponse(data, context);
   const response: ListUserPoolClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6369,7 +7110,10 @@ export const deserializeAws_json1_1ListUserPoolClientsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUserPoolClientsCommandError = async (
+/**
+ * deserializeAws_json1_1ListUserPoolClientsCommandError
+ */
+const de_ListUserPoolClientsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoolClientsCommandOutput> => {
@@ -6381,19 +7125,19 @@ const deserializeAws_json1_1ListUserPoolClientsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6405,16 +7149,19 @@ const deserializeAws_json1_1ListUserPoolClientsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUserPoolsCommand = async (
+/**
+ * deserializeAws_json1_1ListUserPoolsCommand
+ */
+export const de_ListUserPoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUserPoolsCommandError(output, context);
+    return de_ListUserPoolsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserPoolsResponse(data, context);
+  contents = de_ListUserPoolsResponse(data, context);
   const response: ListUserPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6422,7 +7169,10 @@ export const deserializeAws_json1_1ListUserPoolsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUserPoolsCommandError = async (
+/**
+ * deserializeAws_json1_1ListUserPoolsCommandError
+ */
+const de_ListUserPoolsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoolsCommandOutput> => {
@@ -6434,16 +7184,16 @@ const deserializeAws_json1_1ListUserPoolsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6455,16 +7205,19 @@ const deserializeAws_json1_1ListUserPoolsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsersCommand = async (
+/**
+ * deserializeAws_json1_1ListUsersCommand
+ */
+export const de_ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsersCommandError(output, context);
+    return de_ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(data, context);
+  contents = de_ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6472,7 +7225,10 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsersCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsersCommandError
+ */
+const de_ListUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
@@ -6484,19 +7240,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6508,16 +7264,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsersInGroupCommand = async (
+/**
+ * deserializeAws_json1_1ListUsersInGroupCommand
+ */
+export const de_ListUsersInGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersInGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsersInGroupCommandError(output, context);
+    return de_ListUsersInGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersInGroupResponse(data, context);
+  contents = de_ListUsersInGroupResponse(data, context);
   const response: ListUsersInGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6525,7 +7284,10 @@ export const deserializeAws_json1_1ListUsersInGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsersInGroupCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsersInGroupCommandError
+ */
+const de_ListUsersInGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersInGroupCommandOutput> => {
@@ -6537,19 +7299,19 @@ const deserializeAws_json1_1ListUsersInGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6561,16 +7323,19 @@ const deserializeAws_json1_1ListUsersInGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ResendConfirmationCodeCommand = async (
+/**
+ * deserializeAws_json1_1ResendConfirmationCodeCommand
+ */
+export const de_ResendConfirmationCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendConfirmationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ResendConfirmationCodeCommandError(output, context);
+    return de_ResendConfirmationCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResendConfirmationCodeResponse(data, context);
+  contents = de_ResendConfirmationCodeResponse(data, context);
   const response: ResendConfirmationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6578,7 +7343,10 @@ export const deserializeAws_json1_1ResendConfirmationCodeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ResendConfirmationCodeCommandError = async (
+/**
+ * deserializeAws_json1_1ResendConfirmationCodeCommandError
+ */
+const de_ResendConfirmationCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendConfirmationCodeCommandOutput> => {
@@ -6590,49 +7358,49 @@ const deserializeAws_json1_1ResendConfirmationCodeCommandError = async (
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6644,16 +7412,19 @@ const deserializeAws_json1_1ResendConfirmationCodeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RespondToAuthChallengeCommand = async (
+/**
+ * deserializeAws_json1_1RespondToAuthChallengeCommand
+ */
+export const de_RespondToAuthChallengeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondToAuthChallengeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RespondToAuthChallengeCommandError(output, context);
+    return de_RespondToAuthChallengeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RespondToAuthChallengeResponse(data, context);
+  contents = de_RespondToAuthChallengeResponse(data, context);
   const response: RespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6661,7 +7432,10 @@ export const deserializeAws_json1_1RespondToAuthChallengeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RespondToAuthChallengeCommandError = async (
+/**
+ * deserializeAws_json1_1RespondToAuthChallengeCommandError
+ */
+const de_RespondToAuthChallengeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondToAuthChallengeCommandOutput> => {
@@ -6673,67 +7447,67 @@ const deserializeAws_json1_1RespondToAuthChallengeCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
+      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6745,16 +7519,19 @@ const deserializeAws_json1_1RespondToAuthChallengeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RevokeTokenCommand = async (
+/**
+ * deserializeAws_json1_1RevokeTokenCommand
+ */
+export const de_RevokeTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RevokeTokenCommandError(output, context);
+    return de_RevokeTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RevokeTokenResponse(data, context);
+  contents = de_RevokeTokenResponse(data, context);
   const response: RevokeTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6762,7 +7539,10 @@ export const deserializeAws_json1_1RevokeTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RevokeTokenCommandError = async (
+/**
+ * deserializeAws_json1_1RevokeTokenCommandError
+ */
+const de_RevokeTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeTokenCommandOutput> => {
@@ -6774,25 +7554,25 @@ const deserializeAws_json1_1RevokeTokenCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.cognitoidentityprovider#UnauthorizedException":
-      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     case "UnsupportedTokenTypeException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
-      throw await deserializeAws_json1_1UnsupportedTokenTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6804,16 +7584,19 @@ const deserializeAws_json1_1RevokeTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetRiskConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1SetRiskConfigurationCommand
+ */
+export const de_SetRiskConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRiskConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetRiskConfigurationCommandError(output, context);
+    return de_SetRiskConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetRiskConfigurationResponse(data, context);
+  contents = de_SetRiskConfigurationResponse(data, context);
   const response: SetRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6821,7 +7604,10 @@ export const deserializeAws_json1_1SetRiskConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetRiskConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1SetRiskConfigurationCommandError
+ */
+const de_SetRiskConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRiskConfigurationCommandOutput> => {
@@ -6833,28 +7619,28 @@ const deserializeAws_json1_1SetRiskConfigurationCommandError = async (
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6866,16 +7652,19 @@ const deserializeAws_json1_1SetRiskConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetUICustomizationCommand = async (
+/**
+ * deserializeAws_json1_1SetUICustomizationCommand
+ */
+export const de_SetUICustomizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUICustomizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetUICustomizationCommandError(output, context);
+    return de_SetUICustomizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUICustomizationResponse(data, context);
+  contents = de_SetUICustomizationResponse(data, context);
   const response: SetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6883,7 +7672,10 @@ export const deserializeAws_json1_1SetUICustomizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetUICustomizationCommandError = async (
+/**
+ * deserializeAws_json1_1SetUICustomizationCommandError
+ */
+const de_SetUICustomizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUICustomizationCommandOutput> => {
@@ -6895,19 +7687,19 @@ const deserializeAws_json1_1SetUICustomizationCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6919,16 +7711,19 @@ const deserializeAws_json1_1SetUICustomizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetUserMFAPreferenceCommand = async (
+/**
+ * deserializeAws_json1_1SetUserMFAPreferenceCommand
+ */
+export const de_SetUserMFAPreferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserMFAPreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetUserMFAPreferenceCommandError(output, context);
+    return de_SetUserMFAPreferenceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserMFAPreferenceResponse(data, context);
+  contents = de_SetUserMFAPreferenceResponse(data, context);
   const response: SetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6936,7 +7731,10 @@ export const deserializeAws_json1_1SetUserMFAPreferenceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetUserMFAPreferenceCommandError = async (
+/**
+ * deserializeAws_json1_1SetUserMFAPreferenceCommandError
+ */
+const de_SetUserMFAPreferenceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserMFAPreferenceCommandOutput> => {
@@ -6948,28 +7746,28 @@ const deserializeAws_json1_1SetUserMFAPreferenceCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6981,16 +7779,19 @@ const deserializeAws_json1_1SetUserMFAPreferenceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetUserPoolMfaConfigCommand = async (
+/**
+ * deserializeAws_json1_1SetUserPoolMfaConfigCommand
+ */
+export const de_SetUserPoolMfaConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserPoolMfaConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetUserPoolMfaConfigCommandError(output, context);
+    return de_SetUserPoolMfaConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserPoolMfaConfigResponse(data, context);
+  contents = de_SetUserPoolMfaConfigResponse(data, context);
   const response: SetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -6998,7 +7799,10 @@ export const deserializeAws_json1_1SetUserPoolMfaConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetUserPoolMfaConfigCommandError = async (
+/**
+ * deserializeAws_json1_1SetUserPoolMfaConfigCommandError
+ */
+const de_SetUserPoolMfaConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserPoolMfaConfigCommandOutput> => {
@@ -7010,25 +7814,25 @@ const deserializeAws_json1_1SetUserPoolMfaConfigCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7040,16 +7844,19 @@ const deserializeAws_json1_1SetUserPoolMfaConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetUserSettingsCommand = async (
+/**
+ * deserializeAws_json1_1SetUserSettingsCommand
+ */
+export const de_SetUserSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetUserSettingsCommandError(output, context);
+    return de_SetUserSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserSettingsResponse(data, context);
+  contents = de_SetUserSettingsResponse(data, context);
   const response: SetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7057,7 +7864,10 @@ export const deserializeAws_json1_1SetUserSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetUserSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1SetUserSettingsCommandError
+ */
+const de_SetUserSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetUserSettingsCommandOutput> => {
@@ -7069,28 +7879,28 @@ const deserializeAws_json1_1SetUserSettingsCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7102,16 +7912,19 @@ const deserializeAws_json1_1SetUserSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SignUpCommand = async (
+/**
+ * deserializeAws_json1_1SignUpCommand
+ */
+export const de_SignUpCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SignUpCommandError(output, context);
+    return de_SignUpCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SignUpResponse(data, context);
+  contents = de_SignUpResponse(data, context);
   const response: SignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7119,10 +7932,10 @@ export const deserializeAws_json1_1SignUpCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SignUpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SignUpCommandOutput> => {
+/**
+ * deserializeAws_json1_1SignUpCommandError
+ */
+const de_SignUpCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SignUpCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7131,49 +7944,49 @@ const deserializeAws_json1_1SignUpCommandError = async (
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UsernameExistsException":
     case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
+      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7185,16 +7998,19 @@ const deserializeAws_json1_1SignUpCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartUserImportJobCommand = async (
+/**
+ * deserializeAws_json1_1StartUserImportJobCommand
+ */
+export const de_StartUserImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartUserImportJobCommandError(output, context);
+    return de_StartUserImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartUserImportJobResponse(data, context);
+  contents = de_StartUserImportJobResponse(data, context);
   const response: StartUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7202,7 +8018,10 @@ export const deserializeAws_json1_1StartUserImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartUserImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1StartUserImportJobCommandError
+ */
+const de_StartUserImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartUserImportJobCommandOutput> => {
@@ -7214,22 +8033,22 @@ const deserializeAws_json1_1StartUserImportJobCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7241,16 +8060,19 @@ const deserializeAws_json1_1StartUserImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StopUserImportJobCommand = async (
+/**
+ * deserializeAws_json1_1StopUserImportJobCommand
+ */
+export const de_StopUserImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopUserImportJobCommandError(output, context);
+    return de_StopUserImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopUserImportJobResponse(data, context);
+  contents = de_StopUserImportJobResponse(data, context);
   const response: StopUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7258,7 +8080,10 @@ export const deserializeAws_json1_1StopUserImportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopUserImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1StopUserImportJobCommandError
+ */
+const de_StopUserImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopUserImportJobCommandOutput> => {
@@ -7270,22 +8095,22 @@ const deserializeAws_json1_1StopUserImportJobCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7297,16 +8122,19 @@ const deserializeAws_json1_1StopUserImportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7314,7 +8142,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -7326,19 +8157,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7350,16 +8181,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7367,7 +8201,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -7379,19 +8216,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7403,16 +8240,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateAuthEventFeedbackCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAuthEventFeedbackCommand
+ */
+export const de_UpdateAuthEventFeedbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthEventFeedbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(output, context);
+    return de_UpdateAuthEventFeedbackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAuthEventFeedbackResponse(data, context);
+  contents = de_UpdateAuthEventFeedbackResponse(data, context);
   const response: UpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7420,7 +8260,10 @@ export const deserializeAws_json1_1UpdateAuthEventFeedbackCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateAuthEventFeedbackCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAuthEventFeedbackCommandError
+ */
+const de_UpdateAuthEventFeedbackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthEventFeedbackCommandOutput> => {
@@ -7432,25 +8275,25 @@ const deserializeAws_json1_1UpdateAuthEventFeedbackCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7462,16 +8305,19 @@ const deserializeAws_json1_1UpdateAuthEventFeedbackCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateDeviceStatusCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDeviceStatusCommand
+ */
+export const de_UpdateDeviceStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDeviceStatusCommandError(output, context);
+    return de_UpdateDeviceStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeviceStatusResponse(data, context);
+  contents = de_UpdateDeviceStatusResponse(data, context);
   const response: UpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7479,7 +8325,10 @@ export const deserializeAws_json1_1UpdateDeviceStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDeviceStatusCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDeviceStatusCommandError
+ */
+const de_UpdateDeviceStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceStatusCommandOutput> => {
@@ -7491,34 +8340,34 @@ const deserializeAws_json1_1UpdateDeviceStatusCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7530,16 +8379,19 @@ const deserializeAws_json1_1UpdateDeviceStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateGroupCommand
+ */
+export const de_UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateGroupCommandError(output, context);
+    return de_UpdateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGroupResponse(data, context);
+  contents = de_UpdateGroupResponse(data, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7547,7 +8399,10 @@ export const deserializeAws_json1_1UpdateGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateGroupCommandError
+ */
+const de_UpdateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
@@ -7559,19 +8414,19 @@ const deserializeAws_json1_1UpdateGroupCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7583,16 +8438,19 @@ const deserializeAws_json1_1UpdateGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateIdentityProviderCommand = async (
+/**
+ * deserializeAws_json1_1UpdateIdentityProviderCommand
+ */
+export const de_UpdateIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateIdentityProviderCommandError(output, context);
+    return de_UpdateIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateIdentityProviderResponse(data, context);
+  contents = de_UpdateIdentityProviderResponse(data, context);
   const response: UpdateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7600,7 +8458,10 @@ export const deserializeAws_json1_1UpdateIdentityProviderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateIdentityProviderCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateIdentityProviderCommandError
+ */
+const de_UpdateIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderCommandOutput> => {
@@ -7612,25 +8473,25 @@ const deserializeAws_json1_1UpdateIdentityProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
-      throw await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7642,16 +8503,19 @@ const deserializeAws_json1_1UpdateIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateResourceServerCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResourceServerCommand
+ */
+export const de_UpdateResourceServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResourceServerCommandError(output, context);
+    return de_UpdateResourceServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResourceServerResponse(data, context);
+  contents = de_UpdateResourceServerResponse(data, context);
   const response: UpdateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7659,7 +8523,10 @@ export const deserializeAws_json1_1UpdateResourceServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResourceServerCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResourceServerCommandError
+ */
+const de_UpdateResourceServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceServerCommandOutput> => {
@@ -7671,19 +8538,19 @@ const deserializeAws_json1_1UpdateResourceServerCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7695,16 +8562,19 @@ const deserializeAws_json1_1UpdateResourceServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserAttributesCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserAttributesCommand
+ */
+export const de_UpdateUserAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserAttributesCommandError(output, context);
+    return de_UpdateUserAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserAttributesResponse(data, context);
+  contents = de_UpdateUserAttributesResponse(data, context);
   const response: UpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7712,7 +8582,10 @@ export const deserializeAws_json1_1UpdateUserAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserAttributesCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserAttributesCommandError
+ */
+const de_UpdateUserAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserAttributesCommandOutput> => {
@@ -7724,61 +8597,61 @@ const deserializeAws_json1_1UpdateUserAttributesCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7790,16 +8663,19 @@ const deserializeAws_json1_1UpdateUserAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserPoolCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolCommand
+ */
+export const de_UpdateUserPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserPoolCommandError(output, context);
+    return de_UpdateUserPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolResponse(data, context);
+  contents = de_UpdateUserPoolResponse(data, context);
   const response: UpdateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7807,7 +8683,10 @@ export const deserializeAws_json1_1UpdateUserPoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserPoolCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolCommandError
+ */
+const de_UpdateUserPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolCommandOutput> => {
@@ -7819,37 +8698,37 @@ const deserializeAws_json1_1UpdateUserPoolCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserImportInProgressException":
     case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
+      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     case "UserPoolTaggingException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
+      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7861,16 +8740,19 @@ const deserializeAws_json1_1UpdateUserPoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserPoolClientCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolClientCommand
+ */
+export const de_UpdateUserPoolClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserPoolClientCommandError(output, context);
+    return de_UpdateUserPoolClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolClientResponse(data, context);
+  contents = de_UpdateUserPoolClientResponse(data, context);
   const response: UpdateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7878,7 +8760,10 @@ export const deserializeAws_json1_1UpdateUserPoolClientCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserPoolClientCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolClientCommandError
+ */
+const de_UpdateUserPoolClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolClientCommandOutput> => {
@@ -7890,28 +8775,28 @@ const deserializeAws_json1_1UpdateUserPoolClientCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException":
-      throw await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOAuthFlowExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException":
-      throw await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ScopeDoesNotExistExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7923,16 +8808,19 @@ const deserializeAws_json1_1UpdateUserPoolClientCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserPoolDomainCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolDomainCommand
+ */
+export const de_UpdateUserPoolDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserPoolDomainCommandError(output, context);
+    return de_UpdateUserPoolDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolDomainResponse(data, context);
+  contents = de_UpdateUserPoolDomainResponse(data, context);
   const response: UpdateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7940,7 +8828,10 @@ export const deserializeAws_json1_1UpdateUserPoolDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserPoolDomainCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserPoolDomainCommandError
+ */
+const de_UpdateUserPoolDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPoolDomainCommandOutput> => {
@@ -7952,19 +8843,19 @@ const deserializeAws_json1_1UpdateUserPoolDomainCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7976,16 +8867,19 @@ const deserializeAws_json1_1UpdateUserPoolDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1VerifySoftwareTokenCommand = async (
+/**
+ * deserializeAws_json1_1VerifySoftwareTokenCommand
+ */
+export const de_VerifySoftwareTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifySoftwareTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1VerifySoftwareTokenCommandError(output, context);
+    return de_VerifySoftwareTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifySoftwareTokenResponse(data, context);
+  contents = de_VerifySoftwareTokenResponse(data, context);
   const response: VerifySoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -7993,7 +8887,10 @@ export const deserializeAws_json1_1VerifySoftwareTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1VerifySoftwareTokenCommandError = async (
+/**
+ * deserializeAws_json1_1VerifySoftwareTokenCommandError
+ */
+const de_VerifySoftwareTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifySoftwareTokenCommandOutput> => {
@@ -8005,43 +8902,43 @@ const deserializeAws_json1_1VerifySoftwareTokenCommandError = async (
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "EnableSoftwareTokenMFAException":
     case "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException":
-      throw await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(parsedOutput, context);
+      throw await de_EnableSoftwareTokenMFAExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
+      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -8053,16 +8950,19 @@ const deserializeAws_json1_1VerifySoftwareTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1VerifyUserAttributeCommand = async (
+/**
+ * deserializeAws_json1_1VerifyUserAttributeCommand
+ */
+export const de_VerifyUserAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyUserAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1VerifyUserAttributeCommandError(output, context);
+    return de_VerifyUserAttributeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyUserAttributeResponse(data, context);
+  contents = de_VerifyUserAttributeResponse(data, context);
   const response: VerifyUserAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -8070,7 +8970,10 @@ export const deserializeAws_json1_1VerifyUserAttributeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1VerifyUserAttributeCommandError = async (
+/**
+ * deserializeAws_json1_1VerifyUserAttributeCommandError
+ */
+const de_VerifyUserAttributeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyUserAttributeCommandOutput> => {
@@ -8082,43 +8985,43 @@ const deserializeAws_json1_1VerifyUserAttributeCommandError = async (
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -8130,12 +9033,15 @@ const deserializeAws_json1_1VerifyUserAttributeCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AliasExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AliasExistsExceptionRes
+ */
+const de_AliasExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AliasExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AliasExistsException(body, context);
+  const deserialized: any = de_AliasExistsException(body, context);
   const exception = new AliasExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8143,12 +9049,15 @@ const deserializeAws_json1_1AliasExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CodeDeliveryFailureExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CodeDeliveryFailureExceptionRes
+ */
+const de_CodeDeliveryFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CodeDeliveryFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CodeDeliveryFailureException(body, context);
+  const deserialized: any = de_CodeDeliveryFailureException(body, context);
   const exception = new CodeDeliveryFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8156,12 +9065,15 @@ const deserializeAws_json1_1CodeDeliveryFailureExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CodeMismatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CodeMismatchExceptionRes
+ */
+const de_CodeMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CodeMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CodeMismatchException(body, context);
+  const deserialized: any = de_CodeMismatchException(body, context);
   const exception = new CodeMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8169,12 +9081,15 @@ const deserializeAws_json1_1CodeMismatchExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = de_ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8182,12 +9097,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicateProviderExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateProviderExceptionRes
+ */
+const de_DuplicateProviderExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateProviderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateProviderException(body, context);
+  const deserialized: any = de_DuplicateProviderException(body, context);
   const exception = new DuplicateProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8195,12 +9113,15 @@ const deserializeAws_json1_1DuplicateProviderExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EnableSoftwareTokenMFAExceptionRes
+ */
+const de_EnableSoftwareTokenMFAExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EnableSoftwareTokenMFAException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EnableSoftwareTokenMFAException(body, context);
+  const deserialized: any = de_EnableSoftwareTokenMFAException(body, context);
   const exception = new EnableSoftwareTokenMFAException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8208,12 +9129,15 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ExpiredCodeExceptionRes
+ */
+const de_ExpiredCodeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExpiredCodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ExpiredCodeException(body, context);
+  const deserialized: any = de_ExpiredCodeException(body, context);
   const exception = new ExpiredCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8221,12 +9145,12 @@ const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_json1_1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ForbiddenException(body, context);
+  const deserialized: any = de_ForbiddenException(body, context);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8234,12 +9158,15 @@ const deserializeAws_json1_1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1GroupExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1GroupExistsExceptionRes
+ */
+const de_GroupExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GroupExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1GroupExistsException(body, context);
+  const deserialized: any = de_GroupExistsException(body, context);
   const exception = new GroupExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8247,12 +9174,15 @@ const deserializeAws_json1_1GroupExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalErrorExceptionRes
+ */
+const de_InternalErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(body, context);
+  const deserialized: any = de_InternalErrorException(body, context);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8260,12 +9190,15 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionRes
+ */
+const de_InvalidEmailRoleAccessPolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEmailRoleAccessPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEmailRoleAccessPolicyException(body, context);
+  const deserialized: any = de_InvalidEmailRoleAccessPolicyException(body, context);
   const exception = new InvalidEmailRoleAccessPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8273,12 +9206,15 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLambdaResponseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLambdaResponseExceptionRes
+ */
+const de_InvalidLambdaResponseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLambdaResponseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLambdaResponseException(body, context);
+  const deserialized: any = de_InvalidLambdaResponseException(body, context);
   const exception = new InvalidLambdaResponseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8286,12 +9222,15 @@ const deserializeAws_json1_1InvalidLambdaResponseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOAuthFlowExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOAuthFlowExceptionRes
+ */
+const de_InvalidOAuthFlowExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOAuthFlowException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOAuthFlowException(body, context);
+  const deserialized: any = de_InvalidOAuthFlowException(body, context);
   const exception = new InvalidOAuthFlowException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8299,12 +9238,15 @@ const deserializeAws_json1_1InvalidOAuthFlowExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8312,12 +9254,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPasswordExceptionRes
+ */
+const de_InvalidPasswordExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPasswordException(body, context);
+  const deserialized: any = de_InvalidPasswordException(body, context);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8325,12 +9270,15 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionRes
+ */
+const de_InvalidSmsRoleAccessPolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSmsRoleAccessPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleAccessPolicyException(body, context);
+  const deserialized: any = de_InvalidSmsRoleAccessPolicyException(body, context);
   const exception = new InvalidSmsRoleAccessPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8338,12 +9286,15 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionRes
+ */
+const de_InvalidSmsRoleTrustRelationshipExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSmsRoleTrustRelationshipException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException(body, context);
+  const deserialized: any = de_InvalidSmsRoleTrustRelationshipException(body, context);
   const exception = new InvalidSmsRoleTrustRelationshipException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8351,12 +9302,15 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidUserPoolConfigurationExceptionRes
+ */
+const de_InvalidUserPoolConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUserPoolConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidUserPoolConfigurationException(body, context);
+  const deserialized: any = de_InvalidUserPoolConfigurationException(body, context);
   const exception = new InvalidUserPoolConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8364,12 +9318,15 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8377,12 +9334,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MFAMethodNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MFAMethodNotFoundExceptionRes
+ */
+const de_MFAMethodNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MFAMethodNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MFAMethodNotFoundException(body, context);
+  const deserialized: any = de_MFAMethodNotFoundException(body, context);
   const exception = new MFAMethodNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8390,12 +9350,15 @@ const deserializeAws_json1_1MFAMethodNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NotAuthorizedExceptionRes
+ */
+const de_NotAuthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotAuthorizedException(body, context);
+  const deserialized: any = de_NotAuthorizedException(body, context);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8403,12 +9366,15 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PasswordResetRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PasswordResetRequiredExceptionRes
+ */
+const de_PasswordResetRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PasswordResetRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PasswordResetRequiredException(body, context);
+  const deserialized: any = de_PasswordResetRequiredException(body, context);
   const exception = new PasswordResetRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8416,12 +9382,15 @@ const deserializeAws_json1_1PasswordResetRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PreconditionNotMetExceptionRes
+ */
+const de_PreconditionNotMetExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PreconditionNotMetException(body, context);
+  const deserialized: any = de_PreconditionNotMetException(body, context);
   const exception = new PreconditionNotMetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8429,12 +9398,15 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8442,12 +9414,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ScopeDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ScopeDoesNotExistExceptionRes
+ */
+const de_ScopeDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ScopeDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ScopeDoesNotExistException(body, context);
+  const deserialized: any = de_ScopeDoesNotExistException(body, context);
   const exception = new ScopeDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8455,12 +9430,15 @@ const deserializeAws_json1_1ScopeDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionRes
+ */
+const de_SoftwareTokenMFANotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SoftwareTokenMFANotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SoftwareTokenMFANotFoundException(body, context);
+  const deserialized: any = de_SoftwareTokenMFANotFoundException(body, context);
   const exception = new SoftwareTokenMFANotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8468,12 +9446,15 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyFailedAttemptsExceptionRes
+ */
+const de_TooManyFailedAttemptsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFailedAttemptsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyFailedAttemptsException(body, context);
+  const deserialized: any = de_TooManyFailedAttemptsException(body, context);
   const exception = new TooManyFailedAttemptsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8481,12 +9462,15 @@ const deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
+  const deserialized: any = de_TooManyRequestsException(body, context);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8494,12 +9478,15 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnauthorizedException(body, context);
+  const deserialized: any = de_UnauthorizedException(body, context);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8507,12 +9494,15 @@ const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnexpectedLambdaExceptionRes
+ */
+const de_UnexpectedLambdaExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnexpectedLambdaException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnexpectedLambdaException(body, context);
+  const deserialized: any = de_UnexpectedLambdaException(body, context);
   const exception = new UnexpectedLambdaException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8520,12 +9510,15 @@ const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedIdentityProviderExceptionRes
+ */
+const de_UnsupportedIdentityProviderExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedIdentityProviderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedIdentityProviderException(body, context);
+  const deserialized: any = de_UnsupportedIdentityProviderException(body, context);
   const exception = new UnsupportedIdentityProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8533,12 +9526,15 @@ const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
+  const deserialized: any = de_UnsupportedOperationException(body, context);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8546,12 +9542,15 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedTokenTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedTokenTypeExceptionRes
+ */
+const de_UnsupportedTokenTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedTokenTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedTokenTypeException(body, context);
+  const deserialized: any = de_UnsupportedTokenTypeException(body, context);
   const exception = new UnsupportedTokenTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8559,12 +9558,15 @@ const deserializeAws_json1_1UnsupportedTokenTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedUserStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedUserStateExceptionRes
+ */
+const de_UnsupportedUserStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedUserStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedUserStateException(body, context);
+  const deserialized: any = de_UnsupportedUserStateException(body, context);
   const exception = new UnsupportedUserStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8572,12 +9574,15 @@ const deserializeAws_json1_1UnsupportedUserStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserImportInProgressExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserImportInProgressExceptionRes
+ */
+const de_UserImportInProgressExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserImportInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserImportInProgressException(body, context);
+  const deserialized: any = de_UserImportInProgressException(body, context);
   const exception = new UserImportInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8585,12 +9590,15 @@ const deserializeAws_json1_1UserImportInProgressExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserLambdaValidationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserLambdaValidationExceptionRes
+ */
+const de_UserLambdaValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserLambdaValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserLambdaValidationException(body, context);
+  const deserialized: any = de_UserLambdaValidationException(body, context);
   const exception = new UserLambdaValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8598,12 +9606,15 @@ const deserializeAws_json1_1UserLambdaValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UsernameExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UsernameExistsExceptionRes
+ */
+const de_UsernameExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UsernameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UsernameExistsException(body, context);
+  const deserialized: any = de_UsernameExistsException(body, context);
   const exception = new UsernameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8611,12 +9622,15 @@ const deserializeAws_json1_1UsernameExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserNotConfirmedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserNotConfirmedExceptionRes
+ */
+const de_UserNotConfirmedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserNotConfirmedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserNotConfirmedException(body, context);
+  const deserialized: any = de_UserNotConfirmedException(body, context);
   const exception = new UserNotConfirmedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8624,12 +9638,15 @@ const deserializeAws_json1_1UserNotConfirmedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserNotFoundExceptionRes
+ */
+const de_UserNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserNotFoundException(body, context);
+  const deserialized: any = de_UserNotFoundException(body, context);
   const exception = new UserNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8637,12 +9654,15 @@ const deserializeAws_json1_1UserNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionRes
+ */
+const de_UserPoolAddOnNotEnabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserPoolAddOnNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserPoolAddOnNotEnabledException(body, context);
+  const deserialized: any = de_UserPoolAddOnNotEnabledException(body, context);
   const exception = new UserPoolAddOnNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8650,12 +9670,15 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserPoolTaggingExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserPoolTaggingExceptionRes
+ */
+const de_UserPoolTaggingExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserPoolTaggingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserPoolTaggingException(body, context);
+  const deserialized: any = de_UserPoolTaggingException(body, context);
   const exception = new UserPoolTaggingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8663,72 +9686,69 @@ const deserializeAws_json1_1UserPoolTaggingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AccountRecoverySettingType = (
-  input: AccountRecoverySettingType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AccountRecoverySettingType
+ */
+const se_AccountRecoverySettingType = (input: AccountRecoverySettingType, context: __SerdeContext): any => {
   return {
     ...(input.RecoveryMechanisms != null && {
-      RecoveryMechanisms: serializeAws_json1_1RecoveryMechanismsType(input.RecoveryMechanisms, context),
+      RecoveryMechanisms: se_RecoveryMechanismsType(input.RecoveryMechanisms, context),
     }),
   };
 };
 
-const serializeAws_json1_1AccountTakeoverActionsType = (
-  input: AccountTakeoverActionsType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AccountTakeoverActionsType
+ */
+const se_AccountTakeoverActionsType = (input: AccountTakeoverActionsType, context: __SerdeContext): any => {
   return {
-    ...(input.HighAction != null && {
-      HighAction: serializeAws_json1_1AccountTakeoverActionType(input.HighAction, context),
-    }),
-    ...(input.LowAction != null && {
-      LowAction: serializeAws_json1_1AccountTakeoverActionType(input.LowAction, context),
-    }),
-    ...(input.MediumAction != null && {
-      MediumAction: serializeAws_json1_1AccountTakeoverActionType(input.MediumAction, context),
-    }),
+    ...(input.HighAction != null && { HighAction: se_AccountTakeoverActionType(input.HighAction, context) }),
+    ...(input.LowAction != null && { LowAction: se_AccountTakeoverActionType(input.LowAction, context) }),
+    ...(input.MediumAction != null && { MediumAction: se_AccountTakeoverActionType(input.MediumAction, context) }),
   };
 };
 
-const serializeAws_json1_1AccountTakeoverActionType = (
-  input: AccountTakeoverActionType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AccountTakeoverActionType
+ */
+const se_AccountTakeoverActionType = (input: AccountTakeoverActionType, context: __SerdeContext): any => {
   return {
     ...(input.EventAction != null && { EventAction: input.EventAction }),
     ...(input.Notify != null && { Notify: input.Notify }),
   };
 };
 
-const serializeAws_json1_1AccountTakeoverRiskConfigurationType = (
+/**
+ * serializeAws_json1_1AccountTakeoverRiskConfigurationType
+ */
+const se_AccountTakeoverRiskConfigurationType = (
   input: AccountTakeoverRiskConfigurationType,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Actions != null && { Actions: serializeAws_json1_1AccountTakeoverActionsType(input.Actions, context) }),
+    ...(input.Actions != null && { Actions: se_AccountTakeoverActionsType(input.Actions, context) }),
     ...(input.NotifyConfiguration != null && {
-      NotifyConfiguration: serializeAws_json1_1NotifyConfigurationType(input.NotifyConfiguration, context),
+      NotifyConfiguration: se_NotifyConfigurationType(input.NotifyConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_1AddCustomAttributesRequest = (
-  input: AddCustomAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AddCustomAttributesRequest
+ */
+const se_AddCustomAttributesRequest = (input: AddCustomAttributesRequest, context: __SerdeContext): any => {
   return {
     ...(input.CustomAttributes != null && {
-      CustomAttributes: serializeAws_json1_1CustomAttributesListType(input.CustomAttributes, context),
+      CustomAttributes: se_CustomAttributesListType(input.CustomAttributes, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1AdminAddUserToGroupRequest = (
-  input: AdminAddUserToGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminAddUserToGroupRequest
+ */
+const se_AdminAddUserToGroupRequest = (input: AdminAddUserToGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
@@ -8736,110 +9756,109 @@ const serializeAws_json1_1AdminAddUserToGroupRequest = (
   };
 };
 
-const serializeAws_json1_1AdminConfirmSignUpRequest = (
-  input: AdminConfirmSignUpRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminConfirmSignUpRequest
+ */
+const se_AdminConfirmSignUpRequest = (input: AdminConfirmSignUpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminCreateUserConfigType = (
-  input: AdminCreateUserConfigType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminCreateUserConfigType
+ */
+const se_AdminCreateUserConfigType = (input: AdminCreateUserConfigType, context: __SerdeContext): any => {
   return {
     ...(input.AllowAdminCreateUserOnly != null && { AllowAdminCreateUserOnly: input.AllowAdminCreateUserOnly }),
     ...(input.InviteMessageTemplate != null && {
-      InviteMessageTemplate: serializeAws_json1_1MessageTemplateType(input.InviteMessageTemplate, context),
+      InviteMessageTemplate: se_MessageTemplateType(input.InviteMessageTemplate, context),
     }),
     ...(input.UnusedAccountValidityDays != null && { UnusedAccountValidityDays: input.UnusedAccountValidityDays }),
   };
 };
 
-const serializeAws_json1_1AdminCreateUserRequest = (input: AdminCreateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminCreateUserRequest
+ */
+const se_AdminCreateUserRequest = (input: AdminCreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.DesiredDeliveryMediums != null && {
-      DesiredDeliveryMediums: serializeAws_json1_1DeliveryMediumListType(input.DesiredDeliveryMediums, context),
+      DesiredDeliveryMediums: se_DeliveryMediumListType(input.DesiredDeliveryMediums, context),
     }),
     ...(input.ForceAliasCreation != null && { ForceAliasCreation: input.ForceAliasCreation }),
     ...(input.MessageAction != null && { MessageAction: input.MessageAction }),
     ...(input.TemporaryPassword != null && { TemporaryPassword: input.TemporaryPassword }),
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_json1_1AttributeListType(input.UserAttributes, context),
-    }),
+    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
-    ...(input.ValidationData != null && {
-      ValidationData: serializeAws_json1_1AttributeListType(input.ValidationData, context),
-    }),
+    ...(input.ValidationData != null && { ValidationData: se_AttributeListType(input.ValidationData, context) }),
   };
 };
 
-const serializeAws_json1_1AdminDeleteUserAttributesRequest = (
-  input: AdminDeleteUserAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminDeleteUserAttributesRequest
+ */
+const se_AdminDeleteUserAttributesRequest = (input: AdminDeleteUserAttributesRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserAttributeNames != null && {
-      UserAttributeNames: serializeAws_json1_1AttributeNameListType(input.UserAttributeNames, context),
+      UserAttributeNames: se_AttributeNameListType(input.UserAttributeNames, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminDeleteUserRequest = (input: AdminDeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminDeleteUserRequest
+ */
+const se_AdminDeleteUserRequest = (input: AdminDeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminDisableProviderForUserRequest = (
+/**
+ * serializeAws_json1_1AdminDisableProviderForUserRequest
+ */
+const se_AdminDisableProviderForUserRequest = (
   input: AdminDisableProviderForUserRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.User != null && { User: serializeAws_json1_1ProviderUserIdentifierType(input.User, context) }),
+    ...(input.User != null && { User: se_ProviderUserIdentifierType(input.User, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1AdminDisableUserRequest = (input: AdminDisableUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminDisableUserRequest
+ */
+const se_AdminDisableUserRequest = (input: AdminDisableUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminEnableUserRequest = (input: AdminEnableUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminEnableUserRequest
+ */
+const se_AdminEnableUserRequest = (input: AdminEnableUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminForgetDeviceRequest = (
-  input: AdminForgetDeviceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-const serializeAws_json1_1AdminGetDeviceRequest = (input: AdminGetDeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminForgetDeviceRequest
+ */
+const se_AdminForgetDeviceRequest = (input: AdminForgetDeviceRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
@@ -8847,50 +9866,61 @@ const serializeAws_json1_1AdminGetDeviceRequest = (input: AdminGetDeviceRequest,
   };
 };
 
-const serializeAws_json1_1AdminGetUserRequest = (input: AdminGetUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminGetDeviceRequest
+ */
+const se_AdminGetDeviceRequest = (input: AdminGetDeviceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
+    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
+    ...(input.Username != null && { Username: input.Username }),
+  };
+};
+
+/**
+ * serializeAws_json1_1AdminGetUserRequest
+ */
+const se_AdminGetUserRequest = (input: AdminGetUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminInitiateAuthRequest = (
-  input: AdminInitiateAuthRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminInitiateAuthRequest
+ */
+const se_AdminInitiateAuthRequest = (input: AdminInitiateAuthRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.AuthFlow != null && { AuthFlow: input.AuthFlow }),
-    ...(input.AuthParameters != null && {
-      AuthParameters: serializeAws_json1_1AuthParametersType(input.AuthParameters, context),
-    }),
+    ...(input.AuthParameters != null && { AuthParameters: se_AuthParametersType(input.AuthParameters, context) }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
-    ...(input.ContextData != null && { ContextData: serializeAws_json1_1ContextDataType(input.ContextData, context) }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
+    ...(input.ContextData != null && { ContextData: se_ContextDataType(input.ContextData, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1AdminLinkProviderForUserRequest = (
-  input: AdminLinkProviderForUserRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminLinkProviderForUserRequest
+ */
+const se_AdminLinkProviderForUserRequest = (input: AdminLinkProviderForUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.DestinationUser != null && {
-      DestinationUser: serializeAws_json1_1ProviderUserIdentifierType(input.DestinationUser, context),
+      DestinationUser: se_ProviderUserIdentifierType(input.DestinationUser, context),
     }),
-    ...(input.SourceUser != null && {
-      SourceUser: serializeAws_json1_1ProviderUserIdentifierType(input.SourceUser, context),
-    }),
+    ...(input.SourceUser != null && { SourceUser: se_ProviderUserIdentifierType(input.SourceUser, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1AdminListDevicesRequest = (input: AdminListDevicesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AdminListDevicesRequest
+ */
+const se_AdminListDevicesRequest = (input: AdminListDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
@@ -8899,10 +9929,10 @@ const serializeAws_json1_1AdminListDevicesRequest = (input: AdminListDevicesRequ
   };
 };
 
-const serializeAws_json1_1AdminListGroupsForUserRequest = (
-  input: AdminListGroupsForUserRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminListGroupsForUserRequest
+ */
+const se_AdminListGroupsForUserRequest = (input: AdminListGroupsForUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -8911,10 +9941,10 @@ const serializeAws_json1_1AdminListGroupsForUserRequest = (
   };
 };
 
-const serializeAws_json1_1AdminListUserAuthEventsRequest = (
-  input: AdminListUserAuthEventsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminListUserAuthEventsRequest
+ */
+const se_AdminListUserAuthEventsRequest = (input: AdminListUserAuthEventsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -8923,10 +9953,10 @@ const serializeAws_json1_1AdminListUserAuthEventsRequest = (
   };
 };
 
-const serializeAws_json1_1AdminRemoveUserFromGroupRequest = (
-  input: AdminRemoveUserFromGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminRemoveUserFromGroupRequest
+ */
+const se_AdminRemoveUserFromGroupRequest = (input: AdminRemoveUserFromGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
@@ -8934,64 +9964,58 @@ const serializeAws_json1_1AdminRemoveUserFromGroupRequest = (
   };
 };
 
-const serializeAws_json1_1AdminResetUserPasswordRequest = (
-  input: AdminResetUserPasswordRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminResetUserPasswordRequest
+ */
+const se_AdminResetUserPasswordRequest = (input: AdminResetUserPasswordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminRespondToAuthChallengeRequest = (
+/**
+ * serializeAws_json1_1AdminRespondToAuthChallengeRequest
+ */
+const se_AdminRespondToAuthChallengeRequest = (
   input: AdminRespondToAuthChallengeRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ChallengeName != null && { ChallengeName: input.ChallengeName }),
     ...(input.ChallengeResponses != null && {
-      ChallengeResponses: serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context),
+      ChallengeResponses: se_ChallengeResponsesType(input.ChallengeResponses, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
-    ...(input.ContextData != null && { ContextData: serializeAws_json1_1ContextDataType(input.ContextData, context) }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
+    ...(input.ContextData != null && { ContextData: se_ContextDataType(input.ContextData, context) }),
     ...(input.Session != null && { Session: input.Session }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1AdminSetUserMFAPreferenceRequest = (
-  input: AdminSetUserMFAPreferenceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminSetUserMFAPreferenceRequest
+ */
+const se_AdminSetUserMFAPreferenceRequest = (input: AdminSetUserMFAPreferenceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SMSMfaSettings != null && {
-      SMSMfaSettings: serializeAws_json1_1SMSMfaSettingsType(input.SMSMfaSettings, context),
-    }),
+    ...(input.SMSMfaSettings != null && { SMSMfaSettings: se_SMSMfaSettingsType(input.SMSMfaSettings, context) }),
     ...(input.SoftwareTokenMfaSettings != null && {
-      SoftwareTokenMfaSettings: serializeAws_json1_1SoftwareTokenMfaSettingsType(
-        input.SoftwareTokenMfaSettings,
-        context
-      ),
+      SoftwareTokenMfaSettings: se_SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminSetUserPasswordRequest = (
-  input: AdminSetUserPasswordRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminSetUserPasswordRequest
+ */
+const se_AdminSetUserPasswordRequest = (input: AdminSetUserPasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.Password != null && { Password: input.Password }),
     ...(input.Permanent != null && { Permanent: input.Permanent }),
@@ -9000,18 +10024,21 @@ const serializeAws_json1_1AdminSetUserPasswordRequest = (
   };
 };
 
-const serializeAws_json1_1AdminSetUserSettingsRequest = (
-  input: AdminSetUserSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminSetUserSettingsRequest
+ */
+const se_AdminSetUserSettingsRequest = (input: AdminSetUserSettingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MFAOptions != null && { MFAOptions: serializeAws_json1_1MFAOptionListType(input.MFAOptions, context) }),
+    ...(input.MFAOptions != null && { MFAOptions: se_MFAOptionListType(input.MFAOptions, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest = (
+/**
+ * serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest
+ */
+const se_AdminUpdateAuthEventFeedbackRequest = (
   input: AdminUpdateAuthEventFeedbackRequest,
   context: __SerdeContext
 ): any => {
@@ -9023,10 +10050,10 @@ const serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest = (
   };
 };
 
-const serializeAws_json1_1AdminUpdateDeviceStatusRequest = (
-  input: AdminUpdateDeviceStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminUpdateDeviceStatusRequest
+ */
+const se_AdminUpdateDeviceStatusRequest = (input: AdminUpdateDeviceStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
     ...(input.DeviceRememberedStatus != null && { DeviceRememberedStatus: input.DeviceRememberedStatus }),
@@ -9035,36 +10062,32 @@ const serializeAws_json1_1AdminUpdateDeviceStatusRequest = (
   };
 };
 
-const serializeAws_json1_1AdminUpdateUserAttributesRequest = (
-  input: AdminUpdateUserAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminUpdateUserAttributesRequest
+ */
+const se_AdminUpdateUserAttributesRequest = (input: AdminUpdateUserAttributesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_json1_1AttributeListType(input.UserAttributes, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
+    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AdminUserGlobalSignOutRequest = (
-  input: AdminUserGlobalSignOutRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdminUserGlobalSignOutRequest
+ */
+const se_AdminUserGlobalSignOutRequest = (input: AdminUserGlobalSignOutRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1AliasAttributesListType = (
-  input: (AliasAttributeType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AliasAttributesListType
+ */
+const se_AliasAttributesListType = (input: (AliasAttributeType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9072,10 +10095,10 @@ const serializeAws_json1_1AliasAttributesListType = (
     });
 };
 
-const serializeAws_json1_1AnalyticsConfigurationType = (
-  input: AnalyticsConfigurationType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AnalyticsConfigurationType
+ */
+const se_AnalyticsConfigurationType = (input: AnalyticsConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
     ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
@@ -9085,31 +10108,40 @@ const serializeAws_json1_1AnalyticsConfigurationType = (
   };
 };
 
-const serializeAws_json1_1AnalyticsMetadataType = (input: AnalyticsMetadataType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AnalyticsMetadataType
+ */
+const se_AnalyticsMetadataType = (input: AnalyticsMetadataType, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsEndpointId != null && { AnalyticsEndpointId: input.AnalyticsEndpointId }),
   };
 };
 
-const serializeAws_json1_1AssociateSoftwareTokenRequest = (
-  input: AssociateSoftwareTokenRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateSoftwareTokenRequest
+ */
+const se_AssociateSoftwareTokenRequest = (input: AssociateSoftwareTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.Session != null && { Session: input.Session }),
   };
 };
 
-const serializeAws_json1_1AttributeListType = (input: AttributeType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeListType
+ */
+const se_AttributeListType = (input: AttributeType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1AttributeType(entry, context);
+      return se_AttributeType(entry, context);
     });
 };
 
-const serializeAws_json1_1AttributeMappingType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeMappingType
+ */
+const se_AttributeMappingType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9119,7 +10151,10 @@ const serializeAws_json1_1AttributeMappingType = (input: Record<string, string>,
   }, {});
 };
 
-const serializeAws_json1_1AttributeNameListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeNameListType
+ */
+const se_AttributeNameListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9127,7 +10162,10 @@ const serializeAws_json1_1AttributeNameListType = (input: string[], context: __S
     });
 };
 
-const serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
+/**
+ * serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType
+ */
+const se_AttributesRequireVerificationBeforeUpdateType = (
   input: (VerifiedAttributeType | string)[],
   context: __SerdeContext
 ): any => {
@@ -9138,14 +10176,20 @@ const serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
     });
 };
 
-const serializeAws_json1_1AttributeType = (input: AttributeType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeType
+ */
+const se_AttributeType = (input: AttributeType, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1AuthParametersType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AuthParametersType
+ */
+const se_AuthParametersType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9155,7 +10199,10 @@ const serializeAws_json1_1AuthParametersType = (input: Record<string, string>, c
   }, {});
 };
 
-const serializeAws_json1_1BlockedIPRangeListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BlockedIPRangeListType
+ */
+const se_BlockedIPRangeListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9163,7 +10210,10 @@ const serializeAws_json1_1BlockedIPRangeListType = (input: string[], context: __
     });
 };
 
-const serializeAws_json1_1CallbackURLsListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CallbackURLsListType
+ */
+const se_CallbackURLsListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9171,7 +10221,10 @@ const serializeAws_json1_1CallbackURLsListType = (input: string[], context: __Se
     });
 };
 
-const serializeAws_json1_1ChallengeResponsesType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ChallengeResponsesType
+ */
+const se_ChallengeResponsesType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9181,7 +10234,10 @@ const serializeAws_json1_1ChallengeResponsesType = (input: Record<string, string
   }, {});
 };
 
-const serializeAws_json1_1ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ChangePasswordRequest
+ */
+const se_ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.PreviousPassword != null && { PreviousPassword: input.PreviousPassword }),
@@ -9189,7 +10245,10 @@ const serializeAws_json1_1ChangePasswordRequest = (input: ChangePasswordRequest,
   };
 };
 
-const serializeAws_json1_1ClientMetadataType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ClientMetadataType
+ */
+const se_ClientMetadataType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9199,7 +10258,10 @@ const serializeAws_json1_1ClientMetadataType = (input: Record<string, string>, c
   }, {});
 };
 
-const serializeAws_json1_1ClientPermissionListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ClientPermissionListType
+ */
+const se_ClientPermissionListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9207,7 +10269,10 @@ const serializeAws_json1_1ClientPermissionListType = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_1CompromisedCredentialsActionsType = (
+/**
+ * serializeAws_json1_1CompromisedCredentialsActionsType
+ */
+const se_CompromisedCredentialsActionsType = (
   input: CompromisedCredentialsActionsType,
   context: __SerdeContext
 ): any => {
@@ -9216,84 +10281,86 @@ const serializeAws_json1_1CompromisedCredentialsActionsType = (
   };
 };
 
-const serializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
+/**
+ * serializeAws_json1_1CompromisedCredentialsRiskConfigurationType
+ */
+const se_CompromisedCredentialsRiskConfigurationType = (
   input: CompromisedCredentialsRiskConfigurationType,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Actions != null && {
-      Actions: serializeAws_json1_1CompromisedCredentialsActionsType(input.Actions, context),
-    }),
-    ...(input.EventFilter != null && { EventFilter: serializeAws_json1_1EventFiltersType(input.EventFilter, context) }),
+    ...(input.Actions != null && { Actions: se_CompromisedCredentialsActionsType(input.Actions, context) }),
+    ...(input.EventFilter != null && { EventFilter: se_EventFiltersType(input.EventFilter, context) }),
   };
 };
 
-const serializeAws_json1_1ConfirmDeviceRequest = (input: ConfirmDeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ConfirmDeviceRequest
+ */
+const se_ConfirmDeviceRequest = (input: ConfirmDeviceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
     ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
     ...(input.DeviceSecretVerifierConfig != null && {
-      DeviceSecretVerifierConfig: serializeAws_json1_1DeviceSecretVerifierConfigType(
-        input.DeviceSecretVerifierConfig,
-        context
-      ),
+      DeviceSecretVerifierConfig: se_DeviceSecretVerifierConfigType(input.DeviceSecretVerifierConfig, context),
     }),
   };
 };
 
-const serializeAws_json1_1ConfirmForgotPasswordRequest = (
-  input: ConfirmForgotPasswordRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ConfirmForgotPasswordRequest
+ */
+const se_ConfirmForgotPasswordRequest = (input: ConfirmForgotPasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.ConfirmationCode != null && { ConfirmationCode: input.ConfirmationCode }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1ConfirmSignUpRequest = (input: ConfirmSignUpRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ConfirmSignUpRequest
+ */
+const se_ConfirmSignUpRequest = (input: ConfirmSignUpRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.ConfirmationCode != null && { ConfirmationCode: input.ConfirmationCode }),
     ...(input.ForceAliasCreation != null && { ForceAliasCreation: input.ForceAliasCreation }),
     ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1ContextDataType = (input: ContextDataType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ContextDataType
+ */
+const se_ContextDataType = (input: ContextDataType, context: __SerdeContext): any => {
   return {
     ...(input.EncodedData != null && { EncodedData: input.EncodedData }),
-    ...(input.HttpHeaders != null && { HttpHeaders: serializeAws_json1_1HttpHeaderList(input.HttpHeaders, context) }),
+    ...(input.HttpHeaders != null && { HttpHeaders: se_HttpHeaderList(input.HttpHeaders, context) }),
     ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
     ...(input.ServerName != null && { ServerName: input.ServerName }),
     ...(input.ServerPath != null && { ServerPath: input.ServerPath }),
   };
 };
 
-const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateGroupRequest
+ */
+const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
@@ -9303,42 +10370,38 @@ const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, conte
   };
 };
 
-const serializeAws_json1_1CreateIdentityProviderRequest = (
-  input: CreateIdentityProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateIdentityProviderRequest
+ */
+const se_CreateIdentityProviderRequest = (input: CreateIdentityProviderRequest, context: __SerdeContext): any => {
   return {
     ...(input.AttributeMapping != null && {
-      AttributeMapping: serializeAws_json1_1AttributeMappingType(input.AttributeMapping, context),
+      AttributeMapping: se_AttributeMappingType(input.AttributeMapping, context),
     }),
-    ...(input.IdpIdentifiers != null && {
-      IdpIdentifiers: serializeAws_json1_1IdpIdentifiersListType(input.IdpIdentifiers, context),
-    }),
-    ...(input.ProviderDetails != null && {
-      ProviderDetails: serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context),
-    }),
+    ...(input.IdpIdentifiers != null && { IdpIdentifiers: se_IdpIdentifiersListType(input.IdpIdentifiers, context) }),
+    ...(input.ProviderDetails != null && { ProviderDetails: se_ProviderDetailsType(input.ProviderDetails, context) }),
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
     ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1CreateResourceServerRequest = (
-  input: CreateResourceServerRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateResourceServerRequest
+ */
+const se_CreateResourceServerRequest = (input: CreateResourceServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Scopes != null && { Scopes: serializeAws_json1_1ResourceServerScopeListType(input.Scopes, context) }),
+    ...(input.Scopes != null && { Scopes: se_ResourceServerScopeListType(input.Scopes, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1CreateUserImportJobRequest = (
-  input: CreateUserImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateUserImportJobRequest
+ */
+const se_CreateUserImportJobRequest = (input: CreateUserImportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogsRoleArn != null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
     ...(input.JobName != null && { JobName: input.JobName }),
@@ -9346,28 +10409,24 @@ const serializeAws_json1_1CreateUserImportJobRequest = (
   };
 };
 
-const serializeAws_json1_1CreateUserPoolClientRequest = (
-  input: CreateUserPoolClientRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateUserPoolClientRequest
+ */
+const se_CreateUserPoolClientRequest = (input: CreateUserPoolClientRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessTokenValidity != null && { AccessTokenValidity: input.AccessTokenValidity }),
-    ...(input.AllowedOAuthFlows != null && {
-      AllowedOAuthFlows: serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context),
-    }),
+    ...(input.AllowedOAuthFlows != null && { AllowedOAuthFlows: se_OAuthFlowsType(input.AllowedOAuthFlows, context) }),
     ...(input.AllowedOAuthFlowsUserPoolClient != null && {
       AllowedOAuthFlowsUserPoolClient: input.AllowedOAuthFlowsUserPoolClient,
     }),
     ...(input.AllowedOAuthScopes != null && {
-      AllowedOAuthScopes: serializeAws_json1_1ScopeListType(input.AllowedOAuthScopes, context),
+      AllowedOAuthScopes: se_ScopeListType(input.AllowedOAuthScopes, context),
     }),
     ...(input.AnalyticsConfiguration != null && {
-      AnalyticsConfiguration: serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
+      AnalyticsConfiguration: se_AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
     }),
     ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
-    ...(input.CallbackURLs != null && {
-      CallbackURLs: serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context),
-    }),
+    ...(input.CallbackURLs != null && { CallbackURLs: se_CallbackURLsListType(input.CallbackURLs, context) }),
     ...(input.ClientName != null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI != null && { DefaultRedirectURI: input.DefaultRedirectURI }),
     ...(input.EnablePropagateAdditionalUserContextData != null && {
@@ -9375,122 +10434,117 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
     }),
     ...(input.EnableTokenRevocation != null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows != null && {
-      ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
+      ExplicitAuthFlows: se_ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
     ...(input.GenerateSecret != null && { GenerateSecret: input.GenerateSecret }),
     ...(input.IdTokenValidity != null && { IdTokenValidity: input.IdTokenValidity }),
-    ...(input.LogoutURLs != null && { LogoutURLs: serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context) }),
+    ...(input.LogoutURLs != null && { LogoutURLs: se_LogoutURLsListType(input.LogoutURLs, context) }),
     ...(input.PreventUserExistenceErrors != null && { PreventUserExistenceErrors: input.PreventUserExistenceErrors }),
-    ...(input.ReadAttributes != null && {
-      ReadAttributes: serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context),
-    }),
+    ...(input.ReadAttributes != null && { ReadAttributes: se_ClientPermissionListType(input.ReadAttributes, context) }),
     ...(input.RefreshTokenValidity != null && { RefreshTokenValidity: input.RefreshTokenValidity }),
     ...(input.SupportedIdentityProviders != null && {
-      SupportedIdentityProviders: serializeAws_json1_1SupportedIdentityProvidersListType(
-        input.SupportedIdentityProviders,
-        context
-      ),
+      SupportedIdentityProviders: se_SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context),
     }),
     ...(input.TokenValidityUnits != null && {
-      TokenValidityUnits: serializeAws_json1_1TokenValidityUnitsType(input.TokenValidityUnits, context),
+      TokenValidityUnits: se_TokenValidityUnitsType(input.TokenValidityUnits, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.WriteAttributes != null && {
-      WriteAttributes: serializeAws_json1_1ClientPermissionListType(input.WriteAttributes, context),
+      WriteAttributes: se_ClientPermissionListType(input.WriteAttributes, context),
     }),
   };
 };
 
-const serializeAws_json1_1CreateUserPoolDomainRequest = (
-  input: CreateUserPoolDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateUserPoolDomainRequest
+ */
+const se_CreateUserPoolDomainRequest = (input: CreateUserPoolDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.CustomDomainConfig != null && {
-      CustomDomainConfig: serializeAws_json1_1CustomDomainConfigType(input.CustomDomainConfig, context),
+      CustomDomainConfig: se_CustomDomainConfigType(input.CustomDomainConfig, context),
     }),
     ...(input.Domain != null && { Domain: input.Domain }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1CreateUserPoolRequest = (input: CreateUserPoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateUserPoolRequest
+ */
+const se_CreateUserPoolRequest = (input: CreateUserPoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountRecoverySetting != null && {
-      AccountRecoverySetting: serializeAws_json1_1AccountRecoverySettingType(input.AccountRecoverySetting, context),
+      AccountRecoverySetting: se_AccountRecoverySettingType(input.AccountRecoverySetting, context),
     }),
     ...(input.AdminCreateUserConfig != null && {
-      AdminCreateUserConfig: serializeAws_json1_1AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
+      AdminCreateUserConfig: se_AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
     }),
     ...(input.AliasAttributes != null && {
-      AliasAttributes: serializeAws_json1_1AliasAttributesListType(input.AliasAttributes, context),
+      AliasAttributes: se_AliasAttributesListType(input.AliasAttributes, context),
     }),
     ...(input.AutoVerifiedAttributes != null && {
-      AutoVerifiedAttributes: serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
+      AutoVerifiedAttributes: se_VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
     }),
     ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
     ...(input.DeviceConfiguration != null && {
-      DeviceConfiguration: serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context),
+      DeviceConfiguration: se_DeviceConfigurationType(input.DeviceConfiguration, context),
     }),
     ...(input.EmailConfiguration != null && {
-      EmailConfiguration: serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context),
+      EmailConfiguration: se_EmailConfigurationType(input.EmailConfiguration, context),
     }),
     ...(input.EmailVerificationMessage != null && { EmailVerificationMessage: input.EmailVerificationMessage }),
     ...(input.EmailVerificationSubject != null && { EmailVerificationSubject: input.EmailVerificationSubject }),
-    ...(input.LambdaConfig != null && {
-      LambdaConfig: serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context),
-    }),
+    ...(input.LambdaConfig != null && { LambdaConfig: se_LambdaConfigType(input.LambdaConfig, context) }),
     ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
-    ...(input.Policies != null && { Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context) }),
+    ...(input.Policies != null && { Policies: se_UserPoolPolicyType(input.Policies, context) }),
     ...(input.PoolName != null && { PoolName: input.PoolName }),
-    ...(input.Schema != null && { Schema: serializeAws_json1_1SchemaAttributesListType(input.Schema, context) }),
+    ...(input.Schema != null && { Schema: se_SchemaAttributesListType(input.Schema, context) }),
     ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration != null && {
-      SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
+      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
     }),
     ...(input.SmsVerificationMessage != null && { SmsVerificationMessage: input.SmsVerificationMessage }),
     ...(input.UserAttributeUpdateSettings != null && {
-      UserAttributeUpdateSettings: serializeAws_json1_1UserAttributeUpdateSettingsType(
-        input.UserAttributeUpdateSettings,
-        context
-      ),
+      UserAttributeUpdateSettings: se_UserAttributeUpdateSettingsType(input.UserAttributeUpdateSettings, context),
     }),
-    ...(input.UserPoolAddOns != null && {
-      UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
-    }),
-    ...(input.UserPoolTags != null && {
-      UserPoolTags: serializeAws_json1_1UserPoolTagsType(input.UserPoolTags, context),
-    }),
+    ...(input.UserPoolAddOns != null && { UserPoolAddOns: se_UserPoolAddOnsType(input.UserPoolAddOns, context) }),
+    ...(input.UserPoolTags != null && { UserPoolTags: se_UserPoolTagsType(input.UserPoolTags, context) }),
     ...(input.UsernameAttributes != null && {
-      UsernameAttributes: serializeAws_json1_1UsernameAttributesListType(input.UsernameAttributes, context),
+      UsernameAttributes: se_UsernameAttributesListType(input.UsernameAttributes, context),
     }),
     ...(input.UsernameConfiguration != null && {
-      UsernameConfiguration: serializeAws_json1_1UsernameConfigurationType(input.UsernameConfiguration, context),
+      UsernameConfiguration: se_UsernameConfigurationType(input.UsernameConfiguration, context),
     }),
     ...(input.VerificationMessageTemplate != null && {
-      VerificationMessageTemplate: serializeAws_json1_1VerificationMessageTemplateType(
-        input.VerificationMessageTemplate,
-        context
-      ),
+      VerificationMessageTemplate: se_VerificationMessageTemplateType(input.VerificationMessageTemplate, context),
     }),
   };
 };
 
-const serializeAws_json1_1CustomAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomAttributesListType
+ */
+const se_CustomAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1SchemaAttributeType(entry, context);
+      return se_SchemaAttributeType(entry, context);
     });
 };
 
-const serializeAws_json1_1CustomDomainConfigType = (input: CustomDomainConfigType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomDomainConfigType
+ */
+const se_CustomDomainConfigType = (input: CustomDomainConfigType, context: __SerdeContext): any => {
   return {
     ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
   };
 };
 
-const serializeAws_json1_1CustomEmailLambdaVersionConfigType = (
+/**
+ * serializeAws_json1_1CustomEmailLambdaVersionConfigType
+ */
+const se_CustomEmailLambdaVersionConfigType = (
   input: CustomEmailLambdaVersionConfigType,
   context: __SerdeContext
 ): any => {
@@ -9500,91 +10554,100 @@ const serializeAws_json1_1CustomEmailLambdaVersionConfigType = (
   };
 };
 
-const serializeAws_json1_1CustomSMSLambdaVersionConfigType = (
-  input: CustomSMSLambdaVersionConfigType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CustomSMSLambdaVersionConfigType
+ */
+const se_CustomSMSLambdaVersionConfigType = (input: CustomSMSLambdaVersionConfigType, context: __SerdeContext): any => {
   return {
     ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
     ...(input.LambdaVersion != null && { LambdaVersion: input.LambdaVersion }),
   };
 };
 
-const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteGroupRequest
+ */
+const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteIdentityProviderRequest = (
-  input: DeleteIdentityProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteIdentityProviderRequest
+ */
+const se_DeleteIdentityProviderRequest = (input: DeleteIdentityProviderRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteResourceServerRequest = (
-  input: DeleteResourceServerRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResourceServerRequest
+ */
+const se_DeleteResourceServerRequest = (input: DeleteResourceServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserAttributesRequest = (
-  input: DeleteUserAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteUserAttributesRequest
+ */
+const se_DeleteUserAttributesRequest = (input: DeleteUserAttributesRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.UserAttributeNames != null && {
-      UserAttributeNames: serializeAws_json1_1AttributeNameListType(input.UserAttributeNames, context),
+      UserAttributeNames: se_AttributeNameListType(input.UserAttributeNames, context),
     }),
   };
 };
 
-const serializeAws_json1_1DeleteUserPoolClientRequest = (
-  input: DeleteUserPoolClientRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteUserPoolClientRequest
+ */
+const se_DeleteUserPoolClientRequest = (input: DeleteUserPoolClientRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserPoolDomainRequest = (
-  input: DeleteUserPoolDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteUserPoolDomainRequest
+ */
+const se_DeleteUserPoolDomainRequest = (input: DeleteUserPoolDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.Domain != null && { Domain: input.Domain }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserPoolRequest = (input: DeleteUserPoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteUserPoolRequest
+ */
+const se_DeleteUserPoolRequest = (input: DeleteUserPoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteUserRequest
+ */
+const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
   };
 };
 
-const serializeAws_json1_1DeliveryMediumListType = (
-  input: (DeliveryMediumType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeliveryMediumListType
+ */
+const se_DeliveryMediumListType = (input: (DeliveryMediumType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9592,72 +10655,78 @@ const serializeAws_json1_1DeliveryMediumListType = (
     });
 };
 
-const serializeAws_json1_1DescribeIdentityProviderRequest = (
-  input: DescribeIdentityProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeIdentityProviderRequest
+ */
+const se_DescribeIdentityProviderRequest = (input: DescribeIdentityProviderRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DescribeResourceServerRequest = (
-  input: DescribeResourceServerRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeResourceServerRequest
+ */
+const se_DescribeResourceServerRequest = (input: DescribeResourceServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DescribeRiskConfigurationRequest = (
-  input: DescribeRiskConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeRiskConfigurationRequest
+ */
+const se_DescribeRiskConfigurationRequest = (input: DescribeRiskConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserImportJobRequest = (
-  input: DescribeUserImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeUserImportJobRequest
+ */
+const se_DescribeUserImportJobRequest = (input: DescribeUserImportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserPoolClientRequest = (
-  input: DescribeUserPoolClientRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeUserPoolClientRequest
+ */
+const se_DescribeUserPoolClientRequest = (input: DescribeUserPoolClientRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserPoolDomainRequest = (
-  input: DescribeUserPoolDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeUserPoolDomainRequest
+ */
+const se_DescribeUserPoolDomainRequest = (input: DescribeUserPoolDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.Domain != null && { Domain: input.Domain }),
   };
 };
 
-const serializeAws_json1_1DescribeUserPoolRequest = (input: DescribeUserPoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeUserPoolRequest
+ */
+const se_DescribeUserPoolRequest = (input: DescribeUserPoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1DeviceConfigurationType = (input: DeviceConfigurationType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeviceConfigurationType
+ */
+const se_DeviceConfigurationType = (input: DeviceConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.ChallengeRequiredOnNewDevice != null && {
       ChallengeRequiredOnNewDevice: input.ChallengeRequiredOnNewDevice,
@@ -9668,17 +10737,20 @@ const serializeAws_json1_1DeviceConfigurationType = (input: DeviceConfigurationT
   };
 };
 
-const serializeAws_json1_1DeviceSecretVerifierConfigType = (
-  input: DeviceSecretVerifierConfigType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeviceSecretVerifierConfigType
+ */
+const se_DeviceSecretVerifierConfigType = (input: DeviceSecretVerifierConfigType, context: __SerdeContext): any => {
   return {
     ...(input.PasswordVerifier != null && { PasswordVerifier: input.PasswordVerifier }),
     ...(input.Salt != null && { Salt: input.Salt }),
   };
 };
 
-const serializeAws_json1_1EmailConfigurationType = (input: EmailConfigurationType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EmailConfigurationType
+ */
+const se_EmailConfigurationType = (input: EmailConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSet != null && { ConfigurationSet: input.ConfigurationSet }),
     ...(input.EmailSendingAccount != null && { EmailSendingAccount: input.EmailSendingAccount }),
@@ -9688,7 +10760,10 @@ const serializeAws_json1_1EmailConfigurationType = (input: EmailConfigurationTyp
   };
 };
 
-const serializeAws_json1_1EventFiltersType = (input: (EventFilterType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EventFiltersType
+ */
+const se_EventFiltersType = (input: (EventFilterType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9696,10 +10771,10 @@ const serializeAws_json1_1EventFiltersType = (input: (EventFilterType | string)[
     });
 };
 
-const serializeAws_json1_1ExplicitAuthFlowsListType = (
-  input: (ExplicitAuthFlowsType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ExplicitAuthFlowsListType
+ */
+const se_ExplicitAuthFlowsListType = (input: (ExplicitAuthFlowsType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9707,51 +10782,65 @@ const serializeAws_json1_1ExplicitAuthFlowsListType = (
     });
 };
 
-const serializeAws_json1_1ForgetDeviceRequest = (input: ForgetDeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ForgetDeviceRequest
+ */
+const se_ForgetDeviceRequest = (input: ForgetDeviceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
   };
 };
 
-const serializeAws_json1_1ForgotPasswordRequest = (input: ForgotPasswordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ForgotPasswordRequest
+ */
+const se_ForgotPasswordRequest = (input: ForgotPasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1GetCSVHeaderRequest = (input: GetCSVHeaderRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetCSVHeaderRequest
+ */
+const se_GetCSVHeaderRequest = (input: GetCSVHeaderRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetDeviceRequest
+ */
+const se_GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
   };
 };
 
-const serializeAws_json1_1GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetGroupRequest
+ */
+const se_GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1GetIdentityProviderByIdentifierRequest = (
+/**
+ * serializeAws_json1_1GetIdentityProviderByIdentifierRequest
+ */
+const se_GetIdentityProviderByIdentifierRequest = (
   input: GetIdentityProviderByIdentifierRequest,
   context: __SerdeContext
 ): any => {
@@ -9761,75 +10850,91 @@ const serializeAws_json1_1GetIdentityProviderByIdentifierRequest = (
   };
 };
 
-const serializeAws_json1_1GetSigningCertificateRequest = (
-  input: GetSigningCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetSigningCertificateRequest
+ */
+const se_GetSigningCertificateRequest = (input: GetSigningCertificateRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1GetUICustomizationRequest = (
-  input: GetUICustomizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetUICustomizationRequest
+ */
+const se_GetUICustomizationRequest = (input: GetUICustomizationRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1GetUserAttributeVerificationCodeRequest = (
+/**
+ * serializeAws_json1_1GetUserAttributeVerificationCodeRequest
+ */
+const se_GetUserAttributeVerificationCodeRequest = (
   input: GetUserAttributeVerificationCodeRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
   };
 };
 
-const serializeAws_json1_1GetUserPoolMfaConfigRequest = (
-  input: GetUserPoolMfaConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetUserPoolMfaConfigRequest
+ */
+const se_GetUserPoolMfaConfigRequest = (input: GetUserPoolMfaConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetUserRequest
+ */
+const se_GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
   };
 };
 
-const serializeAws_json1_1GlobalSignOutRequest = (input: GlobalSignOutRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GlobalSignOutRequest
+ */
+const se_GlobalSignOutRequest = (input: GlobalSignOutRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
   };
 };
 
-const serializeAws_json1_1HttpHeader = (input: HttpHeader, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HttpHeader
+ */
+const se_HttpHeader = (input: HttpHeader, context: __SerdeContext): any => {
   return {
     ...(input.headerName != null && { headerName: input.headerName }),
     ...(input.headerValue != null && { headerValue: input.headerValue }),
   };
 };
 
-const serializeAws_json1_1HttpHeaderList = (input: HttpHeader[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HttpHeaderList
+ */
+const se_HttpHeaderList = (input: HttpHeader[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1HttpHeader(entry, context);
+      return se_HttpHeader(entry, context);
     });
 };
 
-const serializeAws_json1_1IdpIdentifiersListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IdpIdentifiersListType
+ */
+const se_IdpIdentifiersListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9837,34 +10942,34 @@ const serializeAws_json1_1IdpIdentifiersListType = (input: string[], context: __
     });
 };
 
-const serializeAws_json1_1InitiateAuthRequest = (input: InitiateAuthRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InitiateAuthRequest
+ */
+const se_InitiateAuthRequest = (input: InitiateAuthRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.AuthFlow != null && { AuthFlow: input.AuthFlow }),
-    ...(input.AuthParameters != null && {
-      AuthParameters: serializeAws_json1_1AuthParametersType(input.AuthParameters, context),
-    }),
+    ...(input.AuthParameters != null && { AuthParameters: se_AuthParametersType(input.AuthParameters, context) }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
   };
 };
 
-const serializeAws_json1_1LambdaConfigType = (input: LambdaConfigType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1LambdaConfigType
+ */
+const se_LambdaConfigType = (input: LambdaConfigType, context: __SerdeContext): any => {
   return {
     ...(input.CreateAuthChallenge != null && { CreateAuthChallenge: input.CreateAuthChallenge }),
     ...(input.CustomEmailSender != null && {
-      CustomEmailSender: serializeAws_json1_1CustomEmailLambdaVersionConfigType(input.CustomEmailSender, context),
+      CustomEmailSender: se_CustomEmailLambdaVersionConfigType(input.CustomEmailSender, context),
     }),
     ...(input.CustomMessage != null && { CustomMessage: input.CustomMessage }),
     ...(input.CustomSMSSender != null && {
-      CustomSMSSender: serializeAws_json1_1CustomSMSLambdaVersionConfigType(input.CustomSMSSender, context),
+      CustomSMSSender: se_CustomSMSLambdaVersionConfigType(input.CustomSMSSender, context),
     }),
     ...(input.DefineAuthChallenge != null && { DefineAuthChallenge: input.DefineAuthChallenge }),
     ...(input.KMSKeyID != null && { KMSKeyID: input.KMSKeyID }),
@@ -9880,7 +10985,10 @@ const serializeAws_json1_1LambdaConfigType = (input: LambdaConfigType, context: 
   };
 };
 
-const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListDevicesRequest
+ */
+const se_ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -9888,7 +10996,10 @@ const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, conte
   };
 };
 
-const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListGroupsRequest
+ */
+const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -9896,10 +11007,10 @@ const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context
   };
 };
 
-const serializeAws_json1_1ListIdentityProvidersRequest = (
-  input: ListIdentityProvidersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListIdentityProvidersRequest
+ */
+const se_ListIdentityProvidersRequest = (input: ListIdentityProvidersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -9907,10 +11018,10 @@ const serializeAws_json1_1ListIdentityProvidersRequest = (
   };
 };
 
-const serializeAws_json1_1ListResourceServersRequest = (
-  input: ListResourceServersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResourceServersRequest
+ */
+const se_ListResourceServersRequest = (input: ListResourceServersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -9918,19 +11029,19 @@ const serializeAws_json1_1ListResourceServersRequest = (
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_1ListUserImportJobsRequest = (
-  input: ListUserImportJobsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListUserImportJobsRequest
+ */
+const se_ListUserImportJobsRequest = (input: ListUserImportJobsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
@@ -9938,10 +11049,10 @@ const serializeAws_json1_1ListUserImportJobsRequest = (
   };
 };
 
-const serializeAws_json1_1ListUserPoolClientsRequest = (
-  input: ListUserPoolClientsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListUserPoolClientsRequest
+ */
+const se_ListUserPoolClientsRequest = (input: ListUserPoolClientsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -9949,14 +11060,20 @@ const serializeAws_json1_1ListUserPoolClientsRequest = (
   };
 };
 
-const serializeAws_json1_1ListUserPoolsRequest = (input: ListUserPoolsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUserPoolsRequest
+ */
+const se_ListUserPoolsRequest = (input: ListUserPoolsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListUsersInGroupRequest = (input: ListUsersInGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUsersInGroupRequest
+ */
+const se_ListUsersInGroupRequest = (input: ListUsersInGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -9965,10 +11082,13 @@ const serializeAws_json1_1ListUsersInGroupRequest = (input: ListUsersInGroupRequ
   };
 };
 
-const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUsersRequest
+ */
+const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet != null && {
-      AttributesToGet: serializeAws_json1_1SearchedAttributeNamesListType(input.AttributesToGet, context),
+      AttributesToGet: se_SearchedAttributeNamesListType(input.AttributesToGet, context),
     }),
     ...(input.Filter != null && { Filter: input.Filter }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -9977,7 +11097,10 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
-const serializeAws_json1_1LogoutURLsListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1LogoutURLsListType
+ */
+const se_LogoutURLsListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9985,7 +11108,10 @@ const serializeAws_json1_1LogoutURLsListType = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1MessageTemplateType = (input: MessageTemplateType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MessageTemplateType
+ */
+const se_MessageTemplateType = (input: MessageTemplateType, context: __SerdeContext): any => {
   return {
     ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
     ...(input.EmailSubject != null && { EmailSubject: input.EmailSubject }),
@@ -9993,35 +11119,45 @@ const serializeAws_json1_1MessageTemplateType = (input: MessageTemplateType, con
   };
 };
 
-const serializeAws_json1_1MFAOptionListType = (input: MFAOptionType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MFAOptionListType
+ */
+const se_MFAOptionListType = (input: MFAOptionType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1MFAOptionType(entry, context);
+      return se_MFAOptionType(entry, context);
     });
 };
 
-const serializeAws_json1_1MFAOptionType = (input: MFAOptionType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MFAOptionType
+ */
+const se_MFAOptionType = (input: MFAOptionType, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
     ...(input.DeliveryMedium != null && { DeliveryMedium: input.DeliveryMedium }),
   };
 };
 
-const serializeAws_json1_1NotifyConfigurationType = (input: NotifyConfigurationType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NotifyConfigurationType
+ */
+const se_NotifyConfigurationType = (input: NotifyConfigurationType, context: __SerdeContext): any => {
   return {
-    ...(input.BlockEmail != null && { BlockEmail: serializeAws_json1_1NotifyEmailType(input.BlockEmail, context) }),
+    ...(input.BlockEmail != null && { BlockEmail: se_NotifyEmailType(input.BlockEmail, context) }),
     ...(input.From != null && { From: input.From }),
-    ...(input.MfaEmail != null && { MfaEmail: serializeAws_json1_1NotifyEmailType(input.MfaEmail, context) }),
-    ...(input.NoActionEmail != null && {
-      NoActionEmail: serializeAws_json1_1NotifyEmailType(input.NoActionEmail, context),
-    }),
+    ...(input.MfaEmail != null && { MfaEmail: se_NotifyEmailType(input.MfaEmail, context) }),
+    ...(input.NoActionEmail != null && { NoActionEmail: se_NotifyEmailType(input.NoActionEmail, context) }),
     ...(input.ReplyTo != null && { ReplyTo: input.ReplyTo }),
     ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
   };
 };
 
-const serializeAws_json1_1NotifyEmailType = (input: NotifyEmailType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NotifyEmailType
+ */
+const se_NotifyEmailType = (input: NotifyEmailType, context: __SerdeContext): any => {
   return {
     ...(input.HtmlBody != null && { HtmlBody: input.HtmlBody }),
     ...(input.Subject != null && { Subject: input.Subject }),
@@ -10029,17 +11165,20 @@ const serializeAws_json1_1NotifyEmailType = (input: NotifyEmailType, context: __
   };
 };
 
-const serializeAws_json1_1NumberAttributeConstraintsType = (
-  input: NumberAttributeConstraintsType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1NumberAttributeConstraintsType
+ */
+const se_NumberAttributeConstraintsType = (input: NumberAttributeConstraintsType, context: __SerdeContext): any => {
   return {
     ...(input.MaxValue != null && { MaxValue: input.MaxValue }),
     ...(input.MinValue != null && { MinValue: input.MinValue }),
   };
 };
 
-const serializeAws_json1_1OAuthFlowsType = (input: (OAuthFlowType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OAuthFlowsType
+ */
+const se_OAuthFlowsType = (input: (OAuthFlowType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10047,7 +11186,10 @@ const serializeAws_json1_1OAuthFlowsType = (input: (OAuthFlowType | string)[], c
     });
 };
 
-const serializeAws_json1_1PasswordPolicyType = (input: PasswordPolicyType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PasswordPolicyType
+ */
+const se_PasswordPolicyType = (input: PasswordPolicyType, context: __SerdeContext): any => {
   return {
     ...(input.MinimumLength != null && { MinimumLength: input.MinimumLength }),
     ...(input.RequireLowercase != null && { RequireLowercase: input.RequireLowercase }),
@@ -10060,7 +11202,10 @@ const serializeAws_json1_1PasswordPolicyType = (input: PasswordPolicyType, conte
   };
 };
 
-const serializeAws_json1_1ProviderDetailsType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProviderDetailsType
+ */
+const se_ProviderDetailsType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -10070,10 +11215,10 @@ const serializeAws_json1_1ProviderDetailsType = (input: Record<string, string>, 
   }, {});
 };
 
-const serializeAws_json1_1ProviderUserIdentifierType = (
-  input: ProviderUserIdentifierType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProviderUserIdentifierType
+ */
+const se_ProviderUserIdentifierType = (input: ProviderUserIdentifierType, context: __SerdeContext): any => {
   return {
     ...(input.ProviderAttributeName != null && { ProviderAttributeName: input.ProviderAttributeName }),
     ...(input.ProviderAttributeValue != null && { ProviderAttributeValue: input.ProviderAttributeValue }),
@@ -10081,83 +11226,87 @@ const serializeAws_json1_1ProviderUserIdentifierType = (
   };
 };
 
-const serializeAws_json1_1RecoveryMechanismsType = (input: RecoveryOptionType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RecoveryMechanismsType
+ */
+const se_RecoveryMechanismsType = (input: RecoveryOptionType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1RecoveryOptionType(entry, context);
+      return se_RecoveryOptionType(entry, context);
     });
 };
 
-const serializeAws_json1_1RecoveryOptionType = (input: RecoveryOptionType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RecoveryOptionType
+ */
+const se_RecoveryOptionType = (input: RecoveryOptionType, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Priority != null && { Priority: input.Priority }),
   };
 };
 
-const serializeAws_json1_1ResendConfirmationCodeRequest = (
-  input: ResendConfirmationCodeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ResendConfirmationCodeRequest
+ */
+const se_ResendConfirmationCodeRequest = (input: ResendConfirmationCodeRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1ResourceServerScopeListType = (
-  input: ResourceServerScopeType[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ResourceServerScopeListType
+ */
+const se_ResourceServerScopeListType = (input: ResourceServerScopeType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ResourceServerScopeType(entry, context);
+      return se_ResourceServerScopeType(entry, context);
     });
 };
 
-const serializeAws_json1_1ResourceServerScopeType = (input: ResourceServerScopeType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceServerScopeType
+ */
+const se_ResourceServerScopeType = (input: ResourceServerScopeType, context: __SerdeContext): any => {
   return {
     ...(input.ScopeDescription != null && { ScopeDescription: input.ScopeDescription }),
     ...(input.ScopeName != null && { ScopeName: input.ScopeName }),
   };
 };
 
-const serializeAws_json1_1RespondToAuthChallengeRequest = (
-  input: RespondToAuthChallengeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RespondToAuthChallengeRequest
+ */
+const se_RespondToAuthChallengeRequest = (input: RespondToAuthChallengeRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ChallengeName != null && { ChallengeName: input.ChallengeName }),
     ...(input.ChallengeResponses != null && {
-      ChallengeResponses: serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context),
+      ChallengeResponses: se_ChallengeResponsesType(input.ChallengeResponses, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.Session != null && { Session: input.Session }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
   };
 };
 
-const serializeAws_json1_1RevokeTokenRequest = (input: RevokeTokenRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RevokeTokenRequest
+ */
+const se_RevokeTokenRequest = (input: RevokeTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.ClientSecret != null && { ClientSecret: input.ClientSecret }),
@@ -10165,51 +11314,54 @@ const serializeAws_json1_1RevokeTokenRequest = (input: RevokeTokenRequest, conte
   };
 };
 
-const serializeAws_json1_1RiskExceptionConfigurationType = (
-  input: RiskExceptionConfigurationType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RiskExceptionConfigurationType
+ */
+const se_RiskExceptionConfigurationType = (input: RiskExceptionConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.BlockedIPRangeList != null && {
-      BlockedIPRangeList: serializeAws_json1_1BlockedIPRangeListType(input.BlockedIPRangeList, context),
+      BlockedIPRangeList: se_BlockedIPRangeListType(input.BlockedIPRangeList, context),
     }),
     ...(input.SkippedIPRangeList != null && {
-      SkippedIPRangeList: serializeAws_json1_1SkippedIPRangeListType(input.SkippedIPRangeList, context),
+      SkippedIPRangeList: se_SkippedIPRangeListType(input.SkippedIPRangeList, context),
     }),
   };
 };
 
-const serializeAws_json1_1SchemaAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SchemaAttributesListType
+ */
+const se_SchemaAttributesListType = (input: SchemaAttributeType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1SchemaAttributeType(entry, context);
+      return se_SchemaAttributeType(entry, context);
     });
 };
 
-const serializeAws_json1_1SchemaAttributeType = (input: SchemaAttributeType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SchemaAttributeType
+ */
+const se_SchemaAttributeType = (input: SchemaAttributeType, context: __SerdeContext): any => {
   return {
     ...(input.AttributeDataType != null && { AttributeDataType: input.AttributeDataType }),
     ...(input.DeveloperOnlyAttribute != null && { DeveloperOnlyAttribute: input.DeveloperOnlyAttribute }),
     ...(input.Mutable != null && { Mutable: input.Mutable }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.NumberAttributeConstraints != null && {
-      NumberAttributeConstraints: serializeAws_json1_1NumberAttributeConstraintsType(
-        input.NumberAttributeConstraints,
-        context
-      ),
+      NumberAttributeConstraints: se_NumberAttributeConstraintsType(input.NumberAttributeConstraints, context),
     }),
     ...(input.Required != null && { Required: input.Required }),
     ...(input.StringAttributeConstraints != null && {
-      StringAttributeConstraints: serializeAws_json1_1StringAttributeConstraintsType(
-        input.StringAttributeConstraints,
-        context
-      ),
+      StringAttributeConstraints: se_StringAttributeConstraintsType(input.StringAttributeConstraints, context),
     }),
   };
 };
 
-const serializeAws_json1_1ScopeListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ScopeListType
+ */
+const se_ScopeListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10217,7 +11369,10 @@ const serializeAws_json1_1ScopeListType = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1SearchedAttributeNamesListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SearchedAttributeNamesListType
+ */
+const se_SearchedAttributeNamesListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10225,38 +11380,35 @@ const serializeAws_json1_1SearchedAttributeNamesListType = (input: string[], con
     });
 };
 
-const serializeAws_json1_1SetRiskConfigurationRequest = (
-  input: SetRiskConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetRiskConfigurationRequest
+ */
+const se_SetRiskConfigurationRequest = (input: SetRiskConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountTakeoverRiskConfiguration != null && {
-      AccountTakeoverRiskConfiguration: serializeAws_json1_1AccountTakeoverRiskConfigurationType(
+      AccountTakeoverRiskConfiguration: se_AccountTakeoverRiskConfigurationType(
         input.AccountTakeoverRiskConfiguration,
         context
       ),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.CompromisedCredentialsRiskConfiguration != null && {
-      CompromisedCredentialsRiskConfiguration: serializeAws_json1_1CompromisedCredentialsRiskConfigurationType(
+      CompromisedCredentialsRiskConfiguration: se_CompromisedCredentialsRiskConfigurationType(
         input.CompromisedCredentialsRiskConfiguration,
         context
       ),
     }),
     ...(input.RiskExceptionConfiguration != null && {
-      RiskExceptionConfiguration: serializeAws_json1_1RiskExceptionConfigurationType(
-        input.RiskExceptionConfiguration,
-        context
-      ),
+      RiskExceptionConfiguration: se_RiskExceptionConfigurationType(input.RiskExceptionConfiguration, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1SetUICustomizationRequest = (
-  input: SetUICustomizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetUICustomizationRequest
+ */
+const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context: __SerdeContext): any => {
   return {
     ...(input.CSS != null && { CSS: input.CSS }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
@@ -10265,75 +11417,68 @@ const serializeAws_json1_1SetUICustomizationRequest = (
   };
 };
 
-const serializeAws_json1_1SetUserMFAPreferenceRequest = (
-  input: SetUserMFAPreferenceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetUserMFAPreferenceRequest
+ */
+const se_SetUserMFAPreferenceRequest = (input: SetUserMFAPreferenceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.SMSMfaSettings != null && {
-      SMSMfaSettings: serializeAws_json1_1SMSMfaSettingsType(input.SMSMfaSettings, context),
-    }),
+    ...(input.SMSMfaSettings != null && { SMSMfaSettings: se_SMSMfaSettingsType(input.SMSMfaSettings, context) }),
     ...(input.SoftwareTokenMfaSettings != null && {
-      SoftwareTokenMfaSettings: serializeAws_json1_1SoftwareTokenMfaSettingsType(
-        input.SoftwareTokenMfaSettings,
-        context
-      ),
+      SoftwareTokenMfaSettings: se_SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context),
     }),
   };
 };
 
-const serializeAws_json1_1SetUserPoolMfaConfigRequest = (
-  input: SetUserPoolMfaConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetUserPoolMfaConfigRequest
+ */
+const se_SetUserPoolMfaConfigRequest = (input: SetUserPoolMfaConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
     ...(input.SmsMfaConfiguration != null && {
-      SmsMfaConfiguration: serializeAws_json1_1SmsMfaConfigType(input.SmsMfaConfiguration, context),
+      SmsMfaConfiguration: se_SmsMfaConfigType(input.SmsMfaConfiguration, context),
     }),
     ...(input.SoftwareTokenMfaConfiguration != null && {
-      SoftwareTokenMfaConfiguration: serializeAws_json1_1SoftwareTokenMfaConfigType(
-        input.SoftwareTokenMfaConfiguration,
-        context
-      ),
+      SoftwareTokenMfaConfiguration: se_SoftwareTokenMfaConfigType(input.SoftwareTokenMfaConfiguration, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1SetUserSettingsRequest = (input: SetUserSettingsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SetUserSettingsRequest
+ */
+const se_SetUserSettingsRequest = (input: SetUserSettingsRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.MFAOptions != null && { MFAOptions: serializeAws_json1_1MFAOptionListType(input.MFAOptions, context) }),
+    ...(input.MFAOptions != null && { MFAOptions: se_MFAOptionListType(input.MFAOptions, context) }),
   };
 };
 
-const serializeAws_json1_1SignUpRequest = (input: SignUpRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SignUpRequest
+ */
+const se_SignUpRequest = (input: SignUpRequest, context: __SerdeContext): any => {
   return {
     ...(input.AnalyticsMetadata != null && {
-      AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
+      AnalyticsMetadata: se_AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.SecretHash != null && { SecretHash: input.SecretHash }),
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_json1_1AttributeListType(input.UserAttributes, context),
-    }),
-    ...(input.UserContextData != null && {
-      UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
-    }),
+    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
+    ...(input.UserContextData != null && { UserContextData: se_UserContextDataType(input.UserContextData, context) }),
     ...(input.Username != null && { Username: input.Username }),
-    ...(input.ValidationData != null && {
-      ValidationData: serializeAws_json1_1AttributeListType(input.ValidationData, context),
-    }),
+    ...(input.ValidationData != null && { ValidationData: se_AttributeListType(input.ValidationData, context) }),
   };
 };
 
-const serializeAws_json1_1SkippedIPRangeListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SkippedIPRangeListType
+ */
+const se_SkippedIPRangeListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10341,7 +11486,10 @@ const serializeAws_json1_1SkippedIPRangeListType = (input: string[], context: __
     });
 };
 
-const serializeAws_json1_1SmsConfigurationType = (input: SmsConfigurationType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SmsConfigurationType
+ */
+const se_SmsConfigurationType = (input: SmsConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
     ...(input.SnsCallerArn != null && { SnsCallerArn: input.SnsCallerArn }),
@@ -10349,72 +11497,81 @@ const serializeAws_json1_1SmsConfigurationType = (input: SmsConfigurationType, c
   };
 };
 
-const serializeAws_json1_1SmsMfaConfigType = (input: SmsMfaConfigType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SmsMfaConfigType
+ */
+const se_SmsMfaConfigType = (input: SmsMfaConfigType, context: __SerdeContext): any => {
   return {
     ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration != null && {
-      SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
+      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_1SMSMfaSettingsType = (input: SMSMfaSettingsType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SMSMfaSettingsType
+ */
+const se_SMSMfaSettingsType = (input: SMSMfaSettingsType, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.PreferredMfa != null && { PreferredMfa: input.PreferredMfa }),
   };
 };
 
-const serializeAws_json1_1SoftwareTokenMfaConfigType = (
-  input: SoftwareTokenMfaConfigType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SoftwareTokenMfaConfigType
+ */
+const se_SoftwareTokenMfaConfigType = (input: SoftwareTokenMfaConfigType, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
-const serializeAws_json1_1SoftwareTokenMfaSettingsType = (
-  input: SoftwareTokenMfaSettingsType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SoftwareTokenMfaSettingsType
+ */
+const se_SoftwareTokenMfaSettingsType = (input: SoftwareTokenMfaSettingsType, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.PreferredMfa != null && { PreferredMfa: input.PreferredMfa }),
   };
 };
 
-const serializeAws_json1_1StartUserImportJobRequest = (
-  input: StartUserImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartUserImportJobRequest
+ */
+const se_StartUserImportJobRequest = (input: StartUserImportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1StopUserImportJobRequest = (
-  input: StopUserImportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StopUserImportJobRequest
+ */
+const se_StopUserImportJobRequest = (input: StopUserImportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1StringAttributeConstraintsType = (
-  input: StringAttributeConstraintsType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StringAttributeConstraintsType
+ */
+const se_StringAttributeConstraintsType = (input: StringAttributeConstraintsType, context: __SerdeContext): any => {
   return {
     ...(input.MaxLength != null && { MaxLength: input.MaxLength }),
     ...(input.MinLength != null && { MinLength: input.MinLength }),
   };
 };
 
-const serializeAws_json1_1SupportedIdentityProvidersListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SupportedIdentityProvidersListType
+ */
+const se_SupportedIdentityProvidersListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10422,14 +11579,20 @@ const serializeAws_json1_1SupportedIdentityProvidersListType = (input: string[],
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1UserPoolTagsType(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_UserPoolTagsType(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TokenValidityUnitsType = (input: TokenValidityUnitsType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TokenValidityUnitsType
+ */
+const se_TokenValidityUnitsType = (input: TokenValidityUnitsType, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.IdToken != null && { IdToken: input.IdToken }),
@@ -10437,17 +11600,20 @@ const serializeAws_json1_1TokenValidityUnitsType = (input: TokenValidityUnitsTyp
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1UserPoolTagsListType(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_UserPoolTagsListType(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateAuthEventFeedbackRequest = (
-  input: UpdateAuthEventFeedbackRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateAuthEventFeedbackRequest
+ */
+const se_UpdateAuthEventFeedbackRequest = (input: UpdateAuthEventFeedbackRequest, context: __SerdeContext): any => {
   return {
     ...(input.EventId != null && { EventId: input.EventId }),
     ...(input.FeedbackToken != null && { FeedbackToken: input.FeedbackToken }),
@@ -10457,10 +11623,10 @@ const serializeAws_json1_1UpdateAuthEventFeedbackRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateDeviceStatusRequest = (
-  input: UpdateDeviceStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateDeviceStatusRequest
+ */
+const se_UpdateDeviceStatusRequest = (input: UpdateDeviceStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.DeviceKey != null && { DeviceKey: input.DeviceKey }),
@@ -10468,7 +11634,10 @@ const serializeAws_json1_1UpdateDeviceStatusRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateGroupRequest
+ */
+const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
@@ -10478,74 +11647,62 @@ const serializeAws_json1_1UpdateGroupRequest = (input: UpdateGroupRequest, conte
   };
 };
 
-const serializeAws_json1_1UpdateIdentityProviderRequest = (
-  input: UpdateIdentityProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateIdentityProviderRequest
+ */
+const se_UpdateIdentityProviderRequest = (input: UpdateIdentityProviderRequest, context: __SerdeContext): any => {
   return {
     ...(input.AttributeMapping != null && {
-      AttributeMapping: serializeAws_json1_1AttributeMappingType(input.AttributeMapping, context),
+      AttributeMapping: se_AttributeMappingType(input.AttributeMapping, context),
     }),
-    ...(input.IdpIdentifiers != null && {
-      IdpIdentifiers: serializeAws_json1_1IdpIdentifiersListType(input.IdpIdentifiers, context),
-    }),
-    ...(input.ProviderDetails != null && {
-      ProviderDetails: serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context),
-    }),
+    ...(input.IdpIdentifiers != null && { IdpIdentifiers: se_IdpIdentifiersListType(input.IdpIdentifiers, context) }),
+    ...(input.ProviderDetails != null && { ProviderDetails: se_ProviderDetailsType(input.ProviderDetails, context) }),
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1UpdateResourceServerRequest = (
-  input: UpdateResourceServerRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateResourceServerRequest
+ */
+const se_UpdateResourceServerRequest = (input: UpdateResourceServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Scopes != null && { Scopes: serializeAws_json1_1ResourceServerScopeListType(input.Scopes, context) }),
+    ...(input.Scopes != null && { Scopes: se_ResourceServerScopeListType(input.Scopes, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1UpdateUserAttributesRequest = (
-  input: UpdateUserAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateUserAttributesRequest
+ */
+const se_UpdateUserAttributesRequest = (input: UpdateUserAttributesRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
-    ...(input.ClientMetadata != null && {
-      ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
-    }),
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_json1_1AttributeListType(input.UserAttributes, context),
-    }),
+    ...(input.ClientMetadata != null && { ClientMetadata: se_ClientMetadataType(input.ClientMetadata, context) }),
+    ...(input.UserAttributes != null && { UserAttributes: se_AttributeListType(input.UserAttributes, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateUserPoolClientRequest = (
-  input: UpdateUserPoolClientRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateUserPoolClientRequest
+ */
+const se_UpdateUserPoolClientRequest = (input: UpdateUserPoolClientRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessTokenValidity != null && { AccessTokenValidity: input.AccessTokenValidity }),
-    ...(input.AllowedOAuthFlows != null && {
-      AllowedOAuthFlows: serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context),
-    }),
+    ...(input.AllowedOAuthFlows != null && { AllowedOAuthFlows: se_OAuthFlowsType(input.AllowedOAuthFlows, context) }),
     ...(input.AllowedOAuthFlowsUserPoolClient != null && {
       AllowedOAuthFlowsUserPoolClient: input.AllowedOAuthFlowsUserPoolClient,
     }),
     ...(input.AllowedOAuthScopes != null && {
-      AllowedOAuthScopes: serializeAws_json1_1ScopeListType(input.AllowedOAuthScopes, context),
+      AllowedOAuthScopes: se_ScopeListType(input.AllowedOAuthScopes, context),
     }),
     ...(input.AnalyticsConfiguration != null && {
-      AnalyticsConfiguration: serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
+      AnalyticsConfiguration: se_AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
     }),
     ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
-    ...(input.CallbackURLs != null && {
-      CallbackURLs: serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context),
-    }),
+    ...(input.CallbackURLs != null && { CallbackURLs: se_CallbackURLsListType(input.CallbackURLs, context) }),
     ...(input.ClientId != null && { ClientId: input.ClientId }),
     ...(input.ClientName != null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI != null && { DefaultRedirectURI: input.DefaultRedirectURI }),
@@ -10554,103 +11711,89 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     }),
     ...(input.EnableTokenRevocation != null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows != null && {
-      ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
+      ExplicitAuthFlows: se_ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
     ...(input.IdTokenValidity != null && { IdTokenValidity: input.IdTokenValidity }),
-    ...(input.LogoutURLs != null && { LogoutURLs: serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context) }),
+    ...(input.LogoutURLs != null && { LogoutURLs: se_LogoutURLsListType(input.LogoutURLs, context) }),
     ...(input.PreventUserExistenceErrors != null && { PreventUserExistenceErrors: input.PreventUserExistenceErrors }),
-    ...(input.ReadAttributes != null && {
-      ReadAttributes: serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context),
-    }),
+    ...(input.ReadAttributes != null && { ReadAttributes: se_ClientPermissionListType(input.ReadAttributes, context) }),
     ...(input.RefreshTokenValidity != null && { RefreshTokenValidity: input.RefreshTokenValidity }),
     ...(input.SupportedIdentityProviders != null && {
-      SupportedIdentityProviders: serializeAws_json1_1SupportedIdentityProvidersListType(
-        input.SupportedIdentityProviders,
-        context
-      ),
+      SupportedIdentityProviders: se_SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context),
     }),
     ...(input.TokenValidityUnits != null && {
-      TokenValidityUnits: serializeAws_json1_1TokenValidityUnitsType(input.TokenValidityUnits, context),
+      TokenValidityUnits: se_TokenValidityUnitsType(input.TokenValidityUnits, context),
     }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
     ...(input.WriteAttributes != null && {
-      WriteAttributes: serializeAws_json1_1ClientPermissionListType(input.WriteAttributes, context),
+      WriteAttributes: se_ClientPermissionListType(input.WriteAttributes, context),
     }),
   };
 };
 
-const serializeAws_json1_1UpdateUserPoolDomainRequest = (
-  input: UpdateUserPoolDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateUserPoolDomainRequest
+ */
+const se_UpdateUserPoolDomainRequest = (input: UpdateUserPoolDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.CustomDomainConfig != null && {
-      CustomDomainConfig: serializeAws_json1_1CustomDomainConfigType(input.CustomDomainConfig, context),
+      CustomDomainConfig: se_CustomDomainConfigType(input.CustomDomainConfig, context),
     }),
     ...(input.Domain != null && { Domain: input.Domain }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
   };
 };
 
-const serializeAws_json1_1UpdateUserPoolRequest = (input: UpdateUserPoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateUserPoolRequest
+ */
+const se_UpdateUserPoolRequest = (input: UpdateUserPoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountRecoverySetting != null && {
-      AccountRecoverySetting: serializeAws_json1_1AccountRecoverySettingType(input.AccountRecoverySetting, context),
+      AccountRecoverySetting: se_AccountRecoverySettingType(input.AccountRecoverySetting, context),
     }),
     ...(input.AdminCreateUserConfig != null && {
-      AdminCreateUserConfig: serializeAws_json1_1AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
+      AdminCreateUserConfig: se_AdminCreateUserConfigType(input.AdminCreateUserConfig, context),
     }),
     ...(input.AutoVerifiedAttributes != null && {
-      AutoVerifiedAttributes: serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
+      AutoVerifiedAttributes: se_VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
     }),
     ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
     ...(input.DeviceConfiguration != null && {
-      DeviceConfiguration: serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context),
+      DeviceConfiguration: se_DeviceConfigurationType(input.DeviceConfiguration, context),
     }),
     ...(input.EmailConfiguration != null && {
-      EmailConfiguration: serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context),
+      EmailConfiguration: se_EmailConfigurationType(input.EmailConfiguration, context),
     }),
     ...(input.EmailVerificationMessage != null && { EmailVerificationMessage: input.EmailVerificationMessage }),
     ...(input.EmailVerificationSubject != null && { EmailVerificationSubject: input.EmailVerificationSubject }),
-    ...(input.LambdaConfig != null && {
-      LambdaConfig: serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context),
-    }),
+    ...(input.LambdaConfig != null && { LambdaConfig: se_LambdaConfigType(input.LambdaConfig, context) }),
     ...(input.MfaConfiguration != null && { MfaConfiguration: input.MfaConfiguration }),
-    ...(input.Policies != null && { Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context) }),
+    ...(input.Policies != null && { Policies: se_UserPoolPolicyType(input.Policies, context) }),
     ...(input.SmsAuthenticationMessage != null && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration != null && {
-      SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
+      SmsConfiguration: se_SmsConfigurationType(input.SmsConfiguration, context),
     }),
     ...(input.SmsVerificationMessage != null && { SmsVerificationMessage: input.SmsVerificationMessage }),
     ...(input.UserAttributeUpdateSettings != null && {
-      UserAttributeUpdateSettings: serializeAws_json1_1UserAttributeUpdateSettingsType(
-        input.UserAttributeUpdateSettings,
-        context
-      ),
+      UserAttributeUpdateSettings: se_UserAttributeUpdateSettingsType(input.UserAttributeUpdateSettings, context),
     }),
-    ...(input.UserPoolAddOns != null && {
-      UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
-    }),
+    ...(input.UserPoolAddOns != null && { UserPoolAddOns: se_UserPoolAddOnsType(input.UserPoolAddOns, context) }),
     ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-    ...(input.UserPoolTags != null && {
-      UserPoolTags: serializeAws_json1_1UserPoolTagsType(input.UserPoolTags, context),
-    }),
+    ...(input.UserPoolTags != null && { UserPoolTags: se_UserPoolTagsType(input.UserPoolTags, context) }),
     ...(input.VerificationMessageTemplate != null && {
-      VerificationMessageTemplate: serializeAws_json1_1VerificationMessageTemplateType(
-        input.VerificationMessageTemplate,
-        context
-      ),
+      VerificationMessageTemplate: se_VerificationMessageTemplateType(input.VerificationMessageTemplate, context),
     }),
   };
 };
 
-const serializeAws_json1_1UserAttributeUpdateSettingsType = (
-  input: UserAttributeUpdateSettingsType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UserAttributeUpdateSettingsType
+ */
+const se_UserAttributeUpdateSettingsType = (input: UserAttributeUpdateSettingsType, context: __SerdeContext): any => {
   return {
     ...(input.AttributesRequireVerificationBeforeUpdate != null && {
-      AttributesRequireVerificationBeforeUpdate: serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType(
+      AttributesRequireVerificationBeforeUpdate: se_AttributesRequireVerificationBeforeUpdateType(
         input.AttributesRequireVerificationBeforeUpdate,
         context
       ),
@@ -10658,17 +11801,20 @@ const serializeAws_json1_1UserAttributeUpdateSettingsType = (
   };
 };
 
-const serializeAws_json1_1UserContextDataType = (input: UserContextDataType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserContextDataType
+ */
+const se_UserContextDataType = (input: UserContextDataType, context: __SerdeContext): any => {
   return {
     ...(input.EncodedData != null && { EncodedData: input.EncodedData }),
     ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
   };
 };
 
-const serializeAws_json1_1UsernameAttributesListType = (
-  input: (UsernameAttributeType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UsernameAttributesListType
+ */
+const se_UsernameAttributesListType = (input: (UsernameAttributeType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10676,30 +11822,37 @@ const serializeAws_json1_1UsernameAttributesListType = (
     });
 };
 
-const serializeAws_json1_1UsernameConfigurationType = (
-  input: UsernameConfigurationType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UsernameConfigurationType
+ */
+const se_UsernameConfigurationType = (input: UsernameConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.CaseSensitive != null && { CaseSensitive: input.CaseSensitive }),
   };
 };
 
-const serializeAws_json1_1UserPoolAddOnsType = (input: UserPoolAddOnsType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserPoolAddOnsType
+ */
+const se_UserPoolAddOnsType = (input: UserPoolAddOnsType, context: __SerdeContext): any => {
   return {
     ...(input.AdvancedSecurityMode != null && { AdvancedSecurityMode: input.AdvancedSecurityMode }),
   };
 };
 
-const serializeAws_json1_1UserPoolPolicyType = (input: UserPoolPolicyType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserPoolPolicyType
+ */
+const se_UserPoolPolicyType = (input: UserPoolPolicyType, context: __SerdeContext): any => {
   return {
-    ...(input.PasswordPolicy != null && {
-      PasswordPolicy: serializeAws_json1_1PasswordPolicyType(input.PasswordPolicy, context),
-    }),
+    ...(input.PasswordPolicy != null && { PasswordPolicy: se_PasswordPolicyType(input.PasswordPolicy, context) }),
   };
 };
 
-const serializeAws_json1_1UserPoolTagsListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserPoolTagsListType
+ */
+const se_UserPoolTagsListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10707,7 +11860,10 @@ const serializeAws_json1_1UserPoolTagsListType = (input: string[], context: __Se
     });
 };
 
-const serializeAws_json1_1UserPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserPoolTagsType
+ */
+const se_UserPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -10717,10 +11873,10 @@ const serializeAws_json1_1UserPoolTagsType = (input: Record<string, string>, con
   }, {});
 };
 
-const serializeAws_json1_1VerificationMessageTemplateType = (
-  input: VerificationMessageTemplateType,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1VerificationMessageTemplateType
+ */
+const se_VerificationMessageTemplateType = (input: VerificationMessageTemplateType, context: __SerdeContext): any => {
   return {
     ...(input.DefaultEmailOption != null && { DefaultEmailOption: input.DefaultEmailOption }),
     ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
@@ -10731,10 +11887,10 @@ const serializeAws_json1_1VerificationMessageTemplateType = (
   };
 };
 
-const serializeAws_json1_1VerifiedAttributesListType = (
-  input: (VerifiedAttributeType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1VerifiedAttributesListType
+ */
+const se_VerifiedAttributesListType = (input: (VerifiedAttributeType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10742,10 +11898,10 @@ const serializeAws_json1_1VerifiedAttributesListType = (
     });
 };
 
-const serializeAws_json1_1VerifySoftwareTokenRequest = (
-  input: VerifySoftwareTokenRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1VerifySoftwareTokenRequest
+ */
+const se_VerifySoftwareTokenRequest = (input: VerifySoftwareTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.FriendlyDeviceName != null && { FriendlyDeviceName: input.FriendlyDeviceName }),
@@ -10754,10 +11910,10 @@ const serializeAws_json1_1VerifySoftwareTokenRequest = (
   };
 };
 
-const serializeAws_json1_1VerifyUserAttributeRequest = (
-  input: VerifyUserAttributeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1VerifyUserAttributeRequest
+ */
+const se_VerifyUserAttributeRequest = (input: VerifyUserAttributeRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken != null && { AccessToken: input.AccessToken }),
     ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
@@ -10765,141 +11921,138 @@ const serializeAws_json1_1VerifyUserAttributeRequest = (
   };
 };
 
-const deserializeAws_json1_1AccountRecoverySettingType = (
-  output: any,
-  context: __SerdeContext
-): AccountRecoverySettingType => {
+/**
+ * deserializeAws_json1_1AccountRecoverySettingType
+ */
+const de_AccountRecoverySettingType = (output: any, context: __SerdeContext): AccountRecoverySettingType => {
   return {
     RecoveryMechanisms:
-      output.RecoveryMechanisms != null
-        ? deserializeAws_json1_1RecoveryMechanismsType(output.RecoveryMechanisms, context)
-        : undefined,
+      output.RecoveryMechanisms != null ? de_RecoveryMechanismsType(output.RecoveryMechanisms, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AccountTakeoverActionsType = (
-  output: any,
-  context: __SerdeContext
-): AccountTakeoverActionsType => {
+/**
+ * deserializeAws_json1_1AccountTakeoverActionsType
+ */
+const de_AccountTakeoverActionsType = (output: any, context: __SerdeContext): AccountTakeoverActionsType => {
   return {
-    HighAction:
-      output.HighAction != null
-        ? deserializeAws_json1_1AccountTakeoverActionType(output.HighAction, context)
-        : undefined,
-    LowAction:
-      output.LowAction != null ? deserializeAws_json1_1AccountTakeoverActionType(output.LowAction, context) : undefined,
-    MediumAction:
-      output.MediumAction != null
-        ? deserializeAws_json1_1AccountTakeoverActionType(output.MediumAction, context)
-        : undefined,
+    HighAction: output.HighAction != null ? de_AccountTakeoverActionType(output.HighAction, context) : undefined,
+    LowAction: output.LowAction != null ? de_AccountTakeoverActionType(output.LowAction, context) : undefined,
+    MediumAction: output.MediumAction != null ? de_AccountTakeoverActionType(output.MediumAction, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AccountTakeoverActionType = (
-  output: any,
-  context: __SerdeContext
-): AccountTakeoverActionType => {
+/**
+ * deserializeAws_json1_1AccountTakeoverActionType
+ */
+const de_AccountTakeoverActionType = (output: any, context: __SerdeContext): AccountTakeoverActionType => {
   return {
     EventAction: __expectString(output.EventAction),
     Notify: __expectBoolean(output.Notify),
   } as any;
 };
 
-const deserializeAws_json1_1AccountTakeoverRiskConfigurationType = (
+/**
+ * deserializeAws_json1_1AccountTakeoverRiskConfigurationType
+ */
+const de_AccountTakeoverRiskConfigurationType = (
   output: any,
   context: __SerdeContext
 ): AccountTakeoverRiskConfigurationType => {
   return {
-    Actions:
-      output.Actions != null ? deserializeAws_json1_1AccountTakeoverActionsType(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? de_AccountTakeoverActionsType(output.Actions, context) : undefined,
     NotifyConfiguration:
-      output.NotifyConfiguration != null
-        ? deserializeAws_json1_1NotifyConfigurationType(output.NotifyConfiguration, context)
-        : undefined,
+      output.NotifyConfiguration != null ? de_NotifyConfigurationType(output.NotifyConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AddCustomAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): AddCustomAttributesResponse => {
+/**
+ * deserializeAws_json1_1AddCustomAttributesResponse
+ */
+const de_AddCustomAttributesResponse = (output: any, context: __SerdeContext): AddCustomAttributesResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminConfirmSignUpResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminConfirmSignUpResponse => {
+/**
+ * deserializeAws_json1_1AdminConfirmSignUpResponse
+ */
+const de_AdminConfirmSignUpResponse = (output: any, context: __SerdeContext): AdminConfirmSignUpResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminCreateUserConfigType = (
-  output: any,
-  context: __SerdeContext
-): AdminCreateUserConfigType => {
+/**
+ * deserializeAws_json1_1AdminCreateUserConfigType
+ */
+const de_AdminCreateUserConfigType = (output: any, context: __SerdeContext): AdminCreateUserConfigType => {
   return {
     AllowAdminCreateUserOnly: __expectBoolean(output.AllowAdminCreateUserOnly),
     InviteMessageTemplate:
-      output.InviteMessageTemplate != null
-        ? deserializeAws_json1_1MessageTemplateType(output.InviteMessageTemplate, context)
-        : undefined,
+      output.InviteMessageTemplate != null ? de_MessageTemplateType(output.InviteMessageTemplate, context) : undefined,
     UnusedAccountValidityDays: __expectInt32(output.UnusedAccountValidityDays),
   } as any;
 };
 
-const deserializeAws_json1_1AdminCreateUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminCreateUserResponse => {
+/**
+ * deserializeAws_json1_1AdminCreateUserResponse
+ */
+const de_AdminCreateUserResponse = (output: any, context: __SerdeContext): AdminCreateUserResponse => {
   return {
-    User: output.User != null ? deserializeAws_json1_1UserType(output.User, context) : undefined,
+    User: output.User != null ? de_UserType(output.User, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AdminDeleteUserAttributesResponse = (
+/**
+ * deserializeAws_json1_1AdminDeleteUserAttributesResponse
+ */
+const de_AdminDeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDeleteUserAttributesResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminDisableProviderForUserResponse = (
+/**
+ * deserializeAws_json1_1AdminDisableProviderForUserResponse
+ */
+const de_AdminDisableProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDisableProviderForUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminDisableUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminDisableUserResponse => {
+/**
+ * deserializeAws_json1_1AdminDisableUserResponse
+ */
+const de_AdminDisableUserResponse = (output: any, context: __SerdeContext): AdminDisableUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminEnableUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminEnableUserResponse => {
+/**
+ * deserializeAws_json1_1AdminEnableUserResponse
+ */
+const de_AdminEnableUserResponse = (output: any, context: __SerdeContext): AdminEnableUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminGetDeviceResponse = (output: any, context: __SerdeContext): AdminGetDeviceResponse => {
+/**
+ * deserializeAws_json1_1AdminGetDeviceResponse
+ */
+const de_AdminGetDeviceResponse = (output: any, context: __SerdeContext): AdminGetDeviceResponse => {
   return {
-    Device: output.Device != null ? deserializeAws_json1_1DeviceType(output.Device, context) : undefined,
+    Device: output.Device != null ? de_DeviceType(output.Device, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AdminGetUserResponse = (output: any, context: __SerdeContext): AdminGetUserResponse => {
+/**
+ * deserializeAws_json1_1AdminGetUserResponse
+ */
+const de_AdminGetUserResponse = (output: any, context: __SerdeContext): AdminGetUserResponse => {
   return {
     Enabled: __expectBoolean(output.Enabled),
-    MFAOptions:
-      output.MFAOptions != null ? deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context) : undefined,
+    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
     PreferredMfaSetting: __expectString(output.PreferredMfaSetting),
-    UserAttributes:
-      output.UserAttributes != null
-        ? deserializeAws_json1_1AttributeListType(output.UserAttributes, context)
-        : undefined,
+    UserAttributes: output.UserAttributes != null ? de_AttributeListType(output.UserAttributes, context) : undefined,
     UserCreateDate:
       output.UserCreateDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
@@ -10909,148 +12062,156 @@ const deserializeAws_json1_1AdminGetUserResponse = (output: any, context: __Serd
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserLastModifiedDate)))
         : undefined,
     UserMFASettingList:
-      output.UserMFASettingList != null
-        ? deserializeAws_json1_1UserMFASettingListType(output.UserMFASettingList, context)
-        : undefined,
+      output.UserMFASettingList != null ? de_UserMFASettingListType(output.UserMFASettingList, context) : undefined,
     UserStatus: __expectString(output.UserStatus),
     Username: __expectString(output.Username),
   } as any;
 };
 
-const deserializeAws_json1_1AdminInitiateAuthResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminInitiateAuthResponse => {
+/**
+ * deserializeAws_json1_1AdminInitiateAuthResponse
+ */
+const de_AdminInitiateAuthResponse = (output: any, context: __SerdeContext): AdminInitiateAuthResponse => {
   return {
     AuthenticationResult:
       output.AuthenticationResult != null
-        ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
+        ? de_AuthenticationResultType(output.AuthenticationResult, context)
         : undefined,
     ChallengeName: __expectString(output.ChallengeName),
     ChallengeParameters:
-      output.ChallengeParameters != null
-        ? deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context)
-        : undefined,
+      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
     Session: __expectString(output.Session),
   } as any;
 };
 
-const deserializeAws_json1_1AdminLinkProviderForUserResponse = (
+/**
+ * deserializeAws_json1_1AdminLinkProviderForUserResponse
+ */
+const de_AdminLinkProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminLinkProviderForUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminListDevicesResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminListDevicesResponse => {
+/**
+ * deserializeAws_json1_1AdminListDevicesResponse
+ */
+const de_AdminListDevicesResponse = (output: any, context: __SerdeContext): AdminListDevicesResponse => {
   return {
-    Devices: output.Devices != null ? deserializeAws_json1_1DeviceListType(output.Devices, context) : undefined,
+    Devices: output.Devices != null ? de_DeviceListType(output.Devices, context) : undefined,
     PaginationToken: __expectString(output.PaginationToken),
   } as any;
 };
 
-const deserializeAws_json1_1AdminListGroupsForUserResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminListGroupsForUserResponse => {
+/**
+ * deserializeAws_json1_1AdminListGroupsForUserResponse
+ */
+const de_AdminListGroupsForUserResponse = (output: any, context: __SerdeContext): AdminListGroupsForUserResponse => {
   return {
-    Groups: output.Groups != null ? deserializeAws_json1_1GroupListType(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? de_GroupListType(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1AdminListUserAuthEventsResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminListUserAuthEventsResponse => {
+/**
+ * deserializeAws_json1_1AdminListUserAuthEventsResponse
+ */
+const de_AdminListUserAuthEventsResponse = (output: any, context: __SerdeContext): AdminListUserAuthEventsResponse => {
   return {
-    AuthEvents:
-      output.AuthEvents != null ? deserializeAws_json1_1AuthEventsType(output.AuthEvents, context) : undefined,
+    AuthEvents: output.AuthEvents != null ? de_AuthEventsType(output.AuthEvents, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1AdminResetUserPasswordResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminResetUserPasswordResponse => {
+/**
+ * deserializeAws_json1_1AdminResetUserPasswordResponse
+ */
+const de_AdminResetUserPasswordResponse = (output: any, context: __SerdeContext): AdminResetUserPasswordResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminRespondToAuthChallengeResponse = (
+/**
+ * deserializeAws_json1_1AdminRespondToAuthChallengeResponse
+ */
+const de_AdminRespondToAuthChallengeResponse = (
   output: any,
   context: __SerdeContext
 ): AdminRespondToAuthChallengeResponse => {
   return {
     AuthenticationResult:
       output.AuthenticationResult != null
-        ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
+        ? de_AuthenticationResultType(output.AuthenticationResult, context)
         : undefined,
     ChallengeName: __expectString(output.ChallengeName),
     ChallengeParameters:
-      output.ChallengeParameters != null
-        ? deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context)
-        : undefined,
+      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
     Session: __expectString(output.Session),
   } as any;
 };
 
-const deserializeAws_json1_1AdminSetUserMFAPreferenceResponse = (
+/**
+ * deserializeAws_json1_1AdminSetUserMFAPreferenceResponse
+ */
+const de_AdminSetUserMFAPreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserMFAPreferenceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminSetUserPasswordResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminSetUserPasswordResponse => {
+/**
+ * deserializeAws_json1_1AdminSetUserPasswordResponse
+ */
+const de_AdminSetUserPasswordResponse = (output: any, context: __SerdeContext): AdminSetUserPasswordResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminSetUserSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminSetUserSettingsResponse => {
+/**
+ * deserializeAws_json1_1AdminSetUserSettingsResponse
+ */
+const de_AdminSetUserSettingsResponse = (output: any, context: __SerdeContext): AdminSetUserSettingsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse = (
+/**
+ * deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse
+ */
+const de_AdminUpdateAuthEventFeedbackResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateAuthEventFeedbackResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminUpdateDeviceStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminUpdateDeviceStatusResponse => {
+/**
+ * deserializeAws_json1_1AdminUpdateDeviceStatusResponse
+ */
+const de_AdminUpdateDeviceStatusResponse = (output: any, context: __SerdeContext): AdminUpdateDeviceStatusResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminUpdateUserAttributesResponse = (
+/**
+ * deserializeAws_json1_1AdminUpdateUserAttributesResponse
+ */
+const de_AdminUpdateUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateUserAttributesResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AdminUserGlobalSignOutResponse = (
-  output: any,
-  context: __SerdeContext
-): AdminUserGlobalSignOutResponse => {
+/**
+ * deserializeAws_json1_1AdminUserGlobalSignOutResponse
+ */
+const de_AdminUserGlobalSignOutResponse = (output: any, context: __SerdeContext): AdminUserGlobalSignOutResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AliasAttributesListType = (
-  output: any,
-  context: __SerdeContext
-): (AliasAttributeType | string)[] => {
+/**
+ * deserializeAws_json1_1AliasAttributesListType
+ */
+const de_AliasAttributesListType = (output: any, context: __SerdeContext): (AliasAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11062,16 +12223,19 @@ const deserializeAws_json1_1AliasAttributesListType = (
   return retVal;
 };
 
-const deserializeAws_json1_1AliasExistsException = (output: any, context: __SerdeContext): AliasExistsException => {
+/**
+ * deserializeAws_json1_1AliasExistsException
+ */
+const de_AliasExistsException = (output: any, context: __SerdeContext): AliasExistsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1AnalyticsConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): AnalyticsConfigurationType => {
+/**
+ * deserializeAws_json1_1AnalyticsConfigurationType
+ */
+const de_AnalyticsConfigurationType = (output: any, context: __SerdeContext): AnalyticsConfigurationType => {
   return {
     ApplicationArn: __expectString(output.ApplicationArn),
     ApplicationId: __expectString(output.ApplicationId),
@@ -11081,29 +12245,35 @@ const deserializeAws_json1_1AnalyticsConfigurationType = (
   } as any;
 };
 
-const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateSoftwareTokenResponse => {
+/**
+ * deserializeAws_json1_1AssociateSoftwareTokenResponse
+ */
+const de_AssociateSoftwareTokenResponse = (output: any, context: __SerdeContext): AssociateSoftwareTokenResponse => {
   return {
     SecretCode: __expectString(output.SecretCode),
     Session: __expectString(output.Session),
   } as any;
 };
 
-const deserializeAws_json1_1AttributeListType = (output: any, context: __SerdeContext): AttributeType[] => {
+/**
+ * deserializeAws_json1_1AttributeListType
+ */
+const de_AttributeListType = (output: any, context: __SerdeContext): AttributeType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AttributeType(entry, context);
+      return de_AttributeType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AttributeMappingType = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1AttributeMappingType
+ */
+const de_AttributeMappingType = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -11113,7 +12283,10 @@ const deserializeAws_json1_1AttributeMappingType = (output: any, context: __Serd
   }, {});
 };
 
-const deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
+/**
+ * deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType
+ */
+const de_AttributesRequireVerificationBeforeUpdateType = (
   output: any,
   context: __SerdeContext
 ): (VerifiedAttributeType | string)[] => {
@@ -11128,66 +12301,71 @@ const deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
   return retVal;
 };
 
-const deserializeAws_json1_1AttributeType = (output: any, context: __SerdeContext): AttributeType => {
+/**
+ * deserializeAws_json1_1AttributeType
+ */
+const de_AttributeType = (output: any, context: __SerdeContext): AttributeType => {
   return {
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1AuthenticationResultType = (
-  output: any,
-  context: __SerdeContext
-): AuthenticationResultType => {
+/**
+ * deserializeAws_json1_1AuthenticationResultType
+ */
+const de_AuthenticationResultType = (output: any, context: __SerdeContext): AuthenticationResultType => {
   return {
     AccessToken: __expectString(output.AccessToken),
     ExpiresIn: __expectInt32(output.ExpiresIn),
     IdToken: __expectString(output.IdToken),
     NewDeviceMetadata:
-      output.NewDeviceMetadata != null
-        ? deserializeAws_json1_1NewDeviceMetadataType(output.NewDeviceMetadata, context)
-        : undefined,
+      output.NewDeviceMetadata != null ? de_NewDeviceMetadataType(output.NewDeviceMetadata, context) : undefined,
     RefreshToken: __expectString(output.RefreshToken),
     TokenType: __expectString(output.TokenType),
   } as any;
 };
 
-const deserializeAws_json1_1AuthEventsType = (output: any, context: __SerdeContext): AuthEventType[] => {
+/**
+ * deserializeAws_json1_1AuthEventsType
+ */
+const de_AuthEventsType = (output: any, context: __SerdeContext): AuthEventType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AuthEventType(entry, context);
+      return de_AuthEventType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AuthEventType = (output: any, context: __SerdeContext): AuthEventType => {
+/**
+ * deserializeAws_json1_1AuthEventType
+ */
+const de_AuthEventType = (output: any, context: __SerdeContext): AuthEventType => {
   return {
     ChallengeResponses:
-      output.ChallengeResponses != null
-        ? deserializeAws_json1_1ChallengeResponseListType(output.ChallengeResponses, context)
-        : undefined,
+      output.ChallengeResponses != null ? de_ChallengeResponseListType(output.ChallengeResponses, context) : undefined,
     CreationDate:
       output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EventContextData:
-      output.EventContextData != null
-        ? deserializeAws_json1_1EventContextDataType(output.EventContextData, context)
-        : undefined,
-    EventFeedback:
-      output.EventFeedback != null ? deserializeAws_json1_1EventFeedbackType(output.EventFeedback, context) : undefined,
+      output.EventContextData != null ? de_EventContextDataType(output.EventContextData, context) : undefined,
+    EventFeedback: output.EventFeedback != null ? de_EventFeedbackType(output.EventFeedback, context) : undefined,
     EventId: __expectString(output.EventId),
     EventResponse: __expectString(output.EventResponse),
-    EventRisk: output.EventRisk != null ? deserializeAws_json1_1EventRiskType(output.EventRisk, context) : undefined,
+    EventRisk: output.EventRisk != null ? de_EventRiskType(output.EventRisk, context) : undefined,
     EventType: __expectString(output.EventType),
   } as any;
 };
 
-const deserializeAws_json1_1BlockedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1BlockedIPRangeListType
+ */
+const de_BlockedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11199,7 +12377,10 @@ const deserializeAws_json1_1BlockedIPRangeListType = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1CallbackURLsListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1CallbackURLsListType
+ */
+const de_CallbackURLsListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11211,10 +12392,10 @@ const deserializeAws_json1_1CallbackURLsListType = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1ChallengeParametersType = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ChallengeParametersType
+ */
+const de_ChallengeParametersType = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -11224,33 +12405,42 @@ const deserializeAws_json1_1ChallengeParametersType = (
   }, {});
 };
 
-const deserializeAws_json1_1ChallengeResponseListType = (
-  output: any,
-  context: __SerdeContext
-): ChallengeResponseType[] => {
+/**
+ * deserializeAws_json1_1ChallengeResponseListType
+ */
+const de_ChallengeResponseListType = (output: any, context: __SerdeContext): ChallengeResponseType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ChallengeResponseType(entry, context);
+      return de_ChallengeResponseType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ChallengeResponseType = (output: any, context: __SerdeContext): ChallengeResponseType => {
+/**
+ * deserializeAws_json1_1ChallengeResponseType
+ */
+const de_ChallengeResponseType = (output: any, context: __SerdeContext): ChallengeResponseType => {
   return {
     ChallengeName: __expectString(output.ChallengeName),
     ChallengeResponse: __expectString(output.ChallengeResponse),
   } as any;
 };
 
-const deserializeAws_json1_1ChangePasswordResponse = (output: any, context: __SerdeContext): ChangePasswordResponse => {
+/**
+ * deserializeAws_json1_1ChangePasswordResponse
+ */
+const de_ChangePasswordResponse = (output: any, context: __SerdeContext): ChangePasswordResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ClientPermissionListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ClientPermissionListType
+ */
+const de_ClientPermissionListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11262,25 +12452,25 @@ const deserializeAws_json1_1ClientPermissionListType = (output: any, context: __
   return retVal;
 };
 
-const deserializeAws_json1_1CodeDeliveryDetailsListType = (
-  output: any,
-  context: __SerdeContext
-): CodeDeliveryDetailsType[] => {
+/**
+ * deserializeAws_json1_1CodeDeliveryDetailsListType
+ */
+const de_CodeDeliveryDetailsListType = (output: any, context: __SerdeContext): CodeDeliveryDetailsType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CodeDeliveryDetailsType(entry, context);
+      return de_CodeDeliveryDetailsType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CodeDeliveryDetailsType = (
-  output: any,
-  context: __SerdeContext
-): CodeDeliveryDetailsType => {
+/**
+ * deserializeAws_json1_1CodeDeliveryDetailsType
+ */
+const de_CodeDeliveryDetailsType = (output: any, context: __SerdeContext): CodeDeliveryDetailsType => {
   return {
     AttributeName: __expectString(output.AttributeName),
     DeliveryMedium: __expectString(output.DeliveryMedium),
@@ -11288,22 +12478,28 @@ const deserializeAws_json1_1CodeDeliveryDetailsType = (
   } as any;
 };
 
-const deserializeAws_json1_1CodeDeliveryFailureException = (
-  output: any,
-  context: __SerdeContext
-): CodeDeliveryFailureException => {
+/**
+ * deserializeAws_json1_1CodeDeliveryFailureException
+ */
+const de_CodeDeliveryFailureException = (output: any, context: __SerdeContext): CodeDeliveryFailureException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CodeMismatchException = (output: any, context: __SerdeContext): CodeMismatchException => {
+/**
+ * deserializeAws_json1_1CodeMismatchException
+ */
+const de_CodeMismatchException = (output: any, context: __SerdeContext): CodeMismatchException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CompromisedCredentialsActionsType = (
+/**
+ * deserializeAws_json1_1CompromisedCredentialsActionsType
+ */
+const de_CompromisedCredentialsActionsType = (
   output: any,
   context: __SerdeContext
 ): CompromisedCredentialsActionsType => {
@@ -11312,120 +12508,128 @@ const deserializeAws_json1_1CompromisedCredentialsActionsType = (
   } as any;
 };
 
-const deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
+/**
+ * deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType
+ */
+const de_CompromisedCredentialsRiskConfigurationType = (
   output: any,
   context: __SerdeContext
 ): CompromisedCredentialsRiskConfigurationType => {
   return {
-    Actions:
-      output.Actions != null
-        ? deserializeAws_json1_1CompromisedCredentialsActionsType(output.Actions, context)
-        : undefined,
-    EventFilter:
-      output.EventFilter != null ? deserializeAws_json1_1EventFiltersType(output.EventFilter, context) : undefined,
+    Actions: output.Actions != null ? de_CompromisedCredentialsActionsType(output.Actions, context) : undefined,
+    EventFilter: output.EventFilter != null ? de_EventFiltersType(output.EventFilter, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
+/**
+ * deserializeAws_json1_1ConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ConfirmDeviceResponse = (output: any, context: __SerdeContext): ConfirmDeviceResponse => {
+/**
+ * deserializeAws_json1_1ConfirmDeviceResponse
+ */
+const de_ConfirmDeviceResponse = (output: any, context: __SerdeContext): ConfirmDeviceResponse => {
   return {
     UserConfirmationNecessary: __expectBoolean(output.UserConfirmationNecessary),
   } as any;
 };
 
-const deserializeAws_json1_1ConfirmForgotPasswordResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmForgotPasswordResponse => {
+/**
+ * deserializeAws_json1_1ConfirmForgotPasswordResponse
+ */
+const de_ConfirmForgotPasswordResponse = (output: any, context: __SerdeContext): ConfirmForgotPasswordResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ConfirmSignUpResponse = (output: any, context: __SerdeContext): ConfirmSignUpResponse => {
+/**
+ * deserializeAws_json1_1ConfirmSignUpResponse
+ */
+const de_ConfirmSignUpResponse = (output: any, context: __SerdeContext): ConfirmSignUpResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
+/**
+ * deserializeAws_json1_1CreateGroupResponse
+ */
+const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
-    Group: output.Group != null ? deserializeAws_json1_1GroupType(output.Group, context) : undefined,
+    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateIdentityProviderResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateIdentityProviderResponse => {
+/**
+ * deserializeAws_json1_1CreateIdentityProviderResponse
+ */
+const de_CreateIdentityProviderResponse = (output: any, context: __SerdeContext): CreateIdentityProviderResponse => {
   return {
     IdentityProvider:
-      output.IdentityProvider != null
-        ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
-        : undefined,
+      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateResourceServerResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateResourceServerResponse => {
+/**
+ * deserializeAws_json1_1CreateResourceServerResponse
+ */
+const de_CreateResourceServerResponse = (output: any, context: __SerdeContext): CreateResourceServerResponse => {
   return {
-    ResourceServer:
-      output.ResourceServer != null
-        ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
-        : undefined,
+    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateUserImportJobResponse => {
+/**
+ * deserializeAws_json1_1CreateUserImportJobResponse
+ */
+const de_CreateUserImportJobResponse = (output: any, context: __SerdeContext): CreateUserImportJobResponse => {
   return {
-    UserImportJob:
-      output.UserImportJob != null ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context) : undefined,
+    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserPoolClientResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateUserPoolClientResponse => {
+/**
+ * deserializeAws_json1_1CreateUserPoolClientResponse
+ */
+const de_CreateUserPoolClientResponse = (output: any, context: __SerdeContext): CreateUserPoolClientResponse => {
   return {
-    UserPoolClient:
-      output.UserPoolClient != null
-        ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
-        : undefined,
+    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserPoolDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateUserPoolDomainResponse => {
+/**
+ * deserializeAws_json1_1CreateUserPoolDomainResponse
+ */
+const de_CreateUserPoolDomainResponse = (output: any, context: __SerdeContext): CreateUserPoolDomainResponse => {
   return {
     CloudFrontDomain: __expectString(output.CloudFrontDomain),
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserPoolResponse = (output: any, context: __SerdeContext): CreateUserPoolResponse => {
+/**
+ * deserializeAws_json1_1CreateUserPoolResponse
+ */
+const de_CreateUserPoolResponse = (output: any, context: __SerdeContext): CreateUserPoolResponse => {
   return {
-    UserPool: output.UserPool != null ? deserializeAws_json1_1UserPoolType(output.UserPool, context) : undefined,
+    UserPool: output.UserPool != null ? de_UserPoolType(output.UserPool, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CustomDomainConfigType = (output: any, context: __SerdeContext): CustomDomainConfigType => {
+/**
+ * deserializeAws_json1_1CustomDomainConfigType
+ */
+const de_CustomDomainConfigType = (output: any, context: __SerdeContext): CustomDomainConfigType => {
   return {
     CertificateArn: __expectString(output.CertificateArn),
   } as any;
 };
 
-const deserializeAws_json1_1CustomEmailLambdaVersionConfigType = (
+/**
+ * deserializeAws_json1_1CustomEmailLambdaVersionConfigType
+ */
+const de_CustomEmailLambdaVersionConfigType = (
   output: any,
   context: __SerdeContext
 ): CustomEmailLambdaVersionConfigType => {
@@ -11435,7 +12639,10 @@ const deserializeAws_json1_1CustomEmailLambdaVersionConfigType = (
   } as any;
 };
 
-const deserializeAws_json1_1CustomSMSLambdaVersionConfigType = (
+/**
+ * deserializeAws_json1_1CustomSMSLambdaVersionConfigType
+ */
+const de_CustomSMSLambdaVersionConfigType = (
   output: any,
   context: __SerdeContext
 ): CustomSMSLambdaVersionConfigType => {
@@ -11445,127 +12652,124 @@ const deserializeAws_json1_1CustomSMSLambdaVersionConfigType = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteUserAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteUserAttributesResponse => {
+/**
+ * deserializeAws_json1_1DeleteUserAttributesResponse
+ */
+const de_DeleteUserAttributesResponse = (output: any, context: __SerdeContext): DeleteUserAttributesResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteUserPoolDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteUserPoolDomainResponse => {
+/**
+ * deserializeAws_json1_1DeleteUserPoolDomainResponse
+ */
+const de_DeleteUserPoolDomainResponse = (output: any, context: __SerdeContext): DeleteUserPoolDomainResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeIdentityProviderResponse = (
+/**
+ * deserializeAws_json1_1DescribeIdentityProviderResponse
+ */
+const de_DescribeIdentityProviderResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeIdentityProviderResponse => {
   return {
     IdentityProvider:
-      output.IdentityProvider != null
-        ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
-        : undefined,
+      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeResourceServerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeResourceServerResponse => {
+/**
+ * deserializeAws_json1_1DescribeResourceServerResponse
+ */
+const de_DescribeResourceServerResponse = (output: any, context: __SerdeContext): DescribeResourceServerResponse => {
   return {
-    ResourceServer:
-      output.ResourceServer != null
-        ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
-        : undefined,
+    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeRiskConfigurationResponse = (
+/**
+ * deserializeAws_json1_1DescribeRiskConfigurationResponse
+ */
+const de_DescribeRiskConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRiskConfigurationResponse => {
   return {
     RiskConfiguration:
-      output.RiskConfiguration != null
-        ? deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context)
-        : undefined,
+      output.RiskConfiguration != null ? de_RiskConfigurationType(output.RiskConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserImportJobResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserImportJobResponse
+ */
+const de_DescribeUserImportJobResponse = (output: any, context: __SerdeContext): DescribeUserImportJobResponse => {
   return {
-    UserImportJob:
-      output.UserImportJob != null ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context) : undefined,
+    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserPoolClientResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserPoolClientResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserPoolClientResponse
+ */
+const de_DescribeUserPoolClientResponse = (output: any, context: __SerdeContext): DescribeUserPoolClientResponse => {
   return {
-    UserPoolClient:
-      output.UserPoolClient != null
-        ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
-        : undefined,
+    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserPoolDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserPoolDomainResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserPoolDomainResponse
+ */
+const de_DescribeUserPoolDomainResponse = (output: any, context: __SerdeContext): DescribeUserPoolDomainResponse => {
   return {
     DomainDescription:
-      output.DomainDescription != null
-        ? deserializeAws_json1_1DomainDescriptionType(output.DomainDescription, context)
-        : undefined,
+      output.DomainDescription != null ? de_DomainDescriptionType(output.DomainDescription, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserPoolResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserPoolResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserPoolResponse
+ */
+const de_DescribeUserPoolResponse = (output: any, context: __SerdeContext): DescribeUserPoolResponse => {
   return {
-    UserPool: output.UserPool != null ? deserializeAws_json1_1UserPoolType(output.UserPool, context) : undefined,
+    UserPool: output.UserPool != null ? de_UserPoolType(output.UserPool, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeviceConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): DeviceConfigurationType => {
+/**
+ * deserializeAws_json1_1DeviceConfigurationType
+ */
+const de_DeviceConfigurationType = (output: any, context: __SerdeContext): DeviceConfigurationType => {
   return {
     ChallengeRequiredOnNewDevice: __expectBoolean(output.ChallengeRequiredOnNewDevice),
     DeviceOnlyRememberedOnUserPrompt: __expectBoolean(output.DeviceOnlyRememberedOnUserPrompt),
   } as any;
 };
 
-const deserializeAws_json1_1DeviceListType = (output: any, context: __SerdeContext): DeviceType[] => {
+/**
+ * deserializeAws_json1_1DeviceListType
+ */
+const de_DeviceListType = (output: any, context: __SerdeContext): DeviceType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DeviceType(entry, context);
+      return de_DeviceType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext): DeviceType => {
+/**
+ * deserializeAws_json1_1DeviceType
+ */
+const de_DeviceType = (output: any, context: __SerdeContext): DeviceType => {
   return {
     DeviceAttributes:
-      output.DeviceAttributes != null
-        ? deserializeAws_json1_1AttributeListType(output.DeviceAttributes, context)
-        : undefined,
+      output.DeviceAttributes != null ? de_AttributeListType(output.DeviceAttributes, context) : undefined,
     DeviceCreateDate:
       output.DeviceCreateDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceCreateDate)))
@@ -11582,14 +12786,15 @@ const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_1DomainDescriptionType = (output: any, context: __SerdeContext): DomainDescriptionType => {
+/**
+ * deserializeAws_json1_1DomainDescriptionType
+ */
+const de_DomainDescriptionType = (output: any, context: __SerdeContext): DomainDescriptionType => {
   return {
     AWSAccountId: __expectString(output.AWSAccountId),
     CloudFrontDistribution: __expectString(output.CloudFrontDistribution),
     CustomDomainConfig:
-      output.CustomDomainConfig != null
-        ? deserializeAws_json1_1CustomDomainConfigType(output.CustomDomainConfig, context)
-        : undefined,
+      output.CustomDomainConfig != null ? de_CustomDomainConfigType(output.CustomDomainConfig, context) : undefined,
     Domain: __expectString(output.Domain),
     S3Bucket: __expectString(output.S3Bucket),
     Status: __expectString(output.Status),
@@ -11598,16 +12803,19 @@ const deserializeAws_json1_1DomainDescriptionType = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1DuplicateProviderException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateProviderException => {
+/**
+ * deserializeAws_json1_1DuplicateProviderException
+ */
+const de_DuplicateProviderException = (output: any, context: __SerdeContext): DuplicateProviderException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1EmailConfigurationType = (output: any, context: __SerdeContext): EmailConfigurationType => {
+/**
+ * deserializeAws_json1_1EmailConfigurationType
+ */
+const de_EmailConfigurationType = (output: any, context: __SerdeContext): EmailConfigurationType => {
   return {
     ConfigurationSet: __expectString(output.ConfigurationSet),
     EmailSendingAccount: __expectString(output.EmailSendingAccount),
@@ -11617,16 +12825,19 @@ const deserializeAws_json1_1EmailConfigurationType = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1EnableSoftwareTokenMFAException = (
-  output: any,
-  context: __SerdeContext
-): EnableSoftwareTokenMFAException => {
+/**
+ * deserializeAws_json1_1EnableSoftwareTokenMFAException
+ */
+const de_EnableSoftwareTokenMFAException = (output: any, context: __SerdeContext): EnableSoftwareTokenMFAException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1EventContextDataType = (output: any, context: __SerdeContext): EventContextDataType => {
+/**
+ * deserializeAws_json1_1EventContextDataType
+ */
+const de_EventContextDataType = (output: any, context: __SerdeContext): EventContextDataType => {
   return {
     City: __expectString(output.City),
     Country: __expectString(output.Country),
@@ -11636,7 +12847,10 @@ const deserializeAws_json1_1EventContextDataType = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeContext): EventFeedbackType => {
+/**
+ * deserializeAws_json1_1EventFeedbackType
+ */
+const de_EventFeedbackType = (output: any, context: __SerdeContext): EventFeedbackType => {
   return {
     FeedbackDate:
       output.FeedbackDate != null
@@ -11647,7 +12861,10 @@ const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeContext): (EventFilterType | string)[] => {
+/**
+ * deserializeAws_json1_1EventFiltersType
+ */
+const de_EventFiltersType = (output: any, context: __SerdeContext): (EventFilterType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11659,7 +12876,10 @@ const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
+/**
+ * deserializeAws_json1_1EventRiskType
+ */
+const de_EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
   return {
     CompromisedCredentialsDetected: __expectBoolean(output.CompromisedCredentialsDetected),
     RiskDecision: __expectString(output.RiskDecision),
@@ -11667,16 +12887,19 @@ const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1ExpiredCodeException = (output: any, context: __SerdeContext): ExpiredCodeException => {
+/**
+ * deserializeAws_json1_1ExpiredCodeException
+ */
+const de_ExpiredCodeException = (output: any, context: __SerdeContext): ExpiredCodeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ExplicitAuthFlowsListType = (
-  output: any,
-  context: __SerdeContext
-): (ExplicitAuthFlowsType | string)[] => {
+/**
+ * deserializeAws_json1_1ExplicitAuthFlowsListType
+ */
+const de_ExplicitAuthFlowsListType = (output: any, context: __SerdeContext): (ExplicitAuthFlowsType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11688,143 +12911,162 @@ const deserializeAws_json1_1ExplicitAuthFlowsListType = (
   return retVal;
 };
 
-const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
+/**
+ * deserializeAws_json1_1ForbiddenException
+ */
+const de_ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {
+/**
+ * deserializeAws_json1_1ForgotPasswordResponse
+ */
+const de_ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {
   return {
     CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null
-        ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
-        : undefined,
+      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetCSVHeaderResponse = (output: any, context: __SerdeContext): GetCSVHeaderResponse => {
+/**
+ * deserializeAws_json1_1GetCSVHeaderResponse
+ */
+const de_GetCSVHeaderResponse = (output: any, context: __SerdeContext): GetCSVHeaderResponse => {
   return {
-    CSVHeader:
-      output.CSVHeader != null ? deserializeAws_json1_1ListOfStringTypes(output.CSVHeader, context) : undefined,
+    CSVHeader: output.CSVHeader != null ? de_ListOfStringTypes(output.CSVHeader, context) : undefined,
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
 };
 
-const deserializeAws_json1_1GetDeviceResponse = (output: any, context: __SerdeContext): GetDeviceResponse => {
+/**
+ * deserializeAws_json1_1GetDeviceResponse
+ */
+const de_GetDeviceResponse = (output: any, context: __SerdeContext): GetDeviceResponse => {
   return {
-    Device: output.Device != null ? deserializeAws_json1_1DeviceType(output.Device, context) : undefined,
+    Device: output.Device != null ? de_DeviceType(output.Device, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
+/**
+ * deserializeAws_json1_1GetGroupResponse
+ */
+const de_GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
   return {
-    Group: output.Group != null ? deserializeAws_json1_1GroupType(output.Group, context) : undefined,
+    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetIdentityProviderByIdentifierResponse = (
+/**
+ * deserializeAws_json1_1GetIdentityProviderByIdentifierResponse
+ */
+const de_GetIdentityProviderByIdentifierResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityProviderByIdentifierResponse => {
   return {
     IdentityProvider:
-      output.IdentityProvider != null
-        ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
-        : undefined,
+      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetSigningCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSigningCertificateResponse => {
+/**
+ * deserializeAws_json1_1GetSigningCertificateResponse
+ */
+const de_GetSigningCertificateResponse = (output: any, context: __SerdeContext): GetSigningCertificateResponse => {
   return {
     Certificate: __expectString(output.Certificate),
   } as any;
 };
 
-const deserializeAws_json1_1GetUICustomizationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetUICustomizationResponse => {
+/**
+ * deserializeAws_json1_1GetUICustomizationResponse
+ */
+const de_GetUICustomizationResponse = (output: any, context: __SerdeContext): GetUICustomizationResponse => {
   return {
     UICustomization:
-      output.UICustomization != null
-        ? deserializeAws_json1_1UICustomizationType(output.UICustomization, context)
-        : undefined,
+      output.UICustomization != null ? de_UICustomizationType(output.UICustomization, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetUserAttributeVerificationCodeResponse = (
+/**
+ * deserializeAws_json1_1GetUserAttributeVerificationCodeResponse
+ */
+const de_GetUserAttributeVerificationCodeResponse = (
   output: any,
   context: __SerdeContext
 ): GetUserAttributeVerificationCodeResponse => {
   return {
     CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null
-        ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
-        : undefined,
+      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetUserPoolMfaConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): GetUserPoolMfaConfigResponse => {
+/**
+ * deserializeAws_json1_1GetUserPoolMfaConfigResponse
+ */
+const de_GetUserPoolMfaConfigResponse = (output: any, context: __SerdeContext): GetUserPoolMfaConfigResponse => {
   return {
     MfaConfiguration: __expectString(output.MfaConfiguration),
     SmsMfaConfiguration:
-      output.SmsMfaConfiguration != null
-        ? deserializeAws_json1_1SmsMfaConfigType(output.SmsMfaConfiguration, context)
-        : undefined,
+      output.SmsMfaConfiguration != null ? de_SmsMfaConfigType(output.SmsMfaConfiguration, context) : undefined,
     SoftwareTokenMfaConfiguration:
       output.SoftwareTokenMfaConfiguration != null
-        ? deserializeAws_json1_1SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
+        ? de_SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
+/**
+ * deserializeAws_json1_1GetUserResponse
+ */
+const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
   return {
-    MFAOptions:
-      output.MFAOptions != null ? deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context) : undefined,
+    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
     PreferredMfaSetting: __expectString(output.PreferredMfaSetting),
-    UserAttributes:
-      output.UserAttributes != null
-        ? deserializeAws_json1_1AttributeListType(output.UserAttributes, context)
-        : undefined,
+    UserAttributes: output.UserAttributes != null ? de_AttributeListType(output.UserAttributes, context) : undefined,
     UserMFASettingList:
-      output.UserMFASettingList != null
-        ? deserializeAws_json1_1UserMFASettingListType(output.UserMFASettingList, context)
-        : undefined,
+      output.UserMFASettingList != null ? de_UserMFASettingListType(output.UserMFASettingList, context) : undefined,
     Username: __expectString(output.Username),
   } as any;
 };
 
-const deserializeAws_json1_1GlobalSignOutResponse = (output: any, context: __SerdeContext): GlobalSignOutResponse => {
+/**
+ * deserializeAws_json1_1GlobalSignOutResponse
+ */
+const de_GlobalSignOutResponse = (output: any, context: __SerdeContext): GlobalSignOutResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1GroupExistsException = (output: any, context: __SerdeContext): GroupExistsException => {
+/**
+ * deserializeAws_json1_1GroupExistsException
+ */
+const de_GroupExistsException = (output: any, context: __SerdeContext): GroupExistsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1GroupListType = (output: any, context: __SerdeContext): GroupType[] => {
+/**
+ * deserializeAws_json1_1GroupListType
+ */
+const de_GroupListType = (output: any, context: __SerdeContext): GroupType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1GroupType(entry, context);
+      return de_GroupType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): GroupType => {
+/**
+ * deserializeAws_json1_1GroupType
+ */
+const de_GroupType = (output: any, context: __SerdeContext): GroupType => {
   return {
     CreationDate:
       output.CreationDate != null
@@ -11842,35 +13084,35 @@ const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1IdentityProviderType = (output: any, context: __SerdeContext): IdentityProviderType => {
+/**
+ * deserializeAws_json1_1IdentityProviderType
+ */
+const de_IdentityProviderType = (output: any, context: __SerdeContext): IdentityProviderType => {
   return {
     AttributeMapping:
-      output.AttributeMapping != null
-        ? deserializeAws_json1_1AttributeMappingType(output.AttributeMapping, context)
-        : undefined,
+      output.AttributeMapping != null ? de_AttributeMappingType(output.AttributeMapping, context) : undefined,
     CreationDate:
       output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     IdpIdentifiers:
-      output.IdpIdentifiers != null
-        ? deserializeAws_json1_1IdpIdentifiersListType(output.IdpIdentifiers, context)
-        : undefined,
+      output.IdpIdentifiers != null ? de_IdpIdentifiersListType(output.IdpIdentifiers, context) : undefined,
     LastModifiedDate:
       output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     ProviderDetails:
-      output.ProviderDetails != null
-        ? deserializeAws_json1_1ProviderDetailsType(output.ProviderDetails, context)
-        : undefined,
+      output.ProviderDetails != null ? de_ProviderDetailsType(output.ProviderDetails, context) : undefined,
     ProviderName: __expectString(output.ProviderName),
     ProviderType: __expectString(output.ProviderType),
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
 };
 
-const deserializeAws_json1_1IdpIdentifiersListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1IdpIdentifiersListType
+ */
+const de_IdpIdentifiersListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11882,28 +13124,35 @@ const deserializeAws_json1_1IdpIdentifiersListType = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1InitiateAuthResponse = (output: any, context: __SerdeContext): InitiateAuthResponse => {
+/**
+ * deserializeAws_json1_1InitiateAuthResponse
+ */
+const de_InitiateAuthResponse = (output: any, context: __SerdeContext): InitiateAuthResponse => {
   return {
     AuthenticationResult:
       output.AuthenticationResult != null
-        ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
+        ? de_AuthenticationResultType(output.AuthenticationResult, context)
         : undefined,
     ChallengeName: __expectString(output.ChallengeName),
     ChallengeParameters:
-      output.ChallengeParameters != null
-        ? deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context)
-        : undefined,
+      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
     Session: __expectString(output.Session),
   } as any;
 };
 
-const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
+/**
+ * deserializeAws_json1_1InternalErrorException
+ */
+const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidEmailRoleAccessPolicyException = (
+/**
+ * deserializeAws_json1_1InvalidEmailRoleAccessPolicyException
+ */
+const de_InvalidEmailRoleAccessPolicyException = (
   output: any,
   context: __SerdeContext
 ): InvalidEmailRoleAccessPolicyException => {
@@ -11912,43 +13161,46 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidLambdaResponseException = (
-  output: any,
-  context: __SerdeContext
-): InvalidLambdaResponseException => {
+/**
+ * deserializeAws_json1_1InvalidLambdaResponseException
+ */
+const de_InvalidLambdaResponseException = (output: any, context: __SerdeContext): InvalidLambdaResponseException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOAuthFlowException = (
-  output: any,
-  context: __SerdeContext
-): InvalidOAuthFlowException => {
+/**
+ * deserializeAws_json1_1InvalidOAuthFlowException
+ */
+const de_InvalidOAuthFlowException = (output: any, context: __SerdeContext): InvalidOAuthFlowException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPasswordException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPasswordException => {
+/**
+ * deserializeAws_json1_1InvalidPasswordException
+ */
+const de_InvalidPasswordException = (output: any, context: __SerdeContext): InvalidPasswordException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSmsRoleAccessPolicyException = (
+/**
+ * deserializeAws_json1_1InvalidSmsRoleAccessPolicyException
+ */
+const de_InvalidSmsRoleAccessPolicyException = (
   output: any,
   context: __SerdeContext
 ): InvalidSmsRoleAccessPolicyException => {
@@ -11957,7 +13209,10 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException = (
+/**
+ * deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException
+ */
+const de_InvalidSmsRoleTrustRelationshipException = (
   output: any,
   context: __SerdeContext
 ): InvalidSmsRoleTrustRelationshipException => {
@@ -11966,7 +13221,10 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidUserPoolConfigurationException = (
+/**
+ * deserializeAws_json1_1InvalidUserPoolConfigurationException
+ */
+const de_InvalidUserPoolConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidUserPoolConfigurationException => {
@@ -11975,18 +13233,19 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationException = (
   } as any;
 };
 
-const deserializeAws_json1_1LambdaConfigType = (output: any, context: __SerdeContext): LambdaConfigType => {
+/**
+ * deserializeAws_json1_1LambdaConfigType
+ */
+const de_LambdaConfigType = (output: any, context: __SerdeContext): LambdaConfigType => {
   return {
     CreateAuthChallenge: __expectString(output.CreateAuthChallenge),
     CustomEmailSender:
       output.CustomEmailSender != null
-        ? deserializeAws_json1_1CustomEmailLambdaVersionConfigType(output.CustomEmailSender, context)
+        ? de_CustomEmailLambdaVersionConfigType(output.CustomEmailSender, context)
         : undefined,
     CustomMessage: __expectString(output.CustomMessage),
     CustomSMSSender:
-      output.CustomSMSSender != null
-        ? deserializeAws_json1_1CustomSMSLambdaVersionConfigType(output.CustomSMSSender, context)
-        : undefined,
+      output.CustomSMSSender != null ? de_CustomSMSLambdaVersionConfigType(output.CustomSMSSender, context) : undefined,
     DefineAuthChallenge: __expectString(output.DefineAuthChallenge),
     KMSKeyID: __expectString(output.KMSKeyID),
     PostAuthentication: __expectString(output.PostAuthentication),
@@ -11999,38 +13258,49 @@ const deserializeAws_json1_1LambdaConfigType = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ListDevicesResponse = (output: any, context: __SerdeContext): ListDevicesResponse => {
+/**
+ * deserializeAws_json1_1ListDevicesResponse
+ */
+const de_ListDevicesResponse = (output: any, context: __SerdeContext): ListDevicesResponse => {
   return {
-    Devices: output.Devices != null ? deserializeAws_json1_1DeviceListType(output.Devices, context) : undefined,
+    Devices: output.Devices != null ? de_DeviceListType(output.Devices, context) : undefined,
     PaginationToken: __expectString(output.PaginationToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
+/**
+ * deserializeAws_json1_1ListGroupsResponse
+ */
+const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    Groups: output.Groups != null ? deserializeAws_json1_1GroupListType(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? de_GroupListType(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListIdentityProvidersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListIdentityProvidersResponse => {
+/**
+ * deserializeAws_json1_1ListIdentityProvidersResponse
+ */
+const de_ListIdentityProvidersResponse = (output: any, context: __SerdeContext): ListIdentityProvidersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Providers:
-      output.Providers != null ? deserializeAws_json1_1ProvidersListType(output.Providers, context) : undefined,
+    Providers: output.Providers != null ? de_ProvidersListType(output.Providers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListOfStringTypes = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ListOfStringTypes
+ */
+const de_ListOfStringTypes = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12042,79 +13312,82 @@ const deserializeAws_json1_1ListOfStringTypes = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1ListResourceServersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResourceServersResponse => {
+/**
+ * deserializeAws_json1_1ListResourceServersResponse
+ */
+const de_ListResourceServersResponse = (output: any, context: __SerdeContext): ListResourceServersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ResourceServers:
-      output.ResourceServers != null
-        ? deserializeAws_json1_1ResourceServersListType(output.ResourceServers, context)
-        : undefined,
+      output.ResourceServers != null ? de_ResourceServersListType(output.ResourceServers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_1UserPoolTagsType(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_UserPoolTagsType(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUserImportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUserImportJobsResponse => {
+/**
+ * deserializeAws_json1_1ListUserImportJobsResponse
+ */
+const de_ListUserImportJobsResponse = (output: any, context: __SerdeContext): ListUserImportJobsResponse => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
     UserImportJobs:
-      output.UserImportJobs != null
-        ? deserializeAws_json1_1UserImportJobsListType(output.UserImportJobs, context)
-        : undefined,
+      output.UserImportJobs != null ? de_UserImportJobsListType(output.UserImportJobs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUserPoolClientsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUserPoolClientsResponse => {
+/**
+ * deserializeAws_json1_1ListUserPoolClientsResponse
+ */
+const de_ListUserPoolClientsResponse = (output: any, context: __SerdeContext): ListUserPoolClientsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     UserPoolClients:
-      output.UserPoolClients != null
-        ? deserializeAws_json1_1UserPoolClientListType(output.UserPoolClients, context)
-        : undefined,
+      output.UserPoolClients != null ? de_UserPoolClientListType(output.UserPoolClients, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUserPoolsResponse = (output: any, context: __SerdeContext): ListUserPoolsResponse => {
+/**
+ * deserializeAws_json1_1ListUserPoolsResponse
+ */
+const de_ListUserPoolsResponse = (output: any, context: __SerdeContext): ListUserPoolsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    UserPools: output.UserPools != null ? deserializeAws_json1_1UserPoolListType(output.UserPools, context) : undefined,
+    UserPools: output.UserPools != null ? de_UserPoolListType(output.UserPools, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersInGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUsersInGroupResponse => {
+/**
+ * deserializeAws_json1_1ListUsersInGroupResponse
+ */
+const de_ListUsersInGroupResponse = (output: any, context: __SerdeContext): ListUsersInGroupResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Users: output.Users != null ? deserializeAws_json1_1UsersListType(output.Users, context) : undefined,
+    Users: output.Users != null ? de_UsersListType(output.Users, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+/**
+ * deserializeAws_json1_1ListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
-    Users: output.Users != null ? deserializeAws_json1_1UsersListType(output.Users, context) : undefined,
+    Users: output.Users != null ? de_UsersListType(output.Users, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LogoutURLsListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1LogoutURLsListType
+ */
+const de_LogoutURLsListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12126,7 +13399,10 @@ const deserializeAws_json1_1LogoutURLsListType = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_json1_1MessageTemplateType = (output: any, context: __SerdeContext): MessageTemplateType => {
+/**
+ * deserializeAws_json1_1MessageTemplateType
+ */
+const de_MessageTemplateType = (output: any, context: __SerdeContext): MessageTemplateType => {
   return {
     EmailMessage: __expectString(output.EmailMessage),
     EmailSubject: __expectString(output.EmailSubject),
@@ -12134,64 +13410,77 @@ const deserializeAws_json1_1MessageTemplateType = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1MFAMethodNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): MFAMethodNotFoundException => {
+/**
+ * deserializeAws_json1_1MFAMethodNotFoundException
+ */
+const de_MFAMethodNotFoundException = (output: any, context: __SerdeContext): MFAMethodNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1MFAOptionListType = (output: any, context: __SerdeContext): MFAOptionType[] => {
+/**
+ * deserializeAws_json1_1MFAOptionListType
+ */
+const de_MFAOptionListType = (output: any, context: __SerdeContext): MFAOptionType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MFAOptionType(entry, context);
+      return de_MFAOptionType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MFAOptionType = (output: any, context: __SerdeContext): MFAOptionType => {
+/**
+ * deserializeAws_json1_1MFAOptionType
+ */
+const de_MFAOptionType = (output: any, context: __SerdeContext): MFAOptionType => {
   return {
     AttributeName: __expectString(output.AttributeName),
     DeliveryMedium: __expectString(output.DeliveryMedium),
   } as any;
 };
 
-const deserializeAws_json1_1NewDeviceMetadataType = (output: any, context: __SerdeContext): NewDeviceMetadataType => {
+/**
+ * deserializeAws_json1_1NewDeviceMetadataType
+ */
+const de_NewDeviceMetadataType = (output: any, context: __SerdeContext): NewDeviceMetadataType => {
   return {
     DeviceGroupKey: __expectString(output.DeviceGroupKey),
     DeviceKey: __expectString(output.DeviceKey),
   } as any;
 };
 
-const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
+/**
+ * deserializeAws_json1_1NotAuthorizedException
+ */
+const de_NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1NotifyConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): NotifyConfigurationType => {
+/**
+ * deserializeAws_json1_1NotifyConfigurationType
+ */
+const de_NotifyConfigurationType = (output: any, context: __SerdeContext): NotifyConfigurationType => {
   return {
-    BlockEmail:
-      output.BlockEmail != null ? deserializeAws_json1_1NotifyEmailType(output.BlockEmail, context) : undefined,
+    BlockEmail: output.BlockEmail != null ? de_NotifyEmailType(output.BlockEmail, context) : undefined,
     From: __expectString(output.From),
-    MfaEmail: output.MfaEmail != null ? deserializeAws_json1_1NotifyEmailType(output.MfaEmail, context) : undefined,
-    NoActionEmail:
-      output.NoActionEmail != null ? deserializeAws_json1_1NotifyEmailType(output.NoActionEmail, context) : undefined,
+    MfaEmail: output.MfaEmail != null ? de_NotifyEmailType(output.MfaEmail, context) : undefined,
+    NoActionEmail: output.NoActionEmail != null ? de_NotifyEmailType(output.NoActionEmail, context) : undefined,
     ReplyTo: __expectString(output.ReplyTo),
     SourceArn: __expectString(output.SourceArn),
   } as any;
 };
 
-const deserializeAws_json1_1NotifyEmailType = (output: any, context: __SerdeContext): NotifyEmailType => {
+/**
+ * deserializeAws_json1_1NotifyEmailType
+ */
+const de_NotifyEmailType = (output: any, context: __SerdeContext): NotifyEmailType => {
   return {
     HtmlBody: __expectString(output.HtmlBody),
     Subject: __expectString(output.Subject),
@@ -12199,17 +13488,20 @@ const deserializeAws_json1_1NotifyEmailType = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1NumberAttributeConstraintsType = (
-  output: any,
-  context: __SerdeContext
-): NumberAttributeConstraintsType => {
+/**
+ * deserializeAws_json1_1NumberAttributeConstraintsType
+ */
+const de_NumberAttributeConstraintsType = (output: any, context: __SerdeContext): NumberAttributeConstraintsType => {
   return {
     MaxValue: __expectString(output.MaxValue),
     MinValue: __expectString(output.MinValue),
   } as any;
 };
 
-const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeContext): (OAuthFlowType | string)[] => {
+/**
+ * deserializeAws_json1_1OAuthFlowsType
+ */
+const de_OAuthFlowsType = (output: any, context: __SerdeContext): (OAuthFlowType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12221,7 +13513,10 @@ const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
+/**
+ * deserializeAws_json1_1PasswordPolicyType
+ */
+const de_PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
   return {
     MinimumLength: __expectInt32(output.MinimumLength),
     RequireLowercase: __expectBoolean(output.RequireLowercase),
@@ -12232,25 +13527,28 @@ const deserializeAws_json1_1PasswordPolicyType = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1PasswordResetRequiredException = (
-  output: any,
-  context: __SerdeContext
-): PasswordResetRequiredException => {
+/**
+ * deserializeAws_json1_1PasswordResetRequiredException
+ */
+const de_PasswordResetRequiredException = (output: any, context: __SerdeContext): PasswordResetRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PreconditionNotMetException = (
-  output: any,
-  context: __SerdeContext
-): PreconditionNotMetException => {
+/**
+ * deserializeAws_json1_1PreconditionNotMetException
+ */
+const de_PreconditionNotMetException = (output: any, context: __SerdeContext): PreconditionNotMetException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ProviderDescription = (output: any, context: __SerdeContext): ProviderDescription => {
+/**
+ * deserializeAws_json1_1ProviderDescription
+ */
+const de_ProviderDescription = (output: any, context: __SerdeContext): ProviderDescription => {
   return {
     CreationDate:
       output.CreationDate != null
@@ -12265,7 +13563,10 @@ const deserializeAws_json1_1ProviderDescription = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1ProviderDetailsType = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ProviderDetailsType
+ */
+const de_ProviderDetailsType = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -12275,140 +13576,153 @@ const deserializeAws_json1_1ProviderDetailsType = (output: any, context: __Serde
   }, {});
 };
 
-const deserializeAws_json1_1ProvidersListType = (output: any, context: __SerdeContext): ProviderDescription[] => {
+/**
+ * deserializeAws_json1_1ProvidersListType
+ */
+const de_ProvidersListType = (output: any, context: __SerdeContext): ProviderDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProviderDescription(entry, context);
+      return de_ProviderDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RecoveryMechanismsType = (output: any, context: __SerdeContext): RecoveryOptionType[] => {
+/**
+ * deserializeAws_json1_1RecoveryMechanismsType
+ */
+const de_RecoveryMechanismsType = (output: any, context: __SerdeContext): RecoveryOptionType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RecoveryOptionType(entry, context);
+      return de_RecoveryOptionType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
+/**
+ * deserializeAws_json1_1RecoveryOptionType
+ */
+const de_RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
   return {
     Name: __expectString(output.Name),
     Priority: __expectInt32(output.Priority),
   } as any;
 };
 
-const deserializeAws_json1_1ResendConfirmationCodeResponse = (
-  output: any,
-  context: __SerdeContext
-): ResendConfirmationCodeResponse => {
+/**
+ * deserializeAws_json1_1ResendConfirmationCodeResponse
+ */
+const de_ResendConfirmationCodeResponse = (output: any, context: __SerdeContext): ResendConfirmationCodeResponse => {
   return {
     CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null
-        ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
-        : undefined,
+      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceServerScopeListType = (
-  output: any,
-  context: __SerdeContext
-): ResourceServerScopeType[] => {
+/**
+ * deserializeAws_json1_1ResourceServerScopeListType
+ */
+const de_ResourceServerScopeListType = (output: any, context: __SerdeContext): ResourceServerScopeType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceServerScopeType(entry, context);
+      return de_ResourceServerScopeType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceServerScopeType = (
-  output: any,
-  context: __SerdeContext
-): ResourceServerScopeType => {
+/**
+ * deserializeAws_json1_1ResourceServerScopeType
+ */
+const de_ResourceServerScopeType = (output: any, context: __SerdeContext): ResourceServerScopeType => {
   return {
     ScopeDescription: __expectString(output.ScopeDescription),
     ScopeName: __expectString(output.ScopeName),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceServersListType = (output: any, context: __SerdeContext): ResourceServerType[] => {
+/**
+ * deserializeAws_json1_1ResourceServersListType
+ */
+const de_ResourceServersListType = (output: any, context: __SerdeContext): ResourceServerType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceServerType(entry, context);
+      return de_ResourceServerType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceServerType = (output: any, context: __SerdeContext): ResourceServerType => {
+/**
+ * deserializeAws_json1_1ResourceServerType
+ */
+const de_ResourceServerType = (output: any, context: __SerdeContext): ResourceServerType => {
   return {
     Identifier: __expectString(output.Identifier),
     Name: __expectString(output.Name),
-    Scopes:
-      output.Scopes != null ? deserializeAws_json1_1ResourceServerScopeListType(output.Scopes, context) : undefined,
+    Scopes: output.Scopes != null ? de_ResourceServerScopeListType(output.Scopes, context) : undefined,
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
 };
 
-const deserializeAws_json1_1RespondToAuthChallengeResponse = (
-  output: any,
-  context: __SerdeContext
-): RespondToAuthChallengeResponse => {
+/**
+ * deserializeAws_json1_1RespondToAuthChallengeResponse
+ */
+const de_RespondToAuthChallengeResponse = (output: any, context: __SerdeContext): RespondToAuthChallengeResponse => {
   return {
     AuthenticationResult:
       output.AuthenticationResult != null
-        ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
+        ? de_AuthenticationResultType(output.AuthenticationResult, context)
         : undefined,
     ChallengeName: __expectString(output.ChallengeName),
     ChallengeParameters:
-      output.ChallengeParameters != null
-        ? deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context)
-        : undefined,
+      output.ChallengeParameters != null ? de_ChallengeParametersType(output.ChallengeParameters, context) : undefined,
     Session: __expectString(output.Session),
   } as any;
 };
 
-const deserializeAws_json1_1RevokeTokenResponse = (output: any, context: __SerdeContext): RevokeTokenResponse => {
+/**
+ * deserializeAws_json1_1RevokeTokenResponse
+ */
+const de_RevokeTokenResponse = (output: any, context: __SerdeContext): RevokeTokenResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RiskConfigurationType = (output: any, context: __SerdeContext): RiskConfigurationType => {
+/**
+ * deserializeAws_json1_1RiskConfigurationType
+ */
+const de_RiskConfigurationType = (output: any, context: __SerdeContext): RiskConfigurationType => {
   return {
     AccountTakeoverRiskConfiguration:
       output.AccountTakeoverRiskConfiguration != null
-        ? deserializeAws_json1_1AccountTakeoverRiskConfigurationType(output.AccountTakeoverRiskConfiguration, context)
+        ? de_AccountTakeoverRiskConfigurationType(output.AccountTakeoverRiskConfiguration, context)
         : undefined,
     ClientId: __expectString(output.ClientId),
     CompromisedCredentialsRiskConfiguration:
       output.CompromisedCredentialsRiskConfiguration != null
-        ? deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType(
-            output.CompromisedCredentialsRiskConfiguration,
-            context
-          )
+        ? de_CompromisedCredentialsRiskConfigurationType(output.CompromisedCredentialsRiskConfiguration, context)
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate != null
@@ -12416,44 +13730,43 @@ const deserializeAws_json1_1RiskConfigurationType = (output: any, context: __Ser
         : undefined,
     RiskExceptionConfiguration:
       output.RiskExceptionConfiguration != null
-        ? deserializeAws_json1_1RiskExceptionConfigurationType(output.RiskExceptionConfiguration, context)
+        ? de_RiskExceptionConfigurationType(output.RiskExceptionConfiguration, context)
         : undefined,
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
 };
 
-const deserializeAws_json1_1RiskExceptionConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): RiskExceptionConfigurationType => {
+/**
+ * deserializeAws_json1_1RiskExceptionConfigurationType
+ */
+const de_RiskExceptionConfigurationType = (output: any, context: __SerdeContext): RiskExceptionConfigurationType => {
   return {
     BlockedIPRangeList:
-      output.BlockedIPRangeList != null
-        ? deserializeAws_json1_1BlockedIPRangeListType(output.BlockedIPRangeList, context)
-        : undefined,
+      output.BlockedIPRangeList != null ? de_BlockedIPRangeListType(output.BlockedIPRangeList, context) : undefined,
     SkippedIPRangeList:
-      output.SkippedIPRangeList != null
-        ? deserializeAws_json1_1SkippedIPRangeListType(output.SkippedIPRangeList, context)
-        : undefined,
+      output.SkippedIPRangeList != null ? de_SkippedIPRangeListType(output.SkippedIPRangeList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SchemaAttributesListType = (
-  output: any,
-  context: __SerdeContext
-): SchemaAttributeType[] => {
+/**
+ * deserializeAws_json1_1SchemaAttributesListType
+ */
+const de_SchemaAttributesListType = (output: any, context: __SerdeContext): SchemaAttributeType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SchemaAttributeType(entry, context);
+      return de_SchemaAttributeType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SchemaAttributeType = (output: any, context: __SerdeContext): SchemaAttributeType => {
+/**
+ * deserializeAws_json1_1SchemaAttributeType
+ */
+const de_SchemaAttributeType = (output: any, context: __SerdeContext): SchemaAttributeType => {
   return {
     AttributeDataType: __expectString(output.AttributeDataType),
     DeveloperOnlyAttribute: __expectBoolean(output.DeveloperOnlyAttribute),
@@ -12461,26 +13774,29 @@ const deserializeAws_json1_1SchemaAttributeType = (output: any, context: __Serde
     Name: __expectString(output.Name),
     NumberAttributeConstraints:
       output.NumberAttributeConstraints != null
-        ? deserializeAws_json1_1NumberAttributeConstraintsType(output.NumberAttributeConstraints, context)
+        ? de_NumberAttributeConstraintsType(output.NumberAttributeConstraints, context)
         : undefined,
     Required: __expectBoolean(output.Required),
     StringAttributeConstraints:
       output.StringAttributeConstraints != null
-        ? deserializeAws_json1_1StringAttributeConstraintsType(output.StringAttributeConstraints, context)
+        ? de_StringAttributeConstraintsType(output.StringAttributeConstraints, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ScopeDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ScopeDoesNotExistException => {
+/**
+ * deserializeAws_json1_1ScopeDoesNotExistException
+ */
+const de_ScopeDoesNotExistException = (output: any, context: __SerdeContext): ScopeDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ScopeListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ScopeListType
+ */
+const de_ScopeListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12492,73 +13808,71 @@ const deserializeAws_json1_1ScopeListType = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1SetRiskConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): SetRiskConfigurationResponse => {
+/**
+ * deserializeAws_json1_1SetRiskConfigurationResponse
+ */
+const de_SetRiskConfigurationResponse = (output: any, context: __SerdeContext): SetRiskConfigurationResponse => {
   return {
     RiskConfiguration:
-      output.RiskConfiguration != null
-        ? deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context)
-        : undefined,
+      output.RiskConfiguration != null ? de_RiskConfigurationType(output.RiskConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SetUICustomizationResponse = (
-  output: any,
-  context: __SerdeContext
-): SetUICustomizationResponse => {
+/**
+ * deserializeAws_json1_1SetUICustomizationResponse
+ */
+const de_SetUICustomizationResponse = (output: any, context: __SerdeContext): SetUICustomizationResponse => {
   return {
     UICustomization:
-      output.UICustomization != null
-        ? deserializeAws_json1_1UICustomizationType(output.UICustomization, context)
-        : undefined,
+      output.UICustomization != null ? de_UICustomizationType(output.UICustomization, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SetUserMFAPreferenceResponse = (
-  output: any,
-  context: __SerdeContext
-): SetUserMFAPreferenceResponse => {
+/**
+ * deserializeAws_json1_1SetUserMFAPreferenceResponse
+ */
+const de_SetUserMFAPreferenceResponse = (output: any, context: __SerdeContext): SetUserMFAPreferenceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1SetUserPoolMfaConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): SetUserPoolMfaConfigResponse => {
+/**
+ * deserializeAws_json1_1SetUserPoolMfaConfigResponse
+ */
+const de_SetUserPoolMfaConfigResponse = (output: any, context: __SerdeContext): SetUserPoolMfaConfigResponse => {
   return {
     MfaConfiguration: __expectString(output.MfaConfiguration),
     SmsMfaConfiguration:
-      output.SmsMfaConfiguration != null
-        ? deserializeAws_json1_1SmsMfaConfigType(output.SmsMfaConfiguration, context)
-        : undefined,
+      output.SmsMfaConfiguration != null ? de_SmsMfaConfigType(output.SmsMfaConfiguration, context) : undefined,
     SoftwareTokenMfaConfiguration:
       output.SoftwareTokenMfaConfiguration != null
-        ? deserializeAws_json1_1SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
+        ? de_SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SetUserSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): SetUserSettingsResponse => {
+/**
+ * deserializeAws_json1_1SetUserSettingsResponse
+ */
+const de_SetUserSettingsResponse = (output: any, context: __SerdeContext): SetUserSettingsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1SignUpResponse = (output: any, context: __SerdeContext): SignUpResponse => {
+/**
+ * deserializeAws_json1_1SignUpResponse
+ */
+const de_SignUpResponse = (output: any, context: __SerdeContext): SignUpResponse => {
   return {
     CodeDeliveryDetails:
-      output.CodeDeliveryDetails != null
-        ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
-        : undefined,
+      output.CodeDeliveryDetails != null ? de_CodeDeliveryDetailsType(output.CodeDeliveryDetails, context) : undefined,
     UserConfirmed: __expectBoolean(output.UserConfirmed),
     UserSub: __expectString(output.UserSub),
   } as any;
 };
 
-const deserializeAws_json1_1SkippedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SkippedIPRangeListType
+ */
+const de_SkippedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12570,7 +13884,10 @@ const deserializeAws_json1_1SkippedIPRangeListType = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __SerdeContext): SmsConfigurationType => {
+/**
+ * deserializeAws_json1_1SmsConfigurationType
+ */
+const de_SmsConfigurationType = (output: any, context: __SerdeContext): SmsConfigurationType => {
   return {
     ExternalId: __expectString(output.ExternalId),
     SnsCallerArn: __expectString(output.SnsCallerArn),
@@ -12578,26 +13895,30 @@ const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1SmsMfaConfigType = (output: any, context: __SerdeContext): SmsMfaConfigType => {
+/**
+ * deserializeAws_json1_1SmsMfaConfigType
+ */
+const de_SmsMfaConfigType = (output: any, context: __SerdeContext): SmsMfaConfigType => {
   return {
     SmsAuthenticationMessage: __expectString(output.SmsAuthenticationMessage),
     SmsConfiguration:
-      output.SmsConfiguration != null
-        ? deserializeAws_json1_1SmsConfigurationType(output.SmsConfiguration, context)
-        : undefined,
+      output.SmsConfiguration != null ? de_SmsConfigurationType(output.SmsConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SoftwareTokenMfaConfigType = (
-  output: any,
-  context: __SerdeContext
-): SoftwareTokenMfaConfigType => {
+/**
+ * deserializeAws_json1_1SoftwareTokenMfaConfigType
+ */
+const de_SoftwareTokenMfaConfigType = (output: any, context: __SerdeContext): SoftwareTokenMfaConfigType => {
   return {
     Enabled: __expectBoolean(output.Enabled),
   } as any;
 };
 
-const deserializeAws_json1_1SoftwareTokenMFANotFoundException = (
+/**
+ * deserializeAws_json1_1SoftwareTokenMFANotFoundException
+ */
+const de_SoftwareTokenMFANotFoundException = (
   output: any,
   context: __SerdeContext
 ): SoftwareTokenMFANotFoundException => {
@@ -12606,37 +13927,38 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1StartUserImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartUserImportJobResponse => {
+/**
+ * deserializeAws_json1_1StartUserImportJobResponse
+ */
+const de_StartUserImportJobResponse = (output: any, context: __SerdeContext): StartUserImportJobResponse => {
   return {
-    UserImportJob:
-      output.UserImportJob != null ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context) : undefined,
+    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StopUserImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StopUserImportJobResponse => {
+/**
+ * deserializeAws_json1_1StopUserImportJobResponse
+ */
+const de_StopUserImportJobResponse = (output: any, context: __SerdeContext): StopUserImportJobResponse => {
   return {
-    UserImportJob:
-      output.UserImportJob != null ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context) : undefined,
+    UserImportJob: output.UserImportJob != null ? de_UserImportJobType(output.UserImportJob, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StringAttributeConstraintsType = (
-  output: any,
-  context: __SerdeContext
-): StringAttributeConstraintsType => {
+/**
+ * deserializeAws_json1_1StringAttributeConstraintsType
+ */
+const de_StringAttributeConstraintsType = (output: any, context: __SerdeContext): StringAttributeConstraintsType => {
   return {
     MaxLength: __expectString(output.MaxLength),
     MinLength: __expectString(output.MinLength),
   } as any;
 };
 
-const deserializeAws_json1_1SupportedIdentityProvidersListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SupportedIdentityProvidersListType
+ */
+const de_SupportedIdentityProvidersListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12648,11 +13970,17 @@ const deserializeAws_json1_1SupportedIdentityProvidersListType = (output: any, c
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TokenValidityUnitsType = (output: any, context: __SerdeContext): TokenValidityUnitsType => {
+/**
+ * deserializeAws_json1_1TokenValidityUnitsType
+ */
+const de_TokenValidityUnitsType = (output: any, context: __SerdeContext): TokenValidityUnitsType => {
   return {
     AccessToken: __expectString(output.AccessToken),
     IdToken: __expectString(output.IdToken),
@@ -12660,25 +13988,28 @@ const deserializeAws_json1_1TokenValidityUnitsType = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1TooManyFailedAttemptsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyFailedAttemptsException => {
+/**
+ * deserializeAws_json1_1TooManyFailedAttemptsException
+ */
+const de_TooManyFailedAttemptsException = (output: any, context: __SerdeContext): TooManyFailedAttemptsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TooManyRequestsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyRequestsException => {
+/**
+ * deserializeAws_json1_1TooManyRequestsException
+ */
+const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UICustomizationType = (output: any, context: __SerdeContext): UICustomizationType => {
+/**
+ * deserializeAws_json1_1UICustomizationType
+ */
+const de_UICustomizationType = (output: any, context: __SerdeContext): UICustomizationType => {
   return {
     CSS: __expectString(output.CSS),
     CSSVersion: __expectString(output.CSSVersion),
@@ -12696,22 +14027,28 @@ const deserializeAws_json1_1UICustomizationType = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
+/**
+ * deserializeAws_json1_1UnauthorizedException
+ */
+const de_UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UnexpectedLambdaException = (
-  output: any,
-  context: __SerdeContext
-): UnexpectedLambdaException => {
+/**
+ * deserializeAws_json1_1UnexpectedLambdaException
+ */
+const de_UnexpectedLambdaException = (output: any, context: __SerdeContext): UnexpectedLambdaException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedIdentityProviderException = (
+/**
+ * deserializeAws_json1_1UnsupportedIdentityProviderException
+ */
+const de_UnsupportedIdentityProviderException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedIdentityProviderException => {
@@ -12720,155 +14057,159 @@ const deserializeAws_json1_1UnsupportedIdentityProviderException = (
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedOperationException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOperationException => {
+/**
+ * deserializeAws_json1_1UnsupportedOperationException
+ */
+const de_UnsupportedOperationException = (output: any, context: __SerdeContext): UnsupportedOperationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedTokenTypeException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedTokenTypeException => {
+/**
+ * deserializeAws_json1_1UnsupportedTokenTypeException
+ */
+const de_UnsupportedTokenTypeException = (output: any, context: __SerdeContext): UnsupportedTokenTypeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedUserStateException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedUserStateException => {
+/**
+ * deserializeAws_json1_1UnsupportedUserStateException
+ */
+const de_UnsupportedUserStateException = (output: any, context: __SerdeContext): UnsupportedUserStateException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateAuthEventFeedbackResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAuthEventFeedbackResponse => {
+/**
+ * deserializeAws_json1_1UpdateAuthEventFeedbackResponse
+ */
+const de_UpdateAuthEventFeedbackResponse = (output: any, context: __SerdeContext): UpdateAuthEventFeedbackResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateDeviceStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDeviceStatusResponse => {
+/**
+ * deserializeAws_json1_1UpdateDeviceStatusResponse
+ */
+const de_UpdateDeviceStatusResponse = (output: any, context: __SerdeContext): UpdateDeviceStatusResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
+/**
+ * deserializeAws_json1_1UpdateGroupResponse
+ */
+const de_UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
   return {
-    Group: output.Group != null ? deserializeAws_json1_1GroupType(output.Group, context) : undefined,
+    Group: output.Group != null ? de_GroupType(output.Group, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateIdentityProviderResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateIdentityProviderResponse => {
+/**
+ * deserializeAws_json1_1UpdateIdentityProviderResponse
+ */
+const de_UpdateIdentityProviderResponse = (output: any, context: __SerdeContext): UpdateIdentityProviderResponse => {
   return {
     IdentityProvider:
-      output.IdentityProvider != null
-        ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
-        : undefined,
+      output.IdentityProvider != null ? de_IdentityProviderType(output.IdentityProvider, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateResourceServerResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateResourceServerResponse => {
+/**
+ * deserializeAws_json1_1UpdateResourceServerResponse
+ */
+const de_UpdateResourceServerResponse = (output: any, context: __SerdeContext): UpdateResourceServerResponse => {
   return {
-    ResourceServer:
-      output.ResourceServer != null
-        ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
-        : undefined,
+    ResourceServer: output.ResourceServer != null ? de_ResourceServerType(output.ResourceServer, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateUserAttributesResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserAttributesResponse
+ */
+const de_UpdateUserAttributesResponse = (output: any, context: __SerdeContext): UpdateUserAttributesResponse => {
   return {
     CodeDeliveryDetailsList:
       output.CodeDeliveryDetailsList != null
-        ? deserializeAws_json1_1CodeDeliveryDetailsListType(output.CodeDeliveryDetailsList, context)
+        ? de_CodeDeliveryDetailsListType(output.CodeDeliveryDetailsList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserPoolClientResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateUserPoolClientResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserPoolClientResponse
+ */
+const de_UpdateUserPoolClientResponse = (output: any, context: __SerdeContext): UpdateUserPoolClientResponse => {
   return {
-    UserPoolClient:
-      output.UserPoolClient != null
-        ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
-        : undefined,
+    UserPoolClient: output.UserPoolClient != null ? de_UserPoolClientType(output.UserPoolClient, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserPoolDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateUserPoolDomainResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserPoolDomainResponse
+ */
+const de_UpdateUserPoolDomainResponse = (output: any, context: __SerdeContext): UpdateUserPoolDomainResponse => {
   return {
     CloudFrontDomain: __expectString(output.CloudFrontDomain),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserPoolResponse = (output: any, context: __SerdeContext): UpdateUserPoolResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserPoolResponse
+ */
+const de_UpdateUserPoolResponse = (output: any, context: __SerdeContext): UpdateUserPoolResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UserAttributeUpdateSettingsType = (
-  output: any,
-  context: __SerdeContext
-): UserAttributeUpdateSettingsType => {
+/**
+ * deserializeAws_json1_1UserAttributeUpdateSettingsType
+ */
+const de_UserAttributeUpdateSettingsType = (output: any, context: __SerdeContext): UserAttributeUpdateSettingsType => {
   return {
     AttributesRequireVerificationBeforeUpdate:
       output.AttributesRequireVerificationBeforeUpdate != null
-        ? deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType(
-            output.AttributesRequireVerificationBeforeUpdate,
-            context
-          )
+        ? de_AttributesRequireVerificationBeforeUpdateType(output.AttributesRequireVerificationBeforeUpdate, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserImportInProgressException = (
-  output: any,
-  context: __SerdeContext
-): UserImportInProgressException => {
+/**
+ * deserializeAws_json1_1UserImportInProgressException
+ */
+const de_UserImportInProgressException = (output: any, context: __SerdeContext): UserImportInProgressException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserImportJobsListType = (output: any, context: __SerdeContext): UserImportJobType[] => {
+/**
+ * deserializeAws_json1_1UserImportJobsListType
+ */
+const de_UserImportJobsListType = (output: any, context: __SerdeContext): UserImportJobType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UserImportJobType(entry, context);
+      return de_UserImportJobType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeContext): UserImportJobType => {
+/**
+ * deserializeAws_json1_1UserImportJobType
+ */
+const de_UserImportJobType = (output: any, context: __SerdeContext): UserImportJobType => {
   return {
     CloudWatchLogsRoleArn: __expectString(output.CloudWatchLogsRoleArn),
     CompletionDate:
@@ -12893,16 +14234,19 @@ const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1UserLambdaValidationException = (
-  output: any,
-  context: __SerdeContext
-): UserLambdaValidationException => {
+/**
+ * deserializeAws_json1_1UserLambdaValidationException
+ */
+const de_UserLambdaValidationException = (output: any, context: __SerdeContext): UserLambdaValidationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserMFASettingListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1UserMFASettingListType
+ */
+const de_UserMFASettingListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12914,10 +14258,10 @@ const deserializeAws_json1_1UserMFASettingListType = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1UsernameAttributesListType = (
-  output: any,
-  context: __SerdeContext
-): (UsernameAttributeType | string)[] => {
+/**
+ * deserializeAws_json1_1UsernameAttributesListType
+ */
+const de_UsernameAttributesListType = (output: any, context: __SerdeContext): (UsernameAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12929,40 +14273,46 @@ const deserializeAws_json1_1UsernameAttributesListType = (
   return retVal;
 };
 
-const deserializeAws_json1_1UsernameConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): UsernameConfigurationType => {
+/**
+ * deserializeAws_json1_1UsernameConfigurationType
+ */
+const de_UsernameConfigurationType = (output: any, context: __SerdeContext): UsernameConfigurationType => {
   return {
     CaseSensitive: __expectBoolean(output.CaseSensitive),
   } as any;
 };
 
-const deserializeAws_json1_1UsernameExistsException = (
-  output: any,
-  context: __SerdeContext
-): UsernameExistsException => {
+/**
+ * deserializeAws_json1_1UsernameExistsException
+ */
+const de_UsernameExistsException = (output: any, context: __SerdeContext): UsernameExistsException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserNotConfirmedException = (
-  output: any,
-  context: __SerdeContext
-): UserNotConfirmedException => {
+/**
+ * deserializeAws_json1_1UserNotConfirmedException
+ */
+const de_UserNotConfirmedException = (output: any, context: __SerdeContext): UserNotConfirmedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserNotFoundException = (output: any, context: __SerdeContext): UserNotFoundException => {
+/**
+ * deserializeAws_json1_1UserNotFoundException
+ */
+const de_UserNotFoundException = (output: any, context: __SerdeContext): UserNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolAddOnNotEnabledException = (
+/**
+ * deserializeAws_json1_1UserPoolAddOnNotEnabledException
+ */
+const de_UserPoolAddOnNotEnabledException = (
   output: any,
   context: __SerdeContext
 ): UserPoolAddOnNotEnabledException => {
@@ -12971,16 +14321,19 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledException = (
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolAddOnsType = (output: any, context: __SerdeContext): UserPoolAddOnsType => {
+/**
+ * deserializeAws_json1_1UserPoolAddOnsType
+ */
+const de_UserPoolAddOnsType = (output: any, context: __SerdeContext): UserPoolAddOnsType => {
   return {
     AdvancedSecurityMode: __expectString(output.AdvancedSecurityMode),
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolClientDescription = (
-  output: any,
-  context: __SerdeContext
-): UserPoolClientDescription => {
+/**
+ * deserializeAws_json1_1UserPoolClientDescription
+ */
+const de_UserPoolClientDescription = (output: any, context: __SerdeContext): UserPoolClientDescription => {
   return {
     ClientId: __expectString(output.ClientId),
     ClientName: __expectString(output.ClientName),
@@ -12988,42 +14341,38 @@ const deserializeAws_json1_1UserPoolClientDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolClientListType = (
-  output: any,
-  context: __SerdeContext
-): UserPoolClientDescription[] => {
+/**
+ * deserializeAws_json1_1UserPoolClientListType
+ */
+const de_UserPoolClientListType = (output: any, context: __SerdeContext): UserPoolClientDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UserPoolClientDescription(entry, context);
+      return de_UserPoolClientDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
+/**
+ * deserializeAws_json1_1UserPoolClientType
+ */
+const de_UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
   return {
     AccessTokenValidity: __expectInt32(output.AccessTokenValidity),
     AllowedOAuthFlows:
-      output.AllowedOAuthFlows != null
-        ? deserializeAws_json1_1OAuthFlowsType(output.AllowedOAuthFlows, context)
-        : undefined,
+      output.AllowedOAuthFlows != null ? de_OAuthFlowsType(output.AllowedOAuthFlows, context) : undefined,
     AllowedOAuthFlowsUserPoolClient: __expectBoolean(output.AllowedOAuthFlowsUserPoolClient),
     AllowedOAuthScopes:
-      output.AllowedOAuthScopes != null
-        ? deserializeAws_json1_1ScopeListType(output.AllowedOAuthScopes, context)
-        : undefined,
+      output.AllowedOAuthScopes != null ? de_ScopeListType(output.AllowedOAuthScopes, context) : undefined,
     AnalyticsConfiguration:
       output.AnalyticsConfiguration != null
-        ? deserializeAws_json1_1AnalyticsConfigurationType(output.AnalyticsConfiguration, context)
+        ? de_AnalyticsConfigurationType(output.AnalyticsConfiguration, context)
         : undefined,
     AuthSessionValidity: __expectInt32(output.AuthSessionValidity),
-    CallbackURLs:
-      output.CallbackURLs != null
-        ? deserializeAws_json1_1CallbackURLsListType(output.CallbackURLs, context)
-        : undefined,
+    CallbackURLs: output.CallbackURLs != null ? de_CallbackURLsListType(output.CallbackURLs, context) : undefined,
     ClientId: __expectString(output.ClientId),
     ClientName: __expectString(output.ClientName),
     ClientSecret: __expectString(output.ClientSecret),
@@ -13035,50 +14384,40 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
     EnablePropagateAdditionalUserContextData: __expectBoolean(output.EnablePropagateAdditionalUserContextData),
     EnableTokenRevocation: __expectBoolean(output.EnableTokenRevocation),
     ExplicitAuthFlows:
-      output.ExplicitAuthFlows != null
-        ? deserializeAws_json1_1ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context)
-        : undefined,
+      output.ExplicitAuthFlows != null ? de_ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context) : undefined,
     IdTokenValidity: __expectInt32(output.IdTokenValidity),
     LastModifiedDate:
       output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
-    LogoutURLs:
-      output.LogoutURLs != null ? deserializeAws_json1_1LogoutURLsListType(output.LogoutURLs, context) : undefined,
+    LogoutURLs: output.LogoutURLs != null ? de_LogoutURLsListType(output.LogoutURLs, context) : undefined,
     PreventUserExistenceErrors: __expectString(output.PreventUserExistenceErrors),
     ReadAttributes:
-      output.ReadAttributes != null
-        ? deserializeAws_json1_1ClientPermissionListType(output.ReadAttributes, context)
-        : undefined,
+      output.ReadAttributes != null ? de_ClientPermissionListType(output.ReadAttributes, context) : undefined,
     RefreshTokenValidity: __expectInt32(output.RefreshTokenValidity),
     SupportedIdentityProviders:
       output.SupportedIdentityProviders != null
-        ? deserializeAws_json1_1SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context)
+        ? de_SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context)
         : undefined,
     TokenValidityUnits:
-      output.TokenValidityUnits != null
-        ? deserializeAws_json1_1TokenValidityUnitsType(output.TokenValidityUnits, context)
-        : undefined,
+      output.TokenValidityUnits != null ? de_TokenValidityUnitsType(output.TokenValidityUnits, context) : undefined,
     UserPoolId: __expectString(output.UserPoolId),
     WriteAttributes:
-      output.WriteAttributes != null
-        ? deserializeAws_json1_1ClientPermissionListType(output.WriteAttributes, context)
-        : undefined,
+      output.WriteAttributes != null ? de_ClientPermissionListType(output.WriteAttributes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolDescriptionType = (
-  output: any,
-  context: __SerdeContext
-): UserPoolDescriptionType => {
+/**
+ * deserializeAws_json1_1UserPoolDescriptionType
+ */
+const de_UserPoolDescriptionType = (output: any, context: __SerdeContext): UserPoolDescriptionType => {
   return {
     CreationDate:
       output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Id: __expectString(output.Id),
-    LambdaConfig:
-      output.LambdaConfig != null ? deserializeAws_json1_1LambdaConfigType(output.LambdaConfig, context) : undefined,
+    LambdaConfig: output.LambdaConfig != null ? de_LambdaConfigType(output.LambdaConfig, context) : undefined,
     LastModifiedDate:
       output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
@@ -13088,37 +14427,43 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolListType = (output: any, context: __SerdeContext): UserPoolDescriptionType[] => {
+/**
+ * deserializeAws_json1_1UserPoolListType
+ */
+const de_UserPoolListType = (output: any, context: __SerdeContext): UserPoolDescriptionType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UserPoolDescriptionType(entry, context);
+      return de_UserPoolDescriptionType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UserPoolPolicyType = (output: any, context: __SerdeContext): UserPoolPolicyType => {
+/**
+ * deserializeAws_json1_1UserPoolPolicyType
+ */
+const de_UserPoolPolicyType = (output: any, context: __SerdeContext): UserPoolPolicyType => {
   return {
-    PasswordPolicy:
-      output.PasswordPolicy != null
-        ? deserializeAws_json1_1PasswordPolicyType(output.PasswordPolicy, context)
-        : undefined,
+    PasswordPolicy: output.PasswordPolicy != null ? de_PasswordPolicyType(output.PasswordPolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolTaggingException = (
-  output: any,
-  context: __SerdeContext
-): UserPoolTaggingException => {
+/**
+ * deserializeAws_json1_1UserPoolTaggingException
+ */
+const de_UserPoolTaggingException = (output: any, context: __SerdeContext): UserPoolTaggingException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1UserPoolTagsType = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1UserPoolTagsType
+ */
+const de_UserPoolTagsType = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13128,24 +14473,25 @@ const deserializeAws_json1_1UserPoolTagsType = (output: any, context: __SerdeCon
   }, {});
 };
 
-const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext): UserPoolType => {
+/**
+ * deserializeAws_json1_1UserPoolType
+ */
+const de_UserPoolType = (output: any, context: __SerdeContext): UserPoolType => {
   return {
     AccountRecoverySetting:
       output.AccountRecoverySetting != null
-        ? deserializeAws_json1_1AccountRecoverySettingType(output.AccountRecoverySetting, context)
+        ? de_AccountRecoverySettingType(output.AccountRecoverySetting, context)
         : undefined,
     AdminCreateUserConfig:
       output.AdminCreateUserConfig != null
-        ? deserializeAws_json1_1AdminCreateUserConfigType(output.AdminCreateUserConfig, context)
+        ? de_AdminCreateUserConfigType(output.AdminCreateUserConfig, context)
         : undefined,
     AliasAttributes:
-      output.AliasAttributes != null
-        ? deserializeAws_json1_1AliasAttributesListType(output.AliasAttributes, context)
-        : undefined,
+      output.AliasAttributes != null ? de_AliasAttributesListType(output.AliasAttributes, context) : undefined,
     Arn: __expectString(output.Arn),
     AutoVerifiedAttributes:
       output.AutoVerifiedAttributes != null
-        ? deserializeAws_json1_1VerifiedAttributesListType(output.AutoVerifiedAttributes, context)
+        ? de_VerifiedAttributesListType(output.AutoVerifiedAttributes, context)
         : undefined,
     CreationDate:
       output.CreationDate != null
@@ -13154,84 +14500,73 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
     CustomDomain: __expectString(output.CustomDomain),
     DeletionProtection: __expectString(output.DeletionProtection),
     DeviceConfiguration:
-      output.DeviceConfiguration != null
-        ? deserializeAws_json1_1DeviceConfigurationType(output.DeviceConfiguration, context)
-        : undefined,
+      output.DeviceConfiguration != null ? de_DeviceConfigurationType(output.DeviceConfiguration, context) : undefined,
     Domain: __expectString(output.Domain),
     EmailConfiguration:
-      output.EmailConfiguration != null
-        ? deserializeAws_json1_1EmailConfigurationType(output.EmailConfiguration, context)
-        : undefined,
+      output.EmailConfiguration != null ? de_EmailConfigurationType(output.EmailConfiguration, context) : undefined,
     EmailConfigurationFailure: __expectString(output.EmailConfigurationFailure),
     EmailVerificationMessage: __expectString(output.EmailVerificationMessage),
     EmailVerificationSubject: __expectString(output.EmailVerificationSubject),
     EstimatedNumberOfUsers: __expectInt32(output.EstimatedNumberOfUsers),
     Id: __expectString(output.Id),
-    LambdaConfig:
-      output.LambdaConfig != null ? deserializeAws_json1_1LambdaConfigType(output.LambdaConfig, context) : undefined,
+    LambdaConfig: output.LambdaConfig != null ? de_LambdaConfigType(output.LambdaConfig, context) : undefined,
     LastModifiedDate:
       output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     MfaConfiguration: __expectString(output.MfaConfiguration),
     Name: __expectString(output.Name),
-    Policies: output.Policies != null ? deserializeAws_json1_1UserPoolPolicyType(output.Policies, context) : undefined,
+    Policies: output.Policies != null ? de_UserPoolPolicyType(output.Policies, context) : undefined,
     SchemaAttributes:
-      output.SchemaAttributes != null
-        ? deserializeAws_json1_1SchemaAttributesListType(output.SchemaAttributes, context)
-        : undefined,
+      output.SchemaAttributes != null ? de_SchemaAttributesListType(output.SchemaAttributes, context) : undefined,
     SmsAuthenticationMessage: __expectString(output.SmsAuthenticationMessage),
     SmsConfiguration:
-      output.SmsConfiguration != null
-        ? deserializeAws_json1_1SmsConfigurationType(output.SmsConfiguration, context)
-        : undefined,
+      output.SmsConfiguration != null ? de_SmsConfigurationType(output.SmsConfiguration, context) : undefined,
     SmsConfigurationFailure: __expectString(output.SmsConfigurationFailure),
     SmsVerificationMessage: __expectString(output.SmsVerificationMessage),
     Status: __expectString(output.Status),
     UserAttributeUpdateSettings:
       output.UserAttributeUpdateSettings != null
-        ? deserializeAws_json1_1UserAttributeUpdateSettingsType(output.UserAttributeUpdateSettings, context)
+        ? de_UserAttributeUpdateSettingsType(output.UserAttributeUpdateSettings, context)
         : undefined,
-    UserPoolAddOns:
-      output.UserPoolAddOns != null
-        ? deserializeAws_json1_1UserPoolAddOnsType(output.UserPoolAddOns, context)
-        : undefined,
-    UserPoolTags:
-      output.UserPoolTags != null ? deserializeAws_json1_1UserPoolTagsType(output.UserPoolTags, context) : undefined,
+    UserPoolAddOns: output.UserPoolAddOns != null ? de_UserPoolAddOnsType(output.UserPoolAddOns, context) : undefined,
+    UserPoolTags: output.UserPoolTags != null ? de_UserPoolTagsType(output.UserPoolTags, context) : undefined,
     UsernameAttributes:
-      output.UsernameAttributes != null
-        ? deserializeAws_json1_1UsernameAttributesListType(output.UsernameAttributes, context)
-        : undefined,
+      output.UsernameAttributes != null ? de_UsernameAttributesListType(output.UsernameAttributes, context) : undefined,
     UsernameConfiguration:
       output.UsernameConfiguration != null
-        ? deserializeAws_json1_1UsernameConfigurationType(output.UsernameConfiguration, context)
+        ? de_UsernameConfigurationType(output.UsernameConfiguration, context)
         : undefined,
     VerificationMessageTemplate:
       output.VerificationMessageTemplate != null
-        ? deserializeAws_json1_1VerificationMessageTemplateType(output.VerificationMessageTemplate, context)
+        ? de_VerificationMessageTemplateType(output.VerificationMessageTemplate, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UsersListType = (output: any, context: __SerdeContext): UserType[] => {
+/**
+ * deserializeAws_json1_1UsersListType
+ */
+const de_UsersListType = (output: any, context: __SerdeContext): UserType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UserType(entry, context);
+      return de_UserType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UserType = (output: any, context: __SerdeContext): UserType => {
+/**
+ * deserializeAws_json1_1UserType
+ */
+const de_UserType = (output: any, context: __SerdeContext): UserType => {
   return {
-    Attributes:
-      output.Attributes != null ? deserializeAws_json1_1AttributeListType(output.Attributes, context) : undefined,
+    Attributes: output.Attributes != null ? de_AttributeListType(output.Attributes, context) : undefined,
     Enabled: __expectBoolean(output.Enabled),
-    MFAOptions:
-      output.MFAOptions != null ? deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context) : undefined,
+    MFAOptions: output.MFAOptions != null ? de_MFAOptionListType(output.MFAOptions, context) : undefined,
     UserCreateDate:
       output.UserCreateDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
@@ -13245,10 +14580,10 @@ const deserializeAws_json1_1UserType = (output: any, context: __SerdeContext): U
   } as any;
 };
 
-const deserializeAws_json1_1VerificationMessageTemplateType = (
-  output: any,
-  context: __SerdeContext
-): VerificationMessageTemplateType => {
+/**
+ * deserializeAws_json1_1VerificationMessageTemplateType
+ */
+const de_VerificationMessageTemplateType = (output: any, context: __SerdeContext): VerificationMessageTemplateType => {
   return {
     DefaultEmailOption: __expectString(output.DefaultEmailOption),
     EmailMessage: __expectString(output.EmailMessage),
@@ -13259,10 +14594,10 @@ const deserializeAws_json1_1VerificationMessageTemplateType = (
   } as any;
 };
 
-const deserializeAws_json1_1VerifiedAttributesListType = (
-  output: any,
-  context: __SerdeContext
-): (VerifiedAttributeType | string)[] => {
+/**
+ * deserializeAws_json1_1VerifiedAttributesListType
+ */
+const de_VerifiedAttributesListType = (output: any, context: __SerdeContext): (VerifiedAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13274,20 +14609,20 @@ const deserializeAws_json1_1VerifiedAttributesListType = (
   return retVal;
 };
 
-const deserializeAws_json1_1VerifySoftwareTokenResponse = (
-  output: any,
-  context: __SerdeContext
-): VerifySoftwareTokenResponse => {
+/**
+ * deserializeAws_json1_1VerifySoftwareTokenResponse
+ */
+const de_VerifySoftwareTokenResponse = (output: any, context: __SerdeContext): VerifySoftwareTokenResponse => {
   return {
     Session: __expectString(output.Session),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1VerifyUserAttributeResponse = (
-  output: any,
-  context: __SerdeContext
-): VerifyUserAttributeResponse => {
+/**
+ * deserializeAws_json1_1VerifyUserAttributeResponse
+ */
+const de_VerifyUserAttributeResponse = (output: any, context: __SerdeContext): VerifyUserAttributeResponse => {
   return {} as any;
 };
 

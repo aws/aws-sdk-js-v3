@@ -16,8 +16,8 @@ import {
 
 import { PutAccessPointConfigurationForObjectLambdaRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand,
-  serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand,
+  de_PutAccessPointConfigurationForObjectLambdaCommand,
+  se_PutAccessPointConfigurationForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -165,7 +165,7 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     input: PutAccessPointConfigurationForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand(input, context);
+    return se_PutAccessPointConfigurationForObjectLambdaCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand(output, context);
+    return de_PutAccessPointConfigurationForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

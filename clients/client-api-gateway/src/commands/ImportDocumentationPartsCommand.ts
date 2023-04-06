@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DocumentationPartIds, ImportDocumentationPartsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportDocumentationPartsCommand,
-  serializeAws_restJson1ImportDocumentationPartsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportDocumentationPartsCommand, se_ImportDocumentationPartsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ImportDocumentationPartsCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportDocumentationPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportDocumentationPartsCommand(input, context);
+    return se_ImportDocumentationPartsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportDocumentationPartsCommandOutput> {
-    return deserializeAws_restJson1ImportDocumentationPartsCommand(output, context);
+    return de_ImportDocumentationPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

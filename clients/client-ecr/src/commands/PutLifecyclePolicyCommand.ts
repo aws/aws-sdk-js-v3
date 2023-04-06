@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLifecyclePolicyCommand,
-  serializeAws_json1_1PutLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class PutLifecyclePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
+    return se_PutLifecyclePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
+    return de_PutLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

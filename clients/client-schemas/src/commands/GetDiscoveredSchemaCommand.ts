@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDiscoveredSchemaRequest, GetDiscoveredSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDiscoveredSchemaCommand,
-  serializeAws_restJson1GetDiscoveredSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDiscoveredSchemaCommand, se_GetDiscoveredSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetDiscoveredSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDiscoveredSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDiscoveredSchemaCommand(input, context);
+    return se_GetDiscoveredSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiscoveredSchemaCommandOutput> {
-    return deserializeAws_restJson1GetDiscoveredSchemaCommand(output, context);
+    return de_GetDiscoveredSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

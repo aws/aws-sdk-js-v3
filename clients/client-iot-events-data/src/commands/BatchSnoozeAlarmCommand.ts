@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchSnoozeAlarmRequest, BatchSnoozeAlarmResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchSnoozeAlarmCommand,
-  serializeAws_restJson1BatchSnoozeAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchSnoozeAlarmCommand, se_BatchSnoozeAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class BatchSnoozeAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchSnoozeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchSnoozeAlarmCommand(input, context);
+    return se_BatchSnoozeAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSnoozeAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchSnoozeAlarmCommand(output, context);
+    return de_BatchSnoozeAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

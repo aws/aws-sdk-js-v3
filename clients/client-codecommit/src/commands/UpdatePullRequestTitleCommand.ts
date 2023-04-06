@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdatePullRequestTitleInput, UpdatePullRequestTitleOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdatePullRequestTitleCommand,
-  serializeAws_json1_1UpdatePullRequestTitleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePullRequestTitleCommand, se_UpdatePullRequestTitleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdatePullRequestTitleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePullRequestTitleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestTitleCommand(input, context);
+    return se_UpdatePullRequestTitleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePullRequestTitleCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestTitleCommand(output, context);
+    return de_UpdatePullRequestTitleCommand(output, context);
   }
 
   // Start section: command_body_extra

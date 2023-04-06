@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteLogGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogGroupCommand,
-  serializeAws_json1_1DeleteLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLogGroupCommand, se_DeleteLogGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteLogGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogGroupCommand(input, context);
+    return se_DeleteLogGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteLogGroupCommand(output, context);
+    return de_DeleteLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

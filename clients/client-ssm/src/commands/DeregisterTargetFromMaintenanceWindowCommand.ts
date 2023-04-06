@@ -18,8 +18,8 @@ import {
   DeregisterTargetFromMaintenanceWindowResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,
-  serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,
+  de_DeregisterTargetFromMaintenanceWindowCommand,
+  se_DeregisterTargetFromMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -144,7 +144,7 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     input: DeregisterTargetFromMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand(input, context);
+    return se_DeregisterTargetFromMaintenanceWindowCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand(output, context);
+    return de_DeregisterTargetFromMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

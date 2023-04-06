@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDefaultParametersCommand,
-  serializeAws_json1_1DescribeDefaultParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDefaultParametersCommand, se_DescribeDefaultParametersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class DescribeDefaultParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDefaultParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDefaultParametersCommand(input, context);
+    return se_DescribeDefaultParametersCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DescribeDefaultParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeDefaultParametersCommand(output, context);
+    return de_DescribeDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

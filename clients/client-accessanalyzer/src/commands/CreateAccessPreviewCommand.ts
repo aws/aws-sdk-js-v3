@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { CreateAccessPreviewRequest, CreateAccessPreviewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessPreviewCommand,
-  serializeAws_restJson1CreateAccessPreviewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessPreviewCommand, se_CreateAccessPreviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -249,14 +246,14 @@ export class CreateAccessPreviewCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessPreviewCommand(input, context);
+    return se_CreateAccessPreviewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPreviewCommandOutput> {
-    return deserializeAws_restJson1CreateAccessPreviewCommand(output, context);
+    return de_CreateAccessPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

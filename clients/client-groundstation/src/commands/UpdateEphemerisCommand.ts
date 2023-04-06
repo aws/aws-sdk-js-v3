@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { EphemerisIdResponse, UpdateEphemerisRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEphemerisCommand,
-  serializeAws_restJson1UpdateEphemerisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEphemerisCommand, se_UpdateEphemerisCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class UpdateEphemerisCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEphemerisCommand(input, context);
+    return se_UpdateEphemerisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEphemerisCommandOutput> {
-    return deserializeAws_restJson1UpdateEphemerisCommand(output, context);
+    return de_UpdateEphemerisCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
   UpdateLaunchConfigurationTemplateRequest,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
+  de_UpdateLaunchConfigurationTemplateCommand,
+  se_UpdateLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -188,7 +188,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
     input: UpdateLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand(input, context);
+    return se_UpdateLaunchConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -198,7 +198,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand(output, context);
+    return de_UpdateLaunchConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

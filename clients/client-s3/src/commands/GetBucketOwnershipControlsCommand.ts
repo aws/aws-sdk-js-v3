@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketOwnershipControlsOutput, GetBucketOwnershipControlsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketOwnershipControlsCommand,
-  serializeAws_restXmlGetBucketOwnershipControlsCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketOwnershipControlsCommand, se_GetBucketOwnershipControlsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -145,7 +142,7 @@ export class GetBucketOwnershipControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketOwnershipControlsCommand(input, context);
+    return se_GetBucketOwnershipControlsCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketOwnershipControlsCommandOutput> {
-    return deserializeAws_restXmlGetBucketOwnershipControlsCommand(output, context);
+    return de_GetBucketOwnershipControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

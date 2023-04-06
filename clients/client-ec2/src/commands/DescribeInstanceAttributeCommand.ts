@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceAttributeCommand,
-  serializeAws_ec2DescribeInstanceAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -209,7 +206,7 @@ export class DescribeInstanceAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceAttributeCommand(input, context);
+    return se_DescribeInstanceAttributeCommand(input, context);
   }
 
   /**
@@ -219,7 +216,7 @@ export class DescribeInstanceAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceAttributeCommand(output, context);
+    return de_DescribeInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

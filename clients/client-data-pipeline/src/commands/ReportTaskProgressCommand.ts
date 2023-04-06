@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReportTaskProgressCommand,
-  serializeAws_json1_1ReportTaskProgressCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReportTaskProgressCommand, se_ReportTaskProgressCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class ReportTaskProgressCommand extends $Command<
    * @internal
    */
   private serialize(input: ReportTaskProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReportTaskProgressCommand(input, context);
+    return se_ReportTaskProgressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportTaskProgressCommandOutput> {
-    return deserializeAws_json1_1ReportTaskProgressCommand(output, context);
+    return de_ReportTaskProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

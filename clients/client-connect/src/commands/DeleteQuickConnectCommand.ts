@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteQuickConnectRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteQuickConnectCommand,
-  serializeAws_restJson1DeleteQuickConnectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteQuickConnectCommand, se_DeleteQuickConnectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteQuickConnectCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQuickConnectCommand(input, context);
+    return se_DeleteQuickConnectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQuickConnectCommandOutput> {
-    return deserializeAws_restJson1DeleteQuickConnectCommand(output, context);
+    return de_DeleteQuickConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

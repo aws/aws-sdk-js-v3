@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { PutCorsPolicyInput, PutCorsPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutCorsPolicyCommand,
-  serializeAws_json1_1PutCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutCorsPolicyCommand, se_PutCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class PutCorsPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutCorsPolicyCommand(input, context);
+    return se_PutCorsPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1PutCorsPolicyCommand(output, context);
+    return de_PutCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

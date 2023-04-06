@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesCommand,
-  serializeAws_json1_1ListResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListResourcesCommand, se_ListResourcesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesCommand(input, context);
+    return se_ListResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
-    return deserializeAws_json1_1ListResourcesCommand(output, context);
+    return de_ListResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

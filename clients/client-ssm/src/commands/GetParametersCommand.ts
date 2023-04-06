@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetParametersRequest, GetParametersResult, GetParametersResultFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetParametersCommand,
-  serializeAws_json1_1GetParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetParametersCommand, se_GetParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -131,14 +128,14 @@ export class GetParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: GetParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParametersCommand(input, context);
+    return se_GetParametersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersCommandOutput> {
-    return deserializeAws_json1_1GetParametersCommand(output, context);
+    return de_GetParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetResourceMetadataRequest, GetResourceMetadataResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1GetResourceMetadataCommand,
-  serializeAws_json1_1GetResourceMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResourceMetadataCommand, se_GetResourceMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetResourceMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceMetadataCommand(input, context);
+    return se_GetResourceMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetadataCommandOutput> {
-    return deserializeAws_json1_1GetResourceMetadataCommand(output, context);
+    return de_GetResourceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

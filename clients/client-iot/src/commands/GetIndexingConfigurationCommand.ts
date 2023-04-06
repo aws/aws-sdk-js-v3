@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetIndexingConfigurationCommand,
-  serializeAws_restJson1GetIndexingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIndexingConfigurationCommand, se_GetIndexingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetIndexingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIndexingConfigurationCommand(input, context);
+    return se_GetIndexingConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetIndexingConfigurationCommand(output, context);
+    return de_GetIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

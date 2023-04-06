@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTimelineEventInput, UpdateTimelineEventOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTimelineEventCommand,
-  serializeAws_restJson1UpdateTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTimelineEventCommand, se_UpdateTimelineEventCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -151,14 +148,14 @@ export class UpdateTimelineEventCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTimelineEventCommand(input, context);
+    return se_UpdateTimelineEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimelineEventCommandOutput> {
-    return deserializeAws_restJson1UpdateTimelineEventCommand(output, context);
+    return de_UpdateTimelineEventCommand(output, context);
   }
 
   // Start section: command_body_extra

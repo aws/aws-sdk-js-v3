@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineStatusCommand,
-  serializeAws_restJson1UpdatePipelineStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePipelineStatusCommand, se_UpdatePipelineStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdatePipelineStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePipelineStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineStatusCommand(input, context);
+    return se_UpdatePipelineStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineStatusCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineStatusCommand(output, context);
+    return de_UpdatePipelineStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

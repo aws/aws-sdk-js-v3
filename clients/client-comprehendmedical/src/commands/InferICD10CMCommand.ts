@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { InferICD10CMRequest, InferICD10CMResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1InferICD10CMCommand,
-  serializeAws_json1_1InferICD10CMCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InferICD10CMCommand, se_InferICD10CMCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class InferICD10CMCommand extends $Command<
    * @internal
    */
   private serialize(input: InferICD10CMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InferICD10CMCommand(input, context);
+    return se_InferICD10CMCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferICD10CMCommandOutput> {
-    return deserializeAws_json1_1InferICD10CMCommand(output, context);
+    return de_InferICD10CMCommand(output, context);
   }
 
   // Start section: command_body_extra

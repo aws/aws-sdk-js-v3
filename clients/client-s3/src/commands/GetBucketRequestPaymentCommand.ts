@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketRequestPaymentOutput, GetBucketRequestPaymentRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketRequestPaymentCommand,
-  serializeAws_restXmlGetBucketRequestPaymentCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketRequestPaymentCommand, se_GetBucketRequestPaymentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -153,14 +150,14 @@ export class GetBucketRequestPaymentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketRequestPaymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketRequestPaymentCommand(input, context);
+    return se_GetBucketRequestPaymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketRequestPaymentCommandOutput> {
-    return deserializeAws_restXmlGetBucketRequestPaymentCommand(output, context);
+    return de_GetBucketRequestPaymentCommand(output, context);
   }
 
   // Start section: command_body_extra

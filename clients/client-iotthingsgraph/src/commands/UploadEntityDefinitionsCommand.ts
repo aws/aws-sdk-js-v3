@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UploadEntityDefinitionsCommand,
-  serializeAws_json1_1UploadEntityDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UploadEntityDefinitionsCommand, se_UploadEntityDefinitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UploadEntityDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadEntityDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UploadEntityDefinitionsCommand(input, context);
+    return se_UploadEntityDefinitionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadEntityDefinitionsCommandOutput> {
-    return deserializeAws_json1_1UploadEntityDefinitionsCommand(output, context);
+    return de_UploadEntityDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

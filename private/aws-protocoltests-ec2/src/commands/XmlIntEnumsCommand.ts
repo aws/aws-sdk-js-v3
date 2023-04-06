@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { XmlIntEnumsOutput } from "../models/models_0";
-import { deserializeAws_ec2XmlIntEnumsCommand, serializeAws_ec2XmlIntEnumsCommand } from "../protocols/Aws_ec2";
+import { de_XmlIntEnumsCommand, se_XmlIntEnumsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -102,14 +102,14 @@ export class XmlIntEnumsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlIntEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlIntEnumsCommand(input, context);
+    return se_XmlIntEnumsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlIntEnumsCommandOutput> {
-    return deserializeAws_ec2XmlIntEnumsCommand(output, context);
+    return de_XmlIntEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

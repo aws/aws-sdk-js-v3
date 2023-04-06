@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetIdentityDkimAttributesCommand,
-  serializeAws_queryGetIdentityDkimAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_GetIdentityDkimAttributesCommand, se_GetIdentityDkimAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -177,7 +174,7 @@ export class GetIdentityDkimAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIdentityDkimAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityDkimAttributesCommand(input, context);
+    return se_GetIdentityDkimAttributesCommand(input, context);
   }
 
   /**
@@ -187,7 +184,7 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityDkimAttributesCommand(output, context);
+    return de_GetIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateCommand,
-  serializeAws_json1_1DeleteCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateCommand(input, context);
+    return se_DeleteCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateCommand(output, context);
+    return de_DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

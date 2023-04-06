@@ -19,8 +19,8 @@ import {
   DecreaseNodeGroupsInGlobalReplicationGroupResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand,
-  serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand,
+  de_DecreaseNodeGroupsInGlobalReplicationGroupCommand,
+  se_DecreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -155,7 +155,7 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
+    return se_DecreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
+    return de_DecreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

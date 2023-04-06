@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEntityRecognizerCommand,
-  serializeAws_json1_1DeleteEntityRecognizerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEntityRecognizerCommand, se_DeleteEntityRecognizerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteEntityRecognizerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEntityRecognizerCommand(input, context);
+    return se_DeleteEntityRecognizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1DeleteEntityRecognizerCommand(output, context);
+    return de_DeleteEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

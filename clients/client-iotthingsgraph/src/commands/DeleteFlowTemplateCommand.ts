@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFlowTemplateCommand,
-  serializeAws_json1_1DeleteFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFlowTemplateCommand, se_DeleteFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteFlowTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlowTemplateCommand(input, context);
+    return se_DeleteFlowTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteFlowTemplateCommand(output, context);
+    return de_DeleteFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

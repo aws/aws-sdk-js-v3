@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListContactReferencesRequest, ListContactReferencesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListContactReferencesCommand,
-  serializeAws_restJson1ListContactReferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListContactReferencesCommand, se_ListContactReferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListContactReferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListContactReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactReferencesCommand(input, context);
+    return se_ListContactReferencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactReferencesCommandOutput> {
-    return deserializeAws_restJson1ListContactReferencesCommand(output, context);
+    return de_ListContactReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagPolicyRequest } from "../models/models_1";
-import { deserializeAws_queryUntagPolicyCommand, serializeAws_queryUntagPolicyCommand } from "../protocols/Aws_query";
+import { de_UntagPolicyCommand, se_UntagPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class UntagPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagPolicyCommand(input, context);
+    return se_UntagPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagPolicyCommandOutput> {
-    return deserializeAws_queryUntagPolicyCommand(output, context);
+    return de_UntagPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

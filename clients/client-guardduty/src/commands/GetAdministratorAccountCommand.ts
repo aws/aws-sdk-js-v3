@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAdministratorAccountCommand,
-  serializeAws_restJson1GetAdministratorAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetAdministratorAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
+    return se_GetAdministratorAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
+    return de_GetAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

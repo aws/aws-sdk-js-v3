@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteThreatIntelSetRequest, DeleteThreatIntelSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteThreatIntelSetCommand,
-  serializeAws_restJson1DeleteThreatIntelSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteThreatIntelSetCommand, se_DeleteThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteThreatIntelSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThreatIntelSetCommand(input, context);
+    return se_DeleteThreatIntelSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1DeleteThreatIntelSetCommand(output, context);
+    return de_DeleteThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

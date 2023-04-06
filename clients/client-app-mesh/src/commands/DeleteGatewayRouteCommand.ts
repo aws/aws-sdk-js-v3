@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGatewayRouteCommand,
-  serializeAws_restJson1DeleteGatewayRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGatewayRouteCommand, se_DeleteGatewayRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteGatewayRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGatewayRouteCommand(input, context);
+    return se_DeleteGatewayRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayRouteCommandOutput> {
-    return deserializeAws_restJson1DeleteGatewayRouteCommand(output, context);
+    return de_DeleteGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

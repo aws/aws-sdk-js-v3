@@ -19,10 +19,7 @@ import {
   UpdateViewOutput,
   UpdateViewOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateViewCommand,
-  serializeAws_restJson1UpdateViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateViewCommand, se_UpdateViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -158,14 +155,14 @@ export class UpdateViewCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateViewCommand(input, context);
+    return se_UpdateViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateViewCommandOutput> {
-    return deserializeAws_restJson1UpdateViewCommand(output, context);
+    return de_UpdateViewCommand(output, context);
   }
 
   // Start section: command_body_extra

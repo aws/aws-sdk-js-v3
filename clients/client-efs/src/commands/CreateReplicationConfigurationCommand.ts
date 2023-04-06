@@ -16,8 +16,8 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { CreateReplicationConfigurationRequest, ReplicationConfigurationDescription } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateReplicationConfigurationCommand,
-  serializeAws_restJson1CreateReplicationConfigurationCommand,
+  de_CreateReplicationConfigurationCommand,
+  se_CreateReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -252,7 +252,7 @@ export class CreateReplicationConfigurationCommand extends $Command<
     input: CreateReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationConfigurationCommand(input, context);
+    return se_CreateReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -262,7 +262,7 @@ export class CreateReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationConfigurationCommand(output, context);
+    return de_CreateReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

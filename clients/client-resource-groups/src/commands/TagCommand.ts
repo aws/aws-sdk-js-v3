@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagInput, TagOutput } from "../models/models_0";
-import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } from "../protocols/Aws_restJson1";
+import { de_TagCommand, se_TagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -151,14 +151,14 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
    * @internal
    */
   private serialize(input: TagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagCommand(input, context);
+    return se_TagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
-    return deserializeAws_restJson1TagCommand(output, context);
+    return de_TagCommand(output, context);
   }
 
   // Start section: command_body_extra

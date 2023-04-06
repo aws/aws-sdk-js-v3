@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFindingAggregatorCommand,
-  serializeAws_restJson1DeleteFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFindingAggregatorCommand, se_DeleteFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -142,14 +139,14 @@ export class DeleteFindingAggregatorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFindingAggregatorCommand(input, context);
+    return se_DeleteFindingAggregatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1DeleteFindingAggregatorCommand(output, context);
+    return de_DeleteFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

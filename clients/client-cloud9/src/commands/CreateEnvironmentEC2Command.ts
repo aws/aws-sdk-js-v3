@@ -19,10 +19,7 @@ import {
   CreateEnvironmentEC2RequestFilterSensitiveLog,
   CreateEnvironmentEC2Result,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEnvironmentEC2Command,
-  serializeAws_json1_1CreateEnvironmentEC2Command,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEnvironmentEC2Command, se_CreateEnvironmentEC2Command } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class CreateEnvironmentEC2Command extends $Command<
    * @internal
    */
   private serialize(input: CreateEnvironmentEC2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEnvironmentEC2Command(input, context);
+    return se_CreateEnvironmentEC2Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentEC2CommandOutput> {
-    return deserializeAws_json1_1CreateEnvironmentEC2Command(output, context);
+    return de_CreateEnvironmentEC2Command(output, context);
   }
 
   // Start section: command_body_extra

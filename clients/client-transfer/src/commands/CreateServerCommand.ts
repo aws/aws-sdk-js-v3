@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateServerRequest, CreateServerRequestFilterSensitiveLog, CreateServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServerCommand,
-  serializeAws_json1_1CreateServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateServerCommand, se_CreateServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -201,14 +198,14 @@ export class CreateServerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServerCommand(input, context);
+    return se_CreateServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
-    return deserializeAws_json1_1CreateServerCommand(output, context);
+    return de_CreateServerCommand(output, context);
   }
 
   // Start section: command_body_extra

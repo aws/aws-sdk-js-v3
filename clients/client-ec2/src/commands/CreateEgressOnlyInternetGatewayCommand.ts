@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateEgressOnlyInternetGatewayRequest, CreateEgressOnlyInternetGatewayResult } from "../models/models_1";
 import {
-  deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand,
-  serializeAws_ec2CreateEgressOnlyInternetGatewayCommand,
+  de_CreateEgressOnlyInternetGatewayCommand,
+  se_CreateEgressOnlyInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     input: CreateEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(input, context);
+    return se_CreateEgressOnlyInternetGatewayCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> {
-    return deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand(output, context);
+    return de_CreateEgressOnlyInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

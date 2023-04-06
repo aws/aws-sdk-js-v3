@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { CreateVoiceConnectorGroupRequest, CreateVoiceConnectorGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVoiceConnectorGroupCommand,
-  serializeAws_restJson1CreateVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVoiceConnectorGroupCommand, se_CreateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceConnectorGroupCommand(input, context);
+    return se_CreateVoiceConnectorGroupCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceConnectorGroupCommand(output, context);
+    return de_CreateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
-  serializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
+  de_UpdateInstanceMetadataOptionsCommand,
+  se_UpdateInstanceMetadataOptionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -161,7 +161,7 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceMetadataOptionsCommand(input, context);
+    return se_UpdateInstanceMetadataOptionsCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceMetadataOptionsCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand(output, context);
+    return de_UpdateInstanceMetadataOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

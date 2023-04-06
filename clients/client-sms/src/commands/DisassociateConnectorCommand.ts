@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectorCommand,
-  serializeAws_json1_1DisassociateConnectorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateConnectorCommand, se_DisassociateConnectorCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -135,14 +132,14 @@ export class DisassociateConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectorCommand(input, context);
+    return se_DisassociateConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectorCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectorCommand(output, context);
+    return de_DisassociateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

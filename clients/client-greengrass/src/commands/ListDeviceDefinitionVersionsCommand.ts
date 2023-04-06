@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListDeviceDefinitionVersionsRequest, ListDeviceDefinitionVersionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDeviceDefinitionVersionsCommand,
-  serializeAws_restJson1ListDeviceDefinitionVersionsCommand,
+  de_ListDeviceDefinitionVersionsCommand,
+  se_ListDeviceDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -127,7 +127,7 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeviceDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceDefinitionVersionsCommand(input, context);
+    return se_ListDeviceDefinitionVersionsCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDeviceDefinitionVersionsCommand(output, context);
+    return de_ListDeviceDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

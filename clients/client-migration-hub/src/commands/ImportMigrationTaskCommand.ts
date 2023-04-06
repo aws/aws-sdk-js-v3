@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ImportMigrationTaskRequest, ImportMigrationTaskResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportMigrationTaskCommand,
-  serializeAws_json1_1ImportMigrationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportMigrationTaskCommand, se_ImportMigrationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class ImportMigrationTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportMigrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportMigrationTaskCommand(input, context);
+    return se_ImportMigrationTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportMigrationTaskCommandOutput> {
-    return deserializeAws_json1_1ImportMigrationTaskCommand(output, context);
+    return de_ImportMigrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourceSetsRequest, ListResourceSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourceSetsCommand,
-  serializeAws_restJson1ListResourceSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResourceSetsCommand, se_ListResourceSetsCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -137,14 +134,14 @@ export class ListResourceSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceSetsCommand(input, context);
+    return se_ListResourceSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceSetsCommandOutput> {
-    return deserializeAws_restJson1ListResourceSetsCommand(output, context);
+    return de_ListResourceSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

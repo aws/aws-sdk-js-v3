@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { CreateLunaClientRequest, CreateLunaClientResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLunaClientCommand,
-  serializeAws_json1_1CreateLunaClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLunaClientCommand, se_CreateLunaClientCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateLunaClientCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLunaClientCommand(input, context);
+    return se_CreateLunaClientCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLunaClientCommandOutput> {
-    return deserializeAws_json1_1CreateLunaClientCommand(output, context);
+    return de_CreateLunaClientCommand(output, context);
   }
 
   // Start section: command_body_extra

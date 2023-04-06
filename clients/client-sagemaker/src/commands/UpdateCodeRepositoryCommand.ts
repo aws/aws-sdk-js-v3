@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateCodeRepositoryCommand,
-  serializeAws_json1_1UpdateCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCodeRepositoryCommand, se_UpdateCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class UpdateCodeRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCodeRepositoryCommand(input, context);
+    return se_UpdateCodeRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1UpdateCodeRepositoryCommand(output, context);
+    return de_UpdateCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

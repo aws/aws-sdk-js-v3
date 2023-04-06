@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { UpdateWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWaveCommand,
-  serializeAws_restJson1UpdateWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWaveCommand, se_UpdateWaveCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class UpdateWaveCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWaveCommand(input, context);
+    return se_UpdateWaveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWaveCommandOutput> {
-    return deserializeAws_restJson1UpdateWaveCommand(output, context);
+    return de_UpdateWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

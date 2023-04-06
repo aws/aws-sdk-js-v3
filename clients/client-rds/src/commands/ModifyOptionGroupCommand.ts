@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyOptionGroupCommand,
-  serializeAws_queryModifyOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyOptionGroupCommand, se_ModifyOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -181,14 +178,14 @@ export class ModifyOptionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyOptionGroupCommand(input, context);
+    return se_ModifyOptionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyOptionGroupCommandOutput> {
-    return deserializeAws_queryModifyOptionGroupCommand(output, context);
+    return de_ModifyOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

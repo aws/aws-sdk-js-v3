@@ -19,8 +19,8 @@ import {
   DisableTransitGatewayRouteTablePropagationResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand,
-  serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand,
+  de_DisableTransitGatewayRouteTablePropagationCommand,
+  se_DisableTransitGatewayRouteTablePropagationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     input: DisableTransitGatewayRouteTablePropagationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand(input, context);
+    return se_DisableTransitGatewayRouteTablePropagationCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> {
-    return deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand(output, context);
+    return de_DisableTransitGatewayRouteTablePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

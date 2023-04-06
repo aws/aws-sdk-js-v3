@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { UpdatePrimaryRegionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrimaryRegionCommand,
-  serializeAws_json1_1UpdatePrimaryRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePrimaryRegionCommand, se_UpdatePrimaryRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -238,14 +235,14 @@ export class UpdatePrimaryRegionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePrimaryRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrimaryRegionCommand(input, context);
+    return se_UpdatePrimaryRegionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePrimaryRegionCommandOutput> {
-    return deserializeAws_json1_1UpdatePrimaryRegionCommand(output, context);
+    return de_UpdatePrimaryRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

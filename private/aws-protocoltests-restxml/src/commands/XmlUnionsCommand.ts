@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlUnionsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlUnionsCommand, serializeAws_restXmlXmlUnionsCommand } from "../protocols/Aws_restXml";
+import { de_XmlUnionsCommand, se_XmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -80,14 +80,14 @@ export class XmlUnionsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlUnionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlUnionsCommand(input, context);
+    return se_XmlUnionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlUnionsCommandOutput> {
-    return deserializeAws_restXmlXmlUnionsCommand(output, context);
+    return de_XmlUnionsCommand(output, context);
   }
 
   // Start section: command_body_extra

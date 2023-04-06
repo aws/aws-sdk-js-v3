@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePortfolioCommand,
-  serializeAws_json1_1DescribePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePortfolioCommand, se_DescribePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -125,14 +122,14 @@ export class DescribePortfolioCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioCommand(input, context);
+    return se_DescribePortfolioCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioCommand(output, context);
+    return de_DescribePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

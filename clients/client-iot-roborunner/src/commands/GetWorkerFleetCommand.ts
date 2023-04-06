@@ -15,10 +15,7 @@ import {
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
 import { GetWorkerFleetRequest, GetWorkerFleetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkerFleetCommand,
-  serializeAws_restJson1GetWorkerFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkerFleetCommand, se_GetWorkerFleetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetWorkerFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkerFleetCommand(input, context);
+    return se_GetWorkerFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkerFleetCommandOutput> {
-    return deserializeAws_restJson1GetWorkerFleetCommand(output, context);
+    return de_GetWorkerFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

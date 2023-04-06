@@ -19,10 +19,7 @@ import {
   GetDocumentVersionResponse,
   GetDocumentVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentVersionCommand,
-  serializeAws_restJson1GetDocumentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDocumentVersionCommand, se_GetDocumentVersionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -152,14 +149,14 @@ export class GetDocumentVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentVersionCommand(input, context);
+    return se_GetDocumentVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentVersionCommandOutput> {
-    return deserializeAws_restJson1GetDocumentVersionCommand(output, context);
+    return de_GetDocumentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

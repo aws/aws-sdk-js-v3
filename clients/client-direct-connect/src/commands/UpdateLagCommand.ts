@@ -15,7 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { Lag, UpdateLagRequest } from "../models/models_0";
-import { deserializeAws_json1_1UpdateLagCommand, serializeAws_json1_1UpdateLagCommand } from "../protocols/Aws_json1_1";
+import { de_UpdateLagCommand, se_UpdateLagCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +146,14 @@ export class UpdateLagCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLagCommand(input, context);
+    return se_UpdateLagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLagCommandOutput> {
-    return deserializeAws_json1_1UpdateLagCommand(output, context);
+    return de_UpdateLagCommand(output, context);
   }
 
   // Start section: command_body_extra

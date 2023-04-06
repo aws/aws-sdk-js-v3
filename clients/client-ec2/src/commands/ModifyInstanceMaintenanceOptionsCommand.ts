@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
-  serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
+  de_ModifyInstanceMaintenanceOptionsCommand,
+  se_ModifyInstanceMaintenanceOptionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     input: ModifyInstanceMaintenanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand(input, context);
+    return se_ModifyInstanceMaintenanceOptionsCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand(output, context);
+    return de_ModifyInstanceMaintenanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

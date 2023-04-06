@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccessPointRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteAccessPointCommand,
-  serializeAws_restXmlDeleteAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteAccessPointCommand, se_DeleteAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeleteAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointCommand(input, context);
+    return se_DeleteAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointCommand(output, context);
+    return de_DeleteAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

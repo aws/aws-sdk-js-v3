@@ -19,8 +19,8 @@ import {
   ListProvisionedConcurrencyConfigsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
-  serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
+  de_ListProvisionedConcurrencyConfigsCommand,
+  se_ListProvisionedConcurrencyConfigsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     input: ListProvisionedConcurrencyConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(input, context);
+    return se_ListProvisionedConcurrencyConfigsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> {
-    return deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(output, context);
+    return de_ListProvisionedConcurrencyConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

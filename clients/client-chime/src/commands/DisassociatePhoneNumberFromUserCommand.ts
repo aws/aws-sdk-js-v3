@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DisassociatePhoneNumberFromUserRequest, DisassociatePhoneNumberFromUserResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand,
-  serializeAws_restJson1DisassociatePhoneNumberFromUserCommand,
+  de_DisassociatePhoneNumberFromUserCommand,
+  se_DisassociatePhoneNumberFromUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     input: DisassociatePhoneNumberFromUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePhoneNumberFromUserCommand(input, context);
+    return se_DisassociatePhoneNumberFromUserCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumberFromUserCommandOutput> {
-    return deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand(output, context);
+    return de_DisassociatePhoneNumberFromUserCommand(output, context);
   }
 
   // Start section: command_body_extra

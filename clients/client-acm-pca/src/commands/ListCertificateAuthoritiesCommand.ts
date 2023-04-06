@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { ListCertificateAuthoritiesRequest, ListCertificateAuthoritiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCertificateAuthoritiesCommand,
-  serializeAws_json1_1ListCertificateAuthoritiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCertificateAuthoritiesCommand, se_ListCertificateAuthoritiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class ListCertificateAuthoritiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCertificateAuthoritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificateAuthoritiesCommand(input, context);
+    return se_ListCertificateAuthoritiesCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_json1_1ListCertificateAuthoritiesCommand(output, context);
+    return de_ListCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
   GetOpenIdTokenForDeveloperIdentityResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand,
-  serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand,
+  de_GetOpenIdTokenForDeveloperIdentityCommand,
+  se_GetOpenIdTokenForDeveloperIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -174,7 +174,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     input: GetOpenIdTokenForDeveloperIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(input, context);
+    return se_GetOpenIdTokenForDeveloperIdentityCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(output, context);
+    return de_GetOpenIdTokenForDeveloperIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

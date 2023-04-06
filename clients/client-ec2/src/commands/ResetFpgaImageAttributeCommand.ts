@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ResetFpgaImageAttributeCommand,
-  serializeAws_ec2ResetFpgaImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ResetFpgaImageAttributeCommand, se_ResetFpgaImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ResetFpgaImageAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetFpgaImageAttributeCommand(input, context);
+    return se_ResetFpgaImageAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetFpgaImageAttributeCommandOutput> {
-    return deserializeAws_ec2ResetFpgaImageAttributeCommand(output, context);
+    return de_ResetFpgaImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

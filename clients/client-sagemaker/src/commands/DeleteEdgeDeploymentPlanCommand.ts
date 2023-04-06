@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEdgeDeploymentPlanRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
-  serializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEdgeDeploymentPlanCommand, se_DeleteEdgeDeploymentPlanCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEdgeDeploymentPlanCommand(input, context);
+    return se_DeleteEdgeDeploymentPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEdgeDeploymentPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand(output, context);
+    return de_DeleteEdgeDeploymentPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

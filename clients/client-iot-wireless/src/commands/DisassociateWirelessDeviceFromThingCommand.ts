@@ -19,8 +19,8 @@ import {
   DisassociateWirelessDeviceFromThingResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommand,
-  serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand,
+  de_DisassociateWirelessDeviceFromThingCommand,
+  se_DisassociateWirelessDeviceFromThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     input: DisassociateWirelessDeviceFromThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand(input, context);
+    return se_DisassociateWirelessDeviceFromThingCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessDeviceFromThingCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommand(output, context);
+    return de_DisassociateWirelessDeviceFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

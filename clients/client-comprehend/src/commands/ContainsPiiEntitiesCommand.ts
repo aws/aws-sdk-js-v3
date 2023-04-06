@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ContainsPiiEntitiesCommand,
-  serializeAws_json1_1ContainsPiiEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ContainsPiiEntitiesCommand, se_ContainsPiiEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ContainsPiiEntitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ContainsPiiEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ContainsPiiEntitiesCommand(input, context);
+    return se_ContainsPiiEntitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContainsPiiEntitiesCommandOutput> {
-    return deserializeAws_json1_1ContainsPiiEntitiesCommand(output, context);
+    return de_ContainsPiiEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

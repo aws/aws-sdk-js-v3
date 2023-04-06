@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetCustomRulePolicyRequest, GetCustomRulePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCustomRulePolicyCommand,
-  serializeAws_json1_1GetCustomRulePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCustomRulePolicyCommand, se_GetCustomRulePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class GetCustomRulePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCustomRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCustomRulePolicyCommand(input, context);
+    return se_GetCustomRulePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomRulePolicyCommandOutput> {
-    return deserializeAws_json1_1GetCustomRulePolicyCommand(output, context);
+    return de_GetCustomRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

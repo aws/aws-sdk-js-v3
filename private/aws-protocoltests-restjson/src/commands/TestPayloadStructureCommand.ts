@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestPayloadStructureInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestPayloadStructureCommand,
-  serializeAws_restJson1TestPayloadStructureCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestPayloadStructureCommand, se_TestPayloadStructureCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -114,14 +111,14 @@ export class TestPayloadStructureCommand extends $Command<
    * @internal
    */
   private serialize(input: TestPayloadStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestPayloadStructureCommand(input, context);
+    return se_TestPayloadStructureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestPayloadStructureCommandOutput> {
-    return deserializeAws_restJson1TestPayloadStructureCommand(output, context);
+    return de_TestPayloadStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

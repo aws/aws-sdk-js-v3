@@ -18,8 +18,8 @@ import {
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
+  de_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
+  se_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
@@ -163,7 +163,7 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
+    return se_DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(output, context);
+    return de_DescribeTrustedAdvisorCheckRefreshStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

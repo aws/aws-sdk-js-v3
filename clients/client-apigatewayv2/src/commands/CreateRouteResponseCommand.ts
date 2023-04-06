@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { CreateRouteResponseRequest, CreateRouteResponseResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRouteResponseCommand,
-  serializeAws_restJson1CreateRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRouteResponseCommand, se_CreateRouteResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateRouteResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRouteResponseCommand(input, context);
+    return se_CreateRouteResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteResponseCommandOutput> {
-    return deserializeAws_restJson1CreateRouteResponseCommand(output, context);
+    return de_CreateRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

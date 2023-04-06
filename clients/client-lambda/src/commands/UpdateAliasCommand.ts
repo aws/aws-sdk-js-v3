@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AliasConfiguration, UpdateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAliasCommand,
-  serializeAws_restJson1UpdateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAliasCommand(input, context);
+    return se_UpdateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateAliasCommand(output, context);
+    return de_UpdateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

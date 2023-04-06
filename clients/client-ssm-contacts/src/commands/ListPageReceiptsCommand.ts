@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPageReceiptsRequest, ListPageReceiptsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPageReceiptsCommand,
-  serializeAws_json1_1ListPageReceiptsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPageReceiptsCommand, se_ListPageReceiptsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -138,14 +135,14 @@ export class ListPageReceiptsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPageReceiptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPageReceiptsCommand(input, context);
+    return se_ListPageReceiptsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPageReceiptsCommandOutput> {
-    return deserializeAws_json1_1ListPageReceiptsCommand(output, context);
+    return de_ListPageReceiptsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,10 +23,7 @@ import {
   UpdateChannelFlowRequestFilterSensitiveLog,
   UpdateChannelFlowResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateChannelFlowCommand,
-  serializeAws_restJson1UpdateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelFlowCommand, se_UpdateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class UpdateChannelFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelFlowCommand(input, context);
+    return se_UpdateChannelFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelFlowCommand(output, context);
+    return de_UpdateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

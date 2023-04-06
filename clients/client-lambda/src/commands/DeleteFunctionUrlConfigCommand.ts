@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionUrlConfigRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionUrlConfigCommand,
-  serializeAws_restJson1DeleteFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFunctionUrlConfigCommand, se_DeleteFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionUrlConfigCommand(input, context);
+    return se_DeleteFunctionUrlConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionUrlConfigCommand(output, context);
+    return de_DeleteFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

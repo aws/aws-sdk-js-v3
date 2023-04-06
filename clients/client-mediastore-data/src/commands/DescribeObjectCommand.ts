@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
 import { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeObjectCommand,
-  serializeAws_restJson1DescribeObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeObjectCommand, se_DescribeObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DescribeObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeObjectCommand(input, context);
+    return se_DescribeObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectCommandOutput> {
-    return deserializeAws_restJson1DescribeObjectCommand(output, context);
+    return de_DescribeObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

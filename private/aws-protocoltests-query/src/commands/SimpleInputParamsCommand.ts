@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SimpleInputParamsInput } from "../models/models_0";
-import {
-  deserializeAws_querySimpleInputParamsCommand,
-  serializeAws_querySimpleInputParamsCommand,
-} from "../protocols/Aws_query";
+import { de_SimpleInputParamsCommand, se_SimpleInputParamsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class SimpleInputParamsCommand extends $Command<
    * @internal
    */
   private serialize(input: SimpleInputParamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimpleInputParamsCommand(input, context);
+    return se_SimpleInputParamsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleInputParamsCommandOutput> {
-    return deserializeAws_querySimpleInputParamsCommand(output, context);
+    return de_SimpleInputParamsCommand(output, context);
   }
 
   // Start section: command_body_extra

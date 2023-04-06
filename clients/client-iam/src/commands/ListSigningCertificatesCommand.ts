@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListSigningCertificatesRequest, ListSigningCertificatesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListSigningCertificatesCommand,
-  serializeAws_queryListSigningCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_ListSigningCertificatesCommand, se_ListSigningCertificatesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class ListSigningCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSigningCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSigningCertificatesCommand(input, context);
+    return se_ListSigningCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningCertificatesCommandOutput> {
-    return deserializeAws_queryListSigningCertificatesCommand(output, context);
+    return de_ListSigningCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

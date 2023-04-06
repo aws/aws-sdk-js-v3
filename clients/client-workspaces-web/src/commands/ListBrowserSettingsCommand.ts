@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListBrowserSettingsRequest, ListBrowserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBrowserSettingsCommand,
-  serializeAws_restJson1ListBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBrowserSettingsCommand, se_ListBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBrowserSettingsCommand(input, context);
+    return se_ListBrowserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1ListBrowserSettingsCommand(output, context);
+    return de_ListBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetHomeRegionCommand,
-  serializeAws_json1_1GetHomeRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetHomeRegionCommand, se_GetHomeRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetHomeRegionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHomeRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHomeRegionCommand(input, context);
+    return se_GetHomeRegionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHomeRegionCommandOutput> {
-    return deserializeAws_json1_1GetHomeRegionCommand(output, context);
+    return de_GetHomeRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

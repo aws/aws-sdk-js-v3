@@ -16,8 +16,8 @@ import {
 
 import { ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlListStorageLensConfigurationsCommand,
-  serializeAws_restXmlListStorageLensConfigurationsCommand,
+  de_ListStorageLensConfigurationsCommand,
+  se_ListStorageLensConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -137,7 +137,7 @@ export class ListStorageLensConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStorageLensConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListStorageLensConfigurationsCommand(input, context);
+    return se_ListStorageLensConfigurationsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ListStorageLensConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStorageLensConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListStorageLensConfigurationsCommand(output, context);
+    return de_ListStorageLensConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

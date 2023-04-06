@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteHumanTaskUiCommand,
-  serializeAws_json1_1DeleteHumanTaskUiCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteHumanTaskUiCommand, se_DeleteHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteHumanTaskUiCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHumanTaskUiCommand(input, context);
+    return se_DeleteHumanTaskUiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanTaskUiCommandOutput> {
-    return deserializeAws_json1_1DeleteHumanTaskUiCommand(output, context);
+    return de_DeleteHumanTaskUiCommand(output, context);
   }
 
   // Start section: command_body_extra

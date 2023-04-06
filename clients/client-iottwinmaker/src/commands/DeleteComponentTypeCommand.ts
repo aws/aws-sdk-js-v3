@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { DeleteComponentTypeRequest, DeleteComponentTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteComponentTypeCommand,
-  serializeAws_restJson1DeleteComponentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteComponentTypeCommand, se_DeleteComponentTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteComponentTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteComponentTypeCommand(input, context);
+    return se_DeleteComponentTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteComponentTypeCommand(output, context);
+    return de_DeleteComponentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

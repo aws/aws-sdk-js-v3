@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteMapRequest, DeleteMapResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMapCommand,
-  serializeAws_restJson1DeleteMapCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMapCommand, se_DeleteMapCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteMapCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMapCommand(input, context);
+    return se_DeleteMapCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMapCommandOutput> {
-    return deserializeAws_restJson1DeleteMapCommand(output, context);
+    return de_DeleteMapCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   ListEnvironmentsOutput,
   ListEnvironmentsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListEnvironmentsCommand,
-  serializeAws_json1_0ListEnvironmentsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -146,14 +143,14 @@ export class ListEnvironmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentsCommand(input, context);
+    return se_ListEnvironmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentsCommand(output, context);
+    return de_ListEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

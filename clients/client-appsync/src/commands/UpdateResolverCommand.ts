@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { UpdateResolverRequest, UpdateResolverResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateResolverCommand,
-  serializeAws_restJson1UpdateResolverCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateResolverCommand, se_UpdateResolverCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class UpdateResolverCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResolverCommand(input, context);
+    return se_UpdateResolverCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverCommandOutput> {
-    return deserializeAws_restJson1UpdateResolverCommand(output, context);
+    return de_UpdateResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

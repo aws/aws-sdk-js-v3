@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListScheduledQueriesRequest, ListScheduledQueriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListScheduledQueriesCommand,
-  serializeAws_json1_0ListScheduledQueriesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListScheduledQueriesCommand, se_ListScheduledQueriesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -142,14 +139,14 @@ export class ListScheduledQueriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListScheduledQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListScheduledQueriesCommand(input, context);
+    return se_ListScheduledQueriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledQueriesCommandOutput> {
-    return deserializeAws_json1_0ListScheduledQueriesCommand(output, context);
+    return de_ListScheduledQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

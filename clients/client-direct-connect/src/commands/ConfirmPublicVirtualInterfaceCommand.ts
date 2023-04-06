@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmPublicVirtualInterfaceRequest, ConfirmPublicVirtualInterfaceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
+  de_ConfirmPublicVirtualInterfaceCommand,
+  se_ConfirmPublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmPublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(input, context);
+    return se_ConfirmPublicVirtualInterfaceCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(output, context);
+    return de_ConfirmPublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

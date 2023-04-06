@@ -15,10 +15,7 @@ import {
 
 import { GetLinkInput, GetLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1GetLinkCommand,
-  serializeAws_restJson1GetLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinkCommand, se_GetLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
    * @internal
    */
   private serialize(input: GetLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkCommand(input, context);
+    return se_GetLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkCommandOutput> {
-    return deserializeAws_restJson1GetLinkCommand(output, context);
+    return de_GetLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

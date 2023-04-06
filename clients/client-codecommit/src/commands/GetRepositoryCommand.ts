@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetRepositoryInput, GetRepositoryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryCommand,
-  serializeAws_json1_1GetRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRepositoryCommand, se_GetRepositoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class GetRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryCommand(input, context);
+    return se_GetRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryCommand(output, context);
+    return de_GetRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

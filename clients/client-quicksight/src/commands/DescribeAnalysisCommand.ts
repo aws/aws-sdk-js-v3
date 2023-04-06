@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAnalysisRequest, DescribeAnalysisResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAnalysisCommand,
-  serializeAws_restJson1DescribeAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAnalysisCommand, se_DescribeAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -145,14 +142,14 @@ export class DescribeAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisCommand(input, context);
+    return se_DescribeAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnalysisCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisCommand(output, context);
+    return de_DescribeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetCurrentUserResponse,
   GetCurrentUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCurrentUserCommand,
-  serializeAws_restJson1GetCurrentUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCurrentUserCommand, se_GetCurrentUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -148,14 +145,14 @@ export class GetCurrentUserCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCurrentUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCurrentUserCommand(input, context);
+    return se_GetCurrentUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserCommandOutput> {
-    return deserializeAws_restJson1GetCurrentUserCommand(output, context);
+    return de_GetCurrentUserCommand(output, context);
   }
 
   // Start section: command_body_extra

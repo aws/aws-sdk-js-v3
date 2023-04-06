@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateIntegrationAssociationRequest, CreateIntegrationAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateIntegrationAssociationCommand,
-  serializeAws_restJson1CreateIntegrationAssociationCommand,
+  de_CreateIntegrationAssociationCommand,
+  se_CreateIntegrationAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class CreateIntegrationAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIntegrationAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntegrationAssociationCommand(input, context);
+    return se_CreateIntegrationAssociationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class CreateIntegrationAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateIntegrationAssociationCommand(output, context);
+    return de_CreateIntegrationAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDashboardVersionsRequest, ListDashboardVersionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListDashboardVersionsCommand,
-  serializeAws_restJson1ListDashboardVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDashboardVersionsCommand, se_ListDashboardVersionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -144,14 +141,14 @@ export class ListDashboardVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDashboardVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDashboardVersionsCommand(input, context);
+    return se_ListDashboardVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDashboardVersionsCommand(output, context);
+    return de_ListDashboardVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

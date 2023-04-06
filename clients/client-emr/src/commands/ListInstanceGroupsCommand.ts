@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListInstanceGroupsInput, ListInstanceGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstanceGroupsCommand,
-  serializeAws_json1_1ListInstanceGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListInstanceGroupsCommand, se_ListInstanceGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListInstanceGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInstanceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstanceGroupsCommand(input, context);
+    return se_ListInstanceGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceGroupsCommandOutput> {
-    return deserializeAws_json1_1ListInstanceGroupsCommand(output, context);
+    return de_ListInstanceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

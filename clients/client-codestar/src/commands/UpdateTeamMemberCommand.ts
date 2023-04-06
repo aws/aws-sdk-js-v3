@@ -15,10 +15,7 @@ import {
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { UpdateTeamMemberRequest, UpdateTeamMemberResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTeamMemberCommand,
-  serializeAws_json1_1UpdateTeamMemberCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTeamMemberCommand, se_UpdateTeamMemberCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateTeamMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTeamMemberCommand(input, context);
+    return se_UpdateTeamMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTeamMemberCommandOutput> {
-    return deserializeAws_json1_1UpdateTeamMemberCommand(output, context);
+    return de_UpdateTeamMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

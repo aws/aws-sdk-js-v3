@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LogoutRequest, LogoutRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1LogoutCommand, serializeAws_restJson1LogoutCommand } from "../protocols/Aws_restJson1";
+import { de_LogoutCommand, se_LogoutCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
@@ -138,14 +138,14 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
    * @internal
    */
   private serialize(input: LogoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LogoutCommand(input, context);
+    return se_LogoutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutCommandOutput> {
-    return deserializeAws_restJson1LogoutCommand(output, context);
+    return de_LogoutCommand(output, context);
   }
 
   // Start section: command_body_extra

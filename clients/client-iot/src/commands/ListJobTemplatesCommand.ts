@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListJobTemplatesCommand,
-  serializeAws_restJson1ListJobTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListJobTemplatesCommand, se_ListJobTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListJobTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobTemplatesCommand(input, context);
+    return se_ListJobTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListJobTemplatesCommand(output, context);
+    return de_ListJobTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

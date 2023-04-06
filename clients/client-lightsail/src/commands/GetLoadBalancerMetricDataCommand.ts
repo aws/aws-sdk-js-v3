@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetLoadBalancerMetricDataCommand,
-  serializeAws_json1_1GetLoadBalancerMetricDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLoadBalancerMetricDataCommand, se_GetLoadBalancerMetricDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,7 +158,7 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLoadBalancerMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoadBalancerMetricDataCommand(input, context);
+    return se_GetLoadBalancerMetricDataCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoadBalancerMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(output, context);
+    return de_GetLoadBalancerMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

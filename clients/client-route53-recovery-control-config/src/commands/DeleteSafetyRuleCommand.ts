@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSafetyRuleRequest, DeleteSafetyRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSafetyRuleCommand,
-  serializeAws_restJson1DeleteSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSafetyRuleCommand, se_DeleteSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -133,14 +130,14 @@ export class DeleteSafetyRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSafetyRuleCommand(input, context);
+    return se_DeleteSafetyRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSafetyRuleCommand(output, context);
+    return de_DeleteSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

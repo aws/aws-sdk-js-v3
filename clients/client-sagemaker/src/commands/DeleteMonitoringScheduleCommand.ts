@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMonitoringScheduleRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteMonitoringScheduleCommand,
-  serializeAws_json1_1DeleteMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMonitoringScheduleCommand, se_DeleteMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -124,14 +121,14 @@ export class DeleteMonitoringScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMonitoringScheduleCommand(input, context);
+    return se_DeleteMonitoringScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteMonitoringScheduleCommand(output, context);
+    return de_DeleteMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

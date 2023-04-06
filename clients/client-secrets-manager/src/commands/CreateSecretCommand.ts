@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSecretRequest, CreateSecretRequestFilterSensitiveLog, CreateSecretResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSecretCommand,
-  serializeAws_json1_1CreateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSecretCommand, se_CreateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -239,14 +236,14 @@ export class CreateSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSecretCommand(input, context);
+    return se_CreateSecretCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecretCommandOutput> {
-    return deserializeAws_json1_1CreateSecretCommand(output, context);
+    return de_CreateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

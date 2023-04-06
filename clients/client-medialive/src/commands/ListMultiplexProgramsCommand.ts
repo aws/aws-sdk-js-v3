@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMultiplexProgramsCommand,
-  serializeAws_restJson1ListMultiplexProgramsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMultiplexProgramsCommand, se_ListMultiplexProgramsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListMultiplexProgramsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMultiplexProgramsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMultiplexProgramsCommand(input, context);
+    return se_ListMultiplexProgramsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultiplexProgramsCommandOutput> {
-    return deserializeAws_restJson1ListMultiplexProgramsCommand(output, context);
+    return de_ListMultiplexProgramsCommand(output, context);
   }
 
   // Start section: command_body_extra

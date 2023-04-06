@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeRouteTablesCommand,
-  serializeAws_ec2DescribeRouteTablesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeRouteTablesCommand, se_DescribeRouteTablesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class DescribeRouteTablesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRouteTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeRouteTablesCommand(input, context);
+    return se_DescribeRouteTablesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeRouteTablesCommand(output, context);
+    return de_DescribeRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

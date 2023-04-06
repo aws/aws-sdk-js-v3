@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEdgeDeploymentPlanRequest, DescribeEdgeDeploymentPlanResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
-  serializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEdgeDeploymentPlanCommand, se_DescribeEdgeDeploymentPlanCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,7 +122,7 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEdgeDeploymentPlanCommand(input, context);
+    return se_DescribeEdgeDeploymentPlanCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEdgeDeploymentPlanCommandOutput> {
-    return deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand(output, context);
+    return de_DescribeEdgeDeploymentPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptInvitationCommand,
-  serializeAws_restJson1AcceptInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptInvitationCommand, se_AcceptInvitationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class AcceptInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInvitationCommand(input, context);
+    return se_AcceptInvitationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptInvitationCommand(output, context);
+    return de_AcceptInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

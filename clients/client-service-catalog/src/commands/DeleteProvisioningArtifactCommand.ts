@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProvisioningArtifactCommand,
-  serializeAws_json1_1DeleteProvisioningArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProvisioningArtifactCommand, se_DeleteProvisioningArtifactCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -134,7 +131,7 @@ export class DeleteProvisioningArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisioningArtifactCommand(input, context);
+    return se_DeleteProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisioningArtifactCommand(output, context);
+    return de_DeleteProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

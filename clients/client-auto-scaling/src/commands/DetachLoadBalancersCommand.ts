@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/models_0";
-import {
-  deserializeAws_queryDetachLoadBalancersCommand,
-  serializeAws_queryDetachLoadBalancersCommand,
-} from "../protocols/Aws_query";
+import { de_DetachLoadBalancersCommand, se_DetachLoadBalancersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class DetachLoadBalancersCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachLoadBalancersCommand(input, context);
+    return se_DetachLoadBalancersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachLoadBalancersCommandOutput> {
-    return deserializeAws_queryDetachLoadBalancersCommand(output, context);
+    return de_DetachLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

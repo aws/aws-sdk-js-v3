@@ -17,8 +17,8 @@ import {
   StreamingTraitsRequireLengthInputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StreamingTraitsRequireLengthCommand,
-  serializeAws_restJson1StreamingTraitsRequireLengthCommand,
+  de_StreamingTraitsRequireLengthCommand,
+  se_StreamingTraitsRequireLengthCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -124,7 +124,7 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
    * @internal
    */
   private serialize(input: StreamingTraitsRequireLengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsRequireLengthCommand(input, context);
+    return se_StreamingTraitsRequireLengthCommand(input, context);
   }
 
   /**
@@ -134,7 +134,7 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StreamingTraitsRequireLengthCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsRequireLengthCommand(output, context);
+    return de_StreamingTraitsRequireLengthCommand(output, context);
   }
 
   // Start section: command_body_extra

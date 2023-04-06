@@ -15,10 +15,7 @@ import {
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import { PutObjectInput, PutObjectInputFilterSensitiveLog, PutObjectOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutObjectCommand,
-  serializeAws_restJson1PutObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutObjectCommand, se_PutObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class PutObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutObjectCommand(input, context);
+    return se_PutObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
-    return deserializeAws_restJson1PutObjectCommand(output, context);
+    return de_PutObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

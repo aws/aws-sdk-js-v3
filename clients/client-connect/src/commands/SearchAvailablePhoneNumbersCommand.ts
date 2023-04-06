@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
-  serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
+  de_SearchAvailablePhoneNumbersCommand,
+  se_SearchAvailablePhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchAvailablePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(input, context);
+    return se_SearchAvailablePhoneNumbersCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommand(output, context);
+    return de_SearchAvailablePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

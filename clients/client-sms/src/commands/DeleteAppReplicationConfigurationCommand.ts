@@ -18,8 +18,8 @@ import {
   DeleteAppReplicationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteAppReplicationConfigurationCommand,
-  serializeAws_json1_1DeleteAppReplicationConfigurationCommand,
+  de_DeleteAppReplicationConfigurationCommand,
+  se_DeleteAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -144,7 +144,7 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     input: DeleteAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(input, context);
+    return se_DeleteAppReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(output, context);
+    return de_DeleteAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

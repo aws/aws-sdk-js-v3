@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGeoMatchSetsCommand,
-  serializeAws_json1_1ListGeoMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListGeoMatchSetsCommand, se_ListGeoMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListGeoMatchSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGeoMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGeoMatchSetsCommand(input, context);
+    return se_ListGeoMatchSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeoMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListGeoMatchSetsCommand(output, context);
+    return de_ListGeoMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

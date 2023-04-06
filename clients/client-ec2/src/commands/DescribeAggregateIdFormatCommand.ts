@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeAggregateIdFormatRequest, DescribeAggregateIdFormatResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAggregateIdFormatCommand,
-  serializeAws_ec2DescribeAggregateIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeAggregateIdFormatCommand, se_DescribeAggregateIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DescribeAggregateIdFormatCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAggregateIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAggregateIdFormatCommand(input, context);
+    return se_DescribeAggregateIdFormatCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribeAggregateIdFormatCommand(output, context);
+    return de_DescribeAggregateIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

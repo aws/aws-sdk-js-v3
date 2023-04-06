@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAppRequest, GetAppResponse } from "../models/models_0";
-import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand } from "../protocols/Aws_json1_1";
+import { de_GetAppCommand, se_GetAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -127,14 +127,14 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
    * @internal
    */
   private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppCommand(input, context);
+    return se_GetAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
-    return deserializeAws_json1_1GetAppCommand(output, context);
+    return de_GetAppCommand(output, context);
   }
 
   // Start section: command_body_extra

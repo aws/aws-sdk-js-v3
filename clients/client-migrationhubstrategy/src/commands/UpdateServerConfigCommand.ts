@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { UpdateServerConfigRequest, UpdateServerConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateServerConfigCommand,
-  serializeAws_restJson1UpdateServerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateServerConfigCommand, se_UpdateServerConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateServerConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServerConfigCommand(input, context);
+    return se_UpdateServerConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateServerConfigCommand(output, context);
+    return de_UpdateServerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

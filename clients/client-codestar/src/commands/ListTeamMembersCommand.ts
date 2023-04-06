@@ -15,10 +15,7 @@ import {
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { ListTeamMembersRequest, ListTeamMembersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTeamMembersCommand,
-  serializeAws_json1_1ListTeamMembersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTeamMembersCommand, se_ListTeamMembersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListTeamMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTeamMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTeamMembersCommand(input, context);
+    return se_ListTeamMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTeamMembersCommandOutput> {
-    return deserializeAws_json1_1ListTeamMembersCommand(output, context);
+    return de_ListTeamMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

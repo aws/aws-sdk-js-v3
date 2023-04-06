@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { DeleteIdentityPoolInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIdentityPoolCommand,
-  serializeAws_json1_1DeleteIdentityPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteIdentityPoolCommand, se_DeleteIdentityPoolCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteIdentityPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIdentityPoolCommand(input, context);
+    return se_DeleteIdentityPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityPoolCommandOutput> {
-    return deserializeAws_json1_1DeleteIdentityPoolCommand(output, context);
+    return de_DeleteIdentityPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

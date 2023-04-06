@@ -18,10 +18,7 @@ import {
   DisassociateFraudsterRequestFilterSensitiveLog,
   DisassociateFraudsterResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DisassociateFraudsterCommand,
-  serializeAws_json1_0DisassociateFraudsterCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DisassociateFraudsterCommand, se_DisassociateFraudsterCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -154,14 +151,14 @@ export class DisassociateFraudsterCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFraudsterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateFraudsterCommand(input, context);
+    return se_DisassociateFraudsterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFraudsterCommandOutput> {
-    return deserializeAws_json1_0DisassociateFraudsterCommand(output, context);
+    return de_DisassociateFraudsterCommand(output, context);
   }
 
   // Start section: command_body_extra

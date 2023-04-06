@@ -15,10 +15,7 @@ import {
 
 import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBParametersCommand,
-  serializeAws_queryDescribeDBParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeDBParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParametersCommand(input, context);
+    return se_DescribeDBParametersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBParametersCommand(output, context);
+    return de_DescribeDBParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

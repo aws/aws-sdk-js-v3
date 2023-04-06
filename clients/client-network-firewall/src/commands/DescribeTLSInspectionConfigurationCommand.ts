@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0DescribeTLSInspectionConfigurationCommand,
-  serializeAws_json1_0DescribeTLSInspectionConfigurationCommand,
+  de_DescribeTLSInspectionConfigurationCommand,
+  se_DescribeTLSInspectionConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -155,7 +155,7 @@ export class DescribeTLSInspectionConfigurationCommand extends $Command<
     input: DescribeTLSInspectionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTLSInspectionConfigurationCommand(input, context);
+    return se_DescribeTLSInspectionConfigurationCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class DescribeTLSInspectionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTLSInspectionConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeTLSInspectionConfigurationCommand(output, context);
+    return de_DescribeTLSInspectionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

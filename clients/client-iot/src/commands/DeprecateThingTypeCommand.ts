@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeprecateThingTypeCommand,
-  serializeAws_restJson1DeprecateThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeprecateThingTypeCommand, se_DeprecateThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeprecateThingTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprecateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeprecateThingTypeCommand(input, context);
+    return se_DeprecateThingTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateThingTypeCommandOutput> {
-    return deserializeAws_restJson1DeprecateThingTypeCommand(output, context);
+    return de_DeprecateThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

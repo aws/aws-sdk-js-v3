@@ -18,10 +18,7 @@ import {
   GetRandomPasswordResponse,
   GetRandomPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRandomPasswordCommand,
-  serializeAws_json1_1GetRandomPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRandomPasswordCommand, se_GetRandomPasswordCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -182,14 +179,14 @@ export class GetRandomPasswordCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRandomPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRandomPasswordCommand(input, context);
+    return se_GetRandomPasswordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRandomPasswordCommandOutput> {
-    return deserializeAws_json1_1GetRandomPasswordCommand(output, context);
+    return de_GetRandomPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

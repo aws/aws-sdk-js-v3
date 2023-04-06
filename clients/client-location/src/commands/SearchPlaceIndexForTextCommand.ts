@@ -20,10 +20,7 @@ import {
   SearchPlaceIndexForTextResponse,
   SearchPlaceIndexForTextResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchPlaceIndexForTextCommand,
-  serializeAws_restJson1SearchPlaceIndexForTextCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchPlaceIndexForTextCommand, se_SearchPlaceIndexForTextCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class SearchPlaceIndexForTextCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchPlaceIndexForTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForTextCommand(input, context);
+    return se_SearchPlaceIndexForTextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchPlaceIndexForTextCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForTextCommand(output, context);
+    return de_SearchPlaceIndexForTextCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterTargetsCommand,
-  serializeAws_queryDeregisterTargetsCommand,
-} from "../protocols/Aws_query";
+import { de_DeregisterTargetsCommand, se_DeregisterTargetsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class DeregisterTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterTargetsCommand(input, context);
+    return se_DeregisterTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTargetsCommandOutput> {
-    return deserializeAws_queryDeregisterTargetsCommand(output, context);
+    return de_DeregisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

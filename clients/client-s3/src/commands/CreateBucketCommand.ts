@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -336,14 +333,14 @@ export class CreateBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateBucketCommand(input, context);
+    return se_CreateBucketCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return deserializeAws_restXmlCreateBucketCommand(output, context);
+    return de_CreateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

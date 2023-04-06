@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGitHubAccountTokenCommand,
-  serializeAws_json1_1DeleteGitHubAccountTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGitHubAccountTokenCommand, se_DeleteGitHubAccountTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGitHubAccountTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGitHubAccountTokenCommand(input, context);
+    return se_DeleteGitHubAccountTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGitHubAccountTokenCommandOutput> {
-    return deserializeAws_json1_1DeleteGitHubAccountTokenCommand(output, context);
+    return de_DeleteGitHubAccountTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

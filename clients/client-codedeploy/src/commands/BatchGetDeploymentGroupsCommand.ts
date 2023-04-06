@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { BatchGetDeploymentGroupsInput, BatchGetDeploymentGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDeploymentGroupsCommand,
-  serializeAws_json1_1BatchGetDeploymentGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetDeploymentGroupsCommand, se_BatchGetDeploymentGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDeploymentGroupsCommand(input, context);
+    return se_BatchGetDeploymentGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDeploymentGroupsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(output, context);
+    return de_BatchGetDeploymentGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

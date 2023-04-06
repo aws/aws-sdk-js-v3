@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { CreateProposalInput, CreateProposalOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProposalCommand,
-  serializeAws_restJson1CreateProposalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProposalCommand, se_CreateProposalCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreateProposalCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProposalCommand(input, context);
+    return se_CreateProposalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProposalCommandOutput> {
-    return deserializeAws_restJson1CreateProposalCommand(output, context);
+    return de_CreateProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

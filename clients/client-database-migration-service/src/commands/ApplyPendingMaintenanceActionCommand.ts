@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ApplyPendingMaintenanceActionCommand,
-  serializeAws_json1_1ApplyPendingMaintenanceActionCommand,
+  de_ApplyPendingMaintenanceActionCommand,
+  se_ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -131,7 +131,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
    * @internal
    */
   private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApplyPendingMaintenanceActionCommand(input, context);
+    return se_ApplyPendingMaintenanceActionCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
-    return deserializeAws_json1_1ApplyPendingMaintenanceActionCommand(output, context);
+    return de_ApplyPendingMaintenanceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

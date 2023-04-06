@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { StopJobRequest, StopJobResult } from "../models/models_0";
-import { deserializeAws_json1_1StopJobCommand, serializeAws_json1_1StopJobCommand } from "../protocols/Aws_json1_1";
+import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class StopJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopJobCommand(input, context);
+    return se_StopJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
-    return deserializeAws_json1_1StopJobCommand(output, context);
+    return de_StopJobCommand(output, context);
   }
 
   // Start section: command_body_extra

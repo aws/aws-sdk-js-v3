@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateResourceShareCommand,
-  serializeAws_restJson1DisassociateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateResourceShareCommand, se_DisassociateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -159,7 +156,7 @@ export class DisassociateResourceShareCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceShareCommand(input, context);
+    return se_DisassociateResourceShareCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class DisassociateResourceShareCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceShareCommand(output, context);
+    return de_DisassociateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

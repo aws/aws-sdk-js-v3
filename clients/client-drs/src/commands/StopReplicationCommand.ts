@@ -19,10 +19,7 @@ import {
   StopReplicationResponse,
   StopReplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopReplicationCommand,
-  serializeAws_restJson1StopReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopReplicationCommand, se_StopReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class StopReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopReplicationCommand(input, context);
+    return se_StopReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationCommandOutput> {
-    return deserializeAws_restJson1StopReplicationCommand(output, context);
+    return de_StopReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { ListStreamSessionsRequest, ListStreamSessionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStreamSessionsCommand,
-  serializeAws_restJson1ListStreamSessionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStreamSessionsCommand, se_ListStreamSessionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListStreamSessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStreamSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamSessionsCommand(input, context);
+    return se_ListStreamSessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamSessionsCommandOutput> {
-    return deserializeAws_restJson1ListStreamSessionsCommand(output, context);
+    return de_ListStreamSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

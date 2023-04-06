@@ -15,7 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { StopBuildInput, StopBuildOutput } from "../models/models_0";
-import { deserializeAws_json1_1StopBuildCommand, serializeAws_json1_1StopBuildCommand } from "../protocols/Aws_json1_1";
+import { de_StopBuildCommand, se_StopBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +121,14 @@ export class StopBuildCommand extends $Command<
    * @internal
    */
   private serialize(input: StopBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopBuildCommand(input, context);
+    return se_StopBuildCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildCommandOutput> {
-    return deserializeAws_json1_1StopBuildCommand(output, context);
+    return de_StopBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

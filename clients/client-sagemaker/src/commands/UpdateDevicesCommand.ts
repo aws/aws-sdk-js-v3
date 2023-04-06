@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDevicesRequest } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateDevicesCommand,
-  serializeAws_json1_1UpdateDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDevicesCommand, se_UpdateDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class UpdateDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDevicesCommand(input, context);
+    return se_UpdateDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevicesCommandOutput> {
-    return deserializeAws_json1_1UpdateDevicesCommand(output, context);
+    return de_UpdateDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

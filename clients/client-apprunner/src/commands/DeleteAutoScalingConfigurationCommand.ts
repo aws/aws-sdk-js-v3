@@ -16,8 +16,8 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteAutoScalingConfigurationCommand,
-  serializeAws_json1_0DeleteAutoScalingConfigurationCommand,
+  de_DeleteAutoScalingConfigurationCommand,
+  se_DeleteAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -135,7 +135,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     input: DeleteAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteAutoScalingConfigurationCommand(input, context);
+    return se_DeleteAutoScalingConfigurationCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DeleteAutoScalingConfigurationCommand(output, context);
+    return de_DeleteAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

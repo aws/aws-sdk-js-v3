@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteCustomVocabularyRequest, DeleteCustomVocabularyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomVocabularyCommand,
-  serializeAws_restJson1DeleteCustomVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCustomVocabularyCommand, se_DeleteCustomVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteCustomVocabularyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomVocabularyCommand(input, context);
+    return se_DeleteCustomVocabularyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomVocabularyCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomVocabularyCommand(output, context);
+    return de_DeleteCustomVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

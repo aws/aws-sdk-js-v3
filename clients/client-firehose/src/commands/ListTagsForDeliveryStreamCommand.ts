@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForDeliveryStreamCommand,
-  serializeAws_json1_1ListTagsForDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagsForDeliveryStreamCommand, se_ListTagsForDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForDeliveryStreamCommand(input, context);
+    return se_ListTagsForDeliveryStreamCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(output, context);
+    return de_ListTagsForDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

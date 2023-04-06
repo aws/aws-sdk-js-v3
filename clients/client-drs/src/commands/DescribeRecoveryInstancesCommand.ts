@@ -19,10 +19,7 @@ import {
   DescribeRecoveryInstancesResponse,
   DescribeRecoveryInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecoveryInstancesCommand,
-  serializeAws_restJson1DescribeRecoveryInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRecoveryInstancesCommand, se_DescribeRecoveryInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class DescribeRecoveryInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecoveryInstancesCommand(input, context);
+    return se_DescribeRecoveryInstancesCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DescribeRecoveryInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecoveryInstancesCommandOutput> {
-    return deserializeAws_restJson1DescribeRecoveryInstancesCommand(output, context);
+    return de_DescribeRecoveryInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

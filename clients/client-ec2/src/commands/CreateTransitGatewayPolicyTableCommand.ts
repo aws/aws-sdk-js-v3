@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateTransitGatewayPolicyTableRequest, CreateTransitGatewayPolicyTableResult } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateTransitGatewayPolicyTableCommand,
-  serializeAws_ec2CreateTransitGatewayPolicyTableCommand,
+  de_CreateTransitGatewayPolicyTableCommand,
+  se_CreateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class CreateTransitGatewayPolicyTableCommand extends $Command<
     input: CreateTransitGatewayPolicyTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayPolicyTableCommand(input, context);
+    return se_CreateTransitGatewayPolicyTableCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class CreateTransitGatewayPolicyTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayPolicyTableCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayPolicyTableCommand(output, context);
+    return de_CreateTransitGatewayPolicyTableCommand(output, context);
   }
 
   // Start section: command_body_extra

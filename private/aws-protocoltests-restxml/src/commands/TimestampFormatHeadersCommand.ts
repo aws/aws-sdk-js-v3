@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TimestampFormatHeadersIO } from "../models/models_0";
-import {
-  deserializeAws_restXmlTimestampFormatHeadersCommand,
-  serializeAws_restXmlTimestampFormatHeadersCommand,
-} from "../protocols/Aws_restXml";
+import { de_TimestampFormatHeadersCommand, se_TimestampFormatHeadersCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -113,14 +110,14 @@ export class TimestampFormatHeadersCommand extends $Command<
    * @internal
    */
   private serialize(input: TimestampFormatHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTimestampFormatHeadersCommand(input, context);
+    return se_TimestampFormatHeadersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TimestampFormatHeadersCommandOutput> {
-    return deserializeAws_restXmlTimestampFormatHeadersCommand(output, context);
+    return de_TimestampFormatHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

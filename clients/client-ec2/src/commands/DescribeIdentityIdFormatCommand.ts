@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeIdentityIdFormatCommand,
-  serializeAws_ec2DescribeIdentityIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeIdentityIdFormatCommand, se_DescribeIdentityIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeIdentityIdFormatCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIdentityIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIdentityIdFormatCommand(input, context);
+    return se_DescribeIdentityIdFormatCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribeIdentityIdFormatCommand(output, context);
+    return de_DescribeIdentityIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

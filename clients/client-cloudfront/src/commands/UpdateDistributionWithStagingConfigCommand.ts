@@ -20,8 +20,8 @@ import {
   UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlUpdateDistributionWithStagingConfigCommand,
-  serializeAws_restXmlUpdateDistributionWithStagingConfigCommand,
+  de_UpdateDistributionWithStagingConfigCommand,
+  se_UpdateDistributionWithStagingConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -354,7 +354,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     input: UpdateDistributionWithStagingConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateDistributionWithStagingConfigCommand(input, context);
+    return se_UpdateDistributionWithStagingConfigCommand(input, context);
   }
 
   /**
@@ -364,7 +364,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDistributionWithStagingConfigCommandOutput> {
-    return deserializeAws_restXmlUpdateDistributionWithStagingConfigCommand(output, context);
+    return de_UpdateDistributionWithStagingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

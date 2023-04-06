@@ -19,8 +19,8 @@ import {
   BatchAssociateAssessmentReportEvidenceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand,
-  serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand,
+  de_BatchAssociateAssessmentReportEvidenceCommand,
+  se_BatchAssociateAssessmentReportEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     input: BatchAssociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand(input, context);
+    return se_BatchAssociateAssessmentReportEvidenceCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateAssessmentReportEvidenceCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand(output, context);
+    return de_BatchAssociateAssessmentReportEvidenceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeStacksRequest, DescribeStacksResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeStacksCommand,
-  serializeAws_json1_1DescribeStacksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeStacksCommand, se_DescribeStacksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeStacksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStacksCommand(input, context);
+    return se_DescribeStacksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStacksCommandOutput> {
-    return deserializeAws_json1_1DescribeStacksCommand(output, context);
+    return de_DescribeStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

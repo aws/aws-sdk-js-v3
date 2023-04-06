@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetPublicKeyConfigRequest, GetPublicKeyConfigResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetPublicKeyConfigCommand,
-  serializeAws_restXmlGetPublicKeyConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetPublicKeyConfigCommand, se_GetPublicKeyConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetPublicKeyConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPublicKeyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetPublicKeyConfigCommand(input, context);
+    return se_GetPublicKeyConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyConfigCommandOutput> {
-    return deserializeAws_restXmlGetPublicKeyConfigCommand(output, context);
+    return de_GetPublicKeyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

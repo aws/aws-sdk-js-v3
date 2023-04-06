@@ -15,7 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobRunRequest, GetJobRunResponse } from "../models/models_1";
-import { deserializeAws_json1_1GetJobRunCommand, serializeAws_json1_1GetJobRunCommand } from "../protocols/Aws_json1_1";
+import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +129,14 @@ export class GetJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobRunCommand(input, context);
+    return se_GetJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
-    return deserializeAws_json1_1GetJobRunCommand(output, context);
+    return de_GetJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

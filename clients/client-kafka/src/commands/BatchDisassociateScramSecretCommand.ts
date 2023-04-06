@@ -16,8 +16,8 @@ import {
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { BatchDisassociateScramSecretRequest, BatchDisassociateScramSecretResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateScramSecretCommand,
-  serializeAws_restJson1BatchDisassociateScramSecretCommand,
+  de_BatchDisassociateScramSecretCommand,
+  se_BatchDisassociateScramSecretCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class BatchDisassociateScramSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDisassociateScramSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateScramSecretCommand(input, context);
+    return se_BatchDisassociateScramSecretCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class BatchDisassociateScramSecretCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateScramSecretCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateScramSecretCommand(output, context);
+    return de_BatchDisassociateScramSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

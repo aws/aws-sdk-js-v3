@@ -15,10 +15,7 @@ import {
 
 import { ListPackageImportJobsRequest, ListPackageImportJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListPackageImportJobsCommand,
-  serializeAws_restJson1ListPackageImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPackageImportJobsCommand, se_ListPackageImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListPackageImportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPackageImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackageImportJobsCommand(input, context);
+    return se_ListPackageImportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListPackageImportJobsCommand(output, context);
+    return de_ListPackageImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

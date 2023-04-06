@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListServiceVersionsRequest, ListServiceVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServiceVersionsCommand,
-  serializeAws_json1_1ListServiceVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListServiceVersionsCommand, se_ListServiceVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -140,14 +137,14 @@ export class ListServiceVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServiceVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceVersionsCommand(input, context);
+    return se_ListServiceVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceVersionsCommandOutput> {
-    return deserializeAws_json1_1ListServiceVersionsCommand(output, context);
+    return de_ListServiceVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

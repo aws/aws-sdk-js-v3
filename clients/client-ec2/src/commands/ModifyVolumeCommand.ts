@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_6";
-import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
+import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -137,14 +137,14 @@ export class ModifyVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVolumeCommand(input, context);
+    return se_ModifyVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeCommandOutput> {
-    return deserializeAws_ec2ModifyVolumeCommand(output, context);
+    return de_ModifyVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

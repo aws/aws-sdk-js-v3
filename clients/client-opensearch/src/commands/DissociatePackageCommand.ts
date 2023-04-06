@@ -15,10 +15,7 @@ import {
 
 import { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DissociatePackageCommand,
-  serializeAws_restJson1DissociatePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DissociatePackageCommand, se_DissociatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DissociatePackageCommand extends $Command<
    * @internal
    */
   private serialize(input: DissociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DissociatePackageCommand(input, context);
+    return se_DissociatePackageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DissociatePackageCommandOutput> {
-    return deserializeAws_restJson1DissociatePackageCommand(output, context);
+    return de_DissociatePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

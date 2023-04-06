@@ -16,8 +16,8 @@ import {
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { DescribeAlertManagerDefinitionRequest, DescribeAlertManagerDefinitionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAlertManagerDefinitionCommand,
-  serializeAws_restJson1DescribeAlertManagerDefinitionCommand,
+  de_DescribeAlertManagerDefinitionCommand,
+  se_DescribeAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     input: DescribeAlertManagerDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAlertManagerDefinitionCommand(input, context);
+    return se_DescribeAlertManagerDefinitionCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeAlertManagerDefinitionCommand(output, context);
+    return de_DescribeAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   DescribeAppInstanceAdminResponse,
   DescribeAppInstanceAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppInstanceAdminCommand,
-  serializeAws_restJson1DescribeAppInstanceAdminCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppInstanceAdminCommand, se_DescribeAppInstanceAdminCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DescribeAppInstanceAdminCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAppInstanceAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceAdminCommand(input, context);
+    return se_DescribeAppInstanceAdminCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceAdminCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceAdminCommand(output, context);
+    return de_DescribeAppInstanceAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

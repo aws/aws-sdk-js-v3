@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeFrameworkInput, DescribeFrameworkOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFrameworkCommand,
-  serializeAws_restJson1DescribeFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFrameworkCommand, se_DescribeFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeFrameworkCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFrameworkCommand(input, context);
+    return se_DescribeFrameworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFrameworkCommandOutput> {
-    return deserializeAws_restJson1DescribeFrameworkCommand(output, context);
+    return de_DescribeFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

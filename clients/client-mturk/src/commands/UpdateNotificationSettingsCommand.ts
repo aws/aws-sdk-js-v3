@@ -15,10 +15,7 @@ import {
 
 import { UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateNotificationSettingsCommand,
-  serializeAws_json1_1UpdateNotificationSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNotificationSettingsCommand, se_UpdateNotificationSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class UpdateNotificationSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNotificationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotificationSettingsCommand(input, context);
+    return se_UpdateNotificationSettingsCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class UpdateNotificationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateNotificationSettingsCommand(output, context);
+    return de_UpdateNotificationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

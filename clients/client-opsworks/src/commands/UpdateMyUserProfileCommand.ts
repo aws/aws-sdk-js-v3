@@ -15,10 +15,7 @@ import {
 
 import { UpdateMyUserProfileRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateMyUserProfileCommand,
-  serializeAws_json1_1UpdateMyUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMyUserProfileCommand, se_UpdateMyUserProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateMyUserProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMyUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMyUserProfileCommand(input, context);
+    return se_UpdateMyUserProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMyUserProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateMyUserProfileCommand(output, context);
+    return de_UpdateMyUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

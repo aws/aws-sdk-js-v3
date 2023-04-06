@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListInventoryEntriesCommand,
-  serializeAws_json1_1ListInventoryEntriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListInventoryEntriesCommand, se_ListInventoryEntriesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -164,14 +161,14 @@ export class ListInventoryEntriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInventoryEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInventoryEntriesCommand(input, context);
+    return se_ListInventoryEntriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInventoryEntriesCommandOutput> {
-    return deserializeAws_json1_1ListInventoryEntriesCommand(output, context);
+    return de_ListInventoryEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

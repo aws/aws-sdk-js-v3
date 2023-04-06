@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResetDeploymentsCommand,
-  serializeAws_restJson1ResetDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResetDeploymentsCommand, se_ResetDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class ResetDeploymentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResetDeploymentsCommand(input, context);
+    return se_ResetDeploymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ResetDeploymentsCommand(output, context);
+    return de_ResetDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

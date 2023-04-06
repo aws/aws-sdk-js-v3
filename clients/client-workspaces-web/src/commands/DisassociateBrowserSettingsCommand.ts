@@ -15,8 +15,8 @@ import {
 
 import { DisassociateBrowserSettingsRequest, DisassociateBrowserSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateBrowserSettingsCommand,
-  serializeAws_restJson1DisassociateBrowserSettingsCommand,
+  de_DisassociateBrowserSettingsCommand,
+  se_DisassociateBrowserSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -137,7 +137,7 @@ export class DisassociateBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateBrowserSettingsCommand(input, context);
+    return se_DisassociateBrowserSettingsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DisassociateBrowserSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateBrowserSettingsCommand(output, context);
+    return de_DisassociateBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

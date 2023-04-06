@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { CreateExtensionRequest, Extension } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExtensionCommand,
-  serializeAws_restJson1CreateExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateExtensionCommand, se_CreateExtensionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CreateExtensionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExtensionCommand(input, context);
+    return se_CreateExtensionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExtensionCommandOutput> {
-    return deserializeAws_restJson1CreateExtensionCommand(output, context);
+    return de_CreateExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

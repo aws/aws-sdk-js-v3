@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheSecurityGroupsCommand,
-  serializeAws_queryDescribeCacheSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeCacheSecurityGroupsCommand, se_DescribeCacheSecurityGroupsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCacheSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheSecurityGroupsCommand(input, context);
+    return se_DescribeCacheSecurityGroupsCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(output, context);
+    return de_DescribeCacheSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

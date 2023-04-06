@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorldRequest, DescribeWorldResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorldCommand,
-  serializeAws_restJson1DescribeWorldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeWorldCommand, se_DescribeWorldCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -131,14 +128,14 @@ export class DescribeWorldCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorldCommand(input, context);
+    return se_DescribeWorldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorldCommandOutput> {
-    return deserializeAws_restJson1DescribeWorldCommand(output, context);
+    return de_DescribeWorldCommand(output, context);
   }
 
   // Start section: command_body_extra

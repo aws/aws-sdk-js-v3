@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { RemoveManagedScalingPolicyInput, RemoveManagedScalingPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveManagedScalingPolicyCommand,
-  serializeAws_json1_1RemoveManagedScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveManagedScalingPolicyCommand, se_RemoveManagedScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -120,7 +117,7 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveManagedScalingPolicyCommand(input, context);
+    return se_RemoveManagedScalingPolicyCommand(input, context);
   }
 
   /**
@@ -130,7 +127,7 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveManagedScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1RemoveManagedScalingPolicyCommand(output, context);
+    return de_RemoveManagedScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendEmailRequest, SendEmailResponse } from "../models/models_0";
-import { deserializeAws_querySendEmailCommand, serializeAws_querySendEmailCommand } from "../protocols/Aws_query";
+import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -262,14 +262,14 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
    * @internal
    */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendEmailCommand(input, context);
+    return se_SendEmailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
-    return deserializeAws_querySendEmailCommand(output, context);
+    return de_SendEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

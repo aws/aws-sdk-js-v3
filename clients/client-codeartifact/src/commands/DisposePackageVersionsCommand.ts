@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { DisposePackageVersionsRequest, DisposePackageVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisposePackageVersionsCommand,
-  serializeAws_restJson1DisposePackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisposePackageVersionsCommand, se_DisposePackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class DisposePackageVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisposePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisposePackageVersionsCommand(input, context);
+    return se_DisposePackageVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisposePackageVersionsCommandOutput> {
-    return deserializeAws_restJson1DisposePackageVersionsCommand(output, context);
+    return de_DisposePackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

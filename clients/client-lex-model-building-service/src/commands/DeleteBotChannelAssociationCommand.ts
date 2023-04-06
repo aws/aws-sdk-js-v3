@@ -20,8 +20,8 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotChannelAssociationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteBotChannelAssociationCommand,
-  serializeAws_restJson1DeleteBotChannelAssociationCommand,
+  de_DeleteBotChannelAssociationCommand,
+  se_DeleteBotChannelAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class DeleteBotChannelAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotChannelAssociationCommand(input, context);
+    return se_DeleteBotChannelAssociationCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBotChannelAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteBotChannelAssociationCommand(output, context);
+    return de_DeleteBotChannelAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

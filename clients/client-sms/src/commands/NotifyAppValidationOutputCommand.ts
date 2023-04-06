@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { NotifyAppValidationOutputRequest, NotifyAppValidationOutputResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyAppValidationOutputCommand,
-  serializeAws_json1_1NotifyAppValidationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyAppValidationOutputCommand, se_NotifyAppValidationOutputCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -141,7 +138,7 @@ export class NotifyAppValidationOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: NotifyAppValidationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyAppValidationOutputCommand(input, context);
+    return se_NotifyAppValidationOutputCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class NotifyAppValidationOutputCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyAppValidationOutputCommandOutput> {
-    return deserializeAws_json1_1NotifyAppValidationOutputCommand(output, context);
+    return de_NotifyAppValidationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

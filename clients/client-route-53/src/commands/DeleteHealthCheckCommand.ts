@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHealthCheckRequest, DeleteHealthCheckResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteHealthCheckCommand,
-  serializeAws_restXmlDeleteHealthCheckCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteHealthCheckCommand, se_DeleteHealthCheckCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -143,14 +140,14 @@ export class DeleteHealthCheckCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteHealthCheckCommand(input, context);
+    return se_DeleteHealthCheckCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHealthCheckCommandOutput> {
-    return deserializeAws_restXmlDeleteHealthCheckCommand(output, context);
+    return de_DeleteHealthCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

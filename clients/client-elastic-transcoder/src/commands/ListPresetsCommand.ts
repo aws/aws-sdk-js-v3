@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { ListPresetsRequest, ListPresetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPresetsCommand,
-  serializeAws_restJson1ListPresetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPresetsCommand, se_ListPresetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListPresetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPresetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPresetsCommand(input, context);
+    return se_ListPresetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPresetsCommandOutput> {
-    return deserializeAws_restJson1ListPresetsCommand(output, context);
+    return de_ListPresetsCommand(output, context);
   }
 
   // Start section: command_body_extra

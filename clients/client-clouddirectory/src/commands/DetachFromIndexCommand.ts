@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DetachFromIndexRequest, DetachFromIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DetachFromIndexCommand,
-  serializeAws_restJson1DetachFromIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DetachFromIndexCommand, se_DetachFromIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class DetachFromIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachFromIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachFromIndexCommand(input, context);
+    return se_DetachFromIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachFromIndexCommandOutput> {
-    return deserializeAws_restJson1DetachFromIndexCommand(output, context);
+    return de_DetachFromIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { GetClusterInput, GetClusterOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClusterCommand,
-  serializeAws_restJson1GetClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetClusterCommand, se_GetClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClusterCommand(input, context);
+    return se_GetClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCommandOutput> {
-    return deserializeAws_restJson1GetClusterCommand(output, context);
+    return de_GetClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

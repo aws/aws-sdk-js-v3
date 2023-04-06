@@ -19,8 +19,8 @@ import {
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand,
-  serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand,
+  de_DescribeLocalGatewayVirtualInterfaceGroupsCommand,
+  se_DescribeLocalGatewayVirtualInterfaceGroupsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand(input, context);
+    return se_DescribeLocalGatewayVirtualInterfaceGroupsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand(output, context);
+    return de_DescribeLocalGatewayVirtualInterfaceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

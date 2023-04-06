@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetModelPackageGroupPolicyCommand,
-  serializeAws_json1_1GetModelPackageGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetModelPackageGroupPolicyCommand, se_GetModelPackageGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,7 +120,7 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetModelPackageGroupPolicyCommand(input, context);
+    return se_GetModelPackageGroupPolicyCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetModelPackageGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1GetModelPackageGroupPolicyCommand(output, context);
+    return de_GetModelPackageGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

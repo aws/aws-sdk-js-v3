@@ -16,8 +16,8 @@ import {
 import { UpdateFirewallDeleteProtectionRequest, UpdateFirewallDeleteProtectionResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand,
-  serializeAws_json1_0UpdateFirewallDeleteProtectionCommand,
+  de_UpdateFirewallDeleteProtectionCommand,
+  se_UpdateFirewallDeleteProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -163,7 +163,7 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     input: UpdateFirewallDeleteProtectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallDeleteProtectionCommand(input, context);
+    return se_UpdateFirewallDeleteProtectionCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallDeleteProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand(output, context);
+    return de_UpdateFirewallDeleteProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

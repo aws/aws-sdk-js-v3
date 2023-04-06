@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteAccountRequest, DeleteAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountCommand,
-  serializeAws_restJson1DeleteAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccountCommand, se_DeleteAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class DeleteAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountCommand(input, context);
+    return se_DeleteAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountCommand(output, context);
+    return de_DeleteAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

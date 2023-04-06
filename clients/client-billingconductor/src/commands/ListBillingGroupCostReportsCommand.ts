@@ -16,8 +16,8 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListBillingGroupCostReportsCommand,
-  serializeAws_restJson1ListBillingGroupCostReportsCommand,
+  de_ListBillingGroupCostReportsCommand,
+  se_ListBillingGroupCostReportsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class ListBillingGroupCostReportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBillingGroupCostReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBillingGroupCostReportsCommand(input, context);
+    return se_ListBillingGroupCostReportsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListBillingGroupCostReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBillingGroupCostReportsCommandOutput> {
-    return deserializeAws_restJson1ListBillingGroupCostReportsCommand(output, context);
+    return de_ListBillingGroupCostReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

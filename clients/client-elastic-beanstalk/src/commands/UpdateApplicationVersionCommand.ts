@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateApplicationVersionCommand,
-  serializeAws_queryUpdateApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateApplicationVersionCommand, se_UpdateApplicationVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateApplicationVersionCommand(input, context);
+    return se_UpdateApplicationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationVersionCommandOutput> {
-    return deserializeAws_queryUpdateApplicationVersionCommand(output, context);
+    return de_UpdateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

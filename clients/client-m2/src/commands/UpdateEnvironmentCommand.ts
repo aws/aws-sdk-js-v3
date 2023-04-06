@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEnvironmentCommand,
-  serializeAws_restJson1UpdateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

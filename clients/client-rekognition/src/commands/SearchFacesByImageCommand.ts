@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFacesByImageCommand,
-  serializeAws_json1_1SearchFacesByImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchFacesByImageCommand, se_SearchFacesByImageCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -245,14 +242,14 @@ export class SearchFacesByImageCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchFacesByImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFacesByImageCommand(input, context);
+    return se_SearchFacesByImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesByImageCommandOutput> {
-    return deserializeAws_json1_1SearchFacesByImageCommand(output, context);
+    return de_SearchFacesByImageCommand(output, context);
   }
 
   // Start section: command_body_extra

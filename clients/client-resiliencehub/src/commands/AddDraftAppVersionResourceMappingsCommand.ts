@@ -18,8 +18,8 @@ import {
   AddDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand,
-  serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand,
+  de_AddDraftAppVersionResourceMappingsCommand,
+  se_AddDraftAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -169,7 +169,7 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     input: AddDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand(input, context);
+    return se_AddDraftAppVersionResourceMappingsCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddDraftAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand(output, context);
+    return de_AddDraftAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

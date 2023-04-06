@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorldExportJobRequest, DescribeWorldExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorldExportJobCommand,
-  serializeAws_restJson1DescribeWorldExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeWorldExportJobCommand, se_DescribeWorldExportJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -133,14 +130,14 @@ export class DescribeWorldExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorldExportJobCommand(input, context);
+    return se_DescribeWorldExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorldExportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeWorldExportJobCommand(output, context);
+    return de_DescribeWorldExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

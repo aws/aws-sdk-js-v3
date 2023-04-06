@@ -22,10 +22,7 @@ import {
   GetSnapshotBlockResponse,
   GetSnapshotBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSnapshotBlockCommand,
-  serializeAws_restJson1GetSnapshotBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSnapshotBlockCommand, se_GetSnapshotBlockCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,7 +147,7 @@ export class GetSnapshotBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSnapshotBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSnapshotBlockCommand(input, context);
+    return se_GetSnapshotBlockCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class GetSnapshotBlockCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetSnapshotBlockCommandOutput> {
-    return deserializeAws_restJson1GetSnapshotBlockCommand(output, context);
+    return de_GetSnapshotBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

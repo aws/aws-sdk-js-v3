@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
-import {
-  deserializeAws_querySimpleScalarXmlPropertiesCommand,
-  serializeAws_querySimpleScalarXmlPropertiesCommand,
-} from "../protocols/Aws_query";
+import { de_SimpleScalarXmlPropertiesCommand, se_SimpleScalarXmlPropertiesCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -83,7 +80,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: SimpleScalarXmlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimpleScalarXmlPropertiesCommand(input, context);
+    return se_SimpleScalarXmlPropertiesCommand(input, context);
   }
 
   /**
@@ -93,7 +90,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SimpleScalarXmlPropertiesCommandOutput> {
-    return deserializeAws_querySimpleScalarXmlPropertiesCommand(output, context);
+    return de_SimpleScalarXmlPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

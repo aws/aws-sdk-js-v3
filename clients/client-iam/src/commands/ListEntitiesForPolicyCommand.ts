@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListEntitiesForPolicyRequest, ListEntitiesForPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListEntitiesForPolicyCommand,
-  serializeAws_queryListEntitiesForPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_ListEntitiesForPolicyCommand, se_ListEntitiesForPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListEntitiesForPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntitiesForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListEntitiesForPolicyCommand(input, context);
+    return se_ListEntitiesForPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesForPolicyCommandOutput> {
-    return deserializeAws_queryListEntitiesForPolicyCommand(output, context);
+    return de_ListEntitiesForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateProtectedQueryOutput,
   UpdateProtectedQueryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProtectedQueryCommand,
-  serializeAws_restJson1UpdateProtectedQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateProtectedQueryCommand, se_UpdateProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateProtectedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProtectedQueryCommand(input, context);
+    return se_UpdateProtectedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectedQueryCommandOutput> {
-    return deserializeAws_restJson1UpdateProtectedQueryCommand(output, context);
+    return de_UpdateProtectedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

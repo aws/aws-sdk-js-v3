@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { CreateFileSystemRequest, FileSystemDescription } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFileSystemCommand,
-  serializeAws_restJson1CreateFileSystemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -251,14 +248,14 @@ export class CreateFileSystemCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFileSystemCommand(input, context);
+    return se_CreateFileSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileSystemCommandOutput> {
-    return deserializeAws_restJson1CreateFileSystemCommand(output, context);
+    return de_CreateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

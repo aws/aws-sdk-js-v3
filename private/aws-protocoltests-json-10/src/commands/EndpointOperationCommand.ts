@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import {
-  deserializeAws_json1_0EndpointOperationCommand,
-  serializeAws_json1_0EndpointOperationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_EndpointOperationCommand, se_EndpointOperationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -82,14 +79,14 @@ export class EndpointOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: EndpointOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0EndpointOperationCommand(input, context);
+    return se_EndpointOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EndpointOperationCommandOutput> {
-    return deserializeAws_json1_0EndpointOperationCommand(output, context);
+    return de_EndpointOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

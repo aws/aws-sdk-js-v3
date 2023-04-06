@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { DeleteDataIntegrationRequest, DeleteDataIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataIntegrationCommand,
-  serializeAws_restJson1DeleteDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDataIntegrationCommand, se_DeleteDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteDataIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataIntegrationCommand(input, context);
+    return se_DeleteDataIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteDataIntegrationCommand(output, context);
+    return de_DeleteDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

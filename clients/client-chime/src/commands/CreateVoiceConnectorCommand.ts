@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { CreateVoiceConnectorRequest, CreateVoiceConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVoiceConnectorCommand,
-  serializeAws_restJson1CreateVoiceConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVoiceConnectorCommand, se_CreateVoiceConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class CreateVoiceConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceConnectorCommand(input, context);
+    return se_CreateVoiceConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceConnectorCommand(output, context);
+    return de_CreateVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

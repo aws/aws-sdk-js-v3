@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { AssociateFileSystemAliasesRequest, AssociateFileSystemAliasesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateFileSystemAliasesCommand,
-  serializeAws_json1_1AssociateFileSystemAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateFileSystemAliasesCommand, se_AssociateFileSystemAliasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class AssociateFileSystemAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateFileSystemAliasesCommand(input, context);
+    return se_AssociateFileSystemAliasesCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class AssociateFileSystemAliasesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateFileSystemAliasesCommandOutput> {
-    return deserializeAws_json1_1AssociateFileSystemAliasesCommand(output, context);
+    return de_AssociateFileSystemAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeviceCommand,
-  serializeAws_restJson1GetDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceCommand(input, context);
+    return se_GetDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceCommandOutput> {
-    return deserializeAws_restJson1GetDeviceCommand(output, context);
+    return de_GetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

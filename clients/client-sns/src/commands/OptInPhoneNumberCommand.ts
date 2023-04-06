@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/models_0";
-import {
-  deserializeAws_queryOptInPhoneNumberCommand,
-  serializeAws_queryOptInPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { de_OptInPhoneNumberCommand, se_OptInPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -135,14 +132,14 @@ export class OptInPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: OptInPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryOptInPhoneNumberCommand(input, context);
+    return se_OptInPhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OptInPhoneNumberCommandOutput> {
-    return deserializeAws_queryOptInPhoneNumberCommand(output, context);
+    return de_OptInPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

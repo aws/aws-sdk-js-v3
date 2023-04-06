@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { DeleteSyncJobRequest, DeleteSyncJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSyncJobCommand,
-  serializeAws_restJson1DeleteSyncJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSyncJobCommand, se_DeleteSyncJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteSyncJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSyncJobCommand(input, context);
+    return se_DeleteSyncJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSyncJobCommandOutput> {
-    return deserializeAws_restJson1DeleteSyncJobCommand(output, context);
+    return de_DeleteSyncJobCommand(output, context);
   }
 
   // Start section: command_body_extra

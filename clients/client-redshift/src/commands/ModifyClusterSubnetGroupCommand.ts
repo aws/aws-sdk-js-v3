@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterSubnetGroupCommand,
-  serializeAws_queryModifyClusterSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyClusterSubnetGroupCommand, se_ModifyClusterSubnetGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -150,14 +147,14 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSubnetGroupCommand(input, context);
+    return se_ModifyClusterSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyClusterSubnetGroupCommand(output, context);
+    return de_ModifyClusterSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

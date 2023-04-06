@@ -19,8 +19,8 @@ import {
   ListBucketInventoryConfigurationsRequest,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListBucketInventoryConfigurationsCommand,
-  serializeAws_restXmlListBucketInventoryConfigurationsCommand,
+  de_ListBucketInventoryConfigurationsCommand,
+  se_ListBucketInventoryConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -171,7 +171,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     input: ListBucketInventoryConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketInventoryConfigurationsCommand(input, context);
+    return se_ListBucketInventoryConfigurationsCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketInventoryConfigurationsCommand(output, context);
+    return de_ListBucketInventoryConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

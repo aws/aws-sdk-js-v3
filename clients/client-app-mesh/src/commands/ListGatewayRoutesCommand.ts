@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { ListGatewayRoutesInput, ListGatewayRoutesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGatewayRoutesCommand,
-  serializeAws_restJson1ListGatewayRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGatewayRoutesCommand, se_ListGatewayRoutesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListGatewayRoutesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGatewayRoutesCommand(input, context);
+    return se_ListGatewayRoutesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewayRoutesCommandOutput> {
-    return deserializeAws_restJson1ListGatewayRoutesCommand(output, context);
+    return de_ListGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

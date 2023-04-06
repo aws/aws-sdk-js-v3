@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListJobsRequest, ListJobsResult } from "../models/models_0";
-import { deserializeAws_restXmlListJobsCommand, serializeAws_restXmlListJobsCommand } from "../protocols/Aws_restXml";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -160,14 +160,14 @@ export class ListJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_restXmlListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

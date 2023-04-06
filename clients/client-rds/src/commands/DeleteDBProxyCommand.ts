@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBProxyCommand,
-  serializeAws_queryDeleteDBProxyCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBProxyCommand, se_DeleteDBProxyCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -124,14 +121,14 @@ export class DeleteDBProxyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBProxyCommand(input, context);
+    return se_DeleteDBProxyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyCommandOutput> {
-    return deserializeAws_queryDeleteDBProxyCommand(output, context);
+    return de_DeleteDBProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

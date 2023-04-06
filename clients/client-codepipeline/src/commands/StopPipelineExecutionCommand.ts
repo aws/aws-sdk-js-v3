@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopPipelineExecutionCommand,
-  serializeAws_json1_1StopPipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopPipelineExecutionCommand, se_StopPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class StopPipelineExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopPipelineExecutionCommand(input, context);
+    return se_StopPipelineExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1StopPipelineExecutionCommand(output, context);
+    return de_StopPipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

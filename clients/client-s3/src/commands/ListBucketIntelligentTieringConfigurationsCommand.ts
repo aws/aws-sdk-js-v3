@@ -18,8 +18,8 @@ import {
   ListBucketIntelligentTieringConfigurationsRequest,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCommand,
-  serializeAws_restXmlListBucketIntelligentTieringConfigurationsCommand,
+  de_ListBucketIntelligentTieringConfigurationsCommand,
+  se_ListBucketIntelligentTieringConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -163,7 +163,7 @@ export class ListBucketIntelligentTieringConfigurationsCommand extends $Command<
     input: ListBucketIntelligentTieringConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketIntelligentTieringConfigurationsCommand(input, context);
+    return se_ListBucketIntelligentTieringConfigurationsCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class ListBucketIntelligentTieringConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketIntelligentTieringConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCommand(output, context);
+    return de_ListBucketIntelligentTieringConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

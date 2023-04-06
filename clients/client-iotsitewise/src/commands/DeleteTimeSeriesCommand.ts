@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DeleteTimeSeriesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTimeSeriesCommand,
-  serializeAws_restJson1DeleteTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTimeSeriesCommand, se_DeleteTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class DeleteTimeSeriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTimeSeriesCommand(input, context);
+    return se_DeleteTimeSeriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1DeleteTimeSeriesCommand(output, context);
+    return de_DeleteTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

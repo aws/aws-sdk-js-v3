@@ -19,10 +19,7 @@ import {
   CreateWhatIfAnalysisRequestFilterSensitiveLog,
   CreateWhatIfAnalysisResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWhatIfAnalysisCommand,
-  serializeAws_json1_1CreateWhatIfAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWhatIfAnalysisCommand, se_CreateWhatIfAnalysisCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class CreateWhatIfAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWhatIfAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWhatIfAnalysisCommand(input, context);
+    return se_CreateWhatIfAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWhatIfAnalysisCommandOutput> {
-    return deserializeAws_json1_1CreateWhatIfAnalysisCommand(output, context);
+    return de_CreateWhatIfAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

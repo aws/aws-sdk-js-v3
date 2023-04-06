@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { GetSystemTemplateRequest, GetSystemTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSystemTemplateCommand,
-  serializeAws_json1_1GetSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSystemTemplateCommand, se_GetSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetSystemTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSystemTemplateCommand(input, context);
+    return se_GetSystemTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1GetSystemTemplateCommand(output, context);
+    return de_GetSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

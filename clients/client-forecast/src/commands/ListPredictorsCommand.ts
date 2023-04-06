@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListPredictorsRequest, ListPredictorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPredictorsCommand,
-  serializeAws_json1_1ListPredictorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPredictorsCommand, se_ListPredictorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListPredictorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPredictorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPredictorsCommand(input, context);
+    return se_ListPredictorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPredictorsCommandOutput> {
-    return deserializeAws_json1_1ListPredictorsCommand(output, context);
+    return de_ListPredictorsCommand(output, context);
   }
 
   // Start section: command_body_extra

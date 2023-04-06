@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { EnableMFADeviceRequest } from "../models/models_0";
-import {
-  deserializeAws_queryEnableMFADeviceCommand,
-  serializeAws_queryEnableMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { de_EnableMFADeviceCommand, se_EnableMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class EnableMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableMFADeviceCommand(input, context);
+    return se_EnableMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMFADeviceCommandOutput> {
-    return deserializeAws_queryEnableMFADeviceCommand(output, context);
+    return de_EnableMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

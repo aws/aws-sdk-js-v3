@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDynamicThingGroupCommand,
-  serializeAws_restJson1UpdateDynamicThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDynamicThingGroupCommand, se_UpdateDynamicThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateDynamicThingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDynamicThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDynamicThingGroupCommand(input, context);
+    return se_UpdateDynamicThingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateDynamicThingGroupCommand(output, context);
+    return de_UpdateDynamicThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

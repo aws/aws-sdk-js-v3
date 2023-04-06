@@ -15,8 +15,8 @@ import {
 
 import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import {
-  deserializeAws_queryRestoreDBInstanceToPointInTimeCommand,
-  serializeAws_queryRestoreDBInstanceToPointInTimeCommand,
+  de_RestoreDBInstanceToPointInTimeCommand,
+  se_RestoreDBInstanceToPointInTimeCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -204,13 +204,13 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *             with the DB instance.</p>
  *
  *
- * @example To restore a DB instance to a point in time.
+ * @example To restore a DB instance to a point in time
  * ```javascript
- * // The following example restores a DB instance to a new DB instance at a point in time from the source DB instance.
+ * // The following example restores test-instance to a new DB instance named restored-test-instance, as of the specified time.
  * const input = {
- *   "RestoreTime": "2016-09-13T18:45:00Z",
- *   "SourceDBInstanceIdentifier": "mysql-sample",
- *   "TargetDBInstanceIdentifier": "mysql-sample-restored"
+ *   "RestoreTime": "2018-07-30T23:45:00.000Z",
+ *   "SourceDBInstanceIdentifier": "test-instance",
+ *   "TargetDBInstanceIdentifier": "restored-test-instance"
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -223,9 +223,9 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *     "BackupRetentionPeriod": 7,
  *     "CACertificateIdentifier": "rds-ca-2015",
  *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:mysql-sample-restored",
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:restored-test-instance",
  *     "DBInstanceClass": "db.t2.small",
- *     "DBInstanceIdentifier": "mysql-sample-restored",
+ *     "DBInstanceIdentifier": "restored-test-instance",
  *     "DBInstanceStatus": "available",
  *     "DBName": "sample",
  *     "DBParameterGroups": [
@@ -295,7 +295,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-to-a-point-in-time-1473962652154
+ * // example id: to-restore-a-db-instance-to-a-point-in-time-1680036021951
  * ```
  *
  */
@@ -365,7 +365,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     input: RestoreDBInstanceToPointInTimeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(input, context);
+    return se_RestoreDBInstanceToPointInTimeCommand(input, context);
   }
 
   /**
@@ -375,7 +375,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceToPointInTimeCommand(output, context);
+    return de_RestoreDBInstanceToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

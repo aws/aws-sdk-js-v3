@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprovisionByoipCidrCommand,
-  serializeAws_json1_1DeprovisionByoipCidrCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeprovisionByoipCidrCommand, se_DeprovisionByoipCidrCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeprovisionByoipCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprovisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprovisionByoipCidrCommand(input, context);
+    return se_DeprovisionByoipCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionByoipCidrCommandOutput> {
-    return deserializeAws_json1_1DeprovisionByoipCidrCommand(output, context);
+    return de_DeprovisionByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

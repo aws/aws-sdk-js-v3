@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ExecutePolicyType } from "../models/models_0";
-import {
-  deserializeAws_queryExecutePolicyCommand,
-  serializeAws_queryExecutePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_ExecutePolicyCommand, se_ExecutePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ExecutePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecutePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryExecutePolicyCommand(input, context);
+    return se_ExecutePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecutePolicyCommandOutput> {
-    return deserializeAws_queryExecutePolicyCommand(output, context);
+    return de_ExecutePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

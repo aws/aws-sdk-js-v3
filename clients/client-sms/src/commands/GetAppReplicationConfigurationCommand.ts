@@ -15,8 +15,8 @@ import {
 
 import { GetAppReplicationConfigurationRequest, GetAppReplicationConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAppReplicationConfigurationCommand,
-  serializeAws_json1_1GetAppReplicationConfigurationCommand,
+  de_GetAppReplicationConfigurationCommand,
+  se_GetAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -142,7 +142,7 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     input: GetAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppReplicationConfigurationCommand(input, context);
+    return se_GetAppReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAppReplicationConfigurationCommand(output, context);
+    return de_GetAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

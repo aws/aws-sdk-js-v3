@@ -15,8 +15,8 @@ import {
 
 import { DisassociateDelegateFromResourceRequest, DisassociateDelegateFromResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateDelegateFromResourceCommand,
-  serializeAws_json1_1DisassociateDelegateFromResourceCommand,
+  de_DisassociateDelegateFromResourceCommand,
+  se_DisassociateDelegateFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -146,7 +146,7 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     input: DisassociateDelegateFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDelegateFromResourceCommand(input, context);
+    return se_DisassociateDelegateFromResourceCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDelegateFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateDelegateFromResourceCommand(output, context);
+    return de_DisassociateDelegateFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

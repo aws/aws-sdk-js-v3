@@ -18,8 +18,8 @@ import {
   DeleteConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand,
-  serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand,
+  de_DeleteConfigurationSetTrackingOptionsCommand,
+  se_DeleteConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -144,7 +144,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     input: DeleteConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(input, context);
+    return se_DeleteConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(output, context);
+    return de_DeleteConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

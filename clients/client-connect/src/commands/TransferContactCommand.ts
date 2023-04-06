@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { TransferContactRequest, TransferContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1TransferContactCommand,
-  serializeAws_restJson1TransferContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TransferContactCommand, se_TransferContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class TransferContactCommand extends $Command<
    * @internal
    */
   private serialize(input: TransferContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TransferContactCommand(input, context);
+    return se_TransferContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferContactCommandOutput> {
-    return deserializeAws_restJson1TransferContactCommand(output, context);
+    return de_TransferContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeTransitGatewayVpcAttachmentsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
-  serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
+  de_DescribeTransitGatewayVpcAttachmentsCommand,
+  se_DescribeTransitGatewayVpcAttachmentsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     input: DescribeTransitGatewayVpcAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(input, context);
+    return se_DescribeTransitGatewayVpcAttachmentsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(output, context);
+    return de_DescribeTransitGatewayVpcAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

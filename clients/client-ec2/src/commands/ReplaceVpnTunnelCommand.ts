@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceVpnTunnelRequest, ReplaceVpnTunnelResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceVpnTunnelCommand,
-  serializeAws_ec2ReplaceVpnTunnelCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReplaceVpnTunnelCommand, se_ReplaceVpnTunnelCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ReplaceVpnTunnelCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceVpnTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceVpnTunnelCommand(input, context);
+    return se_ReplaceVpnTunnelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceVpnTunnelCommandOutput> {
-    return deserializeAws_ec2ReplaceVpnTunnelCommand(output, context);
+    return de_ReplaceVpnTunnelCommand(output, context);
   }
 
   // Start section: command_body_extra

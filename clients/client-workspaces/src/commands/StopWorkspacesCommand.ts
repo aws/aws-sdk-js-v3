@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopWorkspacesCommand,
-  serializeAws_json1_1StopWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopWorkspacesCommand, se_StopWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -127,14 +124,14 @@ export class StopWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: StopWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopWorkspacesCommand(input, context);
+    return se_StopWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkspacesCommandOutput> {
-    return deserializeAws_json1_1StopWorkspacesCommand(output, context);
+    return de_StopWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

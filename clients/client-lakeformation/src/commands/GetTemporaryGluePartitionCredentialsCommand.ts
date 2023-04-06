@@ -19,8 +19,8 @@ import {
   GetTemporaryGluePartitionCredentialsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
-  serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
+  de_GetTemporaryGluePartitionCredentialsCommand,
+  se_GetTemporaryGluePartitionCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +161,7 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     input: GetTemporaryGluePartitionCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand(input, context);
+    return se_GetTemporaryGluePartitionCredentialsCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand(output, context);
+    return de_GetTemporaryGluePartitionCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

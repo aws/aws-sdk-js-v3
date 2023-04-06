@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteTrafficMirrorTargetCommand,
-  serializeAws_ec2DeleteTrafficMirrorTargetCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteTrafficMirrorTargetCommand, se_DeleteTrafficMirrorTargetCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,7 +119,7 @@ export class DeleteTrafficMirrorTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrafficMirrorTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTrafficMirrorTargetCommand(input, context);
+    return se_DeleteTrafficMirrorTargetCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class DeleteTrafficMirrorTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficMirrorTargetCommandOutput> {
-    return deserializeAws_ec2DeleteTrafficMirrorTargetCommand(output, context);
+    return de_DeleteTrafficMirrorTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

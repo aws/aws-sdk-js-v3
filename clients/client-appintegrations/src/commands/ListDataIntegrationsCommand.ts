@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { ListDataIntegrationsRequest, ListDataIntegrationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataIntegrationsCommand,
-  serializeAws_restJson1ListDataIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataIntegrationsCommand, se_ListDataIntegrationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListDataIntegrationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataIntegrationsCommand(input, context);
+    return se_ListDataIntegrationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataIntegrationsCommandOutput> {
-    return deserializeAws_restJson1ListDataIntegrationsCommand(output, context);
+    return de_ListDataIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

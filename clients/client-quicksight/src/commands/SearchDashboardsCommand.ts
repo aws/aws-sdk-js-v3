@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchDashboardsRequest, SearchDashboardsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchDashboardsCommand,
-  serializeAws_restJson1SearchDashboardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchDashboardsCommand, se_SearchDashboardsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -153,14 +150,14 @@ export class SearchDashboardsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDashboardsCommand(input, context);
+    return se_SearchDashboardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDashboardsCommandOutput> {
-    return deserializeAws_restJson1SearchDashboardsCommand(output, context);
+    return de_SearchDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

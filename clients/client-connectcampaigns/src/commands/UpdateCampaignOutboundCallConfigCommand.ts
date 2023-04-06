@@ -16,8 +16,8 @@ import {
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { UpdateCampaignOutboundCallConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
-  serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
+  de_UpdateCampaignOutboundCallConfigCommand,
+  se_UpdateCampaignOutboundCallConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     input: UpdateCampaignOutboundCallConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand(input, context);
+    return se_UpdateCampaignOutboundCallConfigCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCampaignOutboundCallConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand(output, context);
+    return de_UpdateCampaignOutboundCallConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DisableStageTransitionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableStageTransitionCommand,
-  serializeAws_json1_1DisableStageTransitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableStageTransitionCommand, se_DisableStageTransitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DisableStageTransitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableStageTransitionCommand(input, context);
+    return se_DisableStageTransitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableStageTransitionCommandOutput> {
-    return deserializeAws_json1_1DisableStageTransitionCommand(output, context);
+    return de_DisableStageTransitionCommand(output, context);
   }
 
   // Start section: command_body_extra

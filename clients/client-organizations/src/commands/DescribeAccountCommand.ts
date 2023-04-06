@@ -19,10 +19,7 @@ import {
   DescribeAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeAccountCommand,
-  serializeAws_json1_1DescribeAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAccountCommand, se_DescribeAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -278,14 +275,14 @@ export class DescribeAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountCommand(input, context);
+    return se_DescribeAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountCommand(output, context);
+    return de_DescribeAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

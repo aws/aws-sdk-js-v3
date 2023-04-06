@@ -15,8 +15,8 @@ import {
 
 import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_3";
 import {
-  deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
-  serializeAws_restJson1UpdateDashboardPublishedVersionCommand,
+  de_UpdateDashboardPublishedVersionCommand,
+  se_UpdateDashboardPublishedVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -148,7 +148,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(input, context);
+    return se_UpdateDashboardPublishedVersionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateDashboardPublishedVersionCommand(output, context);
+    return de_UpdateDashboardPublishedVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

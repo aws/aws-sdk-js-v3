@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketReplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketReplicationCommand,
-  serializeAws_restXmlPutBucketReplicationCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketReplicationCommand, se_PutBucketReplicationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -274,14 +271,14 @@ export class PutBucketReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketReplicationCommand(input, context);
+    return se_PutBucketReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketReplicationCommandOutput> {
-    return deserializeAws_restXmlPutBucketReplicationCommand(output, context);
+    return de_PutBucketReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

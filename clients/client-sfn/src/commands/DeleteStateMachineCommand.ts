@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteStateMachineCommand,
-  serializeAws_json1_0DeleteStateMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteStateMachineCommand, se_DeleteStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeleteStateMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteStateMachineCommand(input, context);
+    return se_DeleteStateMachineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
-    return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
+    return de_DeleteStateMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

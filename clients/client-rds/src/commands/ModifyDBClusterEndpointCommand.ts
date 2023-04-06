@@ -15,10 +15,7 @@ import {
 
 import { DBClusterEndpoint } from "../models/models_0";
 import { ModifyDBClusterEndpointMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBClusterEndpointCommand,
-  serializeAws_queryModifyDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBClusterEndpointCommand, se_ModifyDBClusterEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -82,6 +79,40 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To modify a custom DB cluster endpoint
+ * ```javascript
+ * // The following example modifies the specified custom DB cluster endpoint.
+ * const input = {
+ *   "DBClusterEndpointIdentifier": "mycustomendpoint",
+ *   "StaticMembers": [
+ *     "dbinstance1",
+ *     "dbinstance2",
+ *     "dbinstance3"
+ *   ]
+ * };
+ * const command = new ModifyDBClusterEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomEndpointType": "READER",
+ *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
+ *   "DBClusterEndpointIdentifier": "mycustomendpoint",
+ *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
+ *   "EndpointType": "CUSTOM",
+ *   "ExcludedMembers": [],
+ *   "StaticMembers": [
+ *     "dbinstance1",
+ *     "dbinstance2",
+ *     "dbinstance3"
+ *   ],
+ *   "Status": "modifying"
+ * }
+ * *\/
+ * // example id: to-modify-a-custom-db-cluster-endpoint-1680307652958
+ * ```
  *
  */
 export class ModifyDBClusterEndpointCommand extends $Command<
@@ -147,14 +178,14 @@ export class ModifyDBClusterEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
+    return se_ModifyDBClusterEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
+    return de_ModifyDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

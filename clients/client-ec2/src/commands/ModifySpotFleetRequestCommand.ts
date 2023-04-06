@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySpotFleetRequestCommand,
-  serializeAws_ec2ModifySpotFleetRequestCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifySpotFleetRequestCommand, se_ModifySpotFleetRequestCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -270,14 +267,14 @@ export class ModifySpotFleetRequestCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySpotFleetRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySpotFleetRequestCommand(input, context);
+    return se_ModifySpotFleetRequestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySpotFleetRequestCommandOutput> {
-    return deserializeAws_ec2ModifySpotFleetRequestCommand(output, context);
+    return de_ModifySpotFleetRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

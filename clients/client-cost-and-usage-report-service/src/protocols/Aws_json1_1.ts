@@ -48,7 +48,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
+/**
+ * serializeAws_json1_1DeleteReportDefinitionCommand
+ */
+export const se_DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -57,11 +60,14 @@ export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
     "x-amz-target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteReportDefinitionRequest(input, context));
+  body = JSON.stringify(se_DeleteReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeReportDefinitionsCommand
+ */
+export const se_DescribeReportDefinitionsCommand = async (
   input: DescribeReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -70,11 +76,14 @@ export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
     "x-amz-target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeReportDefinitionsRequest(input, context));
+  body = JSON.stringify(se_DescribeReportDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
+/**
+ * serializeAws_json1_1ModifyReportDefinitionCommand
+ */
+export const se_ModifyReportDefinitionCommand = async (
   input: ModifyReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -83,11 +92,14 @@ export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
     "x-amz-target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ModifyReportDefinitionRequest(input, context));
+  body = JSON.stringify(se_ModifyReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutReportDefinitionCommand = async (
+/**
+ * serializeAws_json1_1PutReportDefinitionCommand
+ */
+export const se_PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -96,20 +108,23 @@ export const serializeAws_json1_1PutReportDefinitionCommand = async (
     "x-amz-target": "AWSOrigamiServiceGatewayService.PutReportDefinition",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutReportDefinitionRequest(input, context));
+  body = JSON.stringify(se_PutReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteReportDefinitionCommand
+ */
+export const de_DeleteReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteReportDefinitionCommandError(output, context);
+    return de_DeleteReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportDefinitionResponse(data, context);
+  contents = de_DeleteReportDefinitionResponse(data, context);
   const response: DeleteReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -117,7 +132,10 @@ export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteReportDefinitionCommandError
+ */
+const de_DeleteReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
@@ -129,10 +147,10 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -144,16 +162,19 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeReportDefinitionsCommand
+ */
+export const de_DescribeReportDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommandError(output, context);
+    return de_DescribeReportDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeReportDefinitionsResponse(data, context);
+  contents = de_DescribeReportDefinitionsResponse(data, context);
   const response: DescribeReportDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -161,7 +182,10 @@ export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeReportDefinitionsCommandError
+ */
+const de_DescribeReportDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportDefinitionsCommandOutput> => {
@@ -173,7 +197,7 @@ const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -185,16 +209,19 @@ const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
+/**
+ * deserializeAws_json1_1ModifyReportDefinitionCommand
+ */
+export const de_ModifyReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ModifyReportDefinitionCommandError(output, context);
+    return de_ModifyReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyReportDefinitionResponse(data, context);
+  contents = de_ModifyReportDefinitionResponse(data, context);
   const response: ModifyReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -202,7 +229,10 @@ export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
+/**
+ * deserializeAws_json1_1ModifyReportDefinitionCommandError
+ */
+const de_ModifyReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReportDefinitionCommandOutput> => {
@@ -214,10 +244,10 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -229,16 +259,19 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutReportDefinitionCommand = async (
+/**
+ * deserializeAws_json1_1PutReportDefinitionCommand
+ */
+export const de_PutReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutReportDefinitionCommandError(output, context);
+    return de_PutReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutReportDefinitionResponse(data, context);
+  contents = de_PutReportDefinitionResponse(data, context);
   const response: PutReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -246,7 +279,10 @@ export const deserializeAws_json1_1PutReportDefinitionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutReportDefinitionCommandError = async (
+/**
+ * deserializeAws_json1_1PutReportDefinitionCommandError
+ */
+const de_PutReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
@@ -258,16 +294,16 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
   switch (errorCode) {
     case "DuplicateReportNameException":
     case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
-      throw await deserializeAws_json1_1DuplicateReportNameExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateReportNameExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "ReportLimitReachedException":
     case "com.amazonaws.costandusagereportservice#ReportLimitReachedException":
-      throw await deserializeAws_json1_1ReportLimitReachedExceptionResponse(parsedOutput, context);
+      throw await de_ReportLimitReachedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -279,12 +315,15 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
   }
 };
 
-const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateReportNameExceptionRes
+ */
+const de_DuplicateReportNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateReportNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateReportNameException(body, context);
+  const deserialized: any = de_DuplicateReportNameException(body, context);
   const exception = new DuplicateReportNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -292,12 +331,15 @@ const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalErrorExceptionRes
+ */
+const de_InternalErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(body, context);
+  const deserialized: any = de_InternalErrorException(body, context);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -305,12 +347,15 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReportLimitReachedExceptionRes
+ */
+const de_ReportLimitReachedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReportLimitReachedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReportLimitReachedException(body, context);
+  const deserialized: any = de_ReportLimitReachedException(body, context);
   const exception = new ReportLimitReachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -318,12 +363,12 @@ const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -331,10 +376,10 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AdditionalArtifactList = (
-  input: (AdditionalArtifact | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AdditionalArtifactList
+ */
+const se_AdditionalArtifactList = (input: (AdditionalArtifact | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -342,55 +387,54 @@ const serializeAws_json1_1AdditionalArtifactList = (
     });
 };
 
-const serializeAws_json1_1DeleteReportDefinitionRequest = (
-  input: DeleteReportDefinitionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteReportDefinitionRequest
+ */
+const se_DeleteReportDefinitionRequest = (input: DeleteReportDefinitionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ReportName != null && { ReportName: input.ReportName }),
   };
 };
 
-const serializeAws_json1_1DescribeReportDefinitionsRequest = (
-  input: DescribeReportDefinitionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeReportDefinitionsRequest
+ */
+const se_DescribeReportDefinitionsRequest = (input: DescribeReportDefinitionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ModifyReportDefinitionRequest = (
-  input: ModifyReportDefinitionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ModifyReportDefinitionRequest
+ */
+const se_ModifyReportDefinitionRequest = (input: ModifyReportDefinitionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ReportDefinition != null && {
-      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-    }),
+    ...(input.ReportDefinition != null && { ReportDefinition: se_ReportDefinition(input.ReportDefinition, context) }),
     ...(input.ReportName != null && { ReportName: input.ReportName }),
   };
 };
 
-const serializeAws_json1_1PutReportDefinitionRequest = (
-  input: PutReportDefinitionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutReportDefinitionRequest
+ */
+const se_PutReportDefinitionRequest = (input: PutReportDefinitionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ReportDefinition != null && {
-      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-    }),
+    ...(input.ReportDefinition != null && { ReportDefinition: se_ReportDefinition(input.ReportDefinition, context) }),
   };
 };
 
-const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReportDefinition
+ */
+const se_ReportDefinition = (input: ReportDefinition, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalArtifacts != null && {
-      AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(input.AdditionalArtifacts, context),
+      AdditionalArtifacts: se_AdditionalArtifactList(input.AdditionalArtifacts, context),
     }),
     ...(input.AdditionalSchemaElements != null && {
-      AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
+      AdditionalSchemaElements: se_SchemaElementList(input.AdditionalSchemaElements, context),
     }),
     ...(input.BillingViewArn != null && { BillingViewArn: input.BillingViewArn }),
     ...(input.Compression != null && { Compression: input.Compression }),
@@ -405,7 +449,10 @@ const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: 
   };
 };
 
-const serializeAws_json1_1SchemaElementList = (input: (SchemaElement | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SchemaElementList
+ */
+const se_SchemaElementList = (input: (SchemaElement | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -413,10 +460,10 @@ const serializeAws_json1_1SchemaElementList = (input: (SchemaElement | string)[]
     });
 };
 
-const deserializeAws_json1_1AdditionalArtifactList = (
-  output: any,
-  context: __SerdeContext
-): (AdditionalArtifact | string)[] => {
+/**
+ * deserializeAws_json1_1AdditionalArtifactList
+ */
+const de_AdditionalArtifactList = (output: any, context: __SerdeContext): (AdditionalArtifact | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -428,66 +475,71 @@ const deserializeAws_json1_1AdditionalArtifactList = (
   return retVal;
 };
 
-const deserializeAws_json1_1DeleteReportDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteReportDefinitionResponse => {
+/**
+ * deserializeAws_json1_1DeleteReportDefinitionResponse
+ */
+const de_DeleteReportDefinitionResponse = (output: any, context: __SerdeContext): DeleteReportDefinitionResponse => {
   return {
     ResponseMessage: __expectString(output.ResponseMessage),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeReportDefinitionsResponse = (
+/**
+ * deserializeAws_json1_1DescribeReportDefinitionsResponse
+ */
+const de_DescribeReportDefinitionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReportDefinitionsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ReportDefinitions:
-      output.ReportDefinitions != null
-        ? deserializeAws_json1_1ReportDefinitionList(output.ReportDefinitions, context)
-        : undefined,
+      output.ReportDefinitions != null ? de_ReportDefinitionList(output.ReportDefinitions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DuplicateReportNameException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateReportNameException => {
+/**
+ * deserializeAws_json1_1DuplicateReportNameException
+ */
+const de_DuplicateReportNameException = (output: any, context: __SerdeContext): DuplicateReportNameException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
+/**
+ * deserializeAws_json1_1InternalErrorException
+ */
+const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ModifyReportDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): ModifyReportDefinitionResponse => {
+/**
+ * deserializeAws_json1_1ModifyReportDefinitionResponse
+ */
+const de_ModifyReportDefinitionResponse = (output: any, context: __SerdeContext): ModifyReportDefinitionResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutReportDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): PutReportDefinitionResponse => {
+/**
+ * deserializeAws_json1_1PutReportDefinitionResponse
+ */
+const de_PutReportDefinitionResponse = (output: any, context: __SerdeContext): PutReportDefinitionResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
+/**
+ * deserializeAws_json1_1ReportDefinition
+ */
+const de_ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
     AdditionalArtifacts:
-      output.AdditionalArtifacts != null
-        ? deserializeAws_json1_1AdditionalArtifactList(output.AdditionalArtifacts, context)
-        : undefined,
+      output.AdditionalArtifacts != null ? de_AdditionalArtifactList(output.AdditionalArtifacts, context) : undefined,
     AdditionalSchemaElements:
       output.AdditionalSchemaElements != null
-        ? deserializeAws_json1_1SchemaElementList(output.AdditionalSchemaElements, context)
+        ? de_SchemaElementList(output.AdditionalSchemaElements, context)
         : undefined,
     BillingViewArn: __expectString(output.BillingViewArn),
     Compression: __expectString(output.Compression),
@@ -502,28 +554,34 @@ const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
+/**
+ * deserializeAws_json1_1ReportDefinitionList
+ */
+const de_ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ReportDefinition(entry, context);
+      return de_ReportDefinition(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ReportLimitReachedException = (
-  output: any,
-  context: __SerdeContext
-): ReportLimitReachedException => {
+/**
+ * deserializeAws_json1_1ReportLimitReachedException
+ */
+const de_ReportLimitReachedException = (output: any, context: __SerdeContext): ReportLimitReachedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
+/**
+ * deserializeAws_json1_1SchemaElementList
+ */
+const de_SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -535,7 +593,10 @@ const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_1ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

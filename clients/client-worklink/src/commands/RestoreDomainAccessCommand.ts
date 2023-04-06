@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RestoreDomainAccessRequest, RestoreDomainAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RestoreDomainAccessCommand,
-  serializeAws_restJson1RestoreDomainAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RestoreDomainAccessCommand, se_RestoreDomainAccessCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -138,14 +135,14 @@ export class RestoreDomainAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreDomainAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RestoreDomainAccessCommand(input, context);
+    return se_RestoreDomainAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDomainAccessCommandOutput> {
-    return deserializeAws_restJson1RestoreDomainAccessCommand(output, context);
+    return de_RestoreDomainAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

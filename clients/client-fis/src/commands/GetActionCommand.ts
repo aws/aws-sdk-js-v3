@@ -15,10 +15,7 @@ import {
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { GetActionRequest, GetActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetActionCommand,
-  serializeAws_restJson1GetActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetActionCommand, se_GetActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -120,14 +117,14 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
    * @internal
    */
   private serialize(input: GetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetActionCommand(input, context);
+    return se_GetActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionCommandOutput> {
-    return deserializeAws_restJson1GetActionCommand(output, context);
+    return de_GetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationOutputCommand,
-  serializeAws_json1_1DeleteApplicationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteApplicationOutputCommand, se_DeleteApplicationOutputCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteApplicationOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationOutputCommand(input, context);
+    return se_DeleteApplicationOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationOutputCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationOutputCommand(output, context);
+    return de_DeleteApplicationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

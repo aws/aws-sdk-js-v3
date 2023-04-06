@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { DeletePresetRequest, DeletePresetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePresetCommand,
-  serializeAws_restJson1DeletePresetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeletePresetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePresetCommand(input, context);
+    return se_DeletePresetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePresetCommandOutput> {
-    return deserializeAws_restJson1DeletePresetCommand(output, context);
+    return de_DeletePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

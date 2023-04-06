@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteUseCaseRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUseCaseCommand,
-  serializeAws_restJson1DeleteUseCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUseCaseCommand, se_DeleteUseCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteUseCaseCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUseCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUseCaseCommand(input, context);
+    return se_DeleteUseCaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUseCaseCommandOutput> {
-    return deserializeAws_restJson1DeleteUseCaseCommand(output, context);
+    return de_DeleteUseCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

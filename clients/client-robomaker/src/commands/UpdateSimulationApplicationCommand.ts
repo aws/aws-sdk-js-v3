@@ -15,8 +15,8 @@ import {
 
 import { UpdateSimulationApplicationRequest, UpdateSimulationApplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSimulationApplicationCommand,
-  serializeAws_restJson1UpdateSimulationApplicationCommand,
+  de_UpdateSimulationApplicationCommand,
+  se_UpdateSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -162,7 +162,7 @@ export class UpdateSimulationApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSimulationApplicationCommand(input, context);
+    return se_UpdateSimulationApplicationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class UpdateSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateSimulationApplicationCommand(output, context);
+    return de_UpdateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

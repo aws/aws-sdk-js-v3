@@ -15,8 +15,8 @@ import {
 
 import { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeAnalysisPermissionsCommand,
-  serializeAws_restJson1DescribeAnalysisPermissionsCommand,
+  de_DescribeAnalysisPermissionsCommand,
+  se_DescribeAnalysisPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -141,7 +141,7 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAnalysisPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisPermissionsCommand(input, context);
+    return se_DescribeAnalysisPermissionsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAnalysisPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisPermissionsCommand(output, context);
+    return de_DescribeAnalysisPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

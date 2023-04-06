@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetMigrationRequest, GetMigrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMigrationCommand,
-  serializeAws_restJson1GetMigrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMigrationCommand, se_GetMigrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetMigrationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMigrationCommand(input, context);
+    return se_GetMigrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMigrationCommandOutput> {
-    return deserializeAws_restJson1GetMigrationCommand(output, context);
+    return de_GetMigrationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -127,7 +127,10 @@ import {
 } from "../models/models_0";
 import { SecretsManagerServiceException as __BaseException } from "../models/SecretsManagerServiceException";
 
-export const serializeAws_json1_1CancelRotateSecretCommand = async (
+/**
+ * serializeAws_json1_1CancelRotateSecretCommand
+ */
+export const se_CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -136,11 +139,14 @@ export const serializeAws_json1_1CancelRotateSecretCommand = async (
     "x-amz-target": "secretsmanager.CancelRotateSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelRotateSecretRequest(input, context));
+  body = JSON.stringify(se_CancelRotateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSecretCommand = async (
+/**
+ * serializeAws_json1_1CreateSecretCommand
+ */
+export const se_CreateSecretCommand = async (
   input: CreateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -149,11 +155,14 @@ export const serializeAws_json1_1CreateSecretCommand = async (
     "x-amz-target": "secretsmanager.CreateSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSecretRequest(input, context));
+  body = JSON.stringify(se_CreateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -162,11 +171,14 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
     "x-amz-target": "secretsmanager.DeleteResourcePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSecretCommand = async (
+/**
+ * serializeAws_json1_1DeleteSecretCommand
+ */
+export const se_DeleteSecretCommand = async (
   input: DeleteSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -175,11 +187,14 @@ export const serializeAws_json1_1DeleteSecretCommand = async (
     "x-amz-target": "secretsmanager.DeleteSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSecretRequest(input, context));
+  body = JSON.stringify(se_DeleteSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSecretCommand = async (
+/**
+ * serializeAws_json1_1DescribeSecretCommand
+ */
+export const se_DescribeSecretCommand = async (
   input: DescribeSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -188,11 +203,14 @@ export const serializeAws_json1_1DescribeSecretCommand = async (
     "x-amz-target": "secretsmanager.DescribeSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSecretRequest(input, context));
+  body = JSON.stringify(se_DescribeSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRandomPasswordCommand = async (
+/**
+ * serializeAws_json1_1GetRandomPasswordCommand
+ */
+export const se_GetRandomPasswordCommand = async (
   input: GetRandomPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -201,11 +219,14 @@ export const serializeAws_json1_1GetRandomPasswordCommand = async (
     "x-amz-target": "secretsmanager.GetRandomPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRandomPasswordRequest(input, context));
+  body = JSON.stringify(se_GetRandomPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,11 +235,14 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
     "x-amz-target": "secretsmanager.GetResourcePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
+  body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetSecretValueCommand = async (
+/**
+ * serializeAws_json1_1GetSecretValueCommand
+ */
+export const se_GetSecretValueCommand = async (
   input: GetSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -227,11 +251,14 @@ export const serializeAws_json1_1GetSecretValueCommand = async (
     "x-amz-target": "secretsmanager.GetSecretValue",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetSecretValueRequest(input, context));
+  body = JSON.stringify(se_GetSecretValueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSecretsCommand = async (
+/**
+ * serializeAws_json1_1ListSecretsCommand
+ */
+export const se_ListSecretsCommand = async (
   input: ListSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -240,11 +267,14 @@ export const serializeAws_json1_1ListSecretsCommand = async (
     "x-amz-target": "secretsmanager.ListSecrets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
+  body = JSON.stringify(se_ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
+/**
+ * serializeAws_json1_1ListSecretVersionIdsCommand
+ */
+export const se_ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -253,11 +283,14 @@ export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
     "x-amz-target": "secretsmanager.ListSecretVersionIds",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSecretVersionIdsRequest(input, context));
+  body = JSON.stringify(se_ListSecretVersionIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -266,11 +299,14 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
     "x-amz-target": "secretsmanager.PutResourcePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutSecretValueCommand = async (
+/**
+ * serializeAws_json1_1PutSecretValueCommand
+ */
+export const se_PutSecretValueCommand = async (
   input: PutSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -279,11 +315,14 @@ export const serializeAws_json1_1PutSecretValueCommand = async (
     "x-amz-target": "secretsmanager.PutSecretValue",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutSecretValueRequest(input, context));
+  body = JSON.stringify(se_PutSecretValueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
+/**
+ * serializeAws_json1_1RemoveRegionsFromReplicationCommand
+ */
+export const se_RemoveRegionsFromReplicationCommand = async (
   input: RemoveRegionsFromReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -292,11 +331,14 @@ export const serializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
     "x-amz-target": "secretsmanager.RemoveRegionsFromReplication",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveRegionsFromReplicationRequest(input, context));
+  body = JSON.stringify(se_RemoveRegionsFromReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ReplicateSecretToRegionsCommand = async (
+/**
+ * serializeAws_json1_1ReplicateSecretToRegionsCommand
+ */
+export const se_ReplicateSecretToRegionsCommand = async (
   input: ReplicateSecretToRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,11 +347,14 @@ export const serializeAws_json1_1ReplicateSecretToRegionsCommand = async (
     "x-amz-target": "secretsmanager.ReplicateSecretToRegions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ReplicateSecretToRegionsRequest(input, context));
+  body = JSON.stringify(se_ReplicateSecretToRegionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RestoreSecretCommand = async (
+/**
+ * serializeAws_json1_1RestoreSecretCommand
+ */
+export const se_RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -318,11 +363,14 @@ export const serializeAws_json1_1RestoreSecretCommand = async (
     "x-amz-target": "secretsmanager.RestoreSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RestoreSecretRequest(input, context));
+  body = JSON.stringify(se_RestoreSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RotateSecretCommand = async (
+/**
+ * serializeAws_json1_1RotateSecretCommand
+ */
+export const se_RotateSecretCommand = async (
   input: RotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -331,11 +379,14 @@ export const serializeAws_json1_1RotateSecretCommand = async (
     "x-amz-target": "secretsmanager.RotateSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RotateSecretRequest(input, context));
+  body = JSON.stringify(se_RotateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopReplicationToReplicaCommand = async (
+/**
+ * serializeAws_json1_1StopReplicationToReplicaCommand
+ */
+export const se_StopReplicationToReplicaCommand = async (
   input: StopReplicationToReplicaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -344,11 +395,14 @@ export const serializeAws_json1_1StopReplicationToReplicaCommand = async (
     "x-amz-target": "secretsmanager.StopReplicationToReplica",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopReplicationToReplicaRequest(input, context));
+  body = JSON.stringify(se_StopReplicationToReplicaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -357,11 +411,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "secretsmanager.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -370,11 +427,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "secretsmanager.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSecretCommand = async (
+/**
+ * serializeAws_json1_1UpdateSecretCommand
+ */
+export const se_UpdateSecretCommand = async (
   input: UpdateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -383,11 +443,14 @@ export const serializeAws_json1_1UpdateSecretCommand = async (
     "x-amz-target": "secretsmanager.UpdateSecret",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSecretRequest(input, context));
+  body = JSON.stringify(se_UpdateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
+/**
+ * serializeAws_json1_1UpdateSecretVersionStageCommand
+ */
+export const se_UpdateSecretVersionStageCommand = async (
   input: UpdateSecretVersionStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -396,11 +459,14 @@ export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
     "x-amz-target": "secretsmanager.UpdateSecretVersionStage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSecretVersionStageRequest(input, context));
+  body = JSON.stringify(se_UpdateSecretVersionStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ValidateResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1ValidateResourcePolicyCommand
+ */
+export const se_ValidateResourcePolicyCommand = async (
   input: ValidateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -409,20 +475,23 @@ export const serializeAws_json1_1ValidateResourcePolicyCommand = async (
     "x-amz-target": "secretsmanager.ValidateResourcePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ValidateResourcePolicyRequest(input, context));
+  body = JSON.stringify(se_ValidateResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CancelRotateSecretCommand = async (
+/**
+ * deserializeAws_json1_1CancelRotateSecretCommand
+ */
+export const de_CancelRotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRotateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelRotateSecretCommandError(output, context);
+    return de_CancelRotateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelRotateSecretResponse(data, context);
+  contents = de_CancelRotateSecretResponse(data, context);
   const response: CancelRotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -430,7 +499,10 @@ export const deserializeAws_json1_1CancelRotateSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelRotateSecretCommandError = async (
+/**
+ * deserializeAws_json1_1CancelRotateSecretCommandError
+ */
+const de_CancelRotateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRotateSecretCommandOutput> => {
@@ -442,16 +514,16 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -463,16 +535,19 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateSecretCommand = async (
+/**
+ * deserializeAws_json1_1CreateSecretCommand
+ */
+export const de_CreateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSecretCommandError(output, context);
+    return de_CreateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSecretResponse(data, context);
+  contents = de_CreateSecretResponse(data, context);
   const response: CreateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -480,7 +555,10 @@ export const deserializeAws_json1_1CreateSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateSecretCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSecretCommandError
+ */
+const de_CreateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecretCommandOutput> => {
@@ -492,34 +570,34 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context);
+      throw await de_DecryptionFailureRes(parsedOutput, context);
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await deserializeAws_json1_1EncryptionFailureResponse(parsedOutput, context);
+      throw await de_EncryptionFailureRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.secretsmanager#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -531,16 +609,19 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  contents = de_DeleteResourcePolicyResponse(data, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -548,7 +629,10 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -560,16 +644,16 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -581,16 +665,19 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteSecretCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSecretCommand
+ */
+export const de_DeleteSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSecretCommandError(output, context);
+    return de_DeleteSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSecretResponse(data, context);
+  contents = de_DeleteSecretResponse(data, context);
   const response: DeleteSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -598,7 +685,10 @@ export const deserializeAws_json1_1DeleteSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteSecretCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSecretCommandError
+ */
+const de_DeleteSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecretCommandOutput> => {
@@ -610,16 +700,16 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -631,16 +721,19 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSecretCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSecretCommand
+ */
+export const de_DescribeSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSecretCommandError(output, context);
+    return de_DescribeSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSecretResponse(data, context);
+  contents = de_DescribeSecretResponse(data, context);
   const response: DescribeSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -648,7 +741,10 @@ export const deserializeAws_json1_1DescribeSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSecretCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSecretCommandError
+ */
+const de_DescribeSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecretCommandOutput> => {
@@ -660,13 +756,13 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -678,16 +774,19 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetRandomPasswordCommand = async (
+/**
+ * deserializeAws_json1_1GetRandomPasswordCommand
+ */
+export const de_GetRandomPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRandomPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRandomPasswordCommandError(output, context);
+    return de_GetRandomPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRandomPasswordResponse(data, context);
+  contents = de_GetRandomPasswordResponse(data, context);
   const response: GetRandomPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -695,7 +794,10 @@ export const deserializeAws_json1_1GetRandomPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetRandomPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1GetRandomPasswordCommandError
+ */
+const de_GetRandomPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRandomPasswordCommandOutput> => {
@@ -707,13 +809,13 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -725,16 +827,19 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+    return de_GetResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
+  contents = de_GetResourcePolicyResponse(data, context);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -742,7 +847,10 @@ export const deserializeAws_json1_1GetResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
@@ -754,16 +862,16 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -775,16 +883,19 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetSecretValueCommand = async (
+/**
+ * deserializeAws_json1_1GetSecretValueCommand
+ */
+export const de_GetSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecretValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetSecretValueCommandError(output, context);
+    return de_GetSecretValueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSecretValueResponse(data, context);
+  contents = de_GetSecretValueResponse(data, context);
   const response: GetSecretValueCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -792,7 +903,10 @@ export const deserializeAws_json1_1GetSecretValueCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetSecretValueCommandError = async (
+/**
+ * deserializeAws_json1_1GetSecretValueCommandError
+ */
+const de_GetSecretValueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecretValueCommandOutput> => {
@@ -804,19 +918,19 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context);
+      throw await de_DecryptionFailureRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -828,16 +942,19 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListSecretsCommand = async (
+/**
+ * deserializeAws_json1_1ListSecretsCommand
+ */
+export const de_ListSecretsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSecretsCommandError(output, context);
+    return de_ListSecretsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecretsResponse(data, context);
+  contents = de_ListSecretsResponse(data, context);
   const response: ListSecretsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -845,7 +962,10 @@ export const deserializeAws_json1_1ListSecretsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListSecretsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSecretsCommandError
+ */
+const de_ListSecretsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretsCommandOutput> => {
@@ -857,13 +977,13 @@ const deserializeAws_json1_1ListSecretsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.secretsmanager#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -875,16 +995,19 @@ const deserializeAws_json1_1ListSecretsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListSecretVersionIdsCommand = async (
+/**
+ * deserializeAws_json1_1ListSecretVersionIdsCommand
+ */
+export const de_ListSecretVersionIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretVersionIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSecretVersionIdsCommandError(output, context);
+    return de_ListSecretVersionIdsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecretVersionIdsResponse(data, context);
+  contents = de_ListSecretVersionIdsResponse(data, context);
   const response: ListSecretVersionIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -892,7 +1015,10 @@ export const deserializeAws_json1_1ListSecretVersionIdsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSecretVersionIdsCommandError
+ */
+const de_ListSecretVersionIdsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretVersionIdsCommandOutput> => {
@@ -904,16 +1030,16 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.secretsmanager#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -925,16 +1051,19 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+    return de_PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  contents = de_PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -942,7 +1071,10 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
@@ -954,22 +1086,22 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "PublicPolicyException":
     case "com.amazonaws.secretsmanager#PublicPolicyException":
-      throw await deserializeAws_json1_1PublicPolicyExceptionResponse(parsedOutput, context);
+      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -981,16 +1113,19 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutSecretValueCommand = async (
+/**
+ * deserializeAws_json1_1PutSecretValueCommand
+ */
+export const de_PutSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSecretValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutSecretValueCommandError(output, context);
+    return de_PutSecretValueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutSecretValueResponse(data, context);
+  contents = de_PutSecretValueResponse(data, context);
   const response: PutSecretValueCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -998,7 +1133,10 @@ export const deserializeAws_json1_1PutSecretValueCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutSecretValueCommandError = async (
+/**
+ * deserializeAws_json1_1PutSecretValueCommandError
+ */
+const de_PutSecretValueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSecretValueCommandOutput> => {
@@ -1010,28 +1148,28 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context);
+      throw await de_DecryptionFailureRes(parsedOutput, context);
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await deserializeAws_json1_1EncryptionFailureResponse(parsedOutput, context);
+      throw await de_EncryptionFailureRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1043,16 +1181,19 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
+/**
+ * deserializeAws_json1_1RemoveRegionsFromReplicationCommand
+ */
+export const de_RemoveRegionsFromReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRegionsFromReplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveRegionsFromReplicationCommandError(output, context);
+    return de_RemoveRegionsFromReplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveRegionsFromReplicationResponse(data, context);
+  contents = de_RemoveRegionsFromReplicationResponse(data, context);
   const response: RemoveRegionsFromReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1060,7 +1201,10 @@ export const deserializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveRegionsFromReplicationCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveRegionsFromReplicationCommandError
+ */
+const de_RemoveRegionsFromReplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRegionsFromReplicationCommandOutput> => {
@@ -1072,16 +1216,16 @@ const deserializeAws_json1_1RemoveRegionsFromReplicationCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1093,16 +1237,19 @@ const deserializeAws_json1_1RemoveRegionsFromReplicationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ReplicateSecretToRegionsCommand = async (
+/**
+ * deserializeAws_json1_1ReplicateSecretToRegionsCommand
+ */
+export const de_ReplicateSecretToRegionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplicateSecretToRegionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ReplicateSecretToRegionsCommandError(output, context);
+    return de_ReplicateSecretToRegionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReplicateSecretToRegionsResponse(data, context);
+  contents = de_ReplicateSecretToRegionsResponse(data, context);
   const response: ReplicateSecretToRegionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1110,7 +1257,10 @@ export const deserializeAws_json1_1ReplicateSecretToRegionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ReplicateSecretToRegionsCommandError = async (
+/**
+ * deserializeAws_json1_1ReplicateSecretToRegionsCommandError
+ */
+const de_ReplicateSecretToRegionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplicateSecretToRegionsCommandOutput> => {
@@ -1122,16 +1272,16 @@ const deserializeAws_json1_1ReplicateSecretToRegionsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1143,16 +1293,19 @@ const deserializeAws_json1_1ReplicateSecretToRegionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RestoreSecretCommand = async (
+/**
+ * deserializeAws_json1_1RestoreSecretCommand
+ */
+export const de_RestoreSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RestoreSecretCommandError(output, context);
+    return de_RestoreSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreSecretResponse(data, context);
+  contents = de_RestoreSecretResponse(data, context);
   const response: RestoreSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1160,7 +1313,10 @@ export const deserializeAws_json1_1RestoreSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RestoreSecretCommandError = async (
+/**
+ * deserializeAws_json1_1RestoreSecretCommandError
+ */
+const de_RestoreSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreSecretCommandOutput> => {
@@ -1172,16 +1328,16 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1193,16 +1349,19 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RotateSecretCommand = async (
+/**
+ * deserializeAws_json1_1RotateSecretCommand
+ */
+export const de_RotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RotateSecretCommandError(output, context);
+    return de_RotateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RotateSecretResponse(data, context);
+  contents = de_RotateSecretResponse(data, context);
   const response: RotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1210,7 +1369,10 @@ export const deserializeAws_json1_1RotateSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RotateSecretCommandError = async (
+/**
+ * deserializeAws_json1_1RotateSecretCommandError
+ */
+const de_RotateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
@@ -1222,16 +1384,16 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1243,16 +1405,19 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StopReplicationToReplicaCommand = async (
+/**
+ * deserializeAws_json1_1StopReplicationToReplicaCommand
+ */
+export const de_StopReplicationToReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopReplicationToReplicaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopReplicationToReplicaCommandError(output, context);
+    return de_StopReplicationToReplicaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopReplicationToReplicaResponse(data, context);
+  contents = de_StopReplicationToReplicaResponse(data, context);
   const response: StopReplicationToReplicaCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1260,7 +1425,10 @@ export const deserializeAws_json1_1StopReplicationToReplicaCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopReplicationToReplicaCommandError = async (
+/**
+ * deserializeAws_json1_1StopReplicationToReplicaCommandError
+ */
+const de_StopReplicationToReplicaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopReplicationToReplicaCommandOutput> => {
@@ -1272,16 +1440,16 @@ const deserializeAws_json1_1StopReplicationToReplicaCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1293,12 +1461,15 @@ const deserializeAws_json1_1StopReplicationToReplicaCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
@@ -1307,7 +1478,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1319,16 +1493,16 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1340,12 +1514,15 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
@@ -1354,7 +1531,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1366,16 +1546,16 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1387,16 +1567,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSecretCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSecretCommand
+ */
+export const de_UpdateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSecretCommandError(output, context);
+    return de_UpdateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSecretResponse(data, context);
+  contents = de_UpdateSecretResponse(data, context);
   const response: UpdateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1404,7 +1587,10 @@ export const deserializeAws_json1_1UpdateSecretCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSecretCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSecretCommandError
+ */
+const de_UpdateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretCommandOutput> => {
@@ -1416,34 +1602,34 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context);
+      throw await de_DecryptionFailureRes(parsedOutput, context);
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await deserializeAws_json1_1EncryptionFailureResponse(parsedOutput, context);
+      throw await de_EncryptionFailureRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "PreconditionNotMetException":
     case "com.amazonaws.secretsmanager#PreconditionNotMetException":
-      throw await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1455,16 +1641,19 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSecretVersionStageCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSecretVersionStageCommand
+ */
+export const de_UpdateSecretVersionStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSecretVersionStageCommandError(output, context);
+    return de_UpdateSecretVersionStageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSecretVersionStageResponse(data, context);
+  contents = de_UpdateSecretVersionStageResponse(data, context);
   const response: UpdateSecretVersionStageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1472,7 +1661,10 @@ export const deserializeAws_json1_1UpdateSecretVersionStageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSecretVersionStageCommandError
+ */
+const de_UpdateSecretVersionStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
@@ -1484,19 +1676,19 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1508,16 +1700,19 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ValidateResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1ValidateResourcePolicyCommand
+ */
+export const de_ValidateResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ValidateResourcePolicyCommandError(output, context);
+    return de_ValidateResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ValidateResourcePolicyResponse(data, context);
+  contents = de_ValidateResourcePolicyResponse(data, context);
   const response: ValidateResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1525,7 +1720,10 @@ export const deserializeAws_json1_1ValidateResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1ValidateResourcePolicyCommandError
+ */
+const de_ValidateResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateResourcePolicyCommandOutput> => {
@@ -1537,19 +1735,19 @@ const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1561,12 +1759,12 @@ const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
   }
 };
 
-const deserializeAws_json1_1DecryptionFailureResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DecryptionFailure> => {
+/**
+ * deserializeAws_json1_1DecryptionFailureRes
+ */
+const de_DecryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<DecryptionFailure> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DecryptionFailure(body, context);
+  const deserialized: any = de_DecryptionFailure(body, context);
   const exception = new DecryptionFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1574,12 +1772,12 @@ const deserializeAws_json1_1DecryptionFailureResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EncryptionFailureResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<EncryptionFailure> => {
+/**
+ * deserializeAws_json1_1EncryptionFailureRes
+ */
+const de_EncryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<EncryptionFailure> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EncryptionFailure(body, context);
+  const deserialized: any = de_EncryptionFailure(body, context);
   const exception = new EncryptionFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1587,12 +1785,15 @@ const deserializeAws_json1_1EncryptionFailureResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServiceErrorResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceErrorRes
+ */
+const de_InternalServiceErrorRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(body, context);
+  const deserialized: any = de_InternalServiceError(body, context);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1600,12 +1801,15 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = de_InvalidNextTokenException(body, context);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1613,12 +1817,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1626,12 +1833,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
+  const deserialized: any = de_InvalidRequestException(body, context);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1639,12 +1849,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1652,12 +1865,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MalformedPolicyDocumentExceptionRes
+ */
+const de_MalformedPolicyDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
+  const deserialized: any = de_MalformedPolicyDocumentException(body, context);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1665,12 +1881,15 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PreconditionNotMetExceptionRes
+ */
+const de_PreconditionNotMetExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PreconditionNotMetException(body, context);
+  const deserialized: any = de_PreconditionNotMetException(body, context);
   const exception = new PreconditionNotMetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1678,12 +1897,15 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PublicPolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PublicPolicyExceptionRes
+ */
+const de_PublicPolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PublicPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PublicPolicyException(body, context);
+  const deserialized: any = de_PublicPolicyException(body, context);
   const exception = new PublicPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1691,12 +1913,15 @@ const deserializeAws_json1_1PublicPolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceExistsExceptionRes
+ */
+const de_ResourceExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceExistsException(body, context);
+  const deserialized: any = de_ResourceExistsException(body, context);
   const exception = new ResourceExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1704,12 +1929,15 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1717,27 +1945,33 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddReplicaRegionListType = (input: ReplicaRegionType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddReplicaRegionListType
+ */
+const se_AddReplicaRegionListType = (input: ReplicaRegionType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ReplicaRegionType(entry, context);
+      return se_ReplicaRegionType(entry, context);
     });
 };
 
-const serializeAws_json1_1CancelRotateSecretRequest = (
-  input: CancelRotateSecretRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CancelRotateSecretRequest
+ */
+const se_CancelRotateSecretRequest = (input: CancelRotateSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateSecretRequest
+ */
+const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.AddReplicaRegions != null && {
-      AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+      AddReplicaRegions: se_AddReplicaRegionListType(input.AddReplicaRegions, context),
     }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
@@ -1748,20 +1982,23 @@ const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, con
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SecretBinary != null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
     ...(input.SecretString != null && { SecretString: input.SecretString }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagListType(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1DeleteResourcePolicyRequest = (
-  input: DeleteResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResourcePolicyRequest
+ */
+const se_DeleteResourcePolicyRequest = (input: DeleteResourcePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1DeleteSecretRequest = (input: DeleteSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteSecretRequest
+ */
+const se_DeleteSecretRequest = (input: DeleteSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.ForceDeleteWithoutRecovery != null && { ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery }),
     ...(input.RecoveryWindowInDays != null && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
@@ -1769,28 +2006,40 @@ const serializeAws_json1_1DeleteSecretRequest = (input: DeleteSecretRequest, con
   };
 };
 
-const serializeAws_json1_1DescribeSecretRequest = (input: DescribeSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeSecretRequest
+ */
+const se_DescribeSecretRequest = (input: DescribeSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValuesStringList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_1FiltersListType = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FiltersListType
+ */
+const se_FiltersListType = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1FilterValuesStringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterValuesStringList
+ */
+const se_FilterValuesStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1798,10 +2047,10 @@ const serializeAws_json1_1FilterValuesStringList = (input: string[], context: __
     });
 };
 
-const serializeAws_json1_1GetRandomPasswordRequest = (
-  input: GetRandomPasswordRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetRandomPasswordRequest
+ */
+const se_GetRandomPasswordRequest = (input: GetRandomPasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeCharacters != null && { ExcludeCharacters: input.ExcludeCharacters }),
     ...(input.ExcludeLowercase != null && { ExcludeLowercase: input.ExcludeLowercase }),
@@ -1814,16 +2063,19 @@ const serializeAws_json1_1GetRandomPasswordRequest = (
   };
 };
 
-const serializeAws_json1_1GetResourcePolicyRequest = (
-  input: GetResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetResourcePolicyRequest
+ */
+const se_GetResourcePolicyRequest = (input: GetResourcePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetSecretValueRequest
+ */
+const se_GetSecretValueRequest = (input: GetSecretValueRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
     ...(input.VersionId != null && { VersionId: input.VersionId }),
@@ -1831,9 +2083,12 @@ const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest,
   };
 };
 
-const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListSecretsRequest
+ */
+const se_ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FiltersListType(input.Filters, context) }),
     ...(input.IncludePlannedDeletion != null && { IncludePlannedDeletion: input.IncludePlannedDeletion }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -1841,10 +2096,10 @@ const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, conte
   };
 };
 
-const serializeAws_json1_1ListSecretVersionIdsRequest = (
-  input: ListSecretVersionIdsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListSecretVersionIdsRequest
+ */
+const se_ListSecretVersionIdsRequest = (input: ListSecretVersionIdsRequest, context: __SerdeContext): any => {
   return {
     ...(input.IncludeDeprecated != null && { IncludeDeprecated: input.IncludeDeprecated }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -1853,10 +2108,10 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
   };
 };
 
-const serializeAws_json1_1PutResourcePolicyRequest = (
-  input: PutResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutResourcePolicyRequest
+ */
+const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.BlockPublicPolicy != null && { BlockPublicPolicy: input.BlockPublicPolicy }),
     ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
@@ -1864,31 +2119,38 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   };
 };
 
-const serializeAws_json1_1PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutSecretValueRequest
+ */
+const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.SecretBinary != null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
     ...(input.SecretId != null && { SecretId: input.SecretId }),
     ...(input.SecretString != null && { SecretString: input.SecretString }),
-    ...(input.VersionStages != null && {
-      VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
-    }),
+    ...(input.VersionStages != null && { VersionStages: se_SecretVersionStagesType(input.VersionStages, context) }),
   };
 };
 
-const serializeAws_json1_1RemoveRegionsFromReplicationRequest = (
+/**
+ * serializeAws_json1_1RemoveRegionsFromReplicationRequest
+ */
+const se_RemoveRegionsFromReplicationRequest = (
   input: RemoveRegionsFromReplicationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.RemoveReplicaRegions != null && {
-      RemoveReplicaRegions: serializeAws_json1_1RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
+      RemoveReplicaRegions: se_RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
     }),
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1RemoveReplicaRegionListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RemoveReplicaRegionListType
+ */
+const se_RemoveReplicaRegionListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1896,20 +2158,23 @@ const serializeAws_json1_1RemoveReplicaRegionListType = (input: string[], contex
     });
 };
 
-const serializeAws_json1_1ReplicaRegionType = (input: ReplicaRegionType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReplicaRegionType
+ */
+const se_ReplicaRegionType = (input: ReplicaRegionType, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.Region != null && { Region: input.Region }),
   };
 };
 
-const serializeAws_json1_1ReplicateSecretToRegionsRequest = (
-  input: ReplicateSecretToRegionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ReplicateSecretToRegionsRequest
+ */
+const se_ReplicateSecretToRegionsRequest = (input: ReplicateSecretToRegionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.AddReplicaRegions != null && {
-      AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+      AddReplicaRegions: se_AddReplicaRegionListType(input.AddReplicaRegions, context),
     }),
     ...(input.ForceOverwriteReplicaSecret != null && {
       ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret,
@@ -1918,25 +2183,32 @@ const serializeAws_json1_1ReplicateSecretToRegionsRequest = (
   };
 };
 
-const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RestoreSecretRequest
+ */
+const se_RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RotateSecretRequest
+ */
+const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.RotateImmediately != null && { RotateImmediately: input.RotateImmediately }),
     ...(input.RotationLambdaARN != null && { RotationLambdaARN: input.RotationLambdaARN }),
-    ...(input.RotationRules != null && {
-      RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
-    }),
+    ...(input.RotationRules != null && { RotationRules: se_RotationRulesType(input.RotationRules, context) }),
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RotationRulesType
+ */
+const se_RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
   return {
     ...(input.AutomaticallyAfterDays != null && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
     ...(input.Duration != null && { Duration: input.Duration }),
@@ -1944,7 +2216,10 @@ const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context
   };
 };
 
-const serializeAws_json1_1SecretVersionStagesType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecretVersionStagesType
+ */
+const se_SecretVersionStagesType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1952,23 +2227,29 @@ const serializeAws_json1_1SecretVersionStagesType = (input: string[], context: _
     });
 };
 
-const serializeAws_json1_1StopReplicationToReplicaRequest = (
-  input: StopReplicationToReplicaRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StopReplicationToReplicaRequest
+ */
+const se_StopReplicationToReplicaRequest = (input: StopReplicationToReplicaRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyListType
+ */
+const se_TagKeyListType = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1976,29 +2257,41 @@ const serializeAws_json1_1TagKeyListType = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1TagListType = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagListType
+ */
+const se_TagListType = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagListType(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyListType(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateSecretRequest
+ */
+const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
@@ -2009,10 +2302,10 @@ const serializeAws_json1_1UpdateSecretRequest = (input: UpdateSecretRequest, con
   };
 };
 
-const serializeAws_json1_1UpdateSecretVersionStageRequest = (
-  input: UpdateSecretVersionStageRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateSecretVersionStageRequest
+ */
+const se_UpdateSecretVersionStageRequest = (input: UpdateSecretVersionStageRequest, context: __SerdeContext): any => {
   return {
     ...(input.MoveToVersionId != null && { MoveToVersionId: input.MoveToVersionId }),
     ...(input.RemoveFromVersionId != null && { RemoveFromVersionId: input.RemoveFromVersionId }),
@@ -2021,20 +2314,20 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   };
 };
 
-const serializeAws_json1_1ValidateResourcePolicyRequest = (
-  input: ValidateResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ValidateResourcePolicyRequest
+ */
+const se_ValidateResourcePolicyRequest = (input: ValidateResourcePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
     ...(input.SecretId != null && { SecretId: input.SecretId }),
   };
 };
 
-const deserializeAws_json1_1CancelRotateSecretResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelRotateSecretResponse => {
+/**
+ * deserializeAws_json1_1CancelRotateSecretResponse
+ */
+const de_CancelRotateSecretResponse = (output: any, context: __SerdeContext): CancelRotateSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
@@ -2042,35 +2335,42 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
+/**
+ * deserializeAws_json1_1CreateSecretResponse
+ */
+const de_CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
     ReplicationStatus:
-      output.ReplicationStatus != null
-        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
-        : undefined,
+      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
     VersionId: __expectString(output.VersionId),
   } as any;
 };
 
-const deserializeAws_json1_1DecryptionFailure = (output: any, context: __SerdeContext): DecryptionFailure => {
+/**
+ * deserializeAws_json1_1DecryptionFailure
+ */
+const de_DecryptionFailure = (output: any, context: __SerdeContext): DecryptionFailure => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyResponse
+ */
+const de_DeleteResourcePolicyResponse = (output: any, context: __SerdeContext): DeleteResourcePolicyResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
+/**
+ * deserializeAws_json1_1DeleteSecretResponse
+ */
+const de_DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     DeletionDate:
@@ -2081,7 +2381,10 @@ const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
+/**
+ * deserializeAws_json1_1DescribeSecretResponse
+ */
+const de_DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
@@ -2114,40 +2417,40 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     ReplicationStatus:
-      output.ReplicationStatus != null
-        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
-        : undefined,
+      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
     RotationEnabled: __expectBoolean(output.RotationEnabled),
     RotationLambdaARN: __expectString(output.RotationLambdaARN),
-    RotationRules:
-      output.RotationRules != null ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagListType(output.Tags, context) : undefined,
+    RotationRules: output.RotationRules != null ? de_RotationRulesType(output.RotationRules, context) : undefined,
+    Tags: output.Tags != null ? de_TagListType(output.Tags, context) : undefined,
     VersionIdsToStages:
       output.VersionIdsToStages != null
-        ? deserializeAws_json1_1SecretVersionsToStagesMapType(output.VersionIdsToStages, context)
+        ? de_SecretVersionsToStagesMapType(output.VersionIdsToStages, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionFailure = (output: any, context: __SerdeContext): EncryptionFailure => {
+/**
+ * deserializeAws_json1_1EncryptionFailure
+ */
+const de_EncryptionFailure = (output: any, context: __SerdeContext): EncryptionFailure => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1GetRandomPasswordResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRandomPasswordResponse => {
+/**
+ * deserializeAws_json1_1GetRandomPasswordResponse
+ */
+const de_GetRandomPasswordResponse = (output: any, context: __SerdeContext): GetRandomPasswordResponse => {
   return {
     RandomPassword: __expectString(output.RandomPassword),
   } as any;
 };
 
-const deserializeAws_json1_1GetResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1GetResourcePolicyResponse
+ */
+const de_GetResourcePolicyResponse = (output: any, context: __SerdeContext): GetResourcePolicyResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
@@ -2155,7 +2458,10 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
+/**
+ * deserializeAws_json1_1GetSecretValueResponse
+ */
+const de_GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
@@ -2166,47 +2472,50 @@ const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __Se
     SecretBinary: output.SecretBinary != null ? context.base64Decoder(output.SecretBinary) : undefined,
     SecretString: __expectString(output.SecretString),
     VersionId: __expectString(output.VersionId),
-    VersionStages:
-      output.VersionStages != null
-        ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
-        : undefined,
+    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
+/**
+ * deserializeAws_json1_1InternalServiceError
+ */
+const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
+/**
+ * deserializeAws_json1_1InvalidNextTokenException
+ */
+const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
+/**
+ * deserializeAws_json1_1InvalidRequestException
+ */
+const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1KmsKeyIdListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1KmsKeyIdListType
+ */
+const de_KmsKeyIdListType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2218,34 +2527,41 @@ const deserializeAws_json1_1KmsKeyIdListType = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
+/**
+ * deserializeAws_json1_1ListSecretsResponse
+ */
+const de_ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    SecretList:
-      output.SecretList != null ? deserializeAws_json1_1SecretListType(output.SecretList, context) : undefined,
+    SecretList: output.SecretList != null ? de_SecretListType(output.SecretList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListSecretVersionIdsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSecretVersionIdsResponse => {
+/**
+ * deserializeAws_json1_1ListSecretVersionIdsResponse
+ */
+const de_ListSecretVersionIdsResponse = (output: any, context: __SerdeContext): ListSecretVersionIdsResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
     NextToken: __expectString(output.NextToken),
-    Versions:
-      output.Versions != null ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context) : undefined,
+    Versions: output.Versions != null ? de_SecretVersionsListType(output.Versions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MalformedPolicyDocumentException = (
+/**
+ * deserializeAws_json1_1MalformedPolicyDocumentException
+ */
+const de_MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
@@ -2254,85 +2570,93 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   } as any;
 };
 
-const deserializeAws_json1_1PreconditionNotMetException = (
-  output: any,
-  context: __SerdeContext
-): PreconditionNotMetException => {
+/**
+ * deserializeAws_json1_1PreconditionNotMetException
+ */
+const de_PreconditionNotMetException = (output: any, context: __SerdeContext): PreconditionNotMetException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
+/**
+ * deserializeAws_json1_1PublicPolicyException
+ */
+const de_PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PutResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1PutResourcePolicyResponse
+ */
+const de_PutResourcePolicyResponse = (output: any, context: __SerdeContext): PutResourcePolicyResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1PutSecretValueResponse = (output: any, context: __SerdeContext): PutSecretValueResponse => {
+/**
+ * deserializeAws_json1_1PutSecretValueResponse
+ */
+const de_PutSecretValueResponse = (output: any, context: __SerdeContext): PutSecretValueResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
     VersionId: __expectString(output.VersionId),
-    VersionStages:
-      output.VersionStages != null
-        ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
-        : undefined,
+    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RemoveRegionsFromReplicationResponse = (
+/**
+ * deserializeAws_json1_1RemoveRegionsFromReplicationResponse
+ */
+const de_RemoveRegionsFromReplicationResponse = (
   output: any,
   context: __SerdeContext
 ): RemoveRegionsFromReplicationResponse => {
   return {
     ARN: __expectString(output.ARN),
     ReplicationStatus:
-      output.ReplicationStatus != null
-        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
-        : undefined,
+      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ReplicateSecretToRegionsResponse = (
+/**
+ * deserializeAws_json1_1ReplicateSecretToRegionsResponse
+ */
+const de_ReplicateSecretToRegionsResponse = (
   output: any,
   context: __SerdeContext
 ): ReplicateSecretToRegionsResponse => {
   return {
     ARN: __expectString(output.ARN),
     ReplicationStatus:
-      output.ReplicationStatus != null
-        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
-        : undefined,
+      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ReplicationStatusListType = (
-  output: any,
-  context: __SerdeContext
-): ReplicationStatusType[] => {
+/**
+ * deserializeAws_json1_1ReplicationStatusListType
+ */
+const de_ReplicationStatusListType = (output: any, context: __SerdeContext): ReplicationStatusType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ReplicationStatusType(entry, context);
+      return de_ReplicationStatusType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
+/**
+ * deserializeAws_json1_1ReplicationStatusType
+ */
+const de_ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
@@ -2345,32 +2669,38 @@ const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1ResourceExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceExistsException => {
+/**
+ * deserializeAws_json1_1ResourceExistsException
+ */
+const de_ResourceExistsException = (output: any, context: __SerdeContext): ResourceExistsException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1RestoreSecretResponse = (output: any, context: __SerdeContext): RestoreSecretResponse => {
+/**
+ * deserializeAws_json1_1RestoreSecretResponse
+ */
+const de_RestoreSecretResponse = (output: any, context: __SerdeContext): RestoreSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __SerdeContext): RotateSecretResponse => {
+/**
+ * deserializeAws_json1_1RotateSecretResponse
+ */
+const de_RotateSecretResponse = (output: any, context: __SerdeContext): RotateSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
@@ -2378,7 +2708,10 @@ const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
+/**
+ * deserializeAws_json1_1RotationRulesType
+ */
+const de_RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
   return {
     AutomaticallyAfterDays: __expectLong(output.AutomaticallyAfterDays),
     Duration: __expectString(output.Duration),
@@ -2386,7 +2719,10 @@ const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
+/**
+ * deserializeAws_json1_1SecretListEntry
+ */
+const de_SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
@@ -2420,66 +2756,68 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
     PrimaryRegion: __expectString(output.PrimaryRegion),
     RotationEnabled: __expectBoolean(output.RotationEnabled),
     RotationLambdaARN: __expectString(output.RotationLambdaARN),
-    RotationRules:
-      output.RotationRules != null ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context) : undefined,
+    RotationRules: output.RotationRules != null ? de_RotationRulesType(output.RotationRules, context) : undefined,
     SecretVersionsToStages:
       output.SecretVersionsToStages != null
-        ? deserializeAws_json1_1SecretVersionsToStagesMapType(output.SecretVersionsToStages, context)
+        ? de_SecretVersionsToStagesMapType(output.SecretVersionsToStages, context)
         : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagListType(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagListType(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SecretListType = (output: any, context: __SerdeContext): SecretListEntry[] => {
+/**
+ * deserializeAws_json1_1SecretListType
+ */
+const de_SecretListType = (output: any, context: __SerdeContext): SecretListEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SecretListEntry(entry, context);
+      return de_SecretListEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecretVersionsListEntry = (
-  output: any,
-  context: __SerdeContext
-): SecretVersionsListEntry => {
+/**
+ * deserializeAws_json1_1SecretVersionsListEntry
+ */
+const de_SecretVersionsListEntry = (output: any, context: __SerdeContext): SecretVersionsListEntry => {
   return {
     CreatedDate:
       output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
-    KmsKeyIds: output.KmsKeyIds != null ? deserializeAws_json1_1KmsKeyIdListType(output.KmsKeyIds, context) : undefined,
+    KmsKeyIds: output.KmsKeyIds != null ? de_KmsKeyIdListType(output.KmsKeyIds, context) : undefined,
     LastAccessedDate:
       output.LastAccessedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     VersionId: __expectString(output.VersionId),
-    VersionStages:
-      output.VersionStages != null
-        ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
-        : undefined,
+    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SecretVersionsListType = (
-  output: any,
-  context: __SerdeContext
-): SecretVersionsListEntry[] => {
+/**
+ * deserializeAws_json1_1SecretVersionsListType
+ */
+const de_SecretVersionsListType = (output: any, context: __SerdeContext): SecretVersionsListEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SecretVersionsListEntry(entry, context);
+      return de_SecretVersionsListEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecretVersionStagesType
+ */
+const de_SecretVersionStagesType = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2491,20 +2829,23 @@ const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __S
   return retVal;
 };
 
-const deserializeAws_json1_1SecretVersionsToStagesMapType = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string[]> => {
+/**
+ * deserializeAws_json1_1SecretVersionsToStagesMapType
+ */
+const de_SecretVersionsToStagesMapType = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_1SecretVersionStagesType(value, context);
+    acc[key] = de_SecretVersionStagesType(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_1StopReplicationToReplicaResponse = (
+/**
+ * deserializeAws_json1_1StopReplicationToReplicaResponse
+ */
+const de_StopReplicationToReplicaResponse = (
   output: any,
   context: __SerdeContext
 ): StopReplicationToReplicaResponse => {
@@ -2513,26 +2854,35 @@ const deserializeAws_json1_1StopReplicationToReplicaResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagListType
+ */
+const de_TagListType = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
+/**
+ * deserializeAws_json1_1UpdateSecretResponse
+ */
+const de_UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
   return {
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
@@ -2540,7 +2890,10 @@ const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
+/**
+ * deserializeAws_json1_1UpdateSecretVersionStageResponse
+ */
+const de_UpdateSecretVersionStageResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSecretVersionStageResponse => {
@@ -2550,34 +2903,38 @@ const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ValidateResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): ValidateResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1ValidateResourcePolicyResponse
+ */
+const de_ValidateResourcePolicyResponse = (output: any, context: __SerdeContext): ValidateResourcePolicyResponse => {
   return {
     PolicyValidationPassed: __expectBoolean(output.PolicyValidationPassed),
     ValidationErrors:
-      output.ValidationErrors != null
-        ? deserializeAws_json1_1ValidationErrorsType(output.ValidationErrors, context)
-        : undefined,
+      output.ValidationErrors != null ? de_ValidationErrorsType(output.ValidationErrors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
+/**
+ * deserializeAws_json1_1ValidationErrorsEntry
+ */
+const de_ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
   return {
     CheckName: __expectString(output.CheckName),
     ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 
-const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
+/**
+ * deserializeAws_json1_1ValidationErrorsType
+ */
+const de_ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ValidationErrorsEntry(entry, context);
+      return de_ValidationErrorsEntry(entry, context);
     });
   return retVal;
 };

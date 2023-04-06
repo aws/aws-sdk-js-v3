@@ -15,10 +15,7 @@ import {
 
 import { ListQualificationRequestsRequest, ListQualificationRequestsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListQualificationRequestsCommand,
-  serializeAws_json1_1ListQualificationRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListQualificationRequestsCommand, se_ListQualificationRequestsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class ListQualificationRequestsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQualificationRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQualificationRequestsCommand(input, context);
+    return se_ListQualificationRequestsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class ListQualificationRequestsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListQualificationRequestsCommandOutput> {
-    return deserializeAws_json1_1ListQualificationRequestsCommand(output, context);
+    return de_ListQualificationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

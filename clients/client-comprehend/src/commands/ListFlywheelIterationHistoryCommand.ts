@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListFlywheelIterationHistoryCommand,
-  serializeAws_json1_1ListFlywheelIterationHistoryCommand,
+  de_ListFlywheelIterationHistoryCommand,
+  se_ListFlywheelIterationHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFlywheelIterationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlywheelIterationHistoryCommand(input, context);
+    return se_ListFlywheelIterationHistoryCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFlywheelIterationHistoryCommandOutput> {
-    return deserializeAws_json1_1ListFlywheelIterationHistoryCommand(output, context);
+    return de_ListFlywheelIterationHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

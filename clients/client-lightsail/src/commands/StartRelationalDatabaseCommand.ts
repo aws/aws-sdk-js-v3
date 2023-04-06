@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartRelationalDatabaseCommand,
-  serializeAws_json1_1StartRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartRelationalDatabaseCommand, se_StartRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class StartRelationalDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRelationalDatabaseCommand(input, context);
+    return se_StartRelationalDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StartRelationalDatabaseCommand(output, context);
+    return de_StartRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

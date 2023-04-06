@@ -16,8 +16,8 @@ import {
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { RotateIngestEndpointCredentialsRequest, RotateIngestEndpointCredentialsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1RotateIngestEndpointCredentialsCommand,
-  serializeAws_restJson1RotateIngestEndpointCredentialsCommand,
+  de_RotateIngestEndpointCredentialsCommand,
+  se_RotateIngestEndpointCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     input: RotateIngestEndpointCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RotateIngestEndpointCredentialsCommand(input, context);
+    return se_RotateIngestEndpointCredentialsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
-    return deserializeAws_restJson1RotateIngestEndpointCredentialsCommand(output, context);
+    return de_RotateIngestEndpointCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

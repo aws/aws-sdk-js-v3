@@ -15,8 +15,8 @@ import {
 
 import { UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
-  serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
+  de_UpdateAutomaticTapeCreationPolicyCommand,
+  se_UpdateAutomaticTapeCreationPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -150,7 +150,7 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     input: UpdateAutomaticTapeCreationPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand(input, context);
+    return se_UpdateAutomaticTapeCreationPolicyCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> {
-    return deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand(output, context);
+    return de_UpdateAutomaticTapeCreationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

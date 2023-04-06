@@ -15,10 +15,7 @@ import {
 
 import { DescribeInboundConnectionsRequest, DescribeInboundConnectionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeInboundConnectionsCommand,
-  serializeAws_restJson1DescribeInboundConnectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeInboundConnectionsCommand, se_DescribeInboundConnectionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DescribeInboundConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInboundConnectionsCommand(input, context);
+    return se_DescribeInboundConnectionsCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DescribeInboundConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInboundConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeInboundConnectionsCommand(output, context);
+    return de_DescribeInboundConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

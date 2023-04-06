@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { StartInstanceOnboardingJobRequest, StartInstanceOnboardingJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartInstanceOnboardingJobCommand,
-  serializeAws_restJson1StartInstanceOnboardingJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartInstanceOnboardingJobCommand, se_StartInstanceOnboardingJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class StartInstanceOnboardingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartInstanceOnboardingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartInstanceOnboardingJobCommand(input, context);
+    return se_StartInstanceOnboardingJobCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class StartInstanceOnboardingJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartInstanceOnboardingJobCommandOutput> {
-    return deserializeAws_restJson1StartInstanceOnboardingJobCommand(output, context);
+    return de_StartInstanceOnboardingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

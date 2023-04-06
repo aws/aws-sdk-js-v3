@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StartMLEvaluationTaskRunCommand,
-  serializeAws_json1_1StartMLEvaluationTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartMLEvaluationTaskRunCommand, se_StartMLEvaluationTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMLEvaluationTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLEvaluationTaskRunCommand(input, context);
+    return se_StartMLEvaluationTaskRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMLEvaluationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLEvaluationTaskRunCommand(output, context);
+    return de_StartMLEvaluationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

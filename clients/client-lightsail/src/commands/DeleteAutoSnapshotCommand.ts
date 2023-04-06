@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAutoSnapshotCommand,
-  serializeAws_json1_1DeleteAutoSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAutoSnapshotCommand, se_DeleteAutoSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteAutoSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAutoSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAutoSnapshotCommand(input, context);
+    return se_DeleteAutoSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAutoSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteAutoSnapshotCommand(output, context);
+    return de_DeleteAutoSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

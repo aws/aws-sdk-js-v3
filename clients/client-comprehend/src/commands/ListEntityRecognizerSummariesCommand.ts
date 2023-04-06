@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListEntityRecognizerSummariesCommand,
-  serializeAws_json1_1ListEntityRecognizerSummariesCommand,
+  de_ListEntityRecognizerSummariesCommand,
+  se_ListEntityRecognizerSummariesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntityRecognizerSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntityRecognizerSummariesCommand(input, context);
+    return se_ListEntityRecognizerSummariesCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntityRecognizerSummariesCommandOutput> {
-    return deserializeAws_json1_1ListEntityRecognizerSummariesCommand(output, context);
+    return de_ListEntityRecognizerSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListInstanceFleetsInput, ListInstanceFleetsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstanceFleetsCommand,
-  serializeAws_json1_1ListInstanceFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListInstanceFleetsCommand, se_ListInstanceFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListInstanceFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInstanceFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstanceFleetsCommand(input, context);
+    return se_ListInstanceFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceFleetsCommandOutput> {
-    return deserializeAws_json1_1ListInstanceFleetsCommand(output, context);
+    return de_ListInstanceFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

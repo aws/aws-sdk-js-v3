@@ -19,10 +19,7 @@ import {
   ConnectDirectoryRequestFilterSensitiveLog,
   ConnectDirectoryResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConnectDirectoryCommand,
-  serializeAws_json1_1ConnectDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConnectDirectoryCommand, se_ConnectDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class ConnectDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ConnectDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConnectDirectoryCommand(input, context);
+    return se_ConnectDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConnectDirectoryCommandOutput> {
-    return deserializeAws_json1_1ConnectDirectoryCommand(output, context);
+    return de_ConnectDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

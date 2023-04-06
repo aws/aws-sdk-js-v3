@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { StopDevEnvironmentRequest, StopDevEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopDevEnvironmentCommand,
-  serializeAws_restJson1StopDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopDevEnvironmentCommand, se_StopDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class StopDevEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopDevEnvironmentCommand(input, context);
+    return se_StopDevEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1StopDevEnvironmentCommand(output, context);
+    return de_StopDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

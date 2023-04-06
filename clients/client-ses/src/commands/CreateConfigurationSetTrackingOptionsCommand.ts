@@ -18,8 +18,8 @@ import {
   CreateConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
-  serializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
+  de_CreateConfigurationSetTrackingOptionsCommand,
+  se_CreateConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -156,7 +156,7 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     input: CreateConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateConfigurationSetTrackingOptionsCommand(input, context);
+    return se_CreateConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand(output, context);
+    return de_CreateConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { ModifyBackupAttributesRequest, ModifyBackupAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyBackupAttributesCommand,
-  serializeAws_json1_1ModifyBackupAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyBackupAttributesCommand, se_ModifyBackupAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ModifyBackupAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyBackupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyBackupAttributesCommand(input, context);
+    return se_ModifyBackupAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyBackupAttributesCommandOutput> {
-    return deserializeAws_json1_1ModifyBackupAttributesCommand(output, context);
+    return de_ModifyBackupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

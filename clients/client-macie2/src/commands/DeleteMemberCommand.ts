@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DeleteMemberRequest, DeleteMemberResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMemberCommand,
-  serializeAws_restJson1DeleteMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMemberCommand, se_DeleteMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMemberCommand(input, context);
+    return se_DeleteMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteMemberCommand(output, context);
+    return de_DeleteMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

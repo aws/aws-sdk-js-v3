@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutAggregationAuthorizationCommand,
-  serializeAws_json1_1PutAggregationAuthorizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAggregationAuthorizationCommand, se_PutAggregationAuthorizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class PutAggregationAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAggregationAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAggregationAuthorizationCommand(input, context);
+    return se_PutAggregationAuthorizationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class PutAggregationAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAggregationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1PutAggregationAuthorizationCommand(output, context);
+    return de_PutAggregationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

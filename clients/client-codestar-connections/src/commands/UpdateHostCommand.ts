@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { UpdateHostInput, UpdateHostOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateHostCommand,
-  serializeAws_json1_0UpdateHostCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateHostCommand, se_UpdateHostCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateHostCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateHostCommand(input, context);
+    return se_UpdateHostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostCommandOutput> {
-    return deserializeAws_json1_0UpdateHostCommand(output, context);
+    return de_UpdateHostCommand(output, context);
   }
 
   // Start section: command_body_extra

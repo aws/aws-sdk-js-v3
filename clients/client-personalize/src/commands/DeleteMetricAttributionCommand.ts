@@ -15,10 +15,7 @@ import {
 
 import { DeleteMetricAttributionRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteMetricAttributionCommand,
-  serializeAws_json1_1DeleteMetricAttributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMetricAttributionCommand, se_DeleteMetricAttributionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteMetricAttributionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMetricAttributionCommand(input, context);
+    return se_DeleteMetricAttributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricAttributionCommandOutput> {
-    return deserializeAws_json1_1DeleteMetricAttributionCommand(output, context);
+    return de_DeleteMetricAttributionCommand(output, context);
   }
 
   // Start section: command_body_extra

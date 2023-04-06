@@ -15,10 +15,7 @@ import {
 
 import { StopStreamingSessionRequest, StopStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1StopStreamingSessionCommand,
-  serializeAws_restJson1StopStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopStreamingSessionCommand, se_StopStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class StopStreamingSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopStreamingSessionCommand(input, context);
+    return se_StopStreamingSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1StopStreamingSessionCommand(output, context);
+    return de_StopStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

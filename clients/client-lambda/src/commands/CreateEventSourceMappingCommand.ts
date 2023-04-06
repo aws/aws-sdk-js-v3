@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { CreateEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEventSourceMappingCommand,
-  serializeAws_restJson1CreateEventSourceMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEventSourceMappingCommand, se_CreateEventSourceMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -298,14 +295,14 @@ export class CreateEventSourceMappingCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEventSourceMappingCommand(input, context);
+    return se_CreateEventSourceMappingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1CreateEventSourceMappingCommand(output, context);
+    return de_CreateEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

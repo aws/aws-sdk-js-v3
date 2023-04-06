@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetSchemaVersionsDiffInput, GetSchemaVersionsDiffResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSchemaVersionsDiffCommand,
-  serializeAws_json1_1GetSchemaVersionsDiffCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSchemaVersionsDiffCommand, se_GetSchemaVersionsDiffCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class GetSchemaVersionsDiffCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSchemaVersionsDiffCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSchemaVersionsDiffCommand(input, context);
+    return se_GetSchemaVersionsDiffCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaVersionsDiffCommandOutput> {
-    return deserializeAws_json1_1GetSchemaVersionsDiffCommand(output, context);
+    return de_GetSchemaVersionsDiffCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListDistributionsByKeyGroupRequest, ListDistributionsByKeyGroupResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListDistributionsByKeyGroupCommand,
-  serializeAws_restXmlListDistributionsByKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListDistributionsByKeyGroupCommand, se_ListDistributionsByKeyGroupCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDistributionsByKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByKeyGroupCommand(input, context);
+    return se_ListDistributionsByKeyGroupCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByKeyGroupCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByKeyGroupCommand(output, context);
+    return de_ListDistributionsByKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

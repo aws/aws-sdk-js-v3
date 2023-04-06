@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DeleteRegistryPolicyRequest, DeleteRegistryPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRegistryPolicyCommand,
-  serializeAws_json1_1DeleteRegistryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRegistryPolicyCommand, se_DeleteRegistryPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteRegistryPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRegistryPolicyCommand(input, context);
+    return se_DeleteRegistryPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteRegistryPolicyCommand(output, context);
+    return de_DeleteRegistryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

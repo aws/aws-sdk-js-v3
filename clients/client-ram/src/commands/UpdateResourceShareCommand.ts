@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateResourceShareRequest, UpdateResourceShareResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateResourceShareCommand,
-  serializeAws_restJson1UpdateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateResourceShareCommand, se_UpdateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -152,14 +149,14 @@ export class UpdateResourceShareCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceShareCommand(input, context);
+    return se_UpdateResourceShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceShareCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceShareCommand(output, context);
+    return de_UpdateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

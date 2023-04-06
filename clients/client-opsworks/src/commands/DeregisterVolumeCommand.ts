@@ -15,10 +15,7 @@ import {
 
 import { DeregisterVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterVolumeCommand,
-  serializeAws_json1_1DeregisterVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterVolumeCommand, se_DeregisterVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeregisterVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterVolumeCommand(input, context);
+    return se_DeregisterVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterVolumeCommandOutput> {
-    return deserializeAws_json1_1DeregisterVolumeCommand(output, context);
+    return de_DeregisterVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

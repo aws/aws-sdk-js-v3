@@ -16,8 +16,8 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetCostAndUsageWithResourcesRequest, GetCostAndUsageWithResourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCostAndUsageWithResourcesCommand,
-  serializeAws_json1_1GetCostAndUsageWithResourcesCommand,
+  de_GetCostAndUsageWithResourcesCommand,
+  se_GetCostAndUsageWithResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -230,7 +230,7 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCostAndUsageWithResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCostAndUsageWithResourcesCommand(input, context);
+    return se_GetCostAndUsageWithResourcesCommand(input, context);
   }
 
   /**
@@ -240,7 +240,7 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCostAndUsageWithResourcesCommandOutput> {
-    return deserializeAws_json1_1GetCostAndUsageWithResourcesCommand(output, context);
+    return de_GetCostAndUsageWithResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

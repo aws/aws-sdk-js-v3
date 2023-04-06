@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListGroupVersionsRequest, ListGroupVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGroupVersionsCommand,
-  serializeAws_restJson1ListGroupVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGroupVersionsCommand, se_ListGroupVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class ListGroupVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupVersionsCommand(input, context);
+    return se_ListGroupVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupVersionsCommandOutput> {
-    return deserializeAws_restJson1ListGroupVersionsCommand(output, context);
+    return de_ListGroupVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

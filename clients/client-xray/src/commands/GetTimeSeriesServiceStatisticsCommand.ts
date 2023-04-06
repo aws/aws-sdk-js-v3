@@ -15,8 +15,8 @@ import {
 
 import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
-  serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
+  de_GetTimeSeriesServiceStatisticsCommand,
+  se_GetTimeSeriesServiceStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
@@ -139,7 +139,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(input, context);
+    return se_GetTimeSeriesServiceStatisticsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(output, context);
+    return de_GetTimeSeriesServiceStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

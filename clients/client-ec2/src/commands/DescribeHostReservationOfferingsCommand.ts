@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeHostReservationOfferingsCommand,
-  serializeAws_ec2DescribeHostReservationOfferingsCommand,
+  de_DescribeHostReservationOfferingsCommand,
+  se_DescribeHostReservationOfferingsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -143,7 +143,7 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     input: DescribeHostReservationOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeHostReservationOfferingsCommand(input, context);
+    return se_DescribeHostReservationOfferingsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHostReservationOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeHostReservationOfferingsCommand(output, context);
+    return de_DescribeHostReservationOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAppMonitorRequest, GetAppMonitorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppMonitorCommand,
-  serializeAws_restJson1GetAppMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAppMonitorCommand, se_GetAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetAppMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppMonitorCommand(input, context);
+    return se_GetAppMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppMonitorCommandOutput> {
-    return deserializeAws_restJson1GetAppMonitorCommand(output, context);
+    return de_GetAppMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

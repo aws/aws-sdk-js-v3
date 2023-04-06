@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DisableClientAuthenticationRequest, DisableClientAuthenticationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableClientAuthenticationCommand,
-  serializeAws_json1_1DisableClientAuthenticationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableClientAuthenticationCommand, se_DisableClientAuthenticationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class DisableClientAuthenticationCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableClientAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableClientAuthenticationCommand(input, context);
+    return se_DisableClientAuthenticationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class DisableClientAuthenticationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableClientAuthenticationCommandOutput> {
-    return deserializeAws_json1_1DisableClientAuthenticationCommand(output, context);
+    return de_DisableClientAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

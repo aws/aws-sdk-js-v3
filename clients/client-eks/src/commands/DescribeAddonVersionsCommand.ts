@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeAddonVersionsRequest, DescribeAddonVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAddonVersionsCommand,
-  serializeAws_restJson1DescribeAddonVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAddonVersionsCommand, se_DescribeAddonVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DescribeAddonVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAddonVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAddonVersionsCommand(input, context);
+    return se_DescribeAddonVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddonVersionsCommandOutput> {
-    return deserializeAws_restJson1DescribeAddonVersionsCommand(output, context);
+    return de_DescribeAddonVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

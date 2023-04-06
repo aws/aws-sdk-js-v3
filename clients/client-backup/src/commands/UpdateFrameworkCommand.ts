@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { UpdateFrameworkInput, UpdateFrameworkOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFrameworkCommand,
-  serializeAws_restJson1UpdateFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFrameworkCommand, se_UpdateFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class UpdateFrameworkCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFrameworkCommand(input, context);
+    return se_UpdateFrameworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFrameworkCommandOutput> {
-    return deserializeAws_restJson1UpdateFrameworkCommand(output, context);
+    return de_UpdateFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

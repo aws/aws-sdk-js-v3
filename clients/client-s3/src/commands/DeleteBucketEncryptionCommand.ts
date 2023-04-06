@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteBucketEncryptionRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketEncryptionCommand,
-  serializeAws_restXmlDeleteBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteBucketEncryptionCommand, se_DeleteBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -151,14 +148,14 @@ export class DeleteBucketEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketEncryptionCommand(input, context);
+    return se_DeleteBucketEncryptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketEncryptionCommand(output, context);
+    return de_DeleteBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

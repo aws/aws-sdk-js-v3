@@ -16,8 +16,8 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetDeleteEventsByEventTypeStatusRequest, GetDeleteEventsByEventTypeStatusResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand,
-  serializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand,
+  de_GetDeleteEventsByEventTypeStatusCommand,
+  se_GetDeleteEventsByEventTypeStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command<
     input: GetDeleteEventsByEventTypeStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand(input, context);
+    return se_GetDeleteEventsByEventTypeStatusCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> {
-    return deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand(output, context);
+    return de_GetDeleteEventsByEventTypeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

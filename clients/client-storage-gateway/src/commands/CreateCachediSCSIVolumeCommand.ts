@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCachediSCSIVolumeCommand,
-  serializeAws_json1_1CreateCachediSCSIVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCachediSCSIVolumeCommand, se_CreateCachediSCSIVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -181,14 +178,14 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCachediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCachediSCSIVolumeCommand(input, context);
+    return se_CreateCachediSCSIVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCachediSCSIVolumeCommandOutput> {
-    return deserializeAws_json1_1CreateCachediSCSIVolumeCommand(output, context);
+    return de_CreateCachediSCSIVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

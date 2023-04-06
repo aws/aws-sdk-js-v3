@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MediaTypeHeaderCommand,
-  serializeAws_restJson1MediaTypeHeaderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MediaTypeHeaderCommand, se_MediaTypeHeaderCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -107,14 +104,14 @@ export class MediaTypeHeaderCommand extends $Command<
    * @internal
    */
   private serialize(input: MediaTypeHeaderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MediaTypeHeaderCommand(input, context);
+    return se_MediaTypeHeaderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MediaTypeHeaderCommandOutput> {
-    return deserializeAws_restJson1MediaTypeHeaderCommand(output, context);
+    return de_MediaTypeHeaderCommand(output, context);
   }
 
   // Start section: command_body_extra

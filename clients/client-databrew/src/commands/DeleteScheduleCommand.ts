@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteScheduleCommand,
-  serializeAws_restJson1DeleteScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteScheduleCommand, se_DeleteScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduleCommand(input, context);
+    return se_DeleteScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduleCommand(output, context);
+    return de_DeleteScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

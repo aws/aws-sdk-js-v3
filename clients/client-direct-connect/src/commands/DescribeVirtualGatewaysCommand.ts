@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { VirtualGateways } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVirtualGatewaysCommand,
-  serializeAws_json1_1DescribeVirtualGatewaysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeVirtualGatewaysCommand, se_DescribeVirtualGatewaysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DescribeVirtualGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVirtualGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVirtualGatewaysCommand(input, context);
+    return se_DescribeVirtualGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualGatewaysCommand(output, context);
+    return de_DescribeVirtualGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

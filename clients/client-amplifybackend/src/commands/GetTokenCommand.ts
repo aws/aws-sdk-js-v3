@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { GetTokenRequest, GetTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTokenCommand,
-  serializeAws_restJson1GetTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTokenCommand, se_GetTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTokenCommand(input, context);
+    return se_GetTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTokenCommandOutput> {
-    return deserializeAws_restJson1GetTokenCommand(output, context);
+    return de_GetTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

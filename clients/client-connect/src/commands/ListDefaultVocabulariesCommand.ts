@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListDefaultVocabulariesRequest, ListDefaultVocabulariesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListDefaultVocabulariesCommand,
-  serializeAws_restJson1ListDefaultVocabulariesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDefaultVocabulariesCommand, se_ListDefaultVocabulariesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListDefaultVocabulariesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDefaultVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDefaultVocabulariesCommand(input, context);
+    return se_ListDefaultVocabulariesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDefaultVocabulariesCommandOutput> {
-    return deserializeAws_restJson1ListDefaultVocabulariesCommand(output, context);
+    return de_ListDefaultVocabulariesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { StartProductSubscriptionRequest, StartProductSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartProductSubscriptionCommand,
-  serializeAws_restJson1StartProductSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartProductSubscriptionCommand, se_StartProductSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class StartProductSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartProductSubscriptionCommand(input, context);
+    return se_StartProductSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProductSubscriptionCommandOutput> {
-    return deserializeAws_restJson1StartProductSubscriptionCommand(output, context);
+    return de_StartProductSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

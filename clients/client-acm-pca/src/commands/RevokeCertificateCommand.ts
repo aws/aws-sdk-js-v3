@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { RevokeCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeCertificateCommand,
-  serializeAws_json1_1RevokeCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RevokeCertificateCommand, se_RevokeCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class RevokeCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeCertificateCommand(input, context);
+    return se_RevokeCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeCertificateCommandOutput> {
-    return deserializeAws_json1_1RevokeCertificateCommand(output, context);
+    return de_RevokeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

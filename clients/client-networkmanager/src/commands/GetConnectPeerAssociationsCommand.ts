@@ -15,10 +15,7 @@ import {
 
 import { GetConnectPeerAssociationsRequest, GetConnectPeerAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectPeerAssociationsCommand,
-  serializeAws_restJson1GetConnectPeerAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectPeerAssociationsCommand, se_GetConnectPeerAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class GetConnectPeerAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectPeerAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectPeerAssociationsCommand(input, context);
+    return se_GetConnectPeerAssociationsCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class GetConnectPeerAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConnectPeerAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetConnectPeerAssociationsCommand(output, context);
+    return de_GetConnectPeerAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

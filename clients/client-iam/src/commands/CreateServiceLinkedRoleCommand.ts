@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateServiceLinkedRoleCommand,
-  serializeAws_queryCreateServiceLinkedRoleCommand,
-} from "../protocols/Aws_query";
+import { de_CreateServiceLinkedRoleCommand, se_CreateServiceLinkedRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateServiceLinkedRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateServiceLinkedRoleCommand(input, context);
+    return se_CreateServiceLinkedRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceLinkedRoleCommandOutput> {
-    return deserializeAws_queryCreateServiceLinkedRoleCommand(output, context);
+    return de_CreateServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

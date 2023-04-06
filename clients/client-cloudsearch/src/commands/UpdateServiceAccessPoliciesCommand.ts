@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { UpdateServiceAccessPoliciesRequest, UpdateServiceAccessPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateServiceAccessPoliciesCommand,
-  serializeAws_queryUpdateServiceAccessPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateServiceAccessPoliciesCommand, se_UpdateServiceAccessPoliciesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServiceAccessPoliciesCommand(input, context);
+    return se_UpdateServiceAccessPoliciesCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceAccessPoliciesCommandOutput> {
-    return deserializeAws_queryUpdateServiceAccessPoliciesCommand(output, context);
+    return de_UpdateServiceAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

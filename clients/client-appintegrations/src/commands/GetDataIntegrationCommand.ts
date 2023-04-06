@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataIntegrationCommand,
-  serializeAws_restJson1GetDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetDataIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataIntegrationCommand(input, context);
+    return se_GetDataIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1GetDataIntegrationCommand(output, context);
+    return de_GetDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

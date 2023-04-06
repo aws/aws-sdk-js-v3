@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateWorkspacesCommand,
-  serializeAws_json1_1TerminateWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateWorkspacesCommand, se_TerminateWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -148,14 +145,14 @@ export class TerminateWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateWorkspacesCommand(input, context);
+    return se_TerminateWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateWorkspacesCommandOutput> {
-    return deserializeAws_json1_1TerminateWorkspacesCommand(output, context);
+    return de_TerminateWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

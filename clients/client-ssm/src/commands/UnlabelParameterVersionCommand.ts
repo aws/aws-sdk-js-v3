@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UnlabelParameterVersionCommand,
-  serializeAws_json1_1UnlabelParameterVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnlabelParameterVersionCommand, se_UnlabelParameterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -137,14 +134,14 @@ export class UnlabelParameterVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UnlabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnlabelParameterVersionCommand(input, context);
+    return se_UnlabelParameterVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlabelParameterVersionCommandOutput> {
-    return deserializeAws_json1_1UnlabelParameterVersionCommand(output, context);
+    return de_UnlabelParameterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

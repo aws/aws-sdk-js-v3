@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterDBProxyTargetsCommand,
-  serializeAws_queryDeregisterDBProxyTargetsCommand,
-} from "../protocols/Aws_query";
+import { de_DeregisterDBProxyTargetsCommand, se_DeregisterDBProxyTargetsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterDBProxyTargetsCommand(input, context);
+    return se_DeregisterDBProxyTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDBProxyTargetsCommandOutput> {
-    return deserializeAws_queryDeregisterDBProxyTargetsCommand(output, context);
+    return de_DeregisterDBProxyTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

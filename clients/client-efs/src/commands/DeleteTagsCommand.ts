@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteTagsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTagsCommand,
-  serializeAws_restJson1DeleteTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class DeleteTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_restJson1DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

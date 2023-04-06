@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { CreateLiveSourceRequest, CreateLiveSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLiveSourceCommand,
-  serializeAws_restJson1CreateLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLiveSourceCommand, se_CreateLiveSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class CreateLiveSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLiveSourceCommand(input, context);
+    return se_CreateLiveSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLiveSourceCommandOutput> {
-    return deserializeAws_restJson1CreateLiveSourceCommand(output, context);
+    return de_CreateLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

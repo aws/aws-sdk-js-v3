@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateImageRequest, CreateImageResult } from "../models/models_1";
-import { deserializeAws_ec2CreateImageCommand, serializeAws_ec2CreateImageCommand } from "../protocols/Aws_ec2";
+import { de_CreateImageCommand, se_CreateImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -195,14 +195,14 @@ export class CreateImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateImageCommand(input, context);
+    return se_CreateImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageCommandOutput> {
-    return deserializeAws_ec2CreateImageCommand(output, context);
+    return de_CreateImageCommand(output, context);
   }
 
   // Start section: command_body_extra

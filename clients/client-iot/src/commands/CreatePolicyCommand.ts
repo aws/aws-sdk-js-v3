@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePolicyCommand,
-  serializeAws_restJson1CreatePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePolicyCommand, se_CreatePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreatePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePolicyCommand(input, context);
+    return se_CreatePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
-    return deserializeAws_restJson1CreatePolicyCommand(output, context);
+    return de_CreatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketCorsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketCorsCommand,
-  serializeAws_restXmlPutBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketCorsCommand, se_PutBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -255,14 +252,14 @@ export class PutBucketCorsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketCorsCommand(input, context);
+    return se_PutBucketCorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketCorsCommandOutput> {
-    return deserializeAws_restXmlPutBucketCorsCommand(output, context);
+    return de_PutBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

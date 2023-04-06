@@ -44,7 +44,10 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DescribeJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1DescribeJobExecutionCommand
+ */
+export const se_DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -71,7 +74,10 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
+/**
+ * serializeAws_restJson1GetPendingJobExecutionsCommand
+ */
+export const se_GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -91,7 +97,10 @@ export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1StartNextPendingJobExecutionCommand
+ */
+export const se_StartNextPendingJobExecutionCommand = async (
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -104,9 +113,7 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.statusDetails != null && {
-      statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-    }),
+    ...(input.statusDetails != null && { statusDetails: se_DetailsMap(input.statusDetails, context) }),
     ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   return new __HttpRequest({
@@ -120,7 +127,10 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1UpdateJobExecutionCommand
+ */
+export const se_UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -139,9 +149,7 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
     ...(input.includeJobDocument != null && { includeJobDocument: input.includeJobDocument }),
     ...(input.includeJobExecutionState != null && { includeJobExecutionState: input.includeJobExecutionState }),
     ...(input.status != null && { status: input.status }),
-    ...(input.statusDetails != null && {
-      statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-    }),
+    ...(input.statusDetails != null && { statusDetails: se_DetailsMap(input.statusDetails, context) }),
     ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   return new __HttpRequest({
@@ -155,24 +163,30 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DescribeJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1DescribeJobExecutionCommand
+ */
+export const de_DescribeJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeJobExecutionCommandError(output, context);
+    return de_DescribeJobExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.execution != null) {
-    contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
+    contents.execution = de_JobExecution(data.execution, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeJobExecutionCommandError
+ */
+const de_DescribeJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
@@ -184,22 +198,22 @@ const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      throw await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context);
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TerminalStateException":
     case "com.amazonaws.iotjobsdataplane#TerminalStateException":
-      throw await deserializeAws_restJson1TerminalStateExceptionResponse(parsedOutput, context);
+      throw await de_TerminalStateExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -211,27 +225,33 @@ const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetPendingJobExecutionsCommand = async (
+/**
+ * deserializeAws_restJson1GetPendingJobExecutionsCommand
+ */
+export const de_GetPendingJobExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPendingJobExecutionsCommandError(output, context);
+    return de_GetPendingJobExecutionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.inProgressJobs != null) {
-    contents.inProgressJobs = deserializeAws_restJson1JobExecutionSummaryList(data.inProgressJobs, context);
+    contents.inProgressJobs = de_JobExecutionSummaryList(data.inProgressJobs, context);
   }
   if (data.queuedJobs != null) {
-    contents.queuedJobs = deserializeAws_restJson1JobExecutionSummaryList(data.queuedJobs, context);
+    contents.queuedJobs = de_JobExecutionSummaryList(data.queuedJobs, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetPendingJobExecutionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetPendingJobExecutionsCommandError
+ */
+const de_GetPendingJobExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
@@ -243,19 +263,19 @@ const deserializeAws_restJson1GetPendingJobExecutionsCommandError = async (
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      throw await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context);
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -267,24 +287,30 @@ const deserializeAws_restJson1GetPendingJobExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartNextPendingJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1StartNextPendingJobExecutionCommand
+ */
+export const de_StartNextPendingJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartNextPendingJobExecutionCommandError(output, context);
+    return de_StartNextPendingJobExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.execution != null) {
-    contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
+    contents.execution = de_JobExecution(data.execution, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StartNextPendingJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1StartNextPendingJobExecutionCommandError
+ */
+const de_StartNextPendingJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
@@ -296,19 +322,19 @@ const deserializeAws_restJson1StartNextPendingJobExecutionCommandError = async (
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      throw await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context);
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -320,19 +346,22 @@ const deserializeAws_restJson1StartNextPendingJobExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateJobExecutionCommand
+ */
+export const de_UpdateJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateJobExecutionCommandError(output, context);
+    return de_UpdateJobExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.executionState != null) {
-    contents.executionState = deserializeAws_restJson1JobExecutionState(data.executionState, context);
+    contents.executionState = de_JobExecutionState(data.executionState, context);
   }
   if (data.jobDocument != null) {
     contents.jobDocument = __expectString(data.jobDocument);
@@ -340,7 +369,10 @@ export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateJobExecutionCommandError
+ */
+const de_UpdateJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> => {
@@ -352,22 +384,22 @@ const deserializeAws_restJson1UpdateJobExecutionCommandError = async (
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      throw await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context);
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.iotjobsdataplane#InvalidStateTransitionException":
-      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -380,7 +412,10 @@ const deserializeAws_restJson1UpdateJobExecutionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1CertificateValidationExceptionRes
+ */
+const de_CertificateValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateValidationException> => {
@@ -396,7 +431,10 @@ const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
@@ -412,7 +450,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidStateTransitionExceptionRes
+ */
+const de_InvalidStateTransitionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
@@ -428,7 +469,10 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -444,7 +488,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -460,7 +507,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TerminalStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TerminalStateExceptionRes
+ */
+const de_TerminalStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TerminalStateException> => {
@@ -476,10 +526,10 @@ const deserializeAws_restJson1TerminalStateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -495,7 +545,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1DetailsMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DetailsMap
+ */
+const se_DetailsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -505,7 +558,10 @@ const serializeAws_restJson1DetailsMap = (input: Record<string, string>, context
   }, {});
 };
 
-const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1DetailsMap
+ */
+const de_DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -515,7 +571,10 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
   }, {});
 };
 
-const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
+/**
+ * deserializeAws_restJson1JobExecution
+ */
+const de_JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
     approximateSecondsBeforeTimedOut: __expectLong(output.approximateSecondsBeforeTimedOut),
     executionNumber: __expectLong(output.executionNumber),
@@ -525,23 +584,27 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
     queuedAt: __expectLong(output.queuedAt),
     startedAt: __expectLong(output.startedAt),
     status: __expectString(output.status),
-    statusDetails:
-      output.statusDetails != null ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
+    statusDetails: output.statusDetails != null ? de_DetailsMap(output.statusDetails, context) : undefined,
     thingName: __expectString(output.thingName),
     versionNumber: __expectLong(output.versionNumber),
   } as any;
 };
 
-const deserializeAws_restJson1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
+/**
+ * deserializeAws_restJson1JobExecutionState
+ */
+const de_JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
   return {
     status: __expectString(output.status),
-    statusDetails:
-      output.statusDetails != null ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
+    statusDetails: output.statusDetails != null ? de_DetailsMap(output.statusDetails, context) : undefined,
     versionNumber: __expectLong(output.versionNumber),
   } as any;
 };
 
-const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
+/**
+ * deserializeAws_restJson1JobExecutionSummary
+ */
+const de_JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
     executionNumber: __expectLong(output.executionNumber),
     jobId: __expectString(output.jobId),
@@ -552,17 +615,17 @@ const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1JobExecutionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): JobExecutionSummary[] => {
+/**
+ * deserializeAws_restJson1JobExecutionSummaryList
+ */
+const de_JobExecutionSummaryList = (output: any, context: __SerdeContext): JobExecutionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobExecutionSummary(entry, context);
+      return de_JobExecutionSummary(entry, context);
     });
   return retVal;
 };

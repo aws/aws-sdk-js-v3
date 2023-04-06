@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteVpcPeeringConnectionInput, DeleteVpcPeeringConnectionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVpcPeeringConnectionCommand,
-  serializeAws_json1_1DeleteVpcPeeringConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteVpcPeeringConnectionCommand, se_DeleteVpcPeeringConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVpcPeeringConnectionCommand(input, context);
+    return se_DeleteVpcPeeringConnectionCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_json1_1DeleteVpcPeeringConnectionCommand(output, context);
+    return de_DeleteVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

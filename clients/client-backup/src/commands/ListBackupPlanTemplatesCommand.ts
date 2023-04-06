@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupPlanTemplatesCommand,
-  serializeAws_restJson1ListBackupPlanTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBackupPlanTemplatesCommand, se_ListBackupPlanTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListBackupPlanTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBackupPlanTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupPlanTemplatesCommand(input, context);
+    return se_ListBackupPlanTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlanTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListBackupPlanTemplatesCommand(output, context);
+    return de_ListBackupPlanTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

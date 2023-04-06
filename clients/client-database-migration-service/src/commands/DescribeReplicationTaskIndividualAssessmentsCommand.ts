@@ -23,8 +23,8 @@ import {
   DescribeReplicationTaskIndividualAssessmentsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand,
-  serializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand,
+  de_DescribeReplicationTaskIndividualAssessmentsCommand,
+  se_DescribeReplicationTaskIndividualAssessmentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand(input, context);
+    return se_DescribeReplicationTaskIndividualAssessmentsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand(output, context);
+    return de_DescribeReplicationTaskIndividualAssessmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

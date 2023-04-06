@@ -16,8 +16,8 @@ import {
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { DeleteAlertManagerDefinitionRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAlertManagerDefinitionCommand,
-  serializeAws_restJson1DeleteAlertManagerDefinitionCommand,
+  de_DeleteAlertManagerDefinitionCommand,
+  se_DeleteAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -139,7 +139,7 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlertManagerDefinitionCommand(input, context);
+    return se_DeleteAlertManagerDefinitionCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteAlertManagerDefinitionCommand(output, context);
+    return de_DeleteAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

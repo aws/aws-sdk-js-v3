@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCreatedArtifactsCommand,
-  serializeAws_json1_1ListCreatedArtifactsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCreatedArtifactsCommand, se_ListCreatedArtifactsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class ListCreatedArtifactsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCreatedArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCreatedArtifactsCommand(input, context);
+    return se_ListCreatedArtifactsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCreatedArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListCreatedArtifactsCommand(output, context);
+    return de_ListCreatedArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

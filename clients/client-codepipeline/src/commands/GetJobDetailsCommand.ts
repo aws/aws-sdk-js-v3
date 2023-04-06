@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { GetJobDetailsInput, GetJobDetailsOutput, GetJobDetailsOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetJobDetailsCommand,
-  serializeAws_json1_1GetJobDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetJobDetailsCommand, se_GetJobDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetJobDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobDetailsCommand(input, context);
+    return se_GetJobDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobDetailsCommandOutput> {
-    return deserializeAws_json1_1GetJobDetailsCommand(output, context);
+    return de_GetJobDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

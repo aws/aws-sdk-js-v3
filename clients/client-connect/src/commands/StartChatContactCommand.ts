@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { StartChatContactRequest, StartChatContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartChatContactCommand,
-  serializeAws_restJson1StartChatContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartChatContactCommand, se_StartChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class StartChatContactCommand extends $Command<
    * @internal
    */
   private serialize(input: StartChatContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartChatContactCommand(input, context);
+    return se_StartChatContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChatContactCommandOutput> {
-    return deserializeAws_restJson1StartChatContactCommand(output, context);
+    return de_StartChatContactCommand(output, context);
   }
 
   // Start section: command_body_extra

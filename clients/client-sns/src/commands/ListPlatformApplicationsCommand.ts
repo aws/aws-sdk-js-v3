@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformApplicationsCommand,
-  serializeAws_queryListPlatformApplicationsCommand,
-} from "../protocols/Aws_query";
+import { de_ListPlatformApplicationsCommand, se_ListPlatformApplicationsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListPlatformApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlatformApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformApplicationsCommand(input, context);
+    return se_ListPlatformApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformApplicationsCommandOutput> {
-    return deserializeAws_queryListPlatformApplicationsCommand(output, context);
+    return de_ListPlatformApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

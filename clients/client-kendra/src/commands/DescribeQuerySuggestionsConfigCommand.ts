@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeQuerySuggestionsConfigRequest, DescribeQuerySuggestionsConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
+  de_DescribeQuerySuggestionsConfigCommand,
+  se_DescribeQuerySuggestionsConfigCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     input: DescribeQuerySuggestionsConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsConfigCommand(input, context);
+    return se_DescribeQuerySuggestionsConfigCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeQuerySuggestionsConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand(output, context);
+    return de_DescribeQuerySuggestionsConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

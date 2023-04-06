@@ -20,8 +20,8 @@ import {
 } from "../EC2InstanceConnectClient";
 import { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
-  serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
+  de_SendSerialConsoleSSHPublicKeyCommand,
+  se_SendSerialConsoleSSHPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -170,7 +170,7 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: SendSerialConsoleSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(input, context);
+    return se_SendSerialConsoleSSHPublicKeyCommand(input, context);
   }
 
   /**
@@ -180,7 +180,7 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> {
-    return deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(output, context);
+    return de_SendSerialConsoleSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeNetworkInterfacePermissionsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
-  serializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
+  de_DescribeNetworkInterfacePermissionsCommand,
+  se_DescribeNetworkInterfacePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     input: DescribeNetworkInterfacePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(input, context);
+    return se_DescribeNetworkInterfacePermissionsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand(output, context);
+    return de_DescribeNetworkInterfacePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

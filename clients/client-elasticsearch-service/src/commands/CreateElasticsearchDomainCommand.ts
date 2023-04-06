@@ -23,10 +23,7 @@ import {
   CreateElasticsearchDomainRequestFilterSensitiveLog,
   CreateElasticsearchDomainResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateElasticsearchDomainCommand,
-  serializeAws_restJson1CreateElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateElasticsearchDomainCommand, se_CreateElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -257,7 +254,7 @@ export class CreateElasticsearchDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateElasticsearchDomainCommand(input, context);
+    return se_CreateElasticsearchDomainCommand(input, context);
   }
 
   /**
@@ -267,7 +264,7 @@ export class CreateElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1CreateElasticsearchDomainCommand(output, context);
+    return de_CreateElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ExportEarthObservationJobInput, ExportEarthObservationJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportEarthObservationJobCommand,
-  serializeAws_restJson1ExportEarthObservationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportEarthObservationJobCommand, se_ExportEarthObservationJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -154,7 +151,7 @@ export class ExportEarthObservationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportEarthObservationJobCommand(input, context);
+    return se_ExportEarthObservationJobCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class ExportEarthObservationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportEarthObservationJobCommandOutput> {
-    return deserializeAws_restJson1ExportEarthObservationJobCommand(output, context);
+    return de_ExportEarthObservationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

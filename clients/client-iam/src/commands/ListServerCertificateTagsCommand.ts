@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListServerCertificateTagsRequest, ListServerCertificateTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListServerCertificateTagsCommand,
-  serializeAws_queryListServerCertificateTagsCommand,
-} from "../protocols/Aws_query";
+import { de_ListServerCertificateTagsCommand, se_ListServerCertificateTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class ListServerCertificateTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServerCertificateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListServerCertificateTagsCommand(input, context);
+    return se_ListServerCertificateTagsCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class ListServerCertificateTagsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServerCertificateTagsCommandOutput> {
-    return deserializeAws_queryListServerCertificateTagsCommand(output, context);
+    return de_ListServerCertificateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

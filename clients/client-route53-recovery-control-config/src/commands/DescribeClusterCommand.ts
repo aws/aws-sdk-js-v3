@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeClusterCommand,
-  serializeAws_restJson1DescribeClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class DescribeClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeClusterCommand(input, context);
+    return se_DescribeClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
-    return deserializeAws_restJson1DescribeClusterCommand(output, context);
+    return de_DescribeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

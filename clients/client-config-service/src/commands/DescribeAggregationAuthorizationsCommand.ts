@@ -19,8 +19,8 @@ import {
   DescribeAggregationAuthorizationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregationAuthorizationsCommand,
-  serializeAws_json1_1DescribeAggregationAuthorizationsCommand,
+  de_DescribeAggregationAuthorizationsCommand,
+  se_DescribeAggregationAuthorizationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     input: DescribeAggregationAuthorizationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregationAuthorizationsCommand(input, context);
+    return se_DescribeAggregationAuthorizationsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregationAuthorizationsCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregationAuthorizationsCommand(output, context);
+    return de_DescribeAggregationAuthorizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

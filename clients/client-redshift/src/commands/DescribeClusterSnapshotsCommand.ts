@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterSnapshotsCommand,
-  serializeAws_queryDescribeClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterSnapshotsCommand, se_DescribeClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -166,14 +163,14 @@ export class DescribeClusterSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterSnapshotsCommand(input, context);
+    return se_DescribeClusterSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSnapshotsCommand(output, context);
+    return de_DescribeClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

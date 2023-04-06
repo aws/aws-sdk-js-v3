@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PollForThirdPartyJobsCommand,
-  serializeAws_json1_1PollForThirdPartyJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PollForThirdPartyJobsCommand, se_PollForThirdPartyJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class PollForThirdPartyJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: PollForThirdPartyJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PollForThirdPartyJobsCommand(input, context);
+    return se_PollForThirdPartyJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForThirdPartyJobsCommandOutput> {
-    return deserializeAws_json1_1PollForThirdPartyJobsCommand(output, context);
+    return de_PollForThirdPartyJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

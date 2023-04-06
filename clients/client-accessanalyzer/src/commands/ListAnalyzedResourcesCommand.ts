@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnalyzedResourcesCommand,
-  serializeAws_restJson1ListAnalyzedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnalyzedResourcesCommand, se_ListAnalyzedResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListAnalyzedResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAnalyzedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnalyzedResourcesCommand(input, context);
+    return se_ListAnalyzedResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalyzedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAnalyzedResourcesCommand(output, context);
+    return de_ListAnalyzedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,10 +21,7 @@ import {
   CompleteMultipartUploadRequest,
   CompleteMultipartUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCompleteMultipartUploadCommand,
-  serializeAws_restXmlCompleteMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -309,14 +306,14 @@ export class CompleteMultipartUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCompleteMultipartUploadCommand(input, context);
+    return se_CompleteMultipartUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCompleteMultipartUploadCommand(output, context);
+    return de_CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

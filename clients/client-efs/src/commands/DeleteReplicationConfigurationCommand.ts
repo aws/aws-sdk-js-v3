@@ -16,8 +16,8 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteReplicationConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteReplicationConfigurationCommand,
-  serializeAws_restJson1DeleteReplicationConfigurationCommand,
+  de_DeleteReplicationConfigurationCommand,
+  se_DeleteReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     input: DeleteReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReplicationConfigurationCommand(input, context);
+    return se_DeleteReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteReplicationConfigurationCommand(output, context);
+    return de_DeleteReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

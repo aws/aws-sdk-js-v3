@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ListDetectorsRequest, ListDetectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorsCommand,
-  serializeAws_restJson1ListDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDetectorsCommand, se_ListDetectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class ListDetectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorsCommand(input, context);
+    return se_ListDetectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorsCommand(output, context);
+    return de_ListDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

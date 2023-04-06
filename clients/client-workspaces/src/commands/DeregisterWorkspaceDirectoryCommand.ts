@@ -15,8 +15,8 @@ import {
 
 import { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
+  de_DeregisterWorkspaceDirectoryCommand,
+  se_DeregisterWorkspaceDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -150,7 +150,7 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(input, context);
+    return se_DeregisterWorkspaceDirectoryCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(output, context);
+    return de_DeregisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

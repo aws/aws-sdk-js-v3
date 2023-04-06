@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourcePoliciesCommand,
-  serializeAws_json1_1DescribeResourcePoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeResourcePoliciesCommand, se_DescribeResourcePoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeResourcePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourcePoliciesCommand(input, context);
+    return se_DescribeResourcePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeResourcePoliciesCommand(output, context);
+    return de_DescribeResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

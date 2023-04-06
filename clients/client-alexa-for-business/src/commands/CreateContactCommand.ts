@@ -19,10 +19,7 @@ import {
   CreateContactRequestFilterSensitiveLog,
   CreateContactResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactCommand,
-  serializeAws_json1_1CreateContactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContactCommand, se_CreateContactCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateContactCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactCommand(input, context);
+    return se_CreateContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactCommandOutput> {
-    return deserializeAws_json1_1CreateContactCommand(output, context);
+    return de_CreateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

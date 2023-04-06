@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserHierarchyStructureRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateUserHierarchyStructureCommand,
-  serializeAws_restJson1UpdateUserHierarchyStructureCommand,
+  de_UpdateUserHierarchyStructureCommand,
+  se_UpdateUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class UpdateUserHierarchyStructureCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserHierarchyStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserHierarchyStructureCommand(input, context);
+    return se_UpdateUserHierarchyStructureCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class UpdateUserHierarchyStructureCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserHierarchyStructureCommandOutput> {
-    return deserializeAws_restJson1UpdateUserHierarchyStructureCommand(output, context);
+    return de_UpdateUserHierarchyStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

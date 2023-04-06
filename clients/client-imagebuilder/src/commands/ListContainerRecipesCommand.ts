@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListContainerRecipesRequest, ListContainerRecipesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContainerRecipesCommand,
-  serializeAws_restJson1ListContainerRecipesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListContainerRecipesCommand, se_ListContainerRecipesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListContainerRecipesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListContainerRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContainerRecipesCommand(input, context);
+    return se_ListContainerRecipesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContainerRecipesCommandOutput> {
-    return deserializeAws_restJson1ListContainerRecipesCommand(output, context);
+    return de_ListContainerRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

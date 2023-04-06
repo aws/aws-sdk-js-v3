@@ -18,8 +18,8 @@ import {
   ListWebsiteCertificateAuthoritiesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
-  serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
+  de_ListWebsiteCertificateAuthoritiesCommand,
+  se_ListWebsiteCertificateAuthoritiesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -145,7 +145,7 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     input: ListWebsiteCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(input, context);
+    return se_ListWebsiteCertificateAuthoritiesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(output, context);
+    return de_ListWebsiteCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

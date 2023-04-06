@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DeleteAssessmentTemplateRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAssessmentTemplateCommand,
-  serializeAws_json1_1DeleteAssessmentTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAssessmentTemplateCommand, se_DeleteAssessmentTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class DeleteAssessmentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssessmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssessmentTemplateCommand(input, context);
+    return se_DeleteAssessmentTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteAssessmentTemplateCommand(output, context);
+    return de_DeleteAssessmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

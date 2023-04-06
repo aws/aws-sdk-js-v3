@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteSnapshotRequest } from "../models/models_2";
-import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
+import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,14 +138,14 @@ export class DeleteSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSnapshotCommand(input, context);
+    return se_DeleteSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
-    return deserializeAws_ec2DeleteSnapshotCommand(output, context);
+    return de_DeleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

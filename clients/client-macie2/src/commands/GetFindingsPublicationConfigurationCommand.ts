@@ -19,8 +19,8 @@ import {
   GetFindingsPublicationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFindingsPublicationConfigurationCommand,
-  serializeAws_restJson1GetFindingsPublicationConfigurationCommand,
+  de_GetFindingsPublicationConfigurationCommand,
+  se_GetFindingsPublicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class GetFindingsPublicationConfigurationCommand extends $Command<
     input: GetFindingsPublicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsPublicationConfigurationCommand(input, context);
+    return se_GetFindingsPublicationConfigurationCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetFindingsPublicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFindingsPublicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFindingsPublicationConfigurationCommand(output, context);
+    return de_GetFindingsPublicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

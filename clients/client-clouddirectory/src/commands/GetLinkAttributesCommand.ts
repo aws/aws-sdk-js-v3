@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { GetLinkAttributesRequest, GetLinkAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLinkAttributesCommand,
-  serializeAws_restJson1GetLinkAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinkAttributesCommand, se_GetLinkAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class GetLinkAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkAttributesCommand(input, context);
+    return se_GetLinkAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1GetLinkAttributesCommand(output, context);
+    return de_GetLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

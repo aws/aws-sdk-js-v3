@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { ListSNOMEDCTInferenceJobsRequest, ListSNOMEDCTInferenceJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommand,
-  serializeAws_json1_1ListSNOMEDCTInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSNOMEDCTInferenceJobsCommand, se_ListSNOMEDCTInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,7 +146,7 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSNOMEDCTInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSNOMEDCTInferenceJobsCommand(input, context);
+    return se_ListSNOMEDCTInferenceJobsCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommand(output, context);
+    return de_ListSNOMEDCTInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

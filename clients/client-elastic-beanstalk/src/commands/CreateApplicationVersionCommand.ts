@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryCreateApplicationVersionCommand,
-  serializeAws_queryCreateApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -224,14 +221,14 @@ export class CreateApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateApplicationVersionCommand(input, context);
+    return se_CreateApplicationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_queryCreateApplicationVersionCommand(output, context);
+    return de_CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

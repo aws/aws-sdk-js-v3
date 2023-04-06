@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTagsCommand,
-  serializeAws_restJson1DescribeTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class DescribeTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_restJson1DescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

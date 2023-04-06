@@ -19,8 +19,8 @@ import {
   DisassociateClientVpnTargetNetworkResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
-  serializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
+  de_DisassociateClientVpnTargetNetworkCommand,
+  se_DisassociateClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -146,7 +146,7 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     input: DisassociateClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateClientVpnTargetNetworkCommand(input, context);
+    return se_DisassociateClientVpnTargetNetworkCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> {
-    return deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand(output, context);
+    return de_DisassociateClientVpnTargetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

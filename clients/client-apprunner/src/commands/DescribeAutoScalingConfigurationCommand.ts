@@ -16,8 +16,8 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DescribeAutoScalingConfigurationRequest, DescribeAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeAutoScalingConfigurationCommand,
-  serializeAws_json1_0DescribeAutoScalingConfigurationCommand,
+  de_DescribeAutoScalingConfigurationCommand,
+  se_DescribeAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -134,7 +134,7 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     input: DescribeAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeAutoScalingConfigurationCommand(input, context);
+    return se_DescribeAutoScalingConfigurationCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeAutoScalingConfigurationCommand(output, context);
+    return de_DescribeAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

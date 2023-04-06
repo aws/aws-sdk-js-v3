@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ListScriptsInput, ListScriptsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListScriptsCommand,
-  serializeAws_json1_1ListScriptsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListScriptsCommand, se_ListScriptsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListScriptsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListScriptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListScriptsCommand(input, context);
+    return se_ListScriptsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScriptsCommandOutput> {
-    return deserializeAws_json1_1ListScriptsCommand(output, context);
+    return de_ListScriptsCommand(output, context);
   }
 
   // Start section: command_body_extra

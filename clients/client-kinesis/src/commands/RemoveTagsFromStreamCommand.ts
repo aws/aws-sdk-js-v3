@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { RemoveTagsFromStreamInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromStreamCommand,
-  serializeAws_json1_1RemoveTagsFromStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveTagsFromStreamCommand, se_RemoveTagsFromStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class RemoveTagsFromStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsFromStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromStreamCommand(input, context);
+    return se_RemoveTagsFromStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromStreamCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromStreamCommand(output, context);
+    return de_RemoveTagsFromStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

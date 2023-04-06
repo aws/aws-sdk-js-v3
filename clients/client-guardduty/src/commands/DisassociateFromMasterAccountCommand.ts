@@ -16,8 +16,8 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1DisassociateFromMasterAccountCommand,
+  de_DisassociateFromMasterAccountCommand,
+  se_DisassociateFromMasterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -130,7 +130,7 @@ export class DisassociateFromMasterAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
+    return se_DisassociateFromMasterAccountCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(output, context);
+    return de_DisassociateFromMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

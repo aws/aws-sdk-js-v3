@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobLogItemsCommand,
-  serializeAws_restJson1DescribeJobLogItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobLogItemsCommand, se_DescribeJobLogItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeJobLogItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobLogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobLogItemsCommand(input, context);
+    return se_DescribeJobLogItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobLogItemsCommandOutput> {
-    return deserializeAws_restJson1DescribeJobLogItemsCommand(output, context);
+    return de_DescribeJobLogItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

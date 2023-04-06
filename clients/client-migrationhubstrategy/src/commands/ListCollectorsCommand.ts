@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { ListCollectorsRequest, ListCollectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCollectorsCommand,
-  serializeAws_restJson1ListCollectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCollectorsCommand, se_ListCollectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListCollectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCollectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCollectorsCommand(input, context);
+    return se_ListCollectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectorsCommandOutput> {
-    return deserializeAws_restJson1ListCollectorsCommand(output, context);
+    return de_ListCollectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

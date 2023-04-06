@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AcceptVpcEndpointConnectionsCommand,
-  serializeAws_ec2AcceptVpcEndpointConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_AcceptVpcEndpointConnectionsCommand, se_AcceptVpcEndpointConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptVpcEndpointConnectionsCommand(input, context);
+    return se_AcceptVpcEndpointConnectionsCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2AcceptVpcEndpointConnectionsCommand(output, context);
+    return de_AcceptVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

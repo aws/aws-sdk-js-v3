@@ -109,7 +109,10 @@ import {
   WorkerLogDeliveryDescription,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateConnectorCommand = async (
+/**
+ * serializeAws_restJson1CreateConnectorCommand
+ */
+export const se_CreateConnectorCommand = async (
   input: CreateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -120,33 +123,31 @@ export const serializeAws_restJson1CreateConnectorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors";
   let body: any;
   body = JSON.stringify({
-    ...(input.capacity != null && { capacity: serializeAws_restJson1Capacity(input.capacity, context) }),
+    ...(input.capacity != null && { capacity: se_Capacity(input.capacity, context) }),
     ...(input.connectorConfiguration != null && {
-      connectorConfiguration: serializeAws_restJson1__sensitive__mapOf__string(input.connectorConfiguration, context),
+      connectorConfiguration: se___sensitive__mapOf__string(input.connectorConfiguration, context),
     }),
     ...(input.connectorDescription != null && { connectorDescription: input.connectorDescription }),
     ...(input.connectorName != null && { connectorName: input.connectorName }),
-    ...(input.kafkaCluster != null && {
-      kafkaCluster: serializeAws_restJson1KafkaCluster(input.kafkaCluster, context),
-    }),
+    ...(input.kafkaCluster != null && { kafkaCluster: se_KafkaCluster(input.kafkaCluster, context) }),
     ...(input.kafkaClusterClientAuthentication != null && {
-      kafkaClusterClientAuthentication: serializeAws_restJson1KafkaClusterClientAuthentication(
+      kafkaClusterClientAuthentication: se_KafkaClusterClientAuthentication(
         input.kafkaClusterClientAuthentication,
         context
       ),
     }),
     ...(input.kafkaClusterEncryptionInTransit != null && {
-      kafkaClusterEncryptionInTransit: serializeAws_restJson1KafkaClusterEncryptionInTransit(
+      kafkaClusterEncryptionInTransit: se_KafkaClusterEncryptionInTransit(
         input.kafkaClusterEncryptionInTransit,
         context
       ),
     }),
     ...(input.kafkaConnectVersion != null && { kafkaConnectVersion: input.kafkaConnectVersion }),
-    ...(input.logDelivery != null && { logDelivery: serializeAws_restJson1LogDelivery(input.logDelivery, context) }),
-    ...(input.plugins != null && { plugins: serializeAws_restJson1__listOfPlugin(input.plugins, context) }),
+    ...(input.logDelivery != null && { logDelivery: se_LogDelivery(input.logDelivery, context) }),
+    ...(input.plugins != null && { plugins: se___listOfPlugin(input.plugins, context) }),
     ...(input.serviceExecutionRoleArn != null && { serviceExecutionRoleArn: input.serviceExecutionRoleArn }),
     ...(input.workerConfiguration != null && {
-      workerConfiguration: serializeAws_restJson1WorkerConfiguration(input.workerConfiguration, context),
+      workerConfiguration: se_WorkerConfiguration(input.workerConfiguration, context),
     }),
   });
   return new __HttpRequest({
@@ -160,7 +161,10 @@ export const serializeAws_restJson1CreateConnectorCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCustomPluginCommand = async (
+/**
+ * serializeAws_restJson1CreateCustomPluginCommand
+ */
+export const se_CreateCustomPluginCommand = async (
   input: CreateCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -173,7 +177,7 @@ export const serializeAws_restJson1CreateCustomPluginCommand = async (
   body = JSON.stringify({
     ...(input.contentType != null && { contentType: input.contentType }),
     ...(input.description != null && { description: input.description }),
-    ...(input.location != null && { location: serializeAws_restJson1CustomPluginLocation(input.location, context) }),
+    ...(input.location != null && { location: se_CustomPluginLocation(input.location, context) }),
     ...(input.name != null && { name: input.name }),
   });
   return new __HttpRequest({
@@ -187,7 +191,10 @@ export const serializeAws_restJson1CreateCustomPluginCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateWorkerConfigurationCommand = async (
+/**
+ * serializeAws_restJson1CreateWorkerConfigurationCommand
+ */
+export const se_CreateWorkerConfigurationCommand = async (
   input: CreateWorkerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,7 +221,10 @@ export const serializeAws_restJson1CreateWorkerConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConnectorCommand = async (
+/**
+ * serializeAws_restJson1DeleteConnectorCommand
+ */
+export const se_DeleteConnectorCommand = async (
   input: DeleteConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -246,7 +256,10 @@ export const serializeAws_restJson1DeleteConnectorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCustomPluginCommand = async (
+/**
+ * serializeAws_restJson1DeleteCustomPluginCommand
+ */
+export const se_DeleteCustomPluginCommand = async (
   input: DeleteCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -274,7 +287,10 @@ export const serializeAws_restJson1DeleteCustomPluginCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeConnectorCommand = async (
+/**
+ * serializeAws_restJson1DescribeConnectorCommand
+ */
+export const se_DescribeConnectorCommand = async (
   input: DescribeConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -302,7 +318,10 @@ export const serializeAws_restJson1DescribeConnectorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeCustomPluginCommand = async (
+/**
+ * serializeAws_restJson1DescribeCustomPluginCommand
+ */
+export const se_DescribeCustomPluginCommand = async (
   input: DescribeCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,7 +349,10 @@ export const serializeAws_restJson1DescribeCustomPluginCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeWorkerConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DescribeWorkerConfigurationCommand
+ */
+export const se_DescribeWorkerConfigurationCommand = async (
   input: DescribeWorkerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -359,7 +381,10 @@ export const serializeAws_restJson1DescribeWorkerConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListConnectorsCommand = async (
+/**
+ * serializeAws_restJson1ListConnectorsCommand
+ */
+export const se_ListConnectorsCommand = async (
   input: ListConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -384,7 +409,10 @@ export const serializeAws_restJson1ListConnectorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListCustomPluginsCommand = async (
+/**
+ * serializeAws_restJson1ListCustomPluginsCommand
+ */
+export const se_ListCustomPluginsCommand = async (
   input: ListCustomPluginsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -408,7 +436,10 @@ export const serializeAws_restJson1ListCustomPluginsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListWorkerConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1ListWorkerConfigurationsCommand
+ */
+export const se_ListWorkerConfigurationsCommand = async (
   input: ListWorkerConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -433,7 +464,10 @@ export const serializeAws_restJson1ListWorkerConfigurationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConnectorCommand = async (
+/**
+ * serializeAws_restJson1UpdateConnectorCommand
+ */
+export const se_UpdateConnectorCommand = async (
   input: UpdateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -456,7 +490,7 @@ export const serializeAws_restJson1UpdateConnectorCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.capacity != null && { capacity: serializeAws_restJson1CapacityUpdate(input.capacity, context) }),
+    ...(input.capacity != null && { capacity: se_CapacityUpdate(input.capacity, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -470,12 +504,15 @@ export const serializeAws_restJson1UpdateConnectorCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateConnectorCommand = async (
+/**
+ * deserializeAws_restJson1CreateConnectorCommand
+ */
+export const de_CreateConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConnectorCommandError(output, context);
+    return de_CreateConnectorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -493,7 +530,10 @@ export const deserializeAws_restJson1CreateConnectorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateConnectorCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConnectorCommandError
+ */
+const de_CreateConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
@@ -505,28 +545,28 @@ const deserializeAws_restJson1CreateConnectorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kafkaconnect#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -538,12 +578,15 @@ const deserializeAws_restJson1CreateConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateCustomPluginCommand = async (
+/**
+ * deserializeAws_restJson1CreateCustomPluginCommand
+ */
+export const de_CreateCustomPluginCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomPluginCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCustomPluginCommandError(output, context);
+    return de_CreateCustomPluginCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -564,7 +607,10 @@ export const deserializeAws_restJson1CreateCustomPluginCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateCustomPluginCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCustomPluginCommandError
+ */
+const de_CreateCustomPluginCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomPluginCommandOutput> => {
@@ -576,28 +622,28 @@ const deserializeAws_restJson1CreateCustomPluginCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kafkaconnect#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -609,12 +655,15 @@ const deserializeAws_restJson1CreateCustomPluginCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateWorkerConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1CreateWorkerConfigurationCommand
+ */
+export const de_CreateWorkerConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkerConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateWorkerConfigurationCommandError(output, context);
+    return de_CreateWorkerConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -624,7 +673,7 @@ export const deserializeAws_restJson1CreateWorkerConfigurationCommand = async (
     contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.latestRevision != null) {
-    contents.latestRevision = deserializeAws_restJson1WorkerConfigurationRevisionSummary(data.latestRevision, context);
+    contents.latestRevision = de_WorkerConfigurationRevisionSummary(data.latestRevision, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -635,7 +684,10 @@ export const deserializeAws_restJson1CreateWorkerConfigurationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateWorkerConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateWorkerConfigurationCommandError
+ */
+const de_CreateWorkerConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkerConfigurationCommandOutput> => {
@@ -647,28 +699,28 @@ const deserializeAws_restJson1CreateWorkerConfigurationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kafkaconnect#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -680,12 +732,15 @@ const deserializeAws_restJson1CreateWorkerConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteConnectorCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConnectorCommand
+ */
+export const de_DeleteConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConnectorCommandError(output, context);
+    return de_DeleteConnectorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -700,7 +755,10 @@ export const deserializeAws_restJson1DeleteConnectorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConnectorCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConnectorCommandError
+ */
+const de_DeleteConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
@@ -712,25 +770,25 @@ const deserializeAws_restJson1DeleteConnectorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -742,12 +800,15 @@ const deserializeAws_restJson1DeleteConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteCustomPluginCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCustomPluginCommand
+ */
+export const de_DeleteCustomPluginCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomPluginCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCustomPluginCommandError(output, context);
+    return de_DeleteCustomPluginCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -762,7 +823,10 @@ export const deserializeAws_restJson1DeleteCustomPluginCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCustomPluginCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCustomPluginCommandError
+ */
+const de_DeleteCustomPluginCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomPluginCommandOutput> => {
@@ -774,25 +838,25 @@ const deserializeAws_restJson1DeleteCustomPluginCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -804,28 +868,28 @@ const deserializeAws_restJson1DeleteCustomPluginCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeConnectorCommand = async (
+/**
+ * deserializeAws_restJson1DescribeConnectorCommand
+ */
+export const de_DescribeConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeConnectorCommandError(output, context);
+    return de_DescribeConnectorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.capacity != null) {
-    contents.capacity = deserializeAws_restJson1CapacityDescription(data.capacity, context);
+    contents.capacity = de_CapacityDescription(data.capacity, context);
   }
   if (data.connectorArn != null) {
     contents.connectorArn = __expectString(data.connectorArn);
   }
   if (data.connectorConfiguration != null) {
-    contents.connectorConfiguration = deserializeAws_restJson1__sensitive__mapOf__string(
-      data.connectorConfiguration,
-      context
-    );
+    contents.connectorConfiguration = de___sensitive__mapOf__string(data.connectorConfiguration, context);
   }
   if (data.connectorDescription != null) {
     contents.connectorDescription = __expectString(data.connectorDescription);
@@ -843,16 +907,16 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     contents.currentVersion = __expectString(data.currentVersion);
   }
   if (data.kafkaCluster != null) {
-    contents.kafkaCluster = deserializeAws_restJson1KafkaClusterDescription(data.kafkaCluster, context);
+    contents.kafkaCluster = de_KafkaClusterDescription(data.kafkaCluster, context);
   }
   if (data.kafkaClusterClientAuthentication != null) {
-    contents.kafkaClusterClientAuthentication = deserializeAws_restJson1KafkaClusterClientAuthenticationDescription(
+    contents.kafkaClusterClientAuthentication = de_KafkaClusterClientAuthenticationDescription(
       data.kafkaClusterClientAuthentication,
       context
     );
   }
   if (data.kafkaClusterEncryptionInTransit != null) {
-    contents.kafkaClusterEncryptionInTransit = deserializeAws_restJson1KafkaClusterEncryptionInTransitDescription(
+    contents.kafkaClusterEncryptionInTransit = de_KafkaClusterEncryptionInTransitDescription(
       data.kafkaClusterEncryptionInTransit,
       context
     );
@@ -861,27 +925,27 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     contents.kafkaConnectVersion = __expectString(data.kafkaConnectVersion);
   }
   if (data.logDelivery != null) {
-    contents.logDelivery = deserializeAws_restJson1LogDeliveryDescription(data.logDelivery, context);
+    contents.logDelivery = de_LogDeliveryDescription(data.logDelivery, context);
   }
   if (data.plugins != null) {
-    contents.plugins = deserializeAws_restJson1__listOfPluginDescription(data.plugins, context);
+    contents.plugins = de___listOfPluginDescription(data.plugins, context);
   }
   if (data.serviceExecutionRoleArn != null) {
     contents.serviceExecutionRoleArn = __expectString(data.serviceExecutionRoleArn);
   }
   if (data.stateDescription != null) {
-    contents.stateDescription = deserializeAws_restJson1StateDescription(data.stateDescription, context);
+    contents.stateDescription = de_StateDescription(data.stateDescription, context);
   }
   if (data.workerConfiguration != null) {
-    contents.workerConfiguration = deserializeAws_restJson1WorkerConfigurationDescription(
-      data.workerConfiguration,
-      context
-    );
+    contents.workerConfiguration = de_WorkerConfigurationDescription(data.workerConfiguration, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeConnectorCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeConnectorCommandError
+ */
+const de_DescribeConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
@@ -893,25 +957,25 @@ const deserializeAws_restJson1DescribeConnectorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -923,12 +987,15 @@ const deserializeAws_restJson1DescribeConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
+/**
+ * deserializeAws_restJson1DescribeCustomPluginCommand
+ */
+export const de_DescribeCustomPluginCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomPluginCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeCustomPluginCommandError(output, context);
+    return de_DescribeCustomPluginCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -947,18 +1014,21 @@ export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
     contents.description = __expectString(data.description);
   }
   if (data.latestRevision != null) {
-    contents.latestRevision = deserializeAws_restJson1CustomPluginRevisionSummary(data.latestRevision, context);
+    contents.latestRevision = de_CustomPluginRevisionSummary(data.latestRevision, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
   }
   if (data.stateDescription != null) {
-    contents.stateDescription = deserializeAws_restJson1StateDescription(data.stateDescription, context);
+    contents.stateDescription = de_StateDescription(data.stateDescription, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeCustomPluginCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeCustomPluginCommandError
+ */
+const de_DescribeCustomPluginCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomPluginCommandOutput> => {
@@ -970,25 +1040,25 @@ const deserializeAws_restJson1DescribeCustomPluginCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1000,12 +1070,15 @@ const deserializeAws_restJson1DescribeCustomPluginCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeWorkerConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DescribeWorkerConfigurationCommand
+ */
+export const de_DescribeWorkerConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkerConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeWorkerConfigurationCommandError(output, context);
+    return de_DescribeWorkerConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1018,10 +1091,7 @@ export const deserializeAws_restJson1DescribeWorkerConfigurationCommand = async 
     contents.description = __expectString(data.description);
   }
   if (data.latestRevision != null) {
-    contents.latestRevision = deserializeAws_restJson1WorkerConfigurationRevisionDescription(
-      data.latestRevision,
-      context
-    );
+    contents.latestRevision = de_WorkerConfigurationRevisionDescription(data.latestRevision, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1032,7 +1102,10 @@ export const deserializeAws_restJson1DescribeWorkerConfigurationCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1DescribeWorkerConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeWorkerConfigurationCommandError
+ */
+const de_DescribeWorkerConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkerConfigurationCommandOutput> => {
@@ -1044,25 +1117,25 @@ const deserializeAws_restJson1DescribeWorkerConfigurationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1074,19 +1147,22 @@ const deserializeAws_restJson1DescribeWorkerConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListConnectorsCommand = async (
+/**
+ * deserializeAws_restJson1ListConnectorsCommand
+ */
+export const de_ListConnectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConnectorsCommandError(output, context);
+    return de_ListConnectorsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectors != null) {
-    contents.connectors = deserializeAws_restJson1__listOfConnectorSummary(data.connectors, context);
+    contents.connectors = de___listOfConnectorSummary(data.connectors, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1094,7 +1170,10 @@ export const deserializeAws_restJson1ListConnectorsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListConnectorsCommandError = async (
+/**
+ * deserializeAws_restJson1ListConnectorsCommandError
+ */
+const de_ListConnectorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
@@ -1106,25 +1185,25 @@ const deserializeAws_restJson1ListConnectorsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1136,19 +1215,22 @@ const deserializeAws_restJson1ListConnectorsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListCustomPluginsCommand = async (
+/**
+ * deserializeAws_restJson1ListCustomPluginsCommand
+ */
+export const de_ListCustomPluginsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomPluginsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCustomPluginsCommandError(output, context);
+    return de_ListCustomPluginsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.customPlugins != null) {
-    contents.customPlugins = deserializeAws_restJson1__listOfCustomPluginSummary(data.customPlugins, context);
+    contents.customPlugins = de___listOfCustomPluginSummary(data.customPlugins, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1156,7 +1238,10 @@ export const deserializeAws_restJson1ListCustomPluginsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListCustomPluginsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCustomPluginsCommandError
+ */
+const de_ListCustomPluginsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomPluginsCommandOutput> => {
@@ -1168,25 +1253,25 @@ const deserializeAws_restJson1ListCustomPluginsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1198,12 +1283,15 @@ const deserializeAws_restJson1ListCustomPluginsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListWorkerConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1ListWorkerConfigurationsCommand
+ */
+export const de_ListWorkerConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkerConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListWorkerConfigurationsCommandError(output, context);
+    return de_ListWorkerConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1213,15 +1301,15 @@ export const deserializeAws_restJson1ListWorkerConfigurationsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.workerConfigurations != null) {
-    contents.workerConfigurations = deserializeAws_restJson1__listOfWorkerConfigurationSummary(
-      data.workerConfigurations,
-      context
-    );
+    contents.workerConfigurations = de___listOfWorkerConfigurationSummary(data.workerConfigurations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListWorkerConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListWorkerConfigurationsCommandError
+ */
+const de_ListWorkerConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkerConfigurationsCommandOutput> => {
@@ -1233,25 +1321,25 @@ const deserializeAws_restJson1ListWorkerConfigurationsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1263,12 +1351,15 @@ const deserializeAws_restJson1ListWorkerConfigurationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateConnectorCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConnectorCommand
+ */
+export const de_UpdateConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConnectorCommandError(output, context);
+    return de_UpdateConnectorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1283,7 +1374,10 @@ export const deserializeAws_restJson1UpdateConnectorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateConnectorCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConnectorCommandError
+ */
+const de_UpdateConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
@@ -1295,25 +1389,25 @@ const deserializeAws_restJson1UpdateConnectorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafkaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.kafkaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.kafkaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kafkaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.kafkaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafkaconnect#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1326,10 +1420,10 @@ const deserializeAws_restJson1UpdateConnectorCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1342,10 +1436,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1358,10 +1452,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1374,7 +1468,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
@@ -1390,10 +1487,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1406,7 +1503,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -1422,7 +1522,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
@@ -1438,7 +1541,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
@@ -1454,7 +1560,10 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOf__string
+ */
+const se___listOf__string = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1462,18 +1571,21 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1__listOfPlugin = (input: Plugin[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOfPlugin
+ */
+const se___listOfPlugin = (input: Plugin[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Plugin(entry, context);
+      return se_Plugin(entry, context);
     });
 };
 
-const serializeAws_restJson1__sensitive__mapOf__string = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1__sensitive__mapOf__string
+ */
+const se___sensitive__mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1483,151 +1595,178 @@ const serializeAws_restJson1__sensitive__mapOf__string = (
   }, {});
 };
 
-const serializeAws_restJson1ApacheKafkaCluster = (input: ApacheKafkaCluster, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ApacheKafkaCluster
+ */
+const se_ApacheKafkaCluster = (input: ApacheKafkaCluster, context: __SerdeContext): any => {
   return {
     ...(input.bootstrapServers != null && { bootstrapServers: input.bootstrapServers }),
-    ...(input.vpc != null && { vpc: serializeAws_restJson1Vpc(input.vpc, context) }),
+    ...(input.vpc != null && { vpc: se_Vpc(input.vpc, context) }),
   };
 };
 
-const serializeAws_restJson1AutoScaling = (input: AutoScaling, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AutoScaling
+ */
+const se_AutoScaling = (input: AutoScaling, context: __SerdeContext): any => {
   return {
     ...(input.maxWorkerCount != null && { maxWorkerCount: input.maxWorkerCount }),
     ...(input.mcuCount != null && { mcuCount: input.mcuCount }),
     ...(input.minWorkerCount != null && { minWorkerCount: input.minWorkerCount }),
-    ...(input.scaleInPolicy != null && {
-      scaleInPolicy: serializeAws_restJson1ScaleInPolicy(input.scaleInPolicy, context),
-    }),
-    ...(input.scaleOutPolicy != null && {
-      scaleOutPolicy: serializeAws_restJson1ScaleOutPolicy(input.scaleOutPolicy, context),
-    }),
+    ...(input.scaleInPolicy != null && { scaleInPolicy: se_ScaleInPolicy(input.scaleInPolicy, context) }),
+    ...(input.scaleOutPolicy != null && { scaleOutPolicy: se_ScaleOutPolicy(input.scaleOutPolicy, context) }),
   };
 };
 
-const serializeAws_restJson1AutoScalingUpdate = (input: AutoScalingUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AutoScalingUpdate
+ */
+const se_AutoScalingUpdate = (input: AutoScalingUpdate, context: __SerdeContext): any => {
   return {
     ...(input.maxWorkerCount != null && { maxWorkerCount: input.maxWorkerCount }),
     ...(input.mcuCount != null && { mcuCount: input.mcuCount }),
     ...(input.minWorkerCount != null && { minWorkerCount: input.minWorkerCount }),
-    ...(input.scaleInPolicy != null && {
-      scaleInPolicy: serializeAws_restJson1ScaleInPolicyUpdate(input.scaleInPolicy, context),
-    }),
-    ...(input.scaleOutPolicy != null && {
-      scaleOutPolicy: serializeAws_restJson1ScaleOutPolicyUpdate(input.scaleOutPolicy, context),
-    }),
+    ...(input.scaleInPolicy != null && { scaleInPolicy: se_ScaleInPolicyUpdate(input.scaleInPolicy, context) }),
+    ...(input.scaleOutPolicy != null && { scaleOutPolicy: se_ScaleOutPolicyUpdate(input.scaleOutPolicy, context) }),
   };
 };
 
-const serializeAws_restJson1Capacity = (input: Capacity, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Capacity
+ */
+const se_Capacity = (input: Capacity, context: __SerdeContext): any => {
   return {
-    ...(input.autoScaling != null && { autoScaling: serializeAws_restJson1AutoScaling(input.autoScaling, context) }),
+    ...(input.autoScaling != null && { autoScaling: se_AutoScaling(input.autoScaling, context) }),
     ...(input.provisionedCapacity != null && {
-      provisionedCapacity: serializeAws_restJson1ProvisionedCapacity(input.provisionedCapacity, context),
+      provisionedCapacity: se_ProvisionedCapacity(input.provisionedCapacity, context),
     }),
   };
 };
 
-const serializeAws_restJson1CapacityUpdate = (input: CapacityUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CapacityUpdate
+ */
+const se_CapacityUpdate = (input: CapacityUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.autoScaling != null && {
-      autoScaling: serializeAws_restJson1AutoScalingUpdate(input.autoScaling, context),
-    }),
+    ...(input.autoScaling != null && { autoScaling: se_AutoScalingUpdate(input.autoScaling, context) }),
     ...(input.provisionedCapacity != null && {
-      provisionedCapacity: serializeAws_restJson1ProvisionedCapacityUpdate(input.provisionedCapacity, context),
+      provisionedCapacity: se_ProvisionedCapacityUpdate(input.provisionedCapacity, context),
     }),
   };
 };
 
-const serializeAws_restJson1CloudWatchLogsLogDelivery = (
-  input: CloudWatchLogsLogDelivery,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CloudWatchLogsLogDelivery
+ */
+const se_CloudWatchLogsLogDelivery = (input: CloudWatchLogsLogDelivery, context: __SerdeContext): any => {
   return {
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.logGroup != null && { logGroup: input.logGroup }),
   };
 };
 
-const serializeAws_restJson1CustomPlugin = (input: CustomPlugin, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CustomPlugin
+ */
+const se_CustomPlugin = (input: CustomPlugin, context: __SerdeContext): any => {
   return {
     ...(input.customPluginArn != null && { customPluginArn: input.customPluginArn }),
     ...(input.revision != null && { revision: input.revision }),
   };
 };
 
-const serializeAws_restJson1CustomPluginLocation = (input: CustomPluginLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CustomPluginLocation
+ */
+const se_CustomPluginLocation = (input: CustomPluginLocation, context: __SerdeContext): any => {
   return {
-    ...(input.s3Location != null && { s3Location: serializeAws_restJson1S3Location(input.s3Location, context) }),
+    ...(input.s3Location != null && { s3Location: se_S3Location(input.s3Location, context) }),
   };
 };
 
-const serializeAws_restJson1FirehoseLogDelivery = (input: FirehoseLogDelivery, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FirehoseLogDelivery
+ */
+const se_FirehoseLogDelivery = (input: FirehoseLogDelivery, context: __SerdeContext): any => {
   return {
     ...(input.deliveryStream != null && { deliveryStream: input.deliveryStream }),
     ...(input.enabled != null && { enabled: input.enabled }),
   };
 };
 
-const serializeAws_restJson1KafkaCluster = (input: KafkaCluster, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1KafkaCluster
+ */
+const se_KafkaCluster = (input: KafkaCluster, context: __SerdeContext): any => {
   return {
     ...(input.apacheKafkaCluster != null && {
-      apacheKafkaCluster: serializeAws_restJson1ApacheKafkaCluster(input.apacheKafkaCluster, context),
+      apacheKafkaCluster: se_ApacheKafkaCluster(input.apacheKafkaCluster, context),
     }),
   };
 };
 
-const serializeAws_restJson1KafkaClusterClientAuthentication = (
-  input: KafkaClusterClientAuthentication,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1KafkaClusterClientAuthentication
+ */
+const se_KafkaClusterClientAuthentication = (input: KafkaClusterClientAuthentication, context: __SerdeContext): any => {
   return {
     ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
   };
 };
 
-const serializeAws_restJson1KafkaClusterEncryptionInTransit = (
-  input: KafkaClusterEncryptionInTransit,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1KafkaClusterEncryptionInTransit
+ */
+const se_KafkaClusterEncryptionInTransit = (input: KafkaClusterEncryptionInTransit, context: __SerdeContext): any => {
   return {
     ...(input.encryptionType != null && { encryptionType: input.encryptionType }),
   };
 };
 
-const serializeAws_restJson1LogDelivery = (input: LogDelivery, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LogDelivery
+ */
+const se_LogDelivery = (input: LogDelivery, context: __SerdeContext): any => {
   return {
     ...(input.workerLogDelivery != null && {
-      workerLogDelivery: serializeAws_restJson1WorkerLogDelivery(input.workerLogDelivery, context),
+      workerLogDelivery: se_WorkerLogDelivery(input.workerLogDelivery, context),
     }),
   };
 };
 
-const serializeAws_restJson1Plugin = (input: Plugin, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Plugin
+ */
+const se_Plugin = (input: Plugin, context: __SerdeContext): any => {
   return {
-    ...(input.customPlugin != null && {
-      customPlugin: serializeAws_restJson1CustomPlugin(input.customPlugin, context),
-    }),
+    ...(input.customPlugin != null && { customPlugin: se_CustomPlugin(input.customPlugin, context) }),
   };
 };
 
-const serializeAws_restJson1ProvisionedCapacity = (input: ProvisionedCapacity, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ProvisionedCapacity
+ */
+const se_ProvisionedCapacity = (input: ProvisionedCapacity, context: __SerdeContext): any => {
   return {
     ...(input.mcuCount != null && { mcuCount: input.mcuCount }),
     ...(input.workerCount != null && { workerCount: input.workerCount }),
   };
 };
 
-const serializeAws_restJson1ProvisionedCapacityUpdate = (
-  input: ProvisionedCapacityUpdate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ProvisionedCapacityUpdate
+ */
+const se_ProvisionedCapacityUpdate = (input: ProvisionedCapacityUpdate, context: __SerdeContext): any => {
   return {
     ...(input.mcuCount != null && { mcuCount: input.mcuCount }),
     ...(input.workerCount != null && { workerCount: input.workerCount }),
   };
 };
 
-const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1S3Location
+ */
+const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucketArn != null && { bucketArn: input.bucketArn }),
     ...(input.fileKey != null && { fileKey: input.fileKey }),
@@ -1635,7 +1774,10 @@ const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1S3LogDelivery = (input: S3LogDelivery, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1S3LogDelivery
+ */
+const se_S3LogDelivery = (input: S3LogDelivery, context: __SerdeContext): any => {
   return {
     ...(input.bucket != null && { bucket: input.bucket }),
     ...(input.enabled != null && { enabled: input.enabled }),
@@ -1643,57 +1785,79 @@ const serializeAws_restJson1S3LogDelivery = (input: S3LogDelivery, context: __Se
   };
 };
 
-const serializeAws_restJson1ScaleInPolicy = (input: ScaleInPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ScaleInPolicy
+ */
+const se_ScaleInPolicy = (input: ScaleInPolicy, context: __SerdeContext): any => {
   return {
     ...(input.cpuUtilizationPercentage != null && { cpuUtilizationPercentage: input.cpuUtilizationPercentage }),
   };
 };
 
-const serializeAws_restJson1ScaleInPolicyUpdate = (input: ScaleInPolicyUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ScaleInPolicyUpdate
+ */
+const se_ScaleInPolicyUpdate = (input: ScaleInPolicyUpdate, context: __SerdeContext): any => {
   return {
     ...(input.cpuUtilizationPercentage != null && { cpuUtilizationPercentage: input.cpuUtilizationPercentage }),
   };
 };
 
-const serializeAws_restJson1ScaleOutPolicy = (input: ScaleOutPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ScaleOutPolicy
+ */
+const se_ScaleOutPolicy = (input: ScaleOutPolicy, context: __SerdeContext): any => {
   return {
     ...(input.cpuUtilizationPercentage != null && { cpuUtilizationPercentage: input.cpuUtilizationPercentage }),
   };
 };
 
-const serializeAws_restJson1ScaleOutPolicyUpdate = (input: ScaleOutPolicyUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ScaleOutPolicyUpdate
+ */
+const se_ScaleOutPolicyUpdate = (input: ScaleOutPolicyUpdate, context: __SerdeContext): any => {
   return {
     ...(input.cpuUtilizationPercentage != null && { cpuUtilizationPercentage: input.cpuUtilizationPercentage }),
   };
 };
 
-const serializeAws_restJson1Vpc = (input: Vpc, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Vpc
+ */
+const se_Vpc = (input: Vpc, context: __SerdeContext): any => {
   return {
-    ...(input.securityGroups != null && {
-      securityGroups: serializeAws_restJson1__listOf__string(input.securityGroups, context),
-    }),
-    ...(input.subnets != null && { subnets: serializeAws_restJson1__listOf__string(input.subnets, context) }),
+    ...(input.securityGroups != null && { securityGroups: se___listOf__string(input.securityGroups, context) }),
+    ...(input.subnets != null && { subnets: se___listOf__string(input.subnets, context) }),
   };
 };
 
-const serializeAws_restJson1WorkerConfiguration = (input: WorkerConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1WorkerConfiguration
+ */
+const se_WorkerConfiguration = (input: WorkerConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.revision != null && { revision: input.revision }),
     ...(input.workerConfigurationArn != null && { workerConfigurationArn: input.workerConfigurationArn }),
   };
 };
 
-const serializeAws_restJson1WorkerLogDelivery = (input: WorkerLogDelivery, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1WorkerLogDelivery
+ */
+const se_WorkerLogDelivery = (input: WorkerLogDelivery, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatchLogs != null && {
-      cloudWatchLogs: serializeAws_restJson1CloudWatchLogsLogDelivery(input.cloudWatchLogs, context),
+      cloudWatchLogs: se_CloudWatchLogsLogDelivery(input.cloudWatchLogs, context),
     }),
-    ...(input.firehose != null && { firehose: serializeAws_restJson1FirehoseLogDelivery(input.firehose, context) }),
-    ...(input.s3 != null && { s3: serializeAws_restJson1S3LogDelivery(input.s3, context) }),
+    ...(input.firehose != null && { firehose: se_FirehoseLogDelivery(input.firehose, context) }),
+    ...(input.s3 != null && { s3: se_S3LogDelivery(input.s3, context) }),
   };
 };
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1__listOf__string
+ */
+const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1705,67 +1869,70 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary[] => {
+/**
+ * deserializeAws_restJson1__listOfConnectorSummary
+ */
+const de___listOfConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ConnectorSummary(entry, context);
+      return de_ConnectorSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfCustomPluginSummary = (
-  output: any,
-  context: __SerdeContext
-): CustomPluginSummary[] => {
+/**
+ * deserializeAws_restJson1__listOfCustomPluginSummary
+ */
+const de___listOfCustomPluginSummary = (output: any, context: __SerdeContext): CustomPluginSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CustomPluginSummary(entry, context);
+      return de_CustomPluginSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfPluginDescription = (
-  output: any,
-  context: __SerdeContext
-): PluginDescription[] => {
+/**
+ * deserializeAws_restJson1__listOfPluginDescription
+ */
+const de___listOfPluginDescription = (output: any, context: __SerdeContext): PluginDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PluginDescription(entry, context);
+      return de_PluginDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfWorkerConfigurationSummary = (
-  output: any,
-  context: __SerdeContext
-): WorkerConfigurationSummary[] => {
+/**
+ * deserializeAws_restJson1__listOfWorkerConfigurationSummary
+ */
+const de___listOfWorkerConfigurationSummary = (output: any, context: __SerdeContext): WorkerConfigurationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1WorkerConfigurationSummary(entry, context);
+      return de_WorkerConfigurationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__sensitive__mapOf__string = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1__sensitive__mapOf__string
+ */
+const de___sensitive__mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1775,49 +1942,48 @@ const deserializeAws_restJson1__sensitive__mapOf__string = (
   }, {});
 };
 
-const deserializeAws_restJson1ApacheKafkaClusterDescription = (
-  output: any,
-  context: __SerdeContext
-): ApacheKafkaClusterDescription => {
+/**
+ * deserializeAws_restJson1ApacheKafkaClusterDescription
+ */
+const de_ApacheKafkaClusterDescription = (output: any, context: __SerdeContext): ApacheKafkaClusterDescription => {
   return {
     bootstrapServers: __expectString(output.bootstrapServers),
-    vpc: output.vpc != null ? deserializeAws_restJson1VpcDescription(output.vpc, context) : undefined,
+    vpc: output.vpc != null ? de_VpcDescription(output.vpc, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AutoScalingDescription = (
-  output: any,
-  context: __SerdeContext
-): AutoScalingDescription => {
+/**
+ * deserializeAws_restJson1AutoScalingDescription
+ */
+const de_AutoScalingDescription = (output: any, context: __SerdeContext): AutoScalingDescription => {
   return {
     maxWorkerCount: __expectInt32(output.maxWorkerCount),
     mcuCount: __expectInt32(output.mcuCount),
     minWorkerCount: __expectInt32(output.minWorkerCount),
     scaleInPolicy:
-      output.scaleInPolicy != null
-        ? deserializeAws_restJson1ScaleInPolicyDescription(output.scaleInPolicy, context)
-        : undefined,
+      output.scaleInPolicy != null ? de_ScaleInPolicyDescription(output.scaleInPolicy, context) : undefined,
     scaleOutPolicy:
-      output.scaleOutPolicy != null
-        ? deserializeAws_restJson1ScaleOutPolicyDescription(output.scaleOutPolicy, context)
-        : undefined,
+      output.scaleOutPolicy != null ? de_ScaleOutPolicyDescription(output.scaleOutPolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CapacityDescription = (output: any, context: __SerdeContext): CapacityDescription => {
+/**
+ * deserializeAws_restJson1CapacityDescription
+ */
+const de_CapacityDescription = (output: any, context: __SerdeContext): CapacityDescription => {
   return {
-    autoScaling:
-      output.autoScaling != null
-        ? deserializeAws_restJson1AutoScalingDescription(output.autoScaling, context)
-        : undefined,
+    autoScaling: output.autoScaling != null ? de_AutoScalingDescription(output.autoScaling, context) : undefined,
     provisionedCapacity:
       output.provisionedCapacity != null
-        ? deserializeAws_restJson1ProvisionedCapacityDescription(output.provisionedCapacity, context)
+        ? de_ProvisionedCapacityDescription(output.provisionedCapacity, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CloudWatchLogsLogDeliveryDescription = (
+/**
+ * deserializeAws_restJson1CloudWatchLogsLogDeliveryDescription
+ */
+const de_CloudWatchLogsLogDeliveryDescription = (
   output: any,
   context: __SerdeContext
 ): CloudWatchLogsLogDeliveryDescription => {
@@ -1827,10 +1993,12 @@ const deserializeAws_restJson1CloudWatchLogsLogDeliveryDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1ConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary => {
+/**
+ * deserializeAws_restJson1ConnectorSummary
+ */
+const de_ConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary => {
   return {
-    capacity:
-      output.capacity != null ? deserializeAws_restJson1CapacityDescription(output.capacity, context) : undefined,
+    capacity: output.capacity != null ? de_CapacityDescription(output.capacity, context) : undefined,
     connectorArn: __expectString(output.connectorArn),
     connectorDescription: __expectString(output.connectorDescription),
     connectorName: __expectString(output.connectorName),
@@ -1838,91 +2006,75 @@ const deserializeAws_restJson1ConnectorSummary = (output: any, context: __SerdeC
     creationTime:
       output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     currentVersion: __expectString(output.currentVersion),
-    kafkaCluster:
-      output.kafkaCluster != null
-        ? deserializeAws_restJson1KafkaClusterDescription(output.kafkaCluster, context)
-        : undefined,
+    kafkaCluster: output.kafkaCluster != null ? de_KafkaClusterDescription(output.kafkaCluster, context) : undefined,
     kafkaClusterClientAuthentication:
       output.kafkaClusterClientAuthentication != null
-        ? deserializeAws_restJson1KafkaClusterClientAuthenticationDescription(
-            output.kafkaClusterClientAuthentication,
-            context
-          )
+        ? de_KafkaClusterClientAuthenticationDescription(output.kafkaClusterClientAuthentication, context)
         : undefined,
     kafkaClusterEncryptionInTransit:
       output.kafkaClusterEncryptionInTransit != null
-        ? deserializeAws_restJson1KafkaClusterEncryptionInTransitDescription(
-            output.kafkaClusterEncryptionInTransit,
-            context
-          )
+        ? de_KafkaClusterEncryptionInTransitDescription(output.kafkaClusterEncryptionInTransit, context)
         : undefined,
     kafkaConnectVersion: __expectString(output.kafkaConnectVersion),
-    logDelivery:
-      output.logDelivery != null
-        ? deserializeAws_restJson1LogDeliveryDescription(output.logDelivery, context)
-        : undefined,
-    plugins:
-      output.plugins != null ? deserializeAws_restJson1__listOfPluginDescription(output.plugins, context) : undefined,
+    logDelivery: output.logDelivery != null ? de_LogDeliveryDescription(output.logDelivery, context) : undefined,
+    plugins: output.plugins != null ? de___listOfPluginDescription(output.plugins, context) : undefined,
     serviceExecutionRoleArn: __expectString(output.serviceExecutionRoleArn),
     workerConfiguration:
       output.workerConfiguration != null
-        ? deserializeAws_restJson1WorkerConfigurationDescription(output.workerConfiguration, context)
+        ? de_WorkerConfigurationDescription(output.workerConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CustomPluginDescription = (
-  output: any,
-  context: __SerdeContext
-): CustomPluginDescription => {
+/**
+ * deserializeAws_restJson1CustomPluginDescription
+ */
+const de_CustomPluginDescription = (output: any, context: __SerdeContext): CustomPluginDescription => {
   return {
     customPluginArn: __expectString(output.customPluginArn),
     revision: __expectLong(output.revision),
   } as any;
 };
 
-const deserializeAws_restJson1CustomPluginFileDescription = (
-  output: any,
-  context: __SerdeContext
-): CustomPluginFileDescription => {
+/**
+ * deserializeAws_restJson1CustomPluginFileDescription
+ */
+const de_CustomPluginFileDescription = (output: any, context: __SerdeContext): CustomPluginFileDescription => {
   return {
     fileMd5: __expectString(output.fileMd5),
     fileSize: __expectLong(output.fileSize),
   } as any;
 };
 
-const deserializeAws_restJson1CustomPluginLocationDescription = (
-  output: any,
-  context: __SerdeContext
-): CustomPluginLocationDescription => {
+/**
+ * deserializeAws_restJson1CustomPluginLocationDescription
+ */
+const de_CustomPluginLocationDescription = (output: any, context: __SerdeContext): CustomPluginLocationDescription => {
   return {
-    s3Location:
-      output.s3Location != null ? deserializeAws_restJson1S3LocationDescription(output.s3Location, context) : undefined,
+    s3Location: output.s3Location != null ? de_S3LocationDescription(output.s3Location, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CustomPluginRevisionSummary = (
-  output: any,
-  context: __SerdeContext
-): CustomPluginRevisionSummary => {
+/**
+ * deserializeAws_restJson1CustomPluginRevisionSummary
+ */
+const de_CustomPluginRevisionSummary = (output: any, context: __SerdeContext): CustomPluginRevisionSummary => {
   return {
     contentType: __expectString(output.contentType),
     creationTime:
       output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     fileDescription:
-      output.fileDescription != null
-        ? deserializeAws_restJson1CustomPluginFileDescription(output.fileDescription, context)
-        : undefined,
-    location:
-      output.location != null
-        ? deserializeAws_restJson1CustomPluginLocationDescription(output.location, context)
-        : undefined,
+      output.fileDescription != null ? de_CustomPluginFileDescription(output.fileDescription, context) : undefined,
+    location: output.location != null ? de_CustomPluginLocationDescription(output.location, context) : undefined,
     revision: __expectLong(output.revision),
   } as any;
 };
 
-const deserializeAws_restJson1CustomPluginSummary = (output: any, context: __SerdeContext): CustomPluginSummary => {
+/**
+ * deserializeAws_restJson1CustomPluginSummary
+ */
+const de_CustomPluginSummary = (output: any, context: __SerdeContext): CustomPluginSummary => {
   return {
     creationTime:
       output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
@@ -1930,24 +2082,25 @@ const deserializeAws_restJson1CustomPluginSummary = (output: any, context: __Ser
     customPluginState: __expectString(output.customPluginState),
     description: __expectString(output.description),
     latestRevision:
-      output.latestRevision != null
-        ? deserializeAws_restJson1CustomPluginRevisionSummary(output.latestRevision, context)
-        : undefined,
+      output.latestRevision != null ? de_CustomPluginRevisionSummary(output.latestRevision, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1FirehoseLogDeliveryDescription = (
-  output: any,
-  context: __SerdeContext
-): FirehoseLogDeliveryDescription => {
+/**
+ * deserializeAws_restJson1FirehoseLogDeliveryDescription
+ */
+const de_FirehoseLogDeliveryDescription = (output: any, context: __SerdeContext): FirehoseLogDeliveryDescription => {
   return {
     deliveryStream: __expectString(output.deliveryStream),
     enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
-const deserializeAws_restJson1KafkaClusterClientAuthenticationDescription = (
+/**
+ * deserializeAws_restJson1KafkaClusterClientAuthenticationDescription
+ */
+const de_KafkaClusterClientAuthenticationDescription = (
   output: any,
   context: __SerdeContext
 ): KafkaClusterClientAuthenticationDescription => {
@@ -1956,19 +2109,22 @@ const deserializeAws_restJson1KafkaClusterClientAuthenticationDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1KafkaClusterDescription = (
-  output: any,
-  context: __SerdeContext
-): KafkaClusterDescription => {
+/**
+ * deserializeAws_restJson1KafkaClusterDescription
+ */
+const de_KafkaClusterDescription = (output: any, context: __SerdeContext): KafkaClusterDescription => {
   return {
     apacheKafkaCluster:
       output.apacheKafkaCluster != null
-        ? deserializeAws_restJson1ApacheKafkaClusterDescription(output.apacheKafkaCluster, context)
+        ? de_ApacheKafkaClusterDescription(output.apacheKafkaCluster, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1KafkaClusterEncryptionInTransitDescription = (
+/**
+ * deserializeAws_restJson1KafkaClusterEncryptionInTransitDescription
+ */
+const de_KafkaClusterEncryptionInTransitDescription = (
   output: any,
   context: __SerdeContext
 ): KafkaClusterEncryptionInTransitDescription => {
@@ -1977,38 +2133,39 @@ const deserializeAws_restJson1KafkaClusterEncryptionInTransitDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1LogDeliveryDescription = (
-  output: any,
-  context: __SerdeContext
-): LogDeliveryDescription => {
+/**
+ * deserializeAws_restJson1LogDeliveryDescription
+ */
+const de_LogDeliveryDescription = (output: any, context: __SerdeContext): LogDeliveryDescription => {
   return {
     workerLogDelivery:
-      output.workerLogDelivery != null
-        ? deserializeAws_restJson1WorkerLogDeliveryDescription(output.workerLogDelivery, context)
-        : undefined,
+      output.workerLogDelivery != null ? de_WorkerLogDeliveryDescription(output.workerLogDelivery, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PluginDescription = (output: any, context: __SerdeContext): PluginDescription => {
+/**
+ * deserializeAws_restJson1PluginDescription
+ */
+const de_PluginDescription = (output: any, context: __SerdeContext): PluginDescription => {
   return {
-    customPlugin:
-      output.customPlugin != null
-        ? deserializeAws_restJson1CustomPluginDescription(output.customPlugin, context)
-        : undefined,
+    customPlugin: output.customPlugin != null ? de_CustomPluginDescription(output.customPlugin, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProvisionedCapacityDescription = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedCapacityDescription => {
+/**
+ * deserializeAws_restJson1ProvisionedCapacityDescription
+ */
+const de_ProvisionedCapacityDescription = (output: any, context: __SerdeContext): ProvisionedCapacityDescription => {
   return {
     mcuCount: __expectInt32(output.mcuCount),
     workerCount: __expectInt32(output.workerCount),
   } as any;
 };
 
-const deserializeAws_restJson1S3LocationDescription = (output: any, context: __SerdeContext): S3LocationDescription => {
+/**
+ * deserializeAws_restJson1S3LocationDescription
+ */
+const de_S3LocationDescription = (output: any, context: __SerdeContext): S3LocationDescription => {
   return {
     bucketArn: __expectString(output.bucketArn),
     fileKey: __expectString(output.fileKey),
@@ -2016,10 +2173,10 @@ const deserializeAws_restJson1S3LocationDescription = (output: any, context: __S
   } as any;
 };
 
-const deserializeAws_restJson1S3LogDeliveryDescription = (
-  output: any,
-  context: __SerdeContext
-): S3LogDeliveryDescription => {
+/**
+ * deserializeAws_restJson1S3LogDeliveryDescription
+ */
+const de_S3LogDeliveryDescription = (output: any, context: __SerdeContext): S3LogDeliveryDescription => {
   return {
     bucket: __expectString(output.bucket),
     enabled: __expectBoolean(output.enabled),
@@ -2027,52 +2184,58 @@ const deserializeAws_restJson1S3LogDeliveryDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1ScaleInPolicyDescription = (
-  output: any,
-  context: __SerdeContext
-): ScaleInPolicyDescription => {
+/**
+ * deserializeAws_restJson1ScaleInPolicyDescription
+ */
+const de_ScaleInPolicyDescription = (output: any, context: __SerdeContext): ScaleInPolicyDescription => {
   return {
     cpuUtilizationPercentage: __expectInt32(output.cpuUtilizationPercentage),
   } as any;
 };
 
-const deserializeAws_restJson1ScaleOutPolicyDescription = (
-  output: any,
-  context: __SerdeContext
-): ScaleOutPolicyDescription => {
+/**
+ * deserializeAws_restJson1ScaleOutPolicyDescription
+ */
+const de_ScaleOutPolicyDescription = (output: any, context: __SerdeContext): ScaleOutPolicyDescription => {
   return {
     cpuUtilizationPercentage: __expectInt32(output.cpuUtilizationPercentage),
   } as any;
 };
 
-const deserializeAws_restJson1StateDescription = (output: any, context: __SerdeContext): StateDescription => {
+/**
+ * deserializeAws_restJson1StateDescription
+ */
+const de_StateDescription = (output: any, context: __SerdeContext): StateDescription => {
   return {
     code: __expectString(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_restJson1VpcDescription = (output: any, context: __SerdeContext): VpcDescription => {
+/**
+ * deserializeAws_restJson1VpcDescription
+ */
+const de_VpcDescription = (output: any, context: __SerdeContext): VpcDescription => {
   return {
-    securityGroups:
-      output.securityGroups != null
-        ? deserializeAws_restJson1__listOf__string(output.securityGroups, context)
-        : undefined,
-    subnets: output.subnets != null ? deserializeAws_restJson1__listOf__string(output.subnets, context) : undefined,
+    securityGroups: output.securityGroups != null ? de___listOf__string(output.securityGroups, context) : undefined,
+    subnets: output.subnets != null ? de___listOf__string(output.subnets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1WorkerConfigurationDescription = (
-  output: any,
-  context: __SerdeContext
-): WorkerConfigurationDescription => {
+/**
+ * deserializeAws_restJson1WorkerConfigurationDescription
+ */
+const de_WorkerConfigurationDescription = (output: any, context: __SerdeContext): WorkerConfigurationDescription => {
   return {
     revision: __expectLong(output.revision),
     workerConfigurationArn: __expectString(output.workerConfigurationArn),
   } as any;
 };
 
-const deserializeAws_restJson1WorkerConfigurationRevisionDescription = (
+/**
+ * deserializeAws_restJson1WorkerConfigurationRevisionDescription
+ */
+const de_WorkerConfigurationRevisionDescription = (
   output: any,
   context: __SerdeContext
 ): WorkerConfigurationRevisionDescription => {
@@ -2085,7 +2248,10 @@ const deserializeAws_restJson1WorkerConfigurationRevisionDescription = (
   } as any;
 };
 
-const deserializeAws_restJson1WorkerConfigurationRevisionSummary = (
+/**
+ * deserializeAws_restJson1WorkerConfigurationRevisionSummary
+ */
+const de_WorkerConfigurationRevisionSummary = (
   output: any,
   context: __SerdeContext
 ): WorkerConfigurationRevisionSummary => {
@@ -2097,37 +2263,32 @@ const deserializeAws_restJson1WorkerConfigurationRevisionSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1WorkerConfigurationSummary = (
-  output: any,
-  context: __SerdeContext
-): WorkerConfigurationSummary => {
+/**
+ * deserializeAws_restJson1WorkerConfigurationSummary
+ */
+const de_WorkerConfigurationSummary = (output: any, context: __SerdeContext): WorkerConfigurationSummary => {
   return {
     creationTime:
       output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     latestRevision:
-      output.latestRevision != null
-        ? deserializeAws_restJson1WorkerConfigurationRevisionSummary(output.latestRevision, context)
-        : undefined,
+      output.latestRevision != null ? de_WorkerConfigurationRevisionSummary(output.latestRevision, context) : undefined,
     name: __expectString(output.name),
     workerConfigurationArn: __expectString(output.workerConfigurationArn),
   } as any;
 };
 
-const deserializeAws_restJson1WorkerLogDeliveryDescription = (
-  output: any,
-  context: __SerdeContext
-): WorkerLogDeliveryDescription => {
+/**
+ * deserializeAws_restJson1WorkerLogDeliveryDescription
+ */
+const de_WorkerLogDeliveryDescription = (output: any, context: __SerdeContext): WorkerLogDeliveryDescription => {
   return {
     cloudWatchLogs:
       output.cloudWatchLogs != null
-        ? deserializeAws_restJson1CloudWatchLogsLogDeliveryDescription(output.cloudWatchLogs, context)
+        ? de_CloudWatchLogsLogDeliveryDescription(output.cloudWatchLogs, context)
         : undefined,
-    firehose:
-      output.firehose != null
-        ? deserializeAws_restJson1FirehoseLogDeliveryDescription(output.firehose, context)
-        : undefined,
-    s3: output.s3 != null ? deserializeAws_restJson1S3LogDeliveryDescription(output.s3, context) : undefined,
+    firehose: output.firehose != null ? de_FirehoseLogDeliveryDescription(output.firehose, context) : undefined,
+    s3: output.s3 != null ? de_S3LogDeliveryDescription(output.s3, context) : undefined,
   } as any;
 };
 

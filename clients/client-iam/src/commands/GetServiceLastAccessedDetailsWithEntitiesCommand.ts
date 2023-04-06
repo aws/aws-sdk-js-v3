@@ -19,8 +19,8 @@ import {
   GetServiceLastAccessedDetailsWithEntitiesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
-  serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
+  de_GetServiceLastAccessedDetailsWithEntitiesCommand,
+  se_GetServiceLastAccessedDetailsWithEntitiesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -212,7 +212,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
+    return se_GetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
   }
 
   /**
@@ -222,7 +222,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
+    return de_GetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

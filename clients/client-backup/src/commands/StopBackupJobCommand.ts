@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { StopBackupJobInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopBackupJobCommand,
-  serializeAws_restJson1StopBackupJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopBackupJobCommand, se_StopBackupJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class StopBackupJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBackupJobCommand(input, context);
+    return se_StopBackupJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1StopBackupJobCommand(output, context);
+    return de_StopBackupJobCommand(output, context);
   }
 
   // Start section: command_body_extra

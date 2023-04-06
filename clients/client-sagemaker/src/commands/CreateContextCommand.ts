@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateContextRequest, CreateContextResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContextCommand,
-  serializeAws_json1_1CreateContextCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContextCommand, se_CreateContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -142,14 +139,14 @@ export class CreateContextCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContextCommand(input, context);
+    return se_CreateContextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContextCommandOutput> {
-    return deserializeAws_json1_1CreateContextCommand(output, context);
+    return de_CreateContextCommand(output, context);
   }
 
   // Start section: command_body_extra

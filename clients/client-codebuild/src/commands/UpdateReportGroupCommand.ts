@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { UpdateReportGroupInput, UpdateReportGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateReportGroupCommand,
-  serializeAws_json1_1UpdateReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateReportGroupCommand, se_UpdateReportGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateReportGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateReportGroupCommand(input, context);
+    return se_UpdateReportGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateReportGroupCommand(output, context);
+    return de_UpdateReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

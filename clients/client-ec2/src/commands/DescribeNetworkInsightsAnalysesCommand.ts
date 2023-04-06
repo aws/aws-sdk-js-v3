@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeNetworkInsightsAnalysesRequest, DescribeNetworkInsightsAnalysesResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInsightsAnalysesCommand,
-  serializeAws_ec2DescribeNetworkInsightsAnalysesCommand,
+  de_DescribeNetworkInsightsAnalysesCommand,
+  se_DescribeNetworkInsightsAnalysesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     input: DescribeNetworkInsightsAnalysesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsAnalysesCommand(input, context);
+    return se_DescribeNetworkInsightsAnalysesCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInsightsAnalysesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsAnalysesCommand(output, context);
+    return de_DescribeNetworkInsightsAnalysesCommand(output, context);
   }
 
   // Start section: command_body_extra

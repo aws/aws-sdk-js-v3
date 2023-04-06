@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeregisterGameServerInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterGameServerCommand,
-  serializeAws_json1_1DeregisterGameServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterGameServerCommand, se_DeregisterGameServerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeregisterGameServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterGameServerCommand(input, context);
+    return se_DeregisterGameServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterGameServerCommandOutput> {
-    return deserializeAws_json1_1DeregisterGameServerCommand(output, context);
+    return de_DeregisterGameServerCommand(output, context);
   }
 
   // Start section: command_body_extra

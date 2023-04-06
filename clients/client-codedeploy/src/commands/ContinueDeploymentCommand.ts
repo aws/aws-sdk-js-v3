@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ContinueDeploymentInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ContinueDeploymentCommand,
-  serializeAws_json1_1ContinueDeploymentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ContinueDeploymentCommand, se_ContinueDeploymentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ContinueDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: ContinueDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ContinueDeploymentCommand(input, context);
+    return se_ContinueDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueDeploymentCommandOutput> {
-    return deserializeAws_json1_1ContinueDeploymentCommand(output, context);
+    return de_ContinueDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

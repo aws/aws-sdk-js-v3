@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterFromWorkMailCommand,
-  serializeAws_json1_1DeregisterFromWorkMailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterFromWorkMailCommand, se_DeregisterFromWorkMailCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -143,14 +140,14 @@ export class DeregisterFromWorkMailCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterFromWorkMailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterFromWorkMailCommand(input, context);
+    return se_DeregisterFromWorkMailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterFromWorkMailCommandOutput> {
-    return deserializeAws_json1_1DeregisterFromWorkMailCommand(output, context);
+    return de_DeregisterFromWorkMailCommand(output, context);
   }
 
   // Start section: command_body_extra

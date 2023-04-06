@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagInstanceProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_queryUntagInstanceProfileCommand,
-  serializeAws_queryUntagInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { de_UntagInstanceProfileCommand, se_UntagInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UntagInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagInstanceProfileCommand(input, context);
+    return se_UntagInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagInstanceProfileCommandOutput> {
-    return deserializeAws_queryUntagInstanceProfileCommand(output, context);
+    return de_UntagInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

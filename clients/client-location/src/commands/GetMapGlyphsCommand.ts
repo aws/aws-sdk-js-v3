@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { GetMapGlyphsRequest, GetMapGlyphsRequestFilterSensitiveLog, GetMapGlyphsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMapGlyphsCommand,
-  serializeAws_restJson1GetMapGlyphsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMapGlyphsCommand, se_GetMapGlyphsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetMapGlyphsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMapGlyphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMapGlyphsCommand(input, context);
+    return se_GetMapGlyphsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapGlyphsCommandOutput> {
-    return deserializeAws_restJson1GetMapGlyphsCommand(output, context);
+    return de_GetMapGlyphsCommand(output, context);
   }
 
   // Start section: command_body_extra

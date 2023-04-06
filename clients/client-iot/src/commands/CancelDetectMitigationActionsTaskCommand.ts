@@ -19,8 +19,8 @@ import {
   CancelDetectMitigationActionsTaskResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
-  serializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
+  de_CancelDetectMitigationActionsTaskCommand,
+  se_CancelDetectMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     input: CancelDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelDetectMitigationActionsTaskCommand(input, context);
+    return se_CancelDetectMitigationActionsTaskCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDetectMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand(output, context);
+    return de_CancelDetectMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

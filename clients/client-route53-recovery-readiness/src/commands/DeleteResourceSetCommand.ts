@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResourceSetRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourceSetCommand,
-  serializeAws_restJson1DeleteResourceSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourceSetCommand, se_DeleteResourceSetCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class DeleteResourceSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourceSetCommand(input, context);
+    return se_DeleteResourceSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceSetCommandOutput> {
-    return deserializeAws_restJson1DeleteResourceSetCommand(output, context);
+    return de_DeleteResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

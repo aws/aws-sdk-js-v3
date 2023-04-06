@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { RejectInvitationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1RejectInvitationCommand,
-  serializeAws_restJson1RejectInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RejectInvitationCommand, se_RejectInvitationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class RejectInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectInvitationCommand(input, context);
+    return se_RejectInvitationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInvitationCommandOutput> {
-    return deserializeAws_restJson1RejectInvitationCommand(output, context);
+    return de_RejectInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

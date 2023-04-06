@@ -19,8 +19,8 @@ import {
   DescribeTransitGatewayRouteTableAnnouncementsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand,
-  serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand,
+  de_DescribeTransitGatewayRouteTableAnnouncementsCommand,
+  se_DescribeTransitGatewayRouteTableAnnouncementsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand(input, context);
+    return se_DescribeTransitGatewayRouteTableAnnouncementsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand(output, context);
+    return de_DescribeTransitGatewayRouteTableAnnouncementsCommand(output, context);
   }
 
   // Start section: command_body_extra

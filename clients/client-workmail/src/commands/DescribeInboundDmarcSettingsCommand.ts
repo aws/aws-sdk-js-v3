@@ -15,8 +15,8 @@ import {
 
 import { DescribeInboundDmarcSettingsRequest, DescribeInboundDmarcSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeInboundDmarcSettingsCommand,
-  serializeAws_json1_1DescribeInboundDmarcSettingsCommand,
+  de_DescribeInboundDmarcSettingsCommand,
+  se_DescribeInboundDmarcSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -130,7 +130,7 @@ export class DescribeInboundDmarcSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInboundDmarcSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInboundDmarcSettingsCommand(input, context);
+    return se_DescribeInboundDmarcSettingsCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DescribeInboundDmarcSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInboundDmarcSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeInboundDmarcSettingsCommand(output, context);
+    return de_DescribeInboundDmarcSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

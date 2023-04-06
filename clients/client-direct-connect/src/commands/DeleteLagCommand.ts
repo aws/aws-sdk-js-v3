@@ -15,7 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteLagRequest, Lag } from "../models/models_0";
-import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteLagCommand, se_DeleteLagCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -122,14 +122,14 @@ export class DeleteLagCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLagCommand(input, context);
+    return se_DeleteLagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLagCommandOutput> {
-    return deserializeAws_json1_1DeleteLagCommand(output, context);
+    return de_DeleteLagCommand(output, context);
   }
 
   // Start section: command_body_extra

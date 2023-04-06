@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateFlowDefinitionRequest, CreateFlowDefinitionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateFlowDefinitionCommand,
-  serializeAws_json1_1CreateFlowDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFlowDefinitionCommand, se_CreateFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -165,14 +162,14 @@ export class CreateFlowDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFlowDefinitionCommand(input, context);
+    return se_CreateFlowDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowDefinitionCommandOutput> {
-    return deserializeAws_json1_1CreateFlowDefinitionCommand(output, context);
+    return de_CreateFlowDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

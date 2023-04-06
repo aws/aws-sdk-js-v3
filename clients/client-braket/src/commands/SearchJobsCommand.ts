@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { SearchJobsRequest, SearchJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchJobsCommand,
-  serializeAws_restJson1SearchJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchJobsCommand, se_SearchJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class SearchJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchJobsCommand(input, context);
+    return se_SearchJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchJobsCommandOutput> {
-    return deserializeAws_restJson1SearchJobsCommand(output, context);
+    return de_SearchJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceTransitGatewayRouteRequest, ReplaceTransitGatewayRouteResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceTransitGatewayRouteCommand,
-  serializeAws_ec2ReplaceTransitGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReplaceTransitGatewayRouteCommand, se_ReplaceTransitGatewayRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceTransitGatewayRouteCommand(input, context);
+    return se_ReplaceTransitGatewayRouteCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceTransitGatewayRouteCommandOutput> {
-    return deserializeAws_ec2ReplaceTransitGatewayRouteCommand(output, context);
+    return de_ReplaceTransitGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

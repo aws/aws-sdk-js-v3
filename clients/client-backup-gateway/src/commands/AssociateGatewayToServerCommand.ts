@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateGatewayToServerCommand,
-  serializeAws_json1_0AssociateGatewayToServerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_AssociateGatewayToServerCommand, se_AssociateGatewayToServerCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class AssociateGatewayToServerCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateGatewayToServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateGatewayToServerCommand(input, context);
+    return se_AssociateGatewayToServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateGatewayToServerCommandOutput> {
-    return deserializeAws_json1_0AssociateGatewayToServerCommand(output, context);
+    return de_AssociateGatewayToServerCommand(output, context);
   }
 
   // Start section: command_body_extra

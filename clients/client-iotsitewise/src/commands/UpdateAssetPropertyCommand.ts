@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { UpdateAssetPropertyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAssetPropertyCommand,
-  serializeAws_restJson1UpdateAssetPropertyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAssetPropertyCommand, se_UpdateAssetPropertyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateAssetPropertyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAssetPropertyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAssetPropertyCommand(input, context);
+    return se_UpdateAssetPropertyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssetPropertyCommandOutput> {
-    return deserializeAws_restJson1UpdateAssetPropertyCommand(output, context);
+    return de_UpdateAssetPropertyCommand(output, context);
   }
 
   // Start section: command_body_extra

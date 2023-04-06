@@ -19,10 +19,7 @@ import {
   UpdateAttendeeCapabilitiesResponse,
   UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
-  serializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAttendeeCapabilitiesCommand, se_UpdateAttendeeCapabilitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -168,7 +165,7 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAttendeeCapabilitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAttendeeCapabilitiesCommand(input, context);
+    return se_UpdateAttendeeCapabilitiesCommand(input, context);
   }
 
   /**
@@ -178,7 +175,7 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAttendeeCapabilitiesCommandOutput> {
-    return deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand(output, context);
+    return de_UpdateAttendeeCapabilitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

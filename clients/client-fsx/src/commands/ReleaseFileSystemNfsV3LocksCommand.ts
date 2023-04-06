@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
-  serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
    * @internal
    */
   private serialize(input: ReleaseFileSystemNfsV3LocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand(input, context);
+    return se_ReleaseFileSystemNfsV3LocksCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> {
-    return deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand(output, context);
+    return de_ReleaseFileSystemNfsV3LocksCommand(output, context);
   }
 
   // Start section: command_body_extra

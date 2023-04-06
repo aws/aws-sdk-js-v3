@@ -22,10 +22,7 @@ import {
   SynthesizeSpeechOutputFilterSensitiveLog,
 } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1SynthesizeSpeechCommand,
-  serializeAws_restJson1SynthesizeSpeechCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SynthesizeSpeechCommand, se_SynthesizeSpeechCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -214,7 +211,7 @@ export class SynthesizeSpeechCommand extends $Command<
    * @internal
    */
   private serialize(input: SynthesizeSpeechCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SynthesizeSpeechCommand(input, context);
+    return se_SynthesizeSpeechCommand(input, context);
   }
 
   /**
@@ -224,7 +221,7 @@ export class SynthesizeSpeechCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<SynthesizeSpeechCommandOutput> {
-    return deserializeAws_restJson1SynthesizeSpeechCommand(output, context);
+    return de_SynthesizeSpeechCommand(output, context);
   }
 
   // Start section: command_body_extra

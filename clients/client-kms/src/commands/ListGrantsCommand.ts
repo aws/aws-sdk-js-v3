@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ListGrantsRequest, ListGrantsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGrantsCommand,
-  serializeAws_json1_1ListGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListGrantsCommand, se_ListGrantsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -276,14 +273,14 @@ export class ListGrantsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGrantsCommand(input, context);
+    return se_ListGrantsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGrantsCommandOutput> {
-    return deserializeAws_json1_1ListGrantsCommand(output, context);
+    return de_ListGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

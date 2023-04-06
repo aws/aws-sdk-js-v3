@@ -19,10 +19,7 @@ import {
   CreatePricingPlanInputFilterSensitiveLog,
   CreatePricingPlanOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePricingPlanCommand,
-  serializeAws_restJson1CreatePricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePricingPlanCommand, se_CreatePricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreatePricingPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePricingPlanCommand(input, context);
+    return se_CreatePricingPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingPlanCommandOutput> {
-    return deserializeAws_restJson1CreatePricingPlanCommand(output, context);
+    return de_CreatePricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

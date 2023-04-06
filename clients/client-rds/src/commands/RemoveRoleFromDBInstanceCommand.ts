@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
-import {
-  deserializeAws_queryRemoveRoleFromDBInstanceCommand,
-  serializeAws_queryRemoveRoleFromDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveRoleFromDBInstanceCommand, se_RemoveRoleFromDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -133,14 +130,14 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveRoleFromDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromDBInstanceCommand(input, context);
+    return se_RemoveRoleFromDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBInstanceCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromDBInstanceCommand(output, context);
+    return de_RemoveRoleFromDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

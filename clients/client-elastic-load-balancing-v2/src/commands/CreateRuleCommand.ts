@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { CreateRuleInput, CreateRuleOutput } from "../models/models_0";
-import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -331,14 +331,14 @@ export class CreateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_queryCreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

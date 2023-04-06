@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
-  serializeAws_queryDescribeSnapshotCopyGrantsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSnapshotCopyGrantsCommand, se_DescribeSnapshotCopyGrantsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -141,7 +138,7 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSnapshotCopyGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotCopyGrantsCommand(input, context);
+    return se_DescribeSnapshotCopyGrantsCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotCopyGrantsCommand(output, context);
+    return de_DescribeSnapshotCopyGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

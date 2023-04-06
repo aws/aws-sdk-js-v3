@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupsCommand,
-  serializeAws_restJson1GetGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetGroupsCommand, se_GetGroupsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -124,14 +121,14 @@ export class GetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupsCommand(input, context);
+    return se_GetGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupsCommandOutput> {
-    return deserializeAws_restJson1GetGroupsCommand(output, context);
+    return de_GetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

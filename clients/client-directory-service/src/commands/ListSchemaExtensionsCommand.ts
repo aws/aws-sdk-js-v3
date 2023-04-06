@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { ListSchemaExtensionsRequest, ListSchemaExtensionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSchemaExtensionsCommand,
-  serializeAws_json1_1ListSchemaExtensionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSchemaExtensionsCommand, se_ListSchemaExtensionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListSchemaExtensionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSchemaExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSchemaExtensionsCommand(input, context);
+    return se_ListSchemaExtensionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaExtensionsCommandOutput> {
-    return deserializeAws_json1_1ListSchemaExtensionsCommand(output, context);
+    return de_ListSchemaExtensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

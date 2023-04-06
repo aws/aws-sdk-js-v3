@@ -20,10 +20,7 @@ import {
   ExportServerEngineAttributeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1ExportServerEngineAttributeCommand,
-  serializeAws_json1_1ExportServerEngineAttributeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExportServerEngineAttributeCommand, se_ExportServerEngineAttributeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,7 +154,7 @@ export class ExportServerEngineAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportServerEngineAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportServerEngineAttributeCommand(input, context);
+    return se_ExportServerEngineAttributeCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class ExportServerEngineAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportServerEngineAttributeCommandOutput> {
-    return deserializeAws_json1_1ExportServerEngineAttributeCommand(output, context);
+    return de_ExportServerEngineAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

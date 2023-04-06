@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListDevEndpointsCommand,
-  serializeAws_json1_1ListDevEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDevEndpointsCommand, se_ListDevEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListDevEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevEndpointsCommand(input, context);
+    return se_ListDevEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListDevEndpointsCommand(output, context);
+    return de_ListDevEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

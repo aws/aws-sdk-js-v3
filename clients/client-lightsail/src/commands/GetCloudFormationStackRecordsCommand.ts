@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCloudFormationStackRecordsCommand,
-  serializeAws_json1_1GetCloudFormationStackRecordsCommand,
+  de_GetCloudFormationStackRecordsCommand,
+  se_GetCloudFormationStackRecordsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCloudFormationStackRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCloudFormationStackRecordsCommand(input, context);
+    return se_GetCloudFormationStackRecordsCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFormationStackRecordsCommandOutput> {
-    return deserializeAws_json1_1GetCloudFormationStackRecordsCommand(output, context);
+    return de_GetCloudFormationStackRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

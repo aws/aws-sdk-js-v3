@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteProxySessionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProxySessionCommand,
-  serializeAws_restJson1DeleteProxySessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProxySessionCommand, se_DeleteProxySessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteProxySessionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProxySessionCommand(input, context);
+    return se_DeleteProxySessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProxySessionCommandOutput> {
-    return deserializeAws_restJson1DeleteProxySessionCommand(output, context);
+    return de_DeleteProxySessionCommand(output, context);
   }
 
   // Start section: command_body_extra

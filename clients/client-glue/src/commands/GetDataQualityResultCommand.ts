@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetDataQualityResultRequest, GetDataQualityResultResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataQualityResultCommand,
-  serializeAws_json1_1GetDataQualityResultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDataQualityResultCommand, se_GetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetDataQualityResultCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataQualityResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataQualityResultCommand(input, context);
+    return se_GetDataQualityResultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataQualityResultCommandOutput> {
-    return deserializeAws_json1_1GetDataQualityResultCommand(output, context);
+    return de_GetDataQualityResultCommand(output, context);
   }
 
   // Start section: command_body_extra

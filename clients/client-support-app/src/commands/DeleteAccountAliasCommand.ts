@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccountAliasRequest, DeleteAccountAliasResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountAliasCommand,
-  serializeAws_restJson1DeleteAccountAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccountAliasCommand, se_DeleteAccountAliasCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -129,14 +126,14 @@ export class DeleteAccountAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountAliasCommand(input, context);
+    return se_DeleteAccountAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountAliasCommand(output, context);
+    return de_DeleteAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

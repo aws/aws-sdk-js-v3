@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_1";
-import {
-  deserializeAws_queryStopActivityStreamCommand,
-  serializeAws_queryStopActivityStreamCommand,
-} from "../protocols/Aws_query";
+import { de_StopActivityStreamCommand, se_StopActivityStreamCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -81,6 +78,25 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ *
+ * @example To stop a database activity stream
+ * ```javascript
+ * // The following example stops an activity stream in an Aurora cluster named my-pg-cluster.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "ResourceArn": "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
+ * };
+ * const command = new StopActivityStreamCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KinesisStreamName": "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   "Status": "stopping"
+ * }
+ * *\/
+ * // example id: to-stop-a-database-activity-stream-1679945843823
+ * ```
  *
  */
 export class StopActivityStreamCommand extends $Command<
@@ -146,14 +162,14 @@ export class StopActivityStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: StopActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopActivityStreamCommand(input, context);
+    return se_StopActivityStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopActivityStreamCommandOutput> {
-    return deserializeAws_queryStopActivityStreamCommand(output, context);
+    return de_StopActivityStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeServerRequest, DescribeServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeServerCommand,
-  serializeAws_json1_1DescribeServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServerCommand, se_DescribeServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -137,14 +134,14 @@ export class DescribeServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServerCommand(input, context);
+    return se_DescribeServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServerCommandOutput> {
-    return deserializeAws_json1_1DescribeServerCommand(output, context);
+    return de_DescribeServerCommand(output, context);
   }
 
   // Start section: command_body_extra

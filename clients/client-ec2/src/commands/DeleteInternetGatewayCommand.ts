@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteInternetGatewayRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteInternetGatewayCommand,
-  serializeAws_ec2DeleteInternetGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteInternetGatewayCommand, se_DeleteInternetGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteInternetGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteInternetGatewayCommand(input, context);
+    return se_DeleteInternetGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInternetGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteInternetGatewayCommand(output, context);
+    return de_DeleteInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

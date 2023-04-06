@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifySnapshotTierRequest, ModifySnapshotTierResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySnapshotTierCommand,
-  serializeAws_ec2ModifySnapshotTierCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifySnapshotTierCommand, se_ModifySnapshotTierCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ModifySnapshotTierCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySnapshotTierCommand(input, context);
+    return se_ModifySnapshotTierCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotTierCommandOutput> {
-    return deserializeAws_ec2ModifySnapshotTierCommand(output, context);
+    return de_ModifySnapshotTierCommand(output, context);
   }
 
   // Start section: command_body_extra

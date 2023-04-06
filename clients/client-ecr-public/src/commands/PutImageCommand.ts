@@ -15,7 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { PutImageRequest, PutImageResponse } from "../models/models_0";
-import { deserializeAws_json1_1PutImageCommand, serializeAws_json1_1PutImageCommand } from "../protocols/Aws_json1_1";
+import { de_PutImageCommand, se_PutImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -168,14 +168,14 @@ export class PutImageCommand extends $Command<
    * @internal
    */
   private serialize(input: PutImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageCommand(input, context);
+    return se_PutImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageCommandOutput> {
-    return deserializeAws_json1_1PutImageCommand(output, context);
+    return de_PutImageCommand(output, context);
   }
 
   // Start section: command_body_extra

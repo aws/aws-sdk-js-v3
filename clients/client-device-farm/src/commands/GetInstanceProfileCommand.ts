@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetInstanceProfileRequest, GetInstanceProfileResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstanceProfileCommand,
-  serializeAws_json1_1GetInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceProfileCommand, se_GetInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceProfileCommand(input, context);
+    return se_GetInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1GetInstanceProfileCommand(output, context);
+    return de_GetInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

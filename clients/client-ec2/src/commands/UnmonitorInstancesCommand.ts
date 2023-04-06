@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/models_7";
-import {
-  deserializeAws_ec2UnmonitorInstancesCommand,
-  serializeAws_ec2UnmonitorInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_UnmonitorInstancesCommand, se_UnmonitorInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class UnmonitorInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: UnmonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2UnmonitorInstancesCommand(input, context);
+    return se_UnmonitorInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnmonitorInstancesCommandOutput> {
-    return deserializeAws_ec2UnmonitorInstancesCommand(output, context);
+    return de_UnmonitorInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

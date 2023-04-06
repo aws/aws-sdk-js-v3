@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { PutMaintenanceStartTimeInput, PutMaintenanceStartTimeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0PutMaintenanceStartTimeCommand,
-  serializeAws_json1_0PutMaintenanceStartTimeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutMaintenanceStartTimeCommand, se_PutMaintenanceStartTimeCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class PutMaintenanceStartTimeCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutMaintenanceStartTimeCommand(input, context);
+    return se_PutMaintenanceStartTimeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_0PutMaintenanceStartTimeCommand(output, context);
+    return de_PutMaintenanceStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

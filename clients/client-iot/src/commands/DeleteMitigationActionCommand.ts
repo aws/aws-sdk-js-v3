@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMitigationActionCommand,
-  serializeAws_restJson1DeleteMitigationActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMitigationActionCommand, se_DeleteMitigationActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteMitigationActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMitigationActionCommand(input, context);
+    return se_DeleteMitigationActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMitigationActionCommandOutput> {
-    return deserializeAws_restJson1DeleteMitigationActionCommand(output, context);
+    return de_DeleteMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

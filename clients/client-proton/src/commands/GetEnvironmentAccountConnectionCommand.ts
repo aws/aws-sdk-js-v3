@@ -15,8 +15,8 @@ import {
 
 import { GetEnvironmentAccountConnectionInput, GetEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0GetEnvironmentAccountConnectionCommand,
+  de_GetEnvironmentAccountConnectionCommand,
+  se_GetEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -142,7 +142,7 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     input: GetEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentAccountConnectionCommand(input, context);
+    return se_GetEnvironmentAccountConnectionCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentAccountConnectionCommand(output, context);
+    return de_GetEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

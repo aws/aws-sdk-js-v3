@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListStudiosInput, ListStudiosOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStudiosCommand,
-  serializeAws_json1_1ListStudiosCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListStudiosCommand, se_ListStudiosCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListStudiosCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStudiosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudiosCommand(input, context);
+    return se_ListStudiosCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudiosCommandOutput> {
-    return deserializeAws_json1_1ListStudiosCommand(output, context);
+    return de_ListStudiosCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/models_0";
-import {
-  deserializeAws_querySetTypeDefaultVersionCommand,
-  serializeAws_querySetTypeDefaultVersionCommand,
-} from "../protocols/Aws_query";
+import { de_SetTypeDefaultVersionCommand, se_SetTypeDefaultVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class SetTypeDefaultVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTypeDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTypeDefaultVersionCommand(input, context);
+    return se_SetTypeDefaultVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeDefaultVersionCommandOutput> {
-    return deserializeAws_querySetTypeDefaultVersionCommand(output, context);
+    return de_SetTypeDefaultVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

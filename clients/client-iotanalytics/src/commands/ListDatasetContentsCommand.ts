@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { ListDatasetContentsRequest, ListDatasetContentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatasetContentsCommand,
-  serializeAws_restJson1ListDatasetContentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDatasetContentsCommand, se_ListDatasetContentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListDatasetContentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatasetContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatasetContentsCommand(input, context);
+    return se_ListDatasetContentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetContentsCommandOutput> {
-    return deserializeAws_restJson1ListDatasetContentsCommand(output, context);
+    return de_ListDatasetContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

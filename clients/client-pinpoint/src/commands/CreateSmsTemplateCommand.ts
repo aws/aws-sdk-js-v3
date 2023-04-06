@@ -15,10 +15,7 @@ import {
 
 import { CreateSmsTemplateRequest, CreateSmsTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateSmsTemplateCommand,
-  serializeAws_restJson1CreateSmsTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSmsTemplateCommand, se_CreateSmsTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateSmsTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSmsTemplateCommand(input, context);
+    return se_CreateSmsTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateSmsTemplateCommand(output, context);
+    return de_CreateSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { CreateBackendStorageRequest, CreateBackendStorageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendStorageCommand,
-  serializeAws_restJson1CreateBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBackendStorageCommand, se_CreateBackendStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateBackendStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendStorageCommand(input, context);
+    return se_CreateBackendStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendStorageCommandOutput> {
-    return deserializeAws_restJson1CreateBackendStorageCommand(output, context);
+    return de_CreateBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

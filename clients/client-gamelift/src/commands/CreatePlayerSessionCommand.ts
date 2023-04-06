@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreatePlayerSessionInput, CreatePlayerSessionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePlayerSessionCommand,
-  serializeAws_json1_1CreatePlayerSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePlayerSessionCommand, se_CreatePlayerSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class CreatePlayerSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePlayerSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePlayerSessionCommand(input, context);
+    return se_CreatePlayerSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionCommandOutput> {
-    return deserializeAws_json1_1CreatePlayerSessionCommand(output, context);
+    return de_CreatePlayerSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

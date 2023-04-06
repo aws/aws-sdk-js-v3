@@ -14,10 +14,7 @@ import {
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { KitchenSink } from "../models/models_0";
-import {
-  deserializeAws_json1_1KitchenSinkOperationCommand,
-  serializeAws_json1_1KitchenSinkOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_KitchenSinkOperationCommand, se_KitchenSinkOperationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -83,14 +80,14 @@ export class KitchenSinkOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: KitchenSinkOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1KitchenSinkOperationCommand(input, context);
+    return se_KitchenSinkOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<KitchenSinkOperationCommandOutput> {
-    return deserializeAws_json1_1KitchenSinkOperationCommand(output, context);
+    return de_KitchenSinkOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

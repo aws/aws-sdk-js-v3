@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDiscoveredResourceCountsCommand,
-  serializeAws_json1_1GetDiscoveredResourceCountsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDiscoveredResourceCountsCommand, se_GetDiscoveredResourceCountsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -196,7 +193,7 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDiscoveredResourceCountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiscoveredResourceCountsCommand(input, context);
+    return se_GetDiscoveredResourceCountsCommand(input, context);
   }
 
   /**
@@ -206,7 +203,7 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDiscoveredResourceCountsCommandOutput> {
-    return deserializeAws_json1_1GetDiscoveredResourceCountsCommand(output, context);
+    return de_GetDiscoveredResourceCountsCommand(output, context);
   }
 
   // Start section: command_body_extra

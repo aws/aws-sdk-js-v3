@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTargetGroupRequest, GetTargetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTargetGroupCommand,
-  serializeAws_restJson1GetTargetGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTargetGroupCommand, se_GetTargetGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTargetGroupCommand(input, context);
+    return se_GetTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTargetGroupCommandOutput> {
-    return deserializeAws_restJson1GetTargetGroupCommand(output, context);
+    return de_GetTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateConstraintInput, CreateConstraintOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConstraintCommand,
-  serializeAws_json1_1CreateConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateConstraintCommand, se_CreateConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -140,14 +137,14 @@ export class CreateConstraintCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConstraintCommand(input, context);
+    return se_CreateConstraintCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConstraintCommandOutput> {
-    return deserializeAws_json1_1CreateConstraintCommand(output, context);
+    return de_CreateConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

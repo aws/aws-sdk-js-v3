@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DescribeKeyRequest, DescribeKeyResponse, DescribeKeyResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeKeyCommand,
-  serializeAws_restJson1DescribeKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeKeyCommand, se_DescribeKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeKeyCommand(input, context);
+    return se_DescribeKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyCommandOutput> {
-    return deserializeAws_restJson1DescribeKeyCommand(output, context);
+    return de_DescribeKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeDashboardDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeDashboardDefinitionCommand,
-  serializeAws_restJson1DescribeDashboardDefinitionCommand,
+  de_DescribeDashboardDefinitionCommand,
+  se_DescribeDashboardDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -167,7 +167,7 @@ export class DescribeDashboardDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDashboardDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDashboardDefinitionCommand(input, context);
+    return se_DescribeDashboardDefinitionCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class DescribeDashboardDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDashboardDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeDashboardDefinitionCommand(output, context);
+    return de_DescribeDashboardDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

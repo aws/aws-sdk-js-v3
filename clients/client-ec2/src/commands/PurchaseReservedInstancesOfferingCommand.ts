@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { PurchaseReservedInstancesOfferingRequest, PurchaseReservedInstancesOfferingResult } from "../models/models_6";
 import {
-  deserializeAws_ec2PurchaseReservedInstancesOfferingCommand,
-  serializeAws_ec2PurchaseReservedInstancesOfferingCommand,
+  de_PurchaseReservedInstancesOfferingCommand,
+  se_PurchaseReservedInstancesOfferingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -144,7 +144,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     input: PurchaseReservedInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2PurchaseReservedInstancesOfferingCommand(input, context);
+    return se_PurchaseReservedInstancesOfferingCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput> {
-    return deserializeAws_ec2PurchaseReservedInstancesOfferingCommand(output, context);
+    return de_PurchaseReservedInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListAssessmentFrameworkShareRequestsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
-  serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
+  de_ListAssessmentFrameworkShareRequestsCommand,
+  se_ListAssessmentFrameworkShareRequestsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     input: ListAssessmentFrameworkShareRequestsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand(input, context);
+    return se_ListAssessmentFrameworkShareRequestsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand(output, context);
+    return de_ListAssessmentFrameworkShareRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

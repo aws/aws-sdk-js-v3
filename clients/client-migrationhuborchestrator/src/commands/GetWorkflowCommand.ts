@@ -23,10 +23,7 @@ import {
   GetMigrationWorkflowResponse,
   GetMigrationWorkflowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowCommand,
-  serializeAws_restJson1GetWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowCommand(input, context);
+    return se_GetWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowCommand(output, context);
+    return de_GetWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

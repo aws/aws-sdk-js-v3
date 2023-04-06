@@ -16,8 +16,8 @@ import {
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutThirdPartyJobFailureResultInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutThirdPartyJobFailureResultCommand,
-  serializeAws_json1_1PutThirdPartyJobFailureResultCommand,
+  de_PutThirdPartyJobFailureResultCommand,
+  se_PutThirdPartyJobFailureResultCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
    * @internal
    */
   private serialize(input: PutThirdPartyJobFailureResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutThirdPartyJobFailureResultCommand(input, context);
+    return se_PutThirdPartyJobFailureResultCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
-    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommand(output, context);
+    return de_PutThirdPartyJobFailureResultCommand(output, context);
   }
 
   // Start section: command_body_extra

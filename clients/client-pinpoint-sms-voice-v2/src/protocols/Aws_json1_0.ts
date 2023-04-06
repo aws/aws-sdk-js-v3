@@ -259,7 +259,10 @@ import {
 } from "../models/models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "../models/PinpointSMSVoiceV2ServiceException";
 
-export const serializeAws_json1_0AssociateOriginationIdentityCommand = async (
+/**
+ * serializeAws_json1_0AssociateOriginationIdentityCommand
+ */
+export const se_AssociateOriginationIdentityCommand = async (
   input: AssociateOriginationIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -268,11 +271,14 @@ export const serializeAws_json1_0AssociateOriginationIdentityCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.AssociateOriginationIdentity",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0AssociateOriginationIdentityRequest(input, context));
+  body = JSON.stringify(se_AssociateOriginationIdentityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateConfigurationSetCommand = async (
+/**
+ * serializeAws_json1_0CreateConfigurationSetCommand
+ */
+export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -281,11 +287,14 @@ export const serializeAws_json1_0CreateConfigurationSetCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.CreateConfigurationSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateConfigurationSetRequest(input, context));
+  body = JSON.stringify(se_CreateConfigurationSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateEventDestinationCommand = async (
+/**
+ * serializeAws_json1_0CreateEventDestinationCommand
+ */
+export const se_CreateEventDestinationCommand = async (
   input: CreateEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -294,11 +303,14 @@ export const serializeAws_json1_0CreateEventDestinationCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.CreateEventDestination",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateEventDestinationRequest(input, context));
+  body = JSON.stringify(se_CreateEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateOptOutListCommand = async (
+/**
+ * serializeAws_json1_0CreateOptOutListCommand
+ */
+export const se_CreateOptOutListCommand = async (
   input: CreateOptOutListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -307,11 +319,14 @@ export const serializeAws_json1_0CreateOptOutListCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.CreateOptOutList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateOptOutListRequest(input, context));
+  body = JSON.stringify(se_CreateOptOutListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreatePoolCommand = async (
+/**
+ * serializeAws_json1_0CreatePoolCommand
+ */
+export const se_CreatePoolCommand = async (
   input: CreatePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -320,11 +335,14 @@ export const serializeAws_json1_0CreatePoolCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.CreatePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreatePoolRequest(input, context));
+  body = JSON.stringify(se_CreatePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteConfigurationSetCommand = async (
+/**
+ * serializeAws_json1_0DeleteConfigurationSetCommand
+ */
+export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -333,11 +351,14 @@ export const serializeAws_json1_0DeleteConfigurationSetCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteConfigurationSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteConfigurationSetRequest(input, context));
+  body = JSON.stringify(se_DeleteConfigurationSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteDefaultMessageTypeCommand = async (
+/**
+ * serializeAws_json1_0DeleteDefaultMessageTypeCommand
+ */
+export const se_DeleteDefaultMessageTypeCommand = async (
   input: DeleteDefaultMessageTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -346,11 +367,14 @@ export const serializeAws_json1_0DeleteDefaultMessageTypeCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteDefaultMessageType",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteDefaultMessageTypeRequest(input, context));
+  body = JSON.stringify(se_DeleteDefaultMessageTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteDefaultSenderIdCommand = async (
+/**
+ * serializeAws_json1_0DeleteDefaultSenderIdCommand
+ */
+export const se_DeleteDefaultSenderIdCommand = async (
   input: DeleteDefaultSenderIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -359,11 +383,14 @@ export const serializeAws_json1_0DeleteDefaultSenderIdCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteDefaultSenderId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteDefaultSenderIdRequest(input, context));
+  body = JSON.stringify(se_DeleteDefaultSenderIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteEventDestinationCommand = async (
+/**
+ * serializeAws_json1_0DeleteEventDestinationCommand
+ */
+export const se_DeleteEventDestinationCommand = async (
   input: DeleteEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -372,11 +399,14 @@ export const serializeAws_json1_0DeleteEventDestinationCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteEventDestination",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteEventDestinationRequest(input, context));
+  body = JSON.stringify(se_DeleteEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteKeywordCommand = async (
+/**
+ * serializeAws_json1_0DeleteKeywordCommand
+ */
+export const se_DeleteKeywordCommand = async (
   input: DeleteKeywordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -385,11 +415,14 @@ export const serializeAws_json1_0DeleteKeywordCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteKeyword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteKeywordRequest(input, context));
+  body = JSON.stringify(se_DeleteKeywordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteOptedOutNumberCommand = async (
+/**
+ * serializeAws_json1_0DeleteOptedOutNumberCommand
+ */
+export const se_DeleteOptedOutNumberCommand = async (
   input: DeleteOptedOutNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -398,11 +431,14 @@ export const serializeAws_json1_0DeleteOptedOutNumberCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteOptedOutNumber",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteOptedOutNumberRequest(input, context));
+  body = JSON.stringify(se_DeleteOptedOutNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteOptOutListCommand = async (
+/**
+ * serializeAws_json1_0DeleteOptOutListCommand
+ */
+export const se_DeleteOptOutListCommand = async (
   input: DeleteOptOutListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -411,11 +447,14 @@ export const serializeAws_json1_0DeleteOptOutListCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeleteOptOutList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteOptOutListRequest(input, context));
+  body = JSON.stringify(se_DeleteOptOutListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeletePoolCommand = async (
+/**
+ * serializeAws_json1_0DeletePoolCommand
+ */
+export const se_DeletePoolCommand = async (
   input: DeletePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -424,11 +463,14 @@ export const serializeAws_json1_0DeletePoolCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DeletePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeletePoolRequest(input, context));
+  body = JSON.stringify(se_DeletePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand = async (
+/**
+ * serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
+ */
+export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
   input: DeleteTextMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -437,11 +479,14 @@ export const serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand = as
     "x-amz-target": "PinpointSMSVoiceV2.DeleteTextMessageSpendLimitOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteTextMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(se_DeleteTextMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand = async (
+/**
+ * serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand
+ */
+export const se_DeleteVoiceMessageSpendLimitOverrideCommand = async (
   input: DeleteVoiceMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -450,11 +495,14 @@ export const serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand = a
     "x-amz-target": "PinpointSMSVoiceV2.DeleteVoiceMessageSpendLimitOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(se_DeleteVoiceMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeAccountAttributesCommand = async (
+/**
+ * serializeAws_json1_0DescribeAccountAttributesCommand
+ */
+export const se_DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -463,11 +511,14 @@ export const serializeAws_json1_0DescribeAccountAttributesCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeAccountAttributes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeAccountAttributesRequest(input, context));
+  body = JSON.stringify(se_DescribeAccountAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeAccountLimitsCommand = async (
+/**
+ * serializeAws_json1_0DescribeAccountLimitsCommand
+ */
+export const se_DescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -476,11 +527,14 @@ export const serializeAws_json1_0DescribeAccountLimitsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeAccountLimits",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeAccountLimitsRequest(input, context));
+  body = JSON.stringify(se_DescribeAccountLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeConfigurationSetsCommand = async (
+/**
+ * serializeAws_json1_0DescribeConfigurationSetsCommand
+ */
+export const se_DescribeConfigurationSetsCommand = async (
   input: DescribeConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -489,11 +543,14 @@ export const serializeAws_json1_0DescribeConfigurationSetsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeConfigurationSets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeConfigurationSetsRequest(input, context));
+  body = JSON.stringify(se_DescribeConfigurationSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeKeywordsCommand = async (
+/**
+ * serializeAws_json1_0DescribeKeywordsCommand
+ */
+export const se_DescribeKeywordsCommand = async (
   input: DescribeKeywordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -502,11 +559,14 @@ export const serializeAws_json1_0DescribeKeywordsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeKeywords",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeKeywordsRequest(input, context));
+  body = JSON.stringify(se_DescribeKeywordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeOptedOutNumbersCommand = async (
+/**
+ * serializeAws_json1_0DescribeOptedOutNumbersCommand
+ */
+export const se_DescribeOptedOutNumbersCommand = async (
   input: DescribeOptedOutNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -515,11 +575,14 @@ export const serializeAws_json1_0DescribeOptedOutNumbersCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeOptedOutNumbers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeOptedOutNumbersRequest(input, context));
+  body = JSON.stringify(se_DescribeOptedOutNumbersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeOptOutListsCommand = async (
+/**
+ * serializeAws_json1_0DescribeOptOutListsCommand
+ */
+export const se_DescribeOptOutListsCommand = async (
   input: DescribeOptOutListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -528,11 +591,14 @@ export const serializeAws_json1_0DescribeOptOutListsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeOptOutLists",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeOptOutListsRequest(input, context));
+  body = JSON.stringify(se_DescribeOptOutListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribePhoneNumbersCommand = async (
+/**
+ * serializeAws_json1_0DescribePhoneNumbersCommand
+ */
+export const se_DescribePhoneNumbersCommand = async (
   input: DescribePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -541,11 +607,14 @@ export const serializeAws_json1_0DescribePhoneNumbersCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribePhoneNumbers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribePhoneNumbersRequest(input, context));
+  body = JSON.stringify(se_DescribePhoneNumbersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribePoolsCommand = async (
+/**
+ * serializeAws_json1_0DescribePoolsCommand
+ */
+export const se_DescribePoolsCommand = async (
   input: DescribePoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -554,11 +623,14 @@ export const serializeAws_json1_0DescribePoolsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribePools",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribePoolsRequest(input, context));
+  body = JSON.stringify(se_DescribePoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeSenderIdsCommand = async (
+/**
+ * serializeAws_json1_0DescribeSenderIdsCommand
+ */
+export const se_DescribeSenderIdsCommand = async (
   input: DescribeSenderIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -567,11 +639,14 @@ export const serializeAws_json1_0DescribeSenderIdsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeSenderIds",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeSenderIdsRequest(input, context));
+  body = JSON.stringify(se_DescribeSenderIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeSpendLimitsCommand = async (
+/**
+ * serializeAws_json1_0DescribeSpendLimitsCommand
+ */
+export const se_DescribeSpendLimitsCommand = async (
   input: DescribeSpendLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -580,11 +655,14 @@ export const serializeAws_json1_0DescribeSpendLimitsCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.DescribeSpendLimits",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeSpendLimitsRequest(input, context));
+  body = JSON.stringify(se_DescribeSpendLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DisassociateOriginationIdentityCommand = async (
+/**
+ * serializeAws_json1_0DisassociateOriginationIdentityCommand
+ */
+export const se_DisassociateOriginationIdentityCommand = async (
   input: DisassociateOriginationIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -593,11 +671,14 @@ export const serializeAws_json1_0DisassociateOriginationIdentityCommand = async 
     "x-amz-target": "PinpointSMSVoiceV2.DisassociateOriginationIdentity",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DisassociateOriginationIdentityRequest(input, context));
+  body = JSON.stringify(se_DisassociateOriginationIdentityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListPoolOriginationIdentitiesCommand = async (
+/**
+ * serializeAws_json1_0ListPoolOriginationIdentitiesCommand
+ */
+export const se_ListPoolOriginationIdentitiesCommand = async (
   input: ListPoolOriginationIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -606,11 +687,14 @@ export const serializeAws_json1_0ListPoolOriginationIdentitiesCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.ListPoolOriginationIdentities",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListPoolOriginationIdentitiesRequest(input, context));
+  body = JSON.stringify(se_ListPoolOriginationIdentitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -619,11 +703,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PutKeywordCommand = async (
+/**
+ * serializeAws_json1_0PutKeywordCommand
+ */
+export const se_PutKeywordCommand = async (
   input: PutKeywordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -632,11 +719,14 @@ export const serializeAws_json1_0PutKeywordCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.PutKeyword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PutKeywordRequest(input, context));
+  body = JSON.stringify(se_PutKeywordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PutOptedOutNumberCommand = async (
+/**
+ * serializeAws_json1_0PutOptedOutNumberCommand
+ */
+export const se_PutOptedOutNumberCommand = async (
   input: PutOptedOutNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -645,11 +735,14 @@ export const serializeAws_json1_0PutOptedOutNumberCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.PutOptedOutNumber",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PutOptedOutNumberRequest(input, context));
+  body = JSON.stringify(se_PutOptedOutNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ReleasePhoneNumberCommand = async (
+/**
+ * serializeAws_json1_0ReleasePhoneNumberCommand
+ */
+export const se_ReleasePhoneNumberCommand = async (
   input: ReleasePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -658,11 +751,14 @@ export const serializeAws_json1_0ReleasePhoneNumberCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.ReleasePhoneNumber",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ReleasePhoneNumberRequest(input, context));
+  body = JSON.stringify(se_ReleasePhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0RequestPhoneNumberCommand = async (
+/**
+ * serializeAws_json1_0RequestPhoneNumberCommand
+ */
+export const se_RequestPhoneNumberCommand = async (
   input: RequestPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -671,11 +767,14 @@ export const serializeAws_json1_0RequestPhoneNumberCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.RequestPhoneNumber",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0RequestPhoneNumberRequest(input, context));
+  body = JSON.stringify(se_RequestPhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SendTextMessageCommand = async (
+/**
+ * serializeAws_json1_0SendTextMessageCommand
+ */
+export const se_SendTextMessageCommand = async (
   input: SendTextMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,11 +783,14 @@ export const serializeAws_json1_0SendTextMessageCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.SendTextMessage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendTextMessageRequest(input, context));
+  body = JSON.stringify(se_SendTextMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SendVoiceMessageCommand = async (
+/**
+ * serializeAws_json1_0SendVoiceMessageCommand
+ */
+export const se_SendVoiceMessageCommand = async (
   input: SendVoiceMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -697,11 +799,14 @@ export const serializeAws_json1_0SendVoiceMessageCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.SendVoiceMessage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendVoiceMessageRequest(input, context));
+  body = JSON.stringify(se_SendVoiceMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SetDefaultMessageTypeCommand = async (
+/**
+ * serializeAws_json1_0SetDefaultMessageTypeCommand
+ */
+export const se_SetDefaultMessageTypeCommand = async (
   input: SetDefaultMessageTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -710,11 +815,14 @@ export const serializeAws_json1_0SetDefaultMessageTypeCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.SetDefaultMessageType",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SetDefaultMessageTypeRequest(input, context));
+  body = JSON.stringify(se_SetDefaultMessageTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SetDefaultSenderIdCommand = async (
+/**
+ * serializeAws_json1_0SetDefaultSenderIdCommand
+ */
+export const se_SetDefaultSenderIdCommand = async (
   input: SetDefaultSenderIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -723,11 +831,14 @@ export const serializeAws_json1_0SetDefaultSenderIdCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.SetDefaultSenderId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SetDefaultSenderIdRequest(input, context));
+  body = JSON.stringify(se_SetDefaultSenderIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand = async (
+/**
+ * serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand
+ */
+export const se_SetTextMessageSpendLimitOverrideCommand = async (
   input: SetTextMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,11 +847,14 @@ export const serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand = async
     "x-amz-target": "PinpointSMSVoiceV2.SetTextMessageSpendLimitOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(se_SetTextMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand = async (
+/**
+ * serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand
+ */
+export const se_SetVoiceMessageSpendLimitOverrideCommand = async (
   input: SetVoiceMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -749,11 +863,14 @@ export const serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand = asyn
     "x-amz-target": "PinpointSMSVoiceV2.SetVoiceMessageSpendLimitOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(se_SetVoiceMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -762,11 +879,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -775,11 +895,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateEventDestinationCommand = async (
+/**
+ * serializeAws_json1_0UpdateEventDestinationCommand
+ */
+export const se_UpdateEventDestinationCommand = async (
   input: UpdateEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -788,11 +911,14 @@ export const serializeAws_json1_0UpdateEventDestinationCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.UpdateEventDestination",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateEventDestinationRequest(input, context));
+  body = JSON.stringify(se_UpdateEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdatePhoneNumberCommand = async (
+/**
+ * serializeAws_json1_0UpdatePhoneNumberCommand
+ */
+export const se_UpdatePhoneNumberCommand = async (
   input: UpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -801,11 +927,14 @@ export const serializeAws_json1_0UpdatePhoneNumberCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.UpdatePhoneNumber",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdatePhoneNumberRequest(input, context));
+  body = JSON.stringify(se_UpdatePhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdatePoolCommand = async (
+/**
+ * serializeAws_json1_0UpdatePoolCommand
+ */
+export const se_UpdatePoolCommand = async (
   input: UpdatePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -814,20 +943,23 @@ export const serializeAws_json1_0UpdatePoolCommand = async (
     "x-amz-target": "PinpointSMSVoiceV2.UpdatePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdatePoolRequest(input, context));
+  body = JSON.stringify(se_UpdatePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0AssociateOriginationIdentityCommand = async (
+/**
+ * deserializeAws_json1_0AssociateOriginationIdentityCommand
+ */
+export const de_AssociateOriginationIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateOriginationIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0AssociateOriginationIdentityCommandError(output, context);
+    return de_AssociateOriginationIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0AssociateOriginationIdentityResult(data, context);
+  contents = de_AssociateOriginationIdentityResult(data, context);
   const response: AssociateOriginationIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -835,7 +967,10 @@ export const deserializeAws_json1_0AssociateOriginationIdentityCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0AssociateOriginationIdentityCommandError = async (
+/**
+ * deserializeAws_json1_0AssociateOriginationIdentityCommandError
+ */
+const de_AssociateOriginationIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateOriginationIdentityCommandOutput> => {
@@ -847,25 +982,25 @@ const deserializeAws_json1_0AssociateOriginationIdentityCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -877,16 +1012,19 @@ const deserializeAws_json1_0AssociateOriginationIdentityCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateConfigurationSetCommand = async (
+/**
+ * deserializeAws_json1_0CreateConfigurationSetCommand
+ */
+export const de_CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateConfigurationSetCommandError(output, context);
+    return de_CreateConfigurationSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateConfigurationSetResult(data, context);
+  contents = de_CreateConfigurationSetResult(data, context);
   const response: CreateConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -894,7 +1032,10 @@ export const deserializeAws_json1_0CreateConfigurationSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateConfigurationSetCommandError = async (
+/**
+ * deserializeAws_json1_0CreateConfigurationSetCommandError
+ */
+const de_CreateConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
@@ -906,22 +1047,22 @@ const deserializeAws_json1_0CreateConfigurationSetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -933,16 +1074,19 @@ const deserializeAws_json1_0CreateConfigurationSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateEventDestinationCommand = async (
+/**
+ * deserializeAws_json1_0CreateEventDestinationCommand
+ */
+export const de_CreateEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateEventDestinationCommandError(output, context);
+    return de_CreateEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateEventDestinationResult(data, context);
+  contents = de_CreateEventDestinationResult(data, context);
   const response: CreateEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -950,7 +1094,10 @@ export const deserializeAws_json1_0CreateEventDestinationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateEventDestinationCommandError = async (
+/**
+ * deserializeAws_json1_0CreateEventDestinationCommandError
+ */
+const de_CreateEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventDestinationCommandOutput> => {
@@ -962,25 +1109,25 @@ const deserializeAws_json1_0CreateEventDestinationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -992,16 +1139,19 @@ const deserializeAws_json1_0CreateEventDestinationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateOptOutListCommand = async (
+/**
+ * deserializeAws_json1_0CreateOptOutListCommand
+ */
+export const de_CreateOptOutListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOptOutListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateOptOutListCommandError(output, context);
+    return de_CreateOptOutListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateOptOutListResult(data, context);
+  contents = de_CreateOptOutListResult(data, context);
   const response: CreateOptOutListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1009,7 +1159,10 @@ export const deserializeAws_json1_0CreateOptOutListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateOptOutListCommandError = async (
+/**
+ * deserializeAws_json1_0CreateOptOutListCommandError
+ */
+const de_CreateOptOutListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOptOutListCommandOutput> => {
@@ -1021,22 +1174,22 @@ const deserializeAws_json1_0CreateOptOutListCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1048,16 +1201,19 @@ const deserializeAws_json1_0CreateOptOutListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreatePoolCommand = async (
+/**
+ * deserializeAws_json1_0CreatePoolCommand
+ */
+export const de_CreatePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreatePoolCommandError(output, context);
+    return de_CreatePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreatePoolResult(data, context);
+  contents = de_CreatePoolResult(data, context);
   const response: CreatePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1065,7 +1221,10 @@ export const deserializeAws_json1_0CreatePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreatePoolCommandError = async (
+/**
+ * deserializeAws_json1_0CreatePoolCommandError
+ */
+const de_CreatePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePoolCommandOutput> => {
@@ -1077,25 +1236,25 @@ const deserializeAws_json1_0CreatePoolCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1107,16 +1266,19 @@ const deserializeAws_json1_0CreatePoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteConfigurationSetCommand = async (
+/**
+ * deserializeAws_json1_0DeleteConfigurationSetCommand
+ */
+export const de_DeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteConfigurationSetCommandError(output, context);
+    return de_DeleteConfigurationSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteConfigurationSetResult(data, context);
+  contents = de_DeleteConfigurationSetResult(data, context);
   const response: DeleteConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1124,7 +1286,10 @@ export const deserializeAws_json1_0DeleteConfigurationSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteConfigurationSetCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteConfigurationSetCommandError
+ */
+const de_DeleteConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
@@ -1136,19 +1301,19 @@ const deserializeAws_json1_0DeleteConfigurationSetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1160,16 +1325,19 @@ const deserializeAws_json1_0DeleteConfigurationSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteDefaultMessageTypeCommand = async (
+/**
+ * deserializeAws_json1_0DeleteDefaultMessageTypeCommand
+ */
+export const de_DeleteDefaultMessageTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDefaultMessageTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteDefaultMessageTypeCommandError(output, context);
+    return de_DeleteDefaultMessageTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteDefaultMessageTypeResult(data, context);
+  contents = de_DeleteDefaultMessageTypeResult(data, context);
   const response: DeleteDefaultMessageTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1177,7 +1345,10 @@ export const deserializeAws_json1_0DeleteDefaultMessageTypeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteDefaultMessageTypeCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteDefaultMessageTypeCommandError
+ */
+const de_DeleteDefaultMessageTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDefaultMessageTypeCommandOutput> => {
@@ -1189,19 +1360,19 @@ const deserializeAws_json1_0DeleteDefaultMessageTypeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1213,16 +1384,19 @@ const deserializeAws_json1_0DeleteDefaultMessageTypeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteDefaultSenderIdCommand = async (
+/**
+ * deserializeAws_json1_0DeleteDefaultSenderIdCommand
+ */
+export const de_DeleteDefaultSenderIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDefaultSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteDefaultSenderIdCommandError(output, context);
+    return de_DeleteDefaultSenderIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteDefaultSenderIdResult(data, context);
+  contents = de_DeleteDefaultSenderIdResult(data, context);
   const response: DeleteDefaultSenderIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1230,7 +1404,10 @@ export const deserializeAws_json1_0DeleteDefaultSenderIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteDefaultSenderIdCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteDefaultSenderIdCommandError
+ */
+const de_DeleteDefaultSenderIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDefaultSenderIdCommandOutput> => {
@@ -1242,19 +1419,19 @@ const deserializeAws_json1_0DeleteDefaultSenderIdCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1266,16 +1443,19 @@ const deserializeAws_json1_0DeleteDefaultSenderIdCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteEventDestinationCommand = async (
+/**
+ * deserializeAws_json1_0DeleteEventDestinationCommand
+ */
+export const de_DeleteEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteEventDestinationCommandError(output, context);
+    return de_DeleteEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteEventDestinationResult(data, context);
+  contents = de_DeleteEventDestinationResult(data, context);
   const response: DeleteEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1283,7 +1463,10 @@ export const deserializeAws_json1_0DeleteEventDestinationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteEventDestinationCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteEventDestinationCommandError
+ */
+const de_DeleteEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventDestinationCommandOutput> => {
@@ -1295,19 +1478,19 @@ const deserializeAws_json1_0DeleteEventDestinationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1319,16 +1502,19 @@ const deserializeAws_json1_0DeleteEventDestinationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteKeywordCommand = async (
+/**
+ * deserializeAws_json1_0DeleteKeywordCommand
+ */
+export const de_DeleteKeywordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKeywordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteKeywordCommandError(output, context);
+    return de_DeleteKeywordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteKeywordResult(data, context);
+  contents = de_DeleteKeywordResult(data, context);
   const response: DeleteKeywordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1336,7 +1522,10 @@ export const deserializeAws_json1_0DeleteKeywordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteKeywordCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteKeywordCommandError
+ */
+const de_DeleteKeywordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKeywordCommandOutput> => {
@@ -1348,22 +1537,22 @@ const deserializeAws_json1_0DeleteKeywordCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1375,16 +1564,19 @@ const deserializeAws_json1_0DeleteKeywordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteOptedOutNumberCommand = async (
+/**
+ * deserializeAws_json1_0DeleteOptedOutNumberCommand
+ */
+export const de_DeleteOptedOutNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOptedOutNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteOptedOutNumberCommandError(output, context);
+    return de_DeleteOptedOutNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteOptedOutNumberResult(data, context);
+  contents = de_DeleteOptedOutNumberResult(data, context);
   const response: DeleteOptedOutNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1392,7 +1584,10 @@ export const deserializeAws_json1_0DeleteOptedOutNumberCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteOptedOutNumberCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteOptedOutNumberCommandError
+ */
+const de_DeleteOptedOutNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOptedOutNumberCommandOutput> => {
@@ -1404,22 +1599,22 @@ const deserializeAws_json1_0DeleteOptedOutNumberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1431,16 +1626,19 @@ const deserializeAws_json1_0DeleteOptedOutNumberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteOptOutListCommand = async (
+/**
+ * deserializeAws_json1_0DeleteOptOutListCommand
+ */
+export const de_DeleteOptOutListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOptOutListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteOptOutListCommandError(output, context);
+    return de_DeleteOptOutListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteOptOutListResult(data, context);
+  contents = de_DeleteOptOutListResult(data, context);
   const response: DeleteOptOutListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1448,7 +1646,10 @@ export const deserializeAws_json1_0DeleteOptOutListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteOptOutListCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteOptOutListCommandError
+ */
+const de_DeleteOptOutListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOptOutListCommandOutput> => {
@@ -1460,22 +1661,22 @@ const deserializeAws_json1_0DeleteOptOutListCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1487,16 +1688,19 @@ const deserializeAws_json1_0DeleteOptOutListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeletePoolCommand = async (
+/**
+ * deserializeAws_json1_0DeletePoolCommand
+ */
+export const de_DeletePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeletePoolCommandError(output, context);
+    return de_DeletePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeletePoolResult(data, context);
+  contents = de_DeletePoolResult(data, context);
   const response: DeletePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1504,7 +1708,10 @@ export const deserializeAws_json1_0DeletePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeletePoolCommandError = async (
+/**
+ * deserializeAws_json1_0DeletePoolCommandError
+ */
+const de_DeletePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePoolCommandOutput> => {
@@ -1516,22 +1723,22 @@ const deserializeAws_json1_0DeletePoolCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1543,16 +1750,19 @@ const deserializeAws_json1_0DeletePoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand = async (
+/**
+ * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
+ */
+export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError(output, context);
+    return de_DeleteTextMessageSpendLimitOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideResult(data, context);
+  contents = de_DeleteTextMessageSpendLimitOverrideResult(data, context);
   const response: DeleteTextMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1560,7 +1770,10 @@ export const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError
+ */
+const de_DeleteTextMessageSpendLimitOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput> => {
@@ -1572,16 +1785,16 @@ const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1593,16 +1806,19 @@ const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError = as
   }
 };
 
-export const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand = async (
+/**
+ * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand
+ */
+export const de_DeleteVoiceMessageSpendLimitOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError(output, context);
+    return de_DeleteVoiceMessageSpendLimitOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideResult(data, context);
+  contents = de_DeleteVoiceMessageSpendLimitOverrideResult(data, context);
   const response: DeleteVoiceMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1610,7 +1826,10 @@ export const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError
+ */
+const de_DeleteVoiceMessageSpendLimitOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput> => {
@@ -1622,16 +1841,16 @@ const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1643,16 +1862,19 @@ const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError = a
   }
 };
 
-export const deserializeAws_json1_0DescribeAccountAttributesCommand = async (
+/**
+ * deserializeAws_json1_0DescribeAccountAttributesCommand
+ */
+export const de_DescribeAccountAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeAccountAttributesCommandError(output, context);
+    return de_DescribeAccountAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeAccountAttributesResult(data, context);
+  contents = de_DescribeAccountAttributesResult(data, context);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1660,7 +1882,10 @@ export const deserializeAws_json1_0DescribeAccountAttributesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeAccountAttributesCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeAccountAttributesCommandError
+ */
+const de_DescribeAccountAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
@@ -1672,16 +1897,16 @@ const deserializeAws_json1_0DescribeAccountAttributesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1693,16 +1918,19 @@ const deserializeAws_json1_0DescribeAccountAttributesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeAccountLimitsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeAccountLimitsCommand
+ */
+export const de_DescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeAccountLimitsCommandError(output, context);
+    return de_DescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeAccountLimitsResult(data, context);
+  contents = de_DescribeAccountLimitsResult(data, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1710,7 +1938,10 @@ export const deserializeAws_json1_0DescribeAccountLimitsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeAccountLimitsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeAccountLimitsCommandError
+ */
+const de_DescribeAccountLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
@@ -1722,16 +1953,16 @@ const deserializeAws_json1_0DescribeAccountLimitsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1743,16 +1974,19 @@ const deserializeAws_json1_0DescribeAccountLimitsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeConfigurationSetsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeConfigurationSetsCommand
+ */
+export const de_DescribeConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeConfigurationSetsCommandError(output, context);
+    return de_DescribeConfigurationSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeConfigurationSetsResult(data, context);
+  contents = de_DescribeConfigurationSetsResult(data, context);
   const response: DescribeConfigurationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1760,7 +1994,10 @@ export const deserializeAws_json1_0DescribeConfigurationSetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeConfigurationSetsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeConfigurationSetsCommandError
+ */
+const de_DescribeConfigurationSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationSetsCommandOutput> => {
@@ -1772,19 +2009,19 @@ const deserializeAws_json1_0DescribeConfigurationSetsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1796,16 +2033,19 @@ const deserializeAws_json1_0DescribeConfigurationSetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeKeywordsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeKeywordsCommand
+ */
+export const de_DescribeKeywordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeKeywordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeKeywordsCommandError(output, context);
+    return de_DescribeKeywordsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeKeywordsResult(data, context);
+  contents = de_DescribeKeywordsResult(data, context);
   const response: DescribeKeywordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1813,7 +2053,10 @@ export const deserializeAws_json1_0DescribeKeywordsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeKeywordsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeKeywordsCommandError
+ */
+const de_DescribeKeywordsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeKeywordsCommandOutput> => {
@@ -1825,19 +2068,19 @@ const deserializeAws_json1_0DescribeKeywordsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1849,16 +2092,19 @@ const deserializeAws_json1_0DescribeKeywordsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeOptedOutNumbersCommand = async (
+/**
+ * deserializeAws_json1_0DescribeOptedOutNumbersCommand
+ */
+export const de_DescribeOptedOutNumbersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptedOutNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeOptedOutNumbersCommandError(output, context);
+    return de_DescribeOptedOutNumbersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeOptedOutNumbersResult(data, context);
+  contents = de_DescribeOptedOutNumbersResult(data, context);
   const response: DescribeOptedOutNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1866,7 +2112,10 @@ export const deserializeAws_json1_0DescribeOptedOutNumbersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeOptedOutNumbersCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeOptedOutNumbersCommandError
+ */
+const de_DescribeOptedOutNumbersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptedOutNumbersCommandOutput> => {
@@ -1878,19 +2127,19 @@ const deserializeAws_json1_0DescribeOptedOutNumbersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1902,16 +2151,19 @@ const deserializeAws_json1_0DescribeOptedOutNumbersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeOptOutListsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeOptOutListsCommand
+ */
+export const de_DescribeOptOutListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptOutListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeOptOutListsCommandError(output, context);
+    return de_DescribeOptOutListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeOptOutListsResult(data, context);
+  contents = de_DescribeOptOutListsResult(data, context);
   const response: DescribeOptOutListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1919,7 +2171,10 @@ export const deserializeAws_json1_0DescribeOptOutListsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeOptOutListsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeOptOutListsCommandError
+ */
+const de_DescribeOptOutListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptOutListsCommandOutput> => {
@@ -1931,19 +2186,19 @@ const deserializeAws_json1_0DescribeOptOutListsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1955,16 +2210,19 @@ const deserializeAws_json1_0DescribeOptOutListsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribePhoneNumbersCommand = async (
+/**
+ * deserializeAws_json1_0DescribePhoneNumbersCommand
+ */
+export const de_DescribePhoneNumbersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePhoneNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribePhoneNumbersCommandError(output, context);
+    return de_DescribePhoneNumbersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribePhoneNumbersResult(data, context);
+  contents = de_DescribePhoneNumbersResult(data, context);
   const response: DescribePhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1972,7 +2230,10 @@ export const deserializeAws_json1_0DescribePhoneNumbersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribePhoneNumbersCommandError = async (
+/**
+ * deserializeAws_json1_0DescribePhoneNumbersCommandError
+ */
+const de_DescribePhoneNumbersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePhoneNumbersCommandOutput> => {
@@ -1984,19 +2245,19 @@ const deserializeAws_json1_0DescribePhoneNumbersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2008,16 +2269,19 @@ const deserializeAws_json1_0DescribePhoneNumbersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribePoolsCommand = async (
+/**
+ * deserializeAws_json1_0DescribePoolsCommand
+ */
+export const de_DescribePoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribePoolsCommandError(output, context);
+    return de_DescribePoolsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribePoolsResult(data, context);
+  contents = de_DescribePoolsResult(data, context);
   const response: DescribePoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2025,7 +2289,10 @@ export const deserializeAws_json1_0DescribePoolsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribePoolsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribePoolsCommandError
+ */
+const de_DescribePoolsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePoolsCommandOutput> => {
@@ -2037,19 +2304,19 @@ const deserializeAws_json1_0DescribePoolsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2061,16 +2328,19 @@ const deserializeAws_json1_0DescribePoolsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeSenderIdsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeSenderIdsCommand
+ */
+export const de_DescribeSenderIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSenderIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeSenderIdsCommandError(output, context);
+    return de_DescribeSenderIdsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeSenderIdsResult(data, context);
+  contents = de_DescribeSenderIdsResult(data, context);
   const response: DescribeSenderIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2078,7 +2348,10 @@ export const deserializeAws_json1_0DescribeSenderIdsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeSenderIdsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeSenderIdsCommandError
+ */
+const de_DescribeSenderIdsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSenderIdsCommandOutput> => {
@@ -2090,19 +2363,19 @@ const deserializeAws_json1_0DescribeSenderIdsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2114,16 +2387,19 @@ const deserializeAws_json1_0DescribeSenderIdsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeSpendLimitsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeSpendLimitsCommand
+ */
+export const de_DescribeSpendLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpendLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeSpendLimitsCommandError(output, context);
+    return de_DescribeSpendLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeSpendLimitsResult(data, context);
+  contents = de_DescribeSpendLimitsResult(data, context);
   const response: DescribeSpendLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2131,7 +2407,10 @@ export const deserializeAws_json1_0DescribeSpendLimitsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeSpendLimitsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeSpendLimitsCommandError
+ */
+const de_DescribeSpendLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpendLimitsCommandOutput> => {
@@ -2143,16 +2422,16 @@ const deserializeAws_json1_0DescribeSpendLimitsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2164,16 +2443,19 @@ const deserializeAws_json1_0DescribeSpendLimitsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DisassociateOriginationIdentityCommand = async (
+/**
+ * deserializeAws_json1_0DisassociateOriginationIdentityCommand
+ */
+export const de_DisassociateOriginationIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateOriginationIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DisassociateOriginationIdentityCommandError(output, context);
+    return de_DisassociateOriginationIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DisassociateOriginationIdentityResult(data, context);
+  contents = de_DisassociateOriginationIdentityResult(data, context);
   const response: DisassociateOriginationIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2181,7 +2463,10 @@ export const deserializeAws_json1_0DisassociateOriginationIdentityCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DisassociateOriginationIdentityCommandError = async (
+/**
+ * deserializeAws_json1_0DisassociateOriginationIdentityCommandError
+ */
+const de_DisassociateOriginationIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateOriginationIdentityCommandOutput> => {
@@ -2193,22 +2478,22 @@ const deserializeAws_json1_0DisassociateOriginationIdentityCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2220,16 +2505,19 @@ const deserializeAws_json1_0DisassociateOriginationIdentityCommandError = async 
   }
 };
 
-export const deserializeAws_json1_0ListPoolOriginationIdentitiesCommand = async (
+/**
+ * deserializeAws_json1_0ListPoolOriginationIdentitiesCommand
+ */
+export const de_ListPoolOriginationIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError(output, context);
+    return de_ListPoolOriginationIdentitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListPoolOriginationIdentitiesResult(data, context);
+  contents = de_ListPoolOriginationIdentitiesResult(data, context);
   const response: ListPoolOriginationIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2237,7 +2525,10 @@ export const deserializeAws_json1_0ListPoolOriginationIdentitiesCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError = async (
+/**
+ * deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError
+ */
+const de_ListPoolOriginationIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
@@ -2249,19 +2540,19 @@ const deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2273,16 +2564,19 @@ const deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResult(data, context);
+  contents = de_ListTagsForResourceResult(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2290,7 +2584,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2302,19 +2599,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2326,16 +2623,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0PutKeywordCommand = async (
+/**
+ * deserializeAws_json1_0PutKeywordCommand
+ */
+export const de_PutKeywordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKeywordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PutKeywordCommandError(output, context);
+    return de_PutKeywordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutKeywordResult(data, context);
+  contents = de_PutKeywordResult(data, context);
   const response: PutKeywordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2343,7 +2643,10 @@ export const deserializeAws_json1_0PutKeywordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0PutKeywordCommandError = async (
+/**
+ * deserializeAws_json1_0PutKeywordCommandError
+ */
+const de_PutKeywordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKeywordCommandOutput> => {
@@ -2355,25 +2658,25 @@ const deserializeAws_json1_0PutKeywordCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2385,16 +2688,19 @@ const deserializeAws_json1_0PutKeywordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0PutOptedOutNumberCommand = async (
+/**
+ * deserializeAws_json1_0PutOptedOutNumberCommand
+ */
+export const de_PutOptedOutNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutOptedOutNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PutOptedOutNumberCommandError(output, context);
+    return de_PutOptedOutNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutOptedOutNumberResult(data, context);
+  contents = de_PutOptedOutNumberResult(data, context);
   const response: PutOptedOutNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2402,7 +2708,10 @@ export const deserializeAws_json1_0PutOptedOutNumberCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0PutOptedOutNumberCommandError = async (
+/**
+ * deserializeAws_json1_0PutOptedOutNumberCommandError
+ */
+const de_PutOptedOutNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutOptedOutNumberCommandOutput> => {
@@ -2414,19 +2723,19 @@ const deserializeAws_json1_0PutOptedOutNumberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2438,16 +2747,19 @@ const deserializeAws_json1_0PutOptedOutNumberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ReleasePhoneNumberCommand = async (
+/**
+ * deserializeAws_json1_0ReleasePhoneNumberCommand
+ */
+export const de_ReleasePhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReleasePhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ReleasePhoneNumberCommandError(output, context);
+    return de_ReleasePhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ReleasePhoneNumberResult(data, context);
+  contents = de_ReleasePhoneNumberResult(data, context);
   const response: ReleasePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2455,7 +2767,10 @@ export const deserializeAws_json1_0ReleasePhoneNumberCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ReleasePhoneNumberCommandError = async (
+/**
+ * deserializeAws_json1_0ReleasePhoneNumberCommandError
+ */
+const de_ReleasePhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReleasePhoneNumberCommandOutput> => {
@@ -2467,22 +2782,22 @@ const deserializeAws_json1_0ReleasePhoneNumberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2494,16 +2809,19 @@ const deserializeAws_json1_0ReleasePhoneNumberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0RequestPhoneNumberCommand = async (
+/**
+ * deserializeAws_json1_0RequestPhoneNumberCommand
+ */
+export const de_RequestPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0RequestPhoneNumberCommandError(output, context);
+    return de_RequestPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RequestPhoneNumberResult(data, context);
+  contents = de_RequestPhoneNumberResult(data, context);
   const response: RequestPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2511,7 +2829,10 @@ export const deserializeAws_json1_0RequestPhoneNumberCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0RequestPhoneNumberCommandError = async (
+/**
+ * deserializeAws_json1_0RequestPhoneNumberCommandError
+ */
+const de_RequestPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestPhoneNumberCommandOutput> => {
@@ -2523,25 +2844,25 @@ const deserializeAws_json1_0RequestPhoneNumberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2553,16 +2874,19 @@ const deserializeAws_json1_0RequestPhoneNumberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SendTextMessageCommand = async (
+/**
+ * deserializeAws_json1_0SendTextMessageCommand
+ */
+export const de_SendTextMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTextMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendTextMessageCommandError(output, context);
+    return de_SendTextMessageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTextMessageResult(data, context);
+  contents = de_SendTextMessageResult(data, context);
   const response: SendTextMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2570,7 +2894,10 @@ export const deserializeAws_json1_0SendTextMessageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendTextMessageCommandError = async (
+/**
+ * deserializeAws_json1_0SendTextMessageCommandError
+ */
+const de_SendTextMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTextMessageCommandOutput> => {
@@ -2582,25 +2909,25 @@ const deserializeAws_json1_0SendTextMessageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2612,16 +2939,19 @@ const deserializeAws_json1_0SendTextMessageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SendVoiceMessageCommand = async (
+/**
+ * deserializeAws_json1_0SendVoiceMessageCommand
+ */
+export const de_SendVoiceMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendVoiceMessageCommandError(output, context);
+    return de_SendVoiceMessageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendVoiceMessageResult(data, context);
+  contents = de_SendVoiceMessageResult(data, context);
   const response: SendVoiceMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2629,7 +2959,10 @@ export const deserializeAws_json1_0SendVoiceMessageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendVoiceMessageCommandError = async (
+/**
+ * deserializeAws_json1_0SendVoiceMessageCommandError
+ */
+const de_SendVoiceMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
@@ -2641,25 +2974,25 @@ const deserializeAws_json1_0SendVoiceMessageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2671,16 +3004,19 @@ const deserializeAws_json1_0SendVoiceMessageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SetDefaultMessageTypeCommand = async (
+/**
+ * deserializeAws_json1_0SetDefaultMessageTypeCommand
+ */
+export const de_SetDefaultMessageTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultMessageTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SetDefaultMessageTypeCommandError(output, context);
+    return de_SetDefaultMessageTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SetDefaultMessageTypeResult(data, context);
+  contents = de_SetDefaultMessageTypeResult(data, context);
   const response: SetDefaultMessageTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2688,7 +3024,10 @@ export const deserializeAws_json1_0SetDefaultMessageTypeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SetDefaultMessageTypeCommandError = async (
+/**
+ * deserializeAws_json1_0SetDefaultMessageTypeCommandError
+ */
+const de_SetDefaultMessageTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultMessageTypeCommandOutput> => {
@@ -2700,19 +3039,19 @@ const deserializeAws_json1_0SetDefaultMessageTypeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2724,16 +3063,19 @@ const deserializeAws_json1_0SetDefaultMessageTypeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SetDefaultSenderIdCommand = async (
+/**
+ * deserializeAws_json1_0SetDefaultSenderIdCommand
+ */
+export const de_SetDefaultSenderIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SetDefaultSenderIdCommandError(output, context);
+    return de_SetDefaultSenderIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SetDefaultSenderIdResult(data, context);
+  contents = de_SetDefaultSenderIdResult(data, context);
   const response: SetDefaultSenderIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2741,7 +3083,10 @@ export const deserializeAws_json1_0SetDefaultSenderIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SetDefaultSenderIdCommandError = async (
+/**
+ * deserializeAws_json1_0SetDefaultSenderIdCommandError
+ */
+const de_SetDefaultSenderIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultSenderIdCommandOutput> => {
@@ -2753,19 +3098,19 @@ const deserializeAws_json1_0SetDefaultSenderIdCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2777,16 +3122,19 @@ const deserializeAws_json1_0SetDefaultSenderIdCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand = async (
+/**
+ * deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand
+ */
+export const de_SetTextMessageSpendLimitOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTextMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError(output, context);
+    return de_SetTextMessageSpendLimitOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SetTextMessageSpendLimitOverrideResult(data, context);
+  contents = de_SetTextMessageSpendLimitOverrideResult(data, context);
   const response: SetTextMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2794,7 +3142,10 @@ export const deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError = async (
+/**
+ * deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError
+ */
+const de_SetTextMessageSpendLimitOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTextMessageSpendLimitOverrideCommandOutput> => {
@@ -2806,16 +3157,16 @@ const deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2827,16 +3178,19 @@ const deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError = async
   }
 };
 
-export const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand = async (
+/**
+ * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand
+ */
+export const de_SetVoiceMessageSpendLimitOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError(output, context);
+    return de_SetVoiceMessageSpendLimitOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideResult(data, context);
+  contents = de_SetVoiceMessageSpendLimitOverrideResult(data, context);
   const response: SetVoiceMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2844,7 +3198,10 @@ export const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError = async (
+/**
+ * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError
+ */
+const de_SetVoiceMessageSpendLimitOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput> => {
@@ -2856,16 +3213,16 @@ const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2877,16 +3234,19 @@ const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResult(data, context);
+  contents = de_TagResourceResult(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2894,7 +3254,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2906,22 +3269,22 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2933,16 +3296,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResult(data, context);
+  contents = de_UntagResourceResult(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2950,7 +3316,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2962,19 +3331,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2986,16 +3355,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateEventDestinationCommand = async (
+/**
+ * deserializeAws_json1_0UpdateEventDestinationCommand
+ */
+export const de_UpdateEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateEventDestinationCommandError(output, context);
+    return de_UpdateEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateEventDestinationResult(data, context);
+  contents = de_UpdateEventDestinationResult(data, context);
   const response: UpdateEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3003,7 +3375,10 @@ export const deserializeAws_json1_0UpdateEventDestinationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateEventDestinationCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateEventDestinationCommandError
+ */
+const de_UpdateEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventDestinationCommandOutput> => {
@@ -3015,22 +3390,22 @@ const deserializeAws_json1_0UpdateEventDestinationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3042,16 +3417,19 @@ const deserializeAws_json1_0UpdateEventDestinationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdatePhoneNumberCommand = async (
+/**
+ * deserializeAws_json1_0UpdatePhoneNumberCommand
+ */
+export const de_UpdatePhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdatePhoneNumberCommandError(output, context);
+    return de_UpdatePhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdatePhoneNumberResult(data, context);
+  contents = de_UpdatePhoneNumberResult(data, context);
   const response: UpdatePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3059,7 +3437,10 @@ export const deserializeAws_json1_0UpdatePhoneNumberCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdatePhoneNumberCommandError = async (
+/**
+ * deserializeAws_json1_0UpdatePhoneNumberCommandError
+ */
+const de_UpdatePhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePhoneNumberCommandOutput> => {
@@ -3071,22 +3452,22 @@ const deserializeAws_json1_0UpdatePhoneNumberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3098,16 +3479,19 @@ const deserializeAws_json1_0UpdatePhoneNumberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdatePoolCommand = async (
+/**
+ * deserializeAws_json1_0UpdatePoolCommand
+ */
+export const de_UpdatePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdatePoolCommandError(output, context);
+    return de_UpdatePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdatePoolResult(data, context);
+  contents = de_UpdatePoolResult(data, context);
   const response: UpdatePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3115,7 +3499,10 @@ export const deserializeAws_json1_0UpdatePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdatePoolCommandError = async (
+/**
+ * deserializeAws_json1_0UpdatePoolCommandError
+ */
+const de_UpdatePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePoolCommandOutput> => {
@@ -3127,22 +3514,22 @@ const deserializeAws_json1_0UpdatePoolCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3154,12 +3541,15 @@ const deserializeAws_json1_0UpdatePoolCommandError = async (
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3167,12 +3557,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3180,12 +3570,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3193,12 +3586,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3206,12 +3602,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3219,12 +3618,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3232,12 +3631,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3245,7 +3644,10 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0AssociateOriginationIdentityRequest = (
+/**
+ * serializeAws_json1_0AssociateOriginationIdentityRequest
+ */
+const se_AssociateOriginationIdentityRequest = (
   input: AssociateOriginationIdentityRequest,
   context: __SerdeContext
 ): any => {
@@ -3257,35 +3659,41 @@ const serializeAws_json1_0AssociateOriginationIdentityRequest = (
   };
 };
 
-const serializeAws_json1_0CloudWatchLogsDestination = (
-  input: CloudWatchLogsDestination,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CloudWatchLogsDestination
+ */
+const se_CloudWatchLogsDestination = (input: CloudWatchLogsDestination, context: __SerdeContext): any => {
   return {
     ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
     ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
   };
 };
 
-const serializeAws_json1_0ConfigurationSetFilter = (input: ConfigurationSetFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ConfigurationSetFilter
+ */
+const se_ConfigurationSetFilter = (input: ConfigurationSetFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0ConfigurationSetFilterList = (
-  input: ConfigurationSetFilter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ConfigurationSetFilterList
+ */
+const se_ConfigurationSetFilterList = (input: ConfigurationSetFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0ConfigurationSetFilter(entry, context);
+      return se_ConfigurationSetFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0ConfigurationSetNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ConfigurationSetNameList
+ */
+const se_ConfigurationSetNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3293,7 +3701,10 @@ const serializeAws_json1_0ConfigurationSetNameList = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_0ContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ContextMap
+ */
+const se_ContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3303,266 +3714,279 @@ const serializeAws_json1_0ContextMap = (input: Record<string, string>, context: 
   }, {});
 };
 
-const serializeAws_json1_0CreateConfigurationSetRequest = (
-  input: CreateConfigurationSetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateConfigurationSetRequest
+ */
+const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateEventDestinationRequest = (
-  input: CreateEventDestinationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateEventDestinationRequest
+ */
+const se_CreateEventDestinationRequest = (input: CreateEventDestinationRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: serializeAws_json1_0CloudWatchLogsDestination(
-        input.CloudWatchLogsDestination,
-        context
-      ),
+      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
     }),
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
     ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: serializeAws_json1_0KinesisFirehoseDestination(
-        input.KinesisFirehoseDestination,
-        context
-      ),
+      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
     }),
     ...(input.MatchingEventTypes != null && {
-      MatchingEventTypes: serializeAws_json1_0EventTypeList(input.MatchingEventTypes, context),
+      MatchingEventTypes: se_EventTypeList(input.MatchingEventTypes, context),
     }),
-    ...(input.SnsDestination != null && {
-      SnsDestination: serializeAws_json1_0SnsDestination(input.SnsDestination, context),
-    }),
+    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
   };
 };
 
-const serializeAws_json1_0CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateOptOutListRequest
+ */
+const se_CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreatePoolRequest
+ */
+const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
     ...(input.MessageType != null && { MessageType: input.MessageType }),
     ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0DeleteConfigurationSetRequest = (
-  input: DeleteConfigurationSetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteConfigurationSetRequest
+ */
+const se_DeleteConfigurationSetRequest = (input: DeleteConfigurationSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
-const serializeAws_json1_0DeleteDefaultMessageTypeRequest = (
-  input: DeleteDefaultMessageTypeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteDefaultMessageTypeRequest
+ */
+const se_DeleteDefaultMessageTypeRequest = (input: DeleteDefaultMessageTypeRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
-const serializeAws_json1_0DeleteDefaultSenderIdRequest = (
-  input: DeleteDefaultSenderIdRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteDefaultSenderIdRequest
+ */
+const se_DeleteDefaultSenderIdRequest = (input: DeleteDefaultSenderIdRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
-const serializeAws_json1_0DeleteEventDestinationRequest = (
-  input: DeleteEventDestinationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteEventDestinationRequest
+ */
+const se_DeleteEventDestinationRequest = (input: DeleteEventDestinationRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
   };
 };
 
-const serializeAws_json1_0DeleteKeywordRequest = (input: DeleteKeywordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteKeywordRequest
+ */
+const se_DeleteKeywordRequest = (input: DeleteKeywordRequest, context: __SerdeContext): any => {
   return {
     ...(input.Keyword != null && { Keyword: input.Keyword }),
     ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
   };
 };
 
-const serializeAws_json1_0DeleteOptedOutNumberRequest = (
-  input: DeleteOptedOutNumberRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteOptedOutNumberRequest
+ */
+const se_DeleteOptedOutNumberRequest = (input: DeleteOptedOutNumberRequest, context: __SerdeContext): any => {
   return {
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
     ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
   };
 };
 
-const serializeAws_json1_0DeleteOptOutListRequest = (input: DeleteOptOutListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteOptOutListRequest
+ */
+const se_DeleteOptOutListRequest = (input: DeleteOptOutListRequest, context: __SerdeContext): any => {
   return {
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
   };
 };
 
-const serializeAws_json1_0DeletePoolRequest = (input: DeletePoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeletePoolRequest
+ */
+const se_DeletePoolRequest = (input: DeletePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
-const serializeAws_json1_0DeleteTextMessageSpendLimitOverrideRequest = (
+/**
+ * serializeAws_json1_0DeleteTextMessageSpendLimitOverrideRequest
+ */
+const se_DeleteTextMessageSpendLimitOverrideRequest = (
   input: DeleteTextMessageSpendLimitOverrideRequest,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideRequest = (
+/**
+ * serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideRequest
+ */
+const se_DeleteVoiceMessageSpendLimitOverrideRequest = (
   input: DeleteVoiceMessageSpendLimitOverrideRequest,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_0DescribeAccountAttributesRequest = (
-  input: DescribeAccountAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeAccountAttributesRequest
+ */
+const se_DescribeAccountAttributesRequest = (input: DescribeAccountAttributesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0DescribeAccountLimitsRequest = (
-  input: DescribeAccountLimitsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeAccountLimitsRequest
+ */
+const se_DescribeAccountLimitsRequest = (input: DescribeAccountLimitsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0DescribeConfigurationSetsRequest = (
-  input: DescribeConfigurationSetsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeConfigurationSetsRequest
+ */
+const se_DescribeConfigurationSetsRequest = (input: DescribeConfigurationSetsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetNames != null && {
-      ConfigurationSetNames: serializeAws_json1_0ConfigurationSetNameList(input.ConfigurationSetNames, context),
+      ConfigurationSetNames: se_ConfigurationSetNameList(input.ConfigurationSetNames, context),
     }),
-    ...(input.Filters != null && { Filters: serializeAws_json1_0ConfigurationSetFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ConfigurationSetFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0DescribeKeywordsRequest = (input: DescribeKeywordsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeKeywordsRequest
+ */
+const se_DescribeKeywordsRequest = (input: DescribeKeywordsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_0KeywordFilterList(input.Filters, context) }),
-    ...(input.Keywords != null && { Keywords: serializeAws_json1_0KeywordList(input.Keywords, context) }),
+    ...(input.Filters != null && { Filters: se_KeywordFilterList(input.Filters, context) }),
+    ...(input.Keywords != null && { Keywords: se_KeywordList(input.Keywords, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
   };
 };
 
-const serializeAws_json1_0DescribeOptedOutNumbersRequest = (
-  input: DescribeOptedOutNumbersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeOptedOutNumbersRequest
+ */
+const se_DescribeOptedOutNumbersRequest = (input: DescribeOptedOutNumbersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_0OptedOutFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_OptedOutFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumbers != null && {
-      OptedOutNumbers: serializeAws_json1_0OptedOutNumberList(input.OptedOutNumbers, context),
-    }),
+    ...(input.OptedOutNumbers != null && { OptedOutNumbers: se_OptedOutNumberList(input.OptedOutNumbers, context) }),
   };
 };
 
-const serializeAws_json1_0DescribeOptOutListsRequest = (
-  input: DescribeOptOutListsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeOptOutListsRequest
+ */
+const se_DescribeOptOutListsRequest = (input: DescribeOptOutListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OptOutListNames != null && {
-      OptOutListNames: serializeAws_json1_0OptOutListNameList(input.OptOutListNames, context),
-    }),
+    ...(input.OptOutListNames != null && { OptOutListNames: se_OptOutListNameList(input.OptOutListNames, context) }),
   };
 };
 
-const serializeAws_json1_0DescribePhoneNumbersRequest = (
-  input: DescribePhoneNumbersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribePhoneNumbersRequest
+ */
+const se_DescribePhoneNumbersRequest = (input: DescribePhoneNumbersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_0PhoneNumberFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_PhoneNumberFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PhoneNumberIds != null && {
-      PhoneNumberIds: serializeAws_json1_0PhoneNumberIdList(input.PhoneNumberIds, context),
-    }),
+    ...(input.PhoneNumberIds != null && { PhoneNumberIds: se_PhoneNumberIdList(input.PhoneNumberIds, context) }),
   };
 };
 
-const serializeAws_json1_0DescribePoolsRequest = (input: DescribePoolsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribePoolsRequest
+ */
+const se_DescribePoolsRequest = (input: DescribePoolsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_0PoolFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_PoolFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PoolIds != null && { PoolIds: serializeAws_json1_0PoolIdList(input.PoolIds, context) }),
+    ...(input.PoolIds != null && { PoolIds: se_PoolIdList(input.PoolIds, context) }),
   };
 };
 
-const serializeAws_json1_0DescribeSenderIdsRequest = (
-  input: DescribeSenderIdsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeSenderIdsRequest
+ */
+const se_DescribeSenderIdsRequest = (input: DescribeSenderIdsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_0SenderIdFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_SenderIdFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SenderIds != null && { SenderIds: serializeAws_json1_0SenderIdList(input.SenderIds, context) }),
+    ...(input.SenderIds != null && { SenderIds: se_SenderIdList(input.SenderIds, context) }),
   };
 };
 
-const serializeAws_json1_0DescribeSpendLimitsRequest = (
-  input: DescribeSpendLimitsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeSpendLimitsRequest
+ */
+const se_DescribeSpendLimitsRequest = (input: DescribeSpendLimitsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0DestinationCountryParameters = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DestinationCountryParameters
+ */
+const se_DestinationCountryParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [DestinationCountryParameterKey | string, any]) => {
       if (value === null) {
@@ -3575,7 +3999,10 @@ const serializeAws_json1_0DestinationCountryParameters = (
   );
 };
 
-const serializeAws_json1_0DisassociateOriginationIdentityRequest = (
+/**
+ * serializeAws_json1_0DisassociateOriginationIdentityRequest
+ */
+const se_DisassociateOriginationIdentityRequest = (
   input: DisassociateOriginationIdentityRequest,
   context: __SerdeContext
 ): any => {
@@ -3587,7 +4014,10 @@ const serializeAws_json1_0DisassociateOriginationIdentityRequest = (
   };
 };
 
-const serializeAws_json1_0EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0EventTypeList
+ */
+const se_EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3595,7 +4025,10 @@ const serializeAws_json1_0EventTypeList = (input: (EventType | string)[], contex
     });
 };
 
-const serializeAws_json1_0FilterValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0FilterValueList
+ */
+const se_FilterValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3603,22 +4036,31 @@ const serializeAws_json1_0FilterValueList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_0KeywordFilter = (input: KeywordFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0KeywordFilter
+ */
+const se_KeywordFilter = (input: KeywordFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0KeywordFilterList = (input: KeywordFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0KeywordFilterList
+ */
+const se_KeywordFilterList = (input: KeywordFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0KeywordFilter(entry, context);
+      return se_KeywordFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0KeywordList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0KeywordList
+ */
+const se_KeywordList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3626,51 +4068,55 @@ const serializeAws_json1_0KeywordList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_0KinesisFirehoseDestination = (
-  input: KinesisFirehoseDestination,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0KinesisFirehoseDestination
+ */
+const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
     ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
-const serializeAws_json1_0ListPoolOriginationIdentitiesRequest = (
+/**
+ * serializeAws_json1_0ListPoolOriginationIdentitiesRequest
+ */
+const se_ListPoolOriginationIdentitiesRequest = (
   input: ListPoolOriginationIdentitiesRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && {
-      Filters: serializeAws_json1_0PoolOriginationIdentitiesFilterList(input.Filters, context),
-    }),
+    ...(input.Filters != null && { Filters: se_PoolOriginationIdentitiesFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_0NonEmptyTagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NonEmptyTagList
+ */
+const se_NonEmptyTagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0NumberCapabilityList = (
-  input: (NumberCapability | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0NumberCapabilityList
+ */
+const se_NumberCapabilityList = (input: (NumberCapability | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3678,22 +4124,31 @@ const serializeAws_json1_0NumberCapabilityList = (
     });
 };
 
-const serializeAws_json1_0OptedOutFilter = (input: OptedOutFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0OptedOutFilter
+ */
+const se_OptedOutFilter = (input: OptedOutFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0OptedOutFilterList = (input: OptedOutFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0OptedOutFilterList
+ */
+const se_OptedOutFilterList = (input: OptedOutFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0OptedOutFilter(entry, context);
+      return se_OptedOutFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0OptedOutNumberList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0OptedOutNumberList
+ */
+const se_OptedOutNumberList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3701,7 +4156,10 @@ const serializeAws_json1_0OptedOutNumberList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_0OptOutListNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0OptOutListNameList
+ */
+const se_OptOutListNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3709,45 +4167,31 @@ const serializeAws_json1_0OptOutListNameList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_0PhoneNumberFilter = (input: PhoneNumberFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PhoneNumberFilter
+ */
+const se_PhoneNumberFilter = (input: PhoneNumberFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0PhoneNumberFilterList = (input: PhoneNumberFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PhoneNumberFilterList
+ */
+const se_PhoneNumberFilterList = (input: PhoneNumberFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0PhoneNumberFilter(entry, context);
+      return se_PhoneNumberFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0PhoneNumberIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_0PoolFilter = (input: PoolFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
-  };
-};
-
-const serializeAws_json1_0PoolFilterList = (input: PoolFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0PoolFilter(entry, context);
-    });
-};
-
-const serializeAws_json1_0PoolIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PhoneNumberIdList
+ */
+const se_PhoneNumberIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3755,28 +4199,66 @@ const serializeAws_json1_0PoolIdList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0PoolOriginationIdentitiesFilter = (
-  input: PoolOriginationIdentitiesFilter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0PoolFilter
+ */
+const se_PoolFilter = (input: PoolFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0PoolOriginationIdentitiesFilterList = (
+/**
+ * serializeAws_json1_0PoolFilterList
+ */
+const se_PoolFilterList = (input: PoolFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PoolFilter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_json1_0PoolIdList
+ */
+const se_PoolIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+/**
+ * serializeAws_json1_0PoolOriginationIdentitiesFilter
+ */
+const se_PoolOriginationIdentitiesFilter = (input: PoolOriginationIdentitiesFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
+  };
+};
+
+/**
+ * serializeAws_json1_0PoolOriginationIdentitiesFilterList
+ */
+const se_PoolOriginationIdentitiesFilterList = (
   input: PoolOriginationIdentitiesFilter[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0PoolOriginationIdentitiesFilter(entry, context);
+      return se_PoolOriginationIdentitiesFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0PutKeywordRequest = (input: PutKeywordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PutKeywordRequest
+ */
+const se_PutKeywordRequest = (input: PutKeywordRequest, context: __SerdeContext): any => {
   return {
     ...(input.Keyword != null && { Keyword: input.Keyword }),
     ...(input.KeywordAction != null && { KeywordAction: input.KeywordAction }),
@@ -3785,84 +4267,96 @@ const serializeAws_json1_0PutKeywordRequest = (input: PutKeywordRequest, context
   };
 };
 
-const serializeAws_json1_0PutOptedOutNumberRequest = (
-  input: PutOptedOutNumberRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0PutOptedOutNumberRequest
+ */
+const se_PutOptedOutNumberRequest = (input: PutOptedOutNumberRequest, context: __SerdeContext): any => {
   return {
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
     ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
   };
 };
 
-const serializeAws_json1_0ReleasePhoneNumberRequest = (
-  input: ReleasePhoneNumberRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ReleasePhoneNumberRequest
+ */
+const se_ReleasePhoneNumberRequest = (input: ReleasePhoneNumberRequest, context: __SerdeContext): any => {
   return {
     ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
   };
 };
 
-const serializeAws_json1_0RequestPhoneNumberRequest = (
-  input: RequestPhoneNumberRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0RequestPhoneNumberRequest
+ */
+const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
     ...(input.MessageType != null && { MessageType: input.MessageType }),
     ...(input.NumberCapabilities != null && {
-      NumberCapabilities: serializeAws_json1_0NumberCapabilityList(input.NumberCapabilities, context),
+      NumberCapabilities: se_NumberCapabilityList(input.NumberCapabilities, context),
     }),
     ...(input.NumberType != null && { NumberType: input.NumberType }),
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
     ...(input.RegistrationId != null && { RegistrationId: input.RegistrationId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0SenderIdAndCountry = (input: SenderIdAndCountry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SenderIdAndCountry
+ */
+const se_SenderIdAndCountry = (input: SenderIdAndCountry, context: __SerdeContext): any => {
   return {
     ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
     ...(input.SenderId != null && { SenderId: input.SenderId }),
   };
 };
 
-const serializeAws_json1_0SenderIdFilter = (input: SenderIdFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SenderIdFilter
+ */
+const se_SenderIdFilter = (input: SenderIdFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_0SenderIdFilterList = (input: SenderIdFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SenderIdFilterList
+ */
+const se_SenderIdFilterList = (input: SenderIdFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0SenderIdFilter(entry, context);
+      return se_SenderIdFilter(entry, context);
     });
 };
 
-const serializeAws_json1_0SenderIdList = (input: SenderIdAndCountry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SenderIdList
+ */
+const se_SenderIdList = (input: SenderIdAndCountry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0SenderIdAndCountry(entry, context);
+      return se_SenderIdAndCountry(entry, context);
     });
 };
 
-const serializeAws_json1_0SendTextMessageRequest = (input: SendTextMessageRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendTextMessageRequest
+ */
+const se_SendTextMessageRequest = (input: SendTextMessageRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != null && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
+    ...(input.Context != null && { Context: se_ContextMap(input.Context, context) }),
     ...(input.DestinationCountryParameters != null && {
-      DestinationCountryParameters: serializeAws_json1_0DestinationCountryParameters(
-        input.DestinationCountryParameters,
-        context
-      ),
+      DestinationCountryParameters: se_DestinationCountryParameters(input.DestinationCountryParameters, context),
     }),
     ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
     ...(input.DryRun != null && { DryRun: input.DryRun }),
@@ -3875,10 +4369,13 @@ const serializeAws_json1_0SendTextMessageRequest = (input: SendTextMessageReques
   };
 };
 
-const serializeAws_json1_0SendVoiceMessageRequest = (input: SendVoiceMessageRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendVoiceMessageRequest
+ */
+const se_SendVoiceMessageRequest = (input: SendVoiceMessageRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != null && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
+    ...(input.Context != null && { Context: se_ContextMap(input.Context, context) }),
     ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
     ...(input.DryRun != null && { DryRun: input.DryRun }),
     ...(input.MaxPricePerMinute != null && { MaxPricePerMinute: input.MaxPricePerMinute }),
@@ -3890,27 +4387,30 @@ const serializeAws_json1_0SendVoiceMessageRequest = (input: SendVoiceMessageRequ
   };
 };
 
-const serializeAws_json1_0SetDefaultMessageTypeRequest = (
-  input: SetDefaultMessageTypeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0SetDefaultMessageTypeRequest
+ */
+const se_SetDefaultMessageTypeRequest = (input: SetDefaultMessageTypeRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.MessageType != null && { MessageType: input.MessageType }),
   };
 };
 
-const serializeAws_json1_0SetDefaultSenderIdRequest = (
-  input: SetDefaultSenderIdRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0SetDefaultSenderIdRequest
+ */
+const se_SetDefaultSenderIdRequest = (input: SetDefaultSenderIdRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.SenderId != null && { SenderId: input.SenderId }),
   };
 };
 
-const serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest = (
+/**
+ * serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest
+ */
+const se_SetTextMessageSpendLimitOverrideRequest = (
   input: SetTextMessageSpendLimitOverrideRequest,
   context: __SerdeContext
 ): any => {
@@ -3919,7 +4419,10 @@ const serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest = (
   };
 };
 
-const serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest = (
+/**
+ * serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest
+ */
+const se_SetVoiceMessageSpendLimitOverrideRequest = (
   input: SetVoiceMessageSpendLimitOverrideRequest,
   context: __SerdeContext
 ): any => {
@@ -3928,20 +4431,29 @@ const serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest = (
   };
 };
 
-const serializeAws_json1_0SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SnsDestination
+ */
+const se_SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
     ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3949,61 +4461,62 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0NonEmptyTagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_NonEmptyTagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateEventDestinationRequest = (
-  input: UpdateEventDestinationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateEventDestinationRequest
+ */
+const se_UpdateEventDestinationRequest = (input: UpdateEventDestinationRequest, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: serializeAws_json1_0CloudWatchLogsDestination(
-        input.CloudWatchLogsDestination,
-        context
-      ),
+      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
     }),
     ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
     ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: serializeAws_json1_0KinesisFirehoseDestination(
-        input.KinesisFirehoseDestination,
-        context
-      ),
+      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
     }),
     ...(input.MatchingEventTypes != null && {
-      MatchingEventTypes: serializeAws_json1_0EventTypeList(input.MatchingEventTypes, context),
+      MatchingEventTypes: se_EventTypeList(input.MatchingEventTypes, context),
     }),
-    ...(input.SnsDestination != null && {
-      SnsDestination: serializeAws_json1_0SnsDestination(input.SnsDestination, context),
-    }),
+    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
   };
 };
 
-const serializeAws_json1_0UpdatePhoneNumberRequest = (
-  input: UpdatePhoneNumberRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdatePhoneNumberRequest
+ */
+const se_UpdatePhoneNumberRequest = (input: UpdatePhoneNumberRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
@@ -4014,7 +4527,10 @@ const serializeAws_json1_0UpdatePhoneNumberRequest = (
   };
 };
 
-const serializeAws_json1_0UpdatePoolRequest = (input: UpdatePoolRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdatePoolRequest
+ */
+const se_UpdatePoolRequest = (input: UpdatePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
@@ -4026,33 +4542,45 @@ const serializeAws_json1_0UpdatePoolRequest = (input: UpdatePoolRequest, context
   };
 };
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_0AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;
 };
 
-const deserializeAws_json1_0AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
+/**
+ * deserializeAws_json1_0AccountAttribute
+ */
+const de_AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   return {
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0AccountAttributeList = (output: any, context: __SerdeContext): AccountAttribute[] => {
+/**
+ * deserializeAws_json1_0AccountAttributeList
+ */
+const de_AccountAttributeList = (output: any, context: __SerdeContext): AccountAttribute[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AccountAttribute(entry, context);
+      return de_AccountAttribute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
+/**
+ * deserializeAws_json1_0AccountLimit
+ */
+const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   return {
     Max: __expectLong(output.Max),
     Name: __expectString(output.Name),
@@ -4060,19 +4588,25 @@ const deserializeAws_json1_0AccountLimit = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0AccountLimitList = (output: any, context: __SerdeContext): AccountLimit[] => {
+/**
+ * deserializeAws_json1_0AccountLimitList
+ */
+const de_AccountLimitList = (output: any, context: __SerdeContext): AccountLimit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AccountLimit(entry, context);
+      return de_AccountLimit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0AssociateOriginationIdentityResult = (
+/**
+ * deserializeAws_json1_0AssociateOriginationIdentityResult
+ */
+const de_AssociateOriginationIdentityResult = (
   output: any,
   context: __SerdeContext
 ): AssociateOriginationIdentityResult => {
@@ -4085,20 +4619,20 @@ const deserializeAws_json1_0AssociateOriginationIdentityResult = (
   } as any;
 };
 
-const deserializeAws_json1_0CloudWatchLogsDestination = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLogsDestination => {
+/**
+ * deserializeAws_json1_0CloudWatchLogsDestination
+ */
+const de_CloudWatchLogsDestination = (output: any, context: __SerdeContext): CloudWatchLogsDestination => {
   return {
     IamRoleArn: __expectString(output.IamRoleArn),
     LogGroupArn: __expectString(output.LogGroupArn),
   } as any;
 };
 
-const deserializeAws_json1_0ConfigurationSetInformation = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationSetInformation => {
+/**
+ * deserializeAws_json1_0ConfigurationSetInformation
+ */
+const de_ConfigurationSetInformation = (output: any, context: __SerdeContext): ConfigurationSetInformation => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4109,28 +4643,29 @@ const deserializeAws_json1_0ConfigurationSetInformation = (
     DefaultMessageType: __expectString(output.DefaultMessageType),
     DefaultSenderId: __expectString(output.DefaultSenderId),
     EventDestinations:
-      output.EventDestinations != null
-        ? deserializeAws_json1_0EventDestinationList(output.EventDestinations, context)
-        : undefined,
+      output.EventDestinations != null ? de_EventDestinationList(output.EventDestinations, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ConfigurationSetInformationList = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationSetInformation[] => {
+/**
+ * deserializeAws_json1_0ConfigurationSetInformationList
+ */
+const de_ConfigurationSetInformationList = (output: any, context: __SerdeContext): ConfigurationSetInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ConfigurationSetInformation(entry, context);
+      return de_ConfigurationSetInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
@@ -4139,10 +4674,10 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0CreateConfigurationSetResult = (
-  output: any,
-  context: __SerdeContext
-): CreateConfigurationSetResult => {
+/**
+ * deserializeAws_json1_0CreateConfigurationSetResult
+ */
+const de_CreateConfigurationSetResult = (output: any, context: __SerdeContext): CreateConfigurationSetResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4150,25 +4685,26 @@ const deserializeAws_json1_0CreateConfigurationSetResult = (
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateEventDestinationResult = (
-  output: any,
-  context: __SerdeContext
-): CreateEventDestinationResult => {
+/**
+ * deserializeAws_json1_0CreateEventDestinationResult
+ */
+const de_CreateEventDestinationResult = (output: any, context: __SerdeContext): CreateEventDestinationResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != null
-        ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
-        : undefined,
+      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateOptOutListResult = (output: any, context: __SerdeContext): CreateOptOutListResult => {
+/**
+ * deserializeAws_json1_0CreateOptOutListResult
+ */
+const de_CreateOptOutListResult = (output: any, context: __SerdeContext): CreateOptOutListResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4176,11 +4712,14 @@ const deserializeAws_json1_0CreateOptOutListResult = (output: any, context: __Se
         : undefined,
     OptOutListArn: __expectString(output.OptOutListArn),
     OptOutListName: __expectString(output.OptOutListName),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolResult => {
+/**
+ * deserializeAws_json1_0CreatePoolResult
+ */
+const de_CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4194,16 +4733,16 @@ const deserializeAws_json1_0CreatePoolResult = (output: any, context: __SerdeCon
     SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
     SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
     TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
     TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteConfigurationSetResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteConfigurationSetResult => {
+/**
+ * deserializeAws_json1_0DeleteConfigurationSetResult
+ */
+const de_DeleteConfigurationSetResult = (output: any, context: __SerdeContext): DeleteConfigurationSetResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4214,16 +4753,14 @@ const deserializeAws_json1_0DeleteConfigurationSetResult = (
     DefaultMessageType: __expectString(output.DefaultMessageType),
     DefaultSenderId: __expectString(output.DefaultSenderId),
     EventDestinations:
-      output.EventDestinations != null
-        ? deserializeAws_json1_0EventDestinationList(output.EventDestinations, context)
-        : undefined,
+      output.EventDestinations != null ? de_EventDestinationList(output.EventDestinations, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteDefaultMessageTypeResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDefaultMessageTypeResult => {
+/**
+ * deserializeAws_json1_0DeleteDefaultMessageTypeResult
+ */
+const de_DeleteDefaultMessageTypeResult = (output: any, context: __SerdeContext): DeleteDefaultMessageTypeResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4231,10 +4768,10 @@ const deserializeAws_json1_0DeleteDefaultMessageTypeResult = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteDefaultSenderIdResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDefaultSenderIdResult => {
+/**
+ * deserializeAws_json1_0DeleteDefaultSenderIdResult
+ */
+const de_DeleteDefaultSenderIdResult = (output: any, context: __SerdeContext): DeleteDefaultSenderIdResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4242,21 +4779,22 @@ const deserializeAws_json1_0DeleteDefaultSenderIdResult = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteEventDestinationResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteEventDestinationResult => {
+/**
+ * deserializeAws_json1_0DeleteEventDestinationResult
+ */
+const de_DeleteEventDestinationResult = (output: any, context: __SerdeContext): DeleteEventDestinationResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != null
-        ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
-        : undefined,
+      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteKeywordResult = (output: any, context: __SerdeContext): DeleteKeywordResult => {
+/**
+ * deserializeAws_json1_0DeleteKeywordResult
+ */
+const de_DeleteKeywordResult = (output: any, context: __SerdeContext): DeleteKeywordResult => {
   return {
     Keyword: __expectString(output.Keyword),
     KeywordAction: __expectString(output.KeywordAction),
@@ -4266,10 +4804,10 @@ const deserializeAws_json1_0DeleteKeywordResult = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_0DeleteOptedOutNumberResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteOptedOutNumberResult => {
+/**
+ * deserializeAws_json1_0DeleteOptedOutNumberResult
+ */
+const de_DeleteOptedOutNumberResult = (output: any, context: __SerdeContext): DeleteOptedOutNumberResult => {
   return {
     EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
     OptOutListArn: __expectString(output.OptOutListArn),
@@ -4282,7 +4820,10 @@ const deserializeAws_json1_0DeleteOptedOutNumberResult = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteOptOutListResult = (output: any, context: __SerdeContext): DeleteOptOutListResult => {
+/**
+ * deserializeAws_json1_0DeleteOptOutListResult
+ */
+const de_DeleteOptOutListResult = (output: any, context: __SerdeContext): DeleteOptOutListResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4293,7 +4834,10 @@ const deserializeAws_json1_0DeleteOptOutListResult = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolResult => {
+/**
+ * deserializeAws_json1_0DeletePoolResult
+ */
+const de_DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4311,7 +4855,10 @@ const deserializeAws_json1_0DeletePoolResult = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideResult = (
+/**
+ * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideResult
+ */
+const de_DeleteTextMessageSpendLimitOverrideResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTextMessageSpendLimitOverrideResult => {
@@ -4320,7 +4867,10 @@ const deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideResult = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideResult = (
+/**
+ * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideResult
+ */
+const de_DeleteVoiceMessageSpendLimitOverrideResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVoiceMessageSpendLimitOverrideResult => {
@@ -4329,124 +4879,119 @@ const deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideResult = (
   } as any;
 };
 
-const deserializeAws_json1_0DescribeAccountAttributesResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeAccountAttributesResult => {
+/**
+ * deserializeAws_json1_0DescribeAccountAttributesResult
+ */
+const de_DescribeAccountAttributesResult = (output: any, context: __SerdeContext): DescribeAccountAttributesResult => {
   return {
     AccountAttributes:
-      output.AccountAttributes != null
-        ? deserializeAws_json1_0AccountAttributeList(output.AccountAttributes, context)
-        : undefined,
+      output.AccountAttributes != null ? de_AccountAttributeList(output.AccountAttributes, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0DescribeAccountLimitsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeAccountLimitsResult => {
+/**
+ * deserializeAws_json1_0DescribeAccountLimitsResult
+ */
+const de_DescribeAccountLimitsResult = (output: any, context: __SerdeContext): DescribeAccountLimitsResult => {
   return {
-    AccountLimits:
-      output.AccountLimits != null ? deserializeAws_json1_0AccountLimitList(output.AccountLimits, context) : undefined,
+    AccountLimits: output.AccountLimits != null ? de_AccountLimitList(output.AccountLimits, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0DescribeConfigurationSetsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeConfigurationSetsResult => {
+/**
+ * deserializeAws_json1_0DescribeConfigurationSetsResult
+ */
+const de_DescribeConfigurationSetsResult = (output: any, context: __SerdeContext): DescribeConfigurationSetsResult => {
   return {
     ConfigurationSets:
       output.ConfigurationSets != null
-        ? deserializeAws_json1_0ConfigurationSetInformationList(output.ConfigurationSets, context)
+        ? de_ConfigurationSetInformationList(output.ConfigurationSets, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0DescribeKeywordsResult = (output: any, context: __SerdeContext): DescribeKeywordsResult => {
+/**
+ * deserializeAws_json1_0DescribeKeywordsResult
+ */
+const de_DescribeKeywordsResult = (output: any, context: __SerdeContext): DescribeKeywordsResult => {
   return {
-    Keywords:
-      output.Keywords != null ? deserializeAws_json1_0KeywordInformationList(output.Keywords, context) : undefined,
+    Keywords: output.Keywords != null ? de_KeywordInformationList(output.Keywords, context) : undefined,
     NextToken: __expectString(output.NextToken),
     OriginationIdentity: __expectString(output.OriginationIdentity),
     OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
   } as any;
 };
 
-const deserializeAws_json1_0DescribeOptedOutNumbersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeOptedOutNumbersResult => {
+/**
+ * deserializeAws_json1_0DescribeOptedOutNumbersResult
+ */
+const de_DescribeOptedOutNumbersResult = (output: any, context: __SerdeContext): DescribeOptedOutNumbersResult => {
   return {
     NextToken: __expectString(output.NextToken),
     OptOutListArn: __expectString(output.OptOutListArn),
     OptOutListName: __expectString(output.OptOutListName),
     OptedOutNumbers:
-      output.OptedOutNumbers != null
-        ? deserializeAws_json1_0OptedOutNumberInformationList(output.OptedOutNumbers, context)
-        : undefined,
+      output.OptedOutNumbers != null ? de_OptedOutNumberInformationList(output.OptedOutNumbers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeOptOutListsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeOptOutListsResult => {
+/**
+ * deserializeAws_json1_0DescribeOptOutListsResult
+ */
+const de_DescribeOptOutListsResult = (output: any, context: __SerdeContext): DescribeOptOutListsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    OptOutLists:
-      output.OptOutLists != null
-        ? deserializeAws_json1_0OptOutListInformationList(output.OptOutLists, context)
-        : undefined,
+    OptOutLists: output.OptOutLists != null ? de_OptOutListInformationList(output.OptOutLists, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribePhoneNumbersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribePhoneNumbersResult => {
+/**
+ * deserializeAws_json1_0DescribePhoneNumbersResult
+ */
+const de_DescribePhoneNumbersResult = (output: any, context: __SerdeContext): DescribePhoneNumbersResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    PhoneNumbers:
-      output.PhoneNumbers != null
-        ? deserializeAws_json1_0PhoneNumberInformationList(output.PhoneNumbers, context)
-        : undefined,
+    PhoneNumbers: output.PhoneNumbers != null ? de_PhoneNumberInformationList(output.PhoneNumbers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribePoolsResult = (output: any, context: __SerdeContext): DescribePoolsResult => {
+/**
+ * deserializeAws_json1_0DescribePoolsResult
+ */
+const de_DescribePoolsResult = (output: any, context: __SerdeContext): DescribePoolsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Pools: output.Pools != null ? deserializeAws_json1_0PoolInformationList(output.Pools, context) : undefined,
+    Pools: output.Pools != null ? de_PoolInformationList(output.Pools, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeSenderIdsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeSenderIdsResult => {
+/**
+ * deserializeAws_json1_0DescribeSenderIdsResult
+ */
+const de_DescribeSenderIdsResult = (output: any, context: __SerdeContext): DescribeSenderIdsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    SenderIds:
-      output.SenderIds != null ? deserializeAws_json1_0SenderIdInformationList(output.SenderIds, context) : undefined,
+    SenderIds: output.SenderIds != null ? de_SenderIdInformationList(output.SenderIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeSpendLimitsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeSpendLimitsResult => {
+/**
+ * deserializeAws_json1_0DescribeSpendLimitsResult
+ */
+const de_DescribeSpendLimitsResult = (output: any, context: __SerdeContext): DescribeSpendLimitsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    SpendLimits:
-      output.SpendLimits != null ? deserializeAws_json1_0SpendLimitList(output.SpendLimits, context) : undefined,
+    SpendLimits: output.SpendLimits != null ? de_SpendLimitList(output.SpendLimits, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DisassociateOriginationIdentityResult = (
+/**
+ * deserializeAws_json1_0DisassociateOriginationIdentityResult
+ */
+const de_DisassociateOriginationIdentityResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateOriginationIdentityResult => {
@@ -4459,40 +5004,46 @@ const deserializeAws_json1_0DisassociateOriginationIdentityResult = (
   } as any;
 };
 
-const deserializeAws_json1_0EventDestination = (output: any, context: __SerdeContext): EventDestination => {
+/**
+ * deserializeAws_json1_0EventDestination
+ */
+const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
     CloudWatchLogsDestination:
       output.CloudWatchLogsDestination != null
-        ? deserializeAws_json1_0CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
+        ? de_CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     EventDestinationName: __expectString(output.EventDestinationName),
     KinesisFirehoseDestination:
       output.KinesisFirehoseDestination != null
-        ? deserializeAws_json1_0KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
+        ? de_KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes != null
-        ? deserializeAws_json1_0EventTypeList(output.MatchingEventTypes, context)
-        : undefined,
-    SnsDestination:
-      output.SnsDestination != null ? deserializeAws_json1_0SnsDestination(output.SnsDestination, context) : undefined,
+      output.MatchingEventTypes != null ? de_EventTypeList(output.MatchingEventTypes, context) : undefined,
+    SnsDestination: output.SnsDestination != null ? de_SnsDestination(output.SnsDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0EventDestinationList = (output: any, context: __SerdeContext): EventDestination[] => {
+/**
+ * deserializeAws_json1_0EventDestinationList
+ */
+const de_EventDestinationList = (output: any, context: __SerdeContext): EventDestination[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0EventDestination(entry, context);
+      return de_EventDestination(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0EventTypeList = (output: any, context: __SerdeContext): (EventType | string)[] => {
+/**
+ * deserializeAws_json1_0EventTypeList
+ */
+const de_EventTypeList = (output: any, context: __SerdeContext): (EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4504,17 +5055,20 @@ const deserializeAws_json1_0EventTypeList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
   } as any;
 };
 
-const deserializeAws_json1_0KeywordInformation = (output: any, context: __SerdeContext): KeywordInformation => {
+/**
+ * deserializeAws_json1_0KeywordInformation
+ */
+const de_KeywordInformation = (output: any, context: __SerdeContext): KeywordInformation => {
   return {
     Keyword: __expectString(output.Keyword),
     KeywordAction: __expectString(output.KeywordAction),
@@ -4522,29 +5076,35 @@ const deserializeAws_json1_0KeywordInformation = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_0KeywordInformationList = (output: any, context: __SerdeContext): KeywordInformation[] => {
+/**
+ * deserializeAws_json1_0KeywordInformationList
+ */
+const de_KeywordInformationList = (output: any, context: __SerdeContext): KeywordInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0KeywordInformation(entry, context);
+      return de_KeywordInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0KinesisFirehoseDestination = (
-  output: any,
-  context: __SerdeContext
-): KinesisFirehoseDestination => {
+/**
+ * deserializeAws_json1_0KinesisFirehoseDestination
+ */
+const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
   return {
     DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
     IamRoleArn: __expectString(output.IamRoleArn),
   } as any;
 };
 
-const deserializeAws_json1_0ListPoolOriginationIdentitiesResult = (
+/**
+ * deserializeAws_json1_0ListPoolOriginationIdentitiesResult
+ */
+const de_ListPoolOriginationIdentitiesResult = (
   output: any,
   context: __SerdeContext
 ): ListPoolOriginationIdentitiesResult => {
@@ -4552,24 +5112,27 @@ const deserializeAws_json1_0ListPoolOriginationIdentitiesResult = (
     NextToken: __expectString(output.NextToken),
     OriginationIdentities:
       output.OriginationIdentities != null
-        ? deserializeAws_json1_0OriginationIdentityMetadataList(output.OriginationIdentities, context)
+        ? de_OriginationIdentityMetadataList(output.OriginationIdentities, context)
         : undefined,
     PoolArn: __expectString(output.PoolArn),
     PoolId: __expectString(output.PoolId),
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResult = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResult => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResult
+ */
+const de_ListTagsForResourceResult = (output: any, context: __SerdeContext): ListTagsForResourceResult => {
   return {
     ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0MessageTypeList = (output: any, context: __SerdeContext): (MessageType | string)[] => {
+/**
+ * deserializeAws_json1_0MessageTypeList
+ */
+const de_MessageTypeList = (output: any, context: __SerdeContext): (MessageType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4581,10 +5144,10 @@ const deserializeAws_json1_0MessageTypeList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_0NumberCapabilityList = (
-  output: any,
-  context: __SerdeContext
-): (NumberCapability | string)[] => {
+/**
+ * deserializeAws_json1_0NumberCapabilityList
+ */
+const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4596,10 +5159,10 @@ const deserializeAws_json1_0NumberCapabilityList = (
   return retVal;
 };
 
-const deserializeAws_json1_0OptedOutNumberInformation = (
-  output: any,
-  context: __SerdeContext
-): OptedOutNumberInformation => {
+/**
+ * deserializeAws_json1_0OptedOutNumberInformation
+ */
+const de_OptedOutNumberInformation = (output: any, context: __SerdeContext): OptedOutNumberInformation => {
   return {
     EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
     OptedOutNumber: __expectString(output.OptedOutNumber),
@@ -4610,22 +5173,25 @@ const deserializeAws_json1_0OptedOutNumberInformation = (
   } as any;
 };
 
-const deserializeAws_json1_0OptedOutNumberInformationList = (
-  output: any,
-  context: __SerdeContext
-): OptedOutNumberInformation[] => {
+/**
+ * deserializeAws_json1_0OptedOutNumberInformationList
+ */
+const de_OptedOutNumberInformationList = (output: any, context: __SerdeContext): OptedOutNumberInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0OptedOutNumberInformation(entry, context);
+      return de_OptedOutNumberInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0OptOutListInformation = (output: any, context: __SerdeContext): OptOutListInformation => {
+/**
+ * deserializeAws_json1_0OptOutListInformation
+ */
+const de_OptOutListInformation = (output: any, context: __SerdeContext): OptOutListInformation => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4636,52 +5202,53 @@ const deserializeAws_json1_0OptOutListInformation = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0OptOutListInformationList = (
-  output: any,
-  context: __SerdeContext
-): OptOutListInformation[] => {
+/**
+ * deserializeAws_json1_0OptOutListInformationList
+ */
+const de_OptOutListInformationList = (output: any, context: __SerdeContext): OptOutListInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0OptOutListInformation(entry, context);
+      return de_OptOutListInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0OriginationIdentityMetadata = (
-  output: any,
-  context: __SerdeContext
-): OriginationIdentityMetadata => {
+/**
+ * deserializeAws_json1_0OriginationIdentityMetadata
+ */
+const de_OriginationIdentityMetadata = (output: any, context: __SerdeContext): OriginationIdentityMetadata => {
   return {
     IsoCountryCode: __expectString(output.IsoCountryCode),
     NumberCapabilities:
-      output.NumberCapabilities != null
-        ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
-        : undefined,
+      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
     OriginationIdentity: __expectString(output.OriginationIdentity),
     OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
   } as any;
 };
 
-const deserializeAws_json1_0OriginationIdentityMetadataList = (
-  output: any,
-  context: __SerdeContext
-): OriginationIdentityMetadata[] => {
+/**
+ * deserializeAws_json1_0OriginationIdentityMetadataList
+ */
+const de_OriginationIdentityMetadataList = (output: any, context: __SerdeContext): OriginationIdentityMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0OriginationIdentityMetadata(entry, context);
+      return de_OriginationIdentityMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
+/**
+ * deserializeAws_json1_0PhoneNumberInformation
+ */
+const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4692,9 +5259,7 @@ const deserializeAws_json1_0PhoneNumberInformation = (output: any, context: __Se
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != null
-        ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
-        : undefined,
+      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
     NumberType: __expectString(output.NumberType),
     OptOutListName: __expectString(output.OptOutListName),
     PhoneNumber: __expectString(output.PhoneNumber),
@@ -4708,22 +5273,25 @@ const deserializeAws_json1_0PhoneNumberInformation = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0PhoneNumberInformationList = (
-  output: any,
-  context: __SerdeContext
-): PhoneNumberInformation[] => {
+/**
+ * deserializeAws_json1_0PhoneNumberInformationList
+ */
+const de_PhoneNumberInformationList = (output: any, context: __SerdeContext): PhoneNumberInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0PhoneNumberInformation(entry, context);
+      return de_PhoneNumberInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0PoolInformation = (output: any, context: __SerdeContext): PoolInformation => {
+/**
+ * deserializeAws_json1_0PoolInformation
+ */
+const de_PoolInformation = (output: any, context: __SerdeContext): PoolInformation => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4742,19 +5310,25 @@ const deserializeAws_json1_0PoolInformation = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_0PoolInformationList = (output: any, context: __SerdeContext): PoolInformation[] => {
+/**
+ * deserializeAws_json1_0PoolInformationList
+ */
+const de_PoolInformationList = (output: any, context: __SerdeContext): PoolInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0PoolInformation(entry, context);
+      return de_PoolInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0PutKeywordResult = (output: any, context: __SerdeContext): PutKeywordResult => {
+/**
+ * deserializeAws_json1_0PutKeywordResult
+ */
+const de_PutKeywordResult = (output: any, context: __SerdeContext): PutKeywordResult => {
   return {
     Keyword: __expectString(output.Keyword),
     KeywordAction: __expectString(output.KeywordAction),
@@ -4764,10 +5338,10 @@ const deserializeAws_json1_0PutKeywordResult = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0PutOptedOutNumberResult = (
-  output: any,
-  context: __SerdeContext
-): PutOptedOutNumberResult => {
+/**
+ * deserializeAws_json1_0PutOptedOutNumberResult
+ */
+const de_PutOptedOutNumberResult = (output: any, context: __SerdeContext): PutOptedOutNumberResult => {
   return {
     EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
     OptOutListArn: __expectString(output.OptOutListArn),
@@ -4780,10 +5354,10 @@ const deserializeAws_json1_0PutOptedOutNumberResult = (
   } as any;
 };
 
-const deserializeAws_json1_0ReleasePhoneNumberResult = (
-  output: any,
-  context: __SerdeContext
-): ReleasePhoneNumberResult => {
+/**
+ * deserializeAws_json1_0ReleasePhoneNumberResult
+ */
+const de_ReleasePhoneNumberResult = (output: any, context: __SerdeContext): ReleasePhoneNumberResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4793,9 +5367,7 @@ const deserializeAws_json1_0ReleasePhoneNumberResult = (
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != null
-        ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
-        : undefined,
+      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
     NumberType: __expectString(output.NumberType),
     OptOutListName: __expectString(output.OptOutListName),
     PhoneNumber: __expectString(output.PhoneNumber),
@@ -4808,10 +5380,10 @@ const deserializeAws_json1_0ReleasePhoneNumberResult = (
   } as any;
 };
 
-const deserializeAws_json1_0RequestPhoneNumberResult = (
-  output: any,
-  context: __SerdeContext
-): RequestPhoneNumberResult => {
+/**
+ * deserializeAws_json1_0RequestPhoneNumberResult
+ */
+const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): RequestPhoneNumberResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -4822,9 +5394,7 @@ const deserializeAws_json1_0RequestPhoneNumberResult = (
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != null
-        ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
-        : undefined,
+      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
     NumberType: __expectString(output.NumberType),
     OptOutListName: __expectString(output.OptOutListName),
     PhoneNumber: __expectString(output.PhoneNumber),
@@ -4833,16 +5403,16 @@ const deserializeAws_json1_0RequestPhoneNumberResult = (
     PoolId: __expectString(output.PoolId),
     SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
     TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
     TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
     ResourceId: __expectString(output.ResourceId),
@@ -4850,55 +5420,66 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_0SenderIdInformation = (output: any, context: __SerdeContext): SenderIdInformation => {
+/**
+ * deserializeAws_json1_0SenderIdInformation
+ */
+const de_SenderIdInformation = (output: any, context: __SerdeContext): SenderIdInformation => {
   return {
     IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageTypes:
-      output.MessageTypes != null ? deserializeAws_json1_0MessageTypeList(output.MessageTypes, context) : undefined,
+    MessageTypes: output.MessageTypes != null ? de_MessageTypeList(output.MessageTypes, context) : undefined,
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     SenderId: __expectString(output.SenderId),
     SenderIdArn: __expectString(output.SenderIdArn),
   } as any;
 };
 
-const deserializeAws_json1_0SenderIdInformationList = (output: any, context: __SerdeContext): SenderIdInformation[] => {
+/**
+ * deserializeAws_json1_0SenderIdInformationList
+ */
+const de_SenderIdInformationList = (output: any, context: __SerdeContext): SenderIdInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SenderIdInformation(entry, context);
+      return de_SenderIdInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SendTextMessageResult = (output: any, context: __SerdeContext): SendTextMessageResult => {
+/**
+ * deserializeAws_json1_0SendTextMessageResult
+ */
+const de_SendTextMessageResult = (output: any, context: __SerdeContext): SendTextMessageResult => {
   return {
     MessageId: __expectString(output.MessageId),
   } as any;
 };
 
-const deserializeAws_json1_0SendVoiceMessageResult = (output: any, context: __SerdeContext): SendVoiceMessageResult => {
+/**
+ * deserializeAws_json1_0SendVoiceMessageResult
+ */
+const de_SendVoiceMessageResult = (output: any, context: __SerdeContext): SendVoiceMessageResult => {
   return {
     MessageId: __expectString(output.MessageId),
   } as any;
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;
 };
 
-const deserializeAws_json1_0SetDefaultMessageTypeResult = (
-  output: any,
-  context: __SerdeContext
-): SetDefaultMessageTypeResult => {
+/**
+ * deserializeAws_json1_0SetDefaultMessageTypeResult
+ */
+const de_SetDefaultMessageTypeResult = (output: any, context: __SerdeContext): SetDefaultMessageTypeResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4906,10 +5487,10 @@ const deserializeAws_json1_0SetDefaultMessageTypeResult = (
   } as any;
 };
 
-const deserializeAws_json1_0SetDefaultSenderIdResult = (
-  output: any,
-  context: __SerdeContext
-): SetDefaultSenderIdResult => {
+/**
+ * deserializeAws_json1_0SetDefaultSenderIdResult
+ */
+const de_SetDefaultSenderIdResult = (output: any, context: __SerdeContext): SetDefaultSenderIdResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
@@ -4917,7 +5498,10 @@ const deserializeAws_json1_0SetDefaultSenderIdResult = (
   } as any;
 };
 
-const deserializeAws_json1_0SetTextMessageSpendLimitOverrideResult = (
+/**
+ * deserializeAws_json1_0SetTextMessageSpendLimitOverrideResult
+ */
+const de_SetTextMessageSpendLimitOverrideResult = (
   output: any,
   context: __SerdeContext
 ): SetTextMessageSpendLimitOverrideResult => {
@@ -4926,7 +5510,10 @@ const deserializeAws_json1_0SetTextMessageSpendLimitOverrideResult = (
   } as any;
 };
 
-const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideResult = (
+/**
+ * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideResult
+ */
+const de_SetVoiceMessageSpendLimitOverrideResult = (
   output: any,
   context: __SerdeContext
 ): SetVoiceMessageSpendLimitOverrideResult => {
@@ -4935,13 +5522,19 @@ const deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideResult = (
   } as any;
 };
 
-const deserializeAws_json1_0SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
+/**
+ * deserializeAws_json1_0SnsDestination
+ */
+const de_SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
     TopicArn: __expectString(output.TopicArn),
   } as any;
 };
 
-const deserializeAws_json1_0SpendLimit = (output: any, context: __SerdeContext): SpendLimit => {
+/**
+ * deserializeAws_json1_0SpendLimit
+ */
+const de_SpendLimit = (output: any, context: __SerdeContext): SpendLimit => {
   return {
     EnforcedLimit: __expectLong(output.EnforcedLimit),
     MaxLimit: __expectLong(output.MaxLimit),
@@ -4950,69 +5543,85 @@ const deserializeAws_json1_0SpendLimit = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_0SpendLimitList = (output: any, context: __SerdeContext): SpendLimit[] => {
+/**
+ * deserializeAws_json1_0SpendLimitList
+ */
+const de_SpendLimitList = (output: any, context: __SerdeContext): SpendLimit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SpendLimit(entry, context);
+      return de_SpendLimit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
+/**
+ * deserializeAws_json1_0TagResourceResult
+ */
+const de_TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_0ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
+/**
+ * deserializeAws_json1_0UntagResourceResult
+ */
+const de_UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateEventDestinationResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateEventDestinationResult => {
+/**
+ * deserializeAws_json1_0UpdateEventDestinationResult
+ */
+const de_UpdateEventDestinationResult = (output: any, context: __SerdeContext): UpdateEventDestinationResult => {
   return {
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != null
-        ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
-        : undefined,
+      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdatePhoneNumberResult = (
-  output: any,
-  context: __SerdeContext
-): UpdatePhoneNumberResult => {
+/**
+ * deserializeAws_json1_0UpdatePhoneNumberResult
+ */
+const de_UpdatePhoneNumberResult = (output: any, context: __SerdeContext): UpdatePhoneNumberResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -5023,9 +5632,7 @@ const deserializeAws_json1_0UpdatePhoneNumberResult = (
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != null
-        ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
-        : undefined,
+      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
     NumberType: __expectString(output.NumberType),
     OptOutListName: __expectString(output.OptOutListName),
     PhoneNumber: __expectString(output.PhoneNumber),
@@ -5038,7 +5645,10 @@ const deserializeAws_json1_0UpdatePhoneNumberResult = (
   } as any;
 };
 
-const deserializeAws_json1_0UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolResult => {
+/**
+ * deserializeAws_json1_0UpdatePoolResult
+ */
+const de_UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolResult => {
   return {
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -5057,36 +5667,38 @@ const deserializeAws_json1_0UpdatePoolResult = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Fields:
-      output.Fields != null ? deserializeAws_json1_0ValidationExceptionFieldList(output.Fields, context) : undefined,
+    Fields: output.Fields != null ? de_ValidationExceptionFieldList(output.Fields, context) : undefined,
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;
 };
 
-const deserializeAws_json1_0ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
+/**
+ * deserializeAws_json1_0ValidationExceptionField
+ */
+const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
   return {
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_0ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
+/**
+ * deserializeAws_json1_0ValidationExceptionFieldList
+ */
+const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ValidationExceptionField(entry, context);
+      return de_ValidationExceptionField(entry, context);
     });
   return retVal;
 };

@@ -15,8 +15,8 @@ import {
 
 import { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1NotifyRecommendationsReceivedCommand,
-  serializeAws_restJson1NotifyRecommendationsReceivedCommand,
+  de_NotifyRecommendationsReceivedCommand,
+  se_NotifyRecommendationsReceivedCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
@@ -137,7 +137,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
    * @internal
    */
   private serialize(input: NotifyRecommendationsReceivedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1NotifyRecommendationsReceivedCommand(input, context);
+    return se_NotifyRecommendationsReceivedCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyRecommendationsReceivedCommandOutput> {
-    return deserializeAws_restJson1NotifyRecommendationsReceivedCommand(output, context);
+    return de_NotifyRecommendationsReceivedCommand(output, context);
   }
 
   // Start section: command_body_extra

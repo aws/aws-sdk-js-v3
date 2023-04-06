@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetIpamDiscoveredResourceCidrsRequest, GetIpamDiscoveredResourceCidrsResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand,
-  serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand,
+  de_GetIpamDiscoveredResourceCidrsCommand,
+  se_GetIpamDiscoveredResourceCidrsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     input: GetIpamDiscoveredResourceCidrsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand(input, context);
+    return se_GetIpamDiscoveredResourceCidrsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> {
-    return deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand(output, context);
+    return de_GetIpamDiscoveredResourceCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRealtimeEndpointCommand,
-  serializeAws_json1_1DeleteRealtimeEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRealtimeEndpointCommand, se_DeleteRealtimeEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteRealtimeEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRealtimeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRealtimeEndpointCommand(input, context);
+    return se_DeleteRealtimeEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRealtimeEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteRealtimeEndpointCommand(output, context);
+    return de_DeleteRealtimeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

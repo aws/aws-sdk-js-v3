@@ -15,7 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutDashboardInput, PutDashboardOutput } from "../models/models_0";
-import { deserializeAws_queryPutDashboardCommand, serializeAws_queryPutDashboardCommand } from "../protocols/Aws_query";
+import { de_PutDashboardCommand, se_PutDashboardCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class PutDashboardCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutDashboardCommand(input, context);
+    return se_PutDashboardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDashboardCommandOutput> {
-    return deserializeAws_queryPutDashboardCommand(output, context);
+    return de_PutDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

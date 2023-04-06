@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNamedQueryCommand,
-  serializeAws_json1_1DeleteNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNamedQueryCommand, se_DeleteNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteNamedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNamedQueryCommand(input, context);
+    return se_DeleteNamedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamedQueryCommandOutput> {
-    return deserializeAws_json1_1DeleteNamedQueryCommand(output, context);
+    return de_DeleteNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVerifiedAccessTrustProviderRequest, CreateVerifiedAccessTrustProviderResult } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
+  de_CreateVerifiedAccessTrustProviderCommand,
+  se_CreateVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -157,7 +157,7 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     input: CreateVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessTrustProviderCommand(input, context);
+    return se_CreateVerifiedAccessTrustProviderCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand(output, context);
+    return de_CreateVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

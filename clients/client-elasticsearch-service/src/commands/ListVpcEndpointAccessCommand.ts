@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { ListVpcEndpointAccessRequest, ListVpcEndpointAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVpcEndpointAccessCommand,
-  serializeAws_restJson1ListVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVpcEndpointAccessCommand, se_ListVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListVpcEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVpcEndpointAccessCommand(input, context);
+    return se_ListVpcEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1ListVpcEndpointAccessCommand(output, context);
+    return de_ListVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

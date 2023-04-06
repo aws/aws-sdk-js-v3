@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeTaskRequest, DescribeTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskCommand,
-  serializeAws_json1_1DescribeTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTaskCommand, se_DescribeTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DescribeTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskCommand(input, context);
+    return se_DescribeTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskCommand(output, context);
+    return de_DescribeTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

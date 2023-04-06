@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { DescribeImageTagsRequest, DescribeImageTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageTagsCommand,
-  serializeAws_json1_1DescribeImageTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImageTagsCommand, se_DescribeImageTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeImageTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImageTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageTagsCommand(input, context);
+    return se_DescribeImageTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageTagsCommandOutput> {
-    return deserializeAws_json1_1DescribeImageTagsCommand(output, context);
+    return de_DescribeImageTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

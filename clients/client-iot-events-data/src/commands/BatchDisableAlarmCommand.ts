@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchDisableAlarmRequest, BatchDisableAlarmResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDisableAlarmCommand,
-  serializeAws_restJson1BatchDisableAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDisableAlarmCommand, se_BatchDisableAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class BatchDisableAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDisableAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisableAlarmCommand(input, context);
+    return se_BatchDisableAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchDisableAlarmCommand(output, context);
+    return de_BatchDisableAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

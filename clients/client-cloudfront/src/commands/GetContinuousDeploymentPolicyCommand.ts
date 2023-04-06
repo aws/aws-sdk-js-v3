@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetContinuousDeploymentPolicyRequest, GetContinuousDeploymentPolicyResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlGetContinuousDeploymentPolicyCommand,
+  de_GetContinuousDeploymentPolicyCommand,
+  se_GetContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -129,7 +129,7 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContinuousDeploymentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetContinuousDeploymentPolicyCommand(input, context);
+    return se_GetContinuousDeploymentPolicyCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlGetContinuousDeploymentPolicyCommand(output, context);
+    return de_GetContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

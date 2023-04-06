@@ -22,10 +22,7 @@ import {
   StartFaceLivenessSessionResponse,
   StartFaceLivenessSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartFaceLivenessSessionCommand,
-  serializeAws_restJson1StartFaceLivenessSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartFaceLivenessSessionCommand, se_StartFaceLivenessSessionCommand } from "../protocols/Aws_restJson1";
 import {
   RekognitionStreamingClientResolvedConfig,
   ServiceInputTypes,
@@ -224,7 +221,7 @@ export class StartFaceLivenessSessionCommand extends $Command<
     input: StartFaceLivenessSessionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFaceLivenessSessionCommand(input, context);
+    return se_StartFaceLivenessSessionCommand(input, context);
   }
 
   /**
@@ -234,7 +231,7 @@ export class StartFaceLivenessSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartFaceLivenessSessionCommandOutput> {
-    return deserializeAws_restJson1StartFaceLivenessSessionCommand(output, context);
+    return de_StartFaceLivenessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

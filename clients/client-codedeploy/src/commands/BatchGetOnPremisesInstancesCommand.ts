@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetOnPremisesInstancesCommand,
-  serializeAws_json1_1BatchGetOnPremisesInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetOnPremisesInstancesCommand, se_BatchGetOnPremisesInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetOnPremisesInstancesCommand(input, context);
+    return se_BatchGetOnPremisesInstancesCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1BatchGetOnPremisesInstancesCommand(output, context);
+    return de_BatchGetOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

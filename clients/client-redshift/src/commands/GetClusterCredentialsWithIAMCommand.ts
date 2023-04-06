@@ -15,10 +15,7 @@ import {
 
 import { ClusterExtendedCredentials, ClusterExtendedCredentialsFilterSensitiveLog } from "../models/models_0";
 import { GetClusterCredentialsWithIAMMessage } from "../models/models_1";
-import {
-  deserializeAws_queryGetClusterCredentialsWithIAMCommand,
-  serializeAws_queryGetClusterCredentialsWithIAMCommand,
-} from "../protocols/Aws_query";
+import { de_GetClusterCredentialsWithIAMCommand, se_GetClusterCredentialsWithIAMCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -139,7 +136,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClusterCredentialsWithIAMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetClusterCredentialsWithIAMCommand(input, context);
+    return se_GetClusterCredentialsWithIAMCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClusterCredentialsWithIAMCommandOutput> {
-    return deserializeAws_queryGetClusterCredentialsWithIAMCommand(output, context);
+    return de_GetClusterCredentialsWithIAMCommand(output, context);
   }
 
   // Start section: command_body_extra

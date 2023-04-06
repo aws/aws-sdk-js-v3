@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSMSSandboxAccountStatusInput, GetSMSSandboxAccountStatusResult } from "../models/models_0";
-import {
-  deserializeAws_queryGetSMSSandboxAccountStatusCommand,
-  serializeAws_queryGetSMSSandboxAccountStatusCommand,
-} from "../protocols/Aws_query";
+import { de_GetSMSSandboxAccountStatusCommand, se_GetSMSSandboxAccountStatusCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -136,7 +133,7 @@ export class GetSMSSandboxAccountStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSMSSandboxAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSMSSandboxAccountStatusCommand(input, context);
+    return se_GetSMSSandboxAccountStatusCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class GetSMSSandboxAccountStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSMSSandboxAccountStatusCommandOutput> {
-    return deserializeAws_queryGetSMSSandboxAccountStatusCommand(output, context);
+    return de_GetSMSSandboxAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

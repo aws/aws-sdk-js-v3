@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { ListArchiveRulesRequest, ListArchiveRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListArchiveRulesCommand,
-  serializeAws_restJson1ListArchiveRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListArchiveRulesCommand, se_ListArchiveRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListArchiveRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListArchiveRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListArchiveRulesCommand(input, context);
+    return se_ListArchiveRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchiveRulesCommandOutput> {
-    return deserializeAws_restJson1ListArchiveRulesCommand(output, context);
+    return de_ListArchiveRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

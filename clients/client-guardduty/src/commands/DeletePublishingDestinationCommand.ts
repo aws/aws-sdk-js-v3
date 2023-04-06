@@ -16,8 +16,8 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeletePublishingDestinationCommand,
-  serializeAws_restJson1DeletePublishingDestinationCommand,
+  de_DeletePublishingDestinationCommand,
+  se_DeletePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -129,7 +129,7 @@ export class DeletePublishingDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePublishingDestinationCommand(input, context);
+    return se_DeletePublishingDestinationCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DeletePublishingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1DeletePublishingDestinationCommand(output, context);
+    return de_DeletePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

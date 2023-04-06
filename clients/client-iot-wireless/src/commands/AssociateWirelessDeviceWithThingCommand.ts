@@ -16,8 +16,8 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { AssociateWirelessDeviceWithThingRequest, AssociateWirelessDeviceWithThingResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWirelessDeviceWithThingCommand,
-  serializeAws_restJson1AssociateWirelessDeviceWithThingCommand,
+  de_AssociateWirelessDeviceWithThingCommand,
+  se_AssociateWirelessDeviceWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     input: AssociateWirelessDeviceWithThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessDeviceWithThingCommand(input, context);
+    return se_AssociateWirelessDeviceWithThingCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessDeviceWithThingCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessDeviceWithThingCommand(output, context);
+    return de_AssociateWirelessDeviceWithThingCommand(output, context);
   }
 
   // Start section: command_body_extra

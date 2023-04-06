@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainAssociationCommand,
-  serializeAws_restJson1DeleteDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDomainAssociationCommand, se_DeleteDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDomainAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainAssociationCommand(input, context);
+    return se_DeleteDomainAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainAssociationCommand(output, context);
+    return de_DeleteDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { CreateAccessorInput, CreateAccessorOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessorCommand,
-  serializeAws_restJson1CreateAccessorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessorCommand, se_CreateAccessorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateAccessorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessorCommand(input, context);
+    return se_CreateAccessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessorCommandOutput> {
-    return deserializeAws_restJson1CreateAccessorCommand(output, context);
+    return de_CreateAccessorCommand(output, context);
   }
 
   // Start section: command_body_extra

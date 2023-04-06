@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
 import { PutReportDefinitionRequest, PutReportDefinitionResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutReportDefinitionCommand,
-  serializeAws_restJson1PutReportDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutReportDefinitionCommand, se_PutReportDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutReportDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutReportDefinitionCommand(input, context);
+    return se_PutReportDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput> {
-    return deserializeAws_restJson1PutReportDefinitionCommand(output, context);
+    return de_PutReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

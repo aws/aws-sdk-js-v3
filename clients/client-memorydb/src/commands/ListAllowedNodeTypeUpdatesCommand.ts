@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { ListAllowedNodeTypeUpdatesRequest, ListAllowedNodeTypeUpdatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
-  serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAllowedNodeTypeUpdatesCommand, se_ListAllowedNodeTypeUpdatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAllowedNodeTypeUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand(input, context);
+    return se_ListAllowedNodeTypeUpdatesCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeUpdatesCommandOutput> {
-    return deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand(output, context);
+    return de_ListAllowedNodeTypeUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

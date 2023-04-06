@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { RemoveUserFromGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_queryRemoveUserFromGroupCommand,
-  serializeAws_queryRemoveUserFromGroupCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveUserFromGroupCommand, se_RemoveUserFromGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class RemoveUserFromGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveUserFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveUserFromGroupCommand(input, context);
+    return se_RemoveUserFromGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveUserFromGroupCommandOutput> {
-    return deserializeAws_queryRemoveUserFromGroupCommand(output, context);
+    return de_RemoveUserFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

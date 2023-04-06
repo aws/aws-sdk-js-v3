@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { FinalizeCutoverRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1FinalizeCutoverCommand,
-  serializeAws_restJson1FinalizeCutoverCommand,
-} from "../protocols/Aws_restJson1";
+import { de_FinalizeCutoverCommand, se_FinalizeCutoverCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class FinalizeCutoverCommand extends $Command<
    * @internal
    */
   private serialize(input: FinalizeCutoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FinalizeCutoverCommand(input, context);
+    return se_FinalizeCutoverCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FinalizeCutoverCommandOutput> {
-    return deserializeAws_restJson1FinalizeCutoverCommand(output, context);
+    return de_FinalizeCutoverCommand(output, context);
   }
 
   // Start section: command_body_extra

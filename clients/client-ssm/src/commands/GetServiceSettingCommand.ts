@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetServiceSettingCommand,
-  serializeAws_json1_1GetServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetServiceSettingCommand, se_GetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -140,14 +137,14 @@ export class GetServiceSettingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceSettingCommand(input, context);
+    return se_GetServiceSettingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingCommandOutput> {
-    return deserializeAws_json1_1GetServiceSettingCommand(output, context);
+    return de_GetServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

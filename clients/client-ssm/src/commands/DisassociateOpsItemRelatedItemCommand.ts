@@ -15,8 +15,8 @@ import {
 
 import { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
-  serializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
+  de_DisassociateOpsItemRelatedItemCommand,
+  se_DisassociateOpsItemRelatedItemCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -142,7 +142,7 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     input: DisassociateOpsItemRelatedItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateOpsItemRelatedItemCommand(input, context);
+    return se_DisassociateOpsItemRelatedItemCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateOpsItemRelatedItemCommandOutput> {
-    return deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand(output, context);
+    return de_DisassociateOpsItemRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

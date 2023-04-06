@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateFolderMembershipRequest, CreateFolderMembershipResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateFolderMembershipCommand,
-  serializeAws_restJson1CreateFolderMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFolderMembershipCommand, se_CreateFolderMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateFolderMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFolderMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFolderMembershipCommand(input, context);
+    return se_CreateFolderMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFolderMembershipCommandOutput> {
-    return deserializeAws_restJson1CreateFolderMembershipCommand(output, context);
+    return de_CreateFolderMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

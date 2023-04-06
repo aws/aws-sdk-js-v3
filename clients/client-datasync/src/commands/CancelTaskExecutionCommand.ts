@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelTaskExecutionCommand,
-  serializeAws_json1_1CancelTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelTaskExecutionCommand, se_CancelTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class CancelTaskExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelTaskExecutionCommand(input, context);
+    return se_CancelTaskExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelTaskExecutionCommand(output, context);
+    return de_CancelTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

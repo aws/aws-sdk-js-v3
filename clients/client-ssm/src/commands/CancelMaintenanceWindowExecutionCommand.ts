@@ -15,8 +15,8 @@ import {
 
 import { CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
-  serializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
+  de_CancelMaintenanceWindowExecutionCommand,
+  se_CancelMaintenanceWindowExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -136,7 +136,7 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     input: CancelMaintenanceWindowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(input, context);
+    return se_CancelMaintenanceWindowExecutionCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(output, context);
+    return de_CancelMaintenanceWindowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

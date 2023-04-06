@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterTracksCommand,
-  serializeAws_queryDescribeClusterTracksCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterTracksCommand, se_DescribeClusterTracksCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -128,14 +125,14 @@ export class DescribeClusterTracksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterTracksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterTracksCommand(input, context);
+    return se_DescribeClusterTracksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterTracksCommandOutput> {
-    return deserializeAws_queryDescribeClusterTracksCommand(output, context);
+    return de_DescribeClusterTracksCommand(output, context);
   }
 
   // Start section: command_body_extra

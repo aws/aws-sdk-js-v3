@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { ListCasesForContactRequest, ListCasesForContactResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCasesForContactCommand,
-  serializeAws_restJson1ListCasesForContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCasesForContactCommand, se_ListCasesForContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListCasesForContactCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCasesForContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCasesForContactCommand(input, context);
+    return se_ListCasesForContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCasesForContactCommandOutput> {
-    return deserializeAws_restJson1ListCasesForContactCommand(output, context);
+    return de_ListCasesForContactCommand(output, context);
   }
 
   // Start section: command_body_extra

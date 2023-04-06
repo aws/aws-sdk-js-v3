@@ -15,10 +15,7 @@ import {
 
 import { StartStreamingSessionRequest, StartStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1StartStreamingSessionCommand,
-  serializeAws_restJson1StartStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartStreamingSessionCommand, se_StartStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class StartStreamingSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStreamingSessionCommand(input, context);
+    return se_StartStreamingSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1StartStreamingSessionCommand(output, context);
+    return de_StartStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchDisableStandardsCommand,
-  serializeAws_restJson1BatchDisableStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDisableStandardsCommand, se_BatchDisableStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -139,14 +136,14 @@ export class BatchDisableStandardsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDisableStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisableStandardsCommand(input, context);
+    return se_BatchDisableStandardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableStandardsCommandOutput> {
-    return deserializeAws_restJson1BatchDisableStandardsCommand(output, context);
+    return de_BatchDisableStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

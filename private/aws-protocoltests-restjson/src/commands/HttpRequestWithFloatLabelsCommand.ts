@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpRequestWithFloatLabelsInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpRequestWithFloatLabelsCommand,
-  serializeAws_restJson1HttpRequestWithFloatLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpRequestWithFloatLabelsCommand, se_HttpRequestWithFloatLabelsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,7 +80,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpRequestWithFloatLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithFloatLabelsCommand(input, context);
+    return se_HttpRequestWithFloatLabelsCommand(input, context);
   }
 
   /**
@@ -93,7 +90,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithFloatLabelsCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithFloatLabelsCommand(output, context);
+    return de_HttpRequestWithFloatLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

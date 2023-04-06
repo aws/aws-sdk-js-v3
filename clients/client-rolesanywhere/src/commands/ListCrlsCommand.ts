@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCrlsResponse, ListRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCrlsCommand,
-  serializeAws_restJson1ListCrlsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCrlsCommand, se_ListCrlsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListCrlsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCrlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCrlsCommand(input, context);
+    return se_ListCrlsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrlsCommandOutput> {
-    return deserializeAws_restJson1ListCrlsCommand(output, context);
+    return de_ListCrlsCommand(output, context);
   }
 
   // Start section: command_body_extra

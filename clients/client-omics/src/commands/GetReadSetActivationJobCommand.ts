@@ -15,10 +15,7 @@ import {
 
 import { GetReadSetActivationJobRequest, GetReadSetActivationJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetActivationJobCommand,
-  serializeAws_restJson1GetReadSetActivationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetActivationJobCommand, se_GetReadSetActivationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetReadSetActivationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReadSetActivationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetActivationJobCommand(input, context);
+    return se_GetReadSetActivationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetActivationJobCommandOutput> {
-    return deserializeAws_restJson1GetReadSetActivationJobCommand(output, context);
+    return de_GetReadSetActivationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

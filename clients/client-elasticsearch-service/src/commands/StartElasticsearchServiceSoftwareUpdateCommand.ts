@@ -23,8 +23,8 @@ import {
   StartElasticsearchServiceSoftwareUpdateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
+  de_StartElasticsearchServiceSoftwareUpdateCommand,
+  se_StartElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: StartElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(input, context);
+    return se_StartElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(output, context);
+    return de_StartElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

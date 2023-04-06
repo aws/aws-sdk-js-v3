@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrokerCountCommand,
-  serializeAws_restJson1UpdateBrokerCountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBrokerCountCommand, se_UpdateBrokerCountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class UpdateBrokerCountCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBrokerCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerCountCommand(input, context);
+    return se_UpdateBrokerCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCountCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerCountCommand(output, context);
+    return de_UpdateBrokerCountCommand(output, context);
   }
 
   // Start section: command_body_extra

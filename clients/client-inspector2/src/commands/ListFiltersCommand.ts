@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFiltersCommand,
-  serializeAws_restJson1ListFiltersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListFiltersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFiltersCommand(input, context);
+    return se_ListFiltersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
-    return deserializeAws_restJson1ListFiltersCommand(output, context);
+    return de_ListFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

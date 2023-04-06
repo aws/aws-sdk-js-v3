@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { DeleteGameRequest, DeleteGameResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGameCommand,
-  serializeAws_restJson1DeleteGameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGameCommand, se_DeleteGameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteGameCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGameCommand(input, context);
+    return se_DeleteGameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameCommandOutput> {
-    return deserializeAws_restJson1DeleteGameCommand(output, context);
+    return de_DeleteGameCommand(output, context);
   }
 
   // Start section: command_body_extra

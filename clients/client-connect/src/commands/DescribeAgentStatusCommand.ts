@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeAgentStatusRequest, DescribeAgentStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAgentStatusCommand,
-  serializeAws_restJson1DescribeAgentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAgentStatusCommand, se_DescribeAgentStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeAgentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAgentStatusCommand(input, context);
+    return se_DescribeAgentStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentStatusCommandOutput> {
-    return deserializeAws_restJson1DescribeAgentStatusCommand(output, context);
+    return de_DescribeAgentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DescribeFleetAdvisorSchemaObjectSummaryResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
-  serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
+  de_DescribeFleetAdvisorSchemaObjectSummaryCommand,
+  se_DescribeFleetAdvisorSchemaObjectSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand(input, context);
+    return se_DescribeFleetAdvisorSchemaObjectSummaryCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand(output, context);
+    return de_DescribeFleetAdvisorSchemaObjectSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

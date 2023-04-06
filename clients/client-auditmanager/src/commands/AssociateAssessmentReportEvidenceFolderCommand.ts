@@ -19,8 +19,8 @@ import {
   AssociateAssessmentReportEvidenceFolderResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand,
-  serializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand,
+  de_AssociateAssessmentReportEvidenceFolderCommand,
+  se_AssociateAssessmentReportEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
     input: AssociateAssessmentReportEvidenceFolderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand(input, context);
+    return se_AssociateAssessmentReportEvidenceFolderCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateAssessmentReportEvidenceFolderCommandOutput> {
-    return deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand(output, context);
+    return de_AssociateAssessmentReportEvidenceFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

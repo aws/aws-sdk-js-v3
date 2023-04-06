@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
-  serializeAws_json1_1StopTrainingEntityRecognizerCommand,
+  de_StopTrainingEntityRecognizerCommand,
+  se_StopTrainingEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
    * @internal
    */
   private serialize(input: StopTrainingEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingEntityRecognizerCommand(input, context);
+    return se_StopTrainingEntityRecognizerCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopTrainingEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1StopTrainingEntityRecognizerCommand(output, context);
+    return de_StopTrainingEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

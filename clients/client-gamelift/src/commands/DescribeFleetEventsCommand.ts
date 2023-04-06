@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetEventsInput, DescribeFleetEventsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetEventsCommand,
-  serializeAws_json1_1DescribeFleetEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFleetEventsCommand, se_DescribeFleetEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DescribeFleetEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetEventsCommand(input, context);
+    return se_DescribeFleetEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetEventsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetEventsCommand(output, context);
+    return de_DescribeFleetEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

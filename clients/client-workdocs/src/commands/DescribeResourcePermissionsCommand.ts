@@ -19,8 +19,8 @@ import {
   DescribeResourcePermissionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeResourcePermissionsCommand,
-  serializeAws_restJson1DescribeResourcePermissionsCommand,
+  de_DescribeResourcePermissionsCommand,
+  se_DescribeResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
@@ -147,7 +147,7 @@ export class DescribeResourcePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResourcePermissionsCommand(input, context);
+    return se_DescribeResourcePermissionsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeResourcePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeResourcePermissionsCommand(output, context);
+    return de_DescribeResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

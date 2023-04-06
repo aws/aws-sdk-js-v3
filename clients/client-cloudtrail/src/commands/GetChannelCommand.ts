@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { GetChannelRequest, GetChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChannelCommand,
-  serializeAws_json1_1GetChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetChannelCommand, se_GetChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChannelCommand(input, context);
+    return se_GetChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
-    return deserializeAws_json1_1GetChannelCommand(output, context);
+    return de_GetChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

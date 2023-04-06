@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutRolePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryPutRolePolicyCommand,
-  serializeAws_queryPutRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutRolePolicyCommand, se_PutRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class PutRolePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutRolePolicyCommand(input, context);
+    return se_PutRolePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRolePolicyCommandOutput> {
-    return deserializeAws_queryPutRolePolicyCommand(output, context);
+    return de_PutRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

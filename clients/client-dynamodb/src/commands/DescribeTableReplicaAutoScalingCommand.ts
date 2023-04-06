@@ -16,8 +16,8 @@ import {
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
-  serializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
+  de_DescribeTableReplicaAutoScalingCommand,
+  se_DescribeTableReplicaAutoScalingCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -136,7 +136,7 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     input: DescribeTableReplicaAutoScalingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(input, context);
+    return se_DescribeTableReplicaAutoScalingCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
-    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand(output, context);
+    return de_DescribeTableReplicaAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

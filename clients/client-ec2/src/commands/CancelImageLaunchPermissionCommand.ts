@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelImageLaunchPermissionRequest, CancelImageLaunchPermissionResult } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelImageLaunchPermissionCommand,
-  serializeAws_ec2CancelImageLaunchPermissionCommand,
-} from "../protocols/Aws_ec2";
+import { de_CancelImageLaunchPermissionCommand, se_CancelImageLaunchPermissionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class CancelImageLaunchPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelImageLaunchPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelImageLaunchPermissionCommand(input, context);
+    return se_CancelImageLaunchPermissionCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class CancelImageLaunchPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelImageLaunchPermissionCommandOutput> {
-    return deserializeAws_ec2CancelImageLaunchPermissionCommand(output, context);
+    return de_CancelImageLaunchPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { UnregisterConnectorRequest, UnregisterConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnregisterConnectorCommand,
-  serializeAws_restJson1UnregisterConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnregisterConnectorCommand, se_UnregisterConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class UnregisterConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: UnregisterConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnregisterConnectorCommand(input, context);
+    return se_UnregisterConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnregisterConnectorCommandOutput> {
-    return deserializeAws_restJson1UnregisterConnectorCommand(output, context);
+    return de_UnregisterConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

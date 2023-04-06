@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0PutOptedOutNumberCommand,
-  serializeAws_json1_0PutOptedOutNumberCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutOptedOutNumberCommand, se_PutOptedOutNumberCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class PutOptedOutNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: PutOptedOutNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutOptedOutNumberCommand(input, context);
+    return se_PutOptedOutNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutOptedOutNumberCommandOutput> {
-    return deserializeAws_json1_0PutOptedOutNumberCommand(output, context);
+    return de_PutOptedOutNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

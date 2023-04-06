@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserPhoneConfigRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserPhoneConfigCommand,
-  serializeAws_restJson1UpdateUserPhoneConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateUserPhoneConfigCommand, se_UpdateUserPhoneConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateUserPhoneConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserPhoneConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserPhoneConfigCommand(input, context);
+    return se_UpdateUserPhoneConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPhoneConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateUserPhoneConfigCommand(output, context);
+    return de_UpdateUserPhoneConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

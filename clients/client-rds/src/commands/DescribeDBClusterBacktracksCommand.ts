@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBClusterBacktrackMessage, DescribeDBClusterBacktracksMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterBacktracksCommand,
-  serializeAws_queryDescribeDBClusterBacktracksCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClusterBacktracksCommand, se_DescribeDBClusterBacktracksCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -80,6 +77,39 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *  <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
+ *
+ * @example To describe backtracks for a DB cluster
+ * ```javascript
+ * // The following example retrieves details about the specified DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new DescribeDBClusterBacktracksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterBacktracks": [
+ *     {
+ *       "BacktrackIdentifier": "2f5f5294-0dd2-44c9-9f50-EXAMPLE",
+ *       "BacktrackRequestCreationTime": "2021-02-12T14:36:18.819Z",
+ *       "BacktrackTo": "2021-02-12T04:59:22Z",
+ *       "BacktrackedFrom": "2021-02-12T14:37:31.640Z",
+ *       "DBClusterIdentifier": "mydbcluster",
+ *       "Status": "COMPLETED"
+ *     },
+ *     {
+ *       "BacktrackIdentifier": "3c7a6421-af2a-4ea3-ae95-EXAMPLE",
+ *       "BacktrackRequestCreationTime": "2021-02-12T00:07:53.487Z",
+ *       "BacktrackTo": "2021-02-11T22:53:46Z",
+ *       "BacktrackedFrom": "2021-02-12T00:09:27.006Z",
+ *       "DBClusterIdentifier": "mydbcluster",
+ *       "Status": "COMPLETED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-backtracks-for-a-db-cluster-1680212191454
+ * ```
  *
  */
 export class DescribeDBClusterBacktracksCommand extends $Command<
@@ -145,7 +175,7 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBClusterBacktracksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterBacktracksCommand(input, context);
+    return se_DescribeDBClusterBacktracksCommand(input, context);
   }
 
   /**
@@ -155,7 +185,7 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterBacktracksCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterBacktracksCommand(output, context);
+    return de_DescribeDBClusterBacktracksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -32,7 +32,10 @@ import {
 } from "../models/models_0";
 import { WorkMailMessageFlowServiceException as __BaseException } from "../models/WorkMailMessageFlowServiceException";
 
-export const serializeAws_restJson1GetRawMessageContentCommand = async (
+/**
+ * serializeAws_restJson1GetRawMessageContentCommand
+ */
+export const se_GetRawMessageContentCommand = async (
   input: GetRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -52,7 +55,10 @@ export const serializeAws_restJson1GetRawMessageContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutRawMessageContentCommand = async (
+/**
+ * serializeAws_restJson1PutRawMessageContentCommand
+ */
+export const se_PutRawMessageContentCommand = async (
   input: PutRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -64,7 +70,7 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.content != null && { content: serializeAws_restJson1RawMessageContent(input.content, context) }),
+    ...(input.content != null && { content: se_RawMessageContent(input.content, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -77,12 +83,15 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetRawMessageContentCommand = async (
+/**
+ * deserializeAws_restJson1GetRawMessageContentCommand
+ */
+export const de_GetRawMessageContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRawMessageContentCommandError(output, context);
+    return de_GetRawMessageContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -93,7 +102,10 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRawMessageContentCommandError = async (
+/**
+ * deserializeAws_restJson1GetRawMessageContentCommandError
+ */
+const de_GetRawMessageContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRawMessageContentCommandOutput> => {
@@ -105,7 +117,7 @@ const deserializeAws_restJson1GetRawMessageContentCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workmailmessageflow#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -117,12 +129,15 @@ const deserializeAws_restJson1GetRawMessageContentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutRawMessageContentCommand = async (
+/**
+ * deserializeAws_restJson1PutRawMessageContentCommand
+ */
+export const de_PutRawMessageContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutRawMessageContentCommandError(output, context);
+    return de_PutRawMessageContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -131,7 +146,10 @@ export const deserializeAws_restJson1PutRawMessageContentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutRawMessageContentCommandError = async (
+/**
+ * deserializeAws_restJson1PutRawMessageContentCommandError
+ */
+const de_PutRawMessageContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRawMessageContentCommandOutput> => {
@@ -143,16 +161,16 @@ const deserializeAws_restJson1PutRawMessageContentCommandError = async (
   switch (errorCode) {
     case "InvalidContentLocation":
     case "com.amazonaws.workmailmessageflow#InvalidContentLocation":
-      throw await deserializeAws_restJson1InvalidContentLocationResponse(parsedOutput, context);
+      throw await de_InvalidContentLocationRes(parsedOutput, context);
     case "MessageFrozen":
     case "com.amazonaws.workmailmessageflow#MessageFrozen":
-      throw await deserializeAws_restJson1MessageFrozenResponse(parsedOutput, context);
+      throw await de_MessageFrozenRes(parsedOutput, context);
     case "MessageRejected":
     case "com.amazonaws.workmailmessageflow#MessageRejected":
-      throw await deserializeAws_restJson1MessageRejectedResponse(parsedOutput, context);
+      throw await de_MessageRejectedRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmailmessageflow#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -165,7 +183,10 @@ const deserializeAws_restJson1PutRawMessageContentCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InvalidContentLocationResponse = async (
+/**
+ * deserializeAws_restJson1InvalidContentLocationRes
+ */
+const de_InvalidContentLocationRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidContentLocation> => {
@@ -181,10 +202,10 @@ const deserializeAws_restJson1InvalidContentLocationResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MessageFrozenResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MessageFrozen> => {
+/**
+ * deserializeAws_restJson1MessageFrozenRes
+ */
+const de_MessageFrozenRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageFrozen> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -197,10 +218,10 @@ const deserializeAws_restJson1MessageFrozenResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MessageRejectedResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MessageRejected> => {
+/**
+ * deserializeAws_restJson1MessageRejectedRes
+ */
+const de_MessageRejectedRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageRejected> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -213,7 +234,10 @@ const deserializeAws_restJson1MessageRejectedResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -229,13 +253,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1RawMessageContent = (input: RawMessageContent, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RawMessageContent
+ */
+const se_RawMessageContent = (input: RawMessageContent, context: __SerdeContext): any => {
   return {
-    ...(input.s3Reference != null && { s3Reference: serializeAws_restJson1S3Reference(input.s3Reference, context) }),
+    ...(input.s3Reference != null && { s3Reference: se_S3Reference(input.s3Reference, context) }),
   };
 };
 
-const serializeAws_restJson1S3Reference = (input: S3Reference, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1S3Reference
+ */
+const se_S3Reference = (input: S3Reference, context: __SerdeContext): any => {
   return {
     ...(input.bucket != null && { bucket: input.bucket }),
     ...(input.key != null && { key: input.key }),

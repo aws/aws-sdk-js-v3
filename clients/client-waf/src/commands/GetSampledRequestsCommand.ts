@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSampledRequestsCommand,
-  serializeAws_json1_1GetSampledRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSampledRequestsCommand, se_GetSampledRequestsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -189,14 +186,14 @@ export class GetSampledRequestsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSampledRequestsCommand(input, context);
+    return se_GetSampledRequestsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
-    return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
+    return de_GetSampledRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEnvironmentMembershipCommand,
-  serializeAws_json1_1CreateEnvironmentMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEnvironmentMembershipCommand, se_CreateEnvironmentMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class CreateEnvironmentMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEnvironmentMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEnvironmentMembershipCommand(input, context);
+    return se_CreateEnvironmentMembershipCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1CreateEnvironmentMembershipCommand(output, context);
+    return de_CreateEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

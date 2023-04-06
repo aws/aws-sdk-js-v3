@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { CreateStreamInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStreamCommand,
-  serializeAws_json1_1CreateStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class CreateStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStreamCommand(input, context);
+    return se_CreateStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_json1_1CreateStreamCommand(output, context);
+    return de_CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

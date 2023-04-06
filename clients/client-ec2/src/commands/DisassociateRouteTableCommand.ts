@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateRouteTableRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateRouteTableCommand,
-  serializeAws_ec2DisassociateRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisassociateRouteTableCommand, se_DisassociateRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DisassociateRouteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateRouteTableCommand(input, context);
+    return se_DisassociateRouteTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRouteTableCommandOutput> {
-    return deserializeAws_ec2DisassociateRouteTableCommand(output, context);
+    return de_DisassociateRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

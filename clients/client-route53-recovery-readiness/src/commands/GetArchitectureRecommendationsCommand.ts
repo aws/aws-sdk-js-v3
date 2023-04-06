@@ -15,8 +15,8 @@ import {
 
 import { GetArchitectureRecommendationsRequest, GetArchitectureRecommendationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetArchitectureRecommendationsCommand,
-  serializeAws_restJson1GetArchitectureRecommendationsCommand,
+  de_GetArchitectureRecommendationsCommand,
+  se_GetArchitectureRecommendationsCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -146,7 +146,7 @@ export class GetArchitectureRecommendationsCommand extends $Command<
     input: GetArchitectureRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetArchitectureRecommendationsCommand(input, context);
+    return se_GetArchitectureRecommendationsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetArchitectureRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetArchitectureRecommendationsCommandOutput> {
-    return deserializeAws_restJson1GetArchitectureRecommendationsCommand(output, context);
+    return de_GetArchitectureRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

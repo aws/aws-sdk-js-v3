@@ -19,10 +19,7 @@ import {
   DescribeSourceServersResponse,
   DescribeSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSourceServersCommand,
-  serializeAws_restJson1DescribeSourceServersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSourceServersCommand, se_DescribeSourceServersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DescribeSourceServersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSourceServersCommand(input, context);
+    return se_DescribeSourceServersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceServersCommandOutput> {
-    return deserializeAws_restJson1DescribeSourceServersCommand(output, context);
+    return de_DescribeSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

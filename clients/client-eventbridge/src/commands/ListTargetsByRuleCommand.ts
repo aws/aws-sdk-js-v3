@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTargetsByRuleCommand,
-  serializeAws_json1_1ListTargetsByRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListTargetsByRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTargetsByRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTargetsByRuleCommand(input, context);
+    return se_ListTargetsByRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsByRuleCommandOutput> {
-    return deserializeAws_json1_1ListTargetsByRuleCommand(output, context);
+    return de_ListTargetsByRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

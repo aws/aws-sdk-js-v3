@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeviceCommand,
-  serializeAws_json1_1UpdateDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceCommand, se_UpdateDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceCommand(input, context);
+    return se_UpdateDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceCommand(output, context);
+    return de_UpdateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

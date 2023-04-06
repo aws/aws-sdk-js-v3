@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
-import {
-  deserializeAws_queryValidateTemplateCommand,
-  serializeAws_queryValidateTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ValidateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryValidateTemplateCommand(input, context);
+    return se_ValidateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateTemplateCommandOutput> {
-    return deserializeAws_queryValidateTemplateCommand(output, context);
+    return de_ValidateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

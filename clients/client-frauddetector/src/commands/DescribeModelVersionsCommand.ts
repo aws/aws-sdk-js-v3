@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { DescribeModelVersionsRequest, DescribeModelVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeModelVersionsCommand,
-  serializeAws_json1_1DescribeModelVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeModelVersionsCommand, se_DescribeModelVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeModelVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelVersionsCommand(input, context);
+    return se_DescribeModelVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeModelVersionsCommand(output, context);
+    return de_DescribeModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

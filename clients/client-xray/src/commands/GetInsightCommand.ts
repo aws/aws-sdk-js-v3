@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetInsightRequest, GetInsightResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInsightCommand,
-  serializeAws_restJson1GetInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInsightCommand, se_GetInsightCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -126,14 +123,14 @@ export class GetInsightCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightCommand(input, context);
+    return se_GetInsightCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightCommandOutput> {
-    return deserializeAws_restJson1GetInsightCommand(output, context);
+    return de_GetInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

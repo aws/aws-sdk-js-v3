@@ -19,10 +19,7 @@ import {
   SendCommandResult,
   SendCommandResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1SendCommandCommand,
-  serializeAws_json1_1SendCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendCommandCommand, se_SendCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -224,14 +221,14 @@ export class SendCommandCommand extends $Command<
    * @internal
    */
   private serialize(input: SendCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendCommandCommand(input, context);
+    return se_SendCommandCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
-    return deserializeAws_json1_1SendCommandCommand(output, context);
+    return de_SendCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

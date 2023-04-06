@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateSubnetCidrBlockCommand,
-  serializeAws_ec2AssociateSubnetCidrBlockCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateSubnetCidrBlockCommand, se_AssociateSubnetCidrBlockCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateSubnetCidrBlockCommand(input, context);
+    return se_AssociateSubnetCidrBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetCidrBlockCommandOutput> {
-    return deserializeAws_ec2AssociateSubnetCidrBlockCommand(output, context);
+    return de_AssociateSubnetCidrBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

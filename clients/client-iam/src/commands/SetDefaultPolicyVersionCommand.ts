@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SetDefaultPolicyVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_querySetDefaultPolicyVersionCommand,
-  serializeAws_querySetDefaultPolicyVersionCommand,
-} from "../protocols/Aws_query";
+import { de_SetDefaultPolicyVersionCommand, se_SetDefaultPolicyVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class SetDefaultPolicyVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetDefaultPolicyVersionCommand(input, context);
+    return se_SetDefaultPolicyVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
-    return deserializeAws_querySetDefaultPolicyVersionCommand(output, context);
+    return de_SetDefaultPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

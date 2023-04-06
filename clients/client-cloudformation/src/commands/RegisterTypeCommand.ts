@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { RegisterTypeInput, RegisterTypeOutput } from "../models/models_0";
-import { deserializeAws_queryRegisterTypeCommand, serializeAws_queryRegisterTypeCommand } from "../protocols/Aws_query";
+import { de_RegisterTypeCommand, se_RegisterTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -152,14 +152,14 @@ export class RegisterTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterTypeCommand(input, context);
+    return se_RegisterTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTypeCommandOutput> {
-    return deserializeAws_queryRegisterTypeCommand(output, context);
+    return de_RegisterTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { ListCustomRoutingPortMappingsRequest, ListCustomRoutingPortMappingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListCustomRoutingPortMappingsCommand,
-  serializeAws_json1_1ListCustomRoutingPortMappingsCommand,
+  de_ListCustomRoutingPortMappingsCommand,
+  se_ListCustomRoutingPortMappingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomRoutingPortMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingPortMappingsCommand(input, context);
+    return se_ListCustomRoutingPortMappingsCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingPortMappingsCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingPortMappingsCommand(output, context);
+    return de_ListCustomRoutingPortMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

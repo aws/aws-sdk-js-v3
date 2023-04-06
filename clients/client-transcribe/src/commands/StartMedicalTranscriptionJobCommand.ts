@@ -15,8 +15,8 @@ import {
 
 import { StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartMedicalTranscriptionJobCommand,
-  serializeAws_json1_1StartMedicalTranscriptionJobCommand,
+  de_StartMedicalTranscriptionJobCommand,
+  se_StartMedicalTranscriptionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
@@ -218,7 +218,7 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMedicalTranscriptionJobCommand(input, context);
+    return se_StartMedicalTranscriptionJobCommand(input, context);
   }
 
   /**
@@ -228,7 +228,7 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMedicalTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1StartMedicalTranscriptionJobCommand(output, context);
+    return de_StartMedicalTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

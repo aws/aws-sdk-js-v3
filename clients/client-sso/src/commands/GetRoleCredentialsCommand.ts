@@ -19,10 +19,7 @@ import {
   GetRoleCredentialsResponse,
   GetRoleCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRoleCredentialsCommand,
-  serializeAws_restJson1GetRoleCredentialsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRoleCredentialsCommand, se_GetRoleCredentialsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
@@ -143,14 +140,14 @@ export class GetRoleCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRoleCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRoleCredentialsCommand(input, context);
+    return se_GetRoleCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetRoleCredentialsCommand(output, context);
+    return de_GetRoleCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

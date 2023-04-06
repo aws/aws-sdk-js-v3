@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/models_0";
-import {
-  deserializeAws_queryAttachLoadBalancersCommand,
-  serializeAws_queryAttachLoadBalancersCommand,
-} from "../protocols/Aws_query";
+import { de_AttachLoadBalancersCommand, se_AttachLoadBalancersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class AttachLoadBalancersCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachLoadBalancersCommand(input, context);
+    return se_AttachLoadBalancersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachLoadBalancersCommandOutput> {
-    return deserializeAws_queryAttachLoadBalancersCommand(output, context);
+    return de_AttachLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

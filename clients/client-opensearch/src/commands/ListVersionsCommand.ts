@@ -15,10 +15,7 @@ import {
 
 import { ListVersionsRequest, ListVersionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListVersionsCommand,
-  serializeAws_restJson1ListVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVersionsCommand, se_ListVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVersionsCommand(input, context);
+    return se_ListVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsCommandOutput> {
-    return deserializeAws_restJson1ListVersionsCommand(output, context);
+    return de_ListVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

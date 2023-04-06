@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddRoleToDBClusterMessage } from "../models/models_0";
-import {
-  deserializeAws_queryAddRoleToDBClusterCommand,
-  serializeAws_queryAddRoleToDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToDBClusterCommand, se_AddRoleToDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -70,6 +67,18 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ *
+ * @example To associate an AWS Identity and Access Management (IAM) role with a DB cluster
+ * ```javascript
+ * // The following example associates a role with a DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ * };
+ * const command = new AddRoleToDBClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-associate-an-aws-identity-and-access-management-iam-role-with-a-db-cluster-1679691203006
+ * ```
  *
  */
 export class AddRoleToDBClusterCommand extends $Command<
@@ -135,14 +144,14 @@ export class AddRoleToDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToDBClusterCommand(input, context);
+    return se_AddRoleToDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
-    return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
+    return de_AddRoleToDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

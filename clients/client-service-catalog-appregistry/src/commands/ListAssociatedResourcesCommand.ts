@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAssociatedResourcesRequest, ListAssociatedResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedResourcesCommand,
-  serializeAws_restJson1ListAssociatedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAssociatedResourcesCommand, se_ListAssociatedResourcesCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -155,14 +152,14 @@ export class ListAssociatedResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssociatedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedResourcesCommand(input, context);
+    return se_ListAssociatedResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedResourcesCommand(output, context);
+    return de_ListAssociatedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

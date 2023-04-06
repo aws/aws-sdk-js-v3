@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { StartBatchJobRequest, StartBatchJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBatchJobCommand,
-  serializeAws_restJson1StartBatchJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartBatchJobCommand, se_StartBatchJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class StartBatchJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartBatchJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBatchJobCommand(input, context);
+    return se_StartBatchJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBatchJobCommandOutput> {
-    return deserializeAws_restJson1StartBatchJobCommand(output, context);
+    return de_StartBatchJobCommand(output, context);
   }
 
   // Start section: command_body_extra

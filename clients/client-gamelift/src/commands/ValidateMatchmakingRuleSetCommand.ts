@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1ValidateMatchmakingRuleSetCommand,
-  serializeAws_json1_1ValidateMatchmakingRuleSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ValidateMatchmakingRuleSetCommand, se_ValidateMatchmakingRuleSetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(input, context);
+    return se_ValidateMatchmakingRuleSetCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(output, context);
+    return de_ValidateMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

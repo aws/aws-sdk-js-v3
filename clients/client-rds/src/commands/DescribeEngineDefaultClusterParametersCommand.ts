@@ -18,8 +18,8 @@ import {
   DescribeEngineDefaultClusterParametersResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
-  serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
+  de_DescribeEngineDefaultClusterParametersCommand,
+  se_DescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -75,20 +75,34 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list default parameters for a DB cluster engine
+ * @example To describe the default engine and system parameter information for the Aurora database engine
  * ```javascript
- * // This example lists default parameters for the specified DB cluster engine.
+ * // The following example retrieves the details of the default engine and system parameter information for Aurora DB clusters with MySQL 5.7 compatibility.
  * const input = {
- *   "DBParameterGroupFamily": "aurora5.6"
+ *   "DBParameterGroupFamily": "aurora-mysql5.7"
  * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EngineDefaults": {}
+ *   "EngineDefaults": {
+ *     "Parameters": [
+ *       {
+ *         "ApplyType": "dynamic",
+ *         "DataType": "string",
+ *         "Description": "IAM role ARN used to load data from AWS S3",
+ *         "IsModifiable": true,
+ *         "ParameterName": "aurora_load_from_s3_role",
+ *         "Source": "engine-default",
+ *         "SupportedEngineModes": [
+ *           "provisioned"
+ *         ]
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: describe-engine-default-cluster-parameters-f130374a-7bee-434b-b51d-da20b6e000e0
+ * // example id: to-describe-the-default-engine-and-system-parameter-information-for-the-aurora-database-engine-1680280902332
  * ```
  *
  */
@@ -158,7 +172,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
+    return se_DescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
   /**
@@ -168,7 +182,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
+    return de_DescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

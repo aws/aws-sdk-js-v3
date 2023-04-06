@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAlgorithmInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteAlgorithmCommand,
-  serializeAws_json1_1DeleteAlgorithmCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAlgorithmCommand, se_DeleteAlgorithmCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -120,14 +117,14 @@ export class DeleteAlgorithmCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAlgorithmCommand(input, context);
+    return se_DeleteAlgorithmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlgorithmCommandOutput> {
-    return deserializeAws_json1_1DeleteAlgorithmCommand(output, context);
+    return de_DeleteAlgorithmCommand(output, context);
   }
 
   // Start section: command_body_extra

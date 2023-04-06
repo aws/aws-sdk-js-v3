@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTaskExecutionsCommand,
-  serializeAws_json1_1ListTaskExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTaskExecutionsCommand, se_ListTaskExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListTaskExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTaskExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTaskExecutionsCommand(input, context);
+    return se_ListTaskExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListTaskExecutionsCommand(output, context);
+    return de_ListTaskExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

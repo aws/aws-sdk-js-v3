@@ -18,8 +18,8 @@ import {
   DescribeAppVersionResourcesResolutionStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand,
-  serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand,
+  de_DescribeAppVersionResourcesResolutionStatusCommand,
+  se_DescribeAppVersionResourcesResolutionStatusCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -157,7 +157,7 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     input: DescribeAppVersionResourcesResolutionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand(input, context);
+    return se_DescribeAppVersionResourcesResolutionStatusCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionResourcesResolutionStatusCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand(output, context);
+    return de_DescribeAppVersionResourcesResolutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

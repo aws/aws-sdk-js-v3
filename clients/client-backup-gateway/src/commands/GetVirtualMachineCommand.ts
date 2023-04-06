@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { GetVirtualMachineInput, GetVirtualMachineOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetVirtualMachineCommand,
-  serializeAws_json1_0GetVirtualMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetVirtualMachineCommand, se_GetVirtualMachineCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetVirtualMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetVirtualMachineCommand(input, context);
+    return se_GetVirtualMachineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVirtualMachineCommandOutput> {
-    return deserializeAws_json1_0GetVirtualMachineCommand(output, context);
+    return de_GetVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

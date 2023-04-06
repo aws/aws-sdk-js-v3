@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteTrafficMirrorFilterRuleRequest, DeleteTrafficMirrorFilterRuleResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand,
-  serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteTrafficMirrorFilterRuleCommand, se_DeleteTrafficMirrorFilterRuleCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(input, context);
+    return se_DeleteTrafficMirrorFilterRuleCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(output, context);
+    return de_DeleteTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

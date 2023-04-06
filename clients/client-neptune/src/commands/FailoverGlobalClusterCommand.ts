@@ -15,10 +15,7 @@ import {
 
 import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryFailoverGlobalClusterCommand,
-  serializeAws_queryFailoverGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_FailoverGlobalClusterCommand, se_FailoverGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class FailoverGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: FailoverGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverGlobalClusterCommand(input, context);
+    return se_FailoverGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverGlobalClusterCommandOutput> {
-    return deserializeAws_queryFailoverGlobalClusterCommand(output, context);
+    return de_FailoverGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

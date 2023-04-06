@@ -19,8 +19,8 @@ import {
   DeleteTransitGatewayPeeringAttachmentResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
-  serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
+  de_DeleteTransitGatewayPeeringAttachmentCommand,
+  se_DeleteTransitGatewayPeeringAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     input: DeleteTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(input, context);
+    return se_DeleteTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(output, context);
+    return de_DeleteTransitGatewayPeeringAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

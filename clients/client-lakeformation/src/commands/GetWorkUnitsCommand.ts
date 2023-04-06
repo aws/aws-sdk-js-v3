@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetWorkUnitsRequest, GetWorkUnitsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkUnitsCommand,
-  serializeAws_restJson1GetWorkUnitsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkUnitsCommand, se_GetWorkUnitsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetWorkUnitsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkUnitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkUnitsCommand(input, context);
+    return se_GetWorkUnitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkUnitsCommandOutput> {
-    return deserializeAws_restJson1GetWorkUnitsCommand(output, context);
+    return de_GetWorkUnitsCommand(output, context);
   }
 
   // Start section: command_body_extra

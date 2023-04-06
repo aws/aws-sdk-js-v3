@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DeleteStudioInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStudioCommand,
-  serializeAws_json1_1DeleteStudioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStudioCommand, se_DeleteStudioCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DeleteStudioCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStudioCommand(input, context);
+    return se_DeleteStudioCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioCommandOutput> {
-    return deserializeAws_json1_1DeleteStudioCommand(output, context);
+    return de_DeleteStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeDomainsCommand,
-  serializeAws_restJson1DescribeDomainsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDomainsCommand, se_DescribeDomainsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeDomainsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainsCommand(input, context);
+    return se_DescribeDomainsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainsCommand(output, context);
+    return de_DescribeDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

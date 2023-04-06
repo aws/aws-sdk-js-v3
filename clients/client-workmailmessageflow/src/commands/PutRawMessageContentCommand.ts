@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutRawMessageContentRequest, PutRawMessageContentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRawMessageContentCommand,
-  serializeAws_restJson1PutRawMessageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRawMessageContentCommand, se_PutRawMessageContentCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -173,14 +170,14 @@ export class PutRawMessageContentCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRawMessageContentCommand(input, context);
+    return se_PutRawMessageContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1PutRawMessageContentCommand(output, context);
+    return de_PutRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

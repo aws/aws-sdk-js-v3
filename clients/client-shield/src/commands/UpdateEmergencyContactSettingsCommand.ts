@@ -15,8 +15,8 @@ import {
 
 import { UpdateEmergencyContactSettingsRequest, UpdateEmergencyContactSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateEmergencyContactSettingsCommand,
-  serializeAws_json1_1UpdateEmergencyContactSettingsCommand,
+  de_UpdateEmergencyContactSettingsCommand,
+  se_UpdateEmergencyContactSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
@@ -144,7 +144,7 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     input: UpdateEmergencyContactSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(input, context);
+    return se_UpdateEmergencyContactSettingsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(output, context);
+    return de_UpdateEmergencyContactSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

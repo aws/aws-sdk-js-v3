@@ -16,8 +16,8 @@ import {
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeOrganizationOverviewCommand,
-  serializeAws_restJson1DescribeOrganizationOverviewCommand,
+  de_DescribeOrganizationOverviewCommand,
+  se_DescribeOrganizationOverviewCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeOrganizationOverviewCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOrganizationOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationOverviewCommand(input, context);
+    return se_DescribeOrganizationOverviewCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeOrganizationOverviewCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationOverviewCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationOverviewCommand(output, context);
+    return de_DescribeOrganizationOverviewCommand(output, context);
   }
 
   // Start section: command_body_extra

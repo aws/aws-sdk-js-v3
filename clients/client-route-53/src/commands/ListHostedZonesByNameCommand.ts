@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListHostedZonesByNameRequest, ListHostedZonesByNameResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListHostedZonesByNameCommand,
-  serializeAws_restXmlListHostedZonesByNameCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListHostedZonesByNameCommand, se_ListHostedZonesByNameCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -185,14 +182,14 @@ export class ListHostedZonesByNameCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHostedZonesByNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListHostedZonesByNameCommand(input, context);
+    return se_ListHostedZonesByNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesByNameCommandOutput> {
-    return deserializeAws_restXmlListHostedZonesByNameCommand(output, context);
+    return de_ListHostedZonesByNameCommand(output, context);
   }
 
   // Start section: command_body_extra

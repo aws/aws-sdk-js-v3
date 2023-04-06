@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
 import { CloseTunnelRequest, CloseTunnelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CloseTunnelCommand,
-  serializeAws_json1_1CloseTunnelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloseTunnelCommand, se_CloseTunnelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class CloseTunnelCommand extends $Command<
    * @internal
    */
   private serialize(input: CloseTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseTunnelCommand(input, context);
+    return se_CloseTunnelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
-    return deserializeAws_json1_1CloseTunnelCommand(output, context);
+    return de_CloseTunnelCommand(output, context);
   }
 
   // Start section: command_body_extra

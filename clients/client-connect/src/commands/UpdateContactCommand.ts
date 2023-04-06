@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateContactRequest, UpdateContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactCommand,
-  serializeAws_restJson1UpdateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateContactCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactCommand(input, context);
+    return se_UpdateContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
-    return deserializeAws_restJson1UpdateContactCommand(output, context);
+    return de_UpdateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

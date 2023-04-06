@@ -15,8 +15,8 @@ import {
 
 import { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteProvisionedProductPlanCommand,
-  serializeAws_json1_1DeleteProvisionedProductPlanCommand,
+  de_DeleteProvisionedProductPlanCommand,
+  se_DeleteProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -130,7 +130,7 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisionedProductPlanCommand(input, context);
+    return se_DeleteProvisionedProductPlanCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisionedProductPlanCommand(output, context);
+    return de_DeleteProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateShareInvitationInput, UpdateShareInvitationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateShareInvitationCommand,
-  serializeAws_restJson1UpdateShareInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateShareInvitationCommand, se_UpdateShareInvitationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -142,14 +139,14 @@ export class UpdateShareInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateShareInvitationCommand(input, context);
+    return se_UpdateShareInvitationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShareInvitationCommandOutput> {
-    return deserializeAws_restJson1UpdateShareInvitationCommand(output, context);
+    return de_UpdateShareInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

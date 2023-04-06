@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { UpdateCertificateOptionsRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCertificateOptionsCommand,
-  serializeAws_json1_1UpdateCertificateOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCertificateOptionsCommand, se_UpdateCertificateOptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateCertificateOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCertificateOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCertificateOptionsCommand(input, context);
+    return se_UpdateCertificateOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateOptionsCommandOutput> {
-    return deserializeAws_json1_1UpdateCertificateOptionsCommand(output, context);
+    return de_UpdateCertificateOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

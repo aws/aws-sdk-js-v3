@@ -15,8 +15,8 @@ import {
 
 import { AssociateTagOptionWithResourceInput, AssociateTagOptionWithResourceOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateTagOptionWithResourceCommand,
-  serializeAws_json1_1AssociateTagOptionWithResourceCommand,
+  de_AssociateTagOptionWithResourceCommand,
+  se_AssociateTagOptionWithResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -148,7 +148,7 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     input: AssociateTagOptionWithResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateTagOptionWithResourceCommand(input, context);
+    return se_AssociateTagOptionWithResourceCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTagOptionWithResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateTagOptionWithResourceCommand(output, context);
+    return de_AssociateTagOptionWithResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

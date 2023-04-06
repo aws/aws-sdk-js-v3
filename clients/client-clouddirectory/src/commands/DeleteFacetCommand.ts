@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DeleteFacetRequest, DeleteFacetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFacetCommand,
-  serializeAws_restJson1DeleteFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFacetCommand, se_DeleteFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteFacetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFacetCommand(input, context);
+    return se_DeleteFacetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFacetCommandOutput> {
-    return deserializeAws_restJson1DeleteFacetCommand(output, context);
+    return de_DeleteFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

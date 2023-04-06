@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { ListModelsRequest, ListModelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListModelsCommand,
-  serializeAws_json1_0ListModelsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListModelsCommand, se_ListModelsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListModelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListModelsCommand(input, context);
+    return se_ListModelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelsCommandOutput> {
-    return deserializeAws_json1_0ListModelsCommand(output, context);
+    return de_ListModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

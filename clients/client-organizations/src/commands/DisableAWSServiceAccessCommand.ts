@@ -15,10 +15,7 @@ import {
 
 import { DisableAWSServiceAccessRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DisableAWSServiceAccessCommand,
-  serializeAws_json1_1DisableAWSServiceAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableAWSServiceAccessCommand, se_DisableAWSServiceAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -505,14 +502,14 @@ export class DisableAWSServiceAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableAWSServiceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAWSServiceAccessCommand(input, context);
+    return se_DisableAWSServiceAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAWSServiceAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSServiceAccessCommand(output, context);
+    return de_DisableAWSServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

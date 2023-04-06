@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterDevicesRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1RegisterDevicesCommand,
-  serializeAws_json1_1RegisterDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterDevicesCommand, se_RegisterDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -137,14 +134,14 @@ export class RegisterDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDevicesCommand(input, context);
+    return se_RegisterDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDevicesCommandOutput> {
-    return deserializeAws_json1_1RegisterDevicesCommand(output, context);
+    return de_RegisterDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0SetDefaultMessageTypeCommand,
-  serializeAws_json1_0SetDefaultMessageTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SetDefaultMessageTypeCommand, se_SetDefaultMessageTypeCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class SetDefaultMessageTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: SetDefaultMessageTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SetDefaultMessageTypeCommand(input, context);
+    return se_SetDefaultMessageTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultMessageTypeCommandOutput> {
-    return deserializeAws_json1_0SetDefaultMessageTypeCommand(output, context);
+    return de_SetDefaultMessageTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

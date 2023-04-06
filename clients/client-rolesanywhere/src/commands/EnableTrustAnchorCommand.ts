@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableTrustAnchorCommand,
-  serializeAws_restJson1EnableTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EnableTrustAnchorCommand, se_EnableTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -130,14 +127,14 @@ export class EnableTrustAnchorCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableTrustAnchorCommand(input, context);
+    return se_EnableTrustAnchorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1EnableTrustAnchorCommand(output, context);
+    return de_EnableTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateEventSubscriptionCommand,
-  serializeAws_queryCreateEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -115,29 +112,39 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *  <p>The supplied category does not exist.</p>
  *
  *
- * @example To create an event notification subscription
+ * @example To create an event subscription
  * ```javascript
- * // This example creates an event notification subscription.
+ * // The following example creates a subscription for backup and recovery events for DB instances in the current AWS account. Notifications are sent to an Amazon Simple Notification Service topic.
  * const input = {
- *   "Enabled": true,
  *   "EventCategories": [
- *     "availability"
+ *     "backup",
+ *     "recovery"
  *   ],
- *   "SnsTopicArn": "arn:aws:sns:us-east-1:992648334831:MyDemoSNSTopic",
- *   "SourceIds": [
- *     "mymysqlinstance"
- *   ],
+ *   "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
  *   "SourceType": "db-instance",
- *   "SubscriptionName": "mymysqleventsubscription"
+ *   "SubscriptionName": "my-instance-events"
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EventSubscription": {}
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": true,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceType": "db-instance",
+ *     "Status": "creating",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
  * }
  * *\/
- * // example id: create-event-subscription-00dd0ee6-0e0f-4a38-ae83-e5f2ded5f69a
+ * // example id: to-create-an-event-subscription-1679956709288
  * ```
  *
  */
@@ -204,14 +211,14 @@ export class CreateEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateEventSubscriptionCommand(input, context);
+    return se_CreateEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
-    return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
+    return de_CreateEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

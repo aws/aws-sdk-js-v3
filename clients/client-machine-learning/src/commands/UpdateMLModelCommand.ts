@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateMLModelCommand,
-  serializeAws_json1_1UpdateMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMLModelCommand, se_UpdateMLModelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class UpdateMLModelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMLModelCommand(input, context);
+    return se_UpdateMLModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLModelCommandOutput> {
-    return deserializeAws_json1_1UpdateMLModelCommand(output, context);
+    return de_UpdateMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

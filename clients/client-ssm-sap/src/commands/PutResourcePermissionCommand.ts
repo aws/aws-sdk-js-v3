@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutResourcePermissionInput, PutResourcePermissionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutResourcePermissionCommand,
-  serializeAws_restJson1PutResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutResourcePermissionCommand, se_PutResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -131,14 +128,14 @@ export class PutResourcePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourcePermissionCommand(input, context);
+    return se_PutResourcePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1PutResourcePermissionCommand(output, context);
+    return de_PutResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

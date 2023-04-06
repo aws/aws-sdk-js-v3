@@ -19,10 +19,7 @@ import {
   ExecuteCommandResponse,
   ExecuteCommandResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteCommandCommand,
-  serializeAws_json1_1ExecuteCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExecuteCommandCommand, se_ExecuteCommandCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class ExecuteCommandCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteCommandCommand(input, context);
+    return se_ExecuteCommandCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteCommandCommandOutput> {
-    return deserializeAws_json1_1ExecuteCommandCommand(output, context);
+    return de_ExecuteCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateLensShareInput, CreateLensShareOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLensShareCommand,
-  serializeAws_restJson1CreateLensShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLensShareCommand, se_CreateLensShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -163,14 +160,14 @@ export class CreateLensShareCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLensShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLensShareCommand(input, context);
+    return se_CreateLensShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLensShareCommandOutput> {
-    return deserializeAws_restJson1CreateLensShareCommand(output, context);
+    return de_CreateLensShareCommand(output, context);
   }
 
   // Start section: command_body_extra

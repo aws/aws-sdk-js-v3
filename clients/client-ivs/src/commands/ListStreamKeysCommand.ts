@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { ListStreamKeysRequest, ListStreamKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStreamKeysCommand,
-  serializeAws_restJson1ListStreamKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStreamKeysCommand, se_ListStreamKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListStreamKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStreamKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamKeysCommand(input, context);
+    return se_ListStreamKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamKeysCommandOutput> {
-    return deserializeAws_restJson1ListStreamKeysCommand(output, context);
+    return de_ListStreamKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

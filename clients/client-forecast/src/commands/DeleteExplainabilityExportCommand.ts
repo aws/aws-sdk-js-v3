@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteExplainabilityExportRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteExplainabilityExportCommand,
-  serializeAws_json1_1DeleteExplainabilityExportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteExplainabilityExportCommand, se_DeleteExplainabilityExportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class DeleteExplainabilityExportCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExplainabilityExportCommand(input, context);
+    return se_DeleteExplainabilityExportCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DeleteExplainabilityExportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteExplainabilityExportCommandOutput> {
-    return deserializeAws_json1_1DeleteExplainabilityExportCommand(output, context);
+    return de_DeleteExplainabilityExportCommand(output, context);
   }
 
   // Start section: command_body_extra

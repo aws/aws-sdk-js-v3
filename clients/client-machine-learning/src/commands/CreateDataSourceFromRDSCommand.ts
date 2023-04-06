@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataSourceFromRDSCommand,
-  serializeAws_json1_1CreateDataSourceFromRDSCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDataSourceFromRDSCommand, se_CreateDataSourceFromRDSCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateDataSourceFromRDSCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDataSourceFromRDSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromRDSCommand(input, context);
+    return se_CreateDataSourceFromRDSCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromRDSCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommand(output, context);
+    return de_CreateDataSourceFromRDSCommand(output, context);
   }
 
   // Start section: command_body_extra

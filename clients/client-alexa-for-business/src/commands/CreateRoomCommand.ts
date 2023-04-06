@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { CreateRoomRequest, CreateRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRoomCommand,
-  serializeAws_json1_1CreateRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRoomCommand, se_CreateRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class CreateRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRoomCommand(input, context);
+    return se_CreateRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomCommandOutput> {
-    return deserializeAws_json1_1CreateRoomCommand(output, context);
+    return de_CreateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

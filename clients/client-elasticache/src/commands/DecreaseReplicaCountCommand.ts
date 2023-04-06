@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DecreaseReplicaCountMessage, DecreaseReplicaCountResult } from "../models/models_0";
-import {
-  deserializeAws_queryDecreaseReplicaCountCommand,
-  serializeAws_queryDecreaseReplicaCountCommand,
-} from "../protocols/Aws_query";
+import { de_DecreaseReplicaCountCommand, se_DecreaseReplicaCountCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class DecreaseReplicaCountCommand extends $Command<
    * @internal
    */
   private serialize(input: DecreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDecreaseReplicaCountCommand(input, context);
+    return se_DecreaseReplicaCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecreaseReplicaCountCommandOutput> {
-    return deserializeAws_queryDecreaseReplicaCountCommand(output, context);
+    return de_DecreaseReplicaCountCommand(output, context);
   }
 
   // Start section: command_body_extra

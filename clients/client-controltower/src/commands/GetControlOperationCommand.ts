@@ -15,10 +15,7 @@ import {
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { GetControlOperationInput, GetControlOperationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetControlOperationCommand,
-  serializeAws_restJson1GetControlOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetControlOperationCommand, se_GetControlOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetControlOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetControlOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetControlOperationCommand(input, context);
+    return se_GetControlOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetControlOperationCommandOutput> {
-    return deserializeAws_restJson1GetControlOperationCommand(output, context);
+    return de_GetControlOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

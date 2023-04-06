@@ -21,10 +21,7 @@ import {
   UploadPartCopyRequest,
   UploadPartCopyRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlUploadPartCopyCommand,
-  serializeAws_restXmlUploadPartCopyCommand,
-} from "../protocols/Aws_restXml";
+import { de_UploadPartCopyCommand, se_UploadPartCopyCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -249,6 +246,29 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  *
+ * @example To upload a part by copying data from an existing object as data source
+ * ```javascript
+ * // The following example uploads a part of a multipart upload by copying data from an existing object as data source.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "CopySource": "/bucketname/sourceobjectkey",
+ *   "Key": "examplelargeobject",
+ *   "PartNumber": "1",
+ *   "UploadId": "exampleuoh_10OhKhT7YukE9bjzTPRiuaCotmZM_pFngJFir9OZNrSr5cWa3cq3LZSUsfjI4FI7PkP91We7Nrw--"
+ * };
+ * const command = new UploadPartCopyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CopyPartResult": {
+ *     "ETag": "\"b0c6f0e7e054ab8fa2536a2677f8734d\"",
+ *     "LastModified": "2016-12-29T21:24:43.000Z"
+ *   }
+ * }
+ * *\/
+ * // example id: to-upload-a-part-by-copying-data-from-an-existing-object-as-data-source-1483046746348
+ * ```
+ *
  * @example To upload a part by copying byte range from an existing object as data source
  * ```javascript
  * // The following example uploads a part of a multipart upload by copying a specified byte range from an existing object as data source.
@@ -271,29 +291,6 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * }
  * *\/
  * // example id: to-upload-a-part-by-copying-byte-range-from-an-existing-object-as-data-source-1483048068594
- * ```
- *
- * @example To upload a part by copying data from an existing object as data source
- * ```javascript
- * // The following example uploads a part of a multipart upload by copying data from an existing object as data source.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "CopySource": "/bucketname/sourceobjectkey",
- *   "Key": "examplelargeobject",
- *   "PartNumber": "1",
- *   "UploadId": "exampleuoh_10OhKhT7YukE9bjzTPRiuaCotmZM_pFngJFir9OZNrSr5cWa3cq3LZSUsfjI4FI7PkP91We7Nrw--"
- * };
- * const command = new UploadPartCopyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CopyPartResult": {
- *     "ETag": "\"b0c6f0e7e054ab8fa2536a2677f8734d\"",
- *     "LastModified": "2016-12-29T21:24:43.000Z"
- *   }
- * }
- * *\/
- * // example id: to-upload-a-part-by-copying-data-from-an-existing-object-as-data-source-1483046746348
  * ```
  *
  */
@@ -368,14 +365,14 @@ export class UploadPartCopyCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadPartCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUploadPartCopyCommand(input, context);
+    return se_UploadPartCopyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCopyCommandOutput> {
-    return deserializeAws_restXmlUploadPartCopyCommand(output, context);
+    return de_UploadPartCopyCommand(output, context);
   }
 
   // Start section: command_body_extra

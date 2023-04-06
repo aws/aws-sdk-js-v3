@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { PutRepositoryCatalogDataRequest, PutRepositoryCatalogDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRepositoryCatalogDataCommand,
-  serializeAws_json1_1PutRepositoryCatalogDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRepositoryCatalogDataCommand, se_PutRepositoryCatalogDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class PutRepositoryCatalogDataCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRepositoryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRepositoryCatalogDataCommand(input, context);
+    return se_PutRepositoryCatalogDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRepositoryCatalogDataCommandOutput> {
-    return deserializeAws_json1_1PutRepositoryCatalogDataCommand(output, context);
+    return de_PutRepositoryCatalogDataCommand(output, context);
   }
 
   // Start section: command_body_extra

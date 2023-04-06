@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWorkspaceBundleRequest, CreateWorkspaceBundleResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkspaceBundleCommand,
-  serializeAws_json1_1CreateWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkspaceBundleCommand, se_CreateWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateWorkspaceBundleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkspaceBundleCommand(input, context);
+    return se_CreateWorkspaceBundleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1CreateWorkspaceBundleCommand(output, context);
+    return de_CreateWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

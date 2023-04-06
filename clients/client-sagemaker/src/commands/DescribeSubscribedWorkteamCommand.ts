@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSubscribedWorkteamRequest, DescribeSubscribedWorkteamResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeSubscribedWorkteamCommand,
-  serializeAws_json1_1DescribeSubscribedWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSubscribedWorkteamCommand, se_DescribeSubscribedWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,7 +118,7 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSubscribedWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribedWorkteamCommand(input, context);
+    return se_DescribeSubscribedWorkteamCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribedWorkteamCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribedWorkteamCommand(output, context);
+    return de_DescribeSubscribedWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

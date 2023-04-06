@@ -15,10 +15,7 @@ import {
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { DeleteRuleGroupsNamespaceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
-  serializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRuleGroupsNamespaceCommand, se_DeleteRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRuleGroupsNamespaceCommand(input, context);
+    return se_DeleteRuleGroupsNamespaceCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRuleGroupsNamespaceCommandOutput> {
-    return deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand(output, context);
+    return de_DeleteRuleGroupsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

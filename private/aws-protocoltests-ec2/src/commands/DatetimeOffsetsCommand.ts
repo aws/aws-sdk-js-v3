@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { DatetimeOffsetsOutput } from "../models/models_0";
-import { deserializeAws_ec2DatetimeOffsetsCommand, serializeAws_ec2DatetimeOffsetsCommand } from "../protocols/Aws_ec2";
+import { de_DatetimeOffsetsCommand, se_DatetimeOffsetsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -80,14 +80,14 @@ export class DatetimeOffsetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DatetimeOffsetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DatetimeOffsetsCommand(input, context);
+    return se_DatetimeOffsetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DatetimeOffsetsCommandOutput> {
-    return deserializeAws_ec2DatetimeOffsetsCommand(output, context);
+    return de_DatetimeOffsetsCommand(output, context);
   }
 
   // Start section: command_body_extra

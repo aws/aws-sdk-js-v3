@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBootstrapBrokersCommand,
-  serializeAws_restJson1GetBootstrapBrokersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBootstrapBrokersCommand, se_GetBootstrapBrokersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetBootstrapBrokersCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBootstrapBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBootstrapBrokersCommand(input, context);
+    return se_GetBootstrapBrokersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBootstrapBrokersCommandOutput> {
-    return deserializeAws_restJson1GetBootstrapBrokersCommand(output, context);
+    return de_GetBootstrapBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResourcePermissionInput, DeleteResourcePermissionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourcePermissionCommand,
-  serializeAws_restJson1DeleteResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourcePermissionCommand, se_DeleteResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteResourcePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePermissionCommand(input, context);
+    return se_DeleteResourcePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePermissionCommand(output, context);
+    return de_DeleteResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

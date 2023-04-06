@@ -15,8 +15,8 @@ import {
 
 import { ListSlackWorkspaceConfigurationsRequest, ListSlackWorkspaceConfigurationsResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand,
-  serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand,
+  de_ListSlackWorkspaceConfigurationsCommand,
+  se_ListSlackWorkspaceConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
@@ -131,7 +131,7 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     input: ListSlackWorkspaceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand(input, context);
+    return se_ListSlackWorkspaceConfigurationsCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSlackWorkspaceConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand(output, context);
+    return de_ListSlackWorkspaceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReportInstanceStatusRequest } from "../models/models_6";
-import {
-  deserializeAws_ec2ReportInstanceStatusCommand,
-  serializeAws_ec2ReportInstanceStatusCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReportInstanceStatusCommand, se_ReportInstanceStatusCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ReportInstanceStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: ReportInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReportInstanceStatusCommand(input, context);
+    return se_ReportInstanceStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportInstanceStatusCommandOutput> {
-    return deserializeAws_ec2ReportInstanceStatusCommand(output, context);
+    return de_ReportInstanceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

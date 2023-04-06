@@ -14,8 +14,8 @@ import {
 
 import { HttpPayloadWithMemberXmlNameInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
-  serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
+  de_HttpPayloadWithMemberXmlNameCommand,
+  se_HttpPayloadWithMemberXmlNameCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -112,7 +112,7 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPayloadWithMemberXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand(input, context);
+    return se_HttpPayloadWithMemberXmlNameCommand(input, context);
   }
 
   /**
@@ -122,7 +122,7 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithMemberXmlNameCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand(output, context);
+    return de_HttpPayloadWithMemberXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

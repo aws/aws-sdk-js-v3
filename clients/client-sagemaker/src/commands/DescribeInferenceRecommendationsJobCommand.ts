@@ -18,8 +18,8 @@ import {
   DescribeInferenceRecommendationsJobResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
-  serializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
+  de_DescribeInferenceRecommendationsJobCommand,
+  se_DescribeInferenceRecommendationsJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -132,7 +132,7 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     input: DescribeInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInferenceRecommendationsJobCommand(input, context);
+    return se_DescribeInferenceRecommendationsJobCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInferenceRecommendationsJobCommandOutput> {
-    return deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand(output, context);
+    return de_DescribeInferenceRecommendationsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

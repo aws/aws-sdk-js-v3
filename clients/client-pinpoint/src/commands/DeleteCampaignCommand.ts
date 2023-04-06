@@ -15,10 +15,7 @@ import {
 
 import { DeleteCampaignRequest, DeleteCampaignResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteCampaignCommand,
-  serializeAws_restJson1DeleteCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCampaignCommand, se_DeleteCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCampaignCommand(input, context);
+    return se_DeleteCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_restJson1DeleteCampaignCommand(output, context);
+    return de_DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

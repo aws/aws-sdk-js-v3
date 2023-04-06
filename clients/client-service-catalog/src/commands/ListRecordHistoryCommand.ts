@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRecordHistoryCommand,
-  serializeAws_json1_1ListRecordHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRecordHistoryCommand, se_ListRecordHistoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListRecordHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecordHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRecordHistoryCommand(input, context);
+    return se_ListRecordHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecordHistoryCommandOutput> {
-    return deserializeAws_json1_1ListRecordHistoryCommand(output, context);
+    return de_ListRecordHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

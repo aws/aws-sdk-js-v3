@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteStreamingDistributionRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteStreamingDistributionCommand,
-  serializeAws_restXmlDeleteStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteStreamingDistributionCommand, se_DeleteStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -186,7 +183,7 @@ export class DeleteStreamingDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStreamingDistributionCommand(input, context);
+    return se_DeleteStreamingDistributionCommand(input, context);
   }
 
   /**
@@ -196,7 +193,7 @@ export class DeleteStreamingDistributionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlDeleteStreamingDistributionCommand(output, context);
+    return de_DeleteStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

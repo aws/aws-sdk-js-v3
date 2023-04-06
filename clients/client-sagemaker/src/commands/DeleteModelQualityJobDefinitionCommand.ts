@@ -15,8 +15,8 @@ import {
 
 import { DeleteModelQualityJobDefinitionRequest } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteModelQualityJobDefinitionCommand,
-  serializeAws_json1_1DeleteModelQualityJobDefinitionCommand,
+  de_DeleteModelQualityJobDefinitionCommand,
+  se_DeleteModelQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -126,7 +126,7 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
     input: DeleteModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelQualityJobDefinitionCommand(input, context);
+    return se_DeleteModelQualityJobDefinitionCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteModelQualityJobDefinitionCommand(output, context);
+    return de_DeleteModelQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

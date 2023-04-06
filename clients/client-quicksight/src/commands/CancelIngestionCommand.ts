@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CancelIngestionCommand,
-  serializeAws_restJson1CancelIngestionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelIngestionCommand, se_CancelIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -143,14 +140,14 @@ export class CancelIngestionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelIngestionCommand(input, context);
+    return se_CancelIngestionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelIngestionCommandOutput> {
-    return deserializeAws_restJson1CancelIngestionCommand(output, context);
+    return de_CancelIngestionCommand(output, context);
   }
 
   // Start section: command_body_extra

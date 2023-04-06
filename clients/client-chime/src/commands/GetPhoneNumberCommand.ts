@@ -19,10 +19,7 @@ import {
   GetPhoneNumberResponse,
   GetPhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberCommand,
-  serializeAws_restJson1GetPhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberCommand, se_GetPhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberCommand(input, context);
+    return se_GetPhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberCommand(output, context);
+    return de_GetPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

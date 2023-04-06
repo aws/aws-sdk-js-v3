@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEC2InstanceLimitsCommand,
-  serializeAws_json1_1DescribeEC2InstanceLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEC2InstanceLimitsCommand, se_DescribeEC2InstanceLimitsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -189,7 +186,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEC2InstanceLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEC2InstanceLimitsCommand(input, context);
+    return se_DescribeEC2InstanceLimitsCommand(input, context);
   }
 
   /**
@@ -199,7 +196,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
-    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(output, context);
+    return de_DescribeEC2InstanceLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   PutDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
-  serializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
+  de_PutDefaultEncryptionConfigurationCommand,
+  se_PutDefaultEncryptionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     input: PutDefaultEncryptionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDefaultEncryptionConfigurationCommand(input, context);
+    return se_PutDefaultEncryptionConfigurationCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDefaultEncryptionConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand(output, context);
+    return de_PutDefaultEncryptionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

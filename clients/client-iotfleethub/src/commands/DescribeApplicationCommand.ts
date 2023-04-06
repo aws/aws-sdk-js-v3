@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetHubClient";
 import { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeApplicationCommand,
-  serializeAws_restJson1DescribeApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeApplicationCommand, se_DescribeApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeApplicationCommand(input, context);
+    return se_DescribeApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationCommandOutput> {
-    return deserializeAws_restJson1DescribeApplicationCommand(output, context);
+    return de_DescribeApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

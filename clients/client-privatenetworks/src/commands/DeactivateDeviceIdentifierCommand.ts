@@ -19,10 +19,7 @@ import {
   DeactivateDeviceIdentifierResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1DeactivateDeviceIdentifierCommand,
-  serializeAws_restJson1DeactivateDeviceIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeactivateDeviceIdentifierCommand, se_DeactivateDeviceIdentifierCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateDeviceIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeactivateDeviceIdentifierCommand(input, context);
+    return se_DeactivateDeviceIdentifierCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeactivateDeviceIdentifierCommandOutput> {
-    return deserializeAws_restJson1DeactivateDeviceIdentifierCommand(output, context);
+    return de_DeactivateDeviceIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

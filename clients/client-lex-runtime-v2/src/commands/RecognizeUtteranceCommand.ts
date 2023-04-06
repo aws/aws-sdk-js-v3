@@ -23,10 +23,7 @@ import {
   RecognizeUtteranceResponse,
   RecognizeUtteranceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RecognizeUtteranceCommand,
-  serializeAws_restJson1RecognizeUtteranceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -233,7 +230,7 @@ export class RecognizeUtteranceCommand extends $Command<
    * @internal
    */
   private serialize(input: RecognizeUtteranceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
+    return se_RecognizeUtteranceCommand(input, context);
   }
 
   /**
@@ -243,7 +240,7 @@ export class RecognizeUtteranceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<RecognizeUtteranceCommandOutput> {
-    return deserializeAws_restJson1RecognizeUtteranceCommand(output, context);
+    return de_RecognizeUtteranceCommand(output, context);
   }
 
   // Start section: command_body_extra

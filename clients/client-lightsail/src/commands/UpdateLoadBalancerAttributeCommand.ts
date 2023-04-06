@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateLoadBalancerAttributeCommand,
-  serializeAws_json1_1UpdateLoadBalancerAttributeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLoadBalancerAttributeCommand, se_UpdateLoadBalancerAttributeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,7 +153,7 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLoadBalancerAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLoadBalancerAttributeCommand(input, context);
+    return se_UpdateLoadBalancerAttributeCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoadBalancerAttributeCommandOutput> {
-    return deserializeAws_json1_1UpdateLoadBalancerAttributeCommand(output, context);
+    return de_UpdateLoadBalancerAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreatePreparedStatementInput, CreatePreparedStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePreparedStatementCommand,
-  serializeAws_json1_1CreatePreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePreparedStatementCommand, se_CreatePreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class CreatePreparedStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePreparedStatementCommand(input, context);
+    return se_CreatePreparedStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePreparedStatementCommandOutput> {
-    return deserializeAws_json1_1CreatePreparedStatementCommand(output, context);
+    return de_CreatePreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

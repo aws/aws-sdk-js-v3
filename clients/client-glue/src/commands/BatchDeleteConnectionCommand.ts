@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteConnectionCommand,
-  serializeAws_json1_1BatchDeleteConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteConnectionCommand, se_BatchDeleteConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class BatchDeleteConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
+    return se_BatchDeleteConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
+    return de_BatchDeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

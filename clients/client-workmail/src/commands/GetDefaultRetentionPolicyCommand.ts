@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDefaultRetentionPolicyRequest, GetDefaultRetentionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDefaultRetentionPolicyCommand,
-  serializeAws_json1_1GetDefaultRetentionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDefaultRetentionPolicyCommand, se_GetDefaultRetentionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -135,7 +132,7 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDefaultRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDefaultRetentionPolicyCommand(input, context);
+    return se_GetDefaultRetentionPolicyCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDefaultRetentionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetDefaultRetentionPolicyCommand(output, context);
+    return de_GetDefaultRetentionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

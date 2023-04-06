@@ -19,8 +19,8 @@ import {
   DescribeVpcEndpointServiceConfigurationsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
-  serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
+  de_DescribeVpcEndpointServiceConfigurationsCommand,
+  se_DescribeVpcEndpointServiceConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(input, context);
+    return se_DescribeVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(output, context);
+    return de_DescribeVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateComponentCommand,
-  serializeAws_json1_1CreateComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateComponentCommand(input, context);
+    return se_CreateComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
-    return deserializeAws_json1_1CreateComponentCommand(output, context);
+    return de_CreateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterMailDomainRequest, RegisterMailDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterMailDomainCommand,
-  serializeAws_json1_1RegisterMailDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterMailDomainCommand, se_RegisterMailDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -140,14 +137,14 @@ export class RegisterMailDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterMailDomainCommand(input, context);
+    return se_RegisterMailDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterMailDomainCommandOutput> {
-    return deserializeAws_json1_1RegisterMailDomainCommand(output, context);
+    return de_RegisterMailDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

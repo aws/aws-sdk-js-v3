@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { ListProtectedQueriesInput, ListProtectedQueriesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProtectedQueriesCommand,
-  serializeAws_restJson1ListProtectedQueriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListProtectedQueriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProtectedQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProtectedQueriesCommand(input, context);
+    return se_ListProtectedQueriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedQueriesCommandOutput> {
-    return deserializeAws_restJson1ListProtectedQueriesCommand(output, context);
+    return de_ListProtectedQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeleteFirewallPolicyRequest, DeleteFirewallPolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteFirewallPolicyCommand,
-  serializeAws_json1_0DeleteFirewallPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteFirewallPolicyCommand, se_DeleteFirewallPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class DeleteFirewallPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFirewallPolicyCommand(input, context);
+    return se_DeleteFirewallPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallPolicyCommandOutput> {
-    return deserializeAws_json1_0DeleteFirewallPolicyCommand(output, context);
+    return de_DeleteFirewallPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

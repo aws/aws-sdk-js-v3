@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateTemplateAliasCommand,
-  serializeAws_restJson1UpdateTemplateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTemplateAliasCommand, se_UpdateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -141,14 +138,14 @@ export class UpdateTemplateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplateAliasCommand(input, context);
+    return se_UpdateTemplateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplateAliasCommand(output, context);
+    return de_UpdateTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

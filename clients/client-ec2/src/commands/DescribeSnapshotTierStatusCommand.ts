@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSnapshotTierStatusRequest, DescribeSnapshotTierStatusResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotTierStatusCommand,
-  serializeAws_ec2DescribeSnapshotTierStatusCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSnapshotTierStatusCommand, se_DescribeSnapshotTierStatusCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSnapshotTierStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotTierStatusCommand(input, context);
+    return se_DescribeSnapshotTierStatusCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotTierStatusCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotTierStatusCommand(output, context);
+    return de_DescribeSnapshotTierStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

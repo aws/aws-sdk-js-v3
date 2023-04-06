@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
-  serializeAws_json1_1UpdateGatewaySoftwareNowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateGatewaySoftwareNowCommand, se_UpdateGatewaySoftwareNowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -159,14 +156,14 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewaySoftwareNowCommand(input, context);
+    return se_UpdateGatewaySoftwareNowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(output, context);
+    return de_UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

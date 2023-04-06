@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTagsCommand,
-  serializeAws_json1_1DescribeTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -121,14 +118,14 @@ export class DescribeTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_json1_1DescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

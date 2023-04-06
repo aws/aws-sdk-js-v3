@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListActiveViolationsCommand,
-  serializeAws_restJson1ListActiveViolationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListActiveViolationsCommand, se_ListActiveViolationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListActiveViolationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListActiveViolationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListActiveViolationsCommand(input, context);
+    return se_ListActiveViolationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActiveViolationsCommandOutput> {
-    return deserializeAws_restJson1ListActiveViolationsCommand(output, context);
+    return de_ListActiveViolationsCommand(output, context);
   }
 
   // Start section: command_body_extra

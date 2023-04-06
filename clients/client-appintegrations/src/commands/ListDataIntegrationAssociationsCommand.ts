@@ -16,8 +16,8 @@ import {
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { ListDataIntegrationAssociationsRequest, ListDataIntegrationAssociationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDataIntegrationAssociationsCommand,
-  serializeAws_restJson1ListDataIntegrationAssociationsCommand,
+  de_ListDataIntegrationAssociationsCommand,
+  se_ListDataIntegrationAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     input: ListDataIntegrationAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataIntegrationAssociationsCommand(input, context);
+    return se_ListDataIntegrationAssociationsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataIntegrationAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListDataIntegrationAssociationsCommand(output, context);
+    return de_ListDataIntegrationAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

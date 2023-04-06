@@ -20,8 +20,8 @@ import {
   ImportHypervisorConfigurationOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ImportHypervisorConfigurationCommand,
-  serializeAws_json1_0ImportHypervisorConfigurationCommand,
+  de_ImportHypervisorConfigurationCommand,
+  se_ImportHypervisorConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -152,7 +152,7 @@ export class ImportHypervisorConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportHypervisorConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ImportHypervisorConfigurationCommand(input, context);
+    return se_ImportHypervisorConfigurationCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class ImportHypervisorConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportHypervisorConfigurationCommandOutput> {
-    return deserializeAws_json1_0ImportHypervisorConfigurationCommand(output, context);
+    return de_ImportHypervisorConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

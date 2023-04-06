@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetJobBookmarkCommand,
-  serializeAws_json1_1GetJobBookmarkCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetJobBookmarkCommand, se_GetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class GetJobBookmarkCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobBookmarkCommand(input, context);
+    return se_GetJobBookmarkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobBookmarkCommandOutput> {
-    return deserializeAws_json1_1GetJobBookmarkCommand(output, context);
+    return de_GetJobBookmarkCommand(output, context);
   }
 
   // Start section: command_body_extra

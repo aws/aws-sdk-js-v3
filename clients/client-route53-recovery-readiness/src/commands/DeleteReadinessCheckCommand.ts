@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteReadinessCheckRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteReadinessCheckCommand,
-  serializeAws_restJson1DeleteReadinessCheckCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReadinessCheckCommand, se_DeleteReadinessCheckCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class DeleteReadinessCheckCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReadinessCheckCommand(input, context);
+    return se_DeleteReadinessCheckCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReadinessCheckCommandOutput> {
-    return deserializeAws_restJson1DeleteReadinessCheckCommand(output, context);
+    return de_DeleteReadinessCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

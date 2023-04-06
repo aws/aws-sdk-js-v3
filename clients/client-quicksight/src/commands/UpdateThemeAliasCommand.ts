@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateThemeAliasRequest, UpdateThemeAliasResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateThemeAliasCommand,
-  serializeAws_restJson1UpdateThemeAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateThemeAliasCommand, se_UpdateThemeAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,14 +144,14 @@ export class UpdateThemeAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateThemeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThemeAliasCommand(input, context);
+    return se_UpdateThemeAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThemeAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateThemeAliasCommand(output, context);
+    return de_UpdateThemeAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

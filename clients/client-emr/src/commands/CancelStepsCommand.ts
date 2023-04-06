@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { CancelStepsInput, CancelStepsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelStepsCommand,
-  serializeAws_json1_1CancelStepsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelStepsCommand, se_CancelStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class CancelStepsCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelStepsCommand(input, context);
+    return se_CancelStepsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStepsCommandOutput> {
-    return deserializeAws_json1_1CancelStepsCommand(output, context);
+    return de_CancelStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

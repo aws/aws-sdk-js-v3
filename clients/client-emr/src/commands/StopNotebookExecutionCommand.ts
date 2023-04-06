@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { StopNotebookExecutionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopNotebookExecutionCommand,
-  serializeAws_json1_1StopNotebookExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopNotebookExecutionCommand, se_StopNotebookExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class StopNotebookExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopNotebookExecutionCommand(input, context);
+    return se_StopNotebookExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookExecutionCommandOutput> {
-    return deserializeAws_json1_1StopNotebookExecutionCommand(output, context);
+    return de_StopNotebookExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

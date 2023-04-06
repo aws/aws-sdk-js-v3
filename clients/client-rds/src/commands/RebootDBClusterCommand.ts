@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RebootDBClusterMessage, RebootDBClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryRebootDBClusterCommand,
-  serializeAws_queryRebootDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RebootDBClusterCommand, se_RebootDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -140,14 +137,14 @@ export class RebootDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBClusterCommand(input, context);
+    return se_RebootDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBClusterCommandOutput> {
-    return deserializeAws_queryRebootDBClusterCommand(output, context);
+    return de_RebootDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { StartReferenceImportJobRequest, StartReferenceImportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartReferenceImportJobCommand,
-  serializeAws_restJson1StartReferenceImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReferenceImportJobCommand, se_StartReferenceImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class StartReferenceImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartReferenceImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReferenceImportJobCommand(input, context);
+    return se_StartReferenceImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReferenceImportJobCommandOutput> {
-    return deserializeAws_restJson1StartReferenceImportJobCommand(output, context);
+    return de_StartReferenceImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

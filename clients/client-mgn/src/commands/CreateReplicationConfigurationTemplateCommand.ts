@@ -21,8 +21,8 @@ import {
   ReplicationConfigurationTemplateFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand,
-  serializeAws_restJson1CreateReplicationConfigurationTemplateCommand,
+  de_CreateReplicationConfigurationTemplateCommand,
+  se_CreateReplicationConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
     input: CreateReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationConfigurationTemplateCommand(input, context);
+    return se_CreateReplicationConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand(output, context);
+    return de_CreateReplicationConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

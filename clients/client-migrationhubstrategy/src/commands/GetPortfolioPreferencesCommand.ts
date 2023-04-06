@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetPortfolioPreferencesRequest, GetPortfolioPreferencesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPortfolioPreferencesCommand,
-  serializeAws_restJson1GetPortfolioPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPortfolioPreferencesCommand, se_GetPortfolioPreferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetPortfolioPreferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPortfolioPreferencesCommand(input, context);
+    return se_GetPortfolioPreferencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioPreferencesCommandOutput> {
-    return deserializeAws_restJson1GetPortfolioPreferencesCommand(output, context);
+    return de_GetPortfolioPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

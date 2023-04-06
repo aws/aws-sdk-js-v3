@@ -16,8 +16,8 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { ListRecordingConfigurationsRequest, ListRecordingConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRecordingConfigurationsCommand,
-  serializeAws_restJson1ListRecordingConfigurationsCommand,
+  de_ListRecordingConfigurationsCommand,
+  se_ListRecordingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -133,7 +133,7 @@ export class ListRecordingConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecordingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecordingConfigurationsCommand(input, context);
+    return se_ListRecordingConfigurationsCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class ListRecordingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecordingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListRecordingConfigurationsCommand(output, context);
+    return de_ListRecordingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

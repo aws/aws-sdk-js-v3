@@ -18,10 +18,7 @@ import {
   UpdatePhoneNumberSettingsRequest,
   UpdatePhoneNumberSettingsRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePhoneNumberSettingsCommand,
-  serializeAws_restJson1UpdatePhoneNumberSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePhoneNumberSettingsCommand, se_UpdatePhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePhoneNumberSettingsCommand(input, context);
+    return se_UpdatePhoneNumberSettingsCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdatePhoneNumberSettingsCommand(output, context);
+    return de_UpdatePhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

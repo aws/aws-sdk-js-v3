@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetJobManifestRequest, GetJobManifestResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetJobManifestCommand,
-  serializeAws_json1_1GetJobManifestCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetJobManifestCommand, se_GetJobManifestCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -165,14 +162,14 @@ export class GetJobManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobManifestCommand(input, context);
+    return se_GetJobManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobManifestCommandOutput> {
-    return deserializeAws_json1_1GetJobManifestCommand(output, context);
+    return de_GetJobManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

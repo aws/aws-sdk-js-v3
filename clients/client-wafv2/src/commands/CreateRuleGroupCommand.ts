@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRuleGroupCommand,
-  serializeAws_json1_1CreateRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRuleGroupCommand, se_CreateRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -945,14 +942,14 @@ export class CreateRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRuleGroupCommand(input, context);
+    return se_CreateRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
-    return deserializeAws_json1_1CreateRuleGroupCommand(output, context);
+    return de_CreateRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

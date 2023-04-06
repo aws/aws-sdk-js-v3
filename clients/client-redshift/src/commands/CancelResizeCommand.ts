@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelResizeMessage, ResizeProgressMessage } from "../models/models_0";
-import { deserializeAws_queryCancelResizeCommand, serializeAws_queryCancelResizeCommand } from "../protocols/Aws_query";
+import { de_CancelResizeCommand, se_CancelResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -128,14 +128,14 @@ export class CancelResizeCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelResizeCommand(input, context);
+    return se_CancelResizeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResizeCommandOutput> {
-    return deserializeAws_queryCancelResizeCommand(output, context);
+    return de_CancelResizeCommand(output, context);
   }
 
   // Start section: command_body_extra

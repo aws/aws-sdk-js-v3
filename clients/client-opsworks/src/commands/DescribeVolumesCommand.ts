@@ -15,10 +15,7 @@ import {
 
 import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeVolumesCommand,
-  serializeAws_json1_1DescribeVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeVolumesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVolumesCommand(input, context);
+    return se_DescribeVolumesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeVolumesCommand(output, context);
+    return de_DescribeVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

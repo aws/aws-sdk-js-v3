@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { GetSampleDataRequest, GetSampleDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSampleDataCommand,
-  serializeAws_restJson1GetSampleDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSampleDataCommand, se_GetSampleDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class GetSampleDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSampleDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSampleDataCommand(input, context);
+    return se_GetSampleDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampleDataCommandOutput> {
-    return deserializeAws_restJson1GetSampleDataCommand(output, context);
+    return de_GetSampleDataCommand(output, context);
   }
 
   // Start section: command_body_extra

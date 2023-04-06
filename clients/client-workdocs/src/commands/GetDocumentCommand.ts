@@ -19,10 +19,7 @@ import {
   GetDocumentResponse,
   GetDocumentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentCommand,
-  serializeAws_restJson1GetDocumentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDocumentCommand, se_GetDocumentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -148,14 +145,14 @@ export class GetDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentCommand(input, context);
+    return se_GetDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentCommandOutput> {
-    return deserializeAws_restJson1GetDocumentCommand(output, context);
+    return de_GetDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

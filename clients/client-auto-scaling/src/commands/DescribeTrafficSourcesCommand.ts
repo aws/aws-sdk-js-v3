@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeTrafficSourcesRequest, DescribeTrafficSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTrafficSourcesCommand,
-  serializeAws_queryDescribeTrafficSourcesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeTrafficSourcesCommand, se_DescribeTrafficSourcesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class DescribeTrafficSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTrafficSourcesCommand(input, context);
+    return se_DescribeTrafficSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrafficSourcesCommandOutput> {
-    return deserializeAws_queryDescribeTrafficSourcesCommand(output, context);
+    return de_DescribeTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

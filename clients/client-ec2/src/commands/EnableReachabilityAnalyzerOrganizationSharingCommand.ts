@@ -19,8 +19,8 @@ import {
   EnableReachabilityAnalyzerOrganizationSharingResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
-  serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
+  de_EnableReachabilityAnalyzerOrganizationSharingCommand,
+  se_EnableReachabilityAnalyzerOrganizationSharingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     input: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand(input, context);
+    return se_EnableReachabilityAnalyzerOrganizationSharingCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> {
-    return deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand(output, context);
+    return de_EnableReachabilityAnalyzerOrganizationSharingCommand(output, context);
   }
 
   // Start section: command_body_extra

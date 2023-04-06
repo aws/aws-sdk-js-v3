@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
 import { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReportDefinitionsCommand,
-  serializeAws_json1_1DescribeReportDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReportDefinitionsCommand, se_DescribeReportDefinitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -175,7 +172,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReportDefinitionsCommand(input, context);
+    return se_DescribeReportDefinitionsCommand(input, context);
   }
 
   /**
@@ -185,7 +182,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReportDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommand(output, context);
+    return de_DescribeReportDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

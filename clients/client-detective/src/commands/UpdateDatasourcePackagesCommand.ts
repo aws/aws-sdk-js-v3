@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { UpdateDatasourcePackagesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatasourcePackagesCommand,
-  serializeAws_restJson1UpdateDatasourcePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDatasourcePackagesCommand, se_UpdateDatasourcePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateDatasourcePackagesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDatasourcePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatasourcePackagesCommand(input, context);
+    return se_UpdateDatasourcePackagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasourcePackagesCommandOutput> {
-    return deserializeAws_restJson1UpdateDatasourcePackagesCommand(output, context);
+    return de_UpdateDatasourcePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

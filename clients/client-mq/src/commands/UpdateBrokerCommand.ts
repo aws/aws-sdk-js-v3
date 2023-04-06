@@ -15,10 +15,7 @@ import {
 
 import { UpdateBrokerRequest, UpdateBrokerResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1UpdateBrokerCommand,
-  serializeAws_restJson1UpdateBrokerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBrokerCommand, se_UpdateBrokerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class UpdateBrokerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerCommand(input, context);
+    return se_UpdateBrokerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerCommand(output, context);
+    return de_UpdateBrokerCommand(output, context);
   }
 
   // Start section: command_body_extra

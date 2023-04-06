@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetPortfolioSummaryRequest, GetPortfolioSummaryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPortfolioSummaryCommand,
-  serializeAws_restJson1GetPortfolioSummaryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPortfolioSummaryCommand, se_GetPortfolioSummaryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetPortfolioSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPortfolioSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPortfolioSummaryCommand(input, context);
+    return se_GetPortfolioSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioSummaryCommandOutput> {
-    return deserializeAws_restJson1GetPortfolioSummaryCommand(output, context);
+    return de_GetPortfolioSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

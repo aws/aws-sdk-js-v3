@@ -15,10 +15,7 @@ import {
 
 import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetAccountBalanceCommand,
-  serializeAws_json1_1GetAccountBalanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccountBalanceCommand, se_GetAccountBalanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetAccountBalanceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountBalanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountBalanceCommand(input, context);
+    return se_GetAccountBalanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountBalanceCommandOutput> {
-    return deserializeAws_json1_1GetAccountBalanceCommand(output, context);
+    return de_GetAccountBalanceCommand(output, context);
   }
 
   // Start section: command_body_extra

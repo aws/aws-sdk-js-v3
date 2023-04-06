@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuthorizeEndpointAccessMessage, EndpointAuthorization } from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeEndpointAccessCommand,
-  serializeAws_queryAuthorizeEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { de_AuthorizeEndpointAccessCommand, se_AuthorizeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -143,14 +140,14 @@ export class AuthorizeEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeEndpointAccessCommand(input, context);
+    return se_AuthorizeEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeEndpointAccessCommandOutput> {
-    return deserializeAws_queryAuthorizeEndpointAccessCommand(output, context);
+    return de_AuthorizeEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

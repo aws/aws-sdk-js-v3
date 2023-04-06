@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CompareFacesRequest, CompareFacesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CompareFacesCommand,
-  serializeAws_json1_1CompareFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CompareFacesCommand, se_CompareFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -264,14 +261,14 @@ export class CompareFacesCommand extends $Command<
    * @internal
    */
   private serialize(input: CompareFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CompareFacesCommand(input, context);
+    return se_CompareFacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompareFacesCommandOutput> {
-    return deserializeAws_json1_1CompareFacesCommand(output, context);
+    return de_CompareFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

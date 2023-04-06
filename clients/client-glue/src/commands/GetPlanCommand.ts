@@ -15,7 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetPlanRequest, GetPlanResponse } from "../models/models_1";
-import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
+import { de_GetPlanCommand, se_GetPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +166,14 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
    * @internal
    */
   private serialize(input: GetPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPlanCommand(input, context);
+    return se_GetPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlanCommandOutput> {
-    return deserializeAws_json1_1GetPlanCommand(output, context);
+    return de_GetPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

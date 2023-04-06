@@ -20,8 +20,8 @@ import {
   GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
-  serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  de_GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  se_GetVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
+    return se_GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
+    return de_GetVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

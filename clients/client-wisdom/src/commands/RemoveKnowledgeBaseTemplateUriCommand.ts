@@ -15,8 +15,8 @@ import {
 
 import { RemoveKnowledgeBaseTemplateUriRequest, RemoveKnowledgeBaseTemplateUriResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
-  serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
+  de_RemoveKnowledgeBaseTemplateUriCommand,
+  se_RemoveKnowledgeBaseTemplateUriCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
@@ -134,7 +134,7 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     input: RemoveKnowledgeBaseTemplateUriCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand(input, context);
+    return se_RemoveKnowledgeBaseTemplateUriCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> {
-    return deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand(output, context);
+    return de_RemoveKnowledgeBaseTemplateUriCommand(output, context);
   }
 
   // Start section: command_body_extra

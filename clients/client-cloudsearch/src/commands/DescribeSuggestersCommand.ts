@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeSuggestersRequest, DescribeSuggestersResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSuggestersCommand,
-  serializeAws_queryDescribeSuggestersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSuggestersCommand, se_DescribeSuggestersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeSuggestersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSuggestersCommand(input, context);
+    return se_DescribeSuggestersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSuggestersCommandOutput> {
-    return deserializeAws_queryDescribeSuggestersCommand(output, context);
+    return de_DescribeSuggestersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteSSHPublicKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSSHPublicKeyCommand,
-  serializeAws_queryDeleteSSHPublicKeyCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSSHPublicKeyCommand, se_DeleteSSHPublicKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteSSHPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSSHPublicKeyCommand(input, context);
+    return se_DeleteSSHPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSSHPublicKeyCommandOutput> {
-    return deserializeAws_queryDeleteSSHPublicKeyCommand(output, context);
+    return de_DeleteSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetCoreNetworkChangeSetRequest, GetCoreNetworkChangeSetResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetCoreNetworkChangeSetCommand,
-  serializeAws_restJson1GetCoreNetworkChangeSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreNetworkChangeSetCommand, se_GetCoreNetworkChangeSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCoreNetworkChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkChangeSetCommand(input, context);
+    return se_GetCoreNetworkChangeSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkChangeSetCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkChangeSetCommand(output, context);
+    return de_GetCoreNetworkChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

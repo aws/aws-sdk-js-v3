@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { StartSessionRequest, StartSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSessionCommand,
-  serializeAws_json1_1StartSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartSessionCommand, se_StartSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class StartSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSessionCommand(input, context);
+    return se_StartSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSessionCommandOutput> {
-    return deserializeAws_json1_1StartSessionCommand(output, context);
+    return de_StartSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

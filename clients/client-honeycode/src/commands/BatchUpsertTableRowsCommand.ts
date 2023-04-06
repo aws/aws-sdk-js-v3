@@ -19,10 +19,7 @@ import {
   BatchUpsertTableRowsRequestFilterSensitiveLog,
   BatchUpsertTableRowsResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpsertTableRowsCommand,
-  serializeAws_restJson1BatchUpsertTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpsertTableRowsCommand, se_BatchUpsertTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class BatchUpsertTableRowsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpsertTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpsertTableRowsCommand(input, context);
+    return se_BatchUpsertTableRowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpsertTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchUpsertTableRowsCommand(output, context);
+    return de_BatchUpsertTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

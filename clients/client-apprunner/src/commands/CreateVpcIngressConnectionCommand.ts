@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { CreateVpcIngressConnectionRequest, CreateVpcIngressConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateVpcIngressConnectionCommand,
-  serializeAws_json1_0CreateVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateVpcIngressConnectionCommand, se_CreateVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class CreateVpcIngressConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateVpcIngressConnectionCommand(input, context);
+    return se_CreateVpcIngressConnectionCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class CreateVpcIngressConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0CreateVpcIngressConnectionCommand(output, context);
+    return de_CreateVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

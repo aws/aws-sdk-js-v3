@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeviceCommand,
-  serializeAws_json1_1DeleteDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeviceCommand(input, context);
+    return se_DeleteDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_json1_1DeleteDeviceCommand(output, context);
+    return de_DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

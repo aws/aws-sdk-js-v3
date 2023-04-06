@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTypeRegistrationCommand,
-  serializeAws_queryDescribeTypeRegistrationCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeTypeRegistrationCommand, se_DescribeTypeRegistrationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeTypeRegistrationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTypeRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTypeRegistrationCommand(input, context);
+    return se_DescribeTypeRegistrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeRegistrationCommandOutput> {
-    return deserializeAws_queryDescribeTypeRegistrationCommand(output, context);
+    return de_DescribeTypeRegistrationCommand(output, context);
   }
 
   // Start section: command_body_extra

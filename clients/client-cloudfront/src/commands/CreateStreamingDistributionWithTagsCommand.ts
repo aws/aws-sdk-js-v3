@@ -19,8 +19,8 @@ import {
   CreateStreamingDistributionWithTagsResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
-  serializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
+  de_CreateStreamingDistributionWithTagsCommand,
+  se_CreateStreamingDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -213,7 +213,7 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     input: CreateStreamingDistributionWithTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(input, context);
+    return se_CreateStreamingDistributionWithTagsCommand(input, context);
   }
 
   /**
@@ -223,7 +223,7 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(output, context);
+    return de_CreateStreamingDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

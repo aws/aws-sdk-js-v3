@@ -138,7 +138,10 @@ import {
 } from "../models/models_0";
 import { TextractServiceException as __BaseException } from "../models/TextractServiceException";
 
-export const serializeAws_json1_1AnalyzeDocumentCommand = async (
+/**
+ * serializeAws_json1_1AnalyzeDocumentCommand
+ */
+export const se_AnalyzeDocumentCommand = async (
   input: AnalyzeDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -147,11 +150,14 @@ export const serializeAws_json1_1AnalyzeDocumentCommand = async (
     "x-amz-target": "Textract.AnalyzeDocument",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AnalyzeDocumentRequest(input, context));
+  body = JSON.stringify(se_AnalyzeDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AnalyzeExpenseCommand = async (
+/**
+ * serializeAws_json1_1AnalyzeExpenseCommand
+ */
+export const se_AnalyzeExpenseCommand = async (
   input: AnalyzeExpenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -160,11 +166,14 @@ export const serializeAws_json1_1AnalyzeExpenseCommand = async (
     "x-amz-target": "Textract.AnalyzeExpense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AnalyzeExpenseRequest(input, context));
+  body = JSON.stringify(se_AnalyzeExpenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AnalyzeIDCommand = async (
+/**
+ * serializeAws_json1_1AnalyzeIDCommand
+ */
+export const se_AnalyzeIDCommand = async (
   input: AnalyzeIDCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -173,11 +182,14 @@ export const serializeAws_json1_1AnalyzeIDCommand = async (
     "x-amz-target": "Textract.AnalyzeID",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AnalyzeIDRequest(input, context));
+  body = JSON.stringify(se_AnalyzeIDRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DetectDocumentTextCommand = async (
+/**
+ * serializeAws_json1_1DetectDocumentTextCommand
+ */
+export const se_DetectDocumentTextCommand = async (
   input: DetectDocumentTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -186,11 +198,14 @@ export const serializeAws_json1_1DetectDocumentTextCommand = async (
     "x-amz-target": "Textract.DetectDocumentText",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DetectDocumentTextRequest(input, context));
+  body = JSON.stringify(se_DetectDocumentTextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDocumentAnalysisCommand = async (
+/**
+ * serializeAws_json1_1GetDocumentAnalysisCommand
+ */
+export const se_GetDocumentAnalysisCommand = async (
   input: GetDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -199,11 +214,14 @@ export const serializeAws_json1_1GetDocumentAnalysisCommand = async (
     "x-amz-target": "Textract.GetDocumentAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDocumentAnalysisRequest(input, context));
+  body = JSON.stringify(se_GetDocumentAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDocumentTextDetectionCommand = async (
+/**
+ * serializeAws_json1_1GetDocumentTextDetectionCommand
+ */
+export const se_GetDocumentTextDetectionCommand = async (
   input: GetDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -212,11 +230,14 @@ export const serializeAws_json1_1GetDocumentTextDetectionCommand = async (
     "x-amz-target": "Textract.GetDocumentTextDetection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDocumentTextDetectionRequest(input, context));
+  body = JSON.stringify(se_GetDocumentTextDetectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetExpenseAnalysisCommand = async (
+/**
+ * serializeAws_json1_1GetExpenseAnalysisCommand
+ */
+export const se_GetExpenseAnalysisCommand = async (
   input: GetExpenseAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -225,11 +246,14 @@ export const serializeAws_json1_1GetExpenseAnalysisCommand = async (
     "x-amz-target": "Textract.GetExpenseAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetExpenseAnalysisRequest(input, context));
+  body = JSON.stringify(se_GetExpenseAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLendingAnalysisCommand = async (
+/**
+ * serializeAws_json1_1GetLendingAnalysisCommand
+ */
+export const se_GetLendingAnalysisCommand = async (
   input: GetLendingAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -238,11 +262,14 @@ export const serializeAws_json1_1GetLendingAnalysisCommand = async (
     "x-amz-target": "Textract.GetLendingAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLendingAnalysisRequest(input, context));
+  body = JSON.stringify(se_GetLendingAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
+/**
+ * serializeAws_json1_1GetLendingAnalysisSummaryCommand
+ */
+export const se_GetLendingAnalysisSummaryCommand = async (
   input: GetLendingAnalysisSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -251,11 +278,14 @@ export const serializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
     "x-amz-target": "Textract.GetLendingAnalysisSummary",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLendingAnalysisSummaryRequest(input, context));
+  body = JSON.stringify(se_GetLendingAnalysisSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
+/**
+ * serializeAws_json1_1StartDocumentAnalysisCommand
+ */
+export const se_StartDocumentAnalysisCommand = async (
   input: StartDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -264,11 +294,14 @@ export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
     "x-amz-target": "Textract.StartDocumentAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartDocumentAnalysisRequest(input, context));
+  body = JSON.stringify(se_StartDocumentAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartDocumentTextDetectionCommand = async (
+/**
+ * serializeAws_json1_1StartDocumentTextDetectionCommand
+ */
+export const se_StartDocumentTextDetectionCommand = async (
   input: StartDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -277,11 +310,14 @@ export const serializeAws_json1_1StartDocumentTextDetectionCommand = async (
     "x-amz-target": "Textract.StartDocumentTextDetection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartDocumentTextDetectionRequest(input, context));
+  body = JSON.stringify(se_StartDocumentTextDetectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartExpenseAnalysisCommand = async (
+/**
+ * serializeAws_json1_1StartExpenseAnalysisCommand
+ */
+export const se_StartExpenseAnalysisCommand = async (
   input: StartExpenseAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -290,11 +326,14 @@ export const serializeAws_json1_1StartExpenseAnalysisCommand = async (
     "x-amz-target": "Textract.StartExpenseAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartExpenseAnalysisRequest(input, context));
+  body = JSON.stringify(se_StartExpenseAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartLendingAnalysisCommand = async (
+/**
+ * serializeAws_json1_1StartLendingAnalysisCommand
+ */
+export const se_StartLendingAnalysisCommand = async (
   input: StartLendingAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -303,20 +342,23 @@ export const serializeAws_json1_1StartLendingAnalysisCommand = async (
     "x-amz-target": "Textract.StartLendingAnalysis",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartLendingAnalysisRequest(input, context));
+  body = JSON.stringify(se_StartLendingAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
+/**
+ * deserializeAws_json1_1AnalyzeDocumentCommand
+ */
+export const de_AnalyzeDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AnalyzeDocumentCommandError(output, context);
+    return de_AnalyzeDocumentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AnalyzeDocumentResponse(data, context);
+  contents = de_AnalyzeDocumentResponse(data, context);
   const response: AnalyzeDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -324,7 +366,10 @@ export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
+/**
+ * deserializeAws_json1_1AnalyzeDocumentCommandError
+ */
+const de_AnalyzeDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> => {
@@ -336,34 +381,34 @@ const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "HumanLoopQuotaExceededException":
     case "com.amazonaws.textract#HumanLoopQuotaExceededException":
-      throw await deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_HumanLoopQuotaExceededExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -375,16 +420,19 @@ const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AnalyzeExpenseCommand = async (
+/**
+ * deserializeAws_json1_1AnalyzeExpenseCommand
+ */
+export const de_AnalyzeExpenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeExpenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AnalyzeExpenseCommandError(output, context);
+    return de_AnalyzeExpenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AnalyzeExpenseResponse(data, context);
+  contents = de_AnalyzeExpenseResponse(data, context);
   const response: AnalyzeExpenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -392,7 +440,10 @@ export const deserializeAws_json1_1AnalyzeExpenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AnalyzeExpenseCommandError = async (
+/**
+ * deserializeAws_json1_1AnalyzeExpenseCommandError
+ */
+const de_AnalyzeExpenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeExpenseCommandOutput> => {
@@ -404,31 +455,31 @@ const deserializeAws_json1_1AnalyzeExpenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -440,16 +491,19 @@ const deserializeAws_json1_1AnalyzeExpenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AnalyzeIDCommand = async (
+/**
+ * deserializeAws_json1_1AnalyzeIDCommand
+ */
+export const de_AnalyzeIDCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeIDCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AnalyzeIDCommandError(output, context);
+    return de_AnalyzeIDCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AnalyzeIDResponse(data, context);
+  contents = de_AnalyzeIDResponse(data, context);
   const response: AnalyzeIDCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -457,7 +511,10 @@ export const deserializeAws_json1_1AnalyzeIDCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AnalyzeIDCommandError = async (
+/**
+ * deserializeAws_json1_1AnalyzeIDCommandError
+ */
+const de_AnalyzeIDCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeIDCommandOutput> => {
@@ -469,31 +526,31 @@ const deserializeAws_json1_1AnalyzeIDCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -505,16 +562,19 @@ const deserializeAws_json1_1AnalyzeIDCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DetectDocumentTextCommand = async (
+/**
+ * deserializeAws_json1_1DetectDocumentTextCommand
+ */
+export const de_DetectDocumentTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectDocumentTextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DetectDocumentTextCommandError(output, context);
+    return de_DetectDocumentTextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectDocumentTextResponse(data, context);
+  contents = de_DetectDocumentTextResponse(data, context);
   const response: DetectDocumentTextCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -522,7 +582,10 @@ export const deserializeAws_json1_1DetectDocumentTextCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DetectDocumentTextCommandError = async (
+/**
+ * deserializeAws_json1_1DetectDocumentTextCommandError
+ */
+const de_DetectDocumentTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectDocumentTextCommandOutput> => {
@@ -534,31 +597,31 @@ const deserializeAws_json1_1DetectDocumentTextCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -570,16 +633,19 @@ const deserializeAws_json1_1DetectDocumentTextCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1GetDocumentAnalysisCommand
+ */
+export const de_GetDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDocumentAnalysisCommandError(output, context);
+    return de_GetDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDocumentAnalysisResponse(data, context);
+  contents = de_GetDocumentAnalysisResponse(data, context);
   const response: GetDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -587,7 +653,10 @@ export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1GetDocumentAnalysisCommandError
+ */
+const de_GetDocumentAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentAnalysisCommandOutput> => {
@@ -599,28 +668,28 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -632,16 +701,19 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
+/**
+ * deserializeAws_json1_1GetDocumentTextDetectionCommand
+ */
+export const de_GetDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentTextDetectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDocumentTextDetectionCommandError(output, context);
+    return de_GetDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDocumentTextDetectionResponse(data, context);
+  contents = de_GetDocumentTextDetectionResponse(data, context);
   const response: GetDocumentTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -649,7 +721,10 @@ export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
+/**
+ * deserializeAws_json1_1GetDocumentTextDetectionCommandError
+ */
+const de_GetDocumentTextDetectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentTextDetectionCommandOutput> => {
@@ -661,28 +736,28 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -694,16 +769,19 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetExpenseAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1GetExpenseAnalysisCommand
+ */
+export const de_GetExpenseAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExpenseAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetExpenseAnalysisCommandError(output, context);
+    return de_GetExpenseAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetExpenseAnalysisResponse(data, context);
+  contents = de_GetExpenseAnalysisResponse(data, context);
   const response: GetExpenseAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -711,7 +789,10 @@ export const deserializeAws_json1_1GetExpenseAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetExpenseAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1GetExpenseAnalysisCommandError
+ */
+const de_GetExpenseAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExpenseAnalysisCommandOutput> => {
@@ -723,28 +804,28 @@ const deserializeAws_json1_1GetExpenseAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -756,16 +837,19 @@ const deserializeAws_json1_1GetExpenseAnalysisCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLendingAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1GetLendingAnalysisCommand
+ */
+export const de_GetLendingAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLendingAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLendingAnalysisCommandError(output, context);
+    return de_GetLendingAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLendingAnalysisResponse(data, context);
+  contents = de_GetLendingAnalysisResponse(data, context);
   const response: GetLendingAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -773,7 +857,10 @@ export const deserializeAws_json1_1GetLendingAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLendingAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1GetLendingAnalysisCommandError
+ */
+const de_GetLendingAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLendingAnalysisCommandOutput> => {
@@ -785,28 +872,28 @@ const deserializeAws_json1_1GetLendingAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -818,16 +905,19 @@ const deserializeAws_json1_1GetLendingAnalysisCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
+/**
+ * deserializeAws_json1_1GetLendingAnalysisSummaryCommand
+ */
+export const de_GetLendingAnalysisSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLendingAnalysisSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLendingAnalysisSummaryCommandError(output, context);
+    return de_GetLendingAnalysisSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLendingAnalysisSummaryResponse(data, context);
+  contents = de_GetLendingAnalysisSummaryResponse(data, context);
   const response: GetLendingAnalysisSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -835,7 +925,10 @@ export const deserializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLendingAnalysisSummaryCommandError = async (
+/**
+ * deserializeAws_json1_1GetLendingAnalysisSummaryCommandError
+ */
+const de_GetLendingAnalysisSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLendingAnalysisSummaryCommandOutput> => {
@@ -847,28 +940,28 @@ const deserializeAws_json1_1GetLendingAnalysisSummaryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -880,16 +973,19 @@ const deserializeAws_json1_1GetLendingAnalysisSummaryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1StartDocumentAnalysisCommand
+ */
+export const de_StartDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartDocumentAnalysisCommandError(output, context);
+    return de_StartDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDocumentAnalysisResponse(data, context);
+  contents = de_StartDocumentAnalysisResponse(data, context);
   const response: StartDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -897,7 +993,10 @@ export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1StartDocumentAnalysisCommandError
+ */
+const de_StartDocumentAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentAnalysisCommandOutput> => {
@@ -909,40 +1008,40 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -954,16 +1053,19 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
+/**
+ * deserializeAws_json1_1StartDocumentTextDetectionCommand
+ */
+export const de_StartDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentTextDetectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartDocumentTextDetectionCommandError(output, context);
+    return de_StartDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDocumentTextDetectionResponse(data, context);
+  contents = de_StartDocumentTextDetectionResponse(data, context);
   const response: StartDocumentTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -971,7 +1073,10 @@ export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
+/**
+ * deserializeAws_json1_1StartDocumentTextDetectionCommandError
+ */
+const de_StartDocumentTextDetectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentTextDetectionCommandOutput> => {
@@ -983,40 +1088,40 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1028,16 +1133,19 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartExpenseAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1StartExpenseAnalysisCommand
+ */
+export const de_StartExpenseAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExpenseAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartExpenseAnalysisCommandError(output, context);
+    return de_StartExpenseAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartExpenseAnalysisResponse(data, context);
+  contents = de_StartExpenseAnalysisResponse(data, context);
   const response: StartExpenseAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1045,7 +1153,10 @@ export const deserializeAws_json1_1StartExpenseAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartExpenseAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1StartExpenseAnalysisCommandError
+ */
+const de_StartExpenseAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExpenseAnalysisCommandOutput> => {
@@ -1057,40 +1168,40 @@ const deserializeAws_json1_1StartExpenseAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1102,16 +1213,19 @@ const deserializeAws_json1_1StartExpenseAnalysisCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartLendingAnalysisCommand = async (
+/**
+ * deserializeAws_json1_1StartLendingAnalysisCommand
+ */
+export const de_StartLendingAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLendingAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartLendingAnalysisCommandError(output, context);
+    return de_StartLendingAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartLendingAnalysisResponse(data, context);
+  contents = de_StartLendingAnalysisResponse(data, context);
   const response: StartLendingAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1119,7 +1233,10 @@ export const deserializeAws_json1_1StartLendingAnalysisCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartLendingAnalysisCommandError = async (
+/**
+ * deserializeAws_json1_1StartLendingAnalysisCommandError
+ */
+const de_StartLendingAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLendingAnalysisCommandOutput> => {
@@ -1131,40 +1248,40 @@ const deserializeAws_json1_1StartLendingAnalysisCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+      throw await de_BadDocumentExceptionRes(parsedOutput, context);
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1176,12 +1293,15 @@ const deserializeAws_json1_1StartLendingAnalysisCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1189,12 +1309,15 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BadDocumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BadDocumentExceptionRes
+ */
+const de_BadDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadDocumentException(body, context);
+  const deserialized: any = de_BadDocumentException(body, context);
   const exception = new BadDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1202,12 +1325,15 @@ const deserializeAws_json1_1BadDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DocumentTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DocumentTooLargeExceptionRes
+ */
+const de_DocumentTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DocumentTooLargeException(body, context);
+  const deserialized: any = de_DocumentTooLargeException(body, context);
   const exception = new DocumentTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1215,12 +1341,15 @@ const deserializeAws_json1_1DocumentTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1HumanLoopQuotaExceededExceptionRes
+ */
+const de_HumanLoopQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HumanLoopQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1HumanLoopQuotaExceededException(body, context);
+  const deserialized: any = de_HumanLoopQuotaExceededException(body, context);
   const exception = new HumanLoopQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1228,12 +1357,15 @@ const deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IdempotentParameterMismatchExceptionRes
+ */
+const de_IdempotentParameterMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(body, context);
+  const deserialized: any = de_IdempotentParameterMismatchException(body, context);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1241,12 +1373,12 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
+  const deserialized: any = de_InternalServerError(body, context);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1254,12 +1386,15 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidJobIdExceptionRes
+ */
+const de_InvalidJobIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidJobIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidJobIdException(body, context);
+  const deserialized: any = de_InvalidJobIdException(body, context);
   const exception = new InvalidJobIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1267,12 +1402,15 @@ const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidKMSKeyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidKMSKeyExceptionRes
+ */
+const de_InvalidKMSKeyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKMSKeyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidKMSKeyException(body, context);
+  const deserialized: any = de_InvalidKMSKeyException(body, context);
   const exception = new InvalidKMSKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1280,12 +1418,15 @@ const deserializeAws_json1_1InvalidKMSKeyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1293,12 +1434,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidS3ObjectExceptionRes
+ */
+const de_InvalidS3ObjectExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidS3ObjectException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidS3ObjectException(body, context);
+  const deserialized: any = de_InvalidS3ObjectException(body, context);
   const exception = new InvalidS3ObjectException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1306,12 +1450,15 @@ const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1319,12 +1466,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ProvisionedThroughputExceededExceptionRes
+ */
+const de_ProvisionedThroughputExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ProvisionedThroughputExceededException(body, context);
+  const deserialized: any = de_ProvisionedThroughputExceededException(body, context);
   const exception = new ProvisionedThroughputExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1332,12 +1482,12 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1345,12 +1495,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedDocumentExceptionRes
+ */
+const de_UnsupportedDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedDocumentException(body, context);
+  const deserialized: any = de_UnsupportedDocumentException(body, context);
   const exception = new UnsupportedDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1358,37 +1511,40 @@ const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AnalyzeDocumentRequest
+ */
+const se_AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Document != null && { Document: serializeAws_json1_1Document(input.Document, context) }),
-    ...(input.FeatureTypes != null && { FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context) }),
-    ...(input.HumanLoopConfig != null && {
-      HumanLoopConfig: serializeAws_json1_1HumanLoopConfig(input.HumanLoopConfig, context),
-    }),
-    ...(input.QueriesConfig != null && {
-      QueriesConfig: serializeAws_json1_1QueriesConfig(input.QueriesConfig, context),
-    }),
+    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
+    ...(input.FeatureTypes != null && { FeatureTypes: se_FeatureTypes(input.FeatureTypes, context) }),
+    ...(input.HumanLoopConfig != null && { HumanLoopConfig: se_HumanLoopConfig(input.HumanLoopConfig, context) }),
+    ...(input.QueriesConfig != null && { QueriesConfig: se_QueriesConfig(input.QueriesConfig, context) }),
   };
 };
 
-const serializeAws_json1_1AnalyzeExpenseRequest = (input: AnalyzeExpenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AnalyzeExpenseRequest
+ */
+const se_AnalyzeExpenseRequest = (input: AnalyzeExpenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Document != null && { Document: serializeAws_json1_1Document(input.Document, context) }),
+    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
   };
 };
 
-const serializeAws_json1_1AnalyzeIDRequest = (input: AnalyzeIDRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AnalyzeIDRequest
+ */
+const se_AnalyzeIDRequest = (input: AnalyzeIDRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentPages != null && {
-      DocumentPages: serializeAws_json1_1DocumentPages(input.DocumentPages, context),
-    }),
+    ...(input.DocumentPages != null && { DocumentPages: se_DocumentPages(input.DocumentPages, context) }),
   };
 };
 
-const serializeAws_json1_1ContentClassifiers = (
-  input: (ContentClassifier | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ContentClassifiers
+ */
+const se_ContentClassifiers = (input: (ContentClassifier | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1396,37 +1552,49 @@ const serializeAws_json1_1ContentClassifiers = (
     });
 };
 
-const serializeAws_json1_1DetectDocumentTextRequest = (
-  input: DetectDocumentTextRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DetectDocumentTextRequest
+ */
+const se_DetectDocumentTextRequest = (input: DetectDocumentTextRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Document != null && { Document: serializeAws_json1_1Document(input.Document, context) }),
+    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
   };
 };
 
-const serializeAws_json1_1Document = (input: Document, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Document
+ */
+const se_Document = (input: Document, context: __SerdeContext): any => {
   return {
     ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.S3Object != null && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
+    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
   };
 };
 
-const serializeAws_json1_1DocumentLocation = (input: DocumentLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DocumentLocation
+ */
+const se_DocumentLocation = (input: DocumentLocation, context: __SerdeContext): any => {
   return {
-    ...(input.S3Object != null && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
+    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
   };
 };
 
-const serializeAws_json1_1DocumentPages = (input: Document[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DocumentPages
+ */
+const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Document(entry, context);
+      return se_Document(entry, context);
     });
 };
 
-const serializeAws_json1_1FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FeatureTypes
+ */
+const se_FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1434,10 +1602,10 @@ const serializeAws_json1_1FeatureTypes = (input: (FeatureType | string)[], conte
     });
 };
 
-const serializeAws_json1_1GetDocumentAnalysisRequest = (
-  input: GetDocumentAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDocumentAnalysisRequest
+ */
+const se_GetDocumentAnalysisRequest = (input: GetDocumentAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -1445,10 +1613,10 @@ const serializeAws_json1_1GetDocumentAnalysisRequest = (
   };
 };
 
-const serializeAws_json1_1GetDocumentTextDetectionRequest = (
-  input: GetDocumentTextDetectionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDocumentTextDetectionRequest
+ */
+const se_GetDocumentTextDetectionRequest = (input: GetDocumentTextDetectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -1456,10 +1624,10 @@ const serializeAws_json1_1GetDocumentTextDetectionRequest = (
   };
 };
 
-const serializeAws_json1_1GetExpenseAnalysisRequest = (
-  input: GetExpenseAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetExpenseAnalysisRequest
+ */
+const se_GetExpenseAnalysisRequest = (input: GetExpenseAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -1467,10 +1635,10 @@ const serializeAws_json1_1GetExpenseAnalysisRequest = (
   };
 };
 
-const serializeAws_json1_1GetLendingAnalysisRequest = (
-  input: GetLendingAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetLendingAnalysisRequest
+ */
+const se_GetLendingAnalysisRequest = (input: GetLendingAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -1478,70 +1646,92 @@ const serializeAws_json1_1GetLendingAnalysisRequest = (
   };
 };
 
-const serializeAws_json1_1GetLendingAnalysisSummaryRequest = (
-  input: GetLendingAnalysisSummaryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetLendingAnalysisSummaryRequest
+ */
+const se_GetLendingAnalysisSummaryRequest = (input: GetLendingAnalysisSummaryRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
   };
 };
 
-const serializeAws_json1_1HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HumanLoopConfig
+ */
+const se_HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DataAttributes != null && {
-      DataAttributes: serializeAws_json1_1HumanLoopDataAttributes(input.DataAttributes, context),
-    }),
+    ...(input.DataAttributes != null && { DataAttributes: se_HumanLoopDataAttributes(input.DataAttributes, context) }),
     ...(input.FlowDefinitionArn != null && { FlowDefinitionArn: input.FlowDefinitionArn }),
     ...(input.HumanLoopName != null && { HumanLoopName: input.HumanLoopName }),
   };
 };
 
-const serializeAws_json1_1HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HumanLoopDataAttributes
+ */
+const se_HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
   return {
     ...(input.ContentClassifiers != null && {
-      ContentClassifiers: serializeAws_json1_1ContentClassifiers(input.ContentClassifiers, context),
+      ContentClassifiers: se_ContentClassifiers(input.ContentClassifiers, context),
     }),
   };
 };
 
-const serializeAws_json1_1NotificationChannel = (input: NotificationChannel, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NotificationChannel
+ */
+const se_NotificationChannel = (input: NotificationChannel, context: __SerdeContext): any => {
   return {
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
   };
 };
 
-const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OutputConfig
+ */
+const se_OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
   return {
     ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
     ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
   };
 };
 
-const serializeAws_json1_1Queries = (input: Query[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Queries
+ */
+const se_Queries = (input: Query[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Query(entry, context);
+      return se_Query(entry, context);
     });
 };
 
-const serializeAws_json1_1QueriesConfig = (input: QueriesConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1QueriesConfig
+ */
+const se_QueriesConfig = (input: QueriesConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Queries != null && { Queries: serializeAws_json1_1Queries(input.Queries, context) }),
+    ...(input.Queries != null && { Queries: se_Queries(input.Queries, context) }),
   };
 };
 
-const serializeAws_json1_1Query = (input: Query, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Query
+ */
+const se_Query = (input: Query, context: __SerdeContext): any => {
   return {
     ...(input.Alias != null && { Alias: input.Alias }),
-    ...(input.Pages != null && { Pages: serializeAws_json1_1QueryPages(input.Pages, context) }),
+    ...(input.Pages != null && { Pages: se_QueryPages(input.Pages, context) }),
     ...(input.Text != null && { Text: input.Text }),
   };
 };
 
-const serializeAws_json1_1QueryPages = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1QueryPages
+ */
+const se_QueryPages = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1549,7 +1739,10 @@ const serializeAws_json1_1QueryPages = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3Object
+ */
+const se_S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket != null && { Bucket: input.Bucket }),
     ...(input.Name != null && { Name: input.Name }),
@@ -1557,166 +1750,162 @@ const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext):
   };
 };
 
-const serializeAws_json1_1StartDocumentAnalysisRequest = (
-  input: StartDocumentAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartDocumentAnalysisRequest
+ */
+const se_StartDocumentAnalysisRequest = (input: StartDocumentAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
-    ...(input.FeatureTypes != null && { FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context) }),
+    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
+    ...(input.FeatureTypes != null && { FeatureTypes: se_FeatureTypes(input.FeatureTypes, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel != null && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
-    ...(input.QueriesConfig != null && {
-      QueriesConfig: serializeAws_json1_1QueriesConfig(input.QueriesConfig, context),
-    }),
+    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
+    ...(input.QueriesConfig != null && { QueriesConfig: se_QueriesConfig(input.QueriesConfig, context) }),
   };
 };
 
-const serializeAws_json1_1StartDocumentTextDetectionRequest = (
+/**
+ * serializeAws_json1_1StartDocumentTextDetectionRequest
+ */
+const se_StartDocumentTextDetectionRequest = (
   input: StartDocumentTextDetectionRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
+    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel != null && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
   };
 };
 
-const serializeAws_json1_1StartExpenseAnalysisRequest = (
-  input: StartExpenseAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartExpenseAnalysisRequest
+ */
+const se_StartExpenseAnalysisRequest = (input: StartExpenseAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
+    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel != null && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
   };
 };
 
-const serializeAws_json1_1StartLendingAnalysisRequest = (
-  input: StartLendingAnalysisRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartLendingAnalysisRequest
+ */
+const se_StartLendingAnalysisRequest = (input: StartLendingAnalysisRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
+    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel != null && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
   };
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AnalyzeDocumentResponse = (
-  output: any,
-  context: __SerdeContext
-): AnalyzeDocumentResponse => {
+/**
+ * deserializeAws_json1_1AnalyzeDocumentResponse
+ */
+const de_AnalyzeDocumentResponse = (output: any, context: __SerdeContext): AnalyzeDocumentResponse => {
   return {
     AnalyzeDocumentModelVersion: __expectString(output.AnalyzeDocumentModelVersion),
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     HumanLoopActivationOutput:
       output.HumanLoopActivationOutput != null
-        ? deserializeAws_json1_1HumanLoopActivationOutput(output.HumanLoopActivationOutput, context)
+        ? de_HumanLoopActivationOutput(output.HumanLoopActivationOutput, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AnalyzeExpenseResponse = (output: any, context: __SerdeContext): AnalyzeExpenseResponse => {
+/**
+ * deserializeAws_json1_1AnalyzeExpenseResponse
+ */
+const de_AnalyzeExpenseResponse = (output: any, context: __SerdeContext): AnalyzeExpenseResponse => {
   return {
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     ExpenseDocuments:
-      output.ExpenseDocuments != null
-        ? deserializeAws_json1_1ExpenseDocumentList(output.ExpenseDocuments, context)
-        : undefined,
+      output.ExpenseDocuments != null ? de_ExpenseDocumentList(output.ExpenseDocuments, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AnalyzeIDDetections = (output: any, context: __SerdeContext): AnalyzeIDDetections => {
+/**
+ * deserializeAws_json1_1AnalyzeIDDetections
+ */
+const de_AnalyzeIDDetections = (output: any, context: __SerdeContext): AnalyzeIDDetections => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
-    NormalizedValue:
-      output.NormalizedValue != null
-        ? deserializeAws_json1_1NormalizedValue(output.NormalizedValue, context)
-        : undefined,
+    NormalizedValue: output.NormalizedValue != null ? de_NormalizedValue(output.NormalizedValue, context) : undefined,
     Text: __expectString(output.Text),
   } as any;
 };
 
-const deserializeAws_json1_1AnalyzeIDResponse = (output: any, context: __SerdeContext): AnalyzeIDResponse => {
+/**
+ * deserializeAws_json1_1AnalyzeIDResponse
+ */
+const de_AnalyzeIDResponse = (output: any, context: __SerdeContext): AnalyzeIDResponse => {
   return {
     AnalyzeIDModelVersion: __expectString(output.AnalyzeIDModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     IdentityDocuments:
-      output.IdentityDocuments != null
-        ? deserializeAws_json1_1IdentityDocumentList(output.IdentityDocuments, context)
-        : undefined,
+      output.IdentityDocuments != null ? de_IdentityDocumentList(output.IdentityDocuments, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BadDocumentException = (output: any, context: __SerdeContext): BadDocumentException => {
+/**
+ * deserializeAws_json1_1BadDocumentException
+ */
+const de_BadDocumentException = (output: any, context: __SerdeContext): BadDocumentException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Block => {
+/**
+ * deserializeAws_json1_1Block
+ */
+const de_Block = (output: any, context: __SerdeContext): Block => {
   return {
     BlockType: __expectString(output.BlockType),
     ColumnIndex: __expectInt32(output.ColumnIndex),
     ColumnSpan: __expectInt32(output.ColumnSpan),
     Confidence: __limitedParseFloat32(output.Confidence),
-    EntityTypes:
-      output.EntityTypes != null ? deserializeAws_json1_1EntityTypes(output.EntityTypes, context) : undefined,
-    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    EntityTypes: output.EntityTypes != null ? de_EntityTypes(output.EntityTypes, context) : undefined,
+    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
     Id: __expectString(output.Id),
     Page: __expectInt32(output.Page),
-    Query: output.Query != null ? deserializeAws_json1_1Query(output.Query, context) : undefined,
-    Relationships:
-      output.Relationships != null ? deserializeAws_json1_1RelationshipList(output.Relationships, context) : undefined,
+    Query: output.Query != null ? de_Query(output.Query, context) : undefined,
+    Relationships: output.Relationships != null ? de_RelationshipList(output.Relationships, context) : undefined,
     RowIndex: __expectInt32(output.RowIndex),
     RowSpan: __expectInt32(output.RowSpan),
     SelectionStatus: __expectString(output.SelectionStatus),
@@ -1725,19 +1914,25 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
   } as any;
 };
 
-const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): Block[] => {
+/**
+ * deserializeAws_json1_1BlockList
+ */
+const de_BlockList = (output: any, context: __SerdeContext): Block[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Block(entry, context);
+      return de_Block(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
+/**
+ * deserializeAws_json1_1BoundingBox
+ */
+const de_BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
     Height: __limitedParseFloat32(output.Height),
     Left: __limitedParseFloat32(output.Left),
@@ -1746,85 +1941,96 @@ const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1DetectDocumentTextResponse = (
-  output: any,
-  context: __SerdeContext
-): DetectDocumentTextResponse => {
+/**
+ * deserializeAws_json1_1DetectDocumentTextResponse
+ */
+const de_DetectDocumentTextResponse = (output: any, context: __SerdeContext): DetectDocumentTextResponse => {
   return {
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     DetectDocumentTextModelVersion: __expectString(output.DetectDocumentTextModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DetectedSignature = (output: any, context: __SerdeContext): DetectedSignature => {
+/**
+ * deserializeAws_json1_1DetectedSignature
+ */
+const de_DetectedSignature = (output: any, context: __SerdeContext): DetectedSignature => {
   return {
     Page: __expectInt32(output.Page),
   } as any;
 };
 
-const deserializeAws_json1_1DetectedSignatureList = (output: any, context: __SerdeContext): DetectedSignature[] => {
+/**
+ * deserializeAws_json1_1DetectedSignatureList
+ */
+const de_DetectedSignatureList = (output: any, context: __SerdeContext): DetectedSignature[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DetectedSignature(entry, context);
+      return de_DetectedSignature(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DocumentGroup = (output: any, context: __SerdeContext): DocumentGroup => {
+/**
+ * deserializeAws_json1_1DocumentGroup
+ */
+const de_DocumentGroup = (output: any, context: __SerdeContext): DocumentGroup => {
   return {
     DetectedSignatures:
-      output.DetectedSignatures != null
-        ? deserializeAws_json1_1DetectedSignatureList(output.DetectedSignatures, context)
-        : undefined,
-    SplitDocuments:
-      output.SplitDocuments != null
-        ? deserializeAws_json1_1SplitDocumentList(output.SplitDocuments, context)
-        : undefined,
+      output.DetectedSignatures != null ? de_DetectedSignatureList(output.DetectedSignatures, context) : undefined,
+    SplitDocuments: output.SplitDocuments != null ? de_SplitDocumentList(output.SplitDocuments, context) : undefined,
     Type: __expectString(output.Type),
     UndetectedSignatures:
       output.UndetectedSignatures != null
-        ? deserializeAws_json1_1UndetectedSignatureList(output.UndetectedSignatures, context)
+        ? de_UndetectedSignatureList(output.UndetectedSignatures, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DocumentGroupList = (output: any, context: __SerdeContext): DocumentGroup[] => {
+/**
+ * deserializeAws_json1_1DocumentGroupList
+ */
+const de_DocumentGroupList = (output: any, context: __SerdeContext): DocumentGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DocumentGroup(entry, context);
+      return de_DocumentGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
+/**
+ * deserializeAws_json1_1DocumentMetadata
+ */
+const de_DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
     Pages: __expectInt32(output.Pages),
   } as any;
 };
 
-const deserializeAws_json1_1DocumentTooLargeException = (
-  output: any,
-  context: __SerdeContext
-): DocumentTooLargeException => {
+/**
+ * deserializeAws_json1_1DocumentTooLargeException
+ */
+const de_DocumentTooLargeException = (output: any, context: __SerdeContext): DocumentTooLargeException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
+/**
+ * deserializeAws_json1_1EntityTypes
+ */
+const de_EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1836,240 +2042,246 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1ExpenseCurrency = (output: any, context: __SerdeContext): ExpenseCurrency => {
+/**
+ * deserializeAws_json1_1ExpenseCurrency
+ */
+const de_ExpenseCurrency = (output: any, context: __SerdeContext): ExpenseCurrency => {
   return {
     Code: __expectString(output.Code),
     Confidence: __limitedParseFloat32(output.Confidence),
   } as any;
 };
 
-const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
+/**
+ * deserializeAws_json1_1ExpenseDetection
+ */
+const de_ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
     Text: __expectString(output.Text),
   } as any;
 };
 
-const deserializeAws_json1_1ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
+/**
+ * deserializeAws_json1_1ExpenseDocument
+ */
+const de_ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
   return {
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     ExpenseIndex: __expectInt32(output.ExpenseIndex),
-    LineItemGroups:
-      output.LineItemGroups != null
-        ? deserializeAws_json1_1LineItemGroupList(output.LineItemGroups, context)
-        : undefined,
-    SummaryFields:
-      output.SummaryFields != null ? deserializeAws_json1_1ExpenseFieldList(output.SummaryFields, context) : undefined,
+    LineItemGroups: output.LineItemGroups != null ? de_LineItemGroupList(output.LineItemGroups, context) : undefined,
+    SummaryFields: output.SummaryFields != null ? de_ExpenseFieldList(output.SummaryFields, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExpenseDocumentList = (output: any, context: __SerdeContext): ExpenseDocument[] => {
+/**
+ * deserializeAws_json1_1ExpenseDocumentList
+ */
+const de_ExpenseDocumentList = (output: any, context: __SerdeContext): ExpenseDocument[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExpenseDocument(entry, context);
+      return de_ExpenseDocument(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
+/**
+ * deserializeAws_json1_1ExpenseField
+ */
+const de_ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
   return {
-    Currency: output.Currency != null ? deserializeAws_json1_1ExpenseCurrency(output.Currency, context) : undefined,
+    Currency: output.Currency != null ? de_ExpenseCurrency(output.Currency, context) : undefined,
     GroupProperties:
-      output.GroupProperties != null
-        ? deserializeAws_json1_1ExpenseGroupPropertyList(output.GroupProperties, context)
-        : undefined,
-    LabelDetection:
-      output.LabelDetection != null
-        ? deserializeAws_json1_1ExpenseDetection(output.LabelDetection, context)
-        : undefined,
+      output.GroupProperties != null ? de_ExpenseGroupPropertyList(output.GroupProperties, context) : undefined,
+    LabelDetection: output.LabelDetection != null ? de_ExpenseDetection(output.LabelDetection, context) : undefined,
     PageNumber: __expectInt32(output.PageNumber),
-    Type: output.Type != null ? deserializeAws_json1_1ExpenseType(output.Type, context) : undefined,
-    ValueDetection:
-      output.ValueDetection != null
-        ? deserializeAws_json1_1ExpenseDetection(output.ValueDetection, context)
-        : undefined,
+    Type: output.Type != null ? de_ExpenseType(output.Type, context) : undefined,
+    ValueDetection: output.ValueDetection != null ? de_ExpenseDetection(output.ValueDetection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeContext): ExpenseField[] => {
+/**
+ * deserializeAws_json1_1ExpenseFieldList
+ */
+const de_ExpenseFieldList = (output: any, context: __SerdeContext): ExpenseField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExpenseField(entry, context);
+      return de_ExpenseField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExpenseGroupProperty = (output: any, context: __SerdeContext): ExpenseGroupProperty => {
+/**
+ * deserializeAws_json1_1ExpenseGroupProperty
+ */
+const de_ExpenseGroupProperty = (output: any, context: __SerdeContext): ExpenseGroupProperty => {
   return {
     Id: __expectString(output.Id),
-    Types: output.Types != null ? deserializeAws_json1_1StringList(output.Types, context) : undefined,
+    Types: output.Types != null ? de_StringList(output.Types, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExpenseGroupPropertyList = (
-  output: any,
-  context: __SerdeContext
-): ExpenseGroupProperty[] => {
+/**
+ * deserializeAws_json1_1ExpenseGroupPropertyList
+ */
+const de_ExpenseGroupPropertyList = (output: any, context: __SerdeContext): ExpenseGroupProperty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExpenseGroupProperty(entry, context);
+      return de_ExpenseGroupProperty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
+/**
+ * deserializeAws_json1_1ExpenseType
+ */
+const de_ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
     Text: __expectString(output.Text),
   } as any;
 };
 
-const deserializeAws_json1_1Extraction = (output: any, context: __SerdeContext): Extraction => {
+/**
+ * deserializeAws_json1_1Extraction
+ */
+const de_Extraction = (output: any, context: __SerdeContext): Extraction => {
   return {
-    ExpenseDocument:
-      output.ExpenseDocument != null
-        ? deserializeAws_json1_1ExpenseDocument(output.ExpenseDocument, context)
-        : undefined,
+    ExpenseDocument: output.ExpenseDocument != null ? de_ExpenseDocument(output.ExpenseDocument, context) : undefined,
     IdentityDocument:
-      output.IdentityDocument != null
-        ? deserializeAws_json1_1IdentityDocument(output.IdentityDocument, context)
-        : undefined,
-    LendingDocument:
-      output.LendingDocument != null
-        ? deserializeAws_json1_1LendingDocument(output.LendingDocument, context)
-        : undefined,
+      output.IdentityDocument != null ? de_IdentityDocument(output.IdentityDocument, context) : undefined,
+    LendingDocument: output.LendingDocument != null ? de_LendingDocument(output.LendingDocument, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExtractionList = (output: any, context: __SerdeContext): Extraction[] => {
+/**
+ * deserializeAws_json1_1ExtractionList
+ */
+const de_ExtractionList = (output: any, context: __SerdeContext): Extraction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Extraction(entry, context);
+      return de_Extraction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
+/**
+ * deserializeAws_json1_1Geometry
+ */
+const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
   return {
-    BoundingBox:
-      output.BoundingBox != null ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context) : undefined,
-    Polygon: output.Polygon != null ? deserializeAws_json1_1Polygon(output.Polygon, context) : undefined,
+    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
+    Polygon: output.Polygon != null ? de_Polygon(output.Polygon, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDocumentAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDocumentAnalysisResponse => {
+/**
+ * deserializeAws_json1_1GetDocumentAnalysisResponse
+ */
+const de_GetDocumentAnalysisResponse = (output: any, context: __SerdeContext): GetDocumentAnalysisResponse => {
   return {
     AnalyzeDocumentModelVersion: __expectString(output.AnalyzeDocumentModelVersion),
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     NextToken: __expectString(output.NextToken),
     StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDocumentTextDetectionResponse = (
+/**
+ * deserializeAws_json1_1GetDocumentTextDetectionResponse
+ */
+const de_GetDocumentTextDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): GetDocumentTextDetectionResponse => {
   return {
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     DetectDocumentTextModelVersion: __expectString(output.DetectDocumentTextModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     NextToken: __expectString(output.NextToken),
     StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetExpenseAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): GetExpenseAnalysisResponse => {
+/**
+ * deserializeAws_json1_1GetExpenseAnalysisResponse
+ */
+const de_GetExpenseAnalysisResponse = (output: any, context: __SerdeContext): GetExpenseAnalysisResponse => {
   return {
     AnalyzeExpenseModelVersion: __expectString(output.AnalyzeExpenseModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     ExpenseDocuments:
-      output.ExpenseDocuments != null
-        ? deserializeAws_json1_1ExpenseDocumentList(output.ExpenseDocuments, context)
-        : undefined,
+      output.ExpenseDocuments != null ? de_ExpenseDocumentList(output.ExpenseDocuments, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     NextToken: __expectString(output.NextToken),
     StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLendingAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLendingAnalysisResponse => {
+/**
+ * deserializeAws_json1_1GetLendingAnalysisResponse
+ */
+const de_GetLendingAnalysisResponse = (output: any, context: __SerdeContext): GetLendingAnalysisResponse => {
   return {
     AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? deserializeAws_json1_1LendingResultList(output.Results, context) : undefined,
+    Results: output.Results != null ? de_LendingResultList(output.Results, context) : undefined,
     StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLendingAnalysisSummaryResponse = (
+/**
+ * deserializeAws_json1_1GetLendingAnalysisSummaryResponse
+ */
+const de_GetLendingAnalysisSummaryResponse = (
   output: any,
   context: __SerdeContext
 ): GetLendingAnalysisSummaryResponse => {
   return {
     AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
     DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
+      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     StatusMessage: __expectString(output.StatusMessage),
-    Summary: output.Summary != null ? deserializeAws_json1_1LendingSummary(output.Summary, context) : undefined,
-    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+    Summary: output.Summary != null ? de_LendingSummary(output.Summary, context) : undefined,
+    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HumanLoopActivationOutput = (
-  output: any,
-  context: __SerdeContext
-): HumanLoopActivationOutput => {
+/**
+ * deserializeAws_json1_1HumanLoopActivationOutput
+ */
+const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
   return {
     HumanLoopActivationConditionsEvaluationResults:
       output.HumanLoopActivationConditionsEvaluationResults != null
@@ -2077,13 +2289,16 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
         : undefined,
     HumanLoopActivationReasons:
       output.HumanLoopActivationReasons != null
-        ? deserializeAws_json1_1HumanLoopActivationReasons(output.HumanLoopActivationReasons, context)
+        ? de_HumanLoopActivationReasons(output.HumanLoopActivationReasons, context)
         : undefined,
     HumanLoopArn: __expectString(output.HumanLoopArn),
   } as any;
 };
 
-const deserializeAws_json1_1HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1HumanLoopActivationReasons
+ */
+const de_HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2095,10 +2310,10 @@ const deserializeAws_json1_1HumanLoopActivationReasons = (output: any, context: 
   return retVal;
 };
 
-const deserializeAws_json1_1HumanLoopQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): HumanLoopQuotaExceededException => {
+/**
+ * deserializeAws_json1_1HumanLoopQuotaExceededException
+ */
+const de_HumanLoopQuotaExceededException = (output: any, context: __SerdeContext): HumanLoopQuotaExceededException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
@@ -2108,7 +2323,10 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1IdempotentParameterMismatchException = (
+/**
+ * deserializeAws_json1_1IdempotentParameterMismatchException
+ */
+const de_IdempotentParameterMismatchException = (
   output: any,
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
@@ -2118,55 +2336,64 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   } as any;
 };
 
-const deserializeAws_json1_1IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
+/**
+ * deserializeAws_json1_1IdentityDocument
+ */
+const de_IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
   return {
-    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
+    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
     DocumentIndex: __expectInt32(output.DocumentIndex),
     IdentityDocumentFields:
       output.IdentityDocumentFields != null
-        ? deserializeAws_json1_1IdentityDocumentFieldList(output.IdentityDocumentFields, context)
+        ? de_IdentityDocumentFieldList(output.IdentityDocumentFields, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1IdentityDocumentField = (output: any, context: __SerdeContext): IdentityDocumentField => {
+/**
+ * deserializeAws_json1_1IdentityDocumentField
+ */
+const de_IdentityDocumentField = (output: any, context: __SerdeContext): IdentityDocumentField => {
   return {
-    Type: output.Type != null ? deserializeAws_json1_1AnalyzeIDDetections(output.Type, context) : undefined,
-    ValueDetection:
-      output.ValueDetection != null
-        ? deserializeAws_json1_1AnalyzeIDDetections(output.ValueDetection, context)
-        : undefined,
+    Type: output.Type != null ? de_AnalyzeIDDetections(output.Type, context) : undefined,
+    ValueDetection: output.ValueDetection != null ? de_AnalyzeIDDetections(output.ValueDetection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1IdentityDocumentFieldList = (
-  output: any,
-  context: __SerdeContext
-): IdentityDocumentField[] => {
+/**
+ * deserializeAws_json1_1IdentityDocumentFieldList
+ */
+const de_IdentityDocumentFieldList = (output: any, context: __SerdeContext): IdentityDocumentField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1IdentityDocumentField(entry, context);
+      return de_IdentityDocumentField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IdentityDocumentList = (output: any, context: __SerdeContext): IdentityDocument[] => {
+/**
+ * deserializeAws_json1_1IdentityDocumentList
+ */
+const de_IdentityDocumentList = (output: any, context: __SerdeContext): IdentityDocument[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1IdentityDocument(entry, context);
+      return de_IdentityDocument(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1IdList
+ */
+const de_IdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2178,203 +2405,245 @@ const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): str
   return retVal;
 };
 
-const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
+/**
+ * deserializeAws_json1_1InternalServerError
+ */
+const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
+/**
+ * deserializeAws_json1_1InvalidJobIdException
+ */
+const de_InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidKMSKeyException = (output: any, context: __SerdeContext): InvalidKMSKeyException => {
+/**
+ * deserializeAws_json1_1InvalidKMSKeyException
+ */
+const de_InvalidKMSKeyException = (output: any, context: __SerdeContext): InvalidKMSKeyException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidS3ObjectException = (
-  output: any,
-  context: __SerdeContext
-): InvalidS3ObjectException => {
+/**
+ * deserializeAws_json1_1InvalidS3ObjectException
+ */
+const de_InvalidS3ObjectException = (output: any, context: __SerdeContext): InvalidS3ObjectException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1LendingDetection = (output: any, context: __SerdeContext): LendingDetection => {
+/**
+ * deserializeAws_json1_1LendingDetection
+ */
+const de_LendingDetection = (output: any, context: __SerdeContext): LendingDetection => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
     SelectionStatus: __expectString(output.SelectionStatus),
     Text: __expectString(output.Text),
   } as any;
 };
 
-const deserializeAws_json1_1LendingDetectionList = (output: any, context: __SerdeContext): LendingDetection[] => {
+/**
+ * deserializeAws_json1_1LendingDetectionList
+ */
+const de_LendingDetectionList = (output: any, context: __SerdeContext): LendingDetection[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LendingDetection(entry, context);
+      return de_LendingDetection(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LendingDocument = (output: any, context: __SerdeContext): LendingDocument => {
+/**
+ * deserializeAws_json1_1LendingDocument
+ */
+const de_LendingDocument = (output: any, context: __SerdeContext): LendingDocument => {
   return {
-    LendingFields:
-      output.LendingFields != null ? deserializeAws_json1_1LendingFieldList(output.LendingFields, context) : undefined,
+    LendingFields: output.LendingFields != null ? de_LendingFieldList(output.LendingFields, context) : undefined,
     SignatureDetections:
-      output.SignatureDetections != null
-        ? deserializeAws_json1_1SignatureDetectionList(output.SignatureDetections, context)
-        : undefined,
+      output.SignatureDetections != null ? de_SignatureDetectionList(output.SignatureDetections, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LendingField = (output: any, context: __SerdeContext): LendingField => {
+/**
+ * deserializeAws_json1_1LendingField
+ */
+const de_LendingField = (output: any, context: __SerdeContext): LendingField => {
   return {
-    KeyDetection:
-      output.KeyDetection != null ? deserializeAws_json1_1LendingDetection(output.KeyDetection, context) : undefined,
+    KeyDetection: output.KeyDetection != null ? de_LendingDetection(output.KeyDetection, context) : undefined,
     Type: __expectString(output.Type),
     ValueDetections:
-      output.ValueDetections != null
-        ? deserializeAws_json1_1LendingDetectionList(output.ValueDetections, context)
-        : undefined,
+      output.ValueDetections != null ? de_LendingDetectionList(output.ValueDetections, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LendingFieldList = (output: any, context: __SerdeContext): LendingField[] => {
+/**
+ * deserializeAws_json1_1LendingFieldList
+ */
+const de_LendingFieldList = (output: any, context: __SerdeContext): LendingField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LendingField(entry, context);
+      return de_LendingField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LendingResult = (output: any, context: __SerdeContext): LendingResult => {
+/**
+ * deserializeAws_json1_1LendingResult
+ */
+const de_LendingResult = (output: any, context: __SerdeContext): LendingResult => {
   return {
-    Extractions:
-      output.Extractions != null ? deserializeAws_json1_1ExtractionList(output.Extractions, context) : undefined,
+    Extractions: output.Extractions != null ? de_ExtractionList(output.Extractions, context) : undefined,
     Page: __expectInt32(output.Page),
     PageClassification:
-      output.PageClassification != null
-        ? deserializeAws_json1_1PageClassification(output.PageClassification, context)
-        : undefined,
+      output.PageClassification != null ? de_PageClassification(output.PageClassification, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LendingResultList = (output: any, context: __SerdeContext): LendingResult[] => {
+/**
+ * deserializeAws_json1_1LendingResultList
+ */
+const de_LendingResultList = (output: any, context: __SerdeContext): LendingResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LendingResult(entry, context);
+      return de_LendingResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LendingSummary = (output: any, context: __SerdeContext): LendingSummary => {
+/**
+ * deserializeAws_json1_1LendingSummary
+ */
+const de_LendingSummary = (output: any, context: __SerdeContext): LendingSummary => {
   return {
-    DocumentGroups:
-      output.DocumentGroups != null
-        ? deserializeAws_json1_1DocumentGroupList(output.DocumentGroups, context)
-        : undefined,
+    DocumentGroups: output.DocumentGroups != null ? de_DocumentGroupList(output.DocumentGroups, context) : undefined,
     UndetectedDocumentTypes:
       output.UndetectedDocumentTypes != null
-        ? deserializeAws_json1_1UndetectedDocumentTypeList(output.UndetectedDocumentTypes, context)
+        ? de_UndetectedDocumentTypeList(output.UndetectedDocumentTypes, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1LineItemFields = (output: any, context: __SerdeContext): LineItemFields => {
+/**
+ * deserializeAws_json1_1LineItemFields
+ */
+const de_LineItemFields = (output: any, context: __SerdeContext): LineItemFields => {
   return {
     LineItemExpenseFields:
-      output.LineItemExpenseFields != null
-        ? deserializeAws_json1_1ExpenseFieldList(output.LineItemExpenseFields, context)
-        : undefined,
+      output.LineItemExpenseFields != null ? de_ExpenseFieldList(output.LineItemExpenseFields, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LineItemGroup = (output: any, context: __SerdeContext): LineItemGroup => {
+/**
+ * deserializeAws_json1_1LineItemGroup
+ */
+const de_LineItemGroup = (output: any, context: __SerdeContext): LineItemGroup => {
   return {
     LineItemGroupIndex: __expectInt32(output.LineItemGroupIndex),
-    LineItems: output.LineItems != null ? deserializeAws_json1_1LineItemList(output.LineItems, context) : undefined,
+    LineItems: output.LineItems != null ? de_LineItemList(output.LineItems, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LineItemGroupList = (output: any, context: __SerdeContext): LineItemGroup[] => {
+/**
+ * deserializeAws_json1_1LineItemGroupList
+ */
+const de_LineItemGroupList = (output: any, context: __SerdeContext): LineItemGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LineItemGroup(entry, context);
+      return de_LineItemGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LineItemList = (output: any, context: __SerdeContext): LineItemFields[] => {
+/**
+ * deserializeAws_json1_1LineItemList
+ */
+const de_LineItemList = (output: any, context: __SerdeContext): LineItemFields[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LineItemFields(entry, context);
+      return de_LineItemFields(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NormalizedValue = (output: any, context: __SerdeContext): NormalizedValue => {
+/**
+ * deserializeAws_json1_1NormalizedValue
+ */
+const de_NormalizedValue = (output: any, context: __SerdeContext): NormalizedValue => {
   return {
     Value: __expectString(output.Value),
     ValueType: __expectString(output.ValueType),
   } as any;
 };
 
-const deserializeAws_json1_1PageClassification = (output: any, context: __SerdeContext): PageClassification => {
+/**
+ * deserializeAws_json1_1PageClassification
+ */
+const de_PageClassification = (output: any, context: __SerdeContext): PageClassification => {
   return {
-    PageNumber:
-      output.PageNumber != null ? deserializeAws_json1_1PredictionList(output.PageNumber, context) : undefined,
-    PageType: output.PageType != null ? deserializeAws_json1_1PredictionList(output.PageType, context) : undefined,
+    PageNumber: output.PageNumber != null ? de_PredictionList(output.PageNumber, context) : undefined,
+    PageType: output.PageType != null ? de_PredictionList(output.PageType, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PageList = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_json1_1PageList
+ */
+const de_PageList = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2386,7 +2655,10 @@ const deserializeAws_json1_1PageList = (output: any, context: __SerdeContext): n
   return retVal;
 };
 
-const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_json1_1Pages
+ */
+const de_Pages = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2398,45 +2670,60 @@ const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): numb
   return retVal;
 };
 
-const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
+/**
+ * deserializeAws_json1_1Point
+ */
+const de_Point = (output: any, context: __SerdeContext): Point => {
   return {
     X: __limitedParseFloat32(output.X),
     Y: __limitedParseFloat32(output.Y),
   } as any;
 };
 
-const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Point[] => {
+/**
+ * deserializeAws_json1_1Polygon
+ */
+const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Point(entry, context);
+      return de_Point(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
+/**
+ * deserializeAws_json1_1Prediction
+ */
+const de_Prediction = (output: any, context: __SerdeContext): Prediction => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1PredictionList = (output: any, context: __SerdeContext): Prediction[] => {
+/**
+ * deserializeAws_json1_1PredictionList
+ */
+const de_PredictionList = (output: any, context: __SerdeContext): Prediction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Prediction(entry, context);
+      return de_Prediction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionedThroughputExceededException = (
+/**
+ * deserializeAws_json1_1ProvisionedThroughputExceededException
+ */
+const de_ProvisionedThroughputExceededException = (
   output: any,
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
@@ -2446,15 +2733,21 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1Query = (output: any, context: __SerdeContext): Query => {
+/**
+ * deserializeAws_json1_1Query
+ */
+const de_Query = (output: any, context: __SerdeContext): Query => {
   return {
     Alias: __expectString(output.Alias),
-    Pages: output.Pages != null ? deserializeAws_json1_1QueryPages(output.Pages, context) : undefined,
+    Pages: output.Pages != null ? de_QueryPages(output.Pages, context) : undefined,
     Text: __expectString(output.Text),
   } as any;
 };
 
-const deserializeAws_json1_1QueryPages = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1QueryPages
+ */
+const de_QueryPages = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2466,73 +2759,94 @@ const deserializeAws_json1_1QueryPages = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext): Relationship => {
+/**
+ * deserializeAws_json1_1Relationship
+ */
+const de_Relationship = (output: any, context: __SerdeContext): Relationship => {
   return {
-    Ids: output.Ids != null ? deserializeAws_json1_1IdList(output.Ids, context) : undefined,
+    Ids: output.Ids != null ? de_IdList(output.Ids, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
+/**
+ * deserializeAws_json1_1RelationshipList
+ */
+const de_RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Relationship(entry, context);
+      return de_Relationship(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SignatureDetection = (output: any, context: __SerdeContext): SignatureDetection => {
+/**
+ * deserializeAws_json1_1SignatureDetection
+ */
+const de_SignatureDetection = (output: any, context: __SerdeContext): SignatureDetection => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SignatureDetectionList = (output: any, context: __SerdeContext): SignatureDetection[] => {
+/**
+ * deserializeAws_json1_1SignatureDetectionList
+ */
+const de_SignatureDetectionList = (output: any, context: __SerdeContext): SignatureDetection[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SignatureDetection(entry, context);
+      return de_SignatureDetection(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SplitDocument = (output: any, context: __SerdeContext): SplitDocument => {
+/**
+ * deserializeAws_json1_1SplitDocument
+ */
+const de_SplitDocument = (output: any, context: __SerdeContext): SplitDocument => {
   return {
     Index: __expectInt32(output.Index),
-    Pages: output.Pages != null ? deserializeAws_json1_1PageList(output.Pages, context) : undefined,
+    Pages: output.Pages != null ? de_PageList(output.Pages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SplitDocumentList = (output: any, context: __SerdeContext): SplitDocument[] => {
+/**
+ * deserializeAws_json1_1SplitDocumentList
+ */
+const de_SplitDocumentList = (output: any, context: __SerdeContext): SplitDocument[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SplitDocument(entry, context);
+      return de_SplitDocument(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StartDocumentAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): StartDocumentAnalysisResponse => {
+/**
+ * deserializeAws_json1_1StartDocumentAnalysisResponse
+ */
+const de_StartDocumentAnalysisResponse = (output: any, context: __SerdeContext): StartDocumentAnalysisResponse => {
   return {
     JobId: __expectString(output.JobId),
   } as any;
 };
 
-const deserializeAws_json1_1StartDocumentTextDetectionResponse = (
+/**
+ * deserializeAws_json1_1StartDocumentTextDetectionResponse
+ */
+const de_StartDocumentTextDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): StartDocumentTextDetectionResponse => {
@@ -2541,25 +2855,28 @@ const deserializeAws_json1_1StartDocumentTextDetectionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1StartExpenseAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): StartExpenseAnalysisResponse => {
+/**
+ * deserializeAws_json1_1StartExpenseAnalysisResponse
+ */
+const de_StartExpenseAnalysisResponse = (output: any, context: __SerdeContext): StartExpenseAnalysisResponse => {
   return {
     JobId: __expectString(output.JobId),
   } as any;
 };
 
-const deserializeAws_json1_1StartLendingAnalysisResponse = (
-  output: any,
-  context: __SerdeContext
-): StartLendingAnalysisResponse => {
+/**
+ * deserializeAws_json1_1StartLendingAnalysisResponse
+ */
+const de_StartLendingAnalysisResponse = (output: any, context: __SerdeContext): StartLendingAnalysisResponse => {
   return {
     JobId: __expectString(output.JobId),
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2571,14 +2888,20 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UndetectedDocumentTypeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1UndetectedDocumentTypeList
+ */
+const de_UndetectedDocumentTypeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2590,49 +2913,61 @@ const deserializeAws_json1_1UndetectedDocumentTypeList = (output: any, context: 
   return retVal;
 };
 
-const deserializeAws_json1_1UndetectedSignature = (output: any, context: __SerdeContext): UndetectedSignature => {
+/**
+ * deserializeAws_json1_1UndetectedSignature
+ */
+const de_UndetectedSignature = (output: any, context: __SerdeContext): UndetectedSignature => {
   return {
     Page: __expectInt32(output.Page),
   } as any;
 };
 
-const deserializeAws_json1_1UndetectedSignatureList = (output: any, context: __SerdeContext): UndetectedSignature[] => {
+/**
+ * deserializeAws_json1_1UndetectedSignatureList
+ */
+const de_UndetectedSignatureList = (output: any, context: __SerdeContext): UndetectedSignature[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UndetectedSignature(entry, context);
+      return de_UndetectedSignature(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UnsupportedDocumentException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedDocumentException => {
+/**
+ * deserializeAws_json1_1UnsupportedDocumentException
+ */
+const de_UnsupportedDocumentException = (output: any, context: __SerdeContext): UnsupportedDocumentException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Warning = (output: any, context: __SerdeContext): Warning => {
+/**
+ * deserializeAws_json1_1Warning
+ */
+const de_Warning = (output: any, context: __SerdeContext): Warning => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
-    Pages: output.Pages != null ? deserializeAws_json1_1Pages(output.Pages, context) : undefined,
+    Pages: output.Pages != null ? de_Pages(output.Pages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): Warning[] => {
+/**
+ * deserializeAws_json1_1Warnings
+ */
+const de_Warnings = (output: any, context: __SerdeContext): Warning[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Warning(entry, context);
+      return de_Warning(entry, context);
     });
   return retVal;
 };

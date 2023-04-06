@@ -20,10 +20,7 @@ import {
   CreateAttendeeResponse,
   CreateAttendeeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAttendeeCommand,
-  serializeAws_restJson1CreateAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAttendeeCommand, se_CreateAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAttendeeCommand(input, context);
+    return se_CreateAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1CreateAttendeeCommand(output, context);
+    return de_CreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

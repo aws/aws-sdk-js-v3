@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingAggregationsCommand,
-  serializeAws_restJson1ListFindingAggregationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFindingAggregationsCommand, se_ListFindingAggregationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -245,14 +242,14 @@ export class ListFindingAggregationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFindingAggregationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingAggregationsCommand(input, context);
+    return se_ListFindingAggregationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingAggregationsCommandOutput> {
-    return deserializeAws_restJson1ListFindingAggregationsCommand(output, context);
+    return de_ListFindingAggregationsCommand(output, context);
   }
 
   // Start section: command_body_extra

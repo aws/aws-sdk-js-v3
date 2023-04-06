@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteThesaurusRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteThesaurusCommand,
-  serializeAws_json1_1DeleteThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteThesaurusCommand, se_DeleteThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteThesaurusCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteThesaurusCommand(input, context);
+    return se_DeleteThesaurusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThesaurusCommandOutput> {
-    return deserializeAws_json1_1DeleteThesaurusCommand(output, context);
+    return de_DeleteThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

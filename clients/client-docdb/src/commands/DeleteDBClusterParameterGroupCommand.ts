@@ -16,8 +16,8 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteDBClusterParameterGroupCommand,
-  serializeAws_queryDeleteDBClusterParameterGroupCommand,
+  de_DeleteDBClusterParameterGroupCommand,
+  se_DeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -127,7 +127,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
+    return se_DeleteDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
+    return de_DeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDeviceAuthorizationCommand,
-  serializeAws_restJson1StartDeviceAuthorizationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartDeviceAuthorizationCommand, se_StartDeviceAuthorizationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -144,14 +141,14 @@ export class StartDeviceAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDeviceAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDeviceAuthorizationCommand(input, context);
+    return se_StartDeviceAuthorizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
-    return deserializeAws_restJson1StartDeviceAuthorizationCommand(output, context);
+    return de_StartDeviceAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

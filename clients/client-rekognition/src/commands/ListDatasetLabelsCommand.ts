@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDatasetLabelsRequest, ListDatasetLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatasetLabelsCommand,
-  serializeAws_json1_1ListDatasetLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatasetLabelsCommand, se_ListDatasetLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -158,14 +155,14 @@ export class ListDatasetLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatasetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetLabelsCommand(input, context);
+    return se_ListDatasetLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetLabelsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetLabelsCommand(output, context);
+    return de_ListDatasetLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

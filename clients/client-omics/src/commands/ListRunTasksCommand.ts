@@ -15,10 +15,7 @@ import {
 
 import { ListRunTasksRequest, ListRunTasksResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListRunTasksCommand,
-  serializeAws_restJson1ListRunTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListRunTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRunTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRunTasksCommand(input, context);
+    return se_ListRunTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunTasksCommandOutput> {
-    return deserializeAws_restJson1ListRunTasksCommand(output, context);
+    return de_ListRunTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

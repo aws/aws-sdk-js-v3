@@ -20,10 +20,7 @@ import {
   DetectTargetedSentimentResponse,
   DetectTargetedSentimentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectTargetedSentimentCommand,
-  serializeAws_json1_1DetectTargetedSentimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectTargetedSentimentCommand, se_DetectTargetedSentimentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DetectTargetedSentimentCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectTargetedSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectTargetedSentimentCommand(input, context);
+    return se_DetectTargetedSentimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTargetedSentimentCommandOutput> {
-    return deserializeAws_json1_1DetectTargetedSentimentCommand(output, context);
+    return de_DetectTargetedSentimentCommand(output, context);
   }
 
   // Start section: command_body_extra

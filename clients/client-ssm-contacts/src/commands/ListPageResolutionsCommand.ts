@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPageResolutionsRequest, ListPageResolutionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPageResolutionsCommand,
-  serializeAws_json1_1ListPageResolutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPageResolutionsCommand, se_ListPageResolutionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListPageResolutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPageResolutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPageResolutionsCommand(input, context);
+    return se_ListPageResolutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPageResolutionsCommandOutput> {
-    return deserializeAws_json1_1ListPageResolutionsCommand(output, context);
+    return de_ListPageResolutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

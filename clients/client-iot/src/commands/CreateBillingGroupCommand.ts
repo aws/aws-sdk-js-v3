@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateBillingGroupRequest, CreateBillingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBillingGroupCommand,
-  serializeAws_restJson1CreateBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBillingGroupCommand, se_CreateBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateBillingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBillingGroupCommand(input, context);
+    return se_CreateBillingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1CreateBillingGroupCommand(output, context);
+    return de_CreateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { UpdateReportPlanInput, UpdateReportPlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateReportPlanCommand,
-  serializeAws_restJson1UpdateReportPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateReportPlanCommand, se_UpdateReportPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class UpdateReportPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReportPlanCommand(input, context);
+    return se_UpdateReportPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportPlanCommandOutput> {
-    return deserializeAws_restJson1UpdateReportPlanCommand(output, context);
+    return de_UpdateReportPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

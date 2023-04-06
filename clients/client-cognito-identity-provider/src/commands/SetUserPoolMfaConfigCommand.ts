@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserPoolMfaConfigCommand,
-  serializeAws_json1_1SetUserPoolMfaConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUserPoolMfaConfigCommand, se_SetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -184,14 +181,14 @@ export class SetUserPoolMfaConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: SetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserPoolMfaConfigCommand(input, context);
+    return se_SetUserPoolMfaConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserPoolMfaConfigCommandOutput> {
-    return deserializeAws_json1_1SetUserPoolMfaConfigCommand(output, context);
+    return de_SetUserPoolMfaConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

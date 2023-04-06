@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteKeyGroupRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteKeyGroupCommand,
-  serializeAws_restXmlDeleteKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteKeyGroupCommand, se_DeleteKeyGroupCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteKeyGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteKeyGroupCommand(input, context);
+    return se_DeleteKeyGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyGroupCommandOutput> {
-    return deserializeAws_restXmlDeleteKeyGroupCommand(output, context);
+    return de_DeleteKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

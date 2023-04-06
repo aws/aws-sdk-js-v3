@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateWorkteamCommand,
-  serializeAws_json1_1UpdateWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWorkteamCommand, se_UpdateWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -142,14 +139,14 @@ export class UpdateWorkteamCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkteamCommand(input, context);
+    return se_UpdateWorkteamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkteamCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkteamCommand(output, context);
+    return de_UpdateWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

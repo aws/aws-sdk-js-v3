@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListElasticsearchVersionsCommand,
-  serializeAws_restJson1ListElasticsearchVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListElasticsearchVersionsCommand, se_ListElasticsearchVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class ListElasticsearchVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListElasticsearchVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListElasticsearchVersionsCommand(input, context);
+    return se_ListElasticsearchVersionsCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class ListElasticsearchVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1ListElasticsearchVersionsCommand(output, context);
+    return de_ListElasticsearchVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

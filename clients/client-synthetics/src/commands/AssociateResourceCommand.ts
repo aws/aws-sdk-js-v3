@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateResourceRequest, AssociateResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceCommand,
-  serializeAws_restJson1AssociateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateResourceCommand, se_AssociateResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -139,14 +136,14 @@ export class AssociateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceCommand(input, context);
+    return se_AssociateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceCommand(output, context);
+    return de_AssociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

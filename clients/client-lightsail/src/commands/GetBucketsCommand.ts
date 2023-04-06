@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetBucketsRequest, GetBucketsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBucketsCommand,
-  serializeAws_json1_1GetBucketsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetBucketsCommand, se_GetBucketsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetBucketsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBucketsCommand(input, context);
+    return se_GetBucketsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketsCommandOutput> {
-    return deserializeAws_json1_1GetBucketsCommand(output, context);
+    return de_GetBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

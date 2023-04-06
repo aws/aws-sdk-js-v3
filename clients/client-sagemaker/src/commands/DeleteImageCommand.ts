@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteImageRequest, DeleteImageResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteImageCommand,
-  serializeAws_json1_1DeleteImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteImageCommand, se_DeleteImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DeleteImageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImageCommand(input, context);
+    return se_DeleteImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
-    return deserializeAws_json1_1DeleteImageCommand(output, context);
+    return de_DeleteImageCommand(output, context);
   }
 
   // Start section: command_body_extra

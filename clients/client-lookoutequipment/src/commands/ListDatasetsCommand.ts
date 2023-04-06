@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDatasetsCommand,
-  serializeAws_json1_0ListDatasetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListDatasetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDatasetsCommand(input, context);
+    return se_ListDatasetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
-    return deserializeAws_json1_0ListDatasetsCommand(output, context);
+    return de_ListDatasetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetResolverRequest, GetResolverResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResolverCommand,
-  serializeAws_restJson1GetResolverCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResolverCommand, se_GetResolverCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetResolverCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResolverCommand(input, context);
+    return se_GetResolverCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverCommandOutput> {
-    return deserializeAws_restJson1GetResolverCommand(output, context);
+    return de_GetResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

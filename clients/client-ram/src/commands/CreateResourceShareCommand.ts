@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateResourceShareRequest, CreateResourceShareResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceShareCommand,
-  serializeAws_restJson1CreateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateResourceShareCommand, se_CreateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -179,14 +176,14 @@ export class CreateResourceShareCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceShareCommand(input, context);
+    return se_CreateResourceShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceShareCommandOutput> {
-    return deserializeAws_restJson1CreateResourceShareCommand(output, context);
+    return de_CreateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

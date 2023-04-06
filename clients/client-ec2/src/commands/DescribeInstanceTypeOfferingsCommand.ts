@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeInstanceTypeOfferingsCommand,
-  serializeAws_ec2DescribeInstanceTypeOfferingsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstanceTypeOfferingsCommand, se_DescribeInstanceTypeOfferingsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceTypeOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceTypeOfferingsCommand(input, context);
+    return se_DescribeInstanceTypeOfferingsCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceTypeOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(output, context);
+    return de_DescribeInstanceTypeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

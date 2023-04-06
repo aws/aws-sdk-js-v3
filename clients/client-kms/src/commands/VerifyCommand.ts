@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { VerifyRequest, VerifyRequestFilterSensitiveLog, VerifyResponse } from "../models/models_0";
-import { deserializeAws_json1_1VerifyCommand, serializeAws_json1_1VerifyCommand } from "../protocols/Aws_json1_1";
+import { de_VerifyCommand, se_VerifyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -263,14 +263,14 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
    * @internal
    */
   private serialize(input: VerifyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyCommand(input, context);
+    return se_VerifyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyCommandOutput> {
-    return deserializeAws_json1_1VerifyCommand(output, context);
+    return de_VerifyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/models_0";
-import {
-  deserializeAws_queryContinueUpdateRollbackCommand,
-  serializeAws_queryContinueUpdateRollbackCommand,
-} from "../protocols/Aws_query";
+import { de_ContinueUpdateRollbackCommand, se_ContinueUpdateRollbackCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ContinueUpdateRollbackCommand extends $Command<
    * @internal
    */
   private serialize(input: ContinueUpdateRollbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryContinueUpdateRollbackCommand(input, context);
+    return se_ContinueUpdateRollbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueUpdateRollbackCommandOutput> {
-    return deserializeAws_queryContinueUpdateRollbackCommand(output, context);
+    return de_ContinueUpdateRollbackCommand(output, context);
   }
 
   // Start section: command_body_extra

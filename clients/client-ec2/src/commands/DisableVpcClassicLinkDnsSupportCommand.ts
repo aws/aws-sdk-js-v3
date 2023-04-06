@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
+  de_DisableVpcClassicLinkDnsSupportCommand,
+  se_DisableVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -132,7 +132,7 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     input: DisableVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DisableVpcClassicLinkDnsSupportCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DisableVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

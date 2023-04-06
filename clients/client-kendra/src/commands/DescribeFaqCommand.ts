@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeFaqRequest, DescribeFaqResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFaqCommand,
-  serializeAws_json1_1DescribeFaqCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFaqCommand, se_DescribeFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeFaqCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFaqCommand(input, context);
+    return se_DescribeFaqCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFaqCommandOutput> {
-    return deserializeAws_json1_1DescribeFaqCommand(output, context);
+    return de_DescribeFaqCommand(output, context);
   }
 
   // Start section: command_body_extra

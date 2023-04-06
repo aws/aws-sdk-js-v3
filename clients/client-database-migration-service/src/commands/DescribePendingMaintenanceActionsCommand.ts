@@ -23,8 +23,8 @@ import {
   DescribePendingMaintenanceActionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePendingMaintenanceActionsCommand,
-  serializeAws_json1_1DescribePendingMaintenanceActionsCommand,
+  de_DescribePendingMaintenanceActionsCommand,
+  se_DescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingMaintenanceActionsCommand(input, context);
+    return se_DescribePendingMaintenanceActionsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingMaintenanceActionsCommand(output, context);
+    return de_DescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

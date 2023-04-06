@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DeleteCacheSecurityGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCacheSecurityGroupCommand,
-  serializeAws_queryDeleteCacheSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteCacheSecurityGroupCommand, se_DeleteCacheSecurityGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCacheSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCacheSecurityGroupCommand(input, context);
+    return se_DeleteCacheSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteCacheSecurityGroupCommand(output, context);
+    return de_DeleteCacheSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeExecutionInput, DescribeExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeExecutionCommand,
-  serializeAws_restJson1DescribeExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeExecutionCommand, se_DescribeExecutionCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -140,14 +137,14 @@ export class DescribeExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeExecutionCommand(input, context);
+    return se_DescribeExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
-    return deserializeAws_restJson1DescribeExecutionCommand(output, context);
+    return de_DescribeExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

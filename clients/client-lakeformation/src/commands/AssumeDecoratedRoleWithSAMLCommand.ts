@@ -16,8 +16,8 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
-  serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
+  de_AssumeDecoratedRoleWithSAMLCommand,
+  se_AssumeDecoratedRoleWithSAMLCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
    * @internal
    */
   private serialize(input: AssumeDecoratedRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand(input, context);
+    return se_AssumeDecoratedRoleWithSAMLCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> {
-    return deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand(output, context);
+    return de_AssumeDecoratedRoleWithSAMLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1ListTemplateVersionsCommand,
-  serializeAws_restJson1ListTemplateVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTemplateVersionsCommand, se_ListTemplateVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListTemplateVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateVersionsCommand(input, context);
+    return se_ListTemplateVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateVersionsCommandOutput> {
-    return deserializeAws_restJson1ListTemplateVersionsCommand(output, context);
+    return de_ListTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

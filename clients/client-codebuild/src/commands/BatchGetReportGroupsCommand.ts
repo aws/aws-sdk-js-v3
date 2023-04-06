@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetReportGroupsCommand,
-  serializeAws_json1_1BatchGetReportGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetReportGroupsCommand, se_BatchGetReportGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class BatchGetReportGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetReportGroupsCommand(input, context);
+    return se_BatchGetReportGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetReportGroupsCommandOutput> {
-    return deserializeAws_json1_1BatchGetReportGroupsCommand(output, context);
+    return de_BatchGetReportGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryFailoverDBClusterCommand,
-  serializeAws_queryFailoverDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_FailoverDBClusterCommand, se_FailoverDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class FailoverDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: FailoverDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverDBClusterCommand(input, context);
+    return se_FailoverDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverDBClusterCommandOutput> {
-    return deserializeAws_queryFailoverDBClusterCommand(output, context);
+    return de_FailoverDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

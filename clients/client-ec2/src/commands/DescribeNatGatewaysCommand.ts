@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNatGatewaysCommand,
-  serializeAws_ec2DescribeNatGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeNatGatewaysCommand, se_DescribeNatGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class DescribeNatGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNatGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNatGatewaysCommand(input, context);
+    return se_DescribeNatGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNatGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeNatGatewaysCommand(output, context);
+    return de_DescribeNatGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

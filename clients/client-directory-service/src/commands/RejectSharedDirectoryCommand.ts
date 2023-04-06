@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectSharedDirectoryCommand,
-  serializeAws_json1_1RejectSharedDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectSharedDirectoryCommand, se_RejectSharedDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class RejectSharedDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectSharedDirectoryCommand(input, context);
+    return se_RejectSharedDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSharedDirectoryCommandOutput> {
-    return deserializeAws_json1_1RejectSharedDirectoryCommand(output, context);
+    return de_RejectSharedDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

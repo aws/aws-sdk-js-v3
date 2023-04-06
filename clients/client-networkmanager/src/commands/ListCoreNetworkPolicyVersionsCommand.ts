@@ -16,8 +16,8 @@ import {
 import { ListCoreNetworkPolicyVersionsRequest, ListCoreNetworkPolicyVersionsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
-  serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
+  de_ListCoreNetworkPolicyVersionsCommand,
+  se_ListCoreNetworkPolicyVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -139,7 +139,7 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCoreNetworkPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand(input, context);
+    return se_ListCoreNetworkPolicyVersionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCoreNetworkPolicyVersionsCommandOutput> {
-    return deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand(output, context);
+    return de_ListCoreNetworkPolicyVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

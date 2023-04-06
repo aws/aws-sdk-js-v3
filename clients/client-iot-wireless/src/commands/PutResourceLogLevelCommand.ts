@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { PutResourceLogLevelRequest, PutResourceLogLevelResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutResourceLogLevelCommand,
-  serializeAws_restJson1PutResourceLogLevelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutResourceLogLevelCommand, se_PutResourceLogLevelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class PutResourceLogLevelCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourceLogLevelCommand(input, context);
+    return se_PutResourceLogLevelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceLogLevelCommandOutput> {
-    return deserializeAws_restJson1PutResourceLogLevelCommand(output, context);
+    return de_PutResourceLogLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

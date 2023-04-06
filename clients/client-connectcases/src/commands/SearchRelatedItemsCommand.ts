@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { SearchRelatedItemsRequest, SearchRelatedItemsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchRelatedItemsCommand,
-  serializeAws_restJson1SearchRelatedItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class SearchRelatedItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchRelatedItemsCommand(input, context);
+    return se_SearchRelatedItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRelatedItemsCommandOutput> {
-    return deserializeAws_restJson1SearchRelatedItemsCommand(output, context);
+    return de_SearchRelatedItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

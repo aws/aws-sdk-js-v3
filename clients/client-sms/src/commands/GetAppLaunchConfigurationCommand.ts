@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAppLaunchConfigurationRequest, GetAppLaunchConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAppLaunchConfigurationCommand,
-  serializeAws_json1_1GetAppLaunchConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAppLaunchConfigurationCommand, se_GetAppLaunchConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -136,7 +133,7 @@ export class GetAppLaunchConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppLaunchConfigurationCommand(input, context);
+    return se_GetAppLaunchConfigurationCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAppLaunchConfigurationCommand(output, context);
+    return de_GetAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

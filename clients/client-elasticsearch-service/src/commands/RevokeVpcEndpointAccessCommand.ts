@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeVpcEndpointAccessCommand,
-  serializeAws_restJson1RevokeVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeVpcEndpointAccessCommand(input, context);
+    return se_RevokeVpcEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1RevokeVpcEndpointAccessCommand(output, context);
+    return de_RevokeVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

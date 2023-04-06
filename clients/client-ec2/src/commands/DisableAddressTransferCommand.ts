@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisableAddressTransferRequest, DisableAddressTransferResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DisableAddressTransferCommand,
-  serializeAws_ec2DisableAddressTransferCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisableAddressTransferCommand, se_DisableAddressTransferCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DisableAddressTransferCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableAddressTransferCommand(input, context);
+    return se_DisableAddressTransferCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAddressTransferCommandOutput> {
-    return deserializeAws_ec2DisableAddressTransferCommand(output, context);
+    return de_DisableAddressTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

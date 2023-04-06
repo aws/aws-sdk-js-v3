@@ -14,10 +14,7 @@ import {
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAndGetInlineDocumentsCommand,
-  serializeAws_json1_1PutAndGetInlineDocumentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -107,14 +104,14 @@ export class PutAndGetInlineDocumentsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAndGetInlineDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAndGetInlineDocumentsCommand(input, context);
+    return se_PutAndGetInlineDocumentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAndGetInlineDocumentsCommandOutput> {
-    return deserializeAws_json1_1PutAndGetInlineDocumentsCommand(output, context);
+    return de_PutAndGetInlineDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

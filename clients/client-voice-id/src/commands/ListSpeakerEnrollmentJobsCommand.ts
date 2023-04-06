@@ -18,10 +18,7 @@ import {
   ListSpeakerEnrollmentJobsResponse,
   ListSpeakerEnrollmentJobsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand,
-  serializeAws_json1_0ListSpeakerEnrollmentJobsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSpeakerEnrollmentJobsCommand, se_ListSpeakerEnrollmentJobsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -150,7 +147,7 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSpeakerEnrollmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSpeakerEnrollmentJobsCommand(input, context);
+    return se_ListSpeakerEnrollmentJobsCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSpeakerEnrollmentJobsCommandOutput> {
-    return deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand(output, context);
+    return de_ListSpeakerEnrollmentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

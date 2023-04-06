@@ -16,8 +16,8 @@ import {
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
 import { DescribeScalingPlanResourcesRequest, DescribeScalingPlanResourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeScalingPlanResourcesCommand,
-  serializeAws_json1_1DescribeScalingPlanResourcesCommand,
+  de_DescribeScalingPlanResourcesCommand,
+  se_DescribeScalingPlanResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScalingPlanResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPlanResourcesCommand(input, context);
+    return se_DescribeScalingPlanResourcesCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingPlanResourcesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPlanResourcesCommand(output, context);
+    return de_DescribeScalingPlanResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

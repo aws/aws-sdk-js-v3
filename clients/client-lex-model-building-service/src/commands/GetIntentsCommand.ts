@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetIntentsRequest, GetIntentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntentsCommand,
-  serializeAws_restJson1GetIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIntentsCommand, se_GetIntentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -178,14 +175,14 @@ export class GetIntentsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntentsCommand(input, context);
+    return se_GetIntentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentsCommandOutput> {
-    return deserializeAws_restJson1GetIntentsCommand(output, context);
+    return de_GetIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

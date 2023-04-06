@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteVectorEnrichmentJobInput, DeleteVectorEnrichmentJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVectorEnrichmentJobCommand,
-  serializeAws_restJson1DeleteVectorEnrichmentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVectorEnrichmentJobCommand, se_DeleteVectorEnrichmentJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -142,7 +139,7 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVectorEnrichmentJobCommand(input, context);
+    return se_DeleteVectorEnrichmentJobCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVectorEnrichmentJobCommandOutput> {
-    return deserializeAws_restJson1DeleteVectorEnrichmentJobCommand(output, context);
+    return de_DeleteVectorEnrichmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

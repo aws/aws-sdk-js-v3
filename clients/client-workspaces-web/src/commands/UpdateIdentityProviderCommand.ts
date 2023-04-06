@@ -19,10 +19,7 @@ import {
   UpdateIdentityProviderResponse,
   UpdateIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIdentityProviderCommand,
-  serializeAws_restJson1UpdateIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIdentityProviderCommand, se_UpdateIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -146,14 +143,14 @@ export class UpdateIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIdentityProviderCommand(input, context);
+    return se_UpdateIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1UpdateIdentityProviderCommand(output, context);
+    return de_UpdateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

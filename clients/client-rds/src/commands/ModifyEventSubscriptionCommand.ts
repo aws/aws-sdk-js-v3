@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyEventSubscriptionCommand,
-  serializeAws_queryModifyEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -84,26 +81,34 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *  <p>The subscription name does not exist.</p>
  *
  *
- * @example To change event notification subscription settings
+ * @example To modify an event subscription
  * ```javascript
- * // This example changes the specified setting for the specified event notification subscription.
+ * // The following example turns off the specified event subscription, so that it no longer publishes notifications to the specified Amazon Simple Notification Service topic.
  * const input = {
- *   "Enabled": true,
- *   "EventCategories": [
- *     "deletion",
- *     "low storage"
- *   ],
- *   "SourceType": "db-instance",
- *   "SubscriptionName": "mymysqleventsubscription"
+ *   "Enabled": false,
+ *   "SubscriptionName": "my-instance-events"
  * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EventSubscription": {}
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceType": "db-instance",
+ *     "Status": "modifying",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
  * }
  * *\/
- * // example id: modify-event-subscription-405ac869-1f02-42cd-b8f4-6950a435f30e
+ * // example id: to-modify-an-event-subscription-1680383930434
  * ```
  *
  */
@@ -170,14 +175,14 @@ export class ModifyEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyEventSubscriptionCommand(input, context);
+    return se_ModifyEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
+    return de_ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

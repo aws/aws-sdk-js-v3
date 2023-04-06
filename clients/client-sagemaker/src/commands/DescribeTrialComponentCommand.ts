@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTrialComponentRequest, DescribeTrialComponentResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTrialComponentCommand,
-  serializeAws_json1_1DescribeTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTrialComponentCommand, se_DescribeTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeTrialComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrialComponentCommand(input, context);
+    return se_DescribeTrialComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DescribeTrialComponentCommand(output, context);
+    return de_DescribeTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

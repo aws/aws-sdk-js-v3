@@ -19,8 +19,8 @@ import {
   CreateAvailabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateAvailabilityConfigurationCommand,
-  serializeAws_json1_1CreateAvailabilityConfigurationCommand,
+  de_CreateAvailabilityConfigurationCommand,
+  se_CreateAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -156,7 +156,7 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     input: CreateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAvailabilityConfigurationCommand(input, context);
+    return se_CreateAvailabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateAvailabilityConfigurationCommand(output, context);
+    return de_CreateAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

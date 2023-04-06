@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateFleetLocationsInput, CreateFleetLocationsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFleetLocationsCommand,
-  serializeAws_json1_1CreateFleetLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFleetLocationsCommand, se_CreateFleetLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class CreateFleetLocationsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFleetLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFleetLocationsCommand(input, context);
+    return se_CreateFleetLocationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetLocationsCommandOutput> {
-    return deserializeAws_json1_1CreateFleetLocationsCommand(output, context);
+    return de_CreateFleetLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

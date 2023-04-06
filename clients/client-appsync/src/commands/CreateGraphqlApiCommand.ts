@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { CreateGraphqlApiRequest, CreateGraphqlApiResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGraphqlApiCommand,
-  serializeAws_restJson1CreateGraphqlApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateGraphqlApiCommand, se_CreateGraphqlApiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class CreateGraphqlApiCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGraphqlApiCommand(input, context);
+    return se_CreateGraphqlApiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1CreateGraphqlApiCommand(output, context);
+    return de_CreateGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

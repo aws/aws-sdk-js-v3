@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlMapsOutput } from "../models/models_0";
-import { deserializeAws_queryXmlEmptyMapsCommand, serializeAws_queryXmlEmptyMapsCommand } from "../protocols/Aws_query";
+import { de_XmlEmptyMapsCommand, se_XmlEmptyMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -80,14 +80,14 @@ export class XmlEmptyMapsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEmptyMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlEmptyMapsCommand(input, context);
+    return se_XmlEmptyMapsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyMapsCommandOutput> {
-    return deserializeAws_queryXmlEmptyMapsCommand(output, context);
+    return de_XmlEmptyMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

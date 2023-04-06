@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { BatchDescribeMergeConflictsInput, BatchDescribeMergeConflictsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDescribeMergeConflictsCommand,
-  serializeAws_json1_1BatchDescribeMergeConflictsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDescribeMergeConflictsCommand, se_BatchDescribeMergeConflictsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -201,7 +198,7 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDescribeMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDescribeMergeConflictsCommand(input, context);
+    return se_BatchDescribeMergeConflictsCommand(input, context);
   }
 
   /**
@@ -211,7 +208,7 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeMergeConflictsCommandOutput> {
-    return deserializeAws_json1_1BatchDescribeMergeConflictsCommand(output, context);
+    return de_BatchDescribeMergeConflictsCommand(output, context);
   }
 
   // Start section: command_body_extra

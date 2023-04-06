@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeLifecycleHookTypesAnswer } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLifecycleHookTypesCommand,
-  serializeAws_queryDescribeLifecycleHookTypesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeLifecycleHookTypesCommand, se_DescribeLifecycleHookTypesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLifecycleHookTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLifecycleHookTypesCommand(input, context);
+    return se_DescribeLifecycleHookTypesCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleHookTypesCommandOutput> {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommand(output, context);
+    return de_DescribeLifecycleHookTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

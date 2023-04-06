@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { CreateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAliasCommand,
-  serializeAws_json1_1CreateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -228,14 +225,14 @@ export class CreateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_json1_1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

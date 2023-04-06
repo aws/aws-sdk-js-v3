@@ -16,8 +16,8 @@ import {
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListCuratedEnvironmentImagesCommand,
-  serializeAws_json1_1ListCuratedEnvironmentImagesCommand,
+  de_ListCuratedEnvironmentImagesCommand,
+  se_ListCuratedEnvironmentImagesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -120,7 +120,7 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCuratedEnvironmentImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(input, context);
+    return se_ListCuratedEnvironmentImagesCommand(input, context);
   }
 
   /**
@@ -130,7 +130,7 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
-    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(output, context);
+    return de_ListCuratedEnvironmentImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

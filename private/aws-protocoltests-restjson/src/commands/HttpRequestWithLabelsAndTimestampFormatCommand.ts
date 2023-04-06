@@ -14,8 +14,8 @@ import {
 
 import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand,
-  serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand,
+  de_HttpRequestWithLabelsAndTimestampFormatCommand,
+  se_HttpRequestWithLabelsAndTimestampFormatCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -121,7 +121,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand(input, context);
+    return se_HttpRequestWithLabelsAndTimestampFormatCommand(input, context);
   }
 
   /**
@@ -131,7 +131,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand(output, context);
+    return de_HttpRequestWithLabelsAndTimestampFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

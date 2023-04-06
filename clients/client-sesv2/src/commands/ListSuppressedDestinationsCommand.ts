@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSuppressedDestinationsCommand,
-  serializeAws_restJson1ListSuppressedDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSuppressedDestinationsCommand, se_ListSuppressedDestinationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -136,7 +133,7 @@ export class ListSuppressedDestinationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSuppressedDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSuppressedDestinationsCommand(input, context);
+    return se_ListSuppressedDestinationsCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class ListSuppressedDestinationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSuppressedDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListSuppressedDestinationsCommand(output, context);
+    return de_ListSuppressedDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

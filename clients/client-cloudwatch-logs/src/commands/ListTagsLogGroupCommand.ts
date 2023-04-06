@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsLogGroupCommand,
-  serializeAws_json1_1ListTagsLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagsLogGroupCommand, se_ListTagsLogGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListTagsLogGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsLogGroupCommand(input, context);
+    return se_ListTagsLogGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsLogGroupCommandOutput> {
-    return deserializeAws_json1_1ListTagsLogGroupCommand(output, context);
+    return de_ListTagsLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

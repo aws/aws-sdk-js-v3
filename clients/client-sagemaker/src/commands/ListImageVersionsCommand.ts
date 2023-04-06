@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListImageVersionsRequest, ListImageVersionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListImageVersionsCommand,
-  serializeAws_json1_1ListImageVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListImageVersionsCommand, se_ListImageVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -132,14 +129,14 @@ export class ListImageVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImageVersionsCommand(input, context);
+    return se_ListImageVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageVersionsCommandOutput> {
-    return deserializeAws_json1_1ListImageVersionsCommand(output, context);
+    return de_ListImageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

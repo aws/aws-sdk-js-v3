@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateReusableDelegationSetCommand,
-  serializeAws_restXmlCreateReusableDelegationSetCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateReusableDelegationSetCommand, se_CreateReusableDelegationSetCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -209,7 +206,7 @@ export class CreateReusableDelegationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateReusableDelegationSetCommand(input, context);
+    return se_CreateReusableDelegationSetCommand(input, context);
   }
 
   /**
@@ -219,7 +216,7 @@ export class CreateReusableDelegationSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReusableDelegationSetCommandOutput> {
-    return deserializeAws_restXmlCreateReusableDelegationSetCommand(output, context);
+    return de_CreateReusableDelegationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

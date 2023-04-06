@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListWhatIfForecastExportsRequest, ListWhatIfForecastExportsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWhatIfForecastExportsCommand,
-  serializeAws_json1_1ListWhatIfForecastExportsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListWhatIfForecastExportsCommand, se_ListWhatIfForecastExportsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class ListWhatIfForecastExportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWhatIfForecastExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWhatIfForecastExportsCommand(input, context);
+    return se_ListWhatIfForecastExportsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class ListWhatIfForecastExportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWhatIfForecastExportsCommandOutput> {
-    return deserializeAws_json1_1ListWhatIfForecastExportsCommand(output, context);
+    return de_ListWhatIfForecastExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

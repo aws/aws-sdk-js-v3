@@ -15,8 +15,8 @@ import {
 
 import { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1EnableOrganizationAdminAccountCommand,
-  serializeAws_restJson1EnableOrganizationAdminAccountCommand,
+  de_EnableOrganizationAdminAccountCommand,
+  se_EnableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -140,7 +140,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     input: EnableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableOrganizationAdminAccountCommand(input, context);
+    return se_EnableOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1EnableOrganizationAdminAccountCommand(output, context);
+    return de_EnableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

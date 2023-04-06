@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFirewallDomainListRequest, DeleteFirewallDomainListResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFirewallDomainListCommand,
-  serializeAws_json1_1DeleteFirewallDomainListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFirewallDomainListCommand, se_DeleteFirewallDomainListCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeleteFirewallDomainListCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFirewallDomainListCommand(input, context);
+    return se_DeleteFirewallDomainListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallDomainListCommandOutput> {
-    return deserializeAws_json1_1DeleteFirewallDomainListCommand(output, context);
+    return de_DeleteFirewallDomainListCommand(output, context);
   }
 
   // Start section: command_body_extra

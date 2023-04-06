@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { BatchStartRecommendationsRequest, BatchStartRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchStartRecommendationsCommand,
-  serializeAws_json1_1BatchStartRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchStartRecommendationsCommand, se_BatchStartRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class BatchStartRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchStartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchStartRecommendationsCommand(input, context);
+    return se_BatchStartRecommendationsCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class BatchStartRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchStartRecommendationsCommandOutput> {
-    return deserializeAws_json1_1BatchStartRecommendationsCommand(output, context);
+    return de_BatchStartRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

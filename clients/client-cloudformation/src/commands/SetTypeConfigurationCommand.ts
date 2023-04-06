@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { SetTypeConfigurationInput, SetTypeConfigurationOutput } from "../models/models_0";
-import {
-  deserializeAws_querySetTypeConfigurationCommand,
-  serializeAws_querySetTypeConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_SetTypeConfigurationCommand, se_SetTypeConfigurationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class SetTypeConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTypeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTypeConfigurationCommand(input, context);
+    return se_SetTypeConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeConfigurationCommandOutput> {
-    return deserializeAws_querySetTypeConfigurationCommand(output, context);
+    return de_SetTypeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

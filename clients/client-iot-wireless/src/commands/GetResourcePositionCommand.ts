@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { GetResourcePositionRequest, GetResourcePositionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePositionCommand,
-  serializeAws_restJson1GetResourcePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourcePositionCommand, se_GetResourcePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetResourcePositionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePositionCommand(input, context);
+    return se_GetResourcePositionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePositionCommandOutput> {
-    return deserializeAws_restJson1GetResourcePositionCommand(output, context);
+    return de_GetResourcePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

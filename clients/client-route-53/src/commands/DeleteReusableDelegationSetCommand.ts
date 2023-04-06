@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteReusableDelegationSetCommand,
-  serializeAws_restXmlDeleteReusableDelegationSetCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteReusableDelegationSetCommand, se_DeleteReusableDelegationSetCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -144,7 +141,7 @@ export class DeleteReusableDelegationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteReusableDelegationSetCommand(input, context);
+    return se_DeleteReusableDelegationSetCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReusableDelegationSetCommandOutput> {
-    return deserializeAws_restXmlDeleteReusableDelegationSetCommand(output, context);
+    return de_DeleteReusableDelegationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

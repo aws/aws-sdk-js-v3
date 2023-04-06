@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchOrganizationInsightsCommand,
-  serializeAws_restJson1SearchOrganizationInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchOrganizationInsightsCommand, se_SearchOrganizationInsightsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -180,7 +177,7 @@ export class SearchOrganizationInsightsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchOrganizationInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchOrganizationInsightsCommand(input, context);
+    return se_SearchOrganizationInsightsCommand(input, context);
   }
 
   /**
@@ -190,7 +187,7 @@ export class SearchOrganizationInsightsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchOrganizationInsightsCommandOutput> {
-    return deserializeAws_restJson1SearchOrganizationInsightsCommand(output, context);
+    return de_SearchOrganizationInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

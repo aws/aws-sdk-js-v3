@@ -15,8 +15,8 @@ import {
 
 import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
-  serializeAws_restJson1PutAccountSuppressionAttributesCommand,
+  de_PutAccountSuppressionAttributesCommand,
+  se_PutAccountSuppressionAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -133,7 +133,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSuppressionAttributesCommand(input, context);
+    return se_PutAccountSuppressionAttributesCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSuppressionAttributesCommand(output, context);
+    return de_PutAccountSuppressionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

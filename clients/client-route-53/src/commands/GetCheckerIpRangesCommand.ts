@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCheckerIpRangesRequest, GetCheckerIpRangesResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetCheckerIpRangesCommand,
-  serializeAws_restXmlGetCheckerIpRangesCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetCheckerIpRangesCommand, se_GetCheckerIpRangesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -127,14 +124,14 @@ export class GetCheckerIpRangesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCheckerIpRangesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCheckerIpRangesCommand(input, context);
+    return se_GetCheckerIpRangesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCheckerIpRangesCommandOutput> {
-    return deserializeAws_restXmlGetCheckerIpRangesCommand(output, context);
+    return de_GetCheckerIpRangesCommand(output, context);
   }
 
   // Start section: command_body_extra

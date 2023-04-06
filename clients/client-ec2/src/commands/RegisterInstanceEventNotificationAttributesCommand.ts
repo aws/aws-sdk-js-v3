@@ -19,8 +19,8 @@ import {
   RegisterInstanceEventNotificationAttributesResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
-  serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
+  de_RegisterInstanceEventNotificationAttributesCommand,
+  se_RegisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -143,7 +143,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     input: RegisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand(input, context);
+    return se_RegisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> {
-    return deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand(output, context);
+    return de_RegisterInstanceEventNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
+  de_PutVoiceConnectorTerminationCredentialsCommand,
+  se_PutVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -160,7 +160,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_PutVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

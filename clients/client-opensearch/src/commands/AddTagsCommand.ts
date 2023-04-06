@@ -15,10 +15,7 @@ import {
 
 import { AddTagsRequest } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1AddTagsCommand,
-  serializeAws_restJson1AddTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class AddTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_restJson1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

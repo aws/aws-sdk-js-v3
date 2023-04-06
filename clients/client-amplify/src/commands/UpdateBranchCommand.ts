@@ -20,10 +20,7 @@ import {
   UpdateBranchResult,
   UpdateBranchResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBranchCommand,
-  serializeAws_restJson1UpdateBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBranchCommand, se_UpdateBranchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class UpdateBranchCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBranchCommand(input, context);
+    return se_UpdateBranchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBranchCommandOutput> {
-    return deserializeAws_restJson1UpdateBranchCommand(output, context);
+    return de_UpdateBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

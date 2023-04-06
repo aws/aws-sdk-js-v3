@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccessPointPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteAccessPointPolicyCommand,
-  serializeAws_restXmlDeleteAccessPointPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteAccessPointPolicyCommand, se_DeleteAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -142,14 +139,14 @@ export class DeleteAccessPointPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointPolicyCommand(input, context);
+    return se_DeleteAccessPointPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointPolicyCommand(output, context);
+    return de_DeleteAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

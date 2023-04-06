@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWebACLCommand,
-  serializeAws_json1_1UpdateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWebACLCommand, se_UpdateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -366,14 +363,14 @@ export class UpdateWebACLCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWebACLCommand(input, context);
+    return se_UpdateWebACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebACLCommandOutput> {
-    return deserializeAws_json1_1UpdateWebACLCommand(output, context);
+    return de_UpdateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

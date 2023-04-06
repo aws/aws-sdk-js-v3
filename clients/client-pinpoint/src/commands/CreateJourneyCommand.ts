@@ -15,10 +15,7 @@ import {
 
 import { CreateJourneyRequest, CreateJourneyResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateJourneyCommand,
-  serializeAws_restJson1CreateJourneyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateJourneyCommand, se_CreateJourneyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -512,14 +509,14 @@ export class CreateJourneyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJourneyCommand(input, context);
+    return se_CreateJourneyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJourneyCommandOutput> {
-    return deserializeAws_restJson1CreateJourneyCommand(output, context);
+    return de_CreateJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

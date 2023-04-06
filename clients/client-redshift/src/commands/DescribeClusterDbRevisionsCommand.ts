@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterDbRevisionsMessage, DescribeClusterDbRevisionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterDbRevisionsCommand,
-  serializeAws_queryDescribeClusterDbRevisionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterDbRevisionsCommand, se_DescribeClusterDbRevisionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -129,7 +126,7 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterDbRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterDbRevisionsCommand(input, context);
+    return se_DescribeClusterDbRevisionsCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterDbRevisionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterDbRevisionsCommand(output, context);
+    return de_DescribeClusterDbRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

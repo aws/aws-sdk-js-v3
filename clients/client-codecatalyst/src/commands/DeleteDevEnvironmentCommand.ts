@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { DeleteDevEnvironmentRequest, DeleteDevEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDevEnvironmentCommand,
-  serializeAws_restJson1DeleteDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDevEnvironmentCommand, se_DeleteDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteDevEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDevEnvironmentCommand(input, context);
+    return se_DeleteDevEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteDevEnvironmentCommand(output, context);
+    return de_DeleteDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

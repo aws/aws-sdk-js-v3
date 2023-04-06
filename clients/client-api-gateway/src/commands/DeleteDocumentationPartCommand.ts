@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteDocumentationPartRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDocumentationPartCommand,
-  serializeAws_restJson1DeleteDocumentationPartCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDocumentationPartCommand, se_DeleteDocumentationPartCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDocumentationPartCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDocumentationPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDocumentationPartCommand(input, context);
+    return se_DeleteDocumentationPartCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1DeleteDocumentationPartCommand(output, context);
+    return de_DeleteDocumentationPartCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 
 import { DeleteStorageLensConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteStorageLensConfigurationCommand,
-  serializeAws_restXmlDeleteStorageLensConfigurationCommand,
+  de_DeleteStorageLensConfigurationCommand,
+  se_DeleteStorageLensConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -137,7 +137,7 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
     input: DeleteStorageLensConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStorageLensConfigurationCommand(input, context);
+    return se_DeleteStorageLensConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStorageLensConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteStorageLensConfigurationCommand(output, context);
+    return de_DeleteStorageLensConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

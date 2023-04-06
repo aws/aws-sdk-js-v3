@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import { ListPlacementsRequest, ListPlacementsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlacementsCommand,
-  serializeAws_restJson1ListPlacementsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPlacementsCommand, se_ListPlacementsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListPlacementsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlacementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlacementsCommand(input, context);
+    return se_ListPlacementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlacementsCommandOutput> {
-    return deserializeAws_restJson1ListPlacementsCommand(output, context);
+    return de_ListPlacementsCommand(output, context);
   }
 
   // Start section: command_body_extra

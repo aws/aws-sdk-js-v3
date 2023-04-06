@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_7";
-import {
-  deserializeAws_ec2TerminateInstancesCommand,
-  serializeAws_ec2TerminateInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_TerminateInstancesCommand, se_TerminateInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -212,14 +209,14 @@ export class TerminateInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2TerminateInstancesCommand(input, context);
+    return se_TerminateInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateInstancesCommandOutput> {
-    return deserializeAws_ec2TerminateInstancesCommand(output, context);
+    return de_TerminateInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

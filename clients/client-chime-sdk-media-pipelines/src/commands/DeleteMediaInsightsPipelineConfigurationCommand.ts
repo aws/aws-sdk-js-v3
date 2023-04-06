@@ -20,8 +20,8 @@ import {
 } from "../ChimeSDKMediaPipelinesClient";
 import { DeleteMediaInsightsPipelineConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand,
-  serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand,
+  de_DeleteMediaInsightsPipelineConfigurationCommand,
+  se_DeleteMediaInsightsPipelineConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command<
     input: DeleteMediaInsightsPipelineConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand(input, context);
+    return se_DeleteMediaInsightsPipelineConfigurationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand(output, context);
+    return de_DeleteMediaInsightsPipelineConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

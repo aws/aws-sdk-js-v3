@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DeleteFlywheelRequest, DeleteFlywheelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFlywheelCommand,
-  serializeAws_json1_1DeleteFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFlywheelCommand, se_DeleteFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteFlywheelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlywheelCommand(input, context);
+    return se_DeleteFlywheelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlywheelCommandOutput> {
-    return deserializeAws_json1_1DeleteFlywheelCommand(output, context);
+    return de_DeleteFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

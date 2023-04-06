@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AttachUserPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryAttachUserPolicyCommand,
-  serializeAws_queryAttachUserPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_AttachUserPolicyCommand, se_AttachUserPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class AttachUserPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachUserPolicyCommand(input, context);
+    return se_AttachUserPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachUserPolicyCommandOutput> {
-    return deserializeAws_queryAttachUserPolicyCommand(output, context);
+    return de_AttachUserPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

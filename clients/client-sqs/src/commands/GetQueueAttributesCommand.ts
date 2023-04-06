@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
-import {
-  deserializeAws_queryGetQueueAttributesCommand,
-  serializeAws_queryGetQueueAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -129,14 +126,14 @@ export class GetQueueAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetQueueAttributesCommand(input, context);
+    return se_GetQueueAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueAttributesCommandOutput> {
-    return deserializeAws_queryGetQueueAttributesCommand(output, context);
+    return de_GetQueueAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

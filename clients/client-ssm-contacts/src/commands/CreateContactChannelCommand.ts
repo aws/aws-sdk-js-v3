@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateContactChannelRequest, CreateContactChannelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactChannelCommand,
-  serializeAws_json1_1CreateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContactChannelCommand, se_CreateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -146,14 +143,14 @@ export class CreateContactChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactChannelCommand(input, context);
+    return se_CreateContactChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactChannelCommandOutput> {
-    return deserializeAws_json1_1CreateContactChannelCommand(output, context);
+    return de_CreateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

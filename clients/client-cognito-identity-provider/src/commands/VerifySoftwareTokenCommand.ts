@@ -24,10 +24,7 @@ import {
   VerifySoftwareTokenRequestFilterSensitiveLog,
   VerifySoftwareTokenResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1VerifySoftwareTokenCommand,
-  serializeAws_json1_1VerifySoftwareTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_VerifySoftwareTokenCommand, se_VerifySoftwareTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class VerifySoftwareTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifySoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifySoftwareTokenCommand(input, context);
+    return se_VerifySoftwareTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifySoftwareTokenCommandOutput> {
-    return deserializeAws_json1_1VerifySoftwareTokenCommand(output, context);
+    return de_VerifySoftwareTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

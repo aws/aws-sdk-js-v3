@@ -50,7 +50,10 @@ import {
   UnsupportedMediaTypeException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteSessionCommand = async (
+/**
+ * serializeAws_restJson1DeleteSessionCommand
+ */
+export const se_DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -74,7 +77,10 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSessionCommand = async (
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -102,7 +108,10 @@ export const serializeAws_restJson1GetSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1PostContentCommand = async (
+/**
+ * serializeAws_restJson1PostContentCommand
+ */
+export const se_PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -145,7 +154,10 @@ export const serializeAws_restJson1PostContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1PostTextCommand = async (
+/**
+ * serializeAws_restJson1PostTextCommand
+ */
+export const se_PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -161,16 +173,10 @@ export const serializeAws_restJson1PostTextCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.activeContexts != null && {
-      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-    }),
+    ...(input.activeContexts != null && { activeContexts: se_ActiveContextsList(input.activeContexts, context) }),
     ...(input.inputText != null && { inputText: input.inputText }),
-    ...(input.requestAttributes != null && {
-      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-    }),
-    ...(input.sessionAttributes != null && {
-      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-    }),
+    ...(input.requestAttributes != null && { requestAttributes: se_StringMap(input.requestAttributes, context) }),
+    ...(input.sessionAttributes != null && { sessionAttributes: se_StringMap(input.sessionAttributes, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -183,7 +189,10 @@ export const serializeAws_restJson1PostTextCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSessionCommand = async (
+/**
+ * serializeAws_restJson1PutSessionCommand
+ */
+export const se_PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -200,18 +209,12 @@ export const serializeAws_restJson1PutSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.activeContexts != null && {
-      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-    }),
-    ...(input.dialogAction != null && {
-      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
-    }),
+    ...(input.activeContexts != null && { activeContexts: se_ActiveContextsList(input.activeContexts, context) }),
+    ...(input.dialogAction != null && { dialogAction: se_DialogAction(input.dialogAction, context) }),
     ...(input.recentIntentSummaryView != null && {
-      recentIntentSummaryView: serializeAws_restJson1IntentSummaryList(input.recentIntentSummaryView, context),
+      recentIntentSummaryView: se_IntentSummaryList(input.recentIntentSummaryView, context),
     }),
-    ...(input.sessionAttributes != null && {
-      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-    }),
+    ...(input.sessionAttributes != null && { sessionAttributes: se_StringMap(input.sessionAttributes, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -224,12 +227,15 @@ export const serializeAws_restJson1PutSessionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteSessionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSessionCommand
+ */
+export const de_DeleteSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSessionCommandError(output, context);
+    return de_DeleteSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -250,7 +256,10 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSessionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSessionCommandError
+ */
+const de_DeleteSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
@@ -262,19 +271,19 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -286,28 +295,31 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSessionCommand = async (
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSessionCommandError(output, context);
+    return de_GetSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts != null) {
-    contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
+    contents.activeContexts = de_ActiveContextsList(data.activeContexts, context);
   }
   if (data.dialogAction != null) {
-    contents.dialogAction = deserializeAws_restJson1DialogAction(data.dialogAction, context);
+    contents.dialogAction = de_DialogAction(data.dialogAction, context);
   }
   if (data.recentIntentSummaryView != null) {
-    contents.recentIntentSummaryView = deserializeAws_restJson1IntentSummaryList(data.recentIntentSummaryView, context);
+    contents.recentIntentSummaryView = de_IntentSummaryList(data.recentIntentSummaryView, context);
   }
   if (data.sessionAttributes != null) {
-    contents.sessionAttributes = deserializeAws_restJson1StringMap(data.sessionAttributes, context);
+    contents.sessionAttributes = de_StringMap(data.sessionAttributes, context);
   }
   if (data.sessionId != null) {
     contents.sessionId = __expectString(data.sessionId);
@@ -315,7 +327,10 @@ export const deserializeAws_restJson1GetSessionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetSessionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSessionCommandError
+ */
+const de_GetSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
@@ -327,16 +342,16 @@ const deserializeAws_restJson1GetSessionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -348,12 +363,15 @@ const deserializeAws_restJson1GetSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PostContentCommand = async (
+/**
+ * deserializeAws_restJson1PostContentCommand
+ */
+export const de_PostContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PostContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PostContentCommandError(output, context);
+    return de_PostContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -409,7 +427,10 @@ export const deserializeAws_restJson1PostContentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PostContentCommandError = async (
+/**
+ * deserializeAws_restJson1PostContentCommandError
+ */
+const de_PostContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostContentCommandOutput> => {
@@ -421,37 +442,37 @@ const deserializeAws_restJson1PostContentCommandError = async (
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LoopDetectedException":
     case "com.amazonaws.lexruntimeservice#LoopDetectedException":
-      throw await deserializeAws_restJson1LoopDetectedExceptionResponse(parsedOutput, context);
+      throw await de_LoopDetectedExceptionRes(parsedOutput, context);
     case "NotAcceptableException":
     case "com.amazonaws.lexruntimeservice#NotAcceptableException":
-      throw await deserializeAws_restJson1NotAcceptableExceptionResponse(parsedOutput, context);
+      throw await de_NotAcceptableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.lexruntimeservice#RequestTimeoutException":
-      throw await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.lexruntimeservice#UnsupportedMediaTypeException":
-      throw await deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -463,22 +484,25 @@ const deserializeAws_restJson1PostContentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PostTextCommand = async (
+/**
+ * deserializeAws_restJson1PostTextCommand
+ */
+export const de_PostTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PostTextCommandError(output, context);
+    return de_PostTextCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts != null) {
-    contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
+    contents.activeContexts = de_ActiveContextsList(data.activeContexts, context);
   }
   if (data.alternativeIntents != null) {
-    contents.alternativeIntents = deserializeAws_restJson1IntentList(data.alternativeIntents, context);
+    contents.alternativeIntents = de_IntentList(data.alternativeIntents, context);
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
@@ -496,16 +520,16 @@ export const deserializeAws_restJson1PostTextCommand = async (
     contents.messageFormat = __expectString(data.messageFormat);
   }
   if (data.nluIntentConfidence != null) {
-    contents.nluIntentConfidence = deserializeAws_restJson1IntentConfidence(data.nluIntentConfidence, context);
+    contents.nluIntentConfidence = de_IntentConfidence(data.nluIntentConfidence, context);
   }
   if (data.responseCard != null) {
-    contents.responseCard = deserializeAws_restJson1ResponseCard(data.responseCard, context);
+    contents.responseCard = de_ResponseCard(data.responseCard, context);
   }
   if (data.sentimentResponse != null) {
-    contents.sentimentResponse = deserializeAws_restJson1SentimentResponse(data.sentimentResponse, context);
+    contents.sentimentResponse = de_SentimentResponse(data.sentimentResponse, context);
   }
   if (data.sessionAttributes != null) {
-    contents.sessionAttributes = deserializeAws_restJson1StringMap(data.sessionAttributes, context);
+    contents.sessionAttributes = de_StringMap(data.sessionAttributes, context);
   }
   if (data.sessionId != null) {
     contents.sessionId = __expectString(data.sessionId);
@@ -514,12 +538,15 @@ export const deserializeAws_restJson1PostTextCommand = async (
     contents.slotToElicit = __expectString(data.slotToElicit);
   }
   if (data.slots != null) {
-    contents.slots = deserializeAws_restJson1StringMap(data.slots, context);
+    contents.slots = de_StringMap(data.slots, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PostTextCommandError = async (
+/**
+ * deserializeAws_restJson1PostTextCommandError
+ */
+const de_PostTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> => {
@@ -531,28 +558,28 @@ const deserializeAws_restJson1PostTextCommandError = async (
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LoopDetectedException":
     case "com.amazonaws.lexruntimeservice#LoopDetectedException":
-      throw await deserializeAws_restJson1LoopDetectedExceptionResponse(parsedOutput, context);
+      throw await de_LoopDetectedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -564,12 +591,15 @@ const deserializeAws_restJson1PostTextCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutSessionCommand = async (
+/**
+ * deserializeAws_restJson1PutSessionCommand
+ */
+export const de_PutSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSessionCommandError(output, context);
+    return de_PutSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -607,7 +637,10 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutSessionCommandError = async (
+/**
+ * deserializeAws_restJson1PutSessionCommandError
+ */
+const de_PutSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSessionCommandOutput> => {
@@ -619,28 +652,28 @@ const deserializeAws_restJson1PutSessionCommandError = async (
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAcceptableException":
     case "com.amazonaws.lexruntimeservice#NotAcceptableException":
-      throw await deserializeAws_restJson1NotAcceptableExceptionResponse(parsedOutput, context);
+      throw await de_NotAcceptableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -653,10 +686,10 @@ const deserializeAws_restJson1PutSessionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1BadGatewayExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadGatewayException> => {
+/**
+ * deserializeAws_restJson1BadGatewayExceptionRes
+ */
+const de_BadGatewayExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadGatewayException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -669,10 +702,10 @@ const deserializeAws_restJson1BadGatewayExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -685,10 +718,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -701,7 +734,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DependencyFailedExceptionRes
+ */
+const de_DependencyFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailedException> => {
@@ -717,7 +753,10 @@ const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
@@ -733,7 +772,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
@@ -751,7 +793,10 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LoopDetectedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LoopDetectedExceptionRes
+ */
+const de_LoopDetectedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LoopDetectedException> => {
@@ -767,7 +812,10 @@ const deserializeAws_restJson1LoopDetectedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotAcceptableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NotAcceptableExceptionRes
+ */
+const de_NotAcceptableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAcceptableException> => {
@@ -783,10 +831,10 @@ const deserializeAws_restJson1NotAcceptableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -799,7 +847,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestTimeoutExceptionRes
+ */
+const de_RequestTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestTimeoutException> => {
@@ -815,7 +866,10 @@ const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedMediaTypeExceptionRes
+ */
+const de_UnsupportedMediaTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedMediaTypeException> => {
@@ -831,22 +885,21 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ActiveContext
+ */
+const se_ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
-    ...(input.parameters != null && {
-      parameters: serializeAws_restJson1ActiveContextParametersMap(input.parameters, context),
-    }),
-    ...(input.timeToLive != null && {
-      timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
-    }),
+    ...(input.parameters != null && { parameters: se_ActiveContextParametersMap(input.parameters, context) }),
+    ...(input.timeToLive != null && { timeToLive: se_ActiveContextTimeToLive(input.timeToLive, context) }),
   };
 };
 
-const serializeAws_restJson1ActiveContextParametersMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ActiveContextParametersMap
+ */
+const se_ActiveContextParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -856,37 +909,46 @@ const serializeAws_restJson1ActiveContextParametersMap = (
   }, {});
 };
 
-const serializeAws_restJson1ActiveContextsList = (input: ActiveContext[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ActiveContextsList
+ */
+const se_ActiveContextsList = (input: ActiveContext[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ActiveContext(entry, context);
+      return se_ActiveContext(entry, context);
     });
 };
 
-const serializeAws_restJson1ActiveContextTimeToLive = (
-  input: ActiveContextTimeToLive,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ActiveContextTimeToLive
+ */
+const se_ActiveContextTimeToLive = (input: ActiveContextTimeToLive, context: __SerdeContext): any => {
   return {
     ...(input.timeToLiveInSeconds != null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
     ...(input.turnsToLive != null && { turnsToLive: input.turnsToLive }),
   };
 };
 
-const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DialogAction
+ */
+const se_DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
     ...(input.fulfillmentState != null && { fulfillmentState: input.fulfillmentState }),
     ...(input.intentName != null && { intentName: input.intentName }),
     ...(input.message != null && { message: input.message }),
     ...(input.messageFormat != null && { messageFormat: input.messageFormat }),
     ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots != null && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
+    ...(input.slots != null && { slots: se_StringMap(input.slots, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IntentSummary
+ */
+const se_IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
   return {
     ...(input.checkpointLabel != null && { checkpointLabel: input.checkpointLabel }),
     ...(input.confirmationStatus != null && { confirmationStatus: input.confirmationStatus }),
@@ -894,19 +956,25 @@ const serializeAws_restJson1IntentSummary = (input: IntentSummary, context: __Se
     ...(input.fulfillmentState != null && { fulfillmentState: input.fulfillmentState }),
     ...(input.intentName != null && { intentName: input.intentName }),
     ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots != null && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
+    ...(input.slots != null && { slots: se_StringMap(input.slots, context) }),
   };
 };
 
-const serializeAws_restJson1IntentSummaryList = (input: IntentSummary[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IntentSummaryList
+ */
+const se_IntentSummaryList = (input: IntentSummary[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1IntentSummary(entry, context);
+      return se_IntentSummary(entry, context);
     });
 };
 
-const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StringMap
+ */
+const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -916,24 +984,21 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
   }, {});
 };
 
-const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
+/**
+ * deserializeAws_restJson1ActiveContext
+ */
+const de_ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
   return {
     name: __expectString(output.name),
-    parameters:
-      output.parameters != null
-        ? deserializeAws_restJson1ActiveContextParametersMap(output.parameters, context)
-        : undefined,
-    timeToLive:
-      output.timeToLive != null
-        ? deserializeAws_restJson1ActiveContextTimeToLive(output.timeToLive, context)
-        : undefined,
+    parameters: output.parameters != null ? de_ActiveContextParametersMap(output.parameters, context) : undefined,
+    timeToLive: output.timeToLive != null ? de_ActiveContextTimeToLive(output.timeToLive, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ActiveContextParametersMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1ActiveContextParametersMap
+ */
+const de_ActiveContextParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -943,88 +1008,112 @@ const deserializeAws_restJson1ActiveContextParametersMap = (
   }, {});
 };
 
-const deserializeAws_restJson1ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
+/**
+ * deserializeAws_restJson1ActiveContextsList
+ */
+const de_ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ActiveContext(entry, context);
+      return de_ActiveContext(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ActiveContextTimeToLive = (
-  output: any,
-  context: __SerdeContext
-): ActiveContextTimeToLive => {
+/**
+ * deserializeAws_restJson1ActiveContextTimeToLive
+ */
+const de_ActiveContextTimeToLive = (output: any, context: __SerdeContext): ActiveContextTimeToLive => {
   return {
     timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
     turnsToLive: __expectInt32(output.turnsToLive),
   } as any;
 };
 
-const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
+/**
+ * deserializeAws_restJson1Button
+ */
+const de_Button = (output: any, context: __SerdeContext): Button => {
   return {
     text: __expectString(output.text),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
+/**
+ * deserializeAws_restJson1DialogAction
+ */
+const de_DialogAction = (output: any, context: __SerdeContext): DialogAction => {
   return {
     fulfillmentState: __expectString(output.fulfillmentState),
     intentName: __expectString(output.intentName),
     message: __expectString(output.message),
     messageFormat: __expectString(output.messageFormat),
     slotToElicit: __expectString(output.slotToElicit),
-    slots: output.slots != null ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
+    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
+/**
+ * deserializeAws_restJson1GenericAttachment
+ */
+const de_GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
   return {
     attachmentLinkUrl: __expectString(output.attachmentLinkUrl),
-    buttons: output.buttons != null ? deserializeAws_restJson1listOfButtons(output.buttons, context) : undefined,
+    buttons: output.buttons != null ? de_listOfButtons(output.buttons, context) : undefined,
     imageUrl: __expectString(output.imageUrl),
     subTitle: __expectString(output.subTitle),
     title: __expectString(output.title),
   } as any;
 };
 
-const deserializeAws_restJson1genericAttachmentList = (output: any, context: __SerdeContext): GenericAttachment[] => {
+/**
+ * deserializeAws_restJson1genericAttachmentList
+ */
+const de_genericAttachmentList = (output: any, context: __SerdeContext): GenericAttachment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1GenericAttachment(entry, context);
+      return de_GenericAttachment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
+/**
+ * deserializeAws_restJson1IntentConfidence
+ */
+const de_IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
   return {
     score: __limitedParseDouble(output.score),
   } as any;
 };
 
-const deserializeAws_restJson1IntentList = (output: any, context: __SerdeContext): PredictedIntent[] => {
+/**
+ * deserializeAws_restJson1IntentList
+ */
+const de_IntentList = (output: any, context: __SerdeContext): PredictedIntent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PredictedIntent(entry, context);
+      return de_PredictedIntent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
+/**
+ * deserializeAws_restJson1IntentSummary
+ */
+const de_IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
   return {
     checkpointLabel: __expectString(output.checkpointLabel),
     confirmationStatus: __expectString(output.confirmationStatus),
@@ -1032,64 +1121,78 @@ const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeCont
     fulfillmentState: __expectString(output.fulfillmentState),
     intentName: __expectString(output.intentName),
     slotToElicit: __expectString(output.slotToElicit),
-    slots: output.slots != null ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
+    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
+/**
+ * deserializeAws_restJson1IntentSummaryList
+ */
+const de_IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1IntentSummary(entry, context);
+      return de_IntentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1listOfButtons = (output: any, context: __SerdeContext): Button[] => {
+/**
+ * deserializeAws_restJson1listOfButtons
+ */
+const de_listOfButtons = (output: any, context: __SerdeContext): Button[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Button(entry, context);
+      return de_Button(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PredictedIntent = (output: any, context: __SerdeContext): PredictedIntent => {
+/**
+ * deserializeAws_restJson1PredictedIntent
+ */
+const de_PredictedIntent = (output: any, context: __SerdeContext): PredictedIntent => {
   return {
     intentName: __expectString(output.intentName),
     nluIntentConfidence:
-      output.nluIntentConfidence != null
-        ? deserializeAws_restJson1IntentConfidence(output.nluIntentConfidence, context)
-        : undefined,
-    slots: output.slots != null ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
+      output.nluIntentConfidence != null ? de_IntentConfidence(output.nluIntentConfidence, context) : undefined,
+    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ResponseCard = (output: any, context: __SerdeContext): ResponseCard => {
+/**
+ * deserializeAws_restJson1ResponseCard
+ */
+const de_ResponseCard = (output: any, context: __SerdeContext): ResponseCard => {
   return {
     contentType: __expectString(output.contentType),
     genericAttachments:
-      output.genericAttachments != null
-        ? deserializeAws_restJson1genericAttachmentList(output.genericAttachments, context)
-        : undefined,
+      output.genericAttachments != null ? de_genericAttachmentList(output.genericAttachments, context) : undefined,
     version: __expectString(output.version),
   } as any;
 };
 
-const deserializeAws_restJson1SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
+/**
+ * deserializeAws_restJson1SentimentResponse
+ */
+const de_SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
   return {
     sentimentLabel: __expectString(output.sentimentLabel),
     sentimentScore: __expectString(output.sentimentScore),
   } as any;
 };
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1StringMap
+ */
+const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

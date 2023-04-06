@@ -23,8 +23,8 @@ import {
   DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeInputDeviceThumbnailCommand,
-  serializeAws_restJson1DescribeInputDeviceThumbnailCommand,
+  de_DescribeInputDeviceThumbnailCommand,
+  se_DescribeInputDeviceThumbnailCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInputDeviceThumbnailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputDeviceThumbnailCommand(input, context);
+    return se_DescribeInputDeviceThumbnailCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<DescribeInputDeviceThumbnailCommandOutput> {
-    return deserializeAws_restJson1DescribeInputDeviceThumbnailCommand(output, context);
+    return de_DescribeInputDeviceThumbnailCommand(output, context);
   }
 
   // Start section: command_body_extra

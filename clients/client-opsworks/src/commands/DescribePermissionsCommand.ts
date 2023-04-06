@@ -15,10 +15,7 @@ import {
 
 import { DescribePermissionsRequest, DescribePermissionsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribePermissionsCommand,
-  serializeAws_json1_1DescribePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePermissionsCommand, se_DescribePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePermissionsCommand(input, context);
+    return se_DescribePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribePermissionsCommand(output, context);
+    return de_DescribePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

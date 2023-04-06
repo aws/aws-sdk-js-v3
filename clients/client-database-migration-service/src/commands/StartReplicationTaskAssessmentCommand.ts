@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartReplicationTaskAssessmentCommand,
-  serializeAws_json1_1StartReplicationTaskAssessmentCommand,
+  de_StartReplicationTaskAssessmentCommand,
+  se_StartReplicationTaskAssessmentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     input: StartReplicationTaskAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartReplicationTaskAssessmentCommand(input, context);
+    return se_StartReplicationTaskAssessmentCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartReplicationTaskAssessmentCommandOutput> {
-    return deserializeAws_json1_1StartReplicationTaskAssessmentCommand(output, context);
+    return de_StartReplicationTaskAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

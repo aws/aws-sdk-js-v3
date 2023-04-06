@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AllQueryStringTypesInput } from "../models/models_0";
-import {
-  deserializeAws_restXmlAllQueryStringTypesCommand,
-  serializeAws_restXmlAllQueryStringTypesCommand,
-} from "../protocols/Aws_restXml";
+import { de_AllQueryStringTypesCommand, se_AllQueryStringTypesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -147,14 +144,14 @@ export class AllQueryStringTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: AllQueryStringTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAllQueryStringTypesCommand(input, context);
+    return se_AllQueryStringTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllQueryStringTypesCommandOutput> {
-    return deserializeAws_restXmlAllQueryStringTypesCommand(output, context);
+    return de_AllQueryStringTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

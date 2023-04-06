@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterContainerInstanceCommand,
-  serializeAws_json1_1DeregisterContainerInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterContainerInstanceCommand, se_DeregisterContainerInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,7 +162,7 @@ export class DeregisterContainerInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterContainerInstanceCommand(input, context);
+    return se_DeregisterContainerInstanceCommand(input, context);
   }
 
   /**
@@ -175,7 +172,7 @@ export class DeregisterContainerInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterContainerInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterContainerInstanceCommand(output, context);
+    return de_DeregisterContainerInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

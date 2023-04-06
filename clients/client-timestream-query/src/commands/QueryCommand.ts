@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryRequest, QueryRequestFilterSensitiveLog, QueryResponse } from "../models/models_0";
-import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
+import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -172,14 +172,14 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
    * @internal
    */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0QueryCommand(input, context);
+    return se_QueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return deserializeAws_json1_0QueryCommand(output, context);
+    return de_QueryCommand(output, context);
   }
 
   // Start section: command_body_extra

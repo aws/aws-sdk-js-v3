@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ConfigurationSettingsDescriptions, DescribeConfigurationSettingsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeConfigurationSettingsCommand,
-  serializeAws_queryDescribeConfigurationSettingsCommand,
+  de_DescribeConfigurationSettingsCommand,
+  se_DescribeConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -194,7 +194,7 @@ export class DescribeConfigurationSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationSettingsCommand(input, context);
+    return se_DescribeConfigurationSettingsCommand(input, context);
   }
 
   /**
@@ -204,7 +204,7 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationSettingsCommand(output, context);
+    return de_DescribeConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

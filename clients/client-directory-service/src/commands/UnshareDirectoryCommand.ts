@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UnshareDirectoryCommand,
-  serializeAws_json1_1UnshareDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnshareDirectoryCommand, se_UnshareDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UnshareDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: UnshareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnshareDirectoryCommand(input, context);
+    return se_UnshareDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnshareDirectoryCommandOutput> {
-    return deserializeAws_json1_1UnshareDirectoryCommand(output, context);
+    return de_UnshareDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

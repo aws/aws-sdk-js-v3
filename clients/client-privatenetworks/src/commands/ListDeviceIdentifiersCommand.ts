@@ -19,10 +19,7 @@ import {
   ListDeviceIdentifiersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListDeviceIdentifiersCommand,
-  serializeAws_restJson1ListDeviceIdentifiersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDeviceIdentifiersCommand, se_ListDeviceIdentifiersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListDeviceIdentifiersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeviceIdentifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceIdentifiersCommand(input, context);
+    return se_ListDeviceIdentifiersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceIdentifiersCommandOutput> {
-    return deserializeAws_restJson1ListDeviceIdentifiersCommand(output, context);
+    return de_ListDeviceIdentifiersCommand(output, context);
   }
 
   // Start section: command_body_extra

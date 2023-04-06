@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeEventCategoriesMessage, DescribeEventCategoriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventCategoriesCommand,
-  serializeAws_json1_1DescribeEventCategoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeEventCategoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventCategoriesCommand(input, context);
+    return se_DescribeEventCategoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventCategoriesCommand(output, context);
+    return de_DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

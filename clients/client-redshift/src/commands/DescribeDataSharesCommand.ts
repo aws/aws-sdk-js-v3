@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDataSharesMessage, DescribeDataSharesResult } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDataSharesCommand,
-  serializeAws_queryDescribeDataSharesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDataSharesCommand, se_DescribeDataSharesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -126,14 +123,14 @@ export class DescribeDataSharesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDataSharesCommand(input, context);
+    return se_DescribeDataSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSharesCommandOutput> {
-    return deserializeAws_queryDescribeDataSharesCommand(output, context);
+    return de_DescribeDataSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

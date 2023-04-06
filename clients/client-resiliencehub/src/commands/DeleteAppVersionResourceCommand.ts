@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAppVersionResourceRequest, DeleteAppVersionResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppVersionResourceCommand,
-  serializeAws_restJson1DeleteAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAppVersionResourceCommand, se_DeleteAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -169,14 +166,14 @@ export class DeleteAppVersionResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppVersionResourceCommand(input, context);
+    return se_DeleteAppVersionResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1DeleteAppVersionResourceCommand(output, context);
+    return de_DeleteAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

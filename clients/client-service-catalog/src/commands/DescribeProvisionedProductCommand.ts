@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProvisionedProductCommand,
-  serializeAws_json1_1DescribeProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProvisionedProductCommand, se_DescribeProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -128,7 +125,7 @@ export class DescribeProvisionedProductCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisionedProductCommand(input, context);
+    return se_DescribeProvisionedProductCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class DescribeProvisionedProductCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisionedProductCommand(output, context);
+    return de_DescribeProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

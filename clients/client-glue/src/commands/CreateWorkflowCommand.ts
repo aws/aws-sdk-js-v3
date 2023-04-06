@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateWorkflowCommand,
-  serializeAws_json1_1CreateWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkflowCommand(input, context);
+    return se_CreateWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
-    return deserializeAws_json1_1CreateWorkflowCommand(output, context);
+    return de_CreateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

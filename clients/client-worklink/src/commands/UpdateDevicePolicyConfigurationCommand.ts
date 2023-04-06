@@ -15,8 +15,8 @@ import {
 
 import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
-  serializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
+  de_UpdateDevicePolicyConfigurationCommand,
+  se_UpdateDevicePolicyConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -143,7 +143,7 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     input: UpdateDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDevicePolicyConfigurationCommand(input, context);
+    return se_UpdateDevicePolicyConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand(output, context);
+    return de_UpdateDevicePolicyConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

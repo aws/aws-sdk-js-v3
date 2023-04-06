@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBSnapshotAttributeCommand,
-  serializeAws_queryModifyDBSnapshotAttributeCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBSnapshotAttributeCommand, se_ModifyDBSnapshotAttributeCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -89,24 +86,66 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
  *
- * @example To change DB snapshot attributes
+ * @example To allow two AWS accounts to restore a DB snapshot
  * ```javascript
- * // This example adds the specified attribute for the specified DB snapshot.
+ * // The following example grants permission to two AWS accounts, with the identifiers 111122223333 and 444455556666, to restore the DB snapshot named mydbsnapshot.
  * const input = {
  *   "AttributeName": "restore",
  *   "DBSnapshotIdentifier": "mydbsnapshot",
  *   "ValuesToAdd": [
- *     "all"
+ *     "111122223333",
+ *     "444455556666"
  *   ]
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshotAttributesResult": {}
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "111122223333",
+ *           "444455556666"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
  * }
  * *\/
- * // example id: modify-db-snapshot-attribute-2e66f120-2b21-4a7c-890b-4474da88bde6
+ * // example id: to-allow-two-aws-accounts-to-restore-a-db-snapshot-1680389647513
+ * ```
+ *
+ * @example To prevent an AWS account from restoring a DB snapshot
+ * ```javascript
+ * // The following example removes permission from the AWS account with the identifier 444455556666 to restore the DB snapshot named mydbsnapshot.
+ * const input = {
+ *   "AttributeName": "restore",
+ *   "DBSnapshotIdentifier": "mydbsnapshot",
+ *   "ValuesToRemove": [
+ *     "444455556666"
+ *   ]
+ * };
+ * const command = new ModifyDBSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "111122223333"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
+ * }
+ * *\/
+ * // example id: to-prevent-an-aws-account-from-restoring-a-db-snapshot-1680389850879
  * ```
  *
  */
@@ -173,7 +212,7 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSnapshotAttributeCommand(input, context);
+    return se_ModifyDBSnapshotAttributeCommand(input, context);
   }
 
   /**
@@ -183,7 +222,7 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBSnapshotAttributeCommand(output, context);
+    return de_ModifyDBSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

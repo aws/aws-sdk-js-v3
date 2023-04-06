@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointSettingsCommand,
-  serializeAws_json1_1DescribeEndpointSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEndpointSettingsCommand, se_DescribeEndpointSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeEndpointSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointSettingsCommand(input, context);
+    return se_DescribeEndpointSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointSettingsCommand(output, context);
+    return de_DescribeEndpointSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { UpdateAssessmentControlRequest, UpdateAssessmentControlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAssessmentControlCommand,
-  serializeAws_restJson1UpdateAssessmentControlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAssessmentControlCommand, se_UpdateAssessmentControlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateAssessmentControlCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAssessmentControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAssessmentControlCommand(input, context);
+    return se_UpdateAssessmentControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssessmentControlCommandOutput> {
-    return deserializeAws_restJson1UpdateAssessmentControlCommand(output, context);
+    return de_UpdateAssessmentControlCommand(output, context);
   }
 
   // Start section: command_body_extra

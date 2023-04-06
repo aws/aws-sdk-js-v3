@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ImportVmImageRequest, ImportVmImageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportVmImageCommand,
-  serializeAws_restJson1ImportVmImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportVmImageCommand, se_ImportVmImageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ImportVmImageCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportVmImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportVmImageCommand(input, context);
+    return se_ImportVmImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportVmImageCommandOutput> {
-    return deserializeAws_restJson1ImportVmImageCommand(output, context);
+    return de_ImportVmImageCommand(output, context);
   }
 
   // Start section: command_body_extra

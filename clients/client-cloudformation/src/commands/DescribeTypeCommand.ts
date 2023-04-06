@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribeTypeInput, DescribeTypeOutput } from "../models/models_0";
-import { deserializeAws_queryDescribeTypeCommand, serializeAws_queryDescribeTypeCommand } from "../protocols/Aws_query";
+import { de_DescribeTypeCommand, se_DescribeTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +129,14 @@ export class DescribeTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTypeCommand(input, context);
+    return se_DescribeTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeCommandOutput> {
-    return deserializeAws_queryDescribeTypeCommand(output, context);
+    return de_DescribeTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

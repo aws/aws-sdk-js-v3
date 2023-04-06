@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetryStageExecutionCommand,
-  serializeAws_json1_1RetryStageExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetryStageExecutionCommand, se_RetryStageExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class RetryStageExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: RetryStageExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryStageExecutionCommand(input, context);
+    return se_RetryStageExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryStageExecutionCommandOutput> {
-    return deserializeAws_json1_1RetryStageExecutionCommand(output, context);
+    return de_RetryStageExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

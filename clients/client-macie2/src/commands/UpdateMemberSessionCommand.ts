@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { UpdateMemberSessionRequest, UpdateMemberSessionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateMemberSessionCommand,
-  serializeAws_restJson1UpdateMemberSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMemberSessionCommand, se_UpdateMemberSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateMemberSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMemberSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMemberSessionCommand(input, context);
+    return se_UpdateMemberSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMemberSessionCommandOutput> {
-    return deserializeAws_restJson1UpdateMemberSessionCommand(output, context);
+    return de_UpdateMemberSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

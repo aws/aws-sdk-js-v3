@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateConnectorRequest, CreateConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectorCommand,
-  serializeAws_json1_1CreateConnectorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -159,14 +156,14 @@ export class CreateConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectorCommand(input, context);
+    return se_CreateConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectorCommandOutput> {
-    return deserializeAws_json1_1CreateConnectorCommand(output, context);
+    return de_CreateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

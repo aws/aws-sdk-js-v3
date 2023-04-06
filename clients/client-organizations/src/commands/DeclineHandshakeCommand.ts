@@ -19,10 +19,7 @@ import {
   DeclineHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeclineHandshakeCommand,
-  serializeAws_json1_1DeclineHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeclineHandshakeCommand, se_DeclineHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -325,14 +322,14 @@ export class DeclineHandshakeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeclineHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeclineHandshakeCommand(input, context);
+    return se_DeclineHandshakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineHandshakeCommandOutput> {
-    return deserializeAws_json1_1DeclineHandshakeCommand(output, context);
+    return de_DeclineHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

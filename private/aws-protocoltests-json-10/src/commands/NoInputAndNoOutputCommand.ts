@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import {
-  deserializeAws_json1_0NoInputAndNoOutputCommand,
-  serializeAws_json1_0NoInputAndNoOutputCommand,
-} from "../protocols/Aws_json1_0";
+import { de_NoInputAndNoOutputCommand, se_NoInputAndNoOutputCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -106,14 +103,14 @@ export class NoInputAndNoOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: NoInputAndNoOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0NoInputAndNoOutputCommand(input, context);
+    return se_NoInputAndNoOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndNoOutputCommandOutput> {
-    return deserializeAws_json1_0NoInputAndNoOutputCommand(output, context);
+    return de_NoInputAndNoOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

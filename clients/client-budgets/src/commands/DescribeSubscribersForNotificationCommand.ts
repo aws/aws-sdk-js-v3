@@ -20,8 +20,8 @@ import {
   DescribeSubscribersForNotificationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSubscribersForNotificationCommand,
-  serializeAws_json1_1DescribeSubscribersForNotificationCommand,
+  de_DescribeSubscribersForNotificationCommand,
+  se_DescribeSubscribersForNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -162,7 +162,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     input: DescribeSubscribersForNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(input, context);
+    return se_DescribeSubscribersForNotificationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribersForNotificationCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(output, context);
+    return de_DescribeSubscribersForNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

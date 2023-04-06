@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatabasesCommand,
-  serializeAws_restJson1ListDatabasesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListDatabasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatabasesCommand(input, context);
+    return se_ListDatabasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
-    return deserializeAws_restJson1ListDatabasesCommand(output, context);
+    return de_ListDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

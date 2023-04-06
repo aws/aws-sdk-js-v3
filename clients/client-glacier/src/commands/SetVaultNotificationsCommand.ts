@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { SetVaultNotificationsInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1SetVaultNotificationsCommand,
-  serializeAws_restJson1SetVaultNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SetVaultNotificationsCommand, se_SetVaultNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -196,14 +193,14 @@ export class SetVaultNotificationsCommand extends $Command<
    * @internal
    */
   private serialize(input: SetVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetVaultNotificationsCommand(input, context);
+    return se_SetVaultNotificationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1SetVaultNotificationsCommand(output, context);
+    return de_SetVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

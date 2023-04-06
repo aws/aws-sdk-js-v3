@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCapacityProviderCommand,
-  serializeAws_json1_1DeleteCapacityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCapacityProviderCommand, se_DeleteCapacityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteCapacityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCapacityProviderCommand(input, context);
+    return se_DeleteCapacityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCapacityProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteCapacityProviderCommand(output, context);
+    return de_DeleteCapacityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

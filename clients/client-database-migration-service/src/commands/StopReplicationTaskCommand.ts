@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopReplicationTaskCommand,
-  serializeAws_json1_1StopReplicationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopReplicationTaskCommand, se_StopReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class StopReplicationTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StopReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopReplicationTaskCommand(input, context);
+    return se_StopReplicationTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationTaskCommandOutput> {
-    return deserializeAws_json1_1StopReplicationTaskCommand(output, context);
+    return de_StopReplicationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

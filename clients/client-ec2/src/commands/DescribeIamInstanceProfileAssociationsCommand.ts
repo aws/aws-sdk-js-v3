@@ -19,8 +19,8 @@ import {
   DescribeIamInstanceProfileAssociationsResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
-  serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
+  de_DescribeIamInstanceProfileAssociationsCommand,
+  se_DescribeIamInstanceProfileAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -169,7 +169,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     input: DescribeIamInstanceProfileAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(input, context);
+    return se_DescribeIamInstanceProfileAssociationsCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(output, context);
+    return de_DescribeIamInstanceProfileAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

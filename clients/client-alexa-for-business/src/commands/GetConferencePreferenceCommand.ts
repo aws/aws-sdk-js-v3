@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { GetConferencePreferenceRequest, GetConferencePreferenceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetConferencePreferenceCommand,
-  serializeAws_json1_1GetConferencePreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetConferencePreferenceCommand, se_GetConferencePreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class GetConferencePreferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConferencePreferenceCommand(input, context);
+    return se_GetConferencePreferenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1GetConferencePreferenceCommand(output, context);
+    return de_GetConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

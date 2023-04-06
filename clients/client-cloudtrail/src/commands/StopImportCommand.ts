@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { StopImportRequest, StopImportResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopImportCommand,
-  serializeAws_json1_1StopImportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopImportCommand, se_StopImportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class StopImportCommand extends $Command<
    * @internal
    */
   private serialize(input: StopImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopImportCommand(input, context);
+    return se_StopImportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopImportCommandOutput> {
-    return deserializeAws_json1_1StopImportCommand(output, context);
+    return de_StopImportCommand(output, context);
   }
 
   // Start section: command_body_extra

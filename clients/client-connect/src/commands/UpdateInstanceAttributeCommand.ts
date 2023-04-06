@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateInstanceAttributeRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateInstanceAttributeCommand,
-  serializeAws_restJson1UpdateInstanceAttributeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateInstanceAttributeCommand, se_UpdateInstanceAttributeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateInstanceAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInstanceAttributeCommand(input, context);
+    return se_UpdateInstanceAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceAttributeCommandOutput> {
-    return deserializeAws_restJson1UpdateInstanceAttributeCommand(output, context);
+    return de_UpdateInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeConstraintInput, DescribeConstraintOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConstraintCommand,
-  serializeAws_json1_1DescribeConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConstraintCommand, se_DescribeConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -124,14 +121,14 @@ export class DescribeConstraintCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConstraintCommand(input, context);
+    return se_DescribeConstraintCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConstraintCommandOutput> {
-    return deserializeAws_json1_1DescribeConstraintCommand(output, context);
+    return de_DescribeConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

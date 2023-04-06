@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreatePlacementGroupRequest, CreatePlacementGroupResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreatePlacementGroupCommand,
-  serializeAws_ec2CreatePlacementGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreatePlacementGroupCommand, se_CreatePlacementGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class CreatePlacementGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePlacementGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreatePlacementGroupCommand(input, context);
+    return se_CreatePlacementGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlacementGroupCommandOutput> {
-    return deserializeAws_ec2CreatePlacementGroupCommand(output, context);
+    return de_CreatePlacementGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

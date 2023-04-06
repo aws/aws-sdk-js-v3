@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { BatchGetFieldRequest, BatchGetFieldResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetFieldCommand,
-  serializeAws_restJson1BatchGetFieldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetFieldCommand, se_BatchGetFieldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class BatchGetFieldCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetFieldCommand(input, context);
+    return se_BatchGetFieldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFieldCommandOutput> {
-    return deserializeAws_restJson1BatchGetFieldCommand(output, context);
+    return de_BatchGetFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

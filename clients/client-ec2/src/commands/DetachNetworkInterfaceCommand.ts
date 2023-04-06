@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DetachNetworkInterfaceRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2DetachNetworkInterfaceCommand,
-  serializeAws_ec2DetachNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_DetachNetworkInterfaceCommand, se_DetachNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DetachNetworkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachNetworkInterfaceCommand(input, context);
+    return se_DetachNetworkInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2DetachNetworkInterfaceCommand(output, context);
+    return de_DetachNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

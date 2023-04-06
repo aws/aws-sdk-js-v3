@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListActivitiesInput, ListActivitiesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListActivitiesCommand,
-  serializeAws_json1_0ListActivitiesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListActivitiesCommand, se_ListActivitiesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListActivitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListActivitiesCommand(input, context);
+    return se_ListActivitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActivitiesCommandOutput> {
-    return deserializeAws_json1_0ListActivitiesCommand(output, context);
+    return de_ListActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

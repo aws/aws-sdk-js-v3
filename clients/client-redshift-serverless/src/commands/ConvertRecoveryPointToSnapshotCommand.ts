@@ -15,8 +15,8 @@ import {
 
 import { ConvertRecoveryPointToSnapshotRequest, ConvertRecoveryPointToSnapshotResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
-  serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
+  de_ConvertRecoveryPointToSnapshotCommand,
+  se_ConvertRecoveryPointToSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
@@ -156,7 +156,7 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     input: ConvertRecoveryPointToSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand(input, context);
+    return se_ConvertRecoveryPointToSnapshotCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> {
-    return deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand(output, context);
+    return de_ConvertRecoveryPointToSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

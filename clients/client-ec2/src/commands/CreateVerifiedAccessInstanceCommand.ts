@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVerifiedAccessInstanceRequest, CreateVerifiedAccessInstanceResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVerifiedAccessInstanceCommand,
-  serializeAws_ec2CreateVerifiedAccessInstanceCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateVerifiedAccessInstanceCommand, se_CreateVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class CreateVerifiedAccessInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVerifiedAccessInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessInstanceCommand(input, context);
+    return se_CreateVerifiedAccessInstanceCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class CreateVerifiedAccessInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessInstanceCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessInstanceCommand(output, context);
+    return de_CreateVerifiedAccessInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

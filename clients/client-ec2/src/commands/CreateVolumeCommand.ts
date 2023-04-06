@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVolumeRequest, Volume } from "../models/models_2";
-import { deserializeAws_ec2CreateVolumeCommand, serializeAws_ec2CreateVolumeCommand } from "../protocols/Aws_ec2";
+import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -201,14 +201,14 @@ export class CreateVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVolumeCommand(input, context);
+    return se_CreateVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeCommandOutput> {
-    return deserializeAws_ec2CreateVolumeCommand(output, context);
+    return de_CreateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

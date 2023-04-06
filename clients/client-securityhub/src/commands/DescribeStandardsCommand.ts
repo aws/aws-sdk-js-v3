@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeStandardsRequest, DescribeStandardsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeStandardsCommand,
-  serializeAws_restJson1DescribeStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeStandardsCommand, se_DescribeStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribeStandardsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStandardsCommand(input, context);
+    return se_DescribeStandardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStandardsCommandOutput> {
-    return deserializeAws_restJson1DescribeStandardsCommand(output, context);
+    return de_DescribeStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCellReadinessSummaryRequest, GetCellReadinessSummaryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCellReadinessSummaryCommand,
-  serializeAws_restJson1GetCellReadinessSummaryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCellReadinessSummaryCommand, se_GetCellReadinessSummaryCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -141,14 +138,14 @@ export class GetCellReadinessSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCellReadinessSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCellReadinessSummaryCommand(input, context);
+    return se_GetCellReadinessSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCellReadinessSummaryCommandOutput> {
-    return deserializeAws_restJson1GetCellReadinessSummaryCommand(output, context);
+    return de_GetCellReadinessSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

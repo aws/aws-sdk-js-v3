@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { CreateApiCacheRequest, CreateApiCacheResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApiCacheCommand,
-  serializeAws_restJson1CreateApiCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApiCacheCommand, se_CreateApiCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateApiCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApiCacheCommand(input, context);
+    return se_CreateApiCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiCacheCommandOutput> {
-    return deserializeAws_restJson1CreateApiCacheCommand(output, context);
+    return de_CreateApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

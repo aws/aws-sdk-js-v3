@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteUserSettingsRequest, DeleteUserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserSettingsCommand,
-  serializeAws_restJson1DeleteUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUserSettingsCommand, se_DeleteUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserSettingsCommand(input, context);
+    return se_DeleteUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteUserSettingsCommand(output, context);
+    return de_DeleteUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

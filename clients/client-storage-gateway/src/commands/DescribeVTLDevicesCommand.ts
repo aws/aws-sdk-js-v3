@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVTLDevicesCommand,
-  serializeAws_json1_1DescribeVTLDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeVTLDevicesCommand, se_DescribeVTLDevicesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -194,14 +191,14 @@ export class DescribeVTLDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVTLDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVTLDevicesCommand(input, context);
+    return se_DescribeVTLDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVTLDevicesCommandOutput> {
-    return deserializeAws_json1_1DescribeVTLDevicesCommand(output, context);
+    return de_DescribeVTLDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

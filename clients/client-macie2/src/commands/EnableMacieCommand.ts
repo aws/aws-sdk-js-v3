@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { EnableMacieRequest, EnableMacieResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableMacieCommand,
-  serializeAws_restJson1EnableMacieCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EnableMacieCommand, se_EnableMacieCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class EnableMacieCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableMacieCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableMacieCommand(input, context);
+    return se_EnableMacieCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMacieCommandOutput> {
-    return deserializeAws_restJson1EnableMacieCommand(output, context);
+    return de_EnableMacieCommand(output, context);
   }
 
   // Start section: command_body_extra

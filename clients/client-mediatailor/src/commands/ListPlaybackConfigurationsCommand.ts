@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { ListPlaybackConfigurationsRequest, ListPlaybackConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlaybackConfigurationsCommand,
-  serializeAws_restJson1ListPlaybackConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPlaybackConfigurationsCommand, se_ListPlaybackConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,7 +118,7 @@ export class ListPlaybackConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlaybackConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlaybackConfigurationsCommand(input, context);
+    return se_ListPlaybackConfigurationsCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPlaybackConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListPlaybackConfigurationsCommand(output, context);
+    return de_ListPlaybackConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

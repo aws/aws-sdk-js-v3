@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDataProtectionPolicyCommand,
-  serializeAws_json1_1GetDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDataProtectionPolicyCommand, se_GetDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetDataProtectionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataProtectionPolicyCommand(input, context);
+    return se_GetDataProtectionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetDataProtectionPolicyCommand(output, context);
+    return de_GetDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

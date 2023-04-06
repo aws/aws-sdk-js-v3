@@ -15,8 +15,8 @@ import {
 
 import { CreateResolverQueryLogConfigRequest, CreateResolverQueryLogConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateResolverQueryLogConfigCommand,
-  serializeAws_json1_1CreateResolverQueryLogConfigCommand,
+  de_CreateResolverQueryLogConfigCommand,
+  se_CreateResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -160,7 +160,7 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResolverQueryLogConfigCommand(input, context);
+    return se_CreateResolverQueryLogConfigCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1CreateResolverQueryLogConfigCommand(output, context);
+    return de_CreateResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

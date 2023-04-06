@@ -15,8 +15,8 @@ import {
 
 import { DeleteModelExplainabilityJobDefinitionRequest } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand,
-  serializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand,
+  de_DeleteModelExplainabilityJobDefinitionCommand,
+  se_DeleteModelExplainabilityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -127,7 +127,7 @@ export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
     input: DeleteModelExplainabilityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand(input, context);
+    return se_DeleteModelExplainabilityJobDefinitionCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand(output, context);
+    return de_DeleteModelExplainabilityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

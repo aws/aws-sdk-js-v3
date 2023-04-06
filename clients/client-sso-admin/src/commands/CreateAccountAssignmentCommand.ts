@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAccountAssignmentRequest, CreateAccountAssignmentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAccountAssignmentCommand,
-  serializeAws_json1_1CreateAccountAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAccountAssignmentCommand, se_CreateAccountAssignmentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -171,14 +168,14 @@ export class CreateAccountAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccountAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccountAssignmentCommand(input, context);
+    return se_CreateAccountAssignmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountAssignmentCommandOutput> {
-    return deserializeAws_json1_1CreateAccountAssignmentCommand(output, context);
+    return de_CreateAccountAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

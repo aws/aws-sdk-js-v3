@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeLimitsCommand,
-  serializeAws_json1_0DescribeLimitsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeLimitsCommand, se_DescribeLimitsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -209,14 +206,14 @@ export class DescribeLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLimitsCommand(input, context);
+    return se_DescribeLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLimitsCommandOutput> {
-    return deserializeAws_json1_0DescribeLimitsCommand(output, context);
+    return de_DescribeLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

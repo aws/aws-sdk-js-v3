@@ -16,8 +16,8 @@ import {
 import { UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
-  deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
-  serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
+  de_UpdateSiteRackPhysicalPropertiesCommand,
+  se_UpdateSiteRackPhysicalPropertiesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     input: UpdateSiteRackPhysicalPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand(input, context);
+    return se_UpdateSiteRackPhysicalPropertiesCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSiteRackPhysicalPropertiesCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand(output, context);
+    return de_UpdateSiteRackPhysicalPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

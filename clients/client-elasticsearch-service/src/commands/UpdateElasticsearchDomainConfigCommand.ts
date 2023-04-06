@@ -24,8 +24,8 @@ import {
   UpdateElasticsearchDomainConfigResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
-  serializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
+  de_UpdateElasticsearchDomainConfigCommand,
+  se_UpdateElasticsearchDomainConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -253,7 +253,7 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     input: UpdateElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateElasticsearchDomainConfigCommand(input, context);
+    return se_UpdateElasticsearchDomainConfigCommand(input, context);
   }
 
   /**
@@ -263,7 +263,7 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand(output, context);
+    return de_UpdateElasticsearchDomainConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

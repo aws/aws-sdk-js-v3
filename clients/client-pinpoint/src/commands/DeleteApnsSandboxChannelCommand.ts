@@ -15,10 +15,7 @@ import {
 
 import { DeleteApnsSandboxChannelRequest, DeleteApnsSandboxChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteApnsSandboxChannelCommand,
-  serializeAws_restJson1DeleteApnsSandboxChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApnsSandboxChannelCommand, se_DeleteApnsSandboxChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApnsSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApnsSandboxChannelCommand(input, context);
+    return se_DeleteApnsSandboxChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteApnsSandboxChannelCommand(output, context);
+    return de_DeleteApnsSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

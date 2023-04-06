@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteRouteResponseRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteResponseCommand,
-  serializeAws_restJson1DeleteRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRouteResponseCommand, se_DeleteRouteResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DeleteRouteResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteResponseCommand(input, context);
+    return se_DeleteRouteResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteResponseCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteResponseCommand(output, context);
+    return de_DeleteRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   FunctionConfigurationFilterSensitiveLog,
   GetFunctionConfigurationRequest,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionConfigurationCommand,
-  serializeAws_restJson1GetFunctionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFunctionConfigurationCommand, se_GetFunctionConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetFunctionConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFunctionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionConfigurationCommand(input, context);
+    return se_GetFunctionConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFunctionConfigurationCommand(output, context);
+    return de_GetFunctionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

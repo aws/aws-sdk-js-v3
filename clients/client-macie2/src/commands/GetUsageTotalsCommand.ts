@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetUsageTotalsRequest, GetUsageTotalsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsageTotalsCommand,
-  serializeAws_restJson1GetUsageTotalsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUsageTotalsCommand, se_GetUsageTotalsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetUsageTotalsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUsageTotalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsageTotalsCommand(input, context);
+    return se_GetUsageTotalsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageTotalsCommandOutput> {
-    return deserializeAws_restJson1GetUsageTotalsCommand(output, context);
+    return de_GetUsageTotalsCommand(output, context);
   }
 
   // Start section: command_body_extra

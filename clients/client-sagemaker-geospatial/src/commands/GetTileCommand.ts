@@ -17,10 +17,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTileInput, GetTileOutput, GetTileOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTileCommand,
-  serializeAws_restJson1GetTileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTileCommand, se_GetTileCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -153,7 +150,7 @@ export class GetTileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTileCommand(input, context);
+    return se_GetTileCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class GetTileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetTileCommandOutput> {
-    return deserializeAws_restJson1GetTileCommand(output, context);
+    return de_GetTileCommand(output, context);
   }
 
   // Start section: command_body_extra

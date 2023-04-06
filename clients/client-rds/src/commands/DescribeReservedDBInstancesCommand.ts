@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeReservedDBInstancesCommand,
-  serializeAws_queryDescribeReservedDBInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeReservedDBInstancesCommand, se_DescribeReservedDBInstancesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -76,19 +73,42 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  *  <p>The specified reserved DB Instance not found.</p>
  *
  *
- * @example To list information about reserved DB instances
+ * @example To describe reserved DB instances
  * ```javascript
- * // This example lists information for all reserved DB instances for the specified DB instance class, duration, product, offering type, and availability zone settings.
- * const input = {
- *   "DBInstanceClass": "db.t2.micro",
- *   "Duration": "1y",
- *   "MultiAZ": false,
- *   "OfferingType": "No Upfront",
- *   "ProductDescription": "mysql"
- * };
+ * // The following example retrieves details about any reserved DB instances in the current AWS account.
+ * const input = {};
  * const command = new DescribeReservedDBInstancesCommand(input);
- * await client.send(command);
- * // example id: describe-reserved-db-instances-d45adaca-2e30-407c-a0f3-aa7b98bea17f
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReservedDBInstances": [
+ *     {
+ *       "CurrencyCode": "USD",
+ *       "DBInstanceClass": "db.t3.micro",
+ *       "DBInstanceCount": 1,
+ *       "Duration": 31536000,
+ *       "FixedPrice": 0,
+ *       "LeaseId": "a1b2c3d4-6b69-4a59-be89-5e11aa446666",
+ *       "MultiAZ": false,
+ *       "OfferingType": "No Upfront",
+ *       "ProductDescription": "sqlserver-ex(li)",
+ *       "RecurringCharges": [
+ *         {
+ *           "RecurringChargeAmount": 0.014,
+ *           "RecurringChargeFrequency": "Hourly"
+ *         }
+ *       ],
+ *       "ReservedDBInstanceArn": "arn:aws:rds:us-west-2:123456789012:ri:myreservedinstance",
+ *       "ReservedDBInstanceId": "myreservedinstance",
+ *       "ReservedDBInstancesOfferingId": "12ab34cd-59af-4b2c-a660-1abcdef23456",
+ *       "StartTime": "2020-06-01T13:44:21.436Z",
+ *       "State": "payment-pending",
+ *       "UsagePrice": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-reserved-db-instances-1680283668105
  * ```
  *
  */
@@ -155,7 +175,7 @@ export class DescribeReservedDBInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReservedDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedDBInstancesCommand(input, context);
+    return se_DescribeReservedDBInstancesCommand(input, context);
   }
 
   /**
@@ -165,7 +185,7 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeReservedDBInstancesCommand(output, context);
+    return de_DescribeReservedDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

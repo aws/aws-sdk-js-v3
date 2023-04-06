@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateMatchmakingConfigurationInput, CreateMatchmakingConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateMatchmakingConfigurationCommand,
-  serializeAws_json1_1CreateMatchmakingConfigurationCommand,
+  de_CreateMatchmakingConfigurationCommand,
+  se_CreateMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -199,7 +199,7 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     input: CreateMatchmakingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMatchmakingConfigurationCommand(input, context);
+    return se_CreateMatchmakingConfigurationCommand(input, context);
   }
 
   /**
@@ -209,7 +209,7 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMatchmakingConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateMatchmakingConfigurationCommand(output, context);
+    return de_CreateMatchmakingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

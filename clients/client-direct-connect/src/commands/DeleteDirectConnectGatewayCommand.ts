@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteDirectConnectGatewayRequest, DeleteDirectConnectGatewayResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDirectConnectGatewayCommand, se_DeleteDirectConnectGatewayCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,7 +125,7 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayCommand(input, context);
+    return se_DeleteDirectConnectGatewayCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayCommand(output, context);
+    return de_DeleteDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

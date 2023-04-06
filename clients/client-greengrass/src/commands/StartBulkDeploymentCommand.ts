@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { StartBulkDeploymentRequest, StartBulkDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBulkDeploymentCommand,
-  serializeAws_restJson1StartBulkDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartBulkDeploymentCommand, se_StartBulkDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class StartBulkDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartBulkDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBulkDeploymentCommand(input, context);
+    return se_StartBulkDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBulkDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartBulkDeploymentCommand(output, context);
+    return de_StartBulkDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

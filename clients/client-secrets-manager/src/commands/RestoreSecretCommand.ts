@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RestoreSecretRequest, RestoreSecretResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreSecretCommand,
-  serializeAws_json1_1RestoreSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreSecretCommand, se_RestoreSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -170,14 +167,14 @@ export class RestoreSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreSecretCommand(input, context);
+    return se_RestoreSecretCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSecretCommandOutput> {
-    return deserializeAws_json1_1RestoreSecretCommand(output, context);
+    return de_RestoreSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

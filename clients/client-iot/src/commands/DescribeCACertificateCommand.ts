@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeCACertificateRequest, DescribeCACertificateResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeCACertificateCommand,
-  serializeAws_restJson1DescribeCACertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCACertificateCommand, se_DescribeCACertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeCACertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCACertificateCommand(input, context);
+    return se_DescribeCACertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCACertificateCommandOutput> {
-    return deserializeAws_restJson1DescribeCACertificateCommand(output, context);
+    return de_DescribeCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

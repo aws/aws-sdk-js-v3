@@ -19,10 +19,7 @@ import {
   CreateNamespaceResponse,
   CreateNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNamespaceCommand,
-  serializeAws_json1_1CreateNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNamespaceCommand, se_CreateNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -158,14 +155,14 @@ export class CreateNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNamespaceCommand(input, context);
+    return se_CreateNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreateNamespaceCommand(output, context);
+    return de_CreateNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

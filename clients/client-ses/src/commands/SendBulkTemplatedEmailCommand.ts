@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/models_0";
-import {
-  deserializeAws_querySendBulkTemplatedEmailCommand,
-  serializeAws_querySendBulkTemplatedEmailCommand,
-} from "../protocols/Aws_query";
+import { de_SendBulkTemplatedEmailCommand, se_SendBulkTemplatedEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -225,14 +222,14 @@ export class SendBulkTemplatedEmailCommand extends $Command<
    * @internal
    */
   private serialize(input: SendBulkTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendBulkTemplatedEmailCommand(input, context);
+    return se_SendBulkTemplatedEmailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkTemplatedEmailCommandOutput> {
-    return deserializeAws_querySendBulkTemplatedEmailCommand(output, context);
+    return de_SendBulkTemplatedEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

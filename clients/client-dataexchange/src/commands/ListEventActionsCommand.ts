@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { ListEventActionsRequest, ListEventActionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventActionsCommand,
-  serializeAws_restJson1ListEventActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEventActionsCommand, se_ListEventActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListEventActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventActionsCommand(input, context);
+    return se_ListEventActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventActionsCommandOutput> {
-    return deserializeAws_restJson1ListEventActionsCommand(output, context);
+    return de_ListEventActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateSubscriberRequestFilterSensitiveLog,
   UpdateSubscriberResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSubscriberCommand,
-  serializeAws_json1_1UpdateSubscriberCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSubscriberCommand, se_UpdateSubscriberCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateSubscriberCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubscriberCommand(input, context);
+    return se_UpdateSubscriberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriberCommandOutput> {
-    return deserializeAws_json1_1UpdateSubscriberCommand(output, context);
+    return de_UpdateSubscriberCommand(output, context);
   }
 
   // Start section: command_body_extra

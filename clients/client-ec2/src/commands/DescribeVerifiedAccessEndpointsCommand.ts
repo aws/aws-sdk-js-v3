@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVerifiedAccessEndpointsRequest, DescribeVerifiedAccessEndpointsResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeVerifiedAccessEndpointsCommand,
-  serializeAws_ec2DescribeVerifiedAccessEndpointsCommand,
+  de_DescribeVerifiedAccessEndpointsCommand,
+  se_DescribeVerifiedAccessEndpointsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
     input: DescribeVerifiedAccessEndpointsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessEndpointsCommand(input, context);
+    return se_DescribeVerifiedAccessEndpointsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessEndpointsCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessEndpointsCommand(output, context);
+    return de_DescribeVerifiedAccessEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

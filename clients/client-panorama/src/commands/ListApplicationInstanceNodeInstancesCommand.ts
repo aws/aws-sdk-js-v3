@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1ListApplicationInstanceNodeInstancesCommand,
-  serializeAws_restJson1ListApplicationInstanceNodeInstancesCommand,
+  de_ListApplicationInstanceNodeInstancesCommand,
+  se_ListApplicationInstanceNodeInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,7 +136,7 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     input: ListApplicationInstanceNodeInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationInstanceNodeInstancesCommand(input, context);
+    return se_ListApplicationInstanceNodeInstancesCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationInstanceNodeInstancesCommandOutput> {
-    return deserializeAws_restJson1ListApplicationInstanceNodeInstancesCommand(output, context);
+    return de_ListApplicationInstanceNodeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   TestIdentityProviderRequestFilterSensitiveLog,
   TestIdentityProviderResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1TestIdentityProviderCommand,
-  serializeAws_json1_1TestIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TestIdentityProviderCommand, se_TestIdentityProviderCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -179,14 +176,14 @@ export class TestIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: TestIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestIdentityProviderCommand(input, context);
+    return se_TestIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1TestIdentityProviderCommand(output, context);
+    return de_TestIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

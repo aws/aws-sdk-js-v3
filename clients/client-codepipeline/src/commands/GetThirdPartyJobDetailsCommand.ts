@@ -19,10 +19,7 @@ import {
   GetThirdPartyJobDetailsOutput,
   GetThirdPartyJobDetailsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetThirdPartyJobDetailsCommand,
-  serializeAws_json1_1GetThirdPartyJobDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetThirdPartyJobDetailsCommand, se_GetThirdPartyJobDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetThirdPartyJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetThirdPartyJobDetailsCommand(input, context);
+    return se_GetThirdPartyJobDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThirdPartyJobDetailsCommandOutput> {
-    return deserializeAws_json1_1GetThirdPartyJobDetailsCommand(output, context);
+    return de_GetThirdPartyJobDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

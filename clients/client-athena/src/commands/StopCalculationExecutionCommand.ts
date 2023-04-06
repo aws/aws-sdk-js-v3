@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { StopCalculationExecutionRequest, StopCalculationExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopCalculationExecutionCommand,
-  serializeAws_json1_1StopCalculationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopCalculationExecutionCommand, se_StopCalculationExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class StopCalculationExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCalculationExecutionCommand(input, context);
+    return se_StopCalculationExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCalculationExecutionCommandOutput> {
-    return deserializeAws_json1_1StopCalculationExecutionCommand(output, context);
+    return de_StopCalculationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -96,7 +96,10 @@ import {
   UpdateEnvironmentResult,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
+/**
+ * serializeAws_json1_1CreateEnvironmentEC2Command
+ */
+export const se_CreateEnvironmentEC2Command = async (
   input: CreateEnvironmentEC2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -105,11 +108,14 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEnvironmentEC2Request(input, context));
+  body = JSON.stringify(se_CreateEnvironmentEC2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
+/**
+ * serializeAws_json1_1CreateEnvironmentMembershipCommand
+ */
+export const se_CreateEnvironmentMembershipCommand = async (
   input: CreateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -118,11 +124,14 @@ export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(se_CreateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEnvironmentCommand = async (
+/**
+ * serializeAws_json1_1DeleteEnvironmentCommand
+ */
+export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -131,11 +140,14 @@ export const serializeAws_json1_1DeleteEnvironmentCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentRequest(input, context));
+  body = JSON.stringify(se_DeleteEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
+/**
+ * serializeAws_json1_1DeleteEnvironmentMembershipCommand
+ */
+export const se_DeleteEnvironmentMembershipCommand = async (
   input: DeleteEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -144,11 +156,14 @@ export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(se_DeleteEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEnvironmentMembershipsCommand
+ */
+export const se_DescribeEnvironmentMembershipsCommand = async (
   input: DescribeEnvironmentMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -157,11 +172,14 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context));
+  body = JSON.stringify(se_DescribeEnvironmentMembershipsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEnvironmentsCommand
+ */
+export const se_DescribeEnvironmentsCommand = async (
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -170,11 +188,14 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentsRequest(input, context));
+  body = JSON.stringify(se_DescribeEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
+/**
+ * serializeAws_json1_1DescribeEnvironmentStatusCommand
+ */
+export const se_DescribeEnvironmentStatusCommand = async (
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -183,11 +204,14 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context));
+  body = JSON.stringify(se_DescribeEnvironmentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListEnvironmentsCommand = async (
+/**
+ * serializeAws_json1_1ListEnvironmentsCommand
+ */
+export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -196,11 +220,14 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.ListEnvironments",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListEnvironmentsRequest(input, context));
+  body = JSON.stringify(se_ListEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -209,11 +236,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -222,11 +252,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -235,11 +268,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateEnvironmentCommand = async (
+/**
+ * serializeAws_json1_1UpdateEnvironmentCommand
+ */
+export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -248,11 +284,14 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentRequest(input, context));
+  body = JSON.stringify(se_UpdateEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
+/**
+ * serializeAws_json1_1UpdateEnvironmentMembershipCommand
+ */
+export const se_UpdateEnvironmentMembershipCommand = async (
   input: UpdateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -261,20 +300,23 @@ export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
     "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(se_UpdateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
+/**
+ * deserializeAws_json1_1CreateEnvironmentEC2Command
+ */
+export const de_CreateEnvironmentEC2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEnvironmentEC2CommandError(output, context);
+    return de_CreateEnvironmentEC2CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEnvironmentEC2Result(data, context);
+  contents = de_CreateEnvironmentEC2Result(data, context);
   const response: CreateEnvironmentEC2CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -282,7 +324,10 @@ export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
+/**
+ * deserializeAws_json1_1CreateEnvironmentEC2CommandError
+ */
+const de_CreateEnvironmentEC2CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
@@ -294,25 +339,25 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -324,16 +369,19 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
+/**
+ * deserializeAws_json1_1CreateEnvironmentMembershipCommand
+ */
+export const de_CreateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(output, context);
+    return de_CreateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(data, context);
+  contents = de_CreateEnvironmentMembershipResult(data, context);
   const response: CreateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -341,7 +389,10 @@ export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1CreateEnvironmentMembershipCommandError
+ */
+const de_CreateEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
@@ -353,25 +404,25 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -383,16 +434,19 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEnvironmentCommand
+ */
+export const de_DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEnvironmentCommandError(output, context);
+    return de_DeleteEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEnvironmentResult(data, context);
+  contents = de_DeleteEnvironmentResult(data, context);
   const response: DeleteEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -400,7 +454,10 @@ export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEnvironmentCommandError
+ */
+const de_DeleteEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
@@ -412,25 +469,25 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -442,16 +499,19 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEnvironmentMembershipCommand
+ */
+export const de_DeleteEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(output, context);
+    return de_DeleteEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(data, context);
+  contents = de_DeleteEnvironmentMembershipResult(data, context);
   const response: DeleteEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -459,7 +519,10 @@ export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEnvironmentMembershipCommandError
+ */
+const de_DeleteEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
@@ -471,25 +534,25 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -501,16 +564,19 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentMembershipsCommand
+ */
+export const de_DescribeEnvironmentMembershipsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(output, context);
+    return de_DescribeEnvironmentMembershipsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(data, context);
+  contents = de_DescribeEnvironmentMembershipsResult(data, context);
   const response: DescribeEnvironmentMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -518,7 +584,10 @@ export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError
+ */
+const de_DescribeEnvironmentMembershipsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
@@ -530,25 +599,25 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -560,16 +629,19 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentsCommand
+ */
+export const de_DescribeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEnvironmentsCommandError(output, context);
+    return de_DescribeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
+  contents = de_DescribeEnvironmentsResult(data, context);
   const response: DescribeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -577,7 +649,10 @@ export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentsCommandError
+ */
+const de_DescribeEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
@@ -589,25 +664,25 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -619,16 +694,19 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentStatusCommand
+ */
+export const de_DescribeEnvironmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(output, context);
+    return de_DescribeEnvironmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(data, context);
+  contents = de_DescribeEnvironmentStatusResult(data, context);
   const response: DescribeEnvironmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -636,7 +714,10 @@ export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentStatusCommandError
+ */
+const de_DescribeEnvironmentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
@@ -648,25 +729,25 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -678,16 +759,19 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListEnvironmentsCommand = async (
+/**
+ * deserializeAws_json1_1ListEnvironmentsCommand
+ */
+export const de_ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListEnvironmentsCommandError(output, context);
+    return de_ListEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEnvironmentsResult(data, context);
+  contents = de_ListEnvironmentsResult(data, context);
   const response: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -695,7 +779,10 @@ export const deserializeAws_json1_1ListEnvironmentsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListEnvironmentsCommandError = async (
+/**
+ * deserializeAws_json1_1ListEnvironmentsCommandError
+ */
+const de_ListEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
@@ -707,25 +794,25 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -737,16 +824,19 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -754,7 +844,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -766,13 +859,13 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -784,16 +877,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -801,7 +897,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -813,16 +912,16 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentAccessException":
     case "com.amazonaws.cloud9#ConcurrentAccessException":
-      throw await deserializeAws_json1_1ConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -834,16 +933,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -851,7 +953,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -863,16 +968,16 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentAccessException":
     case "com.amazonaws.cloud9#ConcurrentAccessException":
-      throw await deserializeAws_json1_1ConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -884,16 +989,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
+/**
+ * deserializeAws_json1_1UpdateEnvironmentCommand
+ */
+export const de_UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateEnvironmentCommandError(output, context);
+    return de_UpdateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEnvironmentResult(data, context);
+  contents = de_UpdateEnvironmentResult(data, context);
   const response: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -901,7 +1009,10 @@ export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateEnvironmentCommandError
+ */
+const de_UpdateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
@@ -913,25 +1024,25 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -943,16 +1054,19 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
+/**
+ * deserializeAws_json1_1UpdateEnvironmentMembershipCommand
+ */
+export const de_UpdateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(output, context);
+    return de_UpdateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(data, context);
+  contents = de_UpdateEnvironmentMembershipResult(data, context);
   const response: UpdateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -960,7 +1074,10 @@ export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateEnvironmentMembershipCommandError
+ */
+const de_UpdateEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
@@ -972,25 +1089,25 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloud9#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.cloud9#ForbiddenException":
-      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.cloud9#InternalServerErrorException":
-      throw await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloud9#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.cloud9#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cloud9#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1002,12 +1119,12 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
   }
 };
 
-const deserializeAws_json1_1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_json1_1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
+  const deserialized: any = de_BadRequestException(body, context);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1015,12 +1132,15 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConcurrentAccessExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentAccessExceptionRes
+ */
+const de_ConcurrentAccessExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentAccessException(body, context);
+  const deserialized: any = de_ConcurrentAccessException(body, context);
   const exception = new ConcurrentAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1028,12 +1148,12 @@ const deserializeAws_json1_1ConcurrentAccessExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1041,12 +1161,12 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_json1_1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ForbiddenException(body, context);
+  const deserialized: any = de_ForbiddenException(body, context);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1054,12 +1174,15 @@ const deserializeAws_json1_1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerErrorException(body, context);
+  const deserialized: any = de_InternalServerErrorException(body, context);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1067,12 +1190,15 @@ const deserializeAws_json1_1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1080,12 +1206,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_json1_1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
+  const deserialized: any = de_NotFoundException(body, context);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1093,12 +1219,15 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
+  const deserialized: any = de_TooManyRequestsException(body, context);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1106,7 +1235,10 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1BoundedEnvironmentIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BoundedEnvironmentIdList
+ */
+const se_BoundedEnvironmentIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1114,10 +1246,10 @@ const serializeAws_json1_1BoundedEnvironmentIdList = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_1CreateEnvironmentEC2Request = (
-  input: CreateEnvironmentEC2Request,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateEnvironmentEC2Request
+ */
+const se_CreateEnvironmentEC2Request = (input: CreateEnvironmentEC2Request, context: __SerdeContext): any => {
   return {
     ...(input.automaticStopTimeMinutes != null && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
     ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
@@ -1129,11 +1261,14 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
     ...(input.name != null && { name: input.name }),
     ...(input.ownerArn != null && { ownerArn: input.ownerArn }),
     ...(input.subnetId != null && { subnetId: input.subnetId }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
+/**
+ * serializeAws_json1_1CreateEnvironmentMembershipRequest
+ */
+const se_CreateEnvironmentMembershipRequest = (
   input: CreateEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
@@ -1144,7 +1279,10 @@ const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
+/**
+ * serializeAws_json1_1DeleteEnvironmentMembershipRequest
+ */
+const se_DeleteEnvironmentMembershipRequest = (
   input: DeleteEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
@@ -1154,16 +1292,19 @@ const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteEnvironmentRequest = (
-  input: DeleteEnvironmentRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteEnvironmentRequest
+ */
+const se_DeleteEnvironmentRequest = (input: DeleteEnvironmentRequest, context: __SerdeContext): any => {
   return {
     ...(input.environmentId != null && { environmentId: input.environmentId }),
   };
 };
 
-const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
+/**
+ * serializeAws_json1_1DescribeEnvironmentMembershipsRequest
+ */
+const se_DescribeEnvironmentMembershipsRequest = (
   input: DescribeEnvironmentMembershipsRequest,
   context: __SerdeContext
 ): any => {
@@ -1171,48 +1312,52 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
     ...(input.environmentId != null && { environmentId: input.environmentId }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.permissions != null && { permissions: serializeAws_json1_1PermissionsList(input.permissions, context) }),
+    ...(input.permissions != null && { permissions: se_PermissionsList(input.permissions, context) }),
     ...(input.userArn != null && { userArn: input.userArn }),
   };
 };
 
-const serializeAws_json1_1DescribeEnvironmentsRequest = (
-  input: DescribeEnvironmentsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEnvironmentsRequest
+ */
+const se_DescribeEnvironmentsRequest = (input: DescribeEnvironmentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.environmentIds != null && {
-      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context),
-    }),
+    ...(input.environmentIds != null && { environmentIds: se_BoundedEnvironmentIdList(input.environmentIds, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
-  input: DescribeEnvironmentStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEnvironmentStatusRequest
+ */
+const se_DescribeEnvironmentStatusRequest = (input: DescribeEnvironmentStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.environmentId != null && { environmentId: input.environmentId }),
   };
 };
 
-const serializeAws_json1_1ListEnvironmentsRequest = (input: ListEnvironmentsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListEnvironmentsRequest
+ */
+const se_ListEnvironmentsRequest = (input: ListEnvironmentsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
-const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PermissionsList
+ */
+const se_PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1220,14 +1365,20 @@ const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], co
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1235,29 +1386,41 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
+/**
+ * serializeAws_json1_1UpdateEnvironmentMembershipRequest
+ */
+const se_UpdateEnvironmentMembershipRequest = (
   input: UpdateEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
@@ -1268,10 +1431,10 @@ const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateEnvironmentRequest = (
-  input: UpdateEnvironmentRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateEnvironmentRequest
+ */
+const se_UpdateEnvironmentRequest = (input: UpdateEnvironmentRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.environmentId != null && { environmentId: input.environmentId }),
@@ -1280,7 +1443,10 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
   };
 };
 
-const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
+/**
+ * deserializeAws_json1_1BadRequestException
+ */
+const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1288,10 +1454,10 @@ const deserializeAws_json1_1BadRequestException = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1ConcurrentAccessException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentAccessException => {
+/**
+ * deserializeAws_json1_1ConcurrentAccessException
+ */
+const de_ConcurrentAccessException = (output: any, context: __SerdeContext): ConcurrentAccessException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1299,7 +1465,10 @@ const deserializeAws_json1_1ConcurrentAccessException = (
   } as any;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1307,80 +1476,86 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1CreateEnvironmentEC2Result = (
-  output: any,
-  context: __SerdeContext
-): CreateEnvironmentEC2Result => {
+/**
+ * deserializeAws_json1_1CreateEnvironmentEC2Result
+ */
+const de_CreateEnvironmentEC2Result = (output: any, context: __SerdeContext): CreateEnvironmentEC2Result => {
   return {
     environmentId: __expectString(output.environmentId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateEnvironmentMembershipResult = (
+/**
+ * deserializeAws_json1_1CreateEnvironmentMembershipResult
+ */
+const de_CreateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentMembershipResult => {
   return {
-    membership:
-      output.membership != null ? deserializeAws_json1_1EnvironmentMember(output.membership, context) : undefined,
+    membership: output.membership != null ? de_EnvironmentMember(output.membership, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteEnvironmentMembershipResult = (
+/**
+ * deserializeAws_json1_1DeleteEnvironmentMembershipResult
+ */
+const de_DeleteEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentMembershipResult => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteEnvironmentResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteEnvironmentResult => {
+/**
+ * deserializeAws_json1_1DeleteEnvironmentResult
+ */
+const de_DeleteEnvironmentResult = (output: any, context: __SerdeContext): DeleteEnvironmentResult => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
+/**
+ * deserializeAws_json1_1DescribeEnvironmentMembershipsResult
+ */
+const de_DescribeEnvironmentMembershipsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentMembershipsResult => {
   return {
-    memberships:
-      output.memberships != null
-        ? deserializeAws_json1_1EnvironmentMembersList(output.memberships, context)
-        : undefined,
+    memberships: output.memberships != null ? de_EnvironmentMembersList(output.memberships, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEnvironmentsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeEnvironmentsResult => {
+/**
+ * deserializeAws_json1_1DescribeEnvironmentsResult
+ */
+const de_DescribeEnvironmentsResult = (output: any, context: __SerdeContext): DescribeEnvironmentsResult => {
   return {
-    environments:
-      output.environments != null ? deserializeAws_json1_1EnvironmentList(output.environments, context) : undefined,
+    environments: output.environments != null ? de_EnvironmentList(output.environments, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeEnvironmentStatusResult => {
+/**
+ * deserializeAws_json1_1DescribeEnvironmentStatusResult
+ */
+const de_DescribeEnvironmentStatusResult = (output: any, context: __SerdeContext): DescribeEnvironmentStatusResult => {
   return {
     message: __expectString(output.message),
     status: __expectString(output.status),
   } as any;
 };
 
-const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Environment => {
+/**
+ * deserializeAws_json1_1Environment
+ */
+const de_Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     arn: __expectString(output.arn),
     connectionType: __expectString(output.connectionType),
     description: __expectString(output.description),
     id: __expectString(output.id),
-    lifecycle:
-      output.lifecycle != null ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context) : undefined,
+    lifecycle: output.lifecycle != null ? de_EnvironmentLifecycle(output.lifecycle, context) : undefined,
     managedCredentialsStatus: __expectString(output.managedCredentialsStatus),
     name: __expectString(output.name),
     ownerArn: __expectString(output.ownerArn),
@@ -1388,7 +1563,10 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1EnvironmentIdList
+ */
+const de_EnvironmentIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1400,7 +1578,10 @@ const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
+/**
+ * deserializeAws_json1_1EnvironmentLifecycle
+ */
+const de_EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
   return {
     failureResource: __expectString(output.failureResource),
     reason: __expectString(output.reason),
@@ -1408,19 +1589,25 @@ const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
+/**
+ * deserializeAws_json1_1EnvironmentList
+ */
+const de_EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Environment(entry, context);
+      return de_Environment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
+/**
+ * deserializeAws_json1_1EnvironmentMember
+ */
+const de_EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
   return {
     environmentId: __expectString(output.environmentId),
     lastAccess:
@@ -1431,19 +1618,25 @@ const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __SerdeContext): EnvironmentMember[] => {
+/**
+ * deserializeAws_json1_1EnvironmentMembersList
+ */
+const de_EnvironmentMembersList = (output: any, context: __SerdeContext): EnvironmentMember[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EnvironmentMember(entry, context);
+      return de_EnvironmentMember(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
+/**
+ * deserializeAws_json1_1ForbiddenException
+ */
+const de_ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1451,10 +1644,10 @@ const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1InternalServerErrorException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerErrorException => {
+/**
+ * deserializeAws_json1_1InternalServerErrorException
+ */
+const de_InternalServerErrorException = (output: any, context: __SerdeContext): InternalServerErrorException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1462,7 +1655,10 @@ const deserializeAws_json1_1InternalServerErrorException = (
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1470,26 +1666,29 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1ListEnvironmentsResult = (output: any, context: __SerdeContext): ListEnvironmentsResult => {
+/**
+ * deserializeAws_json1_1ListEnvironmentsResult
+ */
+const de_ListEnvironmentsResult = (output: any, context: __SerdeContext): ListEnvironmentsResult => {
   return {
-    environmentIds:
-      output.environmentIds != null
-        ? deserializeAws_json1_1EnvironmentIdList(output.environmentIds, context)
-        : undefined,
+    environmentIds: output.environmentIds != null ? de_EnvironmentIdList(output.environmentIds, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
+/**
+ * deserializeAws_json1_1NotFoundException
+ */
+const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1497,33 +1696,42 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TooManyRequestsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyRequestsException => {
+/**
+ * deserializeAws_json1_1TooManyRequestsException
+ */
+const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
   return {
     className: __expectString(output.className),
     code: __expectInt32(output.code),
@@ -1531,24 +1739,29 @@ const deserializeAws_json1_1TooManyRequestsException = (
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
+/**
+ * deserializeAws_json1_1UpdateEnvironmentMembershipResult
+ */
+const de_UpdateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentMembershipResult => {
   return {
-    membership:
-      output.membership != null ? deserializeAws_json1_1EnvironmentMember(output.membership, context) : undefined,
+    membership: output.membership != null ? de_EnvironmentMember(output.membership, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateEnvironmentResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateEnvironmentResult => {
+/**
+ * deserializeAws_json1_1UpdateEnvironmentResult
+ */
+const de_UpdateEnvironmentResult = (output: any, context: __SerdeContext): UpdateEnvironmentResult => {
   return {} as any;
 };
 

@@ -19,10 +19,7 @@ import {
   CreateAppInstanceRequestFilterSensitiveLog,
   CreateAppInstanceResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppInstanceCommand,
-  serializeAws_restJson1CreateAppInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppInstanceCommand, se_CreateAppInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateAppInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAppInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppInstanceCommand(input, context);
+    return se_CreateAppInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppInstanceCommandOutput> {
-    return deserializeAws_restJson1CreateAppInstanceCommand(output, context);
+    return de_CreateAppInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

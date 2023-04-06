@@ -18,8 +18,8 @@ import {
   DescribeAssociationExecutionTargetsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
-  serializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
+  de_DescribeAssociationExecutionTargetsCommand,
+  se_DescribeAssociationExecutionTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -149,7 +149,7 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     input: DescribeAssociationExecutionTargetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationExecutionTargetsCommand(input, context);
+    return se_DescribeAssociationExecutionTargetsCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand(output, context);
+    return de_DescribeAssociationExecutionTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

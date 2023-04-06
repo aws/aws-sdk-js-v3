@@ -19,10 +19,7 @@ import {
   SearchContactsResponse,
   SearchContactsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchContactsCommand,
-  serializeAws_json1_1SearchContactsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchContactsCommand, se_SearchContactsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class SearchContactsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchContactsCommand(input, context);
+    return se_SearchContactsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContactsCommandOutput> {
-    return deserializeAws_json1_1SearchContactsCommand(output, context);
+    return de_SearchContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

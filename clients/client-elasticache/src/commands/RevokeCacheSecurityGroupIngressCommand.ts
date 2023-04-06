@@ -16,8 +16,8 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0";
 import {
-  deserializeAws_queryRevokeCacheSecurityGroupIngressCommand,
-  serializeAws_queryRevokeCacheSecurityGroupIngressCommand,
+  de_RevokeCacheSecurityGroupIngressCommand,
+  se_RevokeCacheSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -157,7 +157,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     input: RevokeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeCacheSecurityGroupIngressCommand(input, context);
+    return se_RevokeCacheSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeCacheSecurityGroupIngressCommand(output, context);
+    return de_RevokeCacheSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { ListPipelineExecutionsInput, ListPipelineExecutionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPipelineExecutionsCommand,
-  serializeAws_json1_1ListPipelineExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPipelineExecutionsCommand, se_ListPipelineExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListPipelineExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPipelineExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineExecutionsCommand(input, context);
+    return se_ListPipelineExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelineExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListPipelineExecutionsCommand(output, context);
+    return de_ListPipelineExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

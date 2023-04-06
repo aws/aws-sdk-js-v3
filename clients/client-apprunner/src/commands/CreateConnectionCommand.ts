@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateConnectionCommand,
-  serializeAws_json1_0CreateConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class CreateConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateConnectionCommand(input, context);
+    return se_CreateConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
-    return deserializeAws_json1_0CreateConnectionCommand(output, context);
+    return de_CreateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

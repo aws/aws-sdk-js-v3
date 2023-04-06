@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExpireSessionCommand,
-  serializeAws_json1_1ExpireSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExpireSessionCommand, se_ExpireSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -118,14 +115,14 @@ export class ExpireSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: ExpireSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExpireSessionCommand(input, context);
+    return se_ExpireSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExpireSessionCommandOutput> {
-    return deserializeAws_json1_1ExpireSessionCommand(output, context);
+    return de_ExpireSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

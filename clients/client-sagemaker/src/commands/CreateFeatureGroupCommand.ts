@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateFeatureGroupRequest, CreateFeatureGroupResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateFeatureGroupCommand,
-  serializeAws_json1_1CreateFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFeatureGroupCommand, se_CreateFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -175,14 +172,14 @@ export class CreateFeatureGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFeatureGroupCommand(input, context);
+    return se_CreateFeatureGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1CreateFeatureGroupCommand(output, context);
+    return de_CreateFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

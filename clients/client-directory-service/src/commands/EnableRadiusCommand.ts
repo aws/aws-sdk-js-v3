@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { EnableRadiusRequest, EnableRadiusRequestFilterSensitiveLog, EnableRadiusResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableRadiusCommand,
-  serializeAws_json1_1EnableRadiusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableRadiusCommand, se_EnableRadiusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class EnableRadiusCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableRadiusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableRadiusCommand(input, context);
+    return se_EnableRadiusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRadiusCommandOutput> {
-    return deserializeAws_json1_1EnableRadiusCommand(output, context);
+    return de_EnableRadiusCommand(output, context);
   }
 
   // Start section: command_body_extra

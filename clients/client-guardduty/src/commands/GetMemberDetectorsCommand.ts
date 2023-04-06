@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetMemberDetectorsRequest, GetMemberDetectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMemberDetectorsCommand,
-  serializeAws_restJson1GetMemberDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMemberDetectorsCommand, se_GetMemberDetectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetMemberDetectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMemberDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMemberDetectorsCommand(input, context);
+    return se_GetMemberDetectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberDetectorsCommandOutput> {
-    return deserializeAws_restJson1GetMemberDetectorsCommand(output, context);
+    return de_GetMemberDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

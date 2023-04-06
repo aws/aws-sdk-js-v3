@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAssociatedResourceRequest, GetAssociatedResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssociatedResourceCommand,
-  serializeAws_restJson1GetAssociatedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssociatedResourceCommand, se_GetAssociatedResourceCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -135,14 +132,14 @@ export class GetAssociatedResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssociatedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssociatedResourceCommand(input, context);
+    return se_GetAssociatedResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedResourceCommandOutput> {
-    return deserializeAws_restJson1GetAssociatedResourceCommand(output, context);
+    return de_GetAssociatedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

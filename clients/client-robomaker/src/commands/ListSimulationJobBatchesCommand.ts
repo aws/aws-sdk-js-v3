@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationJobBatchesCommand,
-  serializeAws_restJson1ListSimulationJobBatchesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSimulationJobBatchesCommand, se_ListSimulationJobBatchesCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListSimulationJobBatchesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSimulationJobBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationJobBatchesCommand(input, context);
+    return se_ListSimulationJobBatchesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobBatchesCommandOutput> {
-    return deserializeAws_restJson1ListSimulationJobBatchesCommand(output, context);
+    return de_ListSimulationJobBatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

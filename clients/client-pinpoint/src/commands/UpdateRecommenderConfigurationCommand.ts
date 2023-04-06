@@ -16,8 +16,8 @@ import {
 import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1UpdateRecommenderConfigurationCommand,
-  serializeAws_restJson1UpdateRecommenderConfigurationCommand,
+  de_UpdateRecommenderConfigurationCommand,
+  se_UpdateRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
     input: UpdateRecommenderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecommenderConfigurationCommand(input, context);
+    return se_UpdateRecommenderConfigurationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateRecommenderConfigurationCommand(output, context);
+    return de_UpdateRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

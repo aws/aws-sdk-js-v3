@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRegistryRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRegistryCommand,
-  serializeAws_restJson1DeleteRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRegistryCommand, se_DeleteRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRegistryCommand(input, context);
+    return se_DeleteRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
-    return deserializeAws_restJson1DeleteRegistryCommand(output, context);
+    return de_DeleteRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

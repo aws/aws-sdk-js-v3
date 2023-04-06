@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteDataSourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataSourceCommand,
-  serializeAws_json1_1DeleteDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataSourceCommand(input, context);
+    return se_DeleteDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteDataSourceCommand(output, context);
+    return de_DeleteDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

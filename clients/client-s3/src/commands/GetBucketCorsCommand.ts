@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketCorsCommand,
-  serializeAws_restXmlGetBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketCorsCommand, se_GetBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -174,14 +171,14 @@ export class GetBucketCorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketCorsCommand(input, context);
+    return se_GetBucketCorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketCorsCommandOutput> {
-    return deserializeAws_restXmlGetBucketCorsCommand(output, context);
+    return de_GetBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

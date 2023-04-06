@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1MergeDeveloperIdentitiesCommand,
-  serializeAws_json1_1MergeDeveloperIdentitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MergeDeveloperIdentitiesCommand, se_MergeDeveloperIdentitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: MergeDeveloperIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeDeveloperIdentitiesCommand(input, context);
+    return se_MergeDeveloperIdentitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeDeveloperIdentitiesCommandOutput> {
-    return deserializeAws_json1_1MergeDeveloperIdentitiesCommand(output, context);
+    return de_MergeDeveloperIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

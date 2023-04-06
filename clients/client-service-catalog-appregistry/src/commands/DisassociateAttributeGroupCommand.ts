@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateAttributeGroupCommand,
-  serializeAws_restJson1DisassociateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateAttributeGroupCommand, se_DisassociateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -134,7 +131,7 @@ export class DisassociateAttributeGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAttributeGroupCommand(input, context);
+    return se_DisassociateAttributeGroupCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DisassociateAttributeGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateAttributeGroupCommand(output, context);
+    return de_DisassociateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

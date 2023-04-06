@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartEdgeDeploymentStageRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StartEdgeDeploymentStageCommand,
-  serializeAws_json1_1StartEdgeDeploymentStageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartEdgeDeploymentStageCommand, se_StartEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,14 +118,14 @@ export class StartEdgeDeploymentStageCommand extends $Command<
    * @internal
    */
   private serialize(input: StartEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartEdgeDeploymentStageCommand(input, context);
+    return se_StartEdgeDeploymentStageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEdgeDeploymentStageCommandOutput> {
-    return deserializeAws_json1_1StartEdgeDeploymentStageCommand(output, context);
+    return de_StartEdgeDeploymentStageCommand(output, context);
   }
 
   // Start section: command_body_extra

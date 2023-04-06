@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { BatchExecuteStatementInput, BatchExecuteStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchExecuteStatementCommand,
-  serializeAws_json1_0BatchExecuteStatementCommand,
-} from "../protocols/Aws_json1_0";
+import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class BatchExecuteStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchExecuteStatementCommand(input, context);
+    return se_BatchExecuteStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_json1_0BatchExecuteStatementCommand(output, context);
+    return de_BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

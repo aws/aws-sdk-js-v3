@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { ReadJobRequest, ReadJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ReadJobCommand,
-  serializeAws_restJson1ReadJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReadJobCommand, se_ReadJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ReadJobCommand extends $Command<
    * @internal
    */
   private serialize(input: ReadJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReadJobCommand(input, context);
+    return se_ReadJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadJobCommandOutput> {
-    return deserializeAws_restJson1ReadJobCommand(output, context);
+    return de_ReadJobCommand(output, context);
   }
 
   // Start section: command_body_extra

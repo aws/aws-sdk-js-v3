@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOfferingPromotionsCommand,
-  serializeAws_json1_1ListOfferingPromotionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListOfferingPromotionsCommand, se_ListOfferingPromotionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListOfferingPromotionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOfferingPromotionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOfferingPromotionsCommand(input, context);
+    return se_ListOfferingPromotionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingPromotionsCommandOutput> {
-    return deserializeAws_json1_1ListOfferingPromotionsCommand(output, context);
+    return de_ListOfferingPromotionsCommand(output, context);
   }
 
   // Start section: command_body_extra

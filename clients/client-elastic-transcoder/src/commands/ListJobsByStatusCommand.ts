@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobsByStatusCommand,
-  serializeAws_restJson1ListJobsByStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListJobsByStatusCommand, se_ListJobsByStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListJobsByStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: ListJobsByStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobsByStatusCommand(input, context);
+    return se_ListJobsByStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsByStatusCommandOutput> {
-    return deserializeAws_restJson1ListJobsByStatusCommand(output, context);
+    return de_ListJobsByStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

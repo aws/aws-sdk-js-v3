@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetQuantumTaskCommand,
-  serializeAws_restJson1GetQuantumTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetQuantumTaskCommand, se_GetQuantumTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetQuantumTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQuantumTaskCommand(input, context);
+    return se_GetQuantumTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuantumTaskCommandOutput> {
-    return deserializeAws_restJson1GetQuantumTaskCommand(output, context);
+    return de_GetQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCallAnalyticsJobRequest, DeleteCallAnalyticsJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCallAnalyticsJobCommand,
-  serializeAws_json1_1DeleteCallAnalyticsJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCallAnalyticsJobCommand, se_DeleteCallAnalyticsJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteCallAnalyticsJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCallAnalyticsJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCallAnalyticsJobCommand(input, context);
+    return se_DeleteCallAnalyticsJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCallAnalyticsJobCommandOutput> {
-    return deserializeAws_json1_1DeleteCallAnalyticsJobCommand(output, context);
+    return de_DeleteCallAnalyticsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

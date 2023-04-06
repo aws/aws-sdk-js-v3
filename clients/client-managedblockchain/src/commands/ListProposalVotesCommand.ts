@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { ListProposalVotesInput, ListProposalVotesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProposalVotesCommand,
-  serializeAws_restJson1ListProposalVotesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProposalVotesCommand, se_ListProposalVotesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListProposalVotesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProposalVotesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProposalVotesCommand(input, context);
+    return se_ListProposalVotesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProposalVotesCommandOutput> {
-    return deserializeAws_restJson1ListProposalVotesCommand(output, context);
+    return de_ListProposalVotesCommand(output, context);
   }
 
   // Start section: command_body_extra

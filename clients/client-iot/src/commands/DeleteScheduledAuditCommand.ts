@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteScheduledAuditCommand,
-  serializeAws_restJson1DeleteScheduledAuditCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteScheduledAuditCommand, se_DeleteScheduledAuditCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteScheduledAuditCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduledAuditCommand(input, context);
+    return se_DeleteScheduledAuditCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduledAuditCommand(output, context);
+    return de_DeleteScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetIntegrationsRequest, GetIntegrationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntegrationsCommand,
-  serializeAws_restJson1GetIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIntegrationsCommand, se_GetIntegrationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetIntegrationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntegrationsCommand(input, context);
+    return se_GetIntegrationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntegrationsCommandOutput> {
-    return deserializeAws_restJson1GetIntegrationsCommand(output, context);
+    return de_GetIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

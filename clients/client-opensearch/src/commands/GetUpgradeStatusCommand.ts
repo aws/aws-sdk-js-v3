@@ -15,10 +15,7 @@ import {
 
 import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetUpgradeStatusCommand,
-  serializeAws_restJson1GetUpgradeStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUpgradeStatusCommand, se_GetUpgradeStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetUpgradeStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
+    return se_GetUpgradeStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
+    return de_GetUpgradeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

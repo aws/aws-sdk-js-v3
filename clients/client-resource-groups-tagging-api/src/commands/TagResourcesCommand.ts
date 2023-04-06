@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagResourcesInput, TagResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagResourcesCommand,
-  serializeAws_json1_1TagResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagResourcesCommand, se_TagResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -206,14 +203,14 @@ export class TagResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: TagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourcesCommand(input, context);
+    return se_TagResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourcesCommandOutput> {
-    return deserializeAws_json1_1TagResourcesCommand(output, context);
+    return de_TagResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

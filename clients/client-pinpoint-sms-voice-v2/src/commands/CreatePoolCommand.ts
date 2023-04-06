@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0CreatePoolCommand,
-  serializeAws_json1_0CreatePoolCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreatePoolCommand, se_CreatePoolCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreatePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreatePoolCommand(input, context);
+    return se_CreatePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePoolCommandOutput> {
-    return deserializeAws_json1_0CreatePoolCommand(output, context);
+    return de_CreatePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

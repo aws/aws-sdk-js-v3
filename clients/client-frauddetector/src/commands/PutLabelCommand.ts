@@ -15,7 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { PutLabelRequest, PutLabelResult } from "../models/models_0";
-import { deserializeAws_json1_1PutLabelCommand, serializeAws_json1_1PutLabelCommand } from "../protocols/Aws_json1_1";
+import { de_PutLabelCommand, se_PutLabelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +137,14 @@ export class PutLabelCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLabelCommand(input, context);
+    return se_PutLabelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLabelCommandOutput> {
-    return deserializeAws_json1_1PutLabelCommand(output, context);
+    return de_PutLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

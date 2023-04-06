@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeScalingParametersRequest, DescribeScalingParametersResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingParametersCommand,
-  serializeAws_queryDescribeScalingParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeScalingParametersCommand, se_DescribeScalingParametersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class DescribeScalingParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScalingParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingParametersCommand(input, context);
+    return se_DescribeScalingParametersCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DescribeScalingParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingParametersCommandOutput> {
-    return deserializeAws_queryDescribeScalingParametersCommand(output, context);
+    return de_DescribeScalingParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

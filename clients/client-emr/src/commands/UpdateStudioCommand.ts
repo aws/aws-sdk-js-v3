@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { UpdateStudioInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStudioCommand,
-  serializeAws_json1_1UpdateStudioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStudioCommand, se_UpdateStudioCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class UpdateStudioCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStudioCommand(input, context);
+    return se_UpdateStudioCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
-    return deserializeAws_json1_1UpdateStudioCommand(output, context);
+    return de_UpdateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

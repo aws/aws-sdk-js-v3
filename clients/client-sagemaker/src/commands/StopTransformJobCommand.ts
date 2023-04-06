@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopTransformJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopTransformJobCommand,
-  serializeAws_json1_1StopTransformJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopTransformJobCommand, se_StopTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class StopTransformJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTransformJobCommand(input, context);
+    return se_StopTransformJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTransformJobCommandOutput> {
-    return deserializeAws_json1_1StopTransformJobCommand(output, context);
+    return de_StopTransformJobCommand(output, context);
   }
 
   // Start section: command_body_extra

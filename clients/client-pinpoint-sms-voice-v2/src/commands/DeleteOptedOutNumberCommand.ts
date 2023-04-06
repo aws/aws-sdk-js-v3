@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteOptedOutNumberCommand,
-  serializeAws_json1_0DeleteOptedOutNumberCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteOptedOutNumberCommand, se_DeleteOptedOutNumberCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class DeleteOptedOutNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOptedOutNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteOptedOutNumberCommand(input, context);
+    return se_DeleteOptedOutNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptedOutNumberCommandOutput> {
-    return deserializeAws_json1_0DeleteOptedOutNumberCommand(output, context);
+    return de_DeleteOptedOutNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

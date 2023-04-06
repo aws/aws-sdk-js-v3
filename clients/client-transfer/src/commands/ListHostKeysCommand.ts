@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListHostKeysRequest, ListHostKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListHostKeysCommand,
-  serializeAws_json1_1ListHostKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListHostKeysCommand, se_ListHostKeysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListHostKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHostKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHostKeysCommand(input, context);
+    return se_ListHostKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostKeysCommandOutput> {
-    return deserializeAws_json1_1ListHostKeysCommand(output, context);
+    return de_ListHostKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

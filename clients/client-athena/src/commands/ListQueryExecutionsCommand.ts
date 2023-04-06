@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListQueryExecutionsInput, ListQueryExecutionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListQueryExecutionsCommand,
-  serializeAws_json1_1ListQueryExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListQueryExecutionsCommand, se_ListQueryExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListQueryExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueryExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQueryExecutionsCommand(input, context);
+    return se_ListQueryExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListQueryExecutionsCommand(output, context);
+    return de_ListQueryExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

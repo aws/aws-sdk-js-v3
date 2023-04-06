@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeModelCardExportJobRequest, DescribeModelCardExportJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelCardExportJobCommand,
-  serializeAws_json1_1DescribeModelCardExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeModelCardExportJobCommand, se_DescribeModelCardExportJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,7 +120,7 @@ export class DescribeModelCardExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeModelCardExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelCardExportJobCommand(input, context);
+    return se_DescribeModelCardExportJobCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class DescribeModelCardExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelCardExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeModelCardExportJobCommand(output, context);
+    return de_DescribeModelCardExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

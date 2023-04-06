@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { BatchWriteRequest, BatchWriteResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchWriteCommand,
-  serializeAws_restJson1BatchWriteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchWriteCommand, se_BatchWriteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -350,14 +347,14 @@ export class BatchWriteCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchWriteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchWriteCommand(input, context);
+    return se_BatchWriteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchWriteCommandOutput> {
-    return deserializeAws_restJson1BatchWriteCommand(output, context);
+    return de_BatchWriteCommand(output, context);
   }
 
   // Start section: command_body_extra

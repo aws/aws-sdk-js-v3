@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTasksInput, ListTasksOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTasksCommand,
-  serializeAws_restJson1ListTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -136,14 +133,14 @@ export class ListTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTasksCommand(input, context);
+    return se_ListTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
-    return deserializeAws_restJson1ListTasksCommand(output, context);
+    return de_ListTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

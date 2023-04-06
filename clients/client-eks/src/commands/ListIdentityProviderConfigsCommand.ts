@@ -16,8 +16,8 @@ import {
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { ListIdentityProviderConfigsRequest, ListIdentityProviderConfigsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListIdentityProviderConfigsCommand,
-  serializeAws_restJson1ListIdentityProviderConfigsCommand,
+  de_ListIdentityProviderConfigsCommand,
+  se_ListIdentityProviderConfigsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class ListIdentityProviderConfigsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIdentityProviderConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityProviderConfigsCommand(input, context);
+    return se_ListIdentityProviderConfigsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListIdentityProviderConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIdentityProviderConfigsCommandOutput> {
-    return deserializeAws_restJson1ListIdentityProviderConfigsCommand(output, context);
+    return de_ListIdentityProviderConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

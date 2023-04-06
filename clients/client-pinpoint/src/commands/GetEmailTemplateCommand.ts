@@ -15,10 +15,7 @@ import {
 
 import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetEmailTemplateCommand,
-  serializeAws_restJson1GetEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEmailTemplateCommand, se_GetEmailTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetEmailTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEmailTemplateCommand(input, context);
+    return se_GetEmailTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1GetEmailTemplateCommand(output, context);
+    return de_GetEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

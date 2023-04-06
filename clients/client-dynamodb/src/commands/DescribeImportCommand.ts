@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeImportInput, DescribeImportOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeImportCommand,
-  serializeAws_json1_0DescribeImportCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeImportCommand, se_DescribeImportCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DescribeImportCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeImportCommand(input, context);
+    return se_DescribeImportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportCommandOutput> {
-    return deserializeAws_json1_0DescribeImportCommand(output, context);
+    return de_DescribeImportCommand(output, context);
   }
 
   // Start section: command_body_extra

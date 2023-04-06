@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutQueryDefinitionCommand,
-  serializeAws_json1_1PutQueryDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutQueryDefinitionCommand, se_PutQueryDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class PutQueryDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutQueryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutQueryDefinitionCommand(input, context);
+    return se_PutQueryDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutQueryDefinitionCommandOutput> {
-    return deserializeAws_json1_1PutQueryDefinitionCommand(output, context);
+    return de_PutQueryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

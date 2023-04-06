@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDistributionLatestCacheResetCommand,
-  serializeAws_json1_1GetDistributionLatestCacheResetCommand,
+  de_GetDistributionLatestCacheResetCommand,
+  se_GetDistributionLatestCacheResetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     input: GetDistributionLatestCacheResetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionLatestCacheResetCommand(input, context);
+    return se_GetDistributionLatestCacheResetCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionLatestCacheResetCommandOutput> {
-    return deserializeAws_json1_1GetDistributionLatestCacheResetCommand(output, context);
+    return de_GetDistributionLatestCacheResetCommand(output, context);
   }
 
   // Start section: command_body_extra

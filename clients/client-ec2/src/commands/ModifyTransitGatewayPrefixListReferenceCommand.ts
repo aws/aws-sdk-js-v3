@@ -19,8 +19,8 @@ import {
   ModifyTransitGatewayPrefixListReferenceResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
+  de_ModifyTransitGatewayPrefixListReferenceCommand,
+  se_ModifyTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     input: ModifyTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_ModifyTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_ModifyTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

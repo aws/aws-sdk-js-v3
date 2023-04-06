@@ -15,8 +15,8 @@ import {
 
 import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteDBClusterParameterGroupCommand,
-  serializeAws_queryDeleteDBClusterParameterGroupCommand,
+  de_DeleteDBClusterParameterGroupCommand,
+  se_DeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -72,15 +72,15 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *             this state.</p>
  *
  *
- * @example To delete a DB cluster parameter group.
+ * @example To delete a DB cluster parameter group
  * ```javascript
- * // This example deletes the specified DB cluster parameter group.
+ * // The following example deletes the specified DB cluster parameter group.
  * const input = {
  *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * await client.send(command);
- * // example id: delete-db-cluster-parameter-group-364f5555-ba0a-4cc8-979c-e769098924fc
+ * // example id: to-delete-a-db-cluster-parameter-group-1679962185718
  * ```
  *
  */
@@ -147,7 +147,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
+    return se_DeleteDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
+    return de_DeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

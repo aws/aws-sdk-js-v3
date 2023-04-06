@@ -19,8 +19,8 @@ import {
   DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-  serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input, context);
+    return se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(output, context);
+    return de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

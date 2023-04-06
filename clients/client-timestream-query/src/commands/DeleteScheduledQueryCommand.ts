@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteScheduledQueryRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteScheduledQueryCommand,
-  serializeAws_json1_0DeleteScheduledQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteScheduledQueryCommand, se_DeleteScheduledQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -144,14 +141,14 @@ export class DeleteScheduledQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteScheduledQueryCommand(input, context);
+    return se_DeleteScheduledQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledQueryCommandOutput> {
-    return deserializeAws_json1_0DeleteScheduledQueryCommand(output, context);
+    return de_DeleteScheduledQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

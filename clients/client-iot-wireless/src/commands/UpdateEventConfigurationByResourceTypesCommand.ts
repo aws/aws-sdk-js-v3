@@ -19,8 +19,8 @@ import {
   UpdateEventConfigurationByResourceTypesResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,
-  serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,
+  de_UpdateEventConfigurationByResourceTypesCommand,
+  se_UpdateEventConfigurationByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -171,7 +171,7 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     input: UpdateEventConfigurationByResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand(input, context);
+    return se_UpdateEventConfigurationByResourceTypesCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> {
-    return deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand(output, context);
+    return de_UpdateEventConfigurationByResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

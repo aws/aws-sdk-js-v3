@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateMonitoringRequest, UpdateMonitoringResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMonitoringCommand,
-  serializeAws_restJson1UpdateMonitoringCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMonitoringCommand, se_UpdateMonitoringCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class UpdateMonitoringCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMonitoringCommand(input, context);
+    return se_UpdateMonitoringCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringCommandOutput> {
-    return deserializeAws_restJson1UpdateMonitoringCommand(output, context);
+    return de_UpdateMonitoringCommand(output, context);
   }
 
   // Start section: command_body_extra

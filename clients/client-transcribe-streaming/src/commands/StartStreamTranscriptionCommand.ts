@@ -22,10 +22,7 @@ import {
   StartStreamTranscriptionResponse,
   StartStreamTranscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartStreamTranscriptionCommand,
-  serializeAws_restJson1StartStreamTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartStreamTranscriptionCommand, se_StartStreamTranscriptionCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -216,7 +213,7 @@ export class StartStreamTranscriptionCommand extends $Command<
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStreamTranscriptionCommand(input, context);
+    return se_StartStreamTranscriptionCommand(input, context);
   }
 
   /**
@@ -226,7 +223,7 @@ export class StartStreamTranscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartStreamTranscriptionCommand(output, context);
+    return de_StartStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

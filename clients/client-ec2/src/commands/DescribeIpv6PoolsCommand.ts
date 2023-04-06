@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeIpv6PoolsCommand,
-  serializeAws_ec2DescribeIpv6PoolsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeIpv6PoolsCommand, se_DescribeIpv6PoolsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeIpv6PoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIpv6PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpv6PoolsCommand(input, context);
+    return se_DescribeIpv6PoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpv6PoolsCommandOutput> {
-    return deserializeAws_ec2DescribeIpv6PoolsCommand(output, context);
+    return de_DescribeIpv6PoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

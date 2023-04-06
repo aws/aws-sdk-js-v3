@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { TerminateJobFlowsInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateJobFlowsCommand,
-  serializeAws_json1_1TerminateJobFlowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateJobFlowsCommand, se_TerminateJobFlowsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class TerminateJobFlowsCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateJobFlowsCommand(input, context);
+    return se_TerminateJobFlowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobFlowsCommandOutput> {
-    return deserializeAws_json1_1TerminateJobFlowsCommand(output, context);
+    return de_TerminateJobFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

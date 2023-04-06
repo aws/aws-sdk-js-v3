@@ -15,10 +15,7 @@ import {
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { GetTargetResourceTypeRequest, GetTargetResourceTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTargetResourceTypeCommand,
-  serializeAws_restJson1GetTargetResourceTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTargetResourceTypeCommand, se_GetTargetResourceTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetTargetResourceTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTargetResourceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTargetResourceTypeCommand(input, context);
+    return se_GetTargetResourceTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTargetResourceTypeCommandOutput> {
-    return deserializeAws_restJson1GetTargetResourceTypeCommand(output, context);
+    return de_GetTargetResourceTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UntagInput, UntagOutput } from "../models/models_0";
-import { deserializeAws_restJson1UntagCommand, serializeAws_restJson1UntagCommand } from "../protocols/Aws_restJson1";
+import { de_UntagCommand, se_UntagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -144,14 +144,14 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
    * @internal
    */
   private serialize(input: UntagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagCommand(input, context);
+    return se_UntagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> {
-    return deserializeAws_restJson1UntagCommand(output, context);
+    return de_UntagCommand(output, context);
   }
 
   // Start section: command_body_extra

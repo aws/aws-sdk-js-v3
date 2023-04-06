@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import { DescribeEntityRequest, DescribeEntityResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeEntityCommand,
-  serializeAws_restJson1DescribeEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeEntityCommand, se_DescribeEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DescribeEntityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEntityCommand(input, context);
+    return se_DescribeEntityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityCommandOutput> {
-    return deserializeAws_restJson1DescribeEntityCommand(output, context);
+    return de_DescribeEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

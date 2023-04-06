@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1SendAutomationSignalCommand,
-  serializeAws_json1_1SendAutomationSignalCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendAutomationSignalCommand, se_SendAutomationSignalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -141,14 +138,14 @@ export class SendAutomationSignalCommand extends $Command<
    * @internal
    */
   private serialize(input: SendAutomationSignalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendAutomationSignalCommand(input, context);
+    return se_SendAutomationSignalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAutomationSignalCommandOutput> {
-    return deserializeAws_json1_1SendAutomationSignalCommand(output, context);
+    return de_SendAutomationSignalCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CancelAuditMitigationActionsTaskRequest, CancelAuditMitigationActionsTaskResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand,
-  serializeAws_restJson1CancelAuditMitigationActionsTaskCommand,
+  de_CancelAuditMitigationActionsTaskCommand,
+  se_CancelAuditMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     input: CancelAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelAuditMitigationActionsTaskCommand(input, context);
+    return se_CancelAuditMitigationActionsTaskCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelAuditMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand(output, context);
+    return de_CancelAuditMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

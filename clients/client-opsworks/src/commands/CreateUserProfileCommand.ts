@@ -15,10 +15,7 @@ import {
 
 import { CreateUserProfileRequest, CreateUserProfileResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateUserProfileCommand,
-  serializeAws_json1_1CreateUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateUserProfileCommand, se_CreateUserProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class CreateUserProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserProfileCommand(input, context);
+    return se_CreateUserProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserProfileCommandOutput> {
-    return deserializeAws_json1_1CreateUserProfileCommand(output, context);
+    return de_CreateUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

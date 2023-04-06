@@ -18,10 +18,7 @@ import {
   GetExecutionHistoryOutput,
   GetExecutionHistoryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetExecutionHistoryCommand,
-  serializeAws_json1_0GetExecutionHistoryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetExecutionHistoryCommand, se_GetExecutionHistoryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -142,14 +139,14 @@ export class GetExecutionHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetExecutionHistoryCommand(input, context);
+    return se_GetExecutionHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExecutionHistoryCommandOutput> {
-    return deserializeAws_json1_0GetExecutionHistoryCommand(output, context);
+    return de_GetExecutionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

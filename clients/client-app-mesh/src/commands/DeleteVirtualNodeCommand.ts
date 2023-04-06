@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVirtualNodeCommand,
-  serializeAws_restJson1DeleteVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVirtualNodeCommand, se_DeleteVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteVirtualNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVirtualNodeCommand(input, context);
+    return se_DeleteVirtualNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1DeleteVirtualNodeCommand(output, context);
+    return de_DeleteVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

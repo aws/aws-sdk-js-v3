@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { ListEphemeridesRequest, ListEphemeridesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEphemeridesCommand,
-  serializeAws_restJson1ListEphemeridesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEphemeridesCommand, se_ListEphemeridesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListEphemeridesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEphemeridesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEphemeridesCommand(input, context);
+    return se_ListEphemeridesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEphemeridesCommandOutput> {
-    return deserializeAws_restJson1ListEphemeridesCommand(output, context);
+    return de_ListEphemeridesCommand(output, context);
   }
 
   // Start section: command_body_extra

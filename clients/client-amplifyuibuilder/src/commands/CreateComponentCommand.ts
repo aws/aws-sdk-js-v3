@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentCommand,
-  serializeAws_restJson1CreateComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -349,14 +346,14 @@ export class CreateComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentCommand(input, context);
+    return se_CreateComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
-    return deserializeAws_restJson1CreateComponentCommand(output, context);
+    return de_CreateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

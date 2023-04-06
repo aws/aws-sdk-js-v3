@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteContactFlowModuleRequest, DeleteContactFlowModuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteContactFlowModuleCommand,
-  serializeAws_restJson1DeleteContactFlowModuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteContactFlowModuleCommand, se_DeleteContactFlowModuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteContactFlowModuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteContactFlowModuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteContactFlowModuleCommand(input, context);
+    return se_DeleteContactFlowModuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactFlowModuleCommandOutput> {
-    return deserializeAws_restJson1DeleteContactFlowModuleCommand(output, context);
+    return de_DeleteContactFlowModuleCommand(output, context);
   }
 
   // Start section: command_body_extra

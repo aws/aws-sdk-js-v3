@@ -19,8 +19,8 @@ import {
   DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
-  serializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
+  de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
+  se_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
     input: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(input, context);
+    return se_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput> {
-    return deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(output, context);
+    return de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

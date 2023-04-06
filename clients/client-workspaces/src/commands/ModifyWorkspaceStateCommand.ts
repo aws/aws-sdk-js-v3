@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyWorkspaceStateCommand,
-  serializeAws_json1_1ModifyWorkspaceStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyWorkspaceStateCommand, se_ModifyWorkspaceStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -138,14 +135,14 @@ export class ModifyWorkspaceStateCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyWorkspaceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspaceStateCommand(input, context);
+    return se_ModifyWorkspaceStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyWorkspaceStateCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspaceStateCommand(output, context);
+    return de_ModifyWorkspaceStateCommand(output, context);
   }
 
   // Start section: command_body_extra

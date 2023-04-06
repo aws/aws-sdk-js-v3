@@ -19,10 +19,7 @@ import {
   DisassociateLicenseResponse,
   DisassociateLicenseResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLicenseCommand,
-  serializeAws_restJson1DisassociateLicenseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateLicenseCommand, se_DisassociateLicenseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DisassociateLicenseCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLicenseCommand(input, context);
+    return se_DisassociateLicenseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLicenseCommandOutput> {
-    return deserializeAws_restJson1DisassociateLicenseCommand(output, context);
+    return de_DisassociateLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RevokeSecurityGroupIngressCommand,
-  serializeAws_ec2RevokeSecurityGroupIngressCommand,
-} from "../protocols/Aws_ec2";
+import { de_RevokeSecurityGroupIngressCommand, se_RevokeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -181,7 +178,7 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RevokeSecurityGroupIngressCommand(input, context);
+    return se_RevokeSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -191,7 +188,7 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeSecurityGroupIngressCommandOutput> {
-    return deserializeAws_ec2RevokeSecurityGroupIngressCommand(output, context);
+    return de_RevokeSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

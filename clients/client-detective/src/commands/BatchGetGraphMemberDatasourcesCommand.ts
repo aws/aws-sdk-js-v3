@@ -16,8 +16,8 @@ import {
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommand,
-  serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand,
+  de_BatchGetGraphMemberDatasourcesCommand,
+  se_BatchGetGraphMemberDatasourcesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
     input: BatchGetGraphMemberDatasourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand(input, context);
+    return se_BatchGetGraphMemberDatasourcesCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetGraphMemberDatasourcesCommandOutput> {
-    return deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommand(output, context);
+    return de_BatchGetGraphMemberDatasourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

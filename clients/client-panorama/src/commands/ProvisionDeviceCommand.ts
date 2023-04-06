@@ -15,10 +15,7 @@ import {
 
 import { ProvisionDeviceRequest, ProvisionDeviceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ProvisionDeviceCommand,
-  serializeAws_restJson1ProvisionDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ProvisionDeviceCommand, se_ProvisionDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class ProvisionDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: ProvisionDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ProvisionDeviceCommand(input, context);
+    return se_ProvisionDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionDeviceCommandOutput> {
-    return deserializeAws_restJson1ProvisionDeviceCommand(output, context);
+    return de_ProvisionDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

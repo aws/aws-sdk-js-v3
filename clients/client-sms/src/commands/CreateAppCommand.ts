@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAppRequest, CreateAppResponse } from "../models/models_0";
-import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCommand } from "../protocols/Aws_json1_1";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -161,14 +161,14 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
    * @internal
    */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_json1_1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

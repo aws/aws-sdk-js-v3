@@ -20,8 +20,8 @@ import {
   InstallToRemoteAccessSessionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1InstallToRemoteAccessSessionCommand,
-  serializeAws_json1_1InstallToRemoteAccessSessionCommand,
+  de_InstallToRemoteAccessSessionCommand,
+  se_InstallToRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -158,7 +158,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: InstallToRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(input, context);
+    return se_InstallToRemoteAccessSessionCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InstallToRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(output, context);
+    return de_InstallToRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

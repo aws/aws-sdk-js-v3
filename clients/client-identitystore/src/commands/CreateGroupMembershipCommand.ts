@@ -15,10 +15,7 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGroupMembershipCommand,
-  serializeAws_json1_1CreateGroupMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateGroupMembershipCommand, se_CreateGroupMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateGroupMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGroupMembershipCommand(input, context);
+    return se_CreateGroupMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupMembershipCommandOutput> {
-    return deserializeAws_json1_1CreateGroupMembershipCommand(output, context);
+    return de_CreateGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

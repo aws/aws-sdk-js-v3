@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { ListIdentityPoolUsageRequest, ListIdentityPoolUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIdentityPoolUsageCommand,
-  serializeAws_restJson1ListIdentityPoolUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIdentityPoolUsageCommand, se_ListIdentityPoolUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class ListIdentityPoolUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIdentityPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityPoolUsageCommand(input, context);
+    return se_ListIdentityPoolUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityPoolUsageCommandOutput> {
-    return deserializeAws_restJson1ListIdentityPoolUsageCommand(output, context);
+    return de_ListIdentityPoolUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

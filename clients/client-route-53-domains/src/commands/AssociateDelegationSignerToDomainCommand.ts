@@ -18,8 +18,8 @@ import {
   AssociateDelegationSignerToDomainResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateDelegationSignerToDomainCommand,
-  serializeAws_json1_1AssociateDelegationSignerToDomainCommand,
+  de_AssociateDelegationSignerToDomainCommand,
+  se_AssociateDelegationSignerToDomainCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -164,7 +164,7 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     input: AssociateDelegationSignerToDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDelegationSignerToDomainCommand(input, context);
+    return se_AssociateDelegationSignerToDomainCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDelegationSignerToDomainCommandOutput> {
-    return deserializeAws_json1_1AssociateDelegationSignerToDomainCommand(output, context);
+    return de_AssociateDelegationSignerToDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

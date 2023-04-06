@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRegistryCommand,
-  serializeAws_restJson1UpdateRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRegistryCommand, se_UpdateRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -133,14 +130,14 @@ export class UpdateRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRegistryCommand(input, context);
+    return se_UpdateRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegistryCommandOutput> {
-    return deserializeAws_restJson1UpdateRegistryCommand(output, context);
+    return de_UpdateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

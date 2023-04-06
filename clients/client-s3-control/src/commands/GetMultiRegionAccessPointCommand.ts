@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMultiRegionAccessPointRequest, GetMultiRegionAccessPointResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetMultiRegionAccessPointCommand,
-  serializeAws_restXmlGetMultiRegionAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetMultiRegionAccessPointCommand, se_GetMultiRegionAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -154,7 +151,7 @@ export class GetMultiRegionAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetMultiRegionAccessPointCommand(input, context);
+    return se_GetMultiRegionAccessPointCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class GetMultiRegionAccessPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMultiRegionAccessPointCommandOutput> {
-    return deserializeAws_restXmlGetMultiRegionAccessPointCommand(output, context);
+    return de_GetMultiRegionAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

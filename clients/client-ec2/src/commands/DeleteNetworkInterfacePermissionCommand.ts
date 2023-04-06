@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNetworkInterfacePermissionRequest, DeleteNetworkInterfacePermissionResult } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteNetworkInterfacePermissionCommand,
-  serializeAws_ec2DeleteNetworkInterfacePermissionCommand,
+  de_DeleteNetworkInterfacePermissionCommand,
+  se_DeleteNetworkInterfacePermissionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     input: DeleteNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInterfacePermissionCommand(input, context);
+    return se_DeleteNetworkInterfacePermissionCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInterfacePermissionCommand(output, context);
+    return de_DeleteNetworkInterfacePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

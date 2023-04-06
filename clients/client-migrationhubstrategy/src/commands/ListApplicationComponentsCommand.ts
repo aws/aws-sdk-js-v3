@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { ListApplicationComponentsRequest, ListApplicationComponentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationComponentsCommand,
-  serializeAws_restJson1ListApplicationComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListApplicationComponentsCommand, se_ListApplicationComponentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class ListApplicationComponentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationComponentsCommand(input, context);
+    return se_ListApplicationComponentsCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class ListApplicationComponentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationComponentsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationComponentsCommand(output, context);
+    return de_ListApplicationComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

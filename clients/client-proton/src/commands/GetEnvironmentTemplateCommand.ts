@@ -18,10 +18,7 @@ import {
   GetEnvironmentTemplateOutput,
   GetEnvironmentTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEnvironmentTemplateCommand,
-  serializeAws_json1_0GetEnvironmentTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetEnvironmentTemplateCommand, se_GetEnvironmentTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class GetEnvironmentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentTemplateCommand(input, context);
+    return se_GetEnvironmentTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentTemplateCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentTemplateCommand(output, context);
+    return de_GetEnvironmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

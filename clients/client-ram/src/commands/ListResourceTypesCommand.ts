@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourceTypesRequest, ListResourceTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourceTypesCommand,
-  serializeAws_restJson1ListResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResourceTypesCommand, se_ListResourceTypesCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListResourceTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceTypesCommand(input, context);
+    return se_ListResourceTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTypesCommandOutput> {
-    return deserializeAws_restJson1ListResourceTypesCommand(output, context);
+    return de_ListResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

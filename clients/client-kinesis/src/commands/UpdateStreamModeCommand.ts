@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { UpdateStreamModeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStreamModeCommand,
-  serializeAws_json1_1UpdateStreamModeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStreamModeCommand, se_UpdateStreamModeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateStreamModeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStreamModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStreamModeCommand(input, context);
+    return se_UpdateStreamModeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamModeCommandOutput> {
-    return deserializeAws_json1_1UpdateStreamModeCommand(output, context);
+    return de_UpdateStreamModeCommand(output, context);
   }
 
   // Start section: command_body_extra

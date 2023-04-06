@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateQueueRequest, CreateQueueResult } from "../models/models_0";
-import { deserializeAws_queryCreateQueueCommand, serializeAws_queryCreateQueueCommand } from "../protocols/Aws_query";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -180,14 +180,14 @@ export class CreateQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateQueueCommand(input, context);
+    return se_CreateQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
-    return deserializeAws_queryCreateQueueCommand(output, context);
+    return de_CreateQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

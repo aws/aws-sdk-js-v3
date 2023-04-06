@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { CreateCommitInput, CreateCommitOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCommitCommand,
-  serializeAws_json1_1CreateCommitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCommitCommand, se_CreateCommitCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -285,14 +282,14 @@ export class CreateCommitCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCommitCommand(input, context);
+    return se_CreateCommitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCommitCommandOutput> {
-    return deserializeAws_json1_1CreateCommitCommand(output, context);
+    return de_CreateCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

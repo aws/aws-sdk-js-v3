@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterDevicesRequest } from "../models/models_2";
-import {
-  deserializeAws_json1_1DeregisterDevicesCommand,
-  serializeAws_json1_1DeregisterDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterDevicesCommand, se_DeregisterDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DeregisterDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterDevicesCommand(input, context);
+    return se_DeregisterDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDevicesCommandOutput> {
-    return deserializeAws_json1_1DeregisterDevicesCommand(output, context);
+    return de_DeregisterDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

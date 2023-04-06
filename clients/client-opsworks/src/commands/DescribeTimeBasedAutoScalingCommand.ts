@@ -16,8 +16,8 @@ import {
 import { DescribeTimeBasedAutoScalingRequest, DescribeTimeBasedAutoScalingResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
-  serializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
+  de_DescribeTimeBasedAutoScalingCommand,
+  se_DescribeTimeBasedAutoScalingCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTimeBasedAutoScalingCommand(input, context);
+    return se_DescribeTimeBasedAutoScalingCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTimeBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand(output, context);
+    return de_DescribeTimeBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

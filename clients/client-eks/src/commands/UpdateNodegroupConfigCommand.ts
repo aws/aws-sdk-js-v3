@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNodegroupConfigCommand,
-  serializeAws_restJson1UpdateNodegroupConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNodegroupConfigCommand, se_UpdateNodegroupConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class UpdateNodegroupConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNodegroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNodegroupConfigCommand(input, context);
+    return se_UpdateNodegroupConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateNodegroupConfigCommand(output, context);
+    return de_UpdateNodegroupConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { GetSuiteDefinitionRequest, GetSuiteDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSuiteDefinitionCommand,
-  serializeAws_restJson1GetSuiteDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSuiteDefinitionCommand, se_GetSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetSuiteDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSuiteDefinitionCommand(input, context);
+    return se_GetSuiteDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetSuiteDefinitionCommand(output, context);
+    return de_GetSuiteDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

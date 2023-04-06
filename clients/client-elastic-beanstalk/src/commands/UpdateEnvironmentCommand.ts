@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { EnvironmentDescription, UpdateEnvironmentMessage } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateEnvironmentCommand,
-  serializeAws_queryUpdateEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -249,14 +246,14 @@ export class UpdateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_queryUpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

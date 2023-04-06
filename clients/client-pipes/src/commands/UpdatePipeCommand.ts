@@ -15,10 +15,7 @@ import {
 
 import { UpdatePipeRequest, UpdatePipeRequestFilterSensitiveLog, UpdatePipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1UpdatePipeCommand,
-  serializeAws_restJson1UpdatePipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePipeCommand, se_UpdatePipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -419,14 +416,14 @@ export class UpdatePipeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipeCommand(input, context);
+    return se_UpdatePipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipeCommandOutput> {
-    return deserializeAws_restJson1UpdatePipeCommand(output, context);
+    return de_UpdatePipeCommand(output, context);
   }
 
   // Start section: command_body_extra

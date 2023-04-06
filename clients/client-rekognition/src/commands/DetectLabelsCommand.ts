@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectLabelsRequest, DetectLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectLabelsCommand,
-  serializeAws_json1_1DetectLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectLabelsCommand, se_DetectLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -322,14 +319,14 @@ export class DetectLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectLabelsCommand(input, context);
+    return se_DetectLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectLabelsCommand(output, context);
+    return de_DetectLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

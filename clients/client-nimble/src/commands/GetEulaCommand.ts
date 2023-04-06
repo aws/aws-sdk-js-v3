@@ -15,10 +15,7 @@ import {
 
 import { GetEulaRequest, GetEulaResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetEulaCommand,
-  serializeAws_restJson1GetEulaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEulaCommand, se_GetEulaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
    * @internal
    */
   private serialize(input: GetEulaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEulaCommand(input, context);
+    return se_GetEulaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEulaCommandOutput> {
-    return deserializeAws_restJson1GetEulaCommand(output, context);
+    return de_GetEulaCommand(output, context);
   }
 
   // Start section: command_body_extra

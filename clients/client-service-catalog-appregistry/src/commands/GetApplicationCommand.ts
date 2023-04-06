@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationCommand,
-  serializeAws_restJson1GetApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -155,14 +152,14 @@ export class GetApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationCommand(input, context);
+    return se_GetApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationCommandOutput> {
-    return deserializeAws_restJson1GetApplicationCommand(output, context);
+    return de_GetApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

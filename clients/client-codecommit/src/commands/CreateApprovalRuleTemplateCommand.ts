@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { CreateApprovalRuleTemplateInput, CreateApprovalRuleTemplateOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApprovalRuleTemplateCommand,
-  serializeAws_json1_1CreateApprovalRuleTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateApprovalRuleTemplateCommand, se_CreateApprovalRuleTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApprovalRuleTemplateCommand(input, context);
+    return se_CreateApprovalRuleTemplateCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1CreateApprovalRuleTemplateCommand(output, context);
+    return de_CreateApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

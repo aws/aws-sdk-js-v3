@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { StartResourceEvaluationRequest, StartResourceEvaluationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartResourceEvaluationCommand,
-  serializeAws_json1_1StartResourceEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartResourceEvaluationCommand, se_StartResourceEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class StartResourceEvaluationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartResourceEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartResourceEvaluationCommand(input, context);
+    return se_StartResourceEvaluationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceEvaluationCommandOutput> {
-    return deserializeAws_json1_1StartResourceEvaluationCommand(output, context);
+    return de_StartResourceEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribePhoneNumbersCommand,
-  serializeAws_json1_0DescribePhoneNumbersCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribePhoneNumbersCommand, se_DescribePhoneNumbersCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class DescribePhoneNumbersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribePhoneNumbersCommand(input, context);
+    return se_DescribePhoneNumbersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumbersCommandOutput> {
-    return deserializeAws_json1_0DescribePhoneNumbersCommand(output, context);
+    return de_DescribePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

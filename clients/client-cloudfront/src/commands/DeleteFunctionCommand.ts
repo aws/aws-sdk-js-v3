@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteFunctionRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteFunctionCommand,
-  serializeAws_restXmlDeleteFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteFunctionCommand, se_DeleteFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFunctionCommand(input, context);
+    return se_DeleteFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
-    return deserializeAws_restXmlDeleteFunctionCommand(output, context);
+    return de_DeleteFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

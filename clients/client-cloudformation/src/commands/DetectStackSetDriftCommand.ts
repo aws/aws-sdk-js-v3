@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDetectStackSetDriftCommand,
-  serializeAws_queryDetectStackSetDriftCommand,
-} from "../protocols/Aws_query";
+import { de_DetectStackSetDriftCommand, se_DetectStackSetDriftCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class DetectStackSetDriftCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectStackSetDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetectStackSetDriftCommand(input, context);
+    return se_DetectStackSetDriftCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackSetDriftCommandOutput> {
-    return deserializeAws_queryDetectStackSetDriftCommand(output, context);
+    return de_DetectStackSetDriftCommand(output, context);
   }
 
   // Start section: command_body_extra

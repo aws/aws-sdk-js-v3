@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVolumeRequest } from "../models/models_3";
-import { deserializeAws_ec2DeleteVolumeCommand, serializeAws_ec2DeleteVolumeCommand } from "../protocols/Aws_ec2";
+import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +131,14 @@ export class DeleteVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVolumeCommand(input, context);
+    return se_DeleteVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
-    return deserializeAws_ec2DeleteVolumeCommand(output, context);
+    return de_DeleteVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

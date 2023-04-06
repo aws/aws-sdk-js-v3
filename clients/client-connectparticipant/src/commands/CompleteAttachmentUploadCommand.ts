@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteAttachmentUploadCommand,
-  serializeAws_restJson1CompleteAttachmentUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CompleteAttachmentUploadCommand, se_CompleteAttachmentUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CompleteAttachmentUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteAttachmentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteAttachmentUploadCommand(input, context);
+    return se_CompleteAttachmentUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteAttachmentUploadCommandOutput> {
-    return deserializeAws_restJson1CompleteAttachmentUploadCommand(output, context);
+    return de_CompleteAttachmentUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

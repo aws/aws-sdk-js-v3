@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RejectVpcPeeringConnectionCommand,
-  serializeAws_ec2RejectVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { de_RejectVpcPeeringConnectionCommand, se_RejectVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectVpcPeeringConnectionCommand(input, context);
+    return se_RejectVpcPeeringConnectionCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2RejectVpcPeeringConnectionCommand(output, context);
+    return de_RejectVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

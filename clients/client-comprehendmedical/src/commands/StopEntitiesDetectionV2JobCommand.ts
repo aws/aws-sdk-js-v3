@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { StopEntitiesDetectionV2JobRequest, StopEntitiesDetectionV2JobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEntitiesDetectionV2JobCommand,
-  serializeAws_json1_1StopEntitiesDetectionV2JobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopEntitiesDetectionV2JobCommand, se_StopEntitiesDetectionV2JobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopEntitiesDetectionV2JobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEntitiesDetectionV2JobCommand(input, context);
+    return se_StopEntitiesDetectionV2JobCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(output, context);
+    return de_StopEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

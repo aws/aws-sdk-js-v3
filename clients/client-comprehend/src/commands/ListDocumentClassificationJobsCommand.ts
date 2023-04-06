@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListDocumentClassificationJobsRequest, ListDocumentClassificationJobsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListDocumentClassificationJobsCommand,
-  serializeAws_json1_1ListDocumentClassificationJobsCommand,
+  de_ListDocumentClassificationJobsCommand,
+  se_ListDocumentClassificationJobsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     input: ListDocumentClassificationJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassificationJobsCommand(input, context);
+    return se_ListDocumentClassificationJobsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentClassificationJobsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(output, context);
+    return de_ListDocumentClassificationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

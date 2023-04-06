@@ -19,10 +19,7 @@ import {
   ListDocumentClassifiersResponse,
   ListDocumentClassifiersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDocumentClassifiersCommand,
-  serializeAws_json1_1ListDocumentClassifiersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDocumentClassifiersCommand, se_ListDocumentClassifiersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListDocumentClassifiersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDocumentClassifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassifiersCommand(input, context);
+    return se_ListDocumentClassifiersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentClassifiersCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassifiersCommand(output, context);
+    return de_ListDocumentClassifiersCommand(output, context);
   }
 
   // Start section: command_body_extra

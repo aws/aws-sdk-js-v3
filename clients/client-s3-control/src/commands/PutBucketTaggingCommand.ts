@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketTaggingRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketTaggingCommand,
-  serializeAws_restXmlPutBucketTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketTaggingCommand, se_PutBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -219,14 +216,14 @@ export class PutBucketTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketTaggingCommand(input, context);
+    return se_PutBucketTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketTaggingCommandOutput> {
-    return deserializeAws_restXmlPutBucketTaggingCommand(output, context);
+    return de_PutBucketTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

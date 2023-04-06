@@ -15,7 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteFaqRequest } from "../models/models_0";
-import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteFaqCommand, se_DeleteFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +140,14 @@ export class DeleteFaqCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFaqCommand(input, context);
+    return se_DeleteFaqCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFaqCommandOutput> {
-    return deserializeAws_json1_1DeleteFaqCommand(output, context);
+    return de_DeleteFaqCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListInferenceExperimentsCommand,
-  serializeAws_json1_1ListInferenceExperimentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListInferenceExperimentsCommand, se_ListInferenceExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -130,14 +127,14 @@ export class ListInferenceExperimentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInferenceExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInferenceExperimentsCommand(input, context);
+    return se_ListInferenceExperimentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExperimentsCommandOutput> {
-    return deserializeAws_json1_1ListInferenceExperimentsCommand(output, context);
+    return de_ListInferenceExperimentsCommand(output, context);
   }
 
   // Start section: command_body_extra

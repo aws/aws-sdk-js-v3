@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { UpdateUserPoolRequest, UpdateUserPoolResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateUserPoolCommand,
-  serializeAws_json1_1UpdateUserPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserPoolCommand, se_UpdateUserPoolCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -282,14 +279,14 @@ export class UpdateUserPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserPoolCommand(input, context);
+    return se_UpdateUserPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolCommandOutput> {
-    return deserializeAws_json1_1UpdateUserPoolCommand(output, context);
+    return de_UpdateUserPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DeleteBucketOwnershipControlsRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteBucketOwnershipControlsCommand,
-  serializeAws_restXmlDeleteBucketOwnershipControlsCommand,
+  de_DeleteBucketOwnershipControlsCommand,
+  se_DeleteBucketOwnershipControlsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -145,7 +145,7 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketOwnershipControlsCommand(input, context);
+    return se_DeleteBucketOwnershipControlsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketOwnershipControlsCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketOwnershipControlsCommand(output, context);
+    return de_DeleteBucketOwnershipControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

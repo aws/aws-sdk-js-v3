@@ -24,10 +24,7 @@ import {
   AdminListUserAuthEventsRequestFilterSensitiveLog,
   AdminListUserAuthEventsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminListUserAuthEventsCommand,
-  serializeAws_json1_1AdminListUserAuthEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminListUserAuthEventsCommand, se_AdminListUserAuthEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class AdminListUserAuthEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminListUserAuthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminListUserAuthEventsCommand(input, context);
+    return se_AdminListUserAuthEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListUserAuthEventsCommandOutput> {
-    return deserializeAws_json1_1AdminListUserAuthEventsCommand(output, context);
+    return de_AdminListUserAuthEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

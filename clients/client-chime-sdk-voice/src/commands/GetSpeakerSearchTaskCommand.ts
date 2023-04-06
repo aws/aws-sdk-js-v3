@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { GetSpeakerSearchTaskRequest, GetSpeakerSearchTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSpeakerSearchTaskCommand,
-  serializeAws_restJson1GetSpeakerSearchTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSpeakerSearchTaskCommand, se_GetSpeakerSearchTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetSpeakerSearchTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSpeakerSearchTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSpeakerSearchTaskCommand(input, context);
+    return se_GetSpeakerSearchTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpeakerSearchTaskCommandOutput> {
-    return deserializeAws_restJson1GetSpeakerSearchTaskCommand(output, context);
+    return de_GetSpeakerSearchTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

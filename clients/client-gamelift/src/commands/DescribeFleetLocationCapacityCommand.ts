@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetLocationCapacityInput, DescribeFleetLocationCapacityOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFleetLocationCapacityCommand,
-  serializeAws_json1_1DescribeFleetLocationCapacityCommand,
+  de_DescribeFleetLocationCapacityCommand,
+  se_DescribeFleetLocationCapacityCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -157,7 +157,7 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetLocationCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetLocationCapacityCommand(input, context);
+    return se_DescribeFleetLocationCapacityCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetLocationCapacityCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetLocationCapacityCommand(output, context);
+    return de_DescribeFleetLocationCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { UpdateRdsDbInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateRdsDbInstanceCommand,
-  serializeAws_json1_1UpdateRdsDbInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRdsDbInstanceCommand, se_UpdateRdsDbInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UpdateRdsDbInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRdsDbInstanceCommand(input, context);
+    return se_UpdateRdsDbInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRdsDbInstanceCommandOutput> {
-    return deserializeAws_json1_1UpdateRdsDbInstanceCommand(output, context);
+    return de_UpdateRdsDbInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

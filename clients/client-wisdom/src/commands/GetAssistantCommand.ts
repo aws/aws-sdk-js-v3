@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssistantCommand,
-  serializeAws_restJson1GetAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssistantCommand, se_GetAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -127,14 +124,14 @@ export class GetAssistantCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssistantCommand(input, context);
+    return se_GetAssistantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantCommandOutput> {
-    return deserializeAws_restJson1GetAssistantCommand(output, context);
+    return de_GetAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

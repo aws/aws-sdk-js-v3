@@ -16,8 +16,8 @@ import {
 import { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeDomainChangeProgressCommand,
-  serializeAws_restJson1DescribeDomainChangeProgressCommand,
+  de_DescribeDomainChangeProgressCommand,
+  se_DescribeDomainChangeProgressCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,7 +136,7 @@ export class DescribeDomainChangeProgressCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainChangeProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainChangeProgressCommand(input, context);
+    return se_DescribeDomainChangeProgressCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainChangeProgressCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainChangeProgressCommand(output, context);
+    return de_DescribeDomainChangeProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,10 +23,7 @@ import {
   VerifyUserAttributeRequestFilterSensitiveLog,
   VerifyUserAttributeResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1VerifyUserAttributeCommand,
-  serializeAws_json1_1VerifyUserAttributeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_VerifyUserAttributeCommand, se_VerifyUserAttributeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -184,14 +181,14 @@ export class VerifyUserAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyUserAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyUserAttributeCommand(input, context);
+    return se_VerifyUserAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyUserAttributeCommandOutput> {
-    return deserializeAws_json1_1VerifyUserAttributeCommand(output, context);
+    return de_VerifyUserAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

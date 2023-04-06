@@ -15,10 +15,7 @@ import {
 
 import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ApproveAssignmentCommand,
-  serializeAws_json1_1ApproveAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ApproveAssignmentCommand, se_ApproveAssignmentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ApproveAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: ApproveAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApproveAssignmentCommand(input, context);
+    return se_ApproveAssignmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveAssignmentCommandOutput> {
-    return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
+    return de_ApproveAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

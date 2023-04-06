@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { GetRecordingConfigurationRequest, GetRecordingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecordingConfigurationCommand,
-  serializeAws_restJson1GetRecordingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRecordingConfigurationCommand, se_GetRecordingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class GetRecordingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecordingConfigurationCommand(input, context);
+    return se_GetRecordingConfigurationCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class GetRecordingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecordingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRecordingConfigurationCommand(output, context);
+    return de_GetRecordingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

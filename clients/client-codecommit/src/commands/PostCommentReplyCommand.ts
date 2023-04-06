@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { PostCommentReplyInput, PostCommentReplyOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1PostCommentReplyCommand,
-  serializeAws_json1_1PostCommentReplyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PostCommentReplyCommand, se_PostCommentReplyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class PostCommentReplyCommand extends $Command<
    * @internal
    */
   private serialize(input: PostCommentReplyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PostCommentReplyCommand(input, context);
+    return se_PostCommentReplyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostCommentReplyCommandOutput> {
-    return deserializeAws_json1_1PostCommentReplyCommand(output, context);
+    return de_PostCommentReplyCommand(output, context);
   }
 
   // Start section: command_body_extra

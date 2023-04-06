@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHostedZoneCountCommand,
-  serializeAws_restXmlGetHostedZoneCountCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetHostedZoneCountCommand, se_GetHostedZoneCountCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -121,14 +118,14 @@ export class GetHostedZoneCountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHostedZoneCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHostedZoneCountCommand(input, context);
+    return se_GetHostedZoneCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneCountCommandOutput> {
-    return deserializeAws_restXmlGetHostedZoneCountCommand(output, context);
+    return de_GetHostedZoneCountCommand(output, context);
   }
 
   // Start section: command_body_extra

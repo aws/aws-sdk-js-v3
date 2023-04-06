@@ -18,10 +18,7 @@ import {
   DescribeAnalysisDefinitionResponse,
   DescribeAnalysisDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAnalysisDefinitionCommand,
-  serializeAws_restJson1DescribeAnalysisDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAnalysisDefinitionCommand, se_DescribeAnalysisDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -163,7 +160,7 @@ export class DescribeAnalysisDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAnalysisDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisDefinitionCommand(input, context);
+    return se_DescribeAnalysisDefinitionCommand(input, context);
   }
 
   /**
@@ -173,7 +170,7 @@ export class DescribeAnalysisDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAnalysisDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisDefinitionCommand(output, context);
+    return de_DescribeAnalysisDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

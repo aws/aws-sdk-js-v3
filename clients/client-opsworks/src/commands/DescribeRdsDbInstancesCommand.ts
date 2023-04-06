@@ -15,10 +15,7 @@ import {
 
 import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeRdsDbInstancesCommand,
-  serializeAws_json1_1DescribeRdsDbInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRdsDbInstancesCommand, se_DescribeRdsDbInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeRdsDbInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRdsDbInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRdsDbInstancesCommand(input, context);
+    return se_DescribeRdsDbInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRdsDbInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeRdsDbInstancesCommand(output, context);
+    return de_DescribeRdsDbInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGameServerGroupCommand,
-  serializeAws_json1_1DeleteGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGameServerGroupCommand, se_DeleteGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class DeleteGameServerGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGameServerGroupCommand(input, context);
+    return se_DeleteGameServerGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteGameServerGroupCommand(output, context);
+    return de_DeleteGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

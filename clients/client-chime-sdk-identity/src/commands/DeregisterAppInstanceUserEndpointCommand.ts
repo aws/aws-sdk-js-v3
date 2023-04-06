@@ -19,8 +19,8 @@ import {
   DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
-  serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
+  de_DeregisterAppInstanceUserEndpointCommand,
+  se_DeregisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     input: DeregisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand(input, context);
+    return se_DeregisterAppInstanceUserEndpointCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand(output, context);
+    return de_DeregisterAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

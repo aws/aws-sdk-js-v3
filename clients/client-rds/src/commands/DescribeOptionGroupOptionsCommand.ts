@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeOptionGroupOptionsMessage, OptionGroupOptionsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeOptionGroupOptionsCommand,
-  serializeAws_queryDescribeOptionGroupOptionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeOptionGroupOptionsCommand, se_DescribeOptionGroupOptionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -67,16 +64,54 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list information about DB option group options
+ * @example To describe all available options
  * ```javascript
- * // This example lists information for all option group options for the specified DB engine.
+ * // The following example lists the options for an RDS for MySQL version 8.0 DB instance.
  * const input = {
  *   "EngineName": "mysql",
- *   "MajorEngineVersion": "5.6"
+ *   "MajorEngineVersion": "8.0"
  * };
  * const command = new DescribeOptionGroupOptionsCommand(input);
- * await client.send(command);
- * // example id: describe-option-group-options-30d735a4-81f1-49e4-b3f2-5dc45d50c8ed
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroupOptions": [
+ *     {
+ *       "Description": "MariaDB Audit Plugin",
+ *       "EngineName": "mysql",
+ *       "MajorEngineVersion": "8.0",
+ *       "MinimumRequiredMinorEngineVersion": "25",
+ *       "Name": "MARIADB_AUDIT_PLUGIN",
+ *       "OptionGroupOptionSettings": [
+ *         {
+ *           "ApplyType": "DYNAMIC",
+ *           "IsModifiable": true,
+ *           "IsRequired": false,
+ *           "MinimumEngineVersionPerAllowedValue": [],
+ *           "SettingDescription": "Include specified users",
+ *           "SettingName": "SERVER_AUDIT_INCL_USERS"
+ *         },
+ *         {
+ *           "ApplyType": "DYNAMIC",
+ *           "IsModifiable": true,
+ *           "IsRequired": false,
+ *           "MinimumEngineVersionPerAllowedValue": [],
+ *           "SettingDescription": "Exclude specified users",
+ *           "SettingName": "SERVER_AUDIT_EXCL_USERS"
+ *         }
+ *       ],
+ *       "OptionsConflictsWith": [],
+ *       "OptionsDependedOn": [],
+ *       "Permanent": false,
+ *       "Persistent": false,
+ *       "PortRequired": false,
+ *       "RequiresAutoMinorEngineVersionUpgrade": false,
+ *       "VpcOnly": false
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-all-available-options-1680286049492
  * ```
  *
  */
@@ -143,7 +178,7 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOptionGroupOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOptionGroupOptionsCommand(input, context);
+    return se_DescribeOptionGroupOptionsCommand(input, context);
   }
 
   /**
@@ -153,7 +188,7 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOptionGroupOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOptionGroupOptionsCommand(output, context);
+    return de_DescribeOptionGroupOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

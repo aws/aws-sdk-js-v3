@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSubnetGroupsCommand,
-  serializeAws_queryDescribeDBSubnetGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBSubnetGroupsCommand, se_DescribeDBSubnetGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -72,15 +69,56 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  *
- * @example To list information about DB subnet groups
+ * @example To describe a DB subnet group
  * ```javascript
- * // This example lists information about the specified DB subnet group.
- * const input = {
- *   "DBSubnetGroupName": "mydbsubnetgroup"
- * };
+ * // The following example retrieves the details of the specified DB subnet group.
+ * const input = {};
  * const command = new DescribeDBSubnetGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-db-subnet-groups-1d97b340-682f-4dd6-9653-8ed72a8d1221
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSubnetGroups": [
+ *     {
+ *       "DBSubnetGroupArn": "arn:aws:rds:us-east-1:123456789012:subgrp:mydbsubnetgroup",
+ *       "DBSubnetGroupDescription": "My DB Subnet Group",
+ *       "DBSubnetGroupName": "mydbsubnetgroup",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1a"
+ *           },
+ *           "SubnetIdentifier": "subnet-d8c8e7f4",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1f"
+ *           },
+ *           "SubnetIdentifier": "subnet-718fdc7d",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1a"
+ *           },
+ *           "SubnetIdentifier": "subnet-cbc8e7e7",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1a"
+ *           },
+ *           "SubnetIdentifier": "subnet-0ccde220",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-971c12ee"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-db-subnet-group-1680280764611
  * ```
  *
  */
@@ -147,14 +185,14 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSubnetGroupsCommand(input, context);
+    return se_DescribeDBSubnetGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBSubnetGroupsCommand(output, context);
+    return de_DescribeDBSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

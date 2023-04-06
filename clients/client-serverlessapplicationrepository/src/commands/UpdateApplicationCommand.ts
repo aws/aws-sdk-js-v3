@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApplicationCommand,
-  serializeAws_restJson1UpdateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -150,14 +147,14 @@ export class UpdateApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationCommand(input, context);
+    return se_UpdateApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationCommand(output, context);
+    return de_UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

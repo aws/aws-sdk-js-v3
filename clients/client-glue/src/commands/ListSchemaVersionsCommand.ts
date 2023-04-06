@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListSchemaVersionsInput, ListSchemaVersionsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListSchemaVersionsCommand,
-  serializeAws_json1_1ListSchemaVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSchemaVersionsCommand, se_ListSchemaVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListSchemaVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSchemaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSchemaVersionsCommand(input, context);
+    return se_ListSchemaVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaVersionsCommandOutput> {
-    return deserializeAws_json1_1ListSchemaVersionsCommand(output, context);
+    return de_ListSchemaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { ListRescoreExecutionPlansRequest, ListRescoreExecutionPlansResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRescoreExecutionPlansCommand,
-  serializeAws_json1_0ListRescoreExecutionPlansCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListRescoreExecutionPlansCommand, se_ListRescoreExecutionPlansCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class ListRescoreExecutionPlansCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRescoreExecutionPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRescoreExecutionPlansCommand(input, context);
+    return se_ListRescoreExecutionPlansCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class ListRescoreExecutionPlansCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRescoreExecutionPlansCommandOutput> {
-    return deserializeAws_json1_0ListRescoreExecutionPlansCommand(output, context);
+    return de_ListRescoreExecutionPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

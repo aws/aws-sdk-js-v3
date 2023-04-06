@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetAlarmsRequest, GetAlarmsResult } from "../models/models_0";
-import { deserializeAws_json1_1GetAlarmsCommand, serializeAws_json1_1GetAlarmsCommand } from "../protocols/Aws_json1_1";
+import { de_GetAlarmsCommand, se_GetAlarmsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +149,14 @@ export class GetAlarmsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAlarmsCommand(input, context);
+    return se_GetAlarmsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAlarmsCommandOutput> {
-    return deserializeAws_json1_1GetAlarmsCommand(output, context);
+    return de_GetAlarmsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRoutingControlRequest, DeleteRoutingControlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRoutingControlCommand,
-  serializeAws_restJson1DeleteRoutingControlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRoutingControlCommand, se_DeleteRoutingControlCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class DeleteRoutingControlCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRoutingControlCommand(input, context);
+    return se_DeleteRoutingControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoutingControlCommandOutput> {
-    return deserializeAws_restJson1DeleteRoutingControlCommand(output, context);
+    return de_DeleteRoutingControlCommand(output, context);
   }
 
   // Start section: command_body_extra

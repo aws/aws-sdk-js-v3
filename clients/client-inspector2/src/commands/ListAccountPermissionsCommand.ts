@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListAccountPermissionsRequest, ListAccountPermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccountPermissionsCommand,
-  serializeAws_restJson1ListAccountPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccountPermissionsCommand, se_ListAccountPermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListAccountPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountPermissionsCommand(input, context);
+    return se_ListAccountPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountPermissionsCommandOutput> {
-    return deserializeAws_restJson1ListAccountPermissionsCommand(output, context);
+    return de_ListAccountPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

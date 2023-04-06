@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { GetGeneratedCodeJobRequest, GetGeneratedCodeJobResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGeneratedCodeJobCommand,
-  serializeAws_restJson1GetGeneratedCodeJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetGeneratedCodeJobCommand, se_GetGeneratedCodeJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetGeneratedCodeJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGeneratedCodeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGeneratedCodeJobCommand(input, context);
+    return se_GetGeneratedCodeJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeneratedCodeJobCommandOutput> {
-    return deserializeAws_restJson1GetGeneratedCodeJobCommand(output, context);
+    return de_GetGeneratedCodeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

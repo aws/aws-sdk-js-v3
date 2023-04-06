@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { EncryptRequest, EncryptRequestFilterSensitiveLog, EncryptResponse } from "../models/models_0";
-import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
+import { de_EncryptCommand, se_EncryptCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -307,14 +307,14 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
    * @internal
    */
   private serialize(input: EncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EncryptCommand(input, context);
+    return se_EncryptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EncryptCommandOutput> {
-    return deserializeAws_json1_1EncryptCommand(output, context);
+    return de_EncryptCommand(output, context);
   }
 
   // Start section: command_body_extra

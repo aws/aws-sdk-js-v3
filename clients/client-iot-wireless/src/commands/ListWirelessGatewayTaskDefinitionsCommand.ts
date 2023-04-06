@@ -19,8 +19,8 @@ import {
   ListWirelessGatewayTaskDefinitionsResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,
-  serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,
+  de_ListWirelessGatewayTaskDefinitionsCommand,
+  se_ListWirelessGatewayTaskDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<
     input: ListWirelessGatewayTaskDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand(input, context);
+    return se_ListWirelessGatewayTaskDefinitionsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand(output, context);
+    return de_ListWirelessGatewayTaskDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

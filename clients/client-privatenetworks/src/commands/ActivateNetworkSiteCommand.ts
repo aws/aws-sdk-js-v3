@@ -19,10 +19,7 @@ import {
   ActivateNetworkSiteResponse,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ActivateNetworkSiteCommand,
-  serializeAws_restJson1ActivateNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ActivateNetworkSiteCommand, se_ActivateNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ActivateNetworkSiteCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ActivateNetworkSiteCommand(input, context);
+    return se_ActivateNetworkSiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1ActivateNetworkSiteCommand(output, context);
+    return de_ActivateNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

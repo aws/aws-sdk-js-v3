@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { LaunchConfigurationNameType } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLaunchConfigurationCommand,
-  serializeAws_queryDeleteLaunchConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteLaunchConfigurationCommand, se_DeleteLaunchConfigurationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class DeleteLaunchConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLaunchConfigurationCommand(input, context);
+    return se_DeleteLaunchConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteLaunchConfigurationCommand(output, context);
+    return de_DeleteLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

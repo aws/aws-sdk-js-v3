@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCustomDataIdentifierCommand,
-  serializeAws_restJson1GetCustomDataIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCustomDataIdentifierCommand, se_GetCustomDataIdentifierCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetCustomDataIdentifierCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCustomDataIdentifierCommand(input, context);
+    return se_GetCustomDataIdentifierCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomDataIdentifierCommandOutput> {
-    return deserializeAws_restJson1GetCustomDataIdentifierCommand(output, context);
+    return de_GetCustomDataIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

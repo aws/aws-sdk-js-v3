@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupPlanCommand,
-  serializeAws_restJson1DeleteBackupPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBackupPlanCommand, se_DeleteBackupPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteBackupPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupPlanCommand(input, context);
+    return se_DeleteBackupPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupPlanCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupPlanCommand(output, context);
+    return de_DeleteBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

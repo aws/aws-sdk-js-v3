@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVerifiedAccessInstanceRequest, DeleteVerifiedAccessInstanceResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVerifiedAccessInstanceCommand,
-  serializeAws_ec2DeleteVerifiedAccessInstanceCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteVerifiedAccessInstanceCommand, se_DeleteVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class DeleteVerifiedAccessInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVerifiedAccessInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessInstanceCommand(input, context);
+    return se_DeleteVerifiedAccessInstanceCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class DeleteVerifiedAccessInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessInstanceCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessInstanceCommand(output, context);
+    return de_DeleteVerifiedAccessInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

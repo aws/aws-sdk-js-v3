@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { ListGraphsRequest, ListGraphsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGraphsCommand,
-  serializeAws_restJson1ListGraphsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGraphsCommand, se_ListGraphsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListGraphsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGraphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGraphsCommand(input, context);
+    return se_ListGraphsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphsCommandOutput> {
-    return deserializeAws_restJson1ListGraphsCommand(output, context);
+    return de_ListGraphsCommand(output, context);
   }
 
   // Start section: command_body_extra

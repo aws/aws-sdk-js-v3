@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryIndexDocumentsCommand,
-  serializeAws_queryIndexDocumentsCommand,
-} from "../protocols/Aws_query";
+import { de_IndexDocumentsCommand, se_IndexDocumentsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class IndexDocumentsCommand extends $Command<
    * @internal
    */
   private serialize(input: IndexDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryIndexDocumentsCommand(input, context);
+    return se_IndexDocumentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexDocumentsCommandOutput> {
-    return deserializeAws_queryIndexDocumentsCommand(output, context);
+    return de_IndexDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

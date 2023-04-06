@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateMembersRequest, CreateMembersResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateMembersCommand,
-  serializeAws_restJson1CreateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -174,14 +171,14 @@ export class CreateMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMembersCommand(input, context);
+    return se_CreateMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
-    return deserializeAws_restJson1CreateMembersCommand(output, context);
+    return de_CreateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

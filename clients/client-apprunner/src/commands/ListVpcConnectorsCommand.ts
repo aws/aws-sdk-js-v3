@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { ListVpcConnectorsRequest, ListVpcConnectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListVpcConnectorsCommand,
-  serializeAws_json1_0ListVpcConnectorsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListVpcConnectorsCommand, se_ListVpcConnectorsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ListVpcConnectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVpcConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVpcConnectorsCommand(input, context);
+    return se_ListVpcConnectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcConnectorsCommandOutput> {
-    return deserializeAws_json1_0ListVpcConnectorsCommand(output, context);
+    return de_ListVpcConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

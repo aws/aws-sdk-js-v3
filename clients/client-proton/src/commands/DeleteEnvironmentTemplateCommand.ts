@@ -18,10 +18,7 @@ import {
   DeleteEnvironmentTemplateOutput,
   DeleteEnvironmentTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteEnvironmentTemplateCommand,
-  serializeAws_json1_0DeleteEnvironmentTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteEnvironmentTemplateCommand, se_DeleteEnvironmentTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -142,7 +139,7 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentTemplateCommand(input, context);
+    return se_DeleteEnvironmentTemplateCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentTemplateCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentTemplateCommand(output, context);
+    return de_DeleteEnvironmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

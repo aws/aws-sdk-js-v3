@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { GetMulticastGroupSessionRequest, GetMulticastGroupSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMulticastGroupSessionCommand,
-  serializeAws_restJson1GetMulticastGroupSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMulticastGroupSessionCommand, se_GetMulticastGroupSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetMulticastGroupSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMulticastGroupSessionCommand(input, context);
+    return se_GetMulticastGroupSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMulticastGroupSessionCommandOutput> {
-    return deserializeAws_restJson1GetMulticastGroupSessionCommand(output, context);
+    return de_GetMulticastGroupSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

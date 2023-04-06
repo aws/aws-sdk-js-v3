@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DescribeCustomVocabularyMetadataRequest, DescribeCustomVocabularyMetadataResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand,
-  serializeAws_restJson1DescribeCustomVocabularyMetadataCommand,
+  de_DescribeCustomVocabularyMetadataCommand,
+  se_DescribeCustomVocabularyMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
     input: DescribeCustomVocabularyMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCustomVocabularyMetadataCommand(input, context);
+    return se_DescribeCustomVocabularyMetadataCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCustomVocabularyMetadataCommandOutput> {
-    return deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand(output, context);
+    return de_DescribeCustomVocabularyMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

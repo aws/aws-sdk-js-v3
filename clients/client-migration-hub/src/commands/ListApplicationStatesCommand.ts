@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationStatesCommand,
-  serializeAws_json1_1ListApplicationStatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationStatesCommand, se_ListApplicationStatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ListApplicationStatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationStatesCommand(input, context);
+    return se_ListApplicationStatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationStatesCommandOutput> {
-    return deserializeAws_json1_1ListApplicationStatesCommand(output, context);
+    return de_ListApplicationStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

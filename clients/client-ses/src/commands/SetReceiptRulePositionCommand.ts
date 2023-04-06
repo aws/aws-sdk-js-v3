@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetReceiptRulePositionCommand,
-  serializeAws_querySetReceiptRulePositionCommand,
-} from "../protocols/Aws_query";
+import { de_SetReceiptRulePositionCommand, se_SetReceiptRulePositionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -144,14 +141,14 @@ export class SetReceiptRulePositionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetReceiptRulePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetReceiptRulePositionCommand(input, context);
+    return se_SetReceiptRulePositionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetReceiptRulePositionCommandOutput> {
-    return deserializeAws_querySetReceiptRulePositionCommand(output, context);
+    return de_SetReceiptRulePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

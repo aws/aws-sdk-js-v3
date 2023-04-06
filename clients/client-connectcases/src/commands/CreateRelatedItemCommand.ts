@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRelatedItemCommand,
-  serializeAws_restJson1CreateRelatedItemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateRelatedItemCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRelatedItemCommand(input, context);
+    return se_CreateRelatedItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelatedItemCommandOutput> {
-    return deserializeAws_restJson1CreateRelatedItemCommand(output, context);
+    return de_CreateRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

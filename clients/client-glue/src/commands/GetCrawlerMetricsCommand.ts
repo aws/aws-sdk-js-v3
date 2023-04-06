@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCrawlerMetricsCommand,
-  serializeAws_json1_1GetCrawlerMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCrawlerMetricsCommand, se_GetCrawlerMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetCrawlerMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCrawlerMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCrawlerMetricsCommand(input, context);
+    return se_GetCrawlerMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlerMetricsCommandOutput> {
-    return deserializeAws_json1_1GetCrawlerMetricsCommand(output, context);
+    return de_GetCrawlerMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

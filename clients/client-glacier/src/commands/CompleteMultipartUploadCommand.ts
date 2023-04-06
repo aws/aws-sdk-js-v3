@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteMultipartUploadCommand,
-  serializeAws_restJson1CompleteMultipartUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -196,14 +193,14 @@ export class CompleteMultipartUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteMultipartUploadCommand(input, context);
+    return se_CompleteMultipartUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1CompleteMultipartUploadCommand(output, context);
+    return de_CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

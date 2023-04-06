@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEngagementRequest, DescribeEngagementResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEngagementCommand,
-  serializeAws_json1_1DescribeEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEngagementCommand, se_DescribeEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -140,14 +137,14 @@ export class DescribeEngagementCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEngagementCommand(input, context);
+    return se_DescribeEngagementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngagementCommandOutput> {
-    return deserializeAws_json1_1DescribeEngagementCommand(output, context);
+    return de_DescribeEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

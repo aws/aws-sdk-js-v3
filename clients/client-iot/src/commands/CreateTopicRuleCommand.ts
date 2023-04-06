@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateTopicRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTopicRuleCommand,
-  serializeAws_restJson1CreateTopicRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTopicRuleCommand, se_CreateTopicRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -550,14 +547,14 @@ export class CreateTopicRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTopicRuleCommand(input, context);
+    return se_CreateTopicRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTopicRuleCommandOutput> {
-    return deserializeAws_restJson1CreateTopicRuleCommand(output, context);
+    return de_CreateTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRuleGroupCommand,
-  serializeAws_json1_1DeleteRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRuleGroupCommand, se_DeleteRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -211,14 +208,14 @@ export class DeleteRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRuleGroupCommand(input, context);
+    return se_DeleteRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteRuleGroupCommand(output, context);
+    return de_DeleteRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

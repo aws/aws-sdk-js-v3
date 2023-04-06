@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetConnectorsRequest, GetConnectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetConnectorsCommand,
-  serializeAws_json1_1GetConnectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetConnectorsCommand, se_GetConnectorsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -123,14 +120,14 @@ export class GetConnectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConnectorsCommand(input, context);
+    return se_GetConnectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectorsCommandOutput> {
-    return deserializeAws_json1_1GetConnectorsCommand(output, context);
+    return de_GetConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

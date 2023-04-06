@@ -16,8 +16,8 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteWirelessDeviceImportTaskRequest, DeleteWirelessDeviceImportTaskResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteWirelessDeviceImportTaskCommand,
-  serializeAws_restJson1DeleteWirelessDeviceImportTaskCommand,
+  de_DeleteWirelessDeviceImportTaskCommand,
+  se_DeleteWirelessDeviceImportTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DeleteWirelessDeviceImportTaskCommand extends $Command<
     input: DeleteWirelessDeviceImportTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessDeviceImportTaskCommand(input, context);
+    return se_DeleteWirelessDeviceImportTaskCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteWirelessDeviceImportTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteWirelessDeviceImportTaskCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessDeviceImportTaskCommand(output, context);
+    return de_DeleteWirelessDeviceImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

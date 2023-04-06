@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteChangeSetCommand,
-  serializeAws_queryDeleteChangeSetCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteChangeSetCommand, se_DeleteChangeSetCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteChangeSetCommand(input, context);
+    return se_DeleteChangeSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChangeSetCommandOutput> {
-    return deserializeAws_queryDeleteChangeSetCommand(output, context);
+    return de_DeleteChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReplicationInstanceCommand,
-  serializeAws_json1_1DeleteReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteReplicationInstanceCommand, se_DeleteReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -201,7 +198,7 @@ export class DeleteReplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationInstanceCommand(input, context);
+    return se_DeleteReplicationInstanceCommand(input, context);
   }
 
   /**
@@ -211,7 +208,7 @@ export class DeleteReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationInstanceCommand(output, context);
+    return de_DeleteReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyFpgaImageAttributeCommand,
-  serializeAws_ec2ModifyFpgaImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyFpgaImageAttributeCommand, se_ModifyFpgaImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyFpgaImageAttributeCommand(input, context);
+    return se_ModifyFpgaImageAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyFpgaImageAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyFpgaImageAttributeCommand(output, context);
+    return de_ModifyFpgaImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

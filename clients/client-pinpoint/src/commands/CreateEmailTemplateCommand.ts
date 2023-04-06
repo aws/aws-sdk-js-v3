@@ -15,10 +15,7 @@ import {
 
 import { CreateEmailTemplateRequest, CreateEmailTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateEmailTemplateCommand,
-  serializeAws_restJson1CreateEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEmailTemplateCommand, se_CreateEmailTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateEmailTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEmailTemplateCommand(input, context);
+    return se_CreateEmailTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateEmailTemplateCommand(output, context);
+    return de_CreateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { PauseCampaignRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PauseCampaignCommand,
-  serializeAws_restJson1PauseCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PauseCampaignCommand, se_PauseCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class PauseCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: PauseCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PauseCampaignCommand(input, context);
+    return se_PauseCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseCampaignCommandOutput> {
-    return deserializeAws_restJson1PauseCampaignCommand(output, context);
+    return de_PauseCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

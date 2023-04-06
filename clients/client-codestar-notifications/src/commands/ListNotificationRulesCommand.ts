@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { ListNotificationRulesRequest, ListNotificationRulesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNotificationRulesCommand,
-  serializeAws_restJson1ListNotificationRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNotificationRulesCommand, se_ListNotificationRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListNotificationRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNotificationRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNotificationRulesCommand(input, context);
+    return se_ListNotificationRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationRulesCommandOutput> {
-    return deserializeAws_restJson1ListNotificationRulesCommand(output, context);
+    return de_ListNotificationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

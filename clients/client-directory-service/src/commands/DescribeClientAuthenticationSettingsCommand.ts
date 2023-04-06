@@ -19,8 +19,8 @@ import {
   DescribeClientAuthenticationSettingsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
-  serializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
+  de_DescribeClientAuthenticationSettingsCommand,
+  se_DescribeClientAuthenticationSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     input: DescribeClientAuthenticationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClientAuthenticationSettingsCommand(input, context);
+    return se_DescribeClientAuthenticationSettingsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientAuthenticationSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand(output, context);
+    return de_DescribeClientAuthenticationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

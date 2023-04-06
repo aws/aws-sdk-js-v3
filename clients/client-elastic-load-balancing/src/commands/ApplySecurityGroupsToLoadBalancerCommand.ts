@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/models_0";
 import {
-  deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
-  serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
+  de_ApplySecurityGroupsToLoadBalancerCommand,
+  se_ApplySecurityGroupsToLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -164,7 +164,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     input: ApplySecurityGroupsToLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(input, context);
+    return se_ApplySecurityGroupsToLoadBalancerCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
-    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(output, context);
+    return de_ApplySecurityGroupsToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

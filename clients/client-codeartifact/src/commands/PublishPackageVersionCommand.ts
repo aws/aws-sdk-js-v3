@@ -19,10 +19,7 @@ import {
   PublishPackageVersionRequestFilterSensitiveLog,
   PublishPackageVersionResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishPackageVersionCommand,
-  serializeAws_restJson1PublishPackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class PublishPackageVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishPackageVersionCommand(input, context);
+    return se_PublishPackageVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishPackageVersionCommandOutput> {
-    return deserializeAws_restJson1PublishPackageVersionCommand(output, context);
+    return de_PublishPackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

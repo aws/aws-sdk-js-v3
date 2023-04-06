@@ -16,8 +16,8 @@ import {
 import { ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
-  deserializeAws_json1_1ListMetricAttributionMetricsCommand,
-  serializeAws_json1_1ListMetricAttributionMetricsCommand,
+  de_ListMetricAttributionMetricsCommand,
+  se_ListMetricAttributionMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class ListMetricAttributionMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMetricAttributionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMetricAttributionMetricsCommand(input, context);
+    return se_ListMetricAttributionMetricsCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class ListMetricAttributionMetricsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMetricAttributionMetricsCommandOutput> {
-    return deserializeAws_json1_1ListMetricAttributionMetricsCommand(output, context);
+    return de_ListMetricAttributionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

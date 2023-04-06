@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1RenderUiTemplateCommand,
-  serializeAws_json1_1RenderUiTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RenderUiTemplateCommand, se_RenderUiTemplateCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -130,14 +127,14 @@ export class RenderUiTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: RenderUiTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenderUiTemplateCommand(input, context);
+    return se_RenderUiTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenderUiTemplateCommandOutput> {
-    return deserializeAws_json1_1RenderUiTemplateCommand(output, context);
+    return de_RenderUiTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

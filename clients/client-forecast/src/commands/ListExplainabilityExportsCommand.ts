@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListExplainabilityExportsRequest, ListExplainabilityExportsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListExplainabilityExportsCommand,
-  serializeAws_json1_1ListExplainabilityExportsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListExplainabilityExportsCommand, se_ListExplainabilityExportsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class ListExplainabilityExportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExplainabilityExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExplainabilityExportsCommand(input, context);
+    return se_ListExplainabilityExportsCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ListExplainabilityExportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExplainabilityExportsCommandOutput> {
-    return deserializeAws_json1_1ListExplainabilityExportsCommand(output, context);
+    return de_ListExplainabilityExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

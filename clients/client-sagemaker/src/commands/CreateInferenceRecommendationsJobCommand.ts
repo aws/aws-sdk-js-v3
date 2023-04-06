@@ -18,8 +18,8 @@ import {
   CreateInferenceRecommendationsJobResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreateInferenceRecommendationsJobCommand,
-  serializeAws_json1_1CreateInferenceRecommendationsJobCommand,
+  de_CreateInferenceRecommendationsJobCommand,
+  se_CreateInferenceRecommendationsJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -226,7 +226,7 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
     input: CreateInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInferenceRecommendationsJobCommand(input, context);
+    return se_CreateInferenceRecommendationsJobCommand(input, context);
   }
 
   /**
@@ -236,7 +236,7 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInferenceRecommendationsJobCommandOutput> {
-    return deserializeAws_json1_1CreateInferenceRecommendationsJobCommand(output, context);
+    return de_CreateInferenceRecommendationsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CacheParameterGroupDetails, DescribeCacheParametersMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheParametersCommand,
-  serializeAws_queryDescribeCacheParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeCacheParametersCommand, se_DescribeCacheParametersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -536,14 +533,14 @@ export class DescribeCacheParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCacheParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheParametersCommand(input, context);
+    return se_DescribeCacheParametersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheParametersCommandOutput> {
-    return deserializeAws_queryDescribeCacheParametersCommand(output, context);
+    return de_DescribeCacheParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

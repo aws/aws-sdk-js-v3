@@ -16,8 +16,8 @@ import {
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { ListAnomalyGroupRelatedMetricsRequest, ListAnomalyGroupRelatedMetricsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand,
-  serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand,
+  de_ListAnomalyGroupRelatedMetricsCommand,
+  se_ListAnomalyGroupRelatedMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     input: ListAnomalyGroupRelatedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand(input, context);
+    return se_ListAnomalyGroupRelatedMetricsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> {
-    return deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand(output, context);
+    return de_ListAnomalyGroupRelatedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

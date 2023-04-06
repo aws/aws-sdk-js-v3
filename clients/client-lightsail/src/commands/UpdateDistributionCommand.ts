@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDistributionCommand,
-  serializeAws_json1_1UpdateDistributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDistributionCommand, se_UpdateDistributionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class UpdateDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDistributionCommand(input, context);
+    return se_UpdateDistributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDistributionCommandOutput> {
-    return deserializeAws_json1_1UpdateDistributionCommand(output, context);
+    return de_UpdateDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

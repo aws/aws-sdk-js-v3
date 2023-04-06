@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/models_0";
 import {
-  deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
-  serializeAws_queryRegisterInstancesWithLoadBalancerCommand,
+  de_RegisterInstancesWithLoadBalancerCommand,
+  se_RegisterInstancesWithLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -187,7 +187,7 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     input: RegisterInstancesWithLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(input, context);
+    return se_RegisterInstancesWithLoadBalancerCommand(input, context);
   }
 
   /**
@@ -197,7 +197,7 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
-    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(output, context);
+    return de_RegisterInstancesWithLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

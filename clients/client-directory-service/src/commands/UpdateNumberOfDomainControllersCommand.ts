@@ -16,8 +16,8 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateNumberOfDomainControllersCommand,
-  serializeAws_json1_1UpdateNumberOfDomainControllersCommand,
+  de_UpdateNumberOfDomainControllersCommand,
+  se_UpdateNumberOfDomainControllersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     input: UpdateNumberOfDomainControllersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNumberOfDomainControllersCommand(input, context);
+    return se_UpdateNumberOfDomainControllersCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNumberOfDomainControllersCommandOutput> {
-    return deserializeAws_json1_1UpdateNumberOfDomainControllersCommand(output, context);
+    return de_UpdateNumberOfDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

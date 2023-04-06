@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { CreateDetectorModelRequest, CreateDetectorModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDetectorModelCommand,
-  serializeAws_restJson1CreateDetectorModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDetectorModelCommand, se_CreateDetectorModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -525,14 +522,14 @@ export class CreateDetectorModelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDetectorModelCommand(input, context);
+    return se_CreateDetectorModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDetectorModelCommandOutput> {
-    return deserializeAws_restJson1CreateDetectorModelCommand(output, context);
+    return de_CreateDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

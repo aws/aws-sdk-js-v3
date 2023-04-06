@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListTaskTemplatesCommand,
-  serializeAws_restJson1ListTaskTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTaskTemplatesCommand, se_ListTaskTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListTaskTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTaskTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTaskTemplatesCommand(input, context);
+    return se_ListTaskTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListTaskTemplatesCommand(output, context);
+    return de_ListTaskTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

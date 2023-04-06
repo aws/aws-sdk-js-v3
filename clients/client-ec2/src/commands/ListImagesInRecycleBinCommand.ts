@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ListImagesInRecycleBinRequest, ListImagesInRecycleBinResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ListImagesInRecycleBinCommand,
-  serializeAws_ec2ListImagesInRecycleBinCommand,
-} from "../protocols/Aws_ec2";
+import { de_ListImagesInRecycleBinCommand, se_ListImagesInRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ListImagesInRecycleBinCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImagesInRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ListImagesInRecycleBinCommand(input, context);
+    return se_ListImagesInRecycleBinCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesInRecycleBinCommandOutput> {
-    return deserializeAws_ec2ListImagesInRecycleBinCommand(output, context);
+    return de_ListImagesInRecycleBinCommand(output, context);
   }
 
   // Start section: command_body_extra

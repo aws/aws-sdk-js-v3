@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { AssociateTimeSeriesToAssetPropertyRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand,
-  serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand,
+  de_AssociateTimeSeriesToAssetPropertyCommand,
+  se_AssociateTimeSeriesToAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     input: AssociateTimeSeriesToAssetPropertyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand(input, context);
+    return se_AssociateTimeSeriesToAssetPropertyCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> {
-    return deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand(output, context);
+    return de_AssociateTimeSeriesToAssetPropertyCommand(output, context);
   }
 
   // Start section: command_body_extra

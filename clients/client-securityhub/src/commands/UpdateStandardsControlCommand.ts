@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateStandardsControlRequest, UpdateStandardsControlResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateStandardsControlCommand,
-  serializeAws_restJson1UpdateStandardsControlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStandardsControlCommand, se_UpdateStandardsControlCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -136,14 +133,14 @@ export class UpdateStandardsControlCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStandardsControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStandardsControlCommand(input, context);
+    return se_UpdateStandardsControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStandardsControlCommandOutput> {
-    return deserializeAws_restJson1UpdateStandardsControlCommand(output, context);
+    return de_UpdateStandardsControlCommand(output, context);
   }
 
   // Start section: command_body_extra

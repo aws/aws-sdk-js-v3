@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetApprovalRuleTemplateInput, GetApprovalRuleTemplateOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetApprovalRuleTemplateCommand,
-  serializeAws_json1_1GetApprovalRuleTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetApprovalRuleTemplateCommand, se_GetApprovalRuleTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetApprovalRuleTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetApprovalRuleTemplateCommand(input, context);
+    return se_GetApprovalRuleTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(output, context);
+    return de_GetApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   CreateMicrosoftADRequestFilterSensitiveLog,
   CreateMicrosoftADResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMicrosoftADCommand,
-  serializeAws_json1_1CreateMicrosoftADCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateMicrosoftADCommand, se_CreateMicrosoftADCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateMicrosoftADCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMicrosoftADCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMicrosoftADCommand(input, context);
+    return se_CreateMicrosoftADCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMicrosoftADCommandOutput> {
-    return deserializeAws_json1_1CreateMicrosoftADCommand(output, context);
+    return de_CreateMicrosoftADCommand(output, context);
   }
 
   // Start section: command_body_extra

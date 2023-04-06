@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { ListTypesRequest, ListTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTypesCommand,
-  serializeAws_restJson1ListTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypesCommand(input, context);
+    return se_ListTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypesCommandOutput> {
-    return deserializeAws_restJson1ListTypesCommand(output, context);
+    return de_ListTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

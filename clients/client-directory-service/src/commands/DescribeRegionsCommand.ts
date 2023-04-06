@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRegionsCommand,
-  serializeAws_json1_1DescribeRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRegionsCommand, se_DescribeRegionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeRegionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRegionsCommand(input, context);
+    return se_DescribeRegionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionsCommandOutput> {
-    return deserializeAws_json1_1DescribeRegionsCommand(output, context);
+    return de_DescribeRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

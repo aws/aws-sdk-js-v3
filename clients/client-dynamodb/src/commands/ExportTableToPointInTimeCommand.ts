@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ExportTableToPointInTimeCommand,
-  serializeAws_json1_0ExportTableToPointInTimeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ExportTableToPointInTimeCommand, se_ExportTableToPointInTimeCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class ExportTableToPointInTimeCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportTableToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportTableToPointInTimeCommand(input, context);
+    return se_ExportTableToPointInTimeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportTableToPointInTimeCommandOutput> {
-    return deserializeAws_json1_0ExportTableToPointInTimeCommand(output, context);
+    return de_ExportTableToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

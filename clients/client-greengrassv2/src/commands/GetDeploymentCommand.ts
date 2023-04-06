@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetDeploymentRequest, GetDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentCommand,
-  serializeAws_restJson1GetDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentCommand(input, context);
+    return se_GetDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentCommand(output, context);
+    return de_GetDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

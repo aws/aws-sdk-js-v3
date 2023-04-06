@@ -19,10 +19,7 @@ import {
   PutSnapshotBlockRequestFilterSensitiveLog,
   PutSnapshotBlockResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSnapshotBlockCommand,
-  serializeAws_restJson1PutSnapshotBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSnapshotBlockCommand, se_PutSnapshotBlockCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class PutSnapshotBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSnapshotBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSnapshotBlockCommand(input, context);
+    return se_PutSnapshotBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSnapshotBlockCommandOutput> {
-    return deserializeAws_restJson1PutSnapshotBlockCommand(output, context);
+    return de_PutSnapshotBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

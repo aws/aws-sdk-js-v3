@@ -19,8 +19,8 @@ import {
   ExportClientVpnClientConfigurationResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
-  serializeAws_ec2ExportClientVpnClientConfigurationCommand,
+  de_ExportClientVpnClientConfigurationCommand,
+  se_ExportClientVpnClientConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -131,7 +131,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     input: ExportClientVpnClientConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ExportClientVpnClientConfigurationCommand(input, context);
+    return se_ExportClientVpnClientConfigurationCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> {
-    return deserializeAws_ec2ExportClientVpnClientConfigurationCommand(output, context);
+    return de_ExportClientVpnClientConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

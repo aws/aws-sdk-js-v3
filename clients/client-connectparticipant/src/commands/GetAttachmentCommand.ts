@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { GetAttachmentRequest, GetAttachmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAttachmentCommand,
-  serializeAws_restJson1GetAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAttachmentCommand, se_GetAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAttachmentCommand(input, context);
+    return se_GetAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetAttachmentCommand(output, context);
+    return de_GetAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

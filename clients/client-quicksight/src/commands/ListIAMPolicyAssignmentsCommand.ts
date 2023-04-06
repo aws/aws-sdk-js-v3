@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListIAMPolicyAssignmentsRequest, ListIAMPolicyAssignmentsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListIAMPolicyAssignmentsCommand,
-  serializeAws_restJson1ListIAMPolicyAssignmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIAMPolicyAssignmentsCommand, se_ListIAMPolicyAssignmentsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -145,14 +142,14 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIAMPolicyAssignmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIAMPolicyAssignmentsCommand(input, context);
+    return se_ListIAMPolicyAssignmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIAMPolicyAssignmentsCommandOutput> {
-    return deserializeAws_restJson1ListIAMPolicyAssignmentsCommand(output, context);
+    return de_ListIAMPolicyAssignmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { DeleteDataCatalogInput, DeleteDataCatalogOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataCatalogCommand,
-  serializeAws_json1_1DeleteDataCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDataCatalogCommand, se_DeleteDataCatalogCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DeleteDataCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataCatalogCommand(input, context);
+    return se_DeleteDataCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCatalogCommandOutput> {
-    return deserializeAws_json1_1DeleteDataCatalogCommand(output, context);
+    return de_DeleteDataCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

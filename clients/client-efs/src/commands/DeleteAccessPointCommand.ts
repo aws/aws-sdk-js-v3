@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteAccessPointRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessPointCommand,
-  serializeAws_restJson1DeleteAccessPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccessPointCommand, se_DeleteAccessPointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessPointCommand(input, context);
+    return se_DeleteAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessPointCommand(output, context);
+    return de_DeleteAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

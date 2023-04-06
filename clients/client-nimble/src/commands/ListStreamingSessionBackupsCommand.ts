@@ -16,8 +16,8 @@ import {
 import { ListStreamingSessionBackupsRequest, ListStreamingSessionBackupsResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1ListStreamingSessionBackupsCommand,
-  serializeAws_restJson1ListStreamingSessionBackupsCommand,
+  de_ListStreamingSessionBackupsCommand,
+  se_ListStreamingSessionBackupsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class ListStreamingSessionBackupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStreamingSessionBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamingSessionBackupsCommand(input, context);
+    return se_ListStreamingSessionBackupsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListStreamingSessionBackupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStreamingSessionBackupsCommandOutput> {
-    return deserializeAws_restJson1ListStreamingSessionBackupsCommand(output, context);
+    return de_ListStreamingSessionBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

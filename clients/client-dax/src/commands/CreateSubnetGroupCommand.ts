@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSubnetGroupCommand,
-  serializeAws_json1_1CreateSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSubnetGroupCommand, se_CreateSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class CreateSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSubnetGroupCommand(input, context);
+    return se_CreateSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateSubnetGroupCommand(output, context);
+    return de_CreateSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/models_1";
 import {
-  deserializeAws_queryRestoreTableFromClusterSnapshotCommand,
-  serializeAws_queryRestoreTableFromClusterSnapshotCommand,
+  de_RestoreTableFromClusterSnapshotCommand,
+  se_RestoreTableFromClusterSnapshotCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -172,7 +172,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     input: RestoreTableFromClusterSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(input, context);
+    return se_RestoreTableFromClusterSnapshotCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(output, context);
+    return de_RestoreTableFromClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

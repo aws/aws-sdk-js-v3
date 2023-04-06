@@ -16,8 +16,8 @@ import {
 import { UpdateNetworkResourceMetadataRequest, UpdateNetworkResourceMetadataResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1UpdateNetworkResourceMetadataCommand,
-  serializeAws_restJson1UpdateNetworkResourceMetadataCommand,
+  de_UpdateNetworkResourceMetadataCommand,
+  se_UpdateNetworkResourceMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNetworkResourceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkResourceMetadataCommand(input, context);
+    return se_UpdateNetworkResourceMetadataCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNetworkResourceMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkResourceMetadataCommand(output, context);
+    return de_UpdateNetworkResourceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

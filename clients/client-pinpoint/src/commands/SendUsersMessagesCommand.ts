@@ -15,10 +15,7 @@ import {
 
 import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1SendUsersMessagesCommand,
-  serializeAws_restJson1SendUsersMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendUsersMessagesCommand, se_SendUsersMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -332,14 +329,14 @@ export class SendUsersMessagesCommand extends $Command<
    * @internal
    */
   private serialize(input: SendUsersMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendUsersMessagesCommand(input, context);
+    return se_SendUsersMessagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendUsersMessagesCommandOutput> {
-    return deserializeAws_restJson1SendUsersMessagesCommand(output, context);
+    return de_SendUsersMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

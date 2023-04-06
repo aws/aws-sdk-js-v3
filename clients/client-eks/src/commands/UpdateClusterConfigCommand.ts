@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterConfigCommand,
-  serializeAws_restJson1UpdateClusterConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateClusterConfigCommand, se_UpdateClusterConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -196,14 +193,14 @@ export class UpdateClusterConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClusterConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterConfigCommand(input, context);
+    return se_UpdateClusterConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterConfigCommand(output, context);
+    return de_UpdateClusterConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

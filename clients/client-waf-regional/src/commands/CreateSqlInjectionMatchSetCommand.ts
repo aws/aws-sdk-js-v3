@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSqlInjectionMatchSetRequest, CreateSqlInjectionMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSqlInjectionMatchSetCommand,
-  serializeAws_json1_1CreateSqlInjectionMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSqlInjectionMatchSetCommand, se_CreateSqlInjectionMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -236,7 +233,7 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSqlInjectionMatchSetCommand(input, context);
+    return se_CreateSqlInjectionMatchSetCommand(input, context);
   }
 
   /**
@@ -246,7 +243,7 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateSqlInjectionMatchSetCommand(output, context);
+    return de_CreateSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { ExtensionAssociations, ListExtensionAssociationsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionAssociationsCommand,
-  serializeAws_restJson1ListExtensionAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListExtensionAssociationsCommand, se_ListExtensionAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class ListExtensionAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExtensionAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionAssociationsCommand(input, context);
+    return se_ListExtensionAssociationsCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class ListExtensionAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExtensionAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionAssociationsCommand(output, context);
+    return de_ListExtensionAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

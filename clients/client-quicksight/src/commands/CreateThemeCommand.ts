@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateThemeRequest, CreateThemeResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateThemeCommand,
-  serializeAws_restJson1CreateThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateThemeCommand, se_CreateThemeCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -220,14 +217,14 @@ export class CreateThemeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThemeCommand(input, context);
+    return se_CreateThemeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
-    return deserializeAws_restJson1CreateThemeCommand(output, context);
+    return de_CreateThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

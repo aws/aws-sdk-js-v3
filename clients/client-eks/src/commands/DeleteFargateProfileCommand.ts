@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFargateProfileCommand,
-  serializeAws_restJson1DeleteFargateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFargateProfileCommand, se_DeleteFargateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteFargateProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFargateProfileCommand(input, context);
+    return se_DeleteFargateProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFargateProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteFargateProfileCommand(output, context);
+    return de_DeleteFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

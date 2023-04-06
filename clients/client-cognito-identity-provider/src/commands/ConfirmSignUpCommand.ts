@@ -23,10 +23,7 @@ import {
   ConfirmSignUpRequestFilterSensitiveLog,
   ConfirmSignUpResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmSignUpCommand,
-  serializeAws_json1_1ConfirmSignUpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConfirmSignUpCommand, se_ConfirmSignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class ConfirmSignUpCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmSignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmSignUpCommand(input, context);
+    return se_ConfirmSignUpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSignUpCommandOutput> {
-    return deserializeAws_json1_1ConfirmSignUpCommand(output, context);
+    return de_ConfirmSignUpCommand(output, context);
   }
 
   // Start section: command_body_extra

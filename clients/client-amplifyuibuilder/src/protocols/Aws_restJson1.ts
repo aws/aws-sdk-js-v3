@@ -106,7 +106,10 @@ import {
   ValueMappings,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateComponentCommand = async (
+/**
+ * serializeAws_restJson1CreateComponentCommand
+ */
+export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -131,7 +134,7 @@ export const serializeAws_restJson1CreateComponentCommand = async (
   });
   let body: any;
   if (input.componentToCreate !== undefined) {
-    body = serializeAws_restJson1CreateComponentData(input.componentToCreate, context);
+    body = se_CreateComponentData(input.componentToCreate, context);
   }
   if (body === undefined) {
     body = {};
@@ -149,7 +152,10 @@ export const serializeAws_restJson1CreateComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFormCommand = async (
+/**
+ * serializeAws_restJson1CreateFormCommand
+ */
+export const se_CreateFormCommand = async (
   input: CreateFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -174,7 +180,7 @@ export const serializeAws_restJson1CreateFormCommand = async (
   });
   let body: any;
   if (input.formToCreate !== undefined) {
-    body = serializeAws_restJson1CreateFormData(input.formToCreate, context);
+    body = se_CreateFormData(input.formToCreate, context);
   }
   if (body === undefined) {
     body = {};
@@ -192,7 +198,10 @@ export const serializeAws_restJson1CreateFormCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateThemeCommand = async (
+/**
+ * serializeAws_restJson1CreateThemeCommand
+ */
+export const se_CreateThemeCommand = async (
   input: CreateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -217,7 +226,7 @@ export const serializeAws_restJson1CreateThemeCommand = async (
   });
   let body: any;
   if (input.themeToCreate !== undefined) {
-    body = serializeAws_restJson1CreateThemeData(input.themeToCreate, context);
+    body = se_CreateThemeData(input.themeToCreate, context);
   }
   if (body === undefined) {
     body = {};
@@ -235,7 +244,10 @@ export const serializeAws_restJson1CreateThemeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteComponentCommand = async (
+/**
+ * serializeAws_restJson1DeleteComponentCommand
+ */
+export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -266,7 +278,10 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFormCommand = async (
+/**
+ * serializeAws_restJson1DeleteFormCommand
+ */
+export const se_DeleteFormCommand = async (
   input: DeleteFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -297,7 +312,10 @@ export const serializeAws_restJson1DeleteFormCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteThemeCommand = async (
+/**
+ * serializeAws_restJson1DeleteThemeCommand
+ */
+export const se_DeleteThemeCommand = async (
   input: DeleteThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -328,7 +346,10 @@ export const serializeAws_restJson1DeleteThemeCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExchangeCodeForTokenCommand = async (
+/**
+ * serializeAws_restJson1ExchangeCodeForTokenCommand
+ */
+export const se_ExchangeCodeForTokenCommand = async (
   input: ExchangeCodeForTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -340,7 +361,7 @@ export const serializeAws_restJson1ExchangeCodeForTokenCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.request !== undefined) {
-    body = serializeAws_restJson1ExchangeCodeForTokenRequestBody(input.request, context);
+    body = se_ExchangeCodeForTokenRequestBody(input.request, context);
   }
   if (body === undefined) {
     body = {};
@@ -357,7 +378,10 @@ export const serializeAws_restJson1ExchangeCodeForTokenCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportComponentsCommand = async (
+/**
+ * serializeAws_restJson1ExportComponentsCommand
+ */
+export const se_ExportComponentsCommand = async (
   input: ExportComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -391,7 +415,10 @@ export const serializeAws_restJson1ExportComponentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportFormsCommand = async (
+/**
+ * serializeAws_restJson1ExportFormsCommand
+ */
+export const se_ExportFormsCommand = async (
   input: ExportFormsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -425,7 +452,10 @@ export const serializeAws_restJson1ExportFormsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportThemesCommand = async (
+/**
+ * serializeAws_restJson1ExportThemesCommand
+ */
+export const se_ExportThemesCommand = async (
   input: ExportThemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -459,7 +489,10 @@ export const serializeAws_restJson1ExportThemesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetComponentCommand = async (
+/**
+ * serializeAws_restJson1GetComponentCommand
+ */
+export const se_GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -490,7 +523,10 @@ export const serializeAws_restJson1GetComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFormCommand = async (
+/**
+ * serializeAws_restJson1GetFormCommand
+ */
+export const se_GetFormCommand = async (
   input: GetFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,7 +557,10 @@ export const serializeAws_restJson1GetFormCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMetadataCommand = async (
+/**
+ * serializeAws_restJson1GetMetadataCommand
+ */
+export const se_GetMetadataCommand = async (
   input: GetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -551,7 +590,10 @@ export const serializeAws_restJson1GetMetadataCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetThemeCommand = async (
+/**
+ * serializeAws_restJson1GetThemeCommand
+ */
+export const se_GetThemeCommand = async (
   input: GetThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -582,7 +624,10 @@ export const serializeAws_restJson1GetThemeCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListComponentsCommand = async (
+/**
+ * serializeAws_restJson1ListComponentsCommand
+ */
+export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -617,7 +662,10 @@ export const serializeAws_restJson1ListComponentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFormsCommand = async (
+/**
+ * serializeAws_restJson1ListFormsCommand
+ */
+export const se_ListFormsCommand = async (
   input: ListFormsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -652,7 +700,10 @@ export const serializeAws_restJson1ListFormsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListThemesCommand = async (
+/**
+ * serializeAws_restJson1ListThemesCommand
+ */
+export const se_ListThemesCommand = async (
   input: ListThemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -687,7 +738,10 @@ export const serializeAws_restJson1ListThemesCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutMetadataFlagCommand = async (
+/**
+ * serializeAws_restJson1PutMetadataFlagCommand
+ */
+export const se_PutMetadataFlagCommand = async (
   input: PutMetadataFlagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -710,7 +764,7 @@ export const serializeAws_restJson1PutMetadataFlagCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "featureName", () => input.featureName!, "{featureName}", false);
   let body: any;
   if (input.body !== undefined) {
-    body = serializeAws_restJson1PutMetadataFlagBody(input.body, context);
+    body = se_PutMetadataFlagBody(input.body, context);
   }
   if (body === undefined) {
     body = {};
@@ -727,7 +781,10 @@ export const serializeAws_restJson1PutMetadataFlagCommand = async (
   });
 };
 
-export const serializeAws_restJson1RefreshTokenCommand = async (
+/**
+ * serializeAws_restJson1RefreshTokenCommand
+ */
+export const se_RefreshTokenCommand = async (
   input: RefreshTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -740,7 +797,7 @@ export const serializeAws_restJson1RefreshTokenCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.refreshTokenBody !== undefined) {
-    body = serializeAws_restJson1RefreshTokenRequestBody(input.refreshTokenBody, context);
+    body = se_RefreshTokenRequestBody(input.refreshTokenBody, context);
   }
   if (body === undefined) {
     body = {};
@@ -757,7 +814,10 @@ export const serializeAws_restJson1RefreshTokenCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateComponentCommand = async (
+/**
+ * serializeAws_restJson1UpdateComponentCommand
+ */
+export const se_UpdateComponentCommand = async (
   input: UpdateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,7 +843,7 @@ export const serializeAws_restJson1UpdateComponentCommand = async (
   });
   let body: any;
   if (input.updatedComponent !== undefined) {
-    body = serializeAws_restJson1UpdateComponentData(input.updatedComponent, context);
+    body = se_UpdateComponentData(input.updatedComponent, context);
   }
   if (body === undefined) {
     body = {};
@@ -801,7 +861,10 @@ export const serializeAws_restJson1UpdateComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFormCommand = async (
+/**
+ * serializeAws_restJson1UpdateFormCommand
+ */
+export const se_UpdateFormCommand = async (
   input: UpdateFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -827,7 +890,7 @@ export const serializeAws_restJson1UpdateFormCommand = async (
   });
   let body: any;
   if (input.updatedForm !== undefined) {
-    body = serializeAws_restJson1UpdateFormData(input.updatedForm, context);
+    body = se_UpdateFormData(input.updatedForm, context);
   }
   if (body === undefined) {
     body = {};
@@ -845,7 +908,10 @@ export const serializeAws_restJson1UpdateFormCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateThemeCommand = async (
+/**
+ * serializeAws_restJson1UpdateThemeCommand
+ */
+export const se_UpdateThemeCommand = async (
   input: UpdateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -871,7 +937,7 @@ export const serializeAws_restJson1UpdateThemeCommand = async (
   });
   let body: any;
   if (input.updatedTheme !== undefined) {
-    body = serializeAws_restJson1UpdateThemeData(input.updatedTheme, context);
+    body = se_UpdateThemeData(input.updatedTheme, context);
   }
   if (body === undefined) {
     body = {};
@@ -889,22 +955,28 @@ export const serializeAws_restJson1UpdateThemeCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateComponentCommand = async (
+/**
+ * deserializeAws_restJson1CreateComponentCommand
+ */
+export const de_CreateComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateComponentCommandError(output, context);
+    return de_CreateComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Component(data, context);
+  contents.entity = de_Component(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateComponentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateComponentCommandError
+ */
+const de_CreateComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
@@ -916,16 +988,16 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -937,22 +1009,28 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateFormCommand = async (
+/**
+ * deserializeAws_restJson1CreateFormCommand
+ */
+export const de_CreateFormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFormCommandError(output, context);
+    return de_CreateFormCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Form(data, context);
+  contents.entity = de_Form(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateFormCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFormCommandError
+ */
+const de_CreateFormCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFormCommandOutput> => {
@@ -964,16 +1042,16 @@ const deserializeAws_restJson1CreateFormCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -985,22 +1063,28 @@ const deserializeAws_restJson1CreateFormCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateThemeCommand = async (
+/**
+ * deserializeAws_restJson1CreateThemeCommand
+ */
+export const de_CreateThemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateThemeCommandError(output, context);
+    return de_CreateThemeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Theme(data, context);
+  contents.entity = de_Theme(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateThemeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateThemeCommandError
+ */
+const de_CreateThemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateThemeCommandOutput> => {
@@ -1012,16 +1096,16 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1033,12 +1117,15 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteComponentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteComponentCommand
+ */
+export const de_DeleteComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteComponentCommandError(output, context);
+    return de_DeleteComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1047,7 +1134,10 @@ export const deserializeAws_restJson1DeleteComponentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteComponentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteComponentCommandError
+ */
+const de_DeleteComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
@@ -1059,13 +1149,13 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1077,12 +1167,15 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteFormCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFormCommand
+ */
+export const de_DeleteFormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFormCommandError(output, context);
+    return de_DeleteFormCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1091,7 +1184,10 @@ export const deserializeAws_restJson1DeleteFormCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFormCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFormCommandError
+ */
+const de_DeleteFormCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFormCommandOutput> => {
@@ -1103,13 +1199,13 @@ const deserializeAws_restJson1DeleteFormCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1121,12 +1217,15 @@ const deserializeAws_restJson1DeleteFormCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteThemeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteThemeCommand
+ */
+export const de_DeleteThemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteThemeCommandError(output, context);
+    return de_DeleteThemeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1135,7 +1234,10 @@ export const deserializeAws_restJson1DeleteThemeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteThemeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteThemeCommandError
+ */
+const de_DeleteThemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThemeCommandOutput> => {
@@ -1147,13 +1249,13 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1165,12 +1267,15 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExchangeCodeForTokenCommand = async (
+/**
+ * deserializeAws_restJson1ExchangeCodeForTokenCommand
+ */
+export const de_ExchangeCodeForTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExchangeCodeForTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExchangeCodeForTokenCommandError(output, context);
+    return de_ExchangeCodeForTokenCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1188,7 +1293,10 @@ export const deserializeAws_restJson1ExchangeCodeForTokenCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
+/**
+ * deserializeAws_restJson1ExchangeCodeForTokenCommandError
+ */
+const de_ExchangeCodeForTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExchangeCodeForTokenCommandOutput> => {
@@ -1200,7 +1308,7 @@ const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1212,19 +1320,22 @@ const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExportComponentsCommand = async (
+/**
+ * deserializeAws_restJson1ExportComponentsCommand
+ */
+export const de_ExportComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportComponentsCommandError(output, context);
+    return de_ExportComponentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1ComponentList(data.entities, context);
+    contents.entities = de_ComponentList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1232,7 +1343,10 @@ export const deserializeAws_restJson1ExportComponentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ExportComponentsCommandError = async (
+/**
+ * deserializeAws_restJson1ExportComponentsCommandError
+ */
+const de_ExportComponentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportComponentsCommandOutput> => {
@@ -1244,10 +1358,10 @@ const deserializeAws_restJson1ExportComponentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1259,19 +1373,22 @@ const deserializeAws_restJson1ExportComponentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExportFormsCommand = async (
+/**
+ * deserializeAws_restJson1ExportFormsCommand
+ */
+export const de_ExportFormsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportFormsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportFormsCommandError(output, context);
+    return de_ExportFormsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1FormList(data.entities, context);
+    contents.entities = de_FormList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1279,7 +1396,10 @@ export const deserializeAws_restJson1ExportFormsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ExportFormsCommandError = async (
+/**
+ * deserializeAws_restJson1ExportFormsCommandError
+ */
+const de_ExportFormsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportFormsCommandOutput> => {
@@ -1291,10 +1411,10 @@ const deserializeAws_restJson1ExportFormsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1306,19 +1426,22 @@ const deserializeAws_restJson1ExportFormsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExportThemesCommand = async (
+/**
+ * deserializeAws_restJson1ExportThemesCommand
+ */
+export const de_ExportThemesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportThemesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportThemesCommandError(output, context);
+    return de_ExportThemesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1ThemeList(data.entities, context);
+    contents.entities = de_ThemeList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1326,7 +1449,10 @@ export const deserializeAws_restJson1ExportThemesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ExportThemesCommandError = async (
+/**
+ * deserializeAws_restJson1ExportThemesCommandError
+ */
+const de_ExportThemesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportThemesCommandOutput> => {
@@ -1338,10 +1464,10 @@ const deserializeAws_restJson1ExportThemesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1353,22 +1479,28 @@ const deserializeAws_restJson1ExportThemesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetComponentCommand = async (
+/**
+ * deserializeAws_restJson1GetComponentCommand
+ */
+export const de_GetComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetComponentCommandError(output, context);
+    return de_GetComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.component = deserializeAws_restJson1Component(data, context);
+  contents.component = de_Component(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetComponentCommandError = async (
+/**
+ * deserializeAws_restJson1GetComponentCommandError
+ */
+const de_GetComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
@@ -1380,13 +1512,13 @@ const deserializeAws_restJson1GetComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1398,22 +1530,28 @@ const deserializeAws_restJson1GetComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetFormCommand = async (
+/**
+ * deserializeAws_restJson1GetFormCommand
+ */
+export const de_GetFormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFormCommandError(output, context);
+    return de_GetFormCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.form = deserializeAws_restJson1Form(data, context);
+  contents.form = de_Form(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetFormCommandError = async (
+/**
+ * deserializeAws_restJson1GetFormCommandError
+ */
+const de_GetFormCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFormCommandOutput> => {
@@ -1425,13 +1563,13 @@ const deserializeAws_restJson1GetFormCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1443,24 +1581,30 @@ const deserializeAws_restJson1GetFormCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetMetadataCommand = async (
+/**
+ * deserializeAws_restJson1GetMetadataCommand
+ */
+export const de_GetMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMetadataCommandError(output, context);
+    return de_GetMetadataCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.features != null) {
-    contents.features = deserializeAws_restJson1FeaturesMap(data.features, context);
+    contents.features = de_FeaturesMap(data.features, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1GetMetadataCommandError
+ */
+const de_GetMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMetadataCommandOutput> => {
@@ -1472,10 +1616,10 @@ const deserializeAws_restJson1GetMetadataCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.amplifyuibuilder#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1487,22 +1631,28 @@ const deserializeAws_restJson1GetMetadataCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetThemeCommand = async (
+/**
+ * deserializeAws_restJson1GetThemeCommand
+ */
+export const de_GetThemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetThemeCommandError(output, context);
+    return de_GetThemeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.theme = deserializeAws_restJson1Theme(data, context);
+  contents.theme = de_Theme(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetThemeCommandError = async (
+/**
+ * deserializeAws_restJson1GetThemeCommandError
+ */
+const de_GetThemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThemeCommandOutput> => {
@@ -1514,13 +1664,13 @@ const deserializeAws_restJson1GetThemeCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1532,19 +1682,22 @@ const deserializeAws_restJson1GetThemeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListComponentsCommand = async (
+/**
+ * deserializeAws_restJson1ListComponentsCommand
+ */
+export const de_ListComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListComponentsCommandError(output, context);
+    return de_ListComponentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1ComponentSummaryList(data.entities, context);
+    contents.entities = de_ComponentSummaryList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1552,7 +1705,10 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListComponentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListComponentsCommandError
+ */
+const de_ListComponentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
@@ -1564,10 +1720,10 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1579,19 +1735,22 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListFormsCommand = async (
+/**
+ * deserializeAws_restJson1ListFormsCommand
+ */
+export const de_ListFormsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFormsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFormsCommandError(output, context);
+    return de_ListFormsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1FormSummaryList(data.entities, context);
+    contents.entities = de_FormSummaryList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1599,7 +1758,10 @@ export const deserializeAws_restJson1ListFormsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListFormsCommandError = async (
+/**
+ * deserializeAws_restJson1ListFormsCommandError
+ */
+const de_ListFormsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFormsCommandOutput> => {
@@ -1611,10 +1773,10 @@ const deserializeAws_restJson1ListFormsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1626,19 +1788,22 @@ const deserializeAws_restJson1ListFormsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListThemesCommand = async (
+/**
+ * deserializeAws_restJson1ListThemesCommand
+ */
+export const de_ListThemesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThemesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListThemesCommandError(output, context);
+    return de_ListThemesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities != null) {
-    contents.entities = deserializeAws_restJson1ThemeSummaryList(data.entities, context);
+    contents.entities = de_ThemeSummaryList(data.entities, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1646,7 +1811,10 @@ export const deserializeAws_restJson1ListThemesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListThemesCommandError = async (
+/**
+ * deserializeAws_restJson1ListThemesCommandError
+ */
+const de_ListThemesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThemesCommandOutput> => {
@@ -1658,10 +1826,10 @@ const deserializeAws_restJson1ListThemesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1673,12 +1841,15 @@ const deserializeAws_restJson1ListThemesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutMetadataFlagCommand = async (
+/**
+ * deserializeAws_restJson1PutMetadataFlagCommand
+ */
+export const de_PutMetadataFlagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMetadataFlagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutMetadataFlagCommandError(output, context);
+    return de_PutMetadataFlagCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1687,7 +1858,10 @@ export const deserializeAws_restJson1PutMetadataFlagCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutMetadataFlagCommandError = async (
+/**
+ * deserializeAws_restJson1PutMetadataFlagCommandError
+ */
+const de_PutMetadataFlagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMetadataFlagCommandOutput> => {
@@ -1699,10 +1873,10 @@ const deserializeAws_restJson1PutMetadataFlagCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.amplifyuibuilder#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1714,12 +1888,15 @@ const deserializeAws_restJson1PutMetadataFlagCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RefreshTokenCommand = async (
+/**
+ * deserializeAws_restJson1RefreshTokenCommand
+ */
+export const de_RefreshTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RefreshTokenCommandError(output, context);
+    return de_RefreshTokenCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1734,7 +1911,10 @@ export const deserializeAws_restJson1RefreshTokenCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RefreshTokenCommandError = async (
+/**
+ * deserializeAws_restJson1RefreshTokenCommandError
+ */
+const de_RefreshTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshTokenCommandOutput> => {
@@ -1746,7 +1926,7 @@ const deserializeAws_restJson1RefreshTokenCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1758,22 +1938,28 @@ const deserializeAws_restJson1RefreshTokenCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateComponentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateComponentCommand
+ */
+export const de_UpdateComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateComponentCommandError(output, context);
+    return de_UpdateComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Component(data, context);
+  contents.entity = de_Component(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateComponentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateComponentCommandError
+ */
+const de_UpdateComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
@@ -1785,13 +1971,13 @@ const deserializeAws_restJson1UpdateComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1803,22 +1989,28 @@ const deserializeAws_restJson1UpdateComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFormCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFormCommand
+ */
+export const de_UpdateFormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFormCommandError(output, context);
+    return de_UpdateFormCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Form(data, context);
+  contents.entity = de_Form(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFormCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFormCommandError
+ */
+const de_UpdateFormCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFormCommandOutput> => {
@@ -1830,13 +2022,13 @@ const deserializeAws_restJson1UpdateFormCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1848,22 +2040,28 @@ const deserializeAws_restJson1UpdateFormCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateThemeCommand = async (
+/**
+ * deserializeAws_restJson1UpdateThemeCommand
+ */
+export const de_UpdateThemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateThemeCommandError(output, context);
+    return de_UpdateThemeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.entity = deserializeAws_restJson1Theme(data, context);
+  contents.entity = de_Theme(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateThemeCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateThemeCommandError
+ */
+const de_UpdateThemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThemeCommandOutput> => {
@@ -1875,13 +2073,13 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1894,7 +2092,10 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1910,7 +2111,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
@@ -1926,7 +2130,10 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceConflictExceptionRes
+ */
+const de_ResourceConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
@@ -1942,7 +2149,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1958,7 +2168,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1974,7 +2187,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
@@ -1990,21 +2206,27 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ActionParameters = (input: ActionParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ActionParameters
+ */
+const se_ActionParameters = (input: ActionParameters, context: __SerdeContext): any => {
   return {
-    ...(input.anchor != null && { anchor: serializeAws_restJson1ComponentProperty(input.anchor, context) }),
-    ...(input.fields != null && { fields: serializeAws_restJson1ComponentProperties(input.fields, context) }),
-    ...(input.global != null && { global: serializeAws_restJson1ComponentProperty(input.global, context) }),
-    ...(input.id != null && { id: serializeAws_restJson1ComponentProperty(input.id, context) }),
+    ...(input.anchor != null && { anchor: se_ComponentProperty(input.anchor, context) }),
+    ...(input.fields != null && { fields: se_ComponentProperties(input.fields, context) }),
+    ...(input.global != null && { global: se_ComponentProperty(input.global, context) }),
+    ...(input.id != null && { id: se_ComponentProperty(input.id, context) }),
     ...(input.model != null && { model: input.model }),
-    ...(input.state != null && { state: serializeAws_restJson1MutationActionSetStateParameter(input.state, context) }),
-    ...(input.target != null && { target: serializeAws_restJson1ComponentProperty(input.target, context) }),
-    ...(input.type != null && { type: serializeAws_restJson1ComponentProperty(input.type, context) }),
-    ...(input.url != null && { url: serializeAws_restJson1ComponentProperty(input.url, context) }),
+    ...(input.state != null && { state: se_MutationActionSetStateParameter(input.state, context) }),
+    ...(input.target != null && { target: se_ComponentProperty(input.target, context) }),
+    ...(input.type != null && { type: se_ComponentProperty(input.type, context) }),
+    ...(input.url != null && { url: se_ComponentProperty(input.url, context) }),
   };
 };
 
-const serializeAws_restJson1ComponentBindingProperties = (
+/**
+ * serializeAws_restJson1ComponentBindingProperties
+ */
+const se_ComponentBindingProperties = (
   input: Record<string, ComponentBindingPropertiesValue>,
   context: __SerdeContext
 ): any => {
@@ -2012,28 +2234,28 @@ const serializeAws_restJson1ComponentBindingProperties = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ComponentBindingPropertiesValue(value, context);
+    acc[key] = se_ComponentBindingPropertiesValue(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ComponentBindingPropertiesValue = (
-  input: ComponentBindingPropertiesValue,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComponentBindingPropertiesValue
+ */
+const se_ComponentBindingPropertiesValue = (input: ComponentBindingPropertiesValue, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1ComponentBindingPropertiesValueProperties(
-        input.bindingProperties,
-        context
-      ),
+      bindingProperties: se_ComponentBindingPropertiesValueProperties(input.bindingProperties, context),
     }),
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1ComponentBindingPropertiesValueProperties = (
+/**
+ * serializeAws_restJson1ComponentBindingPropertiesValueProperties
+ */
+const se_ComponentBindingPropertiesValueProperties = (
   input: ComponentBindingPropertiesValueProperties,
   context: __SerdeContext
 ): any => {
@@ -2043,34 +2265,41 @@ const serializeAws_restJson1ComponentBindingPropertiesValueProperties = (
     ...(input.field != null && { field: input.field }),
     ...(input.key != null && { key: input.key }),
     ...(input.model != null && { model: input.model }),
-    ...(input.predicates != null && { predicates: serializeAws_restJson1PredicateList(input.predicates, context) }),
+    ...(input.predicates != null && { predicates: se_PredicateList(input.predicates, context) }),
     ...(input.slotName != null && { slotName: input.slotName }),
     ...(input.userAttribute != null && { userAttribute: input.userAttribute }),
   };
 };
 
-const serializeAws_restJson1ComponentChild = (input: ComponentChild, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentChild
+ */
+const se_ComponentChild = (input: ComponentChild, context: __SerdeContext): any => {
   return {
-    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.children != null && { children: se_ComponentChildList(input.children, context) }),
     ...(input.componentType != null && { componentType: input.componentType }),
-    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.events != null && { events: se_ComponentEvents(input.events, context) }),
     ...(input.name != null && { name: input.name }),
-    ...(input.properties != null && {
-      properties: serializeAws_restJson1ComponentProperties(input.properties, context),
-    }),
+    ...(input.properties != null && { properties: se_ComponentProperties(input.properties, context) }),
     ...(input.sourceId != null && { sourceId: input.sourceId }),
   };
 };
 
-const serializeAws_restJson1ComponentChildList = (input: ComponentChild[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentChildList
+ */
+const se_ComponentChildList = (input: ComponentChild[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ComponentChild(entry, context);
+      return se_ComponentChild(entry, context);
     });
 };
 
-const serializeAws_restJson1ComponentCollectionProperties = (
+/**
+ * serializeAws_restJson1ComponentCollectionProperties
+ */
+const se_ComponentCollectionProperties = (
   input: Record<string, ComponentDataConfiguration>,
   context: __SerdeContext
 ): any => {
@@ -2078,70 +2307,79 @@ const serializeAws_restJson1ComponentCollectionProperties = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ComponentDataConfiguration(value, context);
+    acc[key] = se_ComponentDataConfiguration(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ComponentConditionProperty = (
-  input: ComponentConditionProperty,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComponentConditionProperty
+ */
+const se_ComponentConditionProperty = (input: ComponentConditionProperty, context: __SerdeContext): any => {
   return {
-    ...(input.else != null && { else: serializeAws_restJson1ComponentProperty(input.else, context) }),
+    ...(input.else != null && { else: se_ComponentProperty(input.else, context) }),
     ...(input.field != null && { field: input.field }),
     ...(input.operand != null && { operand: input.operand }),
     ...(input.operandType != null && { operandType: input.operandType }),
     ...(input.operator != null && { operator: input.operator }),
     ...(input.property != null && { property: input.property }),
-    ...(input.then != null && { then: serializeAws_restJson1ComponentProperty(input.then, context) }),
+    ...(input.then != null && { then: se_ComponentProperty(input.then, context) }),
   };
 };
 
-const serializeAws_restJson1ComponentDataConfiguration = (
-  input: ComponentDataConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComponentDataConfiguration
+ */
+const se_ComponentDataConfiguration = (input: ComponentDataConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.identifiers != null && { identifiers: serializeAws_restJson1IdentifierList(input.identifiers, context) }),
+    ...(input.identifiers != null && { identifiers: se_IdentifierList(input.identifiers, context) }),
     ...(input.model != null && { model: input.model }),
-    ...(input.predicate != null && { predicate: serializeAws_restJson1Predicate(input.predicate, context) }),
-    ...(input.sort != null && { sort: serializeAws_restJson1SortPropertyList(input.sort, context) }),
+    ...(input.predicate != null && { predicate: se_Predicate(input.predicate, context) }),
+    ...(input.sort != null && { sort: se_SortPropertyList(input.sort, context) }),
   };
 };
 
-const serializeAws_restJson1ComponentEvent = (input: ComponentEvent, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentEvent
+ */
+const se_ComponentEvent = (input: ComponentEvent, context: __SerdeContext): any => {
   return {
     ...(input.action != null && { action: input.action }),
     ...(input.bindingEvent != null && { bindingEvent: input.bindingEvent }),
-    ...(input.parameters != null && { parameters: serializeAws_restJson1ActionParameters(input.parameters, context) }),
+    ...(input.parameters != null && { parameters: se_ActionParameters(input.parameters, context) }),
   };
 };
 
-const serializeAws_restJson1ComponentEvents = (input: Record<string, ComponentEvent>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentEvents
+ */
+const se_ComponentEvents = (input: Record<string, ComponentEvent>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ComponentEvent(value, context);
+    acc[key] = se_ComponentEvent(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ComponentOverrides = (
-  input: Record<string, Record<string, string>>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComponentOverrides
+ */
+const se_ComponentOverrides = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ComponentOverridesValue(value, context);
+    acc[key] = se_ComponentOverridesValue(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ComponentOverridesValue = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentOverridesValue
+ */
+const se_ComponentOverridesValue = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2151,36 +2389,34 @@ const serializeAws_restJson1ComponentOverridesValue = (input: Record<string, str
   }, {});
 };
 
-const serializeAws_restJson1ComponentProperties = (
-  input: Record<string, ComponentProperty>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComponentProperties
+ */
+const se_ComponentProperties = (input: Record<string, ComponentProperty>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ComponentProperty(value, context);
+    acc[key] = se_ComponentProperty(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ComponentProperty = (input: ComponentProperty, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentProperty
+ */
+const se_ComponentProperty = (input: ComponentProperty, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1ComponentPropertyBindingProperties(input.bindingProperties, context),
+      bindingProperties: se_ComponentPropertyBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.bindings != null && { bindings: serializeAws_restJson1FormBindings(input.bindings, context) }),
+    ...(input.bindings != null && { bindings: se_FormBindings(input.bindings, context) }),
     ...(input.collectionBindingProperties != null && {
-      collectionBindingProperties: serializeAws_restJson1ComponentPropertyBindingProperties(
-        input.collectionBindingProperties,
-        context
-      ),
+      collectionBindingProperties: se_ComponentPropertyBindingProperties(input.collectionBindingProperties, context),
     }),
     ...(input.componentName != null && { componentName: input.componentName }),
-    ...(input.concat != null && { concat: serializeAws_restJson1ComponentPropertyList(input.concat, context) }),
-    ...(input.condition != null && {
-      condition: serializeAws_restJson1ComponentConditionProperty(input.condition, context),
-    }),
+    ...(input.concat != null && { concat: se_ComponentPropertyList(input.concat, context) }),
+    ...(input.condition != null && { condition: se_ComponentConditionProperty(input.condition, context) }),
     ...(input.configured != null && { configured: input.configured }),
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
     ...(input.event != null && { event: input.event }),
@@ -2193,7 +2429,10 @@ const serializeAws_restJson1ComponentProperty = (input: ComponentProperty, conte
   };
 };
 
-const serializeAws_restJson1ComponentPropertyBindingProperties = (
+/**
+ * serializeAws_restJson1ComponentPropertyBindingProperties
+ */
+const se_ComponentPropertyBindingProperties = (
   input: ComponentPropertyBindingProperties,
   context: __SerdeContext
 ): any => {
@@ -2203,32 +2442,42 @@ const serializeAws_restJson1ComponentPropertyBindingProperties = (
   };
 };
 
-const serializeAws_restJson1ComponentPropertyList = (input: ComponentProperty[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentPropertyList
+ */
+const se_ComponentPropertyList = (input: ComponentProperty[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ComponentProperty(entry, context);
+      return se_ComponentProperty(entry, context);
     });
 };
 
-const serializeAws_restJson1ComponentVariant = (input: ComponentVariant, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentVariant
+ */
+const se_ComponentVariant = (input: ComponentVariant, context: __SerdeContext): any => {
   return {
-    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
-    ...(input.variantValues != null && {
-      variantValues: serializeAws_restJson1ComponentVariantValues(input.variantValues, context),
-    }),
+    ...(input.overrides != null && { overrides: se_ComponentOverrides(input.overrides, context) }),
+    ...(input.variantValues != null && { variantValues: se_ComponentVariantValues(input.variantValues, context) }),
   };
 };
 
-const serializeAws_restJson1ComponentVariants = (input: ComponentVariant[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentVariants
+ */
+const se_ComponentVariants = (input: ComponentVariant[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ComponentVariant(entry, context);
+      return se_ComponentVariant(entry, context);
     });
 };
 
-const serializeAws_restJson1ComponentVariantValues = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ComponentVariantValues
+ */
+const se_ComponentVariantValues = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2238,59 +2487,66 @@ const serializeAws_restJson1ComponentVariantValues = (input: Record<string, stri
   }, {});
 };
 
-const serializeAws_restJson1CreateComponentData = (input: CreateComponentData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateComponentData
+ */
+const se_CreateComponentData = (input: CreateComponentData, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1ComponentBindingProperties(input.bindingProperties, context),
+      bindingProperties: se_ComponentBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.children != null && { children: se_ComponentChildList(input.children, context) }),
     ...(input.collectionProperties != null && {
-      collectionProperties: serializeAws_restJson1ComponentCollectionProperties(input.collectionProperties, context),
+      collectionProperties: se_ComponentCollectionProperties(input.collectionProperties, context),
     }),
     ...(input.componentType != null && { componentType: input.componentType }),
-    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.events != null && { events: se_ComponentEvents(input.events, context) }),
     ...(input.name != null && { name: input.name }),
-    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
-    ...(input.properties != null && {
-      properties: serializeAws_restJson1ComponentProperties(input.properties, context),
-    }),
+    ...(input.overrides != null && { overrides: se_ComponentOverrides(input.overrides, context) }),
+    ...(input.properties != null && { properties: se_ComponentProperties(input.properties, context) }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sourceId != null && { sourceId: input.sourceId }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.variants != null && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
+    ...(input.variants != null && { variants: se_ComponentVariants(input.variants, context) }),
   };
 };
 
-const serializeAws_restJson1CreateFormData = (input: CreateFormData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateFormData
+ */
+const se_CreateFormData = (input: CreateFormData, context: __SerdeContext): any => {
   return {
-    ...(input.cta != null && { cta: serializeAws_restJson1FormCTA(input.cta, context) }),
-    ...(input.dataType != null && { dataType: serializeAws_restJson1FormDataTypeConfig(input.dataType, context) }),
-    ...(input.fields != null && { fields: serializeAws_restJson1FieldsMap(input.fields, context) }),
+    ...(input.cta != null && { cta: se_FormCTA(input.cta, context) }),
+    ...(input.dataType != null && { dataType: se_FormDataTypeConfig(input.dataType, context) }),
+    ...(input.fields != null && { fields: se_FieldsMap(input.fields, context) }),
     ...(input.formActionType != null && { formActionType: input.formActionType }),
     ...(input.labelDecorator != null && { labelDecorator: input.labelDecorator }),
     ...(input.name != null && { name: input.name }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sectionalElements != null && {
-      sectionalElements: serializeAws_restJson1SectionalElementMap(input.sectionalElements, context),
+      sectionalElements: se_SectionalElementMap(input.sectionalElements, context),
     }),
-    ...(input.style != null && { style: serializeAws_restJson1FormStyle(input.style, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.style != null && { style: se_FormStyle(input.style, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   };
 };
 
-const serializeAws_restJson1CreateThemeData = (input: CreateThemeData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateThemeData
+ */
+const se_CreateThemeData = (input: CreateThemeData, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
-    ...(input.overrides != null && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.values != null && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
+    ...(input.overrides != null && { overrides: se_ThemeValuesList(input.overrides, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
+    ...(input.values != null && { values: se_ThemeValuesList(input.values, context) }),
   };
 };
 
-const serializeAws_restJson1ExchangeCodeForTokenRequestBody = (
-  input: ExchangeCodeForTokenRequestBody,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ExchangeCodeForTokenRequestBody
+ */
+const se_ExchangeCodeForTokenRequestBody = (input: ExchangeCodeForTokenRequestBody, context: __SerdeContext): any => {
   return {
     ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.code != null && { code: input.code }),
@@ -2298,26 +2554,30 @@ const serializeAws_restJson1ExchangeCodeForTokenRequestBody = (
   };
 };
 
-const serializeAws_restJson1FieldConfig = (input: FieldConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FieldConfig
+ */
+const se_FieldConfig = (input: FieldConfig, context: __SerdeContext): any => {
   return {
     ...(input.excluded != null && { excluded: input.excluded }),
-    ...(input.inputType != null && { inputType: serializeAws_restJson1FieldInputConfig(input.inputType, context) }),
+    ...(input.inputType != null && { inputType: se_FieldInputConfig(input.inputType, context) }),
     ...(input.label != null && { label: input.label }),
-    ...(input.position != null && { position: serializeAws_restJson1FieldPosition(input.position, context) }),
-    ...(input.validations != null && {
-      validations: serializeAws_restJson1ValidationsList(input.validations, context),
-    }),
+    ...(input.position != null && { position: se_FieldPosition(input.position, context) }),
+    ...(input.validations != null && { validations: se_ValidationsList(input.validations, context) }),
   };
 };
 
-const serializeAws_restJson1FieldInputConfig = (input: FieldInputConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FieldInputConfig
+ */
+const se_FieldInputConfig = (input: FieldInputConfig, context: __SerdeContext): any => {
   return {
     ...(input.defaultChecked != null && { defaultChecked: input.defaultChecked }),
     ...(input.defaultCountryCode != null && { defaultCountryCode: input.defaultCountryCode }),
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
     ...(input.descriptiveText != null && { descriptiveText: input.descriptiveText }),
     ...(input.fileUploaderConfig != null && {
-      fileUploaderConfig: serializeAws_restJson1FileUploaderFieldConfig(input.fileUploaderConfig, context),
+      fileUploaderConfig: se_FileUploaderFieldConfig(input.fileUploaderConfig, context),
     }),
     ...(input.isArray != null && { isArray: input.isArray }),
     ...(input.maxValue != null && { maxValue: __serializeFloat(input.maxValue) }),
@@ -2329,13 +2589,14 @@ const serializeAws_restJson1FieldInputConfig = (input: FieldInputConfig, context
     ...(input.step != null && { step: __serializeFloat(input.step) }),
     ...(input.type != null && { type: input.type }),
     ...(input.value != null && { value: input.value }),
-    ...(input.valueMappings != null && {
-      valueMappings: serializeAws_restJson1ValueMappings(input.valueMappings, context),
-    }),
+    ...(input.valueMappings != null && { valueMappings: se_ValueMappings(input.valueMappings, context) }),
   };
 };
 
-const serializeAws_restJson1FieldPosition = (input: FieldPosition, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FieldPosition
+ */
+const se_FieldPosition = (input: FieldPosition, context: __SerdeContext): any => {
   return FieldPosition.visit(input, {
     below: (value) => ({ below: value }),
     fixed: (value) => ({ fixed: value }),
@@ -2344,36 +2605,37 @@ const serializeAws_restJson1FieldPosition = (input: FieldPosition, context: __Se
   });
 };
 
-const serializeAws_restJson1FieldsMap = (input: Record<string, FieldConfig>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FieldsMap
+ */
+const se_FieldsMap = (input: Record<string, FieldConfig>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1FieldConfig(value, context);
+    acc[key] = se_FieldConfig(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1FieldValidationConfiguration = (
-  input: FieldValidationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FieldValidationConfiguration
+ */
+const se_FieldValidationConfiguration = (input: FieldValidationConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.numValues != null && { numValues: serializeAws_restJson1NumValues(input.numValues, context) }),
-    ...(input.strValues != null && { strValues: serializeAws_restJson1StrValues(input.strValues, context) }),
+    ...(input.numValues != null && { numValues: se_NumValues(input.numValues, context) }),
+    ...(input.strValues != null && { strValues: se_StrValues(input.strValues, context) }),
     ...(input.type != null && { type: input.type }),
     ...(input.validationMessage != null && { validationMessage: input.validationMessage }),
   };
 };
 
-const serializeAws_restJson1FileUploaderFieldConfig = (
-  input: FileUploaderFieldConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FileUploaderFieldConfig
+ */
+const se_FileUploaderFieldConfig = (input: FileUploaderFieldConfig, context: __SerdeContext): any => {
   return {
-    ...(input.acceptedFileTypes != null && {
-      acceptedFileTypes: serializeAws_restJson1StrValues(input.acceptedFileTypes, context),
-    }),
+    ...(input.acceptedFileTypes != null && { acceptedFileTypes: se_StrValues(input.acceptedFileTypes, context) }),
     ...(input.accessLevel != null && { accessLevel: input.accessLevel }),
     ...(input.isResumable != null && { isResumable: input.isResumable }),
     ...(input.maxFileCount != null && { maxFileCount: input.maxFileCount }),
@@ -2382,51 +2644,66 @@ const serializeAws_restJson1FileUploaderFieldConfig = (
   };
 };
 
-const serializeAws_restJson1FormBindingElement = (input: FormBindingElement, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormBindingElement
+ */
+const se_FormBindingElement = (input: FormBindingElement, context: __SerdeContext): any => {
   return {
     ...(input.element != null && { element: input.element }),
     ...(input.property != null && { property: input.property }),
   };
 };
 
-const serializeAws_restJson1FormBindings = (
-  input: Record<string, FormBindingElement>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FormBindings
+ */
+const se_FormBindings = (input: Record<string, FormBindingElement>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1FormBindingElement(value, context);
+    acc[key] = se_FormBindingElement(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1FormButton = (input: FormButton, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormButton
+ */
+const se_FormButton = (input: FormButton, context: __SerdeContext): any => {
   return {
     ...(input.children != null && { children: input.children }),
     ...(input.excluded != null && { excluded: input.excluded }),
-    ...(input.position != null && { position: serializeAws_restJson1FieldPosition(input.position, context) }),
+    ...(input.position != null && { position: se_FieldPosition(input.position, context) }),
   };
 };
 
-const serializeAws_restJson1FormCTA = (input: FormCTA, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormCTA
+ */
+const se_FormCTA = (input: FormCTA, context: __SerdeContext): any => {
   return {
-    ...(input.cancel != null && { cancel: serializeAws_restJson1FormButton(input.cancel, context) }),
-    ...(input.clear != null && { clear: serializeAws_restJson1FormButton(input.clear, context) }),
+    ...(input.cancel != null && { cancel: se_FormButton(input.cancel, context) }),
+    ...(input.clear != null && { clear: se_FormButton(input.clear, context) }),
     ...(input.position != null && { position: input.position }),
-    ...(input.submit != null && { submit: serializeAws_restJson1FormButton(input.submit, context) }),
+    ...(input.submit != null && { submit: se_FormButton(input.submit, context) }),
   };
 };
 
-const serializeAws_restJson1FormDataTypeConfig = (input: FormDataTypeConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormDataTypeConfig
+ */
+const se_FormDataTypeConfig = (input: FormDataTypeConfig, context: __SerdeContext): any => {
   return {
     ...(input.dataSourceType != null && { dataSourceType: input.dataSourceType }),
     ...(input.dataTypeName != null && { dataTypeName: input.dataTypeName }),
   };
 };
 
-const serializeAws_restJson1FormInputBindingProperties = (
+/**
+ * serializeAws_restJson1FormInputBindingProperties
+ */
+const se_FormInputBindingProperties = (
   input: Record<string, FormInputBindingPropertiesValue>,
   context: __SerdeContext
 ): any => {
@@ -2434,27 +2711,27 @@ const serializeAws_restJson1FormInputBindingProperties = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1FormInputBindingPropertiesValue(value, context);
+    acc[key] = se_FormInputBindingPropertiesValue(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1FormInputBindingPropertiesValue = (
-  input: FormInputBindingPropertiesValue,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FormInputBindingPropertiesValue
+ */
+const se_FormInputBindingPropertiesValue = (input: FormInputBindingPropertiesValue, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1FormInputBindingPropertiesValueProperties(
-        input.bindingProperties,
-        context
-      ),
+      bindingProperties: se_FormInputBindingPropertiesValueProperties(input.bindingProperties, context),
     }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1FormInputBindingPropertiesValueProperties = (
+/**
+ * serializeAws_restJson1FormInputBindingPropertiesValueProperties
+ */
+const se_FormInputBindingPropertiesValueProperties = (
   input: FormInputBindingPropertiesValueProperties,
   context: __SerdeContext
 ): any => {
@@ -2463,20 +2740,23 @@ const serializeAws_restJson1FormInputBindingPropertiesValueProperties = (
   };
 };
 
-const serializeAws_restJson1FormInputValueProperty = (input: FormInputValueProperty, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormInputValueProperty
+ */
+const se_FormInputValueProperty = (input: FormInputValueProperty, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1FormInputValuePropertyBindingProperties(
-        input.bindingProperties,
-        context
-      ),
+      bindingProperties: se_FormInputValuePropertyBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.concat != null && { concat: serializeAws_restJson1FormInputValuePropertyList(input.concat, context) }),
+    ...(input.concat != null && { concat: se_FormInputValuePropertyList(input.concat, context) }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1FormInputValuePropertyBindingProperties = (
+/**
+ * serializeAws_restJson1FormInputValuePropertyBindingProperties
+ */
+const se_FormInputValuePropertyBindingProperties = (
   input: FormInputValuePropertyBindingProperties,
   context: __SerdeContext
 ): any => {
@@ -2486,32 +2766,32 @@ const serializeAws_restJson1FormInputValuePropertyBindingProperties = (
   };
 };
 
-const serializeAws_restJson1FormInputValuePropertyList = (
-  input: FormInputValueProperty[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FormInputValuePropertyList
+ */
+const se_FormInputValuePropertyList = (input: FormInputValueProperty[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1FormInputValueProperty(entry, context);
+      return se_FormInputValueProperty(entry, context);
     });
 };
 
-const serializeAws_restJson1FormStyle = (input: FormStyle, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormStyle
+ */
+const se_FormStyle = (input: FormStyle, context: __SerdeContext): any => {
   return {
-    ...(input.horizontalGap != null && {
-      horizontalGap: serializeAws_restJson1FormStyleConfig(input.horizontalGap, context),
-    }),
-    ...(input.outerPadding != null && {
-      outerPadding: serializeAws_restJson1FormStyleConfig(input.outerPadding, context),
-    }),
-    ...(input.verticalGap != null && {
-      verticalGap: serializeAws_restJson1FormStyleConfig(input.verticalGap, context),
-    }),
+    ...(input.horizontalGap != null && { horizontalGap: se_FormStyleConfig(input.horizontalGap, context) }),
+    ...(input.outerPadding != null && { outerPadding: se_FormStyleConfig(input.outerPadding, context) }),
+    ...(input.verticalGap != null && { verticalGap: se_FormStyleConfig(input.verticalGap, context) }),
   };
 };
 
-const serializeAws_restJson1FormStyleConfig = (input: FormStyleConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormStyleConfig
+ */
+const se_FormStyleConfig = (input: FormStyleConfig, context: __SerdeContext): any => {
   return FormStyleConfig.visit(input, {
     tokenReference: (value) => ({ tokenReference: value }),
     value: (value) => ({ value: value }),
@@ -2519,7 +2799,10 @@ const serializeAws_restJson1FormStyleConfig = (input: FormStyleConfig, context: 
   });
 };
 
-const serializeAws_restJson1IdentifierList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IdentifierList
+ */
+const se_IdentifierList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2527,18 +2810,21 @@ const serializeAws_restJson1IdentifierList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1MutationActionSetStateParameter = (
-  input: MutationActionSetStateParameter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MutationActionSetStateParameter
+ */
+const se_MutationActionSetStateParameter = (input: MutationActionSetStateParameter, context: __SerdeContext): any => {
   return {
     ...(input.componentName != null && { componentName: input.componentName }),
     ...(input.property != null && { property: input.property }),
-    ...(input.set != null && { set: serializeAws_restJson1ComponentProperty(input.set, context) }),
+    ...(input.set != null && { set: se_ComponentProperty(input.set, context) }),
   };
 };
 
-const serializeAws_restJson1NumValues = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NumValues
+ */
+const se_NumValues = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2546,81 +2832,102 @@ const serializeAws_restJson1NumValues = (input: number[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1Predicate = (input: Predicate, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Predicate
+ */
+const se_Predicate = (input: Predicate, context: __SerdeContext): any => {
   return {
-    ...(input.and != null && { and: serializeAws_restJson1PredicateList(input.and, context) }),
+    ...(input.and != null && { and: se_PredicateList(input.and, context) }),
     ...(input.field != null && { field: input.field }),
     ...(input.operand != null && { operand: input.operand }),
     ...(input.operandType != null && { operandType: input.operandType }),
     ...(input.operator != null && { operator: input.operator }),
-    ...(input.or != null && { or: serializeAws_restJson1PredicateList(input.or, context) }),
+    ...(input.or != null && { or: se_PredicateList(input.or, context) }),
   };
 };
 
-const serializeAws_restJson1PredicateList = (input: Predicate[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PredicateList
+ */
+const se_PredicateList = (input: Predicate[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Predicate(entry, context);
+      return se_Predicate(entry, context);
     });
 };
 
-const serializeAws_restJson1PutMetadataFlagBody = (input: PutMetadataFlagBody, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PutMetadataFlagBody
+ */
+const se_PutMetadataFlagBody = (input: PutMetadataFlagBody, context: __SerdeContext): any => {
   return {
     ...(input.newValue != null && { newValue: input.newValue }),
   };
 };
 
-const serializeAws_restJson1RefreshTokenRequestBody = (
-  input: RefreshTokenRequestBody,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1RefreshTokenRequestBody
+ */
+const se_RefreshTokenRequestBody = (input: RefreshTokenRequestBody, context: __SerdeContext): any => {
   return {
     ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.token != null && { token: input.token }),
   };
 };
 
-const serializeAws_restJson1SectionalElement = (input: SectionalElement, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SectionalElement
+ */
+const se_SectionalElement = (input: SectionalElement, context: __SerdeContext): any => {
   return {
     ...(input.excluded != null && { excluded: input.excluded }),
     ...(input.level != null && { level: input.level }),
     ...(input.orientation != null && { orientation: input.orientation }),
-    ...(input.position != null && { position: serializeAws_restJson1FieldPosition(input.position, context) }),
+    ...(input.position != null && { position: se_FieldPosition(input.position, context) }),
     ...(input.text != null && { text: input.text }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1SectionalElementMap = (
-  input: Record<string, SectionalElement>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SectionalElementMap
+ */
+const se_SectionalElementMap = (input: Record<string, SectionalElement>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1SectionalElement(value, context);
+    acc[key] = se_SectionalElement(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1SortProperty = (input: SortProperty, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SortProperty
+ */
+const se_SortProperty = (input: SortProperty, context: __SerdeContext): any => {
   return {
     ...(input.direction != null && { direction: input.direction }),
     ...(input.field != null && { field: input.field }),
   };
 };
 
-const serializeAws_restJson1SortPropertyList = (input: SortProperty[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SortPropertyList
+ */
+const se_SortPropertyList = (input: SortProperty[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SortProperty(entry, context);
+      return se_SortProperty(entry, context);
     });
 };
 
-const serializeAws_restJson1StrValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StrValues
+ */
+const se_StrValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2628,7 +2935,10 @@ const serializeAws_restJson1StrValues = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tags
+ */
+const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2638,159 +2948,188 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const serializeAws_restJson1ThemeValue = (input: ThemeValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ThemeValue
+ */
+const se_ThemeValue = (input: ThemeValue, context: __SerdeContext): any => {
   return {
-    ...(input.children != null && { children: serializeAws_restJson1ThemeValuesList(input.children, context) }),
+    ...(input.children != null && { children: se_ThemeValuesList(input.children, context) }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1ThemeValues = (input: ThemeValues, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ThemeValues
+ */
+const se_ThemeValues = (input: ThemeValues, context: __SerdeContext): any => {
   return {
     ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: serializeAws_restJson1ThemeValue(input.value, context) }),
+    ...(input.value != null && { value: se_ThemeValue(input.value, context) }),
   };
 };
 
-const serializeAws_restJson1ThemeValuesList = (input: ThemeValues[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ThemeValuesList
+ */
+const se_ThemeValuesList = (input: ThemeValues[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ThemeValues(entry, context);
+      return se_ThemeValues(entry, context);
     });
 };
 
-const serializeAws_restJson1UpdateComponentData = (input: UpdateComponentData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateComponentData
+ */
+const se_UpdateComponentData = (input: UpdateComponentData, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1ComponentBindingProperties(input.bindingProperties, context),
+      bindingProperties: se_ComponentBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.children != null && { children: se_ComponentChildList(input.children, context) }),
     ...(input.collectionProperties != null && {
-      collectionProperties: serializeAws_restJson1ComponentCollectionProperties(input.collectionProperties, context),
+      collectionProperties: se_ComponentCollectionProperties(input.collectionProperties, context),
     }),
     ...(input.componentType != null && { componentType: input.componentType }),
-    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.events != null && { events: se_ComponentEvents(input.events, context) }),
     ...(input.id != null && { id: input.id }),
     ...(input.name != null && { name: input.name }),
-    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
-    ...(input.properties != null && {
-      properties: serializeAws_restJson1ComponentProperties(input.properties, context),
-    }),
+    ...(input.overrides != null && { overrides: se_ComponentOverrides(input.overrides, context) }),
+    ...(input.properties != null && { properties: se_ComponentProperties(input.properties, context) }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sourceId != null && { sourceId: input.sourceId }),
-    ...(input.variants != null && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
+    ...(input.variants != null && { variants: se_ComponentVariants(input.variants, context) }),
   };
 };
 
-const serializeAws_restJson1UpdateFormData = (input: UpdateFormData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateFormData
+ */
+const se_UpdateFormData = (input: UpdateFormData, context: __SerdeContext): any => {
   return {
-    ...(input.cta != null && { cta: serializeAws_restJson1FormCTA(input.cta, context) }),
-    ...(input.dataType != null && { dataType: serializeAws_restJson1FormDataTypeConfig(input.dataType, context) }),
-    ...(input.fields != null && { fields: serializeAws_restJson1FieldsMap(input.fields, context) }),
+    ...(input.cta != null && { cta: se_FormCTA(input.cta, context) }),
+    ...(input.dataType != null && { dataType: se_FormDataTypeConfig(input.dataType, context) }),
+    ...(input.fields != null && { fields: se_FieldsMap(input.fields, context) }),
     ...(input.formActionType != null && { formActionType: input.formActionType }),
     ...(input.labelDecorator != null && { labelDecorator: input.labelDecorator }),
     ...(input.name != null && { name: input.name }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sectionalElements != null && {
-      sectionalElements: serializeAws_restJson1SectionalElementMap(input.sectionalElements, context),
+      sectionalElements: se_SectionalElementMap(input.sectionalElements, context),
     }),
-    ...(input.style != null && { style: serializeAws_restJson1FormStyle(input.style, context) }),
+    ...(input.style != null && { style: se_FormStyle(input.style, context) }),
   };
 };
 
-const serializeAws_restJson1UpdateThemeData = (input: UpdateThemeData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateThemeData
+ */
+const se_UpdateThemeData = (input: UpdateThemeData, context: __SerdeContext): any => {
   return {
     ...(input.id != null && { id: input.id }),
     ...(input.name != null && { name: input.name }),
-    ...(input.overrides != null && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
-    ...(input.values != null && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
+    ...(input.overrides != null && { overrides: se_ThemeValuesList(input.overrides, context) }),
+    ...(input.values != null && { values: se_ThemeValuesList(input.values, context) }),
   };
 };
 
-const serializeAws_restJson1ValidationsList = (input: FieldValidationConfiguration[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValidationsList
+ */
+const se_ValidationsList = (input: FieldValidationConfiguration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1FieldValidationConfiguration(entry, context);
+      return se_FieldValidationConfiguration(entry, context);
     });
 };
 
-const serializeAws_restJson1ValueMapping = (input: ValueMapping, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValueMapping
+ */
+const se_ValueMapping = (input: ValueMapping, context: __SerdeContext): any => {
   return {
-    ...(input.displayValue != null && {
-      displayValue: serializeAws_restJson1FormInputValueProperty(input.displayValue, context),
-    }),
-    ...(input.value != null && { value: serializeAws_restJson1FormInputValueProperty(input.value, context) }),
+    ...(input.displayValue != null && { displayValue: se_FormInputValueProperty(input.displayValue, context) }),
+    ...(input.value != null && { value: se_FormInputValueProperty(input.value, context) }),
   };
 };
 
-const serializeAws_restJson1ValueMappingList = (input: ValueMapping[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValueMappingList
+ */
+const se_ValueMappingList = (input: ValueMapping[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ValueMapping(entry, context);
+      return se_ValueMapping(entry, context);
     });
 };
 
-const serializeAws_restJson1ValueMappings = (input: ValueMappings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValueMappings
+ */
+const se_ValueMappings = (input: ValueMappings, context: __SerdeContext): any => {
   return {
     ...(input.bindingProperties != null && {
-      bindingProperties: serializeAws_restJson1FormInputBindingProperties(input.bindingProperties, context),
+      bindingProperties: se_FormInputBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.values != null && { values: serializeAws_restJson1ValueMappingList(input.values, context) }),
+    ...(input.values != null && { values: se_ValueMappingList(input.values, context) }),
   };
 };
 
-const deserializeAws_restJson1ActionParameters = (output: any, context: __SerdeContext): ActionParameters => {
+/**
+ * deserializeAws_restJson1ActionParameters
+ */
+const de_ActionParameters = (output: any, context: __SerdeContext): ActionParameters => {
   return {
-    anchor: output.anchor != null ? deserializeAws_restJson1ComponentProperty(output.anchor, context) : undefined,
-    fields: output.fields != null ? deserializeAws_restJson1ComponentProperties(output.fields, context) : undefined,
-    global: output.global != null ? deserializeAws_restJson1ComponentProperty(output.global, context) : undefined,
-    id: output.id != null ? deserializeAws_restJson1ComponentProperty(output.id, context) : undefined,
+    anchor: output.anchor != null ? de_ComponentProperty(output.anchor, context) : undefined,
+    fields: output.fields != null ? de_ComponentProperties(output.fields, context) : undefined,
+    global: output.global != null ? de_ComponentProperty(output.global, context) : undefined,
+    id: output.id != null ? de_ComponentProperty(output.id, context) : undefined,
     model: __expectString(output.model),
-    state:
-      output.state != null ? deserializeAws_restJson1MutationActionSetStateParameter(output.state, context) : undefined,
-    target: output.target != null ? deserializeAws_restJson1ComponentProperty(output.target, context) : undefined,
-    type: output.type != null ? deserializeAws_restJson1ComponentProperty(output.type, context) : undefined,
-    url: output.url != null ? deserializeAws_restJson1ComponentProperty(output.url, context) : undefined,
+    state: output.state != null ? de_MutationActionSetStateParameter(output.state, context) : undefined,
+    target: output.target != null ? de_ComponentProperty(output.target, context) : undefined,
+    type: output.type != null ? de_ComponentProperty(output.type, context) : undefined,
+    url: output.url != null ? de_ComponentProperty(output.url, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Component = (output: any, context: __SerdeContext): Component => {
+/**
+ * deserializeAws_restJson1Component
+ */
+const de_Component = (output: any, context: __SerdeContext): Component => {
   return {
     appId: __expectString(output.appId),
     bindingProperties:
-      output.bindingProperties != null
-        ? deserializeAws_restJson1ComponentBindingProperties(output.bindingProperties, context)
-        : undefined,
-    children:
-      output.children != null ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
+      output.bindingProperties != null ? de_ComponentBindingProperties(output.bindingProperties, context) : undefined,
+    children: output.children != null ? de_ComponentChildList(output.children, context) : undefined,
     collectionProperties:
       output.collectionProperties != null
-        ? deserializeAws_restJson1ComponentCollectionProperties(output.collectionProperties, context)
+        ? de_ComponentCollectionProperties(output.collectionProperties, context)
         : undefined,
     componentType: __expectString(output.componentType),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     environmentName: __expectString(output.environmentName),
-    events: output.events != null ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
+    events: output.events != null ? de_ComponentEvents(output.events, context) : undefined,
     id: __expectString(output.id),
     modifiedAt:
       output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
-    overrides:
-      output.overrides != null ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
-    properties:
-      output.properties != null ? deserializeAws_restJson1ComponentProperties(output.properties, context) : undefined,
+    overrides: output.overrides != null ? de_ComponentOverrides(output.overrides, context) : undefined,
+    properties: output.properties != null ? de_ComponentProperties(output.properties, context) : undefined,
     schemaVersion: __expectString(output.schemaVersion),
     sourceId: __expectString(output.sourceId),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    variants: output.variants != null ? deserializeAws_restJson1ComponentVariants(output.variants, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
+    variants: output.variants != null ? de_ComponentVariants(output.variants, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ComponentBindingProperties = (
+/**
+ * deserializeAws_restJson1ComponentBindingProperties
+ */
+const de_ComponentBindingProperties = (
   output: any,
   context: __SerdeContext
 ): Record<string, ComponentBindingPropertiesValue> => {
@@ -2799,28 +3138,31 @@ const deserializeAws_restJson1ComponentBindingProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1ComponentBindingPropertiesValue(value, context);
+      acc[key] = de_ComponentBindingPropertiesValue(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1ComponentBindingPropertiesValue = (
-  output: any,
-  context: __SerdeContext
-): ComponentBindingPropertiesValue => {
+/**
+ * deserializeAws_restJson1ComponentBindingPropertiesValue
+ */
+const de_ComponentBindingPropertiesValue = (output: any, context: __SerdeContext): ComponentBindingPropertiesValue => {
   return {
     bindingProperties:
       output.bindingProperties != null
-        ? deserializeAws_restJson1ComponentBindingPropertiesValueProperties(output.bindingProperties, context)
+        ? de_ComponentBindingPropertiesValueProperties(output.bindingProperties, context)
         : undefined,
     defaultValue: __expectString(output.defaultValue),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1ComponentBindingPropertiesValueProperties = (
+/**
+ * deserializeAws_restJson1ComponentBindingPropertiesValueProperties
+ */
+const de_ComponentBindingPropertiesValueProperties = (
   output: any,
   context: __SerdeContext
 ): ComponentBindingPropertiesValueProperties => {
@@ -2830,39 +3172,45 @@ const deserializeAws_restJson1ComponentBindingPropertiesValueProperties = (
     field: __expectString(output.field),
     key: __expectString(output.key),
     model: __expectString(output.model),
-    predicates:
-      output.predicates != null ? deserializeAws_restJson1PredicateList(output.predicates, context) : undefined,
+    predicates: output.predicates != null ? de_PredicateList(output.predicates, context) : undefined,
     slotName: __expectString(output.slotName),
     userAttribute: __expectString(output.userAttribute),
   } as any;
 };
 
-const deserializeAws_restJson1ComponentChild = (output: any, context: __SerdeContext): ComponentChild => {
+/**
+ * deserializeAws_restJson1ComponentChild
+ */
+const de_ComponentChild = (output: any, context: __SerdeContext): ComponentChild => {
   return {
-    children:
-      output.children != null ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
+    children: output.children != null ? de_ComponentChildList(output.children, context) : undefined,
     componentType: __expectString(output.componentType),
-    events: output.events != null ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
+    events: output.events != null ? de_ComponentEvents(output.events, context) : undefined,
     name: __expectString(output.name),
-    properties:
-      output.properties != null ? deserializeAws_restJson1ComponentProperties(output.properties, context) : undefined,
+    properties: output.properties != null ? de_ComponentProperties(output.properties, context) : undefined,
     sourceId: __expectString(output.sourceId),
   } as any;
 };
 
-const deserializeAws_restJson1ComponentChildList = (output: any, context: __SerdeContext): ComponentChild[] => {
+/**
+ * deserializeAws_restJson1ComponentChildList
+ */
+const de_ComponentChildList = (output: any, context: __SerdeContext): ComponentChild[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ComponentChild(entry, context);
+      return de_ComponentChild(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ComponentCollectionProperties = (
+/**
+ * deserializeAws_restJson1ComponentCollectionProperties
+ */
+const de_ComponentCollectionProperties = (
   output: any,
   context: __SerdeContext
 ): Record<string, ComponentDataConfiguration> => {
@@ -2871,92 +3219,96 @@ const deserializeAws_restJson1ComponentCollectionProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1ComponentDataConfiguration(value, context);
+      acc[key] = de_ComponentDataConfiguration(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1ComponentConditionProperty = (
-  output: any,
-  context: __SerdeContext
-): ComponentConditionProperty => {
+/**
+ * deserializeAws_restJson1ComponentConditionProperty
+ */
+const de_ComponentConditionProperty = (output: any, context: __SerdeContext): ComponentConditionProperty => {
   return {
-    else: output.else != null ? deserializeAws_restJson1ComponentProperty(output.else, context) : undefined,
+    else: output.else != null ? de_ComponentProperty(output.else, context) : undefined,
     field: __expectString(output.field),
     operand: __expectString(output.operand),
     operandType: __expectString(output.operandType),
     operator: __expectString(output.operator),
     property: __expectString(output.property),
-    then: output.then != null ? deserializeAws_restJson1ComponentProperty(output.then, context) : undefined,
+    then: output.then != null ? de_ComponentProperty(output.then, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ComponentDataConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ComponentDataConfiguration => {
+/**
+ * deserializeAws_restJson1ComponentDataConfiguration
+ */
+const de_ComponentDataConfiguration = (output: any, context: __SerdeContext): ComponentDataConfiguration => {
   return {
-    identifiers:
-      output.identifiers != null ? deserializeAws_restJson1IdentifierList(output.identifiers, context) : undefined,
+    identifiers: output.identifiers != null ? de_IdentifierList(output.identifiers, context) : undefined,
     model: __expectString(output.model),
-    predicate: output.predicate != null ? deserializeAws_restJson1Predicate(output.predicate, context) : undefined,
-    sort: output.sort != null ? deserializeAws_restJson1SortPropertyList(output.sort, context) : undefined,
+    predicate: output.predicate != null ? de_Predicate(output.predicate, context) : undefined,
+    sort: output.sort != null ? de_SortPropertyList(output.sort, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ComponentEvent = (output: any, context: __SerdeContext): ComponentEvent => {
+/**
+ * deserializeAws_restJson1ComponentEvent
+ */
+const de_ComponentEvent = (output: any, context: __SerdeContext): ComponentEvent => {
   return {
     action: __expectString(output.action),
     bindingEvent: __expectString(output.bindingEvent),
-    parameters:
-      output.parameters != null ? deserializeAws_restJson1ActionParameters(output.parameters, context) : undefined,
+    parameters: output.parameters != null ? de_ActionParameters(output.parameters, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ComponentEvents = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ComponentEvent> => {
+/**
+ * deserializeAws_restJson1ComponentEvents
+ */
+const de_ComponentEvents = (output: any, context: __SerdeContext): Record<string, ComponentEvent> => {
   return Object.entries(output).reduce((acc: Record<string, ComponentEvent>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1ComponentEvent(value, context);
+    acc[key] = de_ComponentEvent(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1ComponentList = (output: any, context: __SerdeContext): Component[] => {
+/**
+ * deserializeAws_restJson1ComponentList
+ */
+const de_ComponentList = (output: any, context: __SerdeContext): Component[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Component(entry, context);
+      return de_Component(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ComponentOverrides = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, string>> => {
+/**
+ * deserializeAws_restJson1ComponentOverrides
+ */
+const de_ComponentOverrides = (output: any, context: __SerdeContext): Record<string, Record<string, string>> => {
   return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1ComponentOverridesValue(value, context);
+    acc[key] = de_ComponentOverridesValue(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1ComponentOverridesValue = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1ComponentOverridesValue
+ */
+const de_ComponentOverridesValue = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2966,36 +3318,36 @@ const deserializeAws_restJson1ComponentOverridesValue = (
   }, {});
 };
 
-const deserializeAws_restJson1ComponentProperties = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ComponentProperty> => {
+/**
+ * deserializeAws_restJson1ComponentProperties
+ */
+const de_ComponentProperties = (output: any, context: __SerdeContext): Record<string, ComponentProperty> => {
   return Object.entries(output).reduce((acc: Record<string, ComponentProperty>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1ComponentProperty(value, context);
+    acc[key] = de_ComponentProperty(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1ComponentProperty = (output: any, context: __SerdeContext): ComponentProperty => {
+/**
+ * deserializeAws_restJson1ComponentProperty
+ */
+const de_ComponentProperty = (output: any, context: __SerdeContext): ComponentProperty => {
   return {
     bindingProperties:
       output.bindingProperties != null
-        ? deserializeAws_restJson1ComponentPropertyBindingProperties(output.bindingProperties, context)
+        ? de_ComponentPropertyBindingProperties(output.bindingProperties, context)
         : undefined,
-    bindings: output.bindings != null ? deserializeAws_restJson1FormBindings(output.bindings, context) : undefined,
+    bindings: output.bindings != null ? de_FormBindings(output.bindings, context) : undefined,
     collectionBindingProperties:
       output.collectionBindingProperties != null
-        ? deserializeAws_restJson1ComponentPropertyBindingProperties(output.collectionBindingProperties, context)
+        ? de_ComponentPropertyBindingProperties(output.collectionBindingProperties, context)
         : undefined,
     componentName: __expectString(output.componentName),
-    concat: output.concat != null ? deserializeAws_restJson1ComponentPropertyList(output.concat, context) : undefined,
-    condition:
-      output.condition != null
-        ? deserializeAws_restJson1ComponentConditionProperty(output.condition, context)
-        : undefined,
+    concat: output.concat != null ? de_ComponentPropertyList(output.concat, context) : undefined,
+    condition: output.condition != null ? de_ComponentConditionProperty(output.condition, context) : undefined,
     configured: __expectBoolean(output.configured),
     defaultValue: __expectString(output.defaultValue),
     event: __expectString(output.event),
@@ -3008,7 +3360,10 @@ const deserializeAws_restJson1ComponentProperty = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1ComponentPropertyBindingProperties = (
+/**
+ * deserializeAws_restJson1ComponentPropertyBindingProperties
+ */
+const de_ComponentPropertyBindingProperties = (
   output: any,
   context: __SerdeContext
 ): ComponentPropertyBindingProperties => {
@@ -3018,19 +3373,25 @@ const deserializeAws_restJson1ComponentPropertyBindingProperties = (
   } as any;
 };
 
-const deserializeAws_restJson1ComponentPropertyList = (output: any, context: __SerdeContext): ComponentProperty[] => {
+/**
+ * deserializeAws_restJson1ComponentPropertyList
+ */
+const de_ComponentPropertyList = (output: any, context: __SerdeContext): ComponentProperty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ComponentProperty(entry, context);
+      return de_ComponentProperty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
+/**
+ * deserializeAws_restJson1ComponentSummary
+ */
+const de_ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
   return {
     appId: __expectString(output.appId),
     componentType: __expectString(output.componentType),
@@ -3040,45 +3401,50 @@ const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1ComponentSummaryList = (output: any, context: __SerdeContext): ComponentSummary[] => {
+/**
+ * deserializeAws_restJson1ComponentSummaryList
+ */
+const de_ComponentSummaryList = (output: any, context: __SerdeContext): ComponentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ComponentSummary(entry, context);
+      return de_ComponentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ComponentVariant = (output: any, context: __SerdeContext): ComponentVariant => {
+/**
+ * deserializeAws_restJson1ComponentVariant
+ */
+const de_ComponentVariant = (output: any, context: __SerdeContext): ComponentVariant => {
   return {
-    overrides:
-      output.overrides != null ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
-    variantValues:
-      output.variantValues != null
-        ? deserializeAws_restJson1ComponentVariantValues(output.variantValues, context)
-        : undefined,
+    overrides: output.overrides != null ? de_ComponentOverrides(output.overrides, context) : undefined,
+    variantValues: output.variantValues != null ? de_ComponentVariantValues(output.variantValues, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ComponentVariants = (output: any, context: __SerdeContext): ComponentVariant[] => {
+/**
+ * deserializeAws_restJson1ComponentVariants
+ */
+const de_ComponentVariants = (output: any, context: __SerdeContext): ComponentVariant[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ComponentVariant(entry, context);
+      return de_ComponentVariant(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ComponentVariantValues = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1ComponentVariantValues
+ */
+const de_ComponentVariantValues = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3088,7 +3454,10 @@ const deserializeAws_restJson1ComponentVariantValues = (
   }, {});
 };
 
-const deserializeAws_restJson1FeaturesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1FeaturesMap
+ */
+const de_FeaturesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3098,31 +3467,30 @@ const deserializeAws_restJson1FeaturesMap = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_restJson1FieldConfig = (output: any, context: __SerdeContext): FieldConfig => {
+/**
+ * deserializeAws_restJson1FieldConfig
+ */
+const de_FieldConfig = (output: any, context: __SerdeContext): FieldConfig => {
   return {
     excluded: __expectBoolean(output.excluded),
-    inputType:
-      output.inputType != null ? deserializeAws_restJson1FieldInputConfig(output.inputType, context) : undefined,
+    inputType: output.inputType != null ? de_FieldInputConfig(output.inputType, context) : undefined,
     label: __expectString(output.label),
-    position:
-      output.position != null
-        ? deserializeAws_restJson1FieldPosition(__expectUnion(output.position), context)
-        : undefined,
-    validations:
-      output.validations != null ? deserializeAws_restJson1ValidationsList(output.validations, context) : undefined,
+    position: output.position != null ? de_FieldPosition(__expectUnion(output.position), context) : undefined,
+    validations: output.validations != null ? de_ValidationsList(output.validations, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FieldInputConfig = (output: any, context: __SerdeContext): FieldInputConfig => {
+/**
+ * deserializeAws_restJson1FieldInputConfig
+ */
+const de_FieldInputConfig = (output: any, context: __SerdeContext): FieldInputConfig => {
   return {
     defaultChecked: __expectBoolean(output.defaultChecked),
     defaultCountryCode: __expectString(output.defaultCountryCode),
     defaultValue: __expectString(output.defaultValue),
     descriptiveText: __expectString(output.descriptiveText),
     fileUploaderConfig:
-      output.fileUploaderConfig != null
-        ? deserializeAws_restJson1FileUploaderFieldConfig(output.fileUploaderConfig, context)
-        : undefined,
+      output.fileUploaderConfig != null ? de_FileUploaderFieldConfig(output.fileUploaderConfig, context) : undefined,
     isArray: __expectBoolean(output.isArray),
     maxValue: __limitedParseFloat32(output.maxValue),
     minValue: __limitedParseFloat32(output.minValue),
@@ -3133,12 +3501,14 @@ const deserializeAws_restJson1FieldInputConfig = (output: any, context: __SerdeC
     step: __limitedParseFloat32(output.step),
     type: __expectString(output.type),
     value: __expectString(output.value),
-    valueMappings:
-      output.valueMappings != null ? deserializeAws_restJson1ValueMappings(output.valueMappings, context) : undefined,
+    valueMappings: output.valueMappings != null ? de_ValueMappings(output.valueMappings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FieldPosition = (output: any, context: __SerdeContext): FieldPosition => {
+/**
+ * deserializeAws_restJson1FieldPosition
+ */
+const de_FieldPosition = (output: any, context: __SerdeContext): FieldPosition => {
   if (__expectString(output.below) !== undefined) {
     return { below: __expectString(output.below) as any };
   }
@@ -3151,37 +3521,37 @@ const deserializeAws_restJson1FieldPosition = (output: any, context: __SerdeCont
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1FieldsMap = (output: any, context: __SerdeContext): Record<string, FieldConfig> => {
+/**
+ * deserializeAws_restJson1FieldsMap
+ */
+const de_FieldsMap = (output: any, context: __SerdeContext): Record<string, FieldConfig> => {
   return Object.entries(output).reduce((acc: Record<string, FieldConfig>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1FieldConfig(value, context);
+    acc[key] = de_FieldConfig(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1FieldValidationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): FieldValidationConfiguration => {
+/**
+ * deserializeAws_restJson1FieldValidationConfiguration
+ */
+const de_FieldValidationConfiguration = (output: any, context: __SerdeContext): FieldValidationConfiguration => {
   return {
-    numValues: output.numValues != null ? deserializeAws_restJson1NumValues(output.numValues, context) : undefined,
-    strValues: output.strValues != null ? deserializeAws_restJson1StrValues(output.strValues, context) : undefined,
+    numValues: output.numValues != null ? de_NumValues(output.numValues, context) : undefined,
+    strValues: output.strValues != null ? de_StrValues(output.strValues, context) : undefined,
     type: __expectString(output.type),
     validationMessage: __expectString(output.validationMessage),
   } as any;
 };
 
-const deserializeAws_restJson1FileUploaderFieldConfig = (
-  output: any,
-  context: __SerdeContext
-): FileUploaderFieldConfig => {
+/**
+ * deserializeAws_restJson1FileUploaderFieldConfig
+ */
+const de_FileUploaderFieldConfig = (output: any, context: __SerdeContext): FileUploaderFieldConfig => {
   return {
-    acceptedFileTypes:
-      output.acceptedFileTypes != null
-        ? deserializeAws_restJson1StrValues(output.acceptedFileTypes, context)
-        : undefined,
+    acceptedFileTypes: output.acceptedFileTypes != null ? de_StrValues(output.acceptedFileTypes, context) : undefined,
     accessLevel: __expectString(output.accessLevel),
     isResumable: __expectBoolean(output.isResumable),
     maxFileCount: __expectInt32(output.maxFileCount),
@@ -3190,76 +3560,88 @@ const deserializeAws_restJson1FileUploaderFieldConfig = (
   } as any;
 };
 
-const deserializeAws_restJson1Form = (output: any, context: __SerdeContext): Form => {
+/**
+ * deserializeAws_restJson1Form
+ */
+const de_Form = (output: any, context: __SerdeContext): Form => {
   return {
     appId: __expectString(output.appId),
-    cta: output.cta != null ? deserializeAws_restJson1FormCTA(output.cta, context) : undefined,
-    dataType:
-      output.dataType != null ? deserializeAws_restJson1FormDataTypeConfig(output.dataType, context) : undefined,
+    cta: output.cta != null ? de_FormCTA(output.cta, context) : undefined,
+    dataType: output.dataType != null ? de_FormDataTypeConfig(output.dataType, context) : undefined,
     environmentName: __expectString(output.environmentName),
-    fields: output.fields != null ? deserializeAws_restJson1FieldsMap(output.fields, context) : undefined,
+    fields: output.fields != null ? de_FieldsMap(output.fields, context) : undefined,
     formActionType: __expectString(output.formActionType),
     id: __expectString(output.id),
     labelDecorator: __expectString(output.labelDecorator),
     name: __expectString(output.name),
     schemaVersion: __expectString(output.schemaVersion),
     sectionalElements:
-      output.sectionalElements != null
-        ? deserializeAws_restJson1SectionalElementMap(output.sectionalElements, context)
-        : undefined,
-    style: output.style != null ? deserializeAws_restJson1FormStyle(output.style, context) : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+      output.sectionalElements != null ? de_SectionalElementMap(output.sectionalElements, context) : undefined,
+    style: output.style != null ? de_FormStyle(output.style, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FormBindingElement = (output: any, context: __SerdeContext): FormBindingElement => {
+/**
+ * deserializeAws_restJson1FormBindingElement
+ */
+const de_FormBindingElement = (output: any, context: __SerdeContext): FormBindingElement => {
   return {
     element: __expectString(output.element),
     property: __expectString(output.property),
   } as any;
 };
 
-const deserializeAws_restJson1FormBindings = (
-  output: any,
-  context: __SerdeContext
-): Record<string, FormBindingElement> => {
+/**
+ * deserializeAws_restJson1FormBindings
+ */
+const de_FormBindings = (output: any, context: __SerdeContext): Record<string, FormBindingElement> => {
   return Object.entries(output).reduce((acc: Record<string, FormBindingElement>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1FormBindingElement(value, context);
+    acc[key] = de_FormBindingElement(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1FormButton = (output: any, context: __SerdeContext): FormButton => {
+/**
+ * deserializeAws_restJson1FormButton
+ */
+const de_FormButton = (output: any, context: __SerdeContext): FormButton => {
   return {
     children: __expectString(output.children),
     excluded: __expectBoolean(output.excluded),
-    position:
-      output.position != null
-        ? deserializeAws_restJson1FieldPosition(__expectUnion(output.position), context)
-        : undefined,
+    position: output.position != null ? de_FieldPosition(__expectUnion(output.position), context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FormCTA = (output: any, context: __SerdeContext): FormCTA => {
+/**
+ * deserializeAws_restJson1FormCTA
+ */
+const de_FormCTA = (output: any, context: __SerdeContext): FormCTA => {
   return {
-    cancel: output.cancel != null ? deserializeAws_restJson1FormButton(output.cancel, context) : undefined,
-    clear: output.clear != null ? deserializeAws_restJson1FormButton(output.clear, context) : undefined,
+    cancel: output.cancel != null ? de_FormButton(output.cancel, context) : undefined,
+    clear: output.clear != null ? de_FormButton(output.clear, context) : undefined,
     position: __expectString(output.position),
-    submit: output.submit != null ? deserializeAws_restJson1FormButton(output.submit, context) : undefined,
+    submit: output.submit != null ? de_FormButton(output.submit, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FormDataTypeConfig = (output: any, context: __SerdeContext): FormDataTypeConfig => {
+/**
+ * deserializeAws_restJson1FormDataTypeConfig
+ */
+const de_FormDataTypeConfig = (output: any, context: __SerdeContext): FormDataTypeConfig => {
   return {
     dataSourceType: __expectString(output.dataSourceType),
     dataTypeName: __expectString(output.dataTypeName),
   } as any;
 };
 
-const deserializeAws_restJson1FormInputBindingProperties = (
+/**
+ * deserializeAws_restJson1FormInputBindingProperties
+ */
+const de_FormInputBindingProperties = (
   output: any,
   context: __SerdeContext
 ): Record<string, FormInputBindingPropertiesValue> => {
@@ -3268,27 +3650,30 @@ const deserializeAws_restJson1FormInputBindingProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1FormInputBindingPropertiesValue(value, context);
+      acc[key] = de_FormInputBindingPropertiesValue(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1FormInputBindingPropertiesValue = (
-  output: any,
-  context: __SerdeContext
-): FormInputBindingPropertiesValue => {
+/**
+ * deserializeAws_restJson1FormInputBindingPropertiesValue
+ */
+const de_FormInputBindingPropertiesValue = (output: any, context: __SerdeContext): FormInputBindingPropertiesValue => {
   return {
     bindingProperties:
       output.bindingProperties != null
-        ? deserializeAws_restJson1FormInputBindingPropertiesValueProperties(output.bindingProperties, context)
+        ? de_FormInputBindingPropertiesValueProperties(output.bindingProperties, context)
         : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1FormInputBindingPropertiesValueProperties = (
+/**
+ * deserializeAws_restJson1FormInputBindingPropertiesValueProperties
+ */
+const de_FormInputBindingPropertiesValueProperties = (
   output: any,
   context: __SerdeContext
 ): FormInputBindingPropertiesValueProperties => {
@@ -3297,22 +3682,24 @@ const deserializeAws_restJson1FormInputBindingPropertiesValueProperties = (
   } as any;
 };
 
-const deserializeAws_restJson1FormInputValueProperty = (
-  output: any,
-  context: __SerdeContext
-): FormInputValueProperty => {
+/**
+ * deserializeAws_restJson1FormInputValueProperty
+ */
+const de_FormInputValueProperty = (output: any, context: __SerdeContext): FormInputValueProperty => {
   return {
     bindingProperties:
       output.bindingProperties != null
-        ? deserializeAws_restJson1FormInputValuePropertyBindingProperties(output.bindingProperties, context)
+        ? de_FormInputValuePropertyBindingProperties(output.bindingProperties, context)
         : undefined,
-    concat:
-      output.concat != null ? deserializeAws_restJson1FormInputValuePropertyList(output.concat, context) : undefined,
+    concat: output.concat != null ? de_FormInputValuePropertyList(output.concat, context) : undefined,
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1FormInputValuePropertyBindingProperties = (
+/**
+ * deserializeAws_restJson1FormInputValuePropertyBindingProperties
+ */
+const de_FormInputValuePropertyBindingProperties = (
   output: any,
   context: __SerdeContext
 ): FormInputValuePropertyBindingProperties => {
@@ -3322,51 +3709,54 @@ const deserializeAws_restJson1FormInputValuePropertyBindingProperties = (
   } as any;
 };
 
-const deserializeAws_restJson1FormInputValuePropertyList = (
-  output: any,
-  context: __SerdeContext
-): FormInputValueProperty[] => {
+/**
+ * deserializeAws_restJson1FormInputValuePropertyList
+ */
+const de_FormInputValuePropertyList = (output: any, context: __SerdeContext): FormInputValueProperty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FormInputValueProperty(entry, context);
+      return de_FormInputValueProperty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FormList = (output: any, context: __SerdeContext): Form[] => {
+/**
+ * deserializeAws_restJson1FormList
+ */
+const de_FormList = (output: any, context: __SerdeContext): Form[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Form(entry, context);
+      return de_Form(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FormStyle = (output: any, context: __SerdeContext): FormStyle => {
+/**
+ * deserializeAws_restJson1FormStyle
+ */
+const de_FormStyle = (output: any, context: __SerdeContext): FormStyle => {
   return {
     horizontalGap:
-      output.horizontalGap != null
-        ? deserializeAws_restJson1FormStyleConfig(__expectUnion(output.horizontalGap), context)
-        : undefined,
+      output.horizontalGap != null ? de_FormStyleConfig(__expectUnion(output.horizontalGap), context) : undefined,
     outerPadding:
-      output.outerPadding != null
-        ? deserializeAws_restJson1FormStyleConfig(__expectUnion(output.outerPadding), context)
-        : undefined,
+      output.outerPadding != null ? de_FormStyleConfig(__expectUnion(output.outerPadding), context) : undefined,
     verticalGap:
-      output.verticalGap != null
-        ? deserializeAws_restJson1FormStyleConfig(__expectUnion(output.verticalGap), context)
-        : undefined,
+      output.verticalGap != null ? de_FormStyleConfig(__expectUnion(output.verticalGap), context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FormStyleConfig = (output: any, context: __SerdeContext): FormStyleConfig => {
+/**
+ * deserializeAws_restJson1FormStyleConfig
+ */
+const de_FormStyleConfig = (output: any, context: __SerdeContext): FormStyleConfig => {
   if (__expectString(output.tokenReference) !== undefined) {
     return { tokenReference: __expectString(output.tokenReference) as any };
   }
@@ -3376,11 +3766,13 @@ const deserializeAws_restJson1FormStyleConfig = (output: any, context: __SerdeCo
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1FormSummary = (output: any, context: __SerdeContext): FormSummary => {
+/**
+ * deserializeAws_restJson1FormSummary
+ */
+const de_FormSummary = (output: any, context: __SerdeContext): FormSummary => {
   return {
     appId: __expectString(output.appId),
-    dataType:
-      output.dataType != null ? deserializeAws_restJson1FormDataTypeConfig(output.dataType, context) : undefined,
+    dataType: output.dataType != null ? de_FormDataTypeConfig(output.dataType, context) : undefined,
     environmentName: __expectString(output.environmentName),
     formActionType: __expectString(output.formActionType),
     id: __expectString(output.id),
@@ -3388,19 +3780,25 @@ const deserializeAws_restJson1FormSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1FormSummaryList = (output: any, context: __SerdeContext): FormSummary[] => {
+/**
+ * deserializeAws_restJson1FormSummaryList
+ */
+const de_FormSummaryList = (output: any, context: __SerdeContext): FormSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FormSummary(entry, context);
+      return de_FormSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1IdentifierList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1IdentifierList
+ */
+const de_IdentifierList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3412,18 +3810,21 @@ const deserializeAws_restJson1IdentifierList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1MutationActionSetStateParameter = (
-  output: any,
-  context: __SerdeContext
-): MutationActionSetStateParameter => {
+/**
+ * deserializeAws_restJson1MutationActionSetStateParameter
+ */
+const de_MutationActionSetStateParameter = (output: any, context: __SerdeContext): MutationActionSetStateParameter => {
   return {
     componentName: __expectString(output.componentName),
     property: __expectString(output.property),
-    set: output.set != null ? deserializeAws_restJson1ComponentProperty(output.set, context) : undefined,
+    set: output.set != null ? de_ComponentProperty(output.set, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NumValues = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1NumValues
+ */
+const de_NumValues = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3435,76 +3836,91 @@ const deserializeAws_restJson1NumValues = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1Predicate = (output: any, context: __SerdeContext): Predicate => {
+/**
+ * deserializeAws_restJson1Predicate
+ */
+const de_Predicate = (output: any, context: __SerdeContext): Predicate => {
   return {
-    and: output.and != null ? deserializeAws_restJson1PredicateList(output.and, context) : undefined,
+    and: output.and != null ? de_PredicateList(output.and, context) : undefined,
     field: __expectString(output.field),
     operand: __expectString(output.operand),
     operandType: __expectString(output.operandType),
     operator: __expectString(output.operator),
-    or: output.or != null ? deserializeAws_restJson1PredicateList(output.or, context) : undefined,
+    or: output.or != null ? de_PredicateList(output.or, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PredicateList = (output: any, context: __SerdeContext): Predicate[] => {
+/**
+ * deserializeAws_restJson1PredicateList
+ */
+const de_PredicateList = (output: any, context: __SerdeContext): Predicate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Predicate(entry, context);
+      return de_Predicate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SectionalElement = (output: any, context: __SerdeContext): SectionalElement => {
+/**
+ * deserializeAws_restJson1SectionalElement
+ */
+const de_SectionalElement = (output: any, context: __SerdeContext): SectionalElement => {
   return {
     excluded: __expectBoolean(output.excluded),
     level: __expectInt32(output.level),
     orientation: __expectString(output.orientation),
-    position:
-      output.position != null
-        ? deserializeAws_restJson1FieldPosition(__expectUnion(output.position), context)
-        : undefined,
+    position: output.position != null ? de_FieldPosition(__expectUnion(output.position), context) : undefined,
     text: __expectString(output.text),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1SectionalElementMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, SectionalElement> => {
+/**
+ * deserializeAws_restJson1SectionalElementMap
+ */
+const de_SectionalElementMap = (output: any, context: __SerdeContext): Record<string, SectionalElement> => {
   return Object.entries(output).reduce((acc: Record<string, SectionalElement>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1SectionalElement(value, context);
+    acc[key] = de_SectionalElement(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1SortProperty = (output: any, context: __SerdeContext): SortProperty => {
+/**
+ * deserializeAws_restJson1SortProperty
+ */
+const de_SortProperty = (output: any, context: __SerdeContext): SortProperty => {
   return {
     direction: __expectString(output.direction),
     field: __expectString(output.field),
   } as any;
 };
 
-const deserializeAws_restJson1SortPropertyList = (output: any, context: __SerdeContext): SortProperty[] => {
+/**
+ * deserializeAws_restJson1SortPropertyList
+ */
+const de_SortPropertyList = (output: any, context: __SerdeContext): SortProperty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SortProperty(entry, context);
+      return de_SortProperty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StrValues = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StrValues
+ */
+const de_StrValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3516,7 +3932,10 @@ const deserializeAws_restJson1StrValues = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3526,7 +3945,10 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-const deserializeAws_restJson1Theme = (output: any, context: __SerdeContext): Theme => {
+/**
+ * deserializeAws_restJson1Theme
+ */
+const de_Theme = (output: any, context: __SerdeContext): Theme => {
   return {
     appId: __expectString(output.appId),
     createdAt:
@@ -3536,26 +3958,31 @@ const deserializeAws_restJson1Theme = (output: any, context: __SerdeContext): Th
     modifiedAt:
       output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
-    overrides:
-      output.overrides != null ? deserializeAws_restJson1ThemeValuesList(output.overrides, context) : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    values: output.values != null ? deserializeAws_restJson1ThemeValuesList(output.values, context) : undefined,
+    overrides: output.overrides != null ? de_ThemeValuesList(output.overrides, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
+    values: output.values != null ? de_ThemeValuesList(output.values, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ThemeList = (output: any, context: __SerdeContext): Theme[] => {
+/**
+ * deserializeAws_restJson1ThemeList
+ */
+const de_ThemeList = (output: any, context: __SerdeContext): Theme[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Theme(entry, context);
+      return de_Theme(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ThemeSummary = (output: any, context: __SerdeContext): ThemeSummary => {
+/**
+ * deserializeAws_restJson1ThemeSummary
+ */
+const de_ThemeSummary = (output: any, context: __SerdeContext): ThemeSummary => {
   return {
     appId: __expectString(output.appId),
     environmentName: __expectString(output.environmentName),
@@ -3564,88 +3991,104 @@ const deserializeAws_restJson1ThemeSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1ThemeSummaryList = (output: any, context: __SerdeContext): ThemeSummary[] => {
+/**
+ * deserializeAws_restJson1ThemeSummaryList
+ */
+const de_ThemeSummaryList = (output: any, context: __SerdeContext): ThemeSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ThemeSummary(entry, context);
+      return de_ThemeSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ThemeValue = (output: any, context: __SerdeContext): ThemeValue => {
+/**
+ * deserializeAws_restJson1ThemeValue
+ */
+const de_ThemeValue = (output: any, context: __SerdeContext): ThemeValue => {
   return {
-    children: output.children != null ? deserializeAws_restJson1ThemeValuesList(output.children, context) : undefined,
+    children: output.children != null ? de_ThemeValuesList(output.children, context) : undefined,
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1ThemeValues = (output: any, context: __SerdeContext): ThemeValues => {
+/**
+ * deserializeAws_restJson1ThemeValues
+ */
+const de_ThemeValues = (output: any, context: __SerdeContext): ThemeValues => {
   return {
     key: __expectString(output.key),
-    value: output.value != null ? deserializeAws_restJson1ThemeValue(output.value, context) : undefined,
+    value: output.value != null ? de_ThemeValue(output.value, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ThemeValuesList = (output: any, context: __SerdeContext): ThemeValues[] => {
+/**
+ * deserializeAws_restJson1ThemeValuesList
+ */
+const de_ThemeValuesList = (output: any, context: __SerdeContext): ThemeValues[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ThemeValues(entry, context);
+      return de_ThemeValues(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ValidationsList = (
-  output: any,
-  context: __SerdeContext
-): FieldValidationConfiguration[] => {
+/**
+ * deserializeAws_restJson1ValidationsList
+ */
+const de_ValidationsList = (output: any, context: __SerdeContext): FieldValidationConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FieldValidationConfiguration(entry, context);
+      return de_FieldValidationConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ValueMapping = (output: any, context: __SerdeContext): ValueMapping => {
+/**
+ * deserializeAws_restJson1ValueMapping
+ */
+const de_ValueMapping = (output: any, context: __SerdeContext): ValueMapping => {
   return {
-    displayValue:
-      output.displayValue != null
-        ? deserializeAws_restJson1FormInputValueProperty(output.displayValue, context)
-        : undefined,
-    value: output.value != null ? deserializeAws_restJson1FormInputValueProperty(output.value, context) : undefined,
+    displayValue: output.displayValue != null ? de_FormInputValueProperty(output.displayValue, context) : undefined,
+    value: output.value != null ? de_FormInputValueProperty(output.value, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ValueMappingList = (output: any, context: __SerdeContext): ValueMapping[] => {
+/**
+ * deserializeAws_restJson1ValueMappingList
+ */
+const de_ValueMappingList = (output: any, context: __SerdeContext): ValueMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ValueMapping(entry, context);
+      return de_ValueMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ValueMappings = (output: any, context: __SerdeContext): ValueMappings => {
+/**
+ * deserializeAws_restJson1ValueMappings
+ */
+const de_ValueMappings = (output: any, context: __SerdeContext): ValueMappings => {
   return {
     bindingProperties:
-      output.bindingProperties != null
-        ? deserializeAws_restJson1FormInputBindingProperties(output.bindingProperties, context)
-        : undefined,
-    values: output.values != null ? deserializeAws_restJson1ValueMappingList(output.values, context) : undefined,
+      output.bindingProperties != null ? de_FormInputBindingProperties(output.bindingProperties, context) : undefined,
+    values: output.values != null ? de_ValueMappingList(output.values, context) : undefined,
   } as any;
 };
 

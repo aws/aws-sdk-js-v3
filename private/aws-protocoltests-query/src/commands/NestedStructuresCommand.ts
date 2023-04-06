@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { NestedStructuresInput } from "../models/models_0";
-import {
-  deserializeAws_queryNestedStructuresCommand,
-  serializeAws_queryNestedStructuresCommand,
-} from "../protocols/Aws_query";
+import { de_NestedStructuresCommand, se_NestedStructuresCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class NestedStructuresCommand extends $Command<
    * @internal
    */
   private serialize(input: NestedStructuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryNestedStructuresCommand(input, context);
+    return se_NestedStructuresCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedStructuresCommandOutput> {
-    return deserializeAws_queryNestedStructuresCommand(output, context);
+    return de_NestedStructuresCommand(output, context);
   }
 
   // Start section: command_body_extra

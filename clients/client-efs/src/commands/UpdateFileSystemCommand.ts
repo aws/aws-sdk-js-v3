@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFileSystemCommand,
-  serializeAws_restJson1UpdateFileSystemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class UpdateFileSystemCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFileSystemCommand(input, context);
+    return se_UpdateFileSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
-    return deserializeAws_restJson1UpdateFileSystemCommand(output, context);
+    return de_UpdateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

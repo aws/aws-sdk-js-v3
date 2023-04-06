@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { GetVaultLockInput, GetVaultLockOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVaultLockCommand,
-  serializeAws_restJson1GetVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVaultLockCommand, se_GetVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class GetVaultLockCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVaultLockCommand(input, context);
+    return se_GetVaultLockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultLockCommandOutput> {
-    return deserializeAws_restJson1GetVaultLockCommand(output, context);
+    return de_GetVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

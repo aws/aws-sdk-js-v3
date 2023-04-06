@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyMigrationTaskStateCommand,
-  serializeAws_json1_1NotifyMigrationTaskStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyMigrationTaskStateCommand, se_NotifyMigrationTaskStateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class NotifyMigrationTaskStateCommand extends $Command<
    * @internal
    */
   private serialize(input: NotifyMigrationTaskStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyMigrationTaskStateCommand(input, context);
+    return se_NotifyMigrationTaskStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyMigrationTaskStateCommandOutput> {
-    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
+    return de_NotifyMigrationTaskStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { StartDeploymentRequest, StartDeploymentResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDeploymentCommand,
-  serializeAws_restJson1StartDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class StartDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDeploymentCommand(input, context);
+    return se_StartDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartDeploymentCommand(output, context);
+    return de_StartDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

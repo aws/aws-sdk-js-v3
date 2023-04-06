@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { CreateInstanceProfileRequest, CreateInstanceProfileResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInstanceProfileCommand,
-  serializeAws_json1_1CreateInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateInstanceProfileCommand, se_CreateInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class CreateInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceProfileCommand(input, context);
+    return se_CreateInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceProfileCommand(output, context);
+    return de_CreateInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

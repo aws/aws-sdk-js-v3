@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVpnConnectionRequest } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpnConnectionCommand,
-  serializeAws_ec2DeleteVpnConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteVpnConnectionCommand, se_DeleteVpnConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteVpnConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpnConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpnConnectionCommand(input, context);
+    return se_DeleteVpnConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpnConnectionCommandOutput> {
-    return deserializeAws_ec2DeleteVpnConnectionCommand(output, context);
+    return de_DeleteVpnConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

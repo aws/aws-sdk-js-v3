@@ -18,8 +18,8 @@ import {
   DescribeDBClusterSnapshotAttributesResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
-  serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
+  de_DescribeDBClusterSnapshotAttributesCommand,
+  se_DescribeDBClusterSnapshotAttributesCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -72,20 +72,30 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
  *
- * @example To list DB cluster snapshot attributes
+ * @example To describe the attribute names and values for a DB cluster snapshot
  * ```javascript
- * // This example lists attributes for the specified DB cluster snapshot.
+ * // The following example retrieves details of the attribute names and values for the specified DB cluster snapshot.
  * const input = {
- *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ *   "DBClusterSnapshotIdentifier": "myclustersnapshot"
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshotAttributesResult": {}
+ *   "DBClusterSnapshotAttributesResult": {
+ *     "DBClusterSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "123456789012"
+ *         ]
+ *       }
+ *     ],
+ *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
+ *   }
  * }
  * *\/
- * // example id: describe-db-cluster-snapshot-attributes-6752ade3-0c7b-4b06-a8e4-b76bf4e2d3571
+ * // example id: to-describe-the-attribute-names-and-values-for-a-db-cluster-snapshot-1680216238905
  * ```
  *
  */
@@ -155,7 +165,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     input: DescribeDBClusterSnapshotAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(input, context);
+    return se_DescribeDBClusterSnapshotAttributesCommand(input, context);
   }
 
   /**
@@ -165,7 +175,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(output, context);
+    return de_DescribeDBClusterSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

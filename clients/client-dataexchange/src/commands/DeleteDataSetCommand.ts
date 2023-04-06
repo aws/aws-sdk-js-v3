@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { DeleteDataSetRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataSetCommand,
-  serializeAws_restJson1DeleteDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDataSetCommand, se_DeleteDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDataSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataSetCommand(input, context);
+    return se_DeleteDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSetCommandOutput> {
-    return deserializeAws_restJson1DeleteDataSetCommand(output, context);
+    return de_DeleteDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

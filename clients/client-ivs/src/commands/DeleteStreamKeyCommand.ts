@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { DeleteStreamKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteStreamKeyCommand,
-  serializeAws_restJson1DeleteStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStreamKeyCommand, se_DeleteStreamKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteStreamKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamKeyCommand(input, context);
+    return se_DeleteStreamKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamKeyCommand(output, context);
+    return de_DeleteStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

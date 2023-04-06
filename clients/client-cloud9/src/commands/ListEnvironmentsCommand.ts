@@ -15,10 +15,7 @@ import {
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEnvironmentsCommand,
-  serializeAws_json1_1ListEnvironmentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class ListEnvironmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEnvironmentsCommand(input, context);
+    return se_ListEnvironmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return deserializeAws_json1_1ListEnvironmentsCommand(output, context);
+    return de_ListEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

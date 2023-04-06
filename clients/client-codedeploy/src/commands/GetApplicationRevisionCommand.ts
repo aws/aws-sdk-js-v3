@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { GetApplicationRevisionInput, GetApplicationRevisionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetApplicationRevisionCommand,
-  serializeAws_json1_1GetApplicationRevisionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetApplicationRevisionCommand, se_GetApplicationRevisionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class GetApplicationRevisionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetApplicationRevisionCommand(input, context);
+    return se_GetApplicationRevisionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationRevisionCommandOutput> {
-    return deserializeAws_json1_1GetApplicationRevisionCommand(output, context);
+    return de_GetApplicationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

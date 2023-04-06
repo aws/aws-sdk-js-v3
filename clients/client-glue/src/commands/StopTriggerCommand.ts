@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StopTriggerRequest, StopTriggerResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StopTriggerCommand,
-  serializeAws_json1_1StopTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopTriggerCommand, se_StopTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class StopTriggerCommand extends $Command<
    * @internal
    */
   private serialize(input: StopTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTriggerCommand(input, context);
+    return se_StopTriggerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTriggerCommandOutput> {
-    return deserializeAws_json1_1StopTriggerCommand(output, context);
+    return de_StopTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

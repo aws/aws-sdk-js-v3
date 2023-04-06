@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1SendContactMethodVerificationCommand,
-  serializeAws_json1_1SendContactMethodVerificationCommand,
+  de_SendContactMethodVerificationCommand,
+  se_SendContactMethodVerificationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -160,7 +160,7 @@ export class SendContactMethodVerificationCommand extends $Command<
    * @internal
    */
   private serialize(input: SendContactMethodVerificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendContactMethodVerificationCommand(input, context);
+    return se_SendContactMethodVerificationCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class SendContactMethodVerificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendContactMethodVerificationCommandOutput> {
-    return deserializeAws_json1_1SendContactMethodVerificationCommand(output, context);
+    return de_SendContactMethodVerificationCommand(output, context);
   }
 
   // Start section: command_body_extra

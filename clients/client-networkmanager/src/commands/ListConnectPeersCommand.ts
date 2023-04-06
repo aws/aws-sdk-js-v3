@@ -15,10 +15,7 @@ import {
 
 import { ListConnectPeersRequest, ListConnectPeersResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListConnectPeersCommand,
-  serializeAws_restJson1ListConnectPeersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConnectPeersCommand, se_ListConnectPeersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListConnectPeersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConnectPeersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectPeersCommand(input, context);
+    return se_ListConnectPeersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectPeersCommandOutput> {
-    return deserializeAws_restJson1ListConnectPeersCommand(output, context);
+    return de_ListConnectPeersCommand(output, context);
   }
 
   // Start section: command_body_extra

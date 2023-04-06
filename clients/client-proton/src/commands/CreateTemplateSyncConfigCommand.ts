@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTemplateSyncConfigInput, CreateTemplateSyncConfigOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateTemplateSyncConfigCommand,
-  serializeAws_json1_0CreateTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateTemplateSyncConfigCommand, se_CreateTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -151,14 +148,14 @@ export class CreateTemplateSyncConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateTemplateSyncConfigCommand(input, context);
+    return se_CreateTemplateSyncConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0CreateTemplateSyncConfigCommand(output, context);
+    return de_CreateTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

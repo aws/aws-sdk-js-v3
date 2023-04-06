@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteServerCatalogRequest, DeleteServerCatalogResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteServerCatalogCommand,
-  serializeAws_json1_1DeleteServerCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteServerCatalogCommand, se_DeleteServerCatalogCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteServerCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServerCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServerCatalogCommand(input, context);
+    return se_DeleteServerCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCatalogCommandOutput> {
-    return deserializeAws_json1_1DeleteServerCatalogCommand(output, context);
+    return de_DeleteServerCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

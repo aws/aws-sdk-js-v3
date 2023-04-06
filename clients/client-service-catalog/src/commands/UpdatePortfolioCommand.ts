@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePortfolioCommand,
-  serializeAws_json1_1UpdatePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePortfolioCommand, se_UpdatePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -149,14 +146,14 @@ export class UpdatePortfolioCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePortfolioCommand(input, context);
+    return se_UpdatePortfolioCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioCommandOutput> {
-    return deserializeAws_json1_1UpdatePortfolioCommand(output, context);
+    return de_UpdatePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

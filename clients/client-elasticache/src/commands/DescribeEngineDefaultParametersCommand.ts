@@ -16,8 +16,8 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEngineDefaultParametersCommand,
-  serializeAws_queryDescribeEngineDefaultParametersCommand,
+  de_DescribeEngineDefaultParametersCommand,
+  se_DescribeEngineDefaultParametersCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -748,7 +748,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
+    return se_DescribeEngineDefaultParametersCommand(input, context);
   }
 
   /**
@@ -758,7 +758,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommand(output, context);
+    return de_DescribeEngineDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

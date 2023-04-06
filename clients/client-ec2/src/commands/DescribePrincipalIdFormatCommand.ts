@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribePrincipalIdFormatRequest, DescribePrincipalIdFormatResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePrincipalIdFormatCommand,
-  serializeAws_ec2DescribePrincipalIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribePrincipalIdFormatCommand, se_DescribePrincipalIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class DescribePrincipalIdFormatCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePrincipalIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePrincipalIdFormatCommand(input, context);
+    return se_DescribePrincipalIdFormatCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePrincipalIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribePrincipalIdFormatCommand(output, context);
+    return de_DescribePrincipalIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

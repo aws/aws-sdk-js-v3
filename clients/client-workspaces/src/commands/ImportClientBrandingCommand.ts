@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImportClientBrandingRequest, ImportClientBrandingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportClientBrandingCommand,
-  serializeAws_json1_1ImportClientBrandingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportClientBrandingCommand, se_ImportClientBrandingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -213,14 +210,14 @@ export class ImportClientBrandingCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportClientBrandingCommand(input, context);
+    return se_ImportClientBrandingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportClientBrandingCommandOutput> {
-    return deserializeAws_json1_1ImportClientBrandingCommand(output, context);
+    return de_ImportClientBrandingCommand(output, context);
   }
 
   // Start section: command_body_extra

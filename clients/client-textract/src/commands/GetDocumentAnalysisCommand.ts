@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDocumentAnalysisRequest, GetDocumentAnalysisResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDocumentAnalysisCommand,
-  serializeAws_json1_1GetDocumentAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDocumentAnalysisCommand, se_GetDocumentAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -216,14 +213,14 @@ export class GetDocumentAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDocumentAnalysisCommand(input, context);
+    return se_GetDocumentAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentAnalysisCommandOutput> {
-    return deserializeAws_json1_1GetDocumentAnalysisCommand(output, context);
+    return de_GetDocumentAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

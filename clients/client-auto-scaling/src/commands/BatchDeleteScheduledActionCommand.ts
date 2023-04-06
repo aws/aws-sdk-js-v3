@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { BatchDeleteScheduledActionAnswer, BatchDeleteScheduledActionType } from "../models/models_0";
-import {
-  deserializeAws_queryBatchDeleteScheduledActionCommand,
-  serializeAws_queryBatchDeleteScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { de_BatchDeleteScheduledActionCommand, se_BatchDeleteScheduledActionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class BatchDeleteScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchDeleteScheduledActionCommand(input, context);
+    return se_BatchDeleteScheduledActionCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryBatchDeleteScheduledActionCommand(output, context);
+    return de_BatchDeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

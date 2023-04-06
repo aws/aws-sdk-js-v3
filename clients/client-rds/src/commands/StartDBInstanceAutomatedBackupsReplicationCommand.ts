@@ -19,8 +19,8 @@ import {
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
-  serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
+  de_StartDBInstanceAutomatedBackupsReplicationCommand,
+  se_StartDBInstanceAutomatedBackupsReplicationCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -88,6 +88,43 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  *  <p>Storage of the <code>StorageType</code> specified can't be associated
  *             with the DB instance.</p>
  *
+ *
+ * @example To enable cross-Region automated backups
+ * ```javascript
+ * // The following example replicates automated backups from a DB instance in the US East (N. Virginia) Region. The backup retention period is 14 days.
+ * const input = {
+ *   "BackupRetentionPeriod": 14,
+ *   "SourceDBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
+ * };
+ * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackup": {
+ *     "AllocatedStorage": 20,
+ *     "BackupRetentionPeriod": 14,
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     "DBInstanceIdentifier": "new-orcl-db",
+ *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     "Encrypted": false,
+ *     "Engine": "oracle-se2",
+ *     "EngineVersion": "12.1.0.2.v21",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *     "LicenseModel": "bring-your-own-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:oracle-se2-12-1",
+ *     "Port": 1521,
+ *     "Region": "us-east-1",
+ *     "RestoreWindow": {},
+ *     "Status": "pending",
+ *     "StorageType": "gp2"
+ *   }
+ * }
+ * *\/
+ * // example id: to-enable-cross-region-automated-backups-1680033438352
+ * ```
  *
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
@@ -163,7 +200,7 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     input: StartDBInstanceAutomatedBackupsReplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand(input, context);
+    return se_StartDBInstanceAutomatedBackupsReplicationCommand(input, context);
   }
 
   /**
@@ -173,7 +210,7 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> {
-    return deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand(output, context);
+    return de_StartDBInstanceAutomatedBackupsReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

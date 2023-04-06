@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateContactFlowNameRequest, UpdateContactFlowNameResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactFlowNameCommand,
-  serializeAws_restJson1UpdateContactFlowNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateContactFlowNameCommand, se_UpdateContactFlowNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateContactFlowNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateContactFlowNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactFlowNameCommand(input, context);
+    return se_UpdateContactFlowNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowNameCommandOutput> {
-    return deserializeAws_restJson1UpdateContactFlowNameCommand(output, context);
+    return de_UpdateContactFlowNameCommand(output, context);
   }
 
   // Start section: command_body_extra

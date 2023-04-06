@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1LabelParameterVersionCommand,
-  serializeAws_json1_1LabelParameterVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_LabelParameterVersionCommand, se_LabelParameterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -176,14 +173,14 @@ export class LabelParameterVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: LabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LabelParameterVersionCommand(input, context);
+    return se_LabelParameterVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LabelParameterVersionCommandOutput> {
-    return deserializeAws_json1_1LabelParameterVersionCommand(output, context);
+    return de_LabelParameterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

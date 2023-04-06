@@ -15,7 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DeleteAlarmsInput } from "../models/models_0";
-import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query";
+import { de_DeleteAlarmsCommand, se_DeleteAlarmsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +137,14 @@ export class DeleteAlarmsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAlarmsCommand(input, context);
+    return se_DeleteAlarmsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmsCommandOutput> {
-    return deserializeAws_queryDeleteAlarmsCommand(output, context);
+    return de_DeleteAlarmsCommand(output, context);
   }
 
   // Start section: command_body_extra

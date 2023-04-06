@@ -20,8 +20,8 @@ import {
   ReplicationConfigurationFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetReplicationConfigurationCommand,
-  serializeAws_restJson1GetReplicationConfigurationCommand,
+  de_GetReplicationConfigurationCommand,
+  se_GetReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -130,7 +130,7 @@ export class GetReplicationConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReplicationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReplicationConfigurationCommand(input, context);
+    return se_GetReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class GetReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetReplicationConfigurationCommand(output, context);
+    return de_GetReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

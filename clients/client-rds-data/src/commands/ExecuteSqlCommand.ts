@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExecuteSqlCommand,
-  serializeAws_restJson1ExecuteSqlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExecuteSqlCommand, se_ExecuteSqlCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
@@ -144,14 +141,14 @@ export class ExecuteSqlCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteSqlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExecuteSqlCommand(input, context);
+    return se_ExecuteSqlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteSqlCommandOutput> {
-    return deserializeAws_restJson1ExecuteSqlCommand(output, context);
+    return de_ExecuteSqlCommand(output, context);
   }
 
   // Start section: command_body_extra

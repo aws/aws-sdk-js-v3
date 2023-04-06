@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteKnowledgeBaseCommand,
-  serializeAws_restJson1DeleteKnowledgeBaseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteKnowledgeBaseCommand, se_DeleteKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -143,14 +140,14 @@ export class DeleteKnowledgeBaseCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteKnowledgeBaseCommand(input, context);
+    return se_DeleteKnowledgeBaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnowledgeBaseCommandOutput> {
-    return deserializeAws_restJson1DeleteKnowledgeBaseCommand(output, context);
+    return de_DeleteKnowledgeBaseCommand(output, context);
   }
 
   // Start section: command_body_extra

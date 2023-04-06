@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { UpdateTaskExecutionRequest, UpdateTaskExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTaskExecutionCommand,
-  serializeAws_json1_1UpdateTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTaskExecutionCommand, se_UpdateTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateTaskExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTaskExecutionCommand(input, context);
+    return se_UpdateTaskExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1UpdateTaskExecutionCommand(output, context);
+    return de_UpdateTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

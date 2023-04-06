@@ -19,8 +19,8 @@ import {
   ListAssociationsForLicenseConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
-  serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
+  de_ListAssociationsForLicenseConfigurationCommand,
+  se_ListAssociationsForLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     input: ListAssociationsForLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(input, context);
+    return se_ListAssociationsForLicenseConfigurationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(output, context);
+    return de_ListAssociationsForLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachToIndexCommand,
-  serializeAws_restJson1AttachToIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AttachToIndexCommand, se_AttachToIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class AttachToIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachToIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachToIndexCommand(input, context);
+    return se_AttachToIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachToIndexCommandOutput> {
-    return deserializeAws_restJson1AttachToIndexCommand(output, context);
+    return de_AttachToIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { CreateStageRequest, CreateStageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateStageCommand,
-  serializeAws_restJson1CreateStageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStageCommand, se_CreateStageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateStageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStageCommand(input, context);
+    return se_CreateStageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStageCommandOutput> {
-    return deserializeAws_restJson1CreateStageCommand(output, context);
+    return de_CreateStageCommand(output, context);
   }
 
   // Start section: command_body_extra

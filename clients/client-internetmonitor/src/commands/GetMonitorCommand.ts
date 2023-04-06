@@ -15,10 +15,7 @@ import {
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { GetMonitorInput, GetMonitorOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMonitorCommand,
-  serializeAws_restJson1GetMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMonitorCommand, se_GetMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMonitorCommand(input, context);
+    return se_GetMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMonitorCommandOutput> {
-    return deserializeAws_restJson1GetMonitorCommand(output, context);
+    return de_GetMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

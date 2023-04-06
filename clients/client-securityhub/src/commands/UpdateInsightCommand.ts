@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateInsightCommand,
-  serializeAws_restJson1UpdateInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateInsightCommand, se_UpdateInsightCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -388,14 +385,14 @@ export class UpdateInsightCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInsightCommand(input, context);
+    return se_UpdateInsightCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInsightCommandOutput> {
-    return deserializeAws_restJson1UpdateInsightCommand(output, context);
+    return de_UpdateInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

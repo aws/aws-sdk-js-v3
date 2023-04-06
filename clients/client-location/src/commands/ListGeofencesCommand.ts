@@ -19,10 +19,7 @@ import {
   ListGeofencesResponse,
   ListGeofencesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGeofencesCommand,
-  serializeAws_restJson1ListGeofencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGeofencesCommand, se_ListGeofencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListGeofencesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGeofencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGeofencesCommand(input, context);
+    return se_ListGeofencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeofencesCommandOutput> {
-    return deserializeAws_restJson1ListGeofencesCommand(output, context);
+    return de_ListGeofencesCommand(output, context);
   }
 
   // Start section: command_body_extra

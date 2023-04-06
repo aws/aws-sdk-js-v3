@@ -18,8 +18,8 @@ import {
   DeleteDatalakeExceptionsSubscriptionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand,
-  serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand,
+  de_DeleteDatalakeExceptionsSubscriptionCommand,
+  se_DeleteDatalakeExceptionsSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -145,7 +145,7 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     input: DeleteDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_DeleteDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand(output, context);
+    return de_DeleteDatalakeExceptionsSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

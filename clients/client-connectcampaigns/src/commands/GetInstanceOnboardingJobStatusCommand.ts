@@ -16,8 +16,8 @@ import {
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
-  serializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
+  de_GetInstanceOnboardingJobStatusCommand,
+  se_GetInstanceOnboardingJobStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +137,7 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     input: GetInstanceOnboardingJobStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInstanceOnboardingJobStatusCommand(input, context);
+    return se_GetInstanceOnboardingJobStatusCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstanceOnboardingJobStatusCommandOutput> {
-    return deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand(output, context);
+    return de_GetInstanceOnboardingJobStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

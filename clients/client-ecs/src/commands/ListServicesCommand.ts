@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesCommand,
-  serializeAws_json1_1ListServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListServicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_1ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

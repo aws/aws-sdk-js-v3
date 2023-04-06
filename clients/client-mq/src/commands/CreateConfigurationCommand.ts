@@ -15,10 +15,7 @@ import {
 
 import { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1CreateConfigurationCommand,
-  serializeAws_restJson1CreateConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConfigurationCommand, se_CreateConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class CreateConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationCommand(input, context);
+    return se_CreateConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationCommand(output, context);
+    return de_CreateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

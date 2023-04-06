@@ -15,10 +15,7 @@ import {
 
 import { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteSegmentCommand,
-  serializeAws_restJson1DeleteSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSegmentCommand, se_DeleteSegmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteSegmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSegmentCommand(input, context);
+    return se_DeleteSegmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSegmentCommandOutput> {
-    return deserializeAws_restJson1DeleteSegmentCommand(output, context);
+    return de_DeleteSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataEndpointCommand,
-  serializeAws_restJson1GetDataEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataEndpointCommand, se_GetDataEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetDataEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataEndpointCommand(input, context);
+    return se_GetDataEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataEndpointCommandOutput> {
-    return deserializeAws_restJson1GetDataEndpointCommand(output, context);
+    return de_GetDataEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRegionsCommand,
-  serializeAws_restJson1ListRegionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRegionsCommand, se_ListRegionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListRegionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRegionsCommand(input, context);
+    return se_ListRegionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionsCommandOutput> {
-    return deserializeAws_restJson1ListRegionsCommand(output, context);
+    return de_ListRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

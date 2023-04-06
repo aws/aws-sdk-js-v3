@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand,
-  serializeAws_restJson1DescribeReservedInstanceOfferingsCommand,
+  de_DescribeReservedInstanceOfferingsCommand,
+  se_DescribeReservedInstanceOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     input: DescribeReservedInstanceOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservedInstanceOfferingsCommand(input, context);
+    return se_DescribeReservedInstanceOfferingsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstanceOfferingsCommandOutput> {
-    return deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand(output, context);
+    return de_DescribeReservedInstanceOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

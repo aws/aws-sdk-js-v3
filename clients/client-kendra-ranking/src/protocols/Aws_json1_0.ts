@@ -79,7 +79,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_0CreateRescoreExecutionPlanCommand = async (
+/**
+ * serializeAws_json1_0CreateRescoreExecutionPlanCommand
+ */
+export const se_CreateRescoreExecutionPlanCommand = async (
   input: CreateRescoreExecutionPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -88,11 +91,14 @@ export const serializeAws_json1_0CreateRescoreExecutionPlanCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.CreateRescoreExecutionPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateRescoreExecutionPlanRequest(input, context));
+  body = JSON.stringify(se_CreateRescoreExecutionPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteRescoreExecutionPlanCommand = async (
+/**
+ * serializeAws_json1_0DeleteRescoreExecutionPlanCommand
+ */
+export const se_DeleteRescoreExecutionPlanCommand = async (
   input: DeleteRescoreExecutionPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -101,11 +107,14 @@ export const serializeAws_json1_0DeleteRescoreExecutionPlanCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.DeleteRescoreExecutionPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteRescoreExecutionPlanRequest(input, context));
+  body = JSON.stringify(se_DeleteRescoreExecutionPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeRescoreExecutionPlanCommand = async (
+/**
+ * serializeAws_json1_0DescribeRescoreExecutionPlanCommand
+ */
+export const se_DescribeRescoreExecutionPlanCommand = async (
   input: DescribeRescoreExecutionPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -114,11 +123,14 @@ export const serializeAws_json1_0DescribeRescoreExecutionPlanCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.DescribeRescoreExecutionPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeRescoreExecutionPlanRequest(input, context));
+  body = JSON.stringify(se_DescribeRescoreExecutionPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListRescoreExecutionPlansCommand = async (
+/**
+ * serializeAws_json1_0ListRescoreExecutionPlansCommand
+ */
+export const se_ListRescoreExecutionPlansCommand = async (
   input: ListRescoreExecutionPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -127,11 +139,14 @@ export const serializeAws_json1_0ListRescoreExecutionPlansCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.ListRescoreExecutionPlans",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListRescoreExecutionPlansRequest(input, context));
+  body = JSON.stringify(se_ListRescoreExecutionPlansRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -140,11 +155,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0RescoreCommand = async (
+/**
+ * serializeAws_json1_0RescoreCommand
+ */
+export const se_RescoreCommand = async (
   input: RescoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -153,11 +171,14 @@ export const serializeAws_json1_0RescoreCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.Rescore",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0RescoreRequest(input, context));
+  body = JSON.stringify(se_RescoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -166,11 +187,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,11 +203,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateRescoreExecutionPlanCommand = async (
+/**
+ * serializeAws_json1_0UpdateRescoreExecutionPlanCommand
+ */
+export const se_UpdateRescoreExecutionPlanCommand = async (
   input: UpdateRescoreExecutionPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -192,20 +219,23 @@ export const serializeAws_json1_0UpdateRescoreExecutionPlanCommand = async (
     "x-amz-target": "AWSKendraRerankingFrontendService.UpdateRescoreExecutionPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateRescoreExecutionPlanRequest(input, context));
+  body = JSON.stringify(se_UpdateRescoreExecutionPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CreateRescoreExecutionPlanCommand = async (
+/**
+ * deserializeAws_json1_0CreateRescoreExecutionPlanCommand
+ */
+export const de_CreateRescoreExecutionPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRescoreExecutionPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateRescoreExecutionPlanCommandError(output, context);
+    return de_CreateRescoreExecutionPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateRescoreExecutionPlanResponse(data, context);
+  contents = de_CreateRescoreExecutionPlanResponse(data, context);
   const response: CreateRescoreExecutionPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -213,7 +243,10 @@ export const deserializeAws_json1_0CreateRescoreExecutionPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateRescoreExecutionPlanCommandError = async (
+/**
+ * deserializeAws_json1_0CreateRescoreExecutionPlanCommandError
+ */
+const de_CreateRescoreExecutionPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRescoreExecutionPlanCommandOutput> => {
@@ -225,22 +258,22 @@ const deserializeAws_json1_0CreateRescoreExecutionPlanCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kendraranking#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendraranking#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -252,12 +285,15 @@ const deserializeAws_json1_0CreateRescoreExecutionPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteRescoreExecutionPlanCommand = async (
+/**
+ * deserializeAws_json1_0DeleteRescoreExecutionPlanCommand
+ */
+export const de_DeleteRescoreExecutionPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRescoreExecutionPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteRescoreExecutionPlanCommandError(output, context);
+    return de_DeleteRescoreExecutionPlanCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRescoreExecutionPlanCommandOutput = {
@@ -266,7 +302,10 @@ export const deserializeAws_json1_0DeleteRescoreExecutionPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteRescoreExecutionPlanCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteRescoreExecutionPlanCommandError
+ */
+const de_DeleteRescoreExecutionPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRescoreExecutionPlanCommandOutput> => {
@@ -278,22 +317,22 @@ const deserializeAws_json1_0DeleteRescoreExecutionPlanCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kendraranking#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kendraranking#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -305,16 +344,19 @@ const deserializeAws_json1_0DeleteRescoreExecutionPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeRescoreExecutionPlanCommand = async (
+/**
+ * deserializeAws_json1_0DescribeRescoreExecutionPlanCommand
+ */
+export const de_DescribeRescoreExecutionPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRescoreExecutionPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeRescoreExecutionPlanCommandError(output, context);
+    return de_DescribeRescoreExecutionPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeRescoreExecutionPlanResponse(data, context);
+  contents = de_DescribeRescoreExecutionPlanResponse(data, context);
   const response: DescribeRescoreExecutionPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -322,7 +364,10 @@ export const deserializeAws_json1_0DescribeRescoreExecutionPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeRescoreExecutionPlanCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeRescoreExecutionPlanCommandError
+ */
+const de_DescribeRescoreExecutionPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRescoreExecutionPlanCommandOutput> => {
@@ -334,19 +379,19 @@ const deserializeAws_json1_0DescribeRescoreExecutionPlanCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kendraranking#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -358,16 +403,19 @@ const deserializeAws_json1_0DescribeRescoreExecutionPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListRescoreExecutionPlansCommand = async (
+/**
+ * deserializeAws_json1_0ListRescoreExecutionPlansCommand
+ */
+export const de_ListRescoreExecutionPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRescoreExecutionPlansCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListRescoreExecutionPlansCommandError(output, context);
+    return de_ListRescoreExecutionPlansCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListRescoreExecutionPlansResponse(data, context);
+  contents = de_ListRescoreExecutionPlansResponse(data, context);
   const response: ListRescoreExecutionPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -375,7 +423,10 @@ export const deserializeAws_json1_0ListRescoreExecutionPlansCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListRescoreExecutionPlansCommandError = async (
+/**
+ * deserializeAws_json1_0ListRescoreExecutionPlansCommandError
+ */
+const de_ListRescoreExecutionPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRescoreExecutionPlansCommandOutput> => {
@@ -387,16 +438,16 @@ const deserializeAws_json1_0ListRescoreExecutionPlansCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -408,16 +459,19 @@ const deserializeAws_json1_0ListRescoreExecutionPlansCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -425,7 +479,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -437,19 +494,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.kendraranking#ResourceUnavailableException":
-      throw await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -461,16 +518,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0RescoreCommand = async (
+/**
+ * deserializeAws_json1_0RescoreCommand
+ */
+export const de_RescoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RescoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0RescoreCommandError(output, context);
+    return de_RescoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RescoreResult(data, context);
+  contents = de_RescoreResult(data, context);
   const response: RescoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -478,7 +538,10 @@ export const deserializeAws_json1_0RescoreCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0RescoreCommandError = async (
+/**
+ * deserializeAws_json1_0RescoreCommandError
+ */
+const de_RescoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RescoreCommandOutput> => {
@@ -490,22 +553,22 @@ const deserializeAws_json1_0RescoreCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kendraranking#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kendraranking#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -517,16 +580,19 @@ const deserializeAws_json1_0RescoreCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -534,7 +600,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -546,19 +615,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.kendraranking#ResourceUnavailableException":
-      throw await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -570,16 +639,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -587,7 +659,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -599,19 +674,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.kendraranking#ResourceUnavailableException":
-      throw await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -623,12 +698,15 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateRescoreExecutionPlanCommand = async (
+/**
+ * deserializeAws_json1_0UpdateRescoreExecutionPlanCommand
+ */
+export const de_UpdateRescoreExecutionPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRescoreExecutionPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateRescoreExecutionPlanCommandError(output, context);
+    return de_UpdateRescoreExecutionPlanCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateRescoreExecutionPlanCommandOutput = {
@@ -637,7 +715,10 @@ export const deserializeAws_json1_0UpdateRescoreExecutionPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateRescoreExecutionPlanCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateRescoreExecutionPlanCommandError
+ */
+const de_UpdateRescoreExecutionPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRescoreExecutionPlanCommandOutput> => {
@@ -649,25 +730,25 @@ const deserializeAws_json1_0UpdateRescoreExecutionPlanCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendraranking#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.kendraranking#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendraranking#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kendraranking#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendraranking#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendraranking#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kendraranking#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -679,12 +760,15 @@ const deserializeAws_json1_0UpdateRescoreExecutionPlanCommandError = async (
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -692,12 +776,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -705,12 +789,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -718,12 +805,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -731,12 +821,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceUnavailableExceptionRes
+ */
+const de_ResourceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceUnavailableException(body, context);
+  const deserialized: any = de_ResourceUnavailableException(body, context);
   const exception = new ResourceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -744,12 +837,15 @@ const deserializeAws_json1_0ResourceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -757,12 +853,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -770,12 +866,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -783,7 +879,10 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0BodyTokensList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0BodyTokensList
+ */
+const se_BodyTokensList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -791,31 +890,35 @@ const serializeAws_json1_0BodyTokensList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_0CapacityUnitsConfiguration = (
-  input: CapacityUnitsConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CapacityUnitsConfiguration
+ */
+const se_CapacityUnitsConfiguration = (input: CapacityUnitsConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.RescoreCapacityUnits != null && { RescoreCapacityUnits: input.RescoreCapacityUnits }),
   };
 };
 
-const serializeAws_json1_0CreateRescoreExecutionPlanRequest = (
+/**
+ * serializeAws_json1_0CreateRescoreExecutionPlanRequest
+ */
+const se_CreateRescoreExecutionPlanRequest = (
   input: CreateRescoreExecutionPlanRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CapacityUnits != null && {
-      CapacityUnits: serializeAws_json1_0CapacityUnitsConfiguration(input.CapacityUnits, context),
-    }),
+    ...(input.CapacityUnits != null && { CapacityUnits: se_CapacityUnitsConfiguration(input.CapacityUnits, context) }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0DeleteRescoreExecutionPlanRequest = (
+/**
+ * serializeAws_json1_0DeleteRescoreExecutionPlanRequest
+ */
+const se_DeleteRescoreExecutionPlanRequest = (
   input: DeleteRescoreExecutionPlanRequest,
   context: __SerdeContext
 ): any => {
@@ -824,7 +927,10 @@ const serializeAws_json1_0DeleteRescoreExecutionPlanRequest = (
   };
 };
 
-const serializeAws_json1_0DescribeRescoreExecutionPlanRequest = (
+/**
+ * serializeAws_json1_0DescribeRescoreExecutionPlanRequest
+ */
+const se_DescribeRescoreExecutionPlanRequest = (
   input: DescribeRescoreExecutionPlanRequest,
   context: __SerdeContext
 ): any => {
@@ -833,65 +939,76 @@ const serializeAws_json1_0DescribeRescoreExecutionPlanRequest = (
   };
 };
 
-const serializeAws_json1_0Document = (input: Document, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Document
+ */
+const se_Document = (input: Document, context: __SerdeContext): any => {
   return {
     ...(input.Body != null && { Body: input.Body }),
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.OriginalScore != null && { OriginalScore: __serializeFloat(input.OriginalScore) }),
     ...(input.Title != null && { Title: input.Title }),
-    ...(input.TokenizedBody != null && {
-      TokenizedBody: serializeAws_json1_0BodyTokensList(input.TokenizedBody, context),
-    }),
-    ...(input.TokenizedTitle != null && {
-      TokenizedTitle: serializeAws_json1_0TitleTokensList(input.TokenizedTitle, context),
-    }),
+    ...(input.TokenizedBody != null && { TokenizedBody: se_BodyTokensList(input.TokenizedBody, context) }),
+    ...(input.TokenizedTitle != null && { TokenizedTitle: se_TitleTokensList(input.TokenizedTitle, context) }),
   };
 };
 
-const serializeAws_json1_0DocumentList = (input: Document[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DocumentList
+ */
+const se_DocumentList = (input: Document[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Document(entry, context);
+      return se_Document(entry, context);
     });
 };
 
-const serializeAws_json1_0ListRescoreExecutionPlansRequest = (
-  input: ListRescoreExecutionPlansRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListRescoreExecutionPlansRequest
+ */
+const se_ListRescoreExecutionPlansRequest = (input: ListRescoreExecutionPlansRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
-const serializeAws_json1_0RescoreRequest = (input: RescoreRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0RescoreRequest
+ */
+const se_RescoreRequest = (input: RescoreRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Documents != null && { Documents: serializeAws_json1_0DocumentList(input.Documents, context) }),
+    ...(input.Documents != null && { Documents: se_DocumentList(input.Documents, context) }),
     ...(input.RescoreExecutionPlanId != null && { RescoreExecutionPlanId: input.RescoreExecutionPlanId }),
     ...(input.SearchQuery != null && { SearchQuery: input.SearchQuery }),
   };
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -899,22 +1016,31 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0TitleTokensList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TitleTokensList
+ */
+const se_TitleTokensList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -922,49 +1048,62 @@ const serializeAws_json1_0TitleTokensList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateRescoreExecutionPlanRequest = (
+/**
+ * serializeAws_json1_0UpdateRescoreExecutionPlanRequest
+ */
+const se_UpdateRescoreExecutionPlanRequest = (
   input: UpdateRescoreExecutionPlanRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CapacityUnits != null && {
-      CapacityUnits: serializeAws_json1_0CapacityUnitsConfiguration(input.CapacityUnits, context),
-    }),
+    ...(input.CapacityUnits != null && { CapacityUnits: se_CapacityUnitsConfiguration(input.CapacityUnits, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_0AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CapacityUnitsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CapacityUnitsConfiguration => {
+/**
+ * deserializeAws_json1_0CapacityUnitsConfiguration
+ */
+const de_CapacityUnitsConfiguration = (output: any, context: __SerdeContext): CapacityUnitsConfiguration => {
   return {
     RescoreCapacityUnits: __expectInt32(output.RescoreCapacityUnits),
   } as any;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CreateRescoreExecutionPlanResponse = (
+/**
+ * deserializeAws_json1_0CreateRescoreExecutionPlanResponse
+ */
+const de_CreateRescoreExecutionPlanResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRescoreExecutionPlanResponse => {
@@ -974,16 +1113,17 @@ const deserializeAws_json1_0CreateRescoreExecutionPlanResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0DescribeRescoreExecutionPlanResponse = (
+/**
+ * deserializeAws_json1_0DescribeRescoreExecutionPlanResponse
+ */
+const de_DescribeRescoreExecutionPlanResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRescoreExecutionPlanResponse => {
   return {
     Arn: __expectString(output.Arn),
     CapacityUnits:
-      output.CapacityUnits != null
-        ? deserializeAws_json1_0CapacityUnitsConfiguration(output.CapacityUnits, context)
-        : undefined,
+      output.CapacityUnits != null ? de_CapacityUnitsConfiguration(output.CapacityUnits, context) : undefined,
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
@@ -996,41 +1136,42 @@ const deserializeAws_json1_0DescribeRescoreExecutionPlanResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ListRescoreExecutionPlansResponse = (
+/**
+ * deserializeAws_json1_0ListRescoreExecutionPlansResponse
+ */
+const de_ListRescoreExecutionPlansResponse = (
   output: any,
   context: __SerdeContext
 ): ListRescoreExecutionPlansResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     SummaryItems:
-      output.SummaryItems != null
-        ? deserializeAws_json1_0RescoreExecutionPlanSummaryList(output.SummaryItems, context)
-        : undefined,
+      output.SummaryItems != null ? de_RescoreExecutionPlanSummaryList(output.SummaryItems, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0RescoreExecutionPlanSummary = (
-  output: any,
-  context: __SerdeContext
-): RescoreExecutionPlanSummary => {
+/**
+ * deserializeAws_json1_0RescoreExecutionPlanSummary
+ */
+const de_RescoreExecutionPlanSummary = (output: any, context: __SerdeContext): RescoreExecutionPlanSummary => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -1042,109 +1183,135 @@ const deserializeAws_json1_0RescoreExecutionPlanSummary = (
   } as any;
 };
 
-const deserializeAws_json1_0RescoreExecutionPlanSummaryList = (
-  output: any,
-  context: __SerdeContext
-): RescoreExecutionPlanSummary[] => {
+/**
+ * deserializeAws_json1_0RescoreExecutionPlanSummaryList
+ */
+const de_RescoreExecutionPlanSummaryList = (output: any, context: __SerdeContext): RescoreExecutionPlanSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0RescoreExecutionPlanSummary(entry, context);
+      return de_RescoreExecutionPlanSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0RescoreResult = (output: any, context: __SerdeContext): RescoreResult => {
+/**
+ * deserializeAws_json1_0RescoreResult
+ */
+const de_RescoreResult = (output: any, context: __SerdeContext): RescoreResult => {
   return {
     RescoreId: __expectString(output.RescoreId),
-    ResultItems:
-      output.ResultItems != null ? deserializeAws_json1_0RescoreResultItemList(output.ResultItems, context) : undefined,
+    ResultItems: output.ResultItems != null ? de_RescoreResultItemList(output.ResultItems, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0RescoreResultItem = (output: any, context: __SerdeContext): RescoreResultItem => {
+/**
+ * deserializeAws_json1_0RescoreResultItem
+ */
+const de_RescoreResultItem = (output: any, context: __SerdeContext): RescoreResultItem => {
   return {
     DocumentId: __expectString(output.DocumentId),
     Score: __limitedParseFloat32(output.Score),
   } as any;
 };
 
-const deserializeAws_json1_0RescoreResultItemList = (output: any, context: __SerdeContext): RescoreResultItem[] => {
+/**
+ * deserializeAws_json1_0RescoreResultItemList
+ */
+const de_RescoreResultItemList = (output: any, context: __SerdeContext): RescoreResultItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0RescoreResultItem(entry, context);
+      return de_RescoreResultItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ResourceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ResourceUnavailableException => {
+/**
+ * deserializeAws_json1_0ResourceUnavailableException
+ */
+const de_ResourceUnavailableException = (output: any, context: __SerdeContext): ResourceUnavailableException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_0ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

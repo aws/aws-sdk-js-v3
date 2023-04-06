@@ -24,8 +24,8 @@ import {
   UpdateApplicationComponentConfigResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateApplicationComponentConfigCommand,
-  serializeAws_restJson1UpdateApplicationComponentConfigCommand,
+  de_UpdateApplicationComponentConfigCommand,
+  se_UpdateApplicationComponentConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -163,7 +163,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     input: UpdateApplicationComponentConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationComponentConfigCommand(input, context);
+    return se_UpdateApplicationComponentConfigCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationComponentConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationComponentConfigCommand(output, context);
+    return de_UpdateApplicationComponentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

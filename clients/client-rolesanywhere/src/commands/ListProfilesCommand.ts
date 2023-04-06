@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListProfilesResponse, ListRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfilesCommand,
-  serializeAws_restJson1ListProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProfilesCommand, se_ListProfilesCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfilesCommand(input, context);
+    return se_ListProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilesCommandOutput> {
-    return deserializeAws_restJson1ListProfilesCommand(output, context);
+    return de_ListProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBProxyRequest, CreateDBProxyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBProxyCommand,
-  serializeAws_queryCreateDBProxyCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBProxyCommand, se_CreateDBProxyCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -154,14 +151,14 @@ export class CreateDBProxyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBProxyCommand(input, context);
+    return se_CreateDBProxyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBProxyCommandOutput> {
-    return deserializeAws_queryCreateDBProxyCommand(output, context);
+    return de_CreateDBProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

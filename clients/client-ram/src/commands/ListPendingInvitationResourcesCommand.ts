@@ -15,8 +15,8 @@ import {
 
 import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPendingInvitationResourcesCommand,
-  serializeAws_restJson1ListPendingInvitationResourcesCommand,
+  de_ListPendingInvitationResourcesCommand,
+  se_ListPendingInvitationResourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -157,7 +157,7 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     input: ListPendingInvitationResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPendingInvitationResourcesCommand(input, context);
+    return se_ListPendingInvitationResourcesCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPendingInvitationResourcesCommandOutput> {
-    return deserializeAws_restJson1ListPendingInvitationResourcesCommand(output, context);
+    return de_ListPendingInvitationResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

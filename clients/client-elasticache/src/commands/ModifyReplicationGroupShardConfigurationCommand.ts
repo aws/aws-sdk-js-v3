@@ -19,8 +19,8 @@ import {
   ModifyReplicationGroupShardConfigurationResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryModifyReplicationGroupShardConfigurationCommand,
-  serializeAws_queryModifyReplicationGroupShardConfigurationCommand,
+  de_ModifyReplicationGroupShardConfigurationCommand,
+  se_ModifyReplicationGroupShardConfigurationCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -184,7 +184,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     input: ModifyReplicationGroupShardConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(input, context);
+    return se_ModifyReplicationGroupShardConfigurationCommand(input, context);
   }
 
   /**
@@ -194,7 +194,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
-    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(output, context);
+    return de_ModifyReplicationGroupShardConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

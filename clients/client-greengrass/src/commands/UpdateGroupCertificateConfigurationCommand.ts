@@ -19,8 +19,8 @@ import {
   UpdateGroupCertificateConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand,
-  serializeAws_restJson1UpdateGroupCertificateConfigurationCommand,
+  de_UpdateGroupCertificateConfigurationCommand,
+  se_UpdateGroupCertificateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     input: UpdateGroupCertificateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupCertificateConfigurationCommand(input, context);
+    return se_UpdateGroupCertificateConfigurationCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand(output, context);
+    return de_UpdateGroupCertificateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

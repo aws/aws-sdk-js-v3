@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBInstanceCommand,
-  serializeAws_queryCreateDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -212,25 +209,112 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *             with the DB instance.</p>
  *
  *
- * @example To create a DB instance.
+ * @example To create a DB instance
  * ```javascript
- * // This example creates a DB instance.
+ * // The following example uses the required options to launch a new DB instance.
  * const input = {
- *   "AllocatedStorage": 5,
- *   "DBInstanceClass": "db.t2.micro",
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "Engine": "MySQL",
- *   "MasterUserPassword": "MyPassword",
- *   "MasterUsername": "MyUser"
+ *   "AllocatedStorage": 20,
+ *   "DBInstanceClass": "db.t3.micro",
+ *   "DBInstanceIdentifier": "test-mysql-instance",
+ *   "Engine": "mysql",
+ *   "MasterUserPassword": "secret99",
+ *   "MasterUsername": "admin"
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "AllocatedStorage": 20,
+ *     "AssociatedRoles": [],
+ *     "AutoMinorVersionUpgrade": true,
+ *     "BackupRetentionPeriod": 1,
+ *     "CACertificateIdentifier": "rds-ca-2019",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:test-mysql-instance",
+ *     "DBInstanceClass": "db.t3.micro",
+ *     "DBInstanceIdentifier": "test-mysql-instance",
+ *     "DBInstanceStatus": "creating",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "default.mysql5.7",
+ *         "ParameterApplyStatus": "in-sync"
+ *       }
+ *     ],
+ *     "DBSecurityGroups": [],
+ *     "DBSubnetGroup": {
+ *       "DBSubnetGroupDescription": "default",
+ *       "DBSubnetGroupName": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2c"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2d"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2a"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2b"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-2ff2ff2f"
+ *     },
+ *     "DbInstancePort": 0,
+ *     "DbiResourceId": "db-5555EXAMPLE44444444EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.7.22",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "MonitoringInterval": 0,
+ *     "MultiAZ": false,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "default:mysql-5-7",
+ *         "Status": "in-sync"
+ *       }
+ *     ],
+ *     "PendingModifiedValues": {
+ *       "MasterUserPassword": "****"
+ *     },
+ *     "PerformanceInsightsEnabled": false,
+ *     "PreferredBackupWindow": "12:55-13:25",
+ *     "PreferredMaintenanceWindow": "sun:08:07-sun:08:37",
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "StorageEncrypted": false,
+ *     "StorageType": "gp2",
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-12345abc"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: create-db-instance-57eb5d16-8bf8-4c84-9709-1700322b37b9
+ * // example id: to-create-a-db-instance-1679703299533
  * ```
  *
  */
@@ -297,14 +381,14 @@ export class CreateDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBInstanceCommand(input, context);
+    return se_CreateDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceCommand(output, context);
+    return de_CreateDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

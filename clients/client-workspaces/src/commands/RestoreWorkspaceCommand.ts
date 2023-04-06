@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RestoreWorkspaceRequest, RestoreWorkspaceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreWorkspaceCommand,
-  serializeAws_json1_1RestoreWorkspaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreWorkspaceCommand, se_RestoreWorkspaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -139,14 +136,14 @@ export class RestoreWorkspaceCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreWorkspaceCommand(input, context);
+    return se_RestoreWorkspaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreWorkspaceCommandOutput> {
-    return deserializeAws_json1_1RestoreWorkspaceCommand(output, context);
+    return de_RestoreWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

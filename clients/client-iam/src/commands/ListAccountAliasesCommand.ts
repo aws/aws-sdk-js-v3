@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListAccountAliasesCommand,
-  serializeAws_queryListAccountAliasesCommand,
-} from "../protocols/Aws_query";
+import { de_ListAccountAliasesCommand, se_ListAccountAliasesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListAccountAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAccountAliasesCommand(input, context);
+    return se_ListAccountAliasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAliasesCommandOutput> {
-    return deserializeAws_queryListAccountAliasesCommand(output, context);
+    return de_ListAccountAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

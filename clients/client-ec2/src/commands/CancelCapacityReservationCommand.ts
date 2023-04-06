@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelCapacityReservationCommand,
-  serializeAws_ec2CancelCapacityReservationCommand,
-} from "../protocols/Aws_ec2";
+import { de_CancelCapacityReservationCommand, se_CancelCapacityReservationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class CancelCapacityReservationCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelCapacityReservationCommand(input, context);
+    return se_CancelCapacityReservationCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class CancelCapacityReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCapacityReservationCommandOutput> {
-    return deserializeAws_ec2CancelCapacityReservationCommand(output, context);
+    return de_CancelCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

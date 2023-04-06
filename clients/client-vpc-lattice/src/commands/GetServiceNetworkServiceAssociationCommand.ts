@@ -18,8 +18,8 @@ import {
   GetServiceNetworkServiceAssociationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetServiceNetworkServiceAssociationCommand,
-  serializeAws_restJson1GetServiceNetworkServiceAssociationCommand,
+  de_GetServiceNetworkServiceAssociationCommand,
+  se_GetServiceNetworkServiceAssociationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -145,7 +145,7 @@ export class GetServiceNetworkServiceAssociationCommand extends $Command<
     input: GetServiceNetworkServiceAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceNetworkServiceAssociationCommand(input, context);
+    return se_GetServiceNetworkServiceAssociationCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class GetServiceNetworkServiceAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceNetworkServiceAssociationCommandOutput> {
-    return deserializeAws_restJson1GetServiceNetworkServiceAssociationCommand(output, context);
+    return de_GetServiceNetworkServiceAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

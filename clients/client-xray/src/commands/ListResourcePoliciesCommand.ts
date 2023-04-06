@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourcePoliciesRequest, ListResourcePoliciesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourcePoliciesCommand,
-  serializeAws_restJson1ListResourcePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResourcePoliciesCommand, se_ListResourcePoliciesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -126,14 +123,14 @@ export class ListResourcePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourcePoliciesCommand(input, context);
+    return se_ListResourcePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcePoliciesCommandOutput> {
-    return deserializeAws_restJson1ListResourcePoliciesCommand(output, context);
+    return de_ListResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

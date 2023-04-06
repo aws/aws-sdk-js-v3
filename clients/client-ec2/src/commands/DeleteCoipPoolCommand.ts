@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteCoipPoolRequest, DeleteCoipPoolResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteCoipPoolCommand, serializeAws_ec2DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
+import { de_DeleteCoipPoolCommand, se_DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -118,14 +118,14 @@ export class DeleteCoipPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCoipPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteCoipPoolCommand(input, context);
+    return se_DeleteCoipPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipPoolCommandOutput> {
-    return deserializeAws_ec2DeleteCoipPoolCommand(output, context);
+    return de_DeleteCoipPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

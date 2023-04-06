@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGatewayCommand,
-  serializeAws_json1_1DeleteGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -159,14 +156,14 @@ export class DeleteGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGatewayCommand(input, context);
+    return se_DeleteGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteGatewayCommand(output, context);
+    return de_DeleteGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

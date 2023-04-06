@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTraceSummariesCommand,
-  serializeAws_restJson1GetTraceSummariesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTraceSummariesCommand, se_GetTraceSummariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -151,14 +148,14 @@ export class GetTraceSummariesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTraceSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTraceSummariesCommand(input, context);
+    return se_GetTraceSummariesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceSummariesCommandOutput> {
-    return deserializeAws_restJson1GetTraceSummariesCommand(output, context);
+    return de_GetTraceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

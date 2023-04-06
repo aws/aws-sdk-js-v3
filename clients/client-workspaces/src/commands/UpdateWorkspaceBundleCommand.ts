@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWorkspaceBundleCommand,
-  serializeAws_json1_1UpdateWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWorkspaceBundleCommand, se_UpdateWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -143,14 +140,14 @@ export class UpdateWorkspaceBundleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkspaceBundleCommand(input, context);
+    return se_UpdateWorkspaceBundleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkspaceBundleCommand(output, context);
+    return de_UpdateWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

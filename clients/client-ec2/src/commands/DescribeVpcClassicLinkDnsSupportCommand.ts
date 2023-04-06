@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
+  de_DescribeVpcClassicLinkDnsSupportCommand,
+  se_DescribeVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DescribeVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

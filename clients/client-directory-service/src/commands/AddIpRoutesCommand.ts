@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddIpRoutesCommand,
-  serializeAws_json1_1AddIpRoutesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddIpRoutesCommand, se_AddIpRoutesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class AddIpRoutesCommand extends $Command<
    * @internal
    */
   private serialize(input: AddIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddIpRoutesCommand(input, context);
+    return se_AddIpRoutesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddIpRoutesCommandOutput> {
-    return deserializeAws_json1_1AddIpRoutesCommand(output, context);
+    return de_AddIpRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

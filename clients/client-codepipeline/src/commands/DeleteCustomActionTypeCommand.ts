@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DeleteCustomActionTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomActionTypeCommand,
-  serializeAws_json1_1DeleteCustomActionTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCustomActionTypeCommand, se_DeleteCustomActionTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteCustomActionTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomActionTypeCommand(input, context);
+    return se_DeleteCustomActionTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomActionTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomActionTypeCommand(output, context);
+    return de_DeleteCustomActionTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

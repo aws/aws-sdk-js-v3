@@ -19,10 +19,7 @@ import {
   ListProxySessionsResponse,
   ListProxySessionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProxySessionsCommand,
-  serializeAws_restJson1ListProxySessionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProxySessionsCommand, se_ListProxySessionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListProxySessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProxySessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProxySessionsCommand(input, context);
+    return se_ListProxySessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProxySessionsCommandOutput> {
-    return deserializeAws_restJson1ListProxySessionsCommand(output, context);
+    return de_ListProxySessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

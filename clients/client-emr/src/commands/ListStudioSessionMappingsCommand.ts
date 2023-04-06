@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListStudioSessionMappingsInput, ListStudioSessionMappingsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStudioSessionMappingsCommand,
-  serializeAws_json1_1ListStudioSessionMappingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListStudioSessionMappingsCommand, se_ListStudioSessionMappingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class ListStudioSessionMappingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStudioSessionMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudioSessionMappingsCommand(input, context);
+    return se_ListStudioSessionMappingsCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class ListStudioSessionMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStudioSessionMappingsCommandOutput> {
-    return deserializeAws_json1_1ListStudioSessionMappingsCommand(output, context);
+    return de_ListStudioSessionMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

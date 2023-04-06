@@ -19,8 +19,8 @@ import {
   BatchDisassociateAssessmentReportEvidenceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
-  serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
+  de_BatchDisassociateAssessmentReportEvidenceCommand,
+  se_BatchDisassociateAssessmentReportEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     input: BatchDisassociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand(input, context);
+    return se_BatchDisassociateAssessmentReportEvidenceCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand(output, context);
+    return de_BatchDisassociateAssessmentReportEvidenceCommand(output, context);
   }
 
   // Start section: command_body_extra

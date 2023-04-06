@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { ListRepositoriesInput, ListRepositoriesOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListRepositoriesCommand,
-  serializeAws_json1_1ListRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListRepositoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRepositoriesCommand(input, context);
+    return se_ListRepositoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
-    return deserializeAws_json1_1ListRepositoriesCommand(output, context);
+    return de_ListRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

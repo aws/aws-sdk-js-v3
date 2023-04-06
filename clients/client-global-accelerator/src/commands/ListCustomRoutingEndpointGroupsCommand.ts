@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { ListCustomRoutingEndpointGroupsRequest, ListCustomRoutingEndpointGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand,
-  serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand,
+  de_ListCustomRoutingEndpointGroupsCommand,
+  se_ListCustomRoutingEndpointGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command<
     input: ListCustomRoutingEndpointGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand(input, context);
+    return se_ListCustomRoutingEndpointGroupsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingEndpointGroupsCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand(output, context);
+    return de_ListCustomRoutingEndpointGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

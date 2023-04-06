@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteSubnetCidrReservationCommand,
-  serializeAws_ec2DeleteSubnetCidrReservationCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteSubnetCidrReservationCommand, se_DeleteSubnetCidrReservationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,7 +118,7 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubnetCidrReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSubnetCidrReservationCommand(input, context);
+    return se_DeleteSubnetCidrReservationCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubnetCidrReservationCommandOutput> {
-    return deserializeAws_ec2DeleteSubnetCidrReservationCommand(output, context);
+    return de_DeleteSubnetCidrReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

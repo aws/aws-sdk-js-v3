@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetSerialConsoleAccessStatusRequest, GetSerialConsoleAccessStatusResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetSerialConsoleAccessStatusCommand,
-  serializeAws_ec2GetSerialConsoleAccessStatusCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetSerialConsoleAccessStatusCommand, se_GetSerialConsoleAccessStatusCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSerialConsoleAccessStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetSerialConsoleAccessStatusCommand(input, context);
+    return se_GetSerialConsoleAccessStatusCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSerialConsoleAccessStatusCommandOutput> {
-    return deserializeAws_ec2GetSerialConsoleAccessStatusCommand(output, context);
+    return de_GetSerialConsoleAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

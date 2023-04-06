@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { ListVirtualServicesInput, ListVirtualServicesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualServicesCommand,
-  serializeAws_restJson1ListVirtualServicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVirtualServicesCommand, se_ListVirtualServicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListVirtualServicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVirtualServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualServicesCommand(input, context);
+    return se_ListVirtualServicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualServicesCommandOutput> {
-    return deserializeAws_restJson1ListVirtualServicesCommand(output, context);
+    return de_ListVirtualServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

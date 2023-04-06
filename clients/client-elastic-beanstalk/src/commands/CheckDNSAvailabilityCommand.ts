@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
-import {
-  deserializeAws_queryCheckDNSAvailabilityCommand,
-  serializeAws_queryCheckDNSAvailabilityCommand,
-} from "../protocols/Aws_query";
+import { de_CheckDNSAvailabilityCommand, se_CheckDNSAvailabilityCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class CheckDNSAvailabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: CheckDNSAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCheckDNSAvailabilityCommand(input, context);
+    return se_CheckDNSAvailabilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckDNSAvailabilityCommandOutput> {
-    return deserializeAws_queryCheckDNSAvailabilityCommand(output, context);
+    return de_CheckDNSAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand,
-  serializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  de_EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  se_EnableAwsNetworkPerformanceMetricSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
+    return se_EnableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> {
-    return deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand(output, context);
+    return de_EnableAwsNetworkPerformanceMetricSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

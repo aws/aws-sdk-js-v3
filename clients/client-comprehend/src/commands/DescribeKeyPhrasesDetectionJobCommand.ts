@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
+  de_DescribeKeyPhrasesDetectionJobCommand,
+  se_DescribeKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     input: DescribeKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(input, context);
+    return se_DescribeKeyPhrasesDetectionJobCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(output, context);
+    return de_DescribeKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

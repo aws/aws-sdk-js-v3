@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInsightCommand,
-  serializeAws_restJson1DeleteInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInsightCommand, se_DeleteInsightCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteInsightCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInsightCommand(input, context);
+    return se_DeleteInsightCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightCommandOutput> {
-    return deserializeAws_restJson1DeleteInsightCommand(output, context);
+    return de_DeleteInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

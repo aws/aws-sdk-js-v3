@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { ApiKey, CreateApiKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApiKeyCommand,
-  serializeAws_restJson1CreateApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApiKeyCommand, se_CreateApiKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateApiKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApiKeyCommand(input, context);
+    return se_CreateApiKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiKeyCommandOutput> {
-    return deserializeAws_restJson1CreateApiKeyCommand(output, context);
+    return de_CreateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

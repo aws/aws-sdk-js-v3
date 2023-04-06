@@ -19,10 +19,7 @@ import {
   NotifyObjectCompleteInputFilterSensitiveLog,
   NotifyObjectCompleteOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1NotifyObjectCompleteCommand,
-  serializeAws_restJson1NotifyObjectCompleteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_NotifyObjectCompleteCommand, se_NotifyObjectCompleteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class NotifyObjectCompleteCommand extends $Command<
    * @internal
    */
   private serialize(input: NotifyObjectCompleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1NotifyObjectCompleteCommand(input, context);
+    return se_NotifyObjectCompleteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyObjectCompleteCommandOutput> {
-    return deserializeAws_restJson1NotifyObjectCompleteCommand(output, context);
+    return de_NotifyObjectCompleteCommand(output, context);
   }
 
   // Start section: command_body_extra

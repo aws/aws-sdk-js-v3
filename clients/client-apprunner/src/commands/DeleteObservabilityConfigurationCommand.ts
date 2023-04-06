@@ -16,8 +16,8 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DeleteObservabilityConfigurationRequest, DeleteObservabilityConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteObservabilityConfigurationCommand,
-  serializeAws_json1_0DeleteObservabilityConfigurationCommand,
+  de_DeleteObservabilityConfigurationCommand,
+  se_DeleteObservabilityConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -135,7 +135,7 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
     input: DeleteObservabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteObservabilityConfigurationCommand(input, context);
+    return se_DeleteObservabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteObservabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_0DeleteObservabilityConfigurationCommand(output, context);
+    return de_DeleteObservabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

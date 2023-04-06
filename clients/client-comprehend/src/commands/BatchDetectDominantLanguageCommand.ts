@@ -20,10 +20,7 @@ import {
   BatchDetectDominantLanguageResponse,
   BatchDetectDominantLanguageResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectDominantLanguageCommand,
-  serializeAws_json1_1BatchDetectDominantLanguageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectDominantLanguageCommand, se_BatchDetectDominantLanguageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class BatchDetectDominantLanguageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDetectDominantLanguageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectDominantLanguageCommand(input, context);
+    return se_BatchDetectDominantLanguageCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDetectDominantLanguageCommandOutput> {
-    return deserializeAws_json1_1BatchDetectDominantLanguageCommand(output, context);
+    return de_BatchDetectDominantLanguageCommand(output, context);
   }
 
   // Start section: command_body_extra

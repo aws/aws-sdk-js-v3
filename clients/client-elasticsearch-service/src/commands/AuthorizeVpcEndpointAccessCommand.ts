@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
-  serializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AuthorizeVpcEndpointAccessCommand, se_AuthorizeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AuthorizeVpcEndpointAccessCommand(input, context);
+    return se_AuthorizeVpcEndpointAccessCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand(output, context);
+    return de_AuthorizeVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteProductInput, DeleteProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProductCommand,
-  serializeAws_json1_1DeleteProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProductCommand, se_DeleteProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteProductCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProductCommand(input, context);
+    return se_DeleteProductCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProductCommandOutput> {
-    return deserializeAws_json1_1DeleteProductCommand(output, context);
+    return de_DeleteProductCommand(output, context);
   }
 
   // Start section: command_body_extra

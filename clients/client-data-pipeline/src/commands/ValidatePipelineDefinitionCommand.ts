@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ValidatePipelineDefinitionCommand,
-  serializeAws_json1_1ValidatePipelineDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ValidatePipelineDefinitionCommand, se_ValidatePipelineDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -313,7 +310,7 @@ export class ValidatePipelineDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidatePipelineDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidatePipelineDefinitionCommand(input, context);
+    return se_ValidatePipelineDefinitionCommand(input, context);
   }
 
   /**
@@ -323,7 +320,7 @@ export class ValidatePipelineDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidatePipelineDefinitionCommandOutput> {
-    return deserializeAws_json1_1ValidatePipelineDefinitionCommand(output, context);
+    return de_ValidatePipelineDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

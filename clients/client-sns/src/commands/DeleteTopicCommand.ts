@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTopicInput } from "../models/models_0";
-import { deserializeAws_queryDeleteTopicCommand, serializeAws_queryDeleteTopicCommand } from "../protocols/Aws_query";
+import { de_DeleteTopicCommand, se_DeleteTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -143,14 +143,14 @@ export class DeleteTopicCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTopicCommand(input, context);
+    return se_DeleteTopicCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTopicCommandOutput> {
-    return deserializeAws_queryDeleteTopicCommand(output, context);
+    return de_DeleteTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

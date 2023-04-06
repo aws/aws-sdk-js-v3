@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApiCacheCommand,
-  serializeAws_restJson1DeleteApiCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApiCacheCommand, se_DeleteApiCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteApiCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApiCacheCommand(input, context);
+    return se_DeleteApiCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiCacheCommandOutput> {
-    return deserializeAws_restJson1DeleteApiCacheCommand(output, context);
+    return de_DeleteApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

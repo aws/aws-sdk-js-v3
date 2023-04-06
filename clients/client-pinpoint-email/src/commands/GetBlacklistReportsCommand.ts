@@ -15,10 +15,7 @@ import {
 
 import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1GetBlacklistReportsCommand,
-  serializeAws_restJson1GetBlacklistReportsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBlacklistReportsCommand, se_GetBlacklistReportsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetBlacklistReportsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBlacklistReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBlacklistReportsCommand(input, context);
+    return se_GetBlacklistReportsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlacklistReportsCommandOutput> {
-    return deserializeAws_restJson1GetBlacklistReportsCommand(output, context);
+    return de_GetBlacklistReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

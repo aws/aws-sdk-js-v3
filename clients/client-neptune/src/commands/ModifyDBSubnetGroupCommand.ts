@@ -15,10 +15,7 @@ import {
 
 import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBSubnetGroupCommand,
-  serializeAws_queryModifyDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBSubnetGroupCommand, se_ModifyDBSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ModifyDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSubnetGroupCommand(input, context);
+    return se_ModifyDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBSubnetGroupCommand(output, context);
+    return de_ModifyDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

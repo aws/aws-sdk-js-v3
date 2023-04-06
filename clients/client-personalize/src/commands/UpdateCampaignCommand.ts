@@ -15,10 +15,7 @@ import {
 
 import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1UpdateCampaignCommand,
-  serializeAws_json1_1UpdateCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCampaignCommand, se_UpdateCampaignCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCampaignCommand(input, context);
+    return se_UpdateCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
-    return deserializeAws_json1_1UpdateCampaignCommand(output, context);
+    return de_UpdateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

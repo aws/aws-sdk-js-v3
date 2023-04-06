@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { UpdateMembershipInput, UpdateMembershipOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMembershipCommand,
-  serializeAws_restJson1UpdateMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMembershipCommand, se_UpdateMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMembershipCommand(input, context);
+    return se_UpdateMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMembershipCommandOutput> {
-    return deserializeAws_restJson1UpdateMembershipCommand(output, context);
+    return de_UpdateMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

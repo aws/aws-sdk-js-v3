@@ -19,10 +19,7 @@ import {
   DescribeDocumentClassifierResponse,
   DescribeDocumentClassifierResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDocumentClassifierCommand,
-  serializeAws_json1_1DescribeDocumentClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDocumentClassifierCommand, se_DescribeDocumentClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DescribeDocumentClassifierCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentClassifierCommand(input, context);
+    return se_DescribeDocumentClassifierCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeDocumentClassifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentClassifierCommand(output, context);
+    return de_DescribeDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

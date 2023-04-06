@@ -15,7 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DeleteACLRequest, DeleteACLResponse } from "../models/models_0";
-import { deserializeAws_json1_1DeleteACLCommand, serializeAws_json1_1DeleteACLCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteACLCommand, se_DeleteACLCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +124,14 @@ export class DeleteACLCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteACLCommand(input, context);
+    return se_DeleteACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteACLCommandOutput> {
-    return deserializeAws_json1_1DeleteACLCommand(output, context);
+    return de_DeleteACLCommand(output, context);
   }
 
   // Start section: command_body_extra

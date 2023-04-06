@@ -19,8 +19,8 @@ import {
   DisassociateUserFromPermissionGroupResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
-  serializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
+  de_DisassociateUserFromPermissionGroupCommand,
+  se_DisassociateUserFromPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     input: DisassociateUserFromPermissionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserFromPermissionGroupCommand(input, context);
+    return se_DisassociateUserFromPermissionGroupCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateUserFromPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserFromPermissionGroupCommand(output, context);
+    return de_DisassociateUserFromPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

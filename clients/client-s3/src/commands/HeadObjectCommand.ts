@@ -20,10 +20,7 @@ import {
   HeadObjectRequest,
   HeadObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlHeadObjectCommand,
-  serializeAws_restXmlHeadObjectCommand,
-} from "../protocols/Aws_restXml";
+import { de_HeadObjectCommand, se_HeadObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -281,14 +278,14 @@ export class HeadObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: HeadObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHeadObjectCommand(input, context);
+    return se_HeadObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadObjectCommandOutput> {
-    return deserializeAws_restXmlHeadObjectCommand(output, context);
+    return de_HeadObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

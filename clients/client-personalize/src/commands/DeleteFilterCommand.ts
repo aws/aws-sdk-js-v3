@@ -15,10 +15,7 @@ import {
 
 import { DeleteFilterRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteFilterCommand,
-  serializeAws_json1_1DeleteFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFilterCommand, se_DeleteFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFilterCommand(input, context);
+    return se_DeleteFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteFilterCommand(output, context);
+    return de_DeleteFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

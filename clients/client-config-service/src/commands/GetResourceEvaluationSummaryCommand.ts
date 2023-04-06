@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetResourceEvaluationSummaryRequest, GetResourceEvaluationSummaryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetResourceEvaluationSummaryCommand,
-  serializeAws_json1_1GetResourceEvaluationSummaryCommand,
+  de_GetResourceEvaluationSummaryCommand,
+  se_GetResourceEvaluationSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -131,7 +131,7 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceEvaluationSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceEvaluationSummaryCommand(input, context);
+    return se_GetResourceEvaluationSummaryCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceEvaluationSummaryCommandOutput> {
-    return deserializeAws_json1_1GetResourceEvaluationSummaryCommand(output, context);
+    return de_GetResourceEvaluationSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

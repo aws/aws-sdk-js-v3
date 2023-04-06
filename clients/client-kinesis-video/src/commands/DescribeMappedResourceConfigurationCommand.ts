@@ -19,8 +19,8 @@ import {
   DescribeMappedResourceConfigurationOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMappedResourceConfigurationCommand,
-  serializeAws_restJson1DescribeMappedResourceConfigurationCommand,
+  de_DescribeMappedResourceConfigurationCommand,
+  se_DescribeMappedResourceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     input: DescribeMappedResourceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMappedResourceConfigurationCommand(input, context);
+    return se_DescribeMappedResourceConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMappedResourceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeMappedResourceConfigurationCommand(output, context);
+    return de_DescribeMappedResourceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

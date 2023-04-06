@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CreateVolumeFromBackupRequest, CreateVolumeFromBackupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVolumeFromBackupCommand,
-  serializeAws_json1_1CreateVolumeFromBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateVolumeFromBackupCommand, se_CreateVolumeFromBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class CreateVolumeFromBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVolumeFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVolumeFromBackupCommand(input, context);
+    return se_CreateVolumeFromBackupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeFromBackupCommandOutput> {
-    return deserializeAws_json1_1CreateVolumeFromBackupCommand(output, context);
+    return de_CreateVolumeFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

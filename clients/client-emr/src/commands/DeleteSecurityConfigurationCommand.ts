@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSecurityConfigurationCommand,
-  serializeAws_json1_1DeleteSecurityConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSecurityConfigurationCommand, se_DeleteSecurityConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class DeleteSecurityConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSecurityConfigurationCommand(input, context);
+    return se_DeleteSecurityConfigurationCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommand(output, context);
+    return de_DeleteSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeTrunkInterfaceAssociationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
-  serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
+  de_DescribeTrunkInterfaceAssociationsCommand,
+  se_DescribeTrunkInterfaceAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     input: DescribeTrunkInterfaceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand(input, context);
+    return se_DescribeTrunkInterfaceAssociationsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand(output, context);
+    return de_DescribeTrunkInterfaceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

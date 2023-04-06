@@ -19,8 +19,8 @@ import {
   DescribeReservedInstancesOfferingsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeReservedInstancesOfferingsCommand,
-  serializeAws_ec2DescribeReservedInstancesOfferingsCommand,
+  de_DescribeReservedInstancesOfferingsCommand,
+  se_DescribeReservedInstancesOfferingsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -154,7 +154,7 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     input: DescribeReservedInstancesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReservedInstancesOfferingsCommand(input, context);
+    return se_DescribeReservedInstancesOfferingsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeReservedInstancesOfferingsCommand(output, context);
+    return de_DescribeReservedInstancesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

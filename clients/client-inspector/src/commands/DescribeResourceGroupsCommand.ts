@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourceGroupsCommand,
-  serializeAws_json1_1DescribeResourceGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeResourceGroupsCommand, se_DescribeResourceGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class DescribeResourceGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResourceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourceGroupsCommand(input, context);
+    return se_DescribeResourceGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourceGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeResourceGroupsCommand(output, context);
+    return de_DescribeResourceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

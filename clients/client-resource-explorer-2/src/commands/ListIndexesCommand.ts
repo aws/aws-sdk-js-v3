@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListIndexesInput, ListIndexesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIndexesCommand,
-  serializeAws_restJson1ListIndexesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIndexesCommand, se_ListIndexesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -144,14 +141,14 @@ export class ListIndexesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIndexesCommand(input, context);
+    return se_ListIndexesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndexesCommandOutput> {
-    return deserializeAws_restJson1ListIndexesCommand(output, context);
+    return de_ListIndexesCommand(output, context);
   }
 
   // Start section: command_body_extra

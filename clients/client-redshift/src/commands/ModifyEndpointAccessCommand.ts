@@ -15,10 +15,7 @@ import {
 
 import { EndpointAccess } from "../models/models_0";
 import { ModifyEndpointAccessMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyEndpointAccessCommand,
-  serializeAws_queryModifyEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyEndpointAccessCommand, se_ModifyEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -143,14 +140,14 @@ export class ModifyEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyEndpointAccessCommand(input, context);
+    return se_ModifyEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEndpointAccessCommandOutput> {
-    return deserializeAws_queryModifyEndpointAccessCommand(output, context);
+    return de_ModifyEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

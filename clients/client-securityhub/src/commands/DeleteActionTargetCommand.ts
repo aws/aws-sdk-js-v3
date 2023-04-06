@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteActionTargetRequest, DeleteActionTargetResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteActionTargetCommand,
-  serializeAws_restJson1DeleteActionTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteActionTargetCommand, se_DeleteActionTargetCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteActionTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteActionTargetCommand(input, context);
+    return se_DeleteActionTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActionTargetCommandOutput> {
-    return deserializeAws_restJson1DeleteActionTargetCommand(output, context);
+    return de_DeleteActionTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

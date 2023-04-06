@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateClusterSecurityGroupMessage, CreateClusterSecurityGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterSecurityGroupCommand,
-  serializeAws_queryCreateClusterSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateClusterSecurityGroupCommand, se_CreateClusterSecurityGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -148,7 +145,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterSecurityGroupCommand(input, context);
+    return se_CreateClusterSecurityGroupCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryCreateClusterSecurityGroupCommand(output, context);
+    return de_CreateClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

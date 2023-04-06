@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlChangeTagsForResourceCommand,
-  serializeAws_restXmlChangeTagsForResourceCommand,
-} from "../protocols/Aws_restXml";
+import { de_ChangeTagsForResourceCommand, se_ChangeTagsForResourceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -176,14 +173,14 @@ export class ChangeTagsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangeTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlChangeTagsForResourceCommand(input, context);
+    return se_ChangeTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeTagsForResourceCommandOutput> {
-    return deserializeAws_restXmlChangeTagsForResourceCommand(output, context);
+    return de_ChangeTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

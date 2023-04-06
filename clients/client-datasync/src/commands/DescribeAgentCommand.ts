@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeAgentRequest, DescribeAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAgentCommand,
-  serializeAws_json1_1DescribeAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAgentCommand, se_DescribeAgentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DescribeAgentCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgentCommand(input, context);
+    return se_DescribeAgentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentCommandOutput> {
-    return deserializeAws_json1_1DescribeAgentCommand(output, context);
+    return de_DescribeAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

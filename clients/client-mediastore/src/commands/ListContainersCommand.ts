@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { ListContainersInput, ListContainersOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListContainersCommand,
-  serializeAws_json1_1ListContainersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListContainersCommand, se_ListContainersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListContainersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListContainersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListContainersCommand(input, context);
+    return se_ListContainersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContainersCommandOutput> {
-    return deserializeAws_json1_1ListContainersCommand(output, context);
+    return de_ListContainersCommand(output, context);
   }
 
   // Start section: command_body_extra

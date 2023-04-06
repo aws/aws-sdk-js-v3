@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeCustomerMetadataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCustomerMetadataCommand,
-  serializeAws_json1_1DescribeCustomerMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCustomerMetadataCommand, se_DescribeCustomerMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DescribeCustomerMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCustomerMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCustomerMetadataCommand(input, context);
+    return se_DescribeCustomerMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomerMetadataCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomerMetadataCommand(output, context);
+    return de_DescribeCustomerMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

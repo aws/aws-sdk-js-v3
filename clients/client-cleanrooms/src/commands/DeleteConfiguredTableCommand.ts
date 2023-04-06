@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { DeleteConfiguredTableInput, DeleteConfiguredTableOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfiguredTableCommand,
-  serializeAws_restJson1DeleteConfiguredTableCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConfiguredTableCommand, se_DeleteConfiguredTableCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteConfiguredTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfiguredTableCommand(input, context);
+    return se_DeleteConfiguredTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfiguredTableCommandOutput> {
-    return deserializeAws_restJson1DeleteConfiguredTableCommand(output, context);
+    return de_DeleteConfiguredTableCommand(output, context);
   }
 
   // Start section: command_body_extra

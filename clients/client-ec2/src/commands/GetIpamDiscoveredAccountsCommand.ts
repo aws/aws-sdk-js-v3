@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetIpamDiscoveredAccountsRequest, GetIpamDiscoveredAccountsResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetIpamDiscoveredAccountsCommand,
-  serializeAws_ec2GetIpamDiscoveredAccountsCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetIpamDiscoveredAccountsCommand, se_GetIpamDiscoveredAccountsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class GetIpamDiscoveredAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIpamDiscoveredAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetIpamDiscoveredAccountsCommand(input, context);
+    return se_GetIpamDiscoveredAccountsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class GetIpamDiscoveredAccountsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIpamDiscoveredAccountsCommandOutput> {
-    return deserializeAws_ec2GetIpamDiscoveredAccountsCommand(output, context);
+    return de_GetIpamDiscoveredAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

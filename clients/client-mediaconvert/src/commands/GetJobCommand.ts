@@ -16,7 +16,7 @@ import {
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { GetJobRequest } from "../models/models_1";
 import { GetJobResponse } from "../models/models_2";
-import { deserializeAws_restJson1GetJobCommand, serializeAws_restJson1GetJobCommand } from "../protocols/Aws_restJson1";
+import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
    * @internal
    */
   private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobCommand(input, context);
+    return se_GetJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
-    return deserializeAws_restJson1GetJobCommand(output, context);
+    return de_GetJobCommand(output, context);
   }
 
   // Start section: command_body_extra

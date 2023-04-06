@@ -16,8 +16,8 @@ import {
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCalculationExecutionStatusCommand,
-  serializeAws_json1_1GetCalculationExecutionStatusCommand,
+  de_GetCalculationExecutionStatusCommand,
+  se_GetCalculationExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -133,7 +133,7 @@ export class GetCalculationExecutionStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCalculationExecutionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCalculationExecutionStatusCommand(input, context);
+    return se_GetCalculationExecutionStatusCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class GetCalculationExecutionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCalculationExecutionStatusCommandOutput> {
-    return deserializeAws_json1_1GetCalculationExecutionStatusCommand(output, context);
+    return de_GetCalculationExecutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

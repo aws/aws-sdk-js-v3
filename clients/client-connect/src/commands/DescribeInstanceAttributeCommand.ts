@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInstanceAttributeCommand,
-  serializeAws_restJson1DescribeInstanceAttributeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DescribeInstanceAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceAttributeCommand(input, context);
+    return se_DescribeInstanceAttributeCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DescribeInstanceAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAttributeCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceAttributeCommand(output, context);
+    return de_DescribeInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

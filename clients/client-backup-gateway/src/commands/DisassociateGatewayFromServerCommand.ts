@@ -16,8 +16,8 @@ import {
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { DisassociateGatewayFromServerInput, DisassociateGatewayFromServerOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0DisassociateGatewayFromServerCommand,
-  serializeAws_json1_0DisassociateGatewayFromServerCommand,
+  de_DisassociateGatewayFromServerCommand,
+  se_DisassociateGatewayFromServerCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -139,7 +139,7 @@ export class DisassociateGatewayFromServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateGatewayFromServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateGatewayFromServerCommand(input, context);
+    return se_DisassociateGatewayFromServerCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DisassociateGatewayFromServerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateGatewayFromServerCommandOutput> {
-    return deserializeAws_json1_0DisassociateGatewayFromServerCommand(output, context);
+    return de_DisassociateGatewayFromServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { GetResourceCollectionRequest, GetResourceCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceCollectionCommand,
-  serializeAws_restJson1GetResourceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourceCollectionCommand, se_GetResourceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetResourceCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceCollectionCommand(input, context);
+    return se_GetResourceCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCollectionCommandOutput> {
-    return deserializeAws_restJson1GetResourceCollectionCommand(output, context);
+    return de_GetResourceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

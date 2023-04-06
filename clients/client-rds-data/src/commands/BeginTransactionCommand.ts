@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BeginTransactionRequest, BeginTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BeginTransactionCommand,
-  serializeAws_restJson1BeginTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BeginTransactionCommand, se_BeginTransactionCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
@@ -150,14 +147,14 @@ export class BeginTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: BeginTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BeginTransactionCommand(input, context);
+    return se_BeginTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BeginTransactionCommandOutput> {
-    return deserializeAws_restJson1BeginTransactionCommand(output, context);
+    return de_BeginTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
   GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand,
-  serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand,
+  de_GetRelationalDatabaseMasterUserPasswordCommand,
+  se_GetRelationalDatabaseMasterUserPasswordCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -171,7 +171,7 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     input: GetRelationalDatabaseMasterUserPasswordCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand(input, context);
+    return se_GetRelationalDatabaseMasterUserPasswordCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand(output, context);
+    return de_GetRelationalDatabaseMasterUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

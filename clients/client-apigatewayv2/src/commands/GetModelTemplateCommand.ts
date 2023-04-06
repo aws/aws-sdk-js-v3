@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetModelTemplateRequest, GetModelTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetModelTemplateCommand,
-  serializeAws_restJson1GetModelTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetModelTemplateCommand, se_GetModelTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetModelTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetModelTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetModelTemplateCommand(input, context);
+    return se_GetModelTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelTemplateCommandOutput> {
-    return deserializeAws_restJson1GetModelTemplateCommand(output, context);
+    return de_GetModelTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

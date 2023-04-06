@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopContinuousExportCommand,
-  serializeAws_json1_1StopContinuousExportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopContinuousExportCommand, se_StopContinuousExportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class StopContinuousExportCommand extends $Command<
    * @internal
    */
   private serialize(input: StopContinuousExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopContinuousExportCommand(input, context);
+    return se_StopContinuousExportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContinuousExportCommandOutput> {
-    return deserializeAws_json1_1StopContinuousExportCommand(output, context);
+    return de_StopContinuousExportCommand(output, context);
   }
 
   // Start section: command_body_extra

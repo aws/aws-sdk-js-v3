@@ -15,10 +15,7 @@ import {
 
 import { DeleteCampaignRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteCampaignCommand,
-  serializeAws_json1_1DeleteCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCampaignCommand, se_DeleteCampaignCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCampaignCommand(input, context);
+    return se_DeleteCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_json1_1DeleteCampaignCommand(output, context);
+    return de_DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { MergeShardsInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1MergeShardsCommand,
-  serializeAws_json1_1MergeShardsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MergeShardsCommand, se_MergeShardsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class MergeShardsCommand extends $Command<
    * @internal
    */
   private serialize(input: MergeShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeShardsCommand(input, context);
+    return se_MergeShardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeShardsCommandOutput> {
-    return deserializeAws_json1_1MergeShardsCommand(output, context);
+    return de_MergeShardsCommand(output, context);
   }
 
   // Start section: command_body_extra

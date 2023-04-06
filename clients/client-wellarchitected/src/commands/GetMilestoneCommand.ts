@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMilestoneInput, GetMilestoneOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMilestoneCommand,
-  serializeAws_restJson1GetMilestoneCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMilestoneCommand, se_GetMilestoneCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -134,14 +131,14 @@ export class GetMilestoneCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMilestoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMilestoneCommand(input, context);
+    return se_GetMilestoneCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMilestoneCommandOutput> {
-    return deserializeAws_restJson1GetMilestoneCommand(output, context);
+    return de_GetMilestoneCommand(output, context);
   }
 
   // Start section: command_body_extra

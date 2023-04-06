@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GrantFlowEntitlementsCommand,
-  serializeAws_restJson1GrantFlowEntitlementsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GrantFlowEntitlementsCommand, se_GrantFlowEntitlementsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class GrantFlowEntitlementsCommand extends $Command<
    * @internal
    */
   private serialize(input: GrantFlowEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GrantFlowEntitlementsCommand(input, context);
+    return se_GrantFlowEntitlementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantFlowEntitlementsCommandOutput> {
-    return deserializeAws_restJson1GrantFlowEntitlementsCommand(output, context);
+    return de_GrantFlowEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AssignInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AssignInstanceCommand,
-  serializeAws_json1_1AssignInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssignInstanceCommand, se_AssignInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class AssignInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssignInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssignInstanceCommand(input, context);
+    return se_AssignInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignInstanceCommandOutput> {
-    return deserializeAws_json1_1AssignInstanceCommand(output, context);
+    return de_AssignInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

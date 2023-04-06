@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteInstanceProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteInstanceProfileCommand,
-  serializeAws_queryDeleteInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class DeleteInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteInstanceProfileCommand(input, context);
+    return se_DeleteInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
-    return deserializeAws_queryDeleteInstanceProfileCommand(output, context);
+    return de_DeleteInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

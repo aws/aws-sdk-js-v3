@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeGameSessionsInput, DescribeGameSessionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionsCommand,
-  serializeAws_json1_1DescribeGameSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeGameSessionsCommand, se_DescribeGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class DescribeGameSessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionsCommand(input, context);
+    return se_DescribeGameSessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionsCommand(output, context);
+    return de_DescribeGameSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

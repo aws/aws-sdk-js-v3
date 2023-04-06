@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformVersionsCommand,
-  serializeAws_queryListPlatformVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_ListPlatformVersionsCommand, se_ListPlatformVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListPlatformVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlatformVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformVersionsCommand(input, context);
+    return se_ListPlatformVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformVersionsCommandOutput> {
-    return deserializeAws_queryListPlatformVersionsCommand(output, context);
+    return de_ListPlatformVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { GetEndpointRequest, GetEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEndpointCommand,
-  serializeAws_restJson1GetEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEndpointCommand, se_GetEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEndpointCommand(input, context);
+    return se_GetEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointCommandOutput> {
-    return deserializeAws_restJson1GetEndpointCommand(output, context);
+    return de_GetEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

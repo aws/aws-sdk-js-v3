@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetBatchPredictionJobsRequest, GetBatchPredictionJobsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBatchPredictionJobsCommand,
-  serializeAws_json1_1GetBatchPredictionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetBatchPredictionJobsCommand, se_GetBatchPredictionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetBatchPredictionJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBatchPredictionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBatchPredictionJobsCommand(input, context);
+    return se_GetBatchPredictionJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchPredictionJobsCommandOutput> {
-    return deserializeAws_json1_1GetBatchPredictionJobsCommand(output, context);
+    return de_GetBatchPredictionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

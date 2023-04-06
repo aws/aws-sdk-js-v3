@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ProvisionPermissionSetRequest, ProvisionPermissionSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ProvisionPermissionSetCommand,
-  serializeAws_json1_1ProvisionPermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ProvisionPermissionSetCommand, se_ProvisionPermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -147,14 +144,14 @@ export class ProvisionPermissionSetCommand extends $Command<
    * @internal
    */
   private serialize(input: ProvisionPermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ProvisionPermissionSetCommand(input, context);
+    return se_ProvisionPermissionSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionPermissionSetCommandOutput> {
-    return deserializeAws_json1_1ProvisionPermissionSetCommand(output, context);
+    return de_ProvisionPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

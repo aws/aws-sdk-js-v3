@@ -15,10 +15,7 @@ import {
 
 import { DeleteConnectPeerRequest, DeleteConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteConnectPeerCommand,
-  serializeAws_restJson1DeleteConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConnectPeerCommand, se_DeleteConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteConnectPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectPeerCommand(input, context);
+    return se_DeleteConnectPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectPeerCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectPeerCommand(output, context);
+    return de_DeleteConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

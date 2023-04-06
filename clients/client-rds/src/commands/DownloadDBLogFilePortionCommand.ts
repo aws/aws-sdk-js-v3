@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDownloadDBLogFilePortionCommand,
-  serializeAws_queryDownloadDBLogFilePortionCommand,
-} from "../protocols/Aws_query";
+import { de_DownloadDBLogFilePortionCommand, se_DownloadDBLogFilePortionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -68,16 +65,16 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  *
  *
- * @example To list information about DB log files
+ * @example To download a DB log file
  * ```javascript
- * // This example lists information for the specified log file for the specified DB instance.
+ * // The following example downloads only the latest part of your log file.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "LogFileName": "mysqlUpgrade"
+ *   "DBInstanceIdentifier": "test-instance",
+ *   "LogFileName": "log.txt"
  * };
  * const command = new DownloadDBLogFilePortionCommand(input);
  * await client.send(command);
- * // example id: download-db-log-file-portion-54a82731-a441-4fc7-a010-8eccae6fa202
+ * // example id: to-download-a-db-log-file-1680284895898
  * ```
  *
  */
@@ -144,14 +141,14 @@ export class DownloadDBLogFilePortionCommand extends $Command<
    * @internal
    */
   private serialize(input: DownloadDBLogFilePortionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDownloadDBLogFilePortionCommand(input, context);
+    return se_DownloadDBLogFilePortionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDBLogFilePortionCommandOutput> {
-    return deserializeAws_queryDownloadDBLogFilePortionCommand(output, context);
+    return de_DownloadDBLogFilePortionCommand(output, context);
   }
 
   // Start section: command_body_extra

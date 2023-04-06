@@ -15,10 +15,7 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { GetRegionOptStatusRequest, GetRegionOptStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRegionOptStatusCommand,
-  serializeAws_restJson1GetRegionOptStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRegionOptStatusCommand, se_GetRegionOptStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetRegionOptStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRegionOptStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRegionOptStatusCommand(input, context);
+    return se_GetRegionOptStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegionOptStatusCommandOutput> {
-    return deserializeAws_restJson1GetRegionOptStatusCommand(output, context);
+    return de_GetRegionOptStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateDataSourceRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDataSourceCommand,
-  serializeAws_json1_1UpdateDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -703,14 +700,14 @@ export class UpdateDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDataSourceCommand(input, context);
+    return se_UpdateDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
-    return deserializeAws_json1_1UpdateDataSourceCommand(output, context);
+    return de_UpdateDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

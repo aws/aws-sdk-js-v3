@@ -481,7 +481,10 @@ import {
 } from "../models/models_0";
 import { StorageGatewayServiceException as __BaseException } from "../models/StorageGatewayServiceException";
 
-export const serializeAws_json1_1ActivateGatewayCommand = async (
+/**
+ * serializeAws_json1_1ActivateGatewayCommand
+ */
+export const se_ActivateGatewayCommand = async (
   input: ActivateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -490,11 +493,14 @@ export const serializeAws_json1_1ActivateGatewayCommand = async (
     "x-amz-target": "StorageGateway_20130630.ActivateGateway",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ActivateGatewayInput(input, context));
+  body = JSON.stringify(se_ActivateGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddCacheCommand = async (
+/**
+ * serializeAws_json1_1AddCacheCommand
+ */
+export const se_AddCacheCommand = async (
   input: AddCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -503,11 +509,14 @@ export const serializeAws_json1_1AddCacheCommand = async (
     "x-amz-target": "StorageGateway_20130630.AddCache",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddCacheInput(input, context));
+  body = JSON.stringify(se_AddCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddTagsToResourceCommand = async (
+/**
+ * serializeAws_json1_1AddTagsToResourceCommand
+ */
+export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -516,11 +525,14 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
     "x-amz-target": "StorageGateway_20130630.AddTagsToResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddTagsToResourceInput(input, context));
+  body = JSON.stringify(se_AddTagsToResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddUploadBufferCommand = async (
+/**
+ * serializeAws_json1_1AddUploadBufferCommand
+ */
+export const se_AddUploadBufferCommand = async (
   input: AddUploadBufferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -529,11 +541,14 @@ export const serializeAws_json1_1AddUploadBufferCommand = async (
     "x-amz-target": "StorageGateway_20130630.AddUploadBuffer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddUploadBufferInput(input, context));
+  body = JSON.stringify(se_AddUploadBufferInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddWorkingStorageCommand = async (
+/**
+ * serializeAws_json1_1AddWorkingStorageCommand
+ */
+export const se_AddWorkingStorageCommand = async (
   input: AddWorkingStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,11 +557,14 @@ export const serializeAws_json1_1AddWorkingStorageCommand = async (
     "x-amz-target": "StorageGateway_20130630.AddWorkingStorage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddWorkingStorageInput(input, context));
+  body = JSON.stringify(se_AddWorkingStorageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssignTapePoolCommand = async (
+/**
+ * serializeAws_json1_1AssignTapePoolCommand
+ */
+export const se_AssignTapePoolCommand = async (
   input: AssignTapePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -555,11 +573,14 @@ export const serializeAws_json1_1AssignTapePoolCommand = async (
     "x-amz-target": "StorageGateway_20130630.AssignTapePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssignTapePoolInput(input, context));
+  body = JSON.stringify(se_AssignTapePoolInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateFileSystemCommand = async (
+/**
+ * serializeAws_json1_1AssociateFileSystemCommand
+ */
+export const se_AssociateFileSystemCommand = async (
   input: AssociateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -568,11 +589,14 @@ export const serializeAws_json1_1AssociateFileSystemCommand = async (
     "x-amz-target": "StorageGateway_20130630.AssociateFileSystem",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateFileSystemInput(input, context));
+  body = JSON.stringify(se_AssociateFileSystemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AttachVolumeCommand = async (
+/**
+ * serializeAws_json1_1AttachVolumeCommand
+ */
+export const se_AttachVolumeCommand = async (
   input: AttachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,11 +605,14 @@ export const serializeAws_json1_1AttachVolumeCommand = async (
     "x-amz-target": "StorageGateway_20130630.AttachVolume",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AttachVolumeInput(input, context));
+  body = JSON.stringify(se_AttachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelArchivalCommand = async (
+/**
+ * serializeAws_json1_1CancelArchivalCommand
+ */
+export const se_CancelArchivalCommand = async (
   input: CancelArchivalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -594,11 +621,14 @@ export const serializeAws_json1_1CancelArchivalCommand = async (
     "x-amz-target": "StorageGateway_20130630.CancelArchival",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelArchivalInput(input, context));
+  body = JSON.stringify(se_CancelArchivalInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelRetrievalCommand = async (
+/**
+ * serializeAws_json1_1CancelRetrievalCommand
+ */
+export const se_CancelRetrievalCommand = async (
   input: CancelRetrievalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -607,11 +637,14 @@ export const serializeAws_json1_1CancelRetrievalCommand = async (
     "x-amz-target": "StorageGateway_20130630.CancelRetrieval",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelRetrievalInput(input, context));
+  body = JSON.stringify(se_CancelRetrievalInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
+/**
+ * serializeAws_json1_1CreateCachediSCSIVolumeCommand
+ */
+export const se_CreateCachediSCSIVolumeCommand = async (
   input: CreateCachediSCSIVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -620,11 +653,14 @@ export const serializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateCachediSCSIVolume",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context));
+  body = JSON.stringify(se_CreateCachediSCSIVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateNFSFileShareCommand = async (
+/**
+ * serializeAws_json1_1CreateNFSFileShareCommand
+ */
+export const se_CreateNFSFileShareCommand = async (
   input: CreateNFSFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -633,11 +669,14 @@ export const serializeAws_json1_1CreateNFSFileShareCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateNFSFileShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateNFSFileShareInput(input, context));
+  body = JSON.stringify(se_CreateNFSFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSMBFileShareCommand = async (
+/**
+ * serializeAws_json1_1CreateSMBFileShareCommand
+ */
+export const se_CreateSMBFileShareCommand = async (
   input: CreateSMBFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -646,11 +685,14 @@ export const serializeAws_json1_1CreateSMBFileShareCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateSMBFileShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSMBFileShareInput(input, context));
+  body = JSON.stringify(se_CreateSMBFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSnapshotCommand = async (
+/**
+ * serializeAws_json1_1CreateSnapshotCommand
+ */
+export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -659,11 +701,14 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateSnapshot",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSnapshotInput(input, context));
+  body = JSON.stringify(se_CreateSnapshotInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = async (
+/**
+ * serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand
+ */
+export const se_CreateSnapshotFromVolumeRecoveryPointCommand = async (
   input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -672,11 +717,14 @@ export const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = 
     "x-amz-target": "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(input, context));
+  body = JSON.stringify(se_CreateSnapshotFromVolumeRecoveryPointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
+/**
+ * serializeAws_json1_1CreateStorediSCSIVolumeCommand
+ */
+export const se_CreateStorediSCSIVolumeCommand = async (
   input: CreateStorediSCSIVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -685,11 +733,14 @@ export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateStorediSCSIVolume",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context));
+  body = JSON.stringify(se_CreateStorediSCSIVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateTapePoolCommand = async (
+/**
+ * serializeAws_json1_1CreateTapePoolCommand
+ */
+export const se_CreateTapePoolCommand = async (
   input: CreateTapePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -698,11 +749,14 @@ export const serializeAws_json1_1CreateTapePoolCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateTapePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateTapePoolInput(input, context));
+  body = JSON.stringify(se_CreateTapePoolInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateTapesCommand = async (
+/**
+ * serializeAws_json1_1CreateTapesCommand
+ */
+export const se_CreateTapesCommand = async (
   input: CreateTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -711,11 +765,14 @@ export const serializeAws_json1_1CreateTapesCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateTapes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateTapesInput(input, context));
+  body = JSON.stringify(se_CreateTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
+/**
+ * serializeAws_json1_1CreateTapeWithBarcodeCommand
+ */
+export const se_CreateTapeWithBarcodeCommand = async (
   input: CreateTapeWithBarcodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -724,11 +781,14 @@ export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
     "x-amz-target": "StorageGateway_20130630.CreateTapeWithBarcode",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateTapeWithBarcodeInput(input, context));
+  body = JSON.stringify(se_CreateTapeWithBarcodeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand
+ */
+export const se_DeleteAutomaticTapeCreationPolicyCommand = async (
   input: DeleteAutomaticTapeCreationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -737,11 +797,14 @@ export const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = asyn
     "x-amz-target": "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput(input, context));
+  body = JSON.stringify(se_DeleteAutomaticTapeCreationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
+/**
+ * serializeAws_json1_1DeleteBandwidthRateLimitCommand
+ */
+export const se_DeleteBandwidthRateLimitCommand = async (
   input: DeleteBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -750,11 +813,14 @@ export const serializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteBandwidthRateLimit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context));
+  body = JSON.stringify(se_DeleteBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteChapCredentialsCommand = async (
+/**
+ * serializeAws_json1_1DeleteChapCredentialsCommand
+ */
+export const se_DeleteChapCredentialsCommand = async (
   input: DeleteChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -763,11 +829,14 @@ export const serializeAws_json1_1DeleteChapCredentialsCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteChapCredentials",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteChapCredentialsInput(input, context));
+  body = JSON.stringify(se_DeleteChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFileShareCommand = async (
+/**
+ * serializeAws_json1_1DeleteFileShareCommand
+ */
+export const se_DeleteFileShareCommand = async (
   input: DeleteFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -776,11 +845,14 @@ export const serializeAws_json1_1DeleteFileShareCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteFileShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFileShareInput(input, context));
+  body = JSON.stringify(se_DeleteFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGatewayCommand = async (
+/**
+ * serializeAws_json1_1DeleteGatewayCommand
+ */
+export const se_DeleteGatewayCommand = async (
   input: DeleteGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -789,11 +861,14 @@ export const serializeAws_json1_1DeleteGatewayCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteGateway",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGatewayInput(input, context));
+  body = JSON.stringify(se_DeleteGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSnapshotScheduleCommand = async (
+/**
+ * serializeAws_json1_1DeleteSnapshotScheduleCommand
+ */
+export const se_DeleteSnapshotScheduleCommand = async (
   input: DeleteSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -802,11 +877,14 @@ export const serializeAws_json1_1DeleteSnapshotScheduleCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteSnapshotSchedule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSnapshotScheduleInput(input, context));
+  body = JSON.stringify(se_DeleteSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTapeCommand = async (
+/**
+ * serializeAws_json1_1DeleteTapeCommand
+ */
+export const se_DeleteTapeCommand = async (
   input: DeleteTapeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -815,11 +893,14 @@ export const serializeAws_json1_1DeleteTapeCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteTape",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTapeInput(input, context));
+  body = JSON.stringify(se_DeleteTapeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
+/**
+ * serializeAws_json1_1DeleteTapeArchiveCommand
+ */
+export const se_DeleteTapeArchiveCommand = async (
   input: DeleteTapeArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -828,11 +909,14 @@ export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteTapeArchive",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTapeArchiveInput(input, context));
+  body = JSON.stringify(se_DeleteTapeArchiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTapePoolCommand = async (
+/**
+ * serializeAws_json1_1DeleteTapePoolCommand
+ */
+export const se_DeleteTapePoolCommand = async (
   input: DeleteTapePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -841,11 +925,14 @@ export const serializeAws_json1_1DeleteTapePoolCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteTapePool",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTapePoolInput(input, context));
+  body = JSON.stringify(se_DeleteTapePoolInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteVolumeCommand = async (
+/**
+ * serializeAws_json1_1DeleteVolumeCommand
+ */
+export const se_DeleteVolumeCommand = async (
   input: DeleteVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -854,11 +941,14 @@ export const serializeAws_json1_1DeleteVolumeCommand = async (
     "x-amz-target": "StorageGateway_20130630.DeleteVolume",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteVolumeInput(input, context));
+  body = JSON.stringify(se_DeleteVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async (
+/**
+ * serializeAws_json1_1DescribeAvailabilityMonitorTestCommand
+ */
+export const se_DescribeAvailabilityMonitorTestCommand = async (
   input: DescribeAvailabilityMonitorTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -867,11 +957,14 @@ export const serializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async 
     "x-amz-target": "StorageGateway_20130630.DescribeAvailabilityMonitorTest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context));
+  body = JSON.stringify(se_DescribeAvailabilityMonitorTestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
+/**
+ * serializeAws_json1_1DescribeBandwidthRateLimitCommand
+ */
+export const se_DescribeBandwidthRateLimitCommand = async (
   input: DescribeBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -880,11 +973,14 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeBandwidthRateLimit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context));
+  body = JSON.stringify(se_DescribeBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = async (
+/**
+ * serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand
+ */
+export const se_DescribeBandwidthRateLimitScheduleCommand = async (
   input: DescribeBandwidthRateLimitScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -893,11 +989,14 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = asy
     "x-amz-target": "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput(input, context));
+  body = JSON.stringify(se_DescribeBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCacheCommand = async (
+/**
+ * serializeAws_json1_1DescribeCacheCommand
+ */
+export const se_DescribeCacheCommand = async (
   input: DescribeCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -906,11 +1005,14 @@ export const serializeAws_json1_1DescribeCacheCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeCache",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCacheInput(input, context));
+  body = JSON.stringify(se_DescribeCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
+/**
+ * serializeAws_json1_1DescribeCachediSCSIVolumesCommand
+ */
+export const se_DescribeCachediSCSIVolumesCommand = async (
   input: DescribeCachediSCSIVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -919,11 +1021,14 @@ export const serializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeCachediSCSIVolumes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context));
+  body = JSON.stringify(se_DescribeCachediSCSIVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
+/**
+ * serializeAws_json1_1DescribeChapCredentialsCommand
+ */
+export const se_DescribeChapCredentialsCommand = async (
   input: DescribeChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -932,11 +1037,14 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeChapCredentials",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeChapCredentialsInput(input, context));
+  body = JSON.stringify(se_DescribeChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeFileSystemAssociationsCommand
+ */
+export const se_DescribeFileSystemAssociationsCommand = async (
   input: DescribeFileSystemAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -945,11 +1053,14 @@ export const serializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeFileSystemAssociations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeFileSystemAssociationsInput(input, context));
+  body = JSON.stringify(se_DescribeFileSystemAssociationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
+/**
+ * serializeAws_json1_1DescribeGatewayInformationCommand
+ */
+export const se_DescribeGatewayInformationCommand = async (
   input: DescribeGatewayInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -958,11 +1069,14 @@ export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeGatewayInformation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeGatewayInformationInput(input, context));
+  body = JSON.stringify(se_DescribeGatewayInformationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
+/**
+ * serializeAws_json1_1DescribeMaintenanceStartTimeCommand
+ */
+export const se_DescribeMaintenanceStartTimeCommand = async (
   input: DescribeMaintenanceStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -971,11 +1085,14 @@ export const serializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeMaintenanceStartTime",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context));
+  body = JSON.stringify(se_DescribeMaintenanceStartTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeNFSFileSharesCommand = async (
+/**
+ * serializeAws_json1_1DescribeNFSFileSharesCommand
+ */
+export const se_DescribeNFSFileSharesCommand = async (
   input: DescribeNFSFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -984,11 +1101,14 @@ export const serializeAws_json1_1DescribeNFSFileSharesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeNFSFileShares",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeNFSFileSharesInput(input, context));
+  body = JSON.stringify(se_DescribeNFSFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSMBFileSharesCommand = async (
+/**
+ * serializeAws_json1_1DescribeSMBFileSharesCommand
+ */
+export const se_DescribeSMBFileSharesCommand = async (
   input: DescribeSMBFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -997,11 +1117,14 @@ export const serializeAws_json1_1DescribeSMBFileSharesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeSMBFileShares",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSMBFileSharesInput(input, context));
+  body = JSON.stringify(se_DescribeSMBFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSMBSettingsCommand = async (
+/**
+ * serializeAws_json1_1DescribeSMBSettingsCommand
+ */
+export const se_DescribeSMBSettingsCommand = async (
   input: DescribeSMBSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1010,11 +1133,14 @@ export const serializeAws_json1_1DescribeSMBSettingsCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeSMBSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSMBSettingsInput(input, context));
+  body = JSON.stringify(se_DescribeSMBSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSnapshotScheduleCommand = async (
+/**
+ * serializeAws_json1_1DescribeSnapshotScheduleCommand
+ */
+export const se_DescribeSnapshotScheduleCommand = async (
   input: DescribeSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1023,11 +1149,14 @@ export const serializeAws_json1_1DescribeSnapshotScheduleCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeSnapshotSchedule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSnapshotScheduleInput(input, context));
+  body = JSON.stringify(se_DescribeSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
+/**
+ * serializeAws_json1_1DescribeStorediSCSIVolumesCommand
+ */
+export const se_DescribeStorediSCSIVolumesCommand = async (
   input: DescribeStorediSCSIVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1036,11 +1165,14 @@ export const serializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeStorediSCSIVolumes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context));
+  body = JSON.stringify(se_DescribeStorediSCSIVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTapeArchivesCommand = async (
+/**
+ * serializeAws_json1_1DescribeTapeArchivesCommand
+ */
+export const se_DescribeTapeArchivesCommand = async (
   input: DescribeTapeArchivesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1049,11 +1181,14 @@ export const serializeAws_json1_1DescribeTapeArchivesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeTapeArchives",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTapeArchivesInput(input, context));
+  body = JSON.stringify(se_DescribeTapeArchivesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
+/**
+ * serializeAws_json1_1DescribeTapeRecoveryPointsCommand
+ */
+export const se_DescribeTapeRecoveryPointsCommand = async (
   input: DescribeTapeRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1062,11 +1197,14 @@ export const serializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeTapeRecoveryPoints",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context));
+  body = JSON.stringify(se_DescribeTapeRecoveryPointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTapesCommand = async (
+/**
+ * serializeAws_json1_1DescribeTapesCommand
+ */
+export const se_DescribeTapesCommand = async (
   input: DescribeTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1075,11 +1213,14 @@ export const serializeAws_json1_1DescribeTapesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeTapes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTapesInput(input, context));
+  body = JSON.stringify(se_DescribeTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUploadBufferCommand = async (
+/**
+ * serializeAws_json1_1DescribeUploadBufferCommand
+ */
+export const se_DescribeUploadBufferCommand = async (
   input: DescribeUploadBufferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1088,11 +1229,14 @@ export const serializeAws_json1_1DescribeUploadBufferCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeUploadBuffer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUploadBufferInput(input, context));
+  body = JSON.stringify(se_DescribeUploadBufferInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeVTLDevicesCommand = async (
+/**
+ * serializeAws_json1_1DescribeVTLDevicesCommand
+ */
+export const se_DescribeVTLDevicesCommand = async (
   input: DescribeVTLDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1101,11 +1245,14 @@ export const serializeAws_json1_1DescribeVTLDevicesCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeVTLDevices",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeVTLDevicesInput(input, context));
+  body = JSON.stringify(se_DescribeVTLDevicesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeWorkingStorageCommand = async (
+/**
+ * serializeAws_json1_1DescribeWorkingStorageCommand
+ */
+export const se_DescribeWorkingStorageCommand = async (
   input: DescribeWorkingStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1114,11 +1261,14 @@ export const serializeAws_json1_1DescribeWorkingStorageCommand = async (
     "x-amz-target": "StorageGateway_20130630.DescribeWorkingStorage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeWorkingStorageInput(input, context));
+  body = JSON.stringify(se_DescribeWorkingStorageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DetachVolumeCommand = async (
+/**
+ * serializeAws_json1_1DetachVolumeCommand
+ */
+export const se_DetachVolumeCommand = async (
   input: DetachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1127,11 +1277,14 @@ export const serializeAws_json1_1DetachVolumeCommand = async (
     "x-amz-target": "StorageGateway_20130630.DetachVolume",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DetachVolumeInput(input, context));
+  body = JSON.stringify(se_DetachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableGatewayCommand = async (
+/**
+ * serializeAws_json1_1DisableGatewayCommand
+ */
+export const se_DisableGatewayCommand = async (
   input: DisableGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1140,11 +1293,14 @@ export const serializeAws_json1_1DisableGatewayCommand = async (
     "x-amz-target": "StorageGateway_20130630.DisableGateway",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableGatewayInput(input, context));
+  body = JSON.stringify(se_DisableGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateFileSystemCommand = async (
+/**
+ * serializeAws_json1_1DisassociateFileSystemCommand
+ */
+export const se_DisassociateFileSystemCommand = async (
   input: DisassociateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1153,11 +1309,14 @@ export const serializeAws_json1_1DisassociateFileSystemCommand = async (
     "x-amz-target": "StorageGateway_20130630.DisassociateFileSystem",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateFileSystemInput(input, context));
+  body = JSON.stringify(se_DisassociateFileSystemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1JoinDomainCommand = async (
+/**
+ * serializeAws_json1_1JoinDomainCommand
+ */
+export const se_JoinDomainCommand = async (
   input: JoinDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1166,11 +1325,14 @@ export const serializeAws_json1_1JoinDomainCommand = async (
     "x-amz-target": "StorageGateway_20130630.JoinDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1JoinDomainInput(input, context));
+  body = JSON.stringify(se_JoinDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand
+ */
+export const se_ListAutomaticTapeCreationPoliciesCommand = async (
   input: ListAutomaticTapeCreationPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1179,11 +1341,14 @@ export const serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = asyn
     "x-amz-target": "StorageGateway_20130630.ListAutomaticTapeCreationPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput(input, context));
+  body = JSON.stringify(se_ListAutomaticTapeCreationPoliciesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFileSharesCommand = async (
+/**
+ * serializeAws_json1_1ListFileSharesCommand
+ */
+export const se_ListFileSharesCommand = async (
   input: ListFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1192,11 +1357,14 @@ export const serializeAws_json1_1ListFileSharesCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListFileShares",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFileSharesInput(input, context));
+  body = JSON.stringify(se_ListFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFileSystemAssociationsCommand = async (
+/**
+ * serializeAws_json1_1ListFileSystemAssociationsCommand
+ */
+export const se_ListFileSystemAssociationsCommand = async (
   input: ListFileSystemAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1205,11 +1373,14 @@ export const serializeAws_json1_1ListFileSystemAssociationsCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListFileSystemAssociations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFileSystemAssociationsInput(input, context));
+  body = JSON.stringify(se_ListFileSystemAssociationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGatewaysCommand = async (
+/**
+ * serializeAws_json1_1ListGatewaysCommand
+ */
+export const se_ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1218,11 +1389,14 @@ export const serializeAws_json1_1ListGatewaysCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListGateways",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGatewaysInput(input, context));
+  body = JSON.stringify(se_ListGatewaysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLocalDisksCommand = async (
+/**
+ * serializeAws_json1_1ListLocalDisksCommand
+ */
+export const se_ListLocalDisksCommand = async (
   input: ListLocalDisksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1231,11 +1405,14 @@ export const serializeAws_json1_1ListLocalDisksCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListLocalDisks",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLocalDisksInput(input, context));
+  body = JSON.stringify(se_ListLocalDisksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1244,11 +1421,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
+  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTapePoolsCommand = async (
+/**
+ * serializeAws_json1_1ListTapePoolsCommand
+ */
+export const se_ListTapePoolsCommand = async (
   input: ListTapePoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1257,11 +1437,14 @@ export const serializeAws_json1_1ListTapePoolsCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListTapePools",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTapePoolsInput(input, context));
+  body = JSON.stringify(se_ListTapePoolsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTapesCommand = async (
+/**
+ * serializeAws_json1_1ListTapesCommand
+ */
+export const se_ListTapesCommand = async (
   input: ListTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1270,11 +1453,14 @@ export const serializeAws_json1_1ListTapesCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListTapes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTapesInput(input, context));
+  body = JSON.stringify(se_ListTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListVolumeInitiatorsCommand = async (
+/**
+ * serializeAws_json1_1ListVolumeInitiatorsCommand
+ */
+export const se_ListVolumeInitiatorsCommand = async (
   input: ListVolumeInitiatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1283,11 +1469,14 @@ export const serializeAws_json1_1ListVolumeInitiatorsCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListVolumeInitiators",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListVolumeInitiatorsInput(input, context));
+  body = JSON.stringify(se_ListVolumeInitiatorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
+/**
+ * serializeAws_json1_1ListVolumeRecoveryPointsCommand
+ */
+export const se_ListVolumeRecoveryPointsCommand = async (
   input: ListVolumeRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1296,11 +1485,14 @@ export const serializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListVolumeRecoveryPoints",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context));
+  body = JSON.stringify(se_ListVolumeRecoveryPointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListVolumesCommand = async (
+/**
+ * serializeAws_json1_1ListVolumesCommand
+ */
+export const se_ListVolumesCommand = async (
   input: ListVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1309,11 +1501,14 @@ export const serializeAws_json1_1ListVolumesCommand = async (
     "x-amz-target": "StorageGateway_20130630.ListVolumes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListVolumesInput(input, context));
+  body = JSON.stringify(se_ListVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1NotifyWhenUploadedCommand = async (
+/**
+ * serializeAws_json1_1NotifyWhenUploadedCommand
+ */
+export const se_NotifyWhenUploadedCommand = async (
   input: NotifyWhenUploadedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1322,11 +1517,14 @@ export const serializeAws_json1_1NotifyWhenUploadedCommand = async (
     "x-amz-target": "StorageGateway_20130630.NotifyWhenUploaded",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1NotifyWhenUploadedInput(input, context));
+  body = JSON.stringify(se_NotifyWhenUploadedInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RefreshCacheCommand = async (
+/**
+ * serializeAws_json1_1RefreshCacheCommand
+ */
+export const se_RefreshCacheCommand = async (
   input: RefreshCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1335,11 +1533,14 @@ export const serializeAws_json1_1RefreshCacheCommand = async (
     "x-amz-target": "StorageGateway_20130630.RefreshCache",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RefreshCacheInput(input, context));
+  body = JSON.stringify(se_RefreshCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
+/**
+ * serializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1348,11 +1549,14 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
     "x-amz-target": "StorageGateway_20130630.RemoveTagsFromResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveTagsFromResourceInput(input, context));
+  body = JSON.stringify(se_RemoveTagsFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ResetCacheCommand = async (
+/**
+ * serializeAws_json1_1ResetCacheCommand
+ */
+export const se_ResetCacheCommand = async (
   input: ResetCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1361,11 +1565,14 @@ export const serializeAws_json1_1ResetCacheCommand = async (
     "x-amz-target": "StorageGateway_20130630.ResetCache",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ResetCacheInput(input, context));
+  body = JSON.stringify(se_ResetCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RetrieveTapeArchiveCommand = async (
+/**
+ * serializeAws_json1_1RetrieveTapeArchiveCommand
+ */
+export const se_RetrieveTapeArchiveCommand = async (
   input: RetrieveTapeArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1374,11 +1581,14 @@ export const serializeAws_json1_1RetrieveTapeArchiveCommand = async (
     "x-amz-target": "StorageGateway_20130630.RetrieveTapeArchive",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RetrieveTapeArchiveInput(input, context));
+  body = JSON.stringify(se_RetrieveTapeArchiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
+/**
+ * serializeAws_json1_1RetrieveTapeRecoveryPointCommand
+ */
+export const se_RetrieveTapeRecoveryPointCommand = async (
   input: RetrieveTapeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1387,11 +1597,14 @@ export const serializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
     "x-amz-target": "StorageGateway_20130630.RetrieveTapeRecoveryPoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context));
+  body = JSON.stringify(se_RetrieveTapeRecoveryPointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
+/**
+ * serializeAws_json1_1SetLocalConsolePasswordCommand
+ */
+export const se_SetLocalConsolePasswordCommand = async (
   input: SetLocalConsolePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1400,11 +1613,14 @@ export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
     "x-amz-target": "StorageGateway_20130630.SetLocalConsolePassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetLocalConsolePasswordInput(input, context));
+  body = JSON.stringify(se_SetLocalConsolePasswordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
+/**
+ * serializeAws_json1_1SetSMBGuestPasswordCommand
+ */
+export const se_SetSMBGuestPasswordCommand = async (
   input: SetSMBGuestPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1413,11 +1629,14 @@ export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
     "x-amz-target": "StorageGateway_20130630.SetSMBGuestPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetSMBGuestPasswordInput(input, context));
+  body = JSON.stringify(se_SetSMBGuestPasswordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ShutdownGatewayCommand = async (
+/**
+ * serializeAws_json1_1ShutdownGatewayCommand
+ */
+export const se_ShutdownGatewayCommand = async (
   input: ShutdownGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1426,11 +1645,14 @@ export const serializeAws_json1_1ShutdownGatewayCommand = async (
     "x-amz-target": "StorageGateway_20130630.ShutdownGateway",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ShutdownGatewayInput(input, context));
+  body = JSON.stringify(se_ShutdownGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
+/**
+ * serializeAws_json1_1StartAvailabilityMonitorTestCommand
+ */
+export const se_StartAvailabilityMonitorTestCommand = async (
   input: StartAvailabilityMonitorTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1439,11 +1661,14 @@ export const serializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
     "x-amz-target": "StorageGateway_20130630.StartAvailabilityMonitorTest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context));
+  body = JSON.stringify(se_StartAvailabilityMonitorTestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartGatewayCommand = async (
+/**
+ * serializeAws_json1_1StartGatewayCommand
+ */
+export const se_StartGatewayCommand = async (
   input: StartGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1452,11 +1677,14 @@ export const serializeAws_json1_1StartGatewayCommand = async (
     "x-amz-target": "StorageGateway_20130630.StartGateway",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartGatewayInput(input, context));
+  body = JSON.stringify(se_StartGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = async (
+/**
+ * serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand
+ */
+export const se_UpdateAutomaticTapeCreationPolicyCommand = async (
   input: UpdateAutomaticTapeCreationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1465,11 +1693,14 @@ export const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = asyn
     "x-amz-target": "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput(input, context));
+  body = JSON.stringify(se_UpdateAutomaticTapeCreationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
+/**
+ * serializeAws_json1_1UpdateBandwidthRateLimitCommand
+ */
+export const se_UpdateBandwidthRateLimitCommand = async (
   input: UpdateBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1478,11 +1709,14 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateBandwidthRateLimit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context));
+  body = JSON.stringify(se_UpdateBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async (
+/**
+ * serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand
+ */
+export const se_UpdateBandwidthRateLimitScheduleCommand = async (
   input: UpdateBandwidthRateLimitScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1491,11 +1725,14 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async
     "x-amz-target": "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput(input, context));
+  body = JSON.stringify(se_UpdateBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
+/**
+ * serializeAws_json1_1UpdateChapCredentialsCommand
+ */
+export const se_UpdateChapCredentialsCommand = async (
   input: UpdateChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1504,11 +1741,14 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateChapCredentials",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateChapCredentialsInput(input, context));
+  body = JSON.stringify(se_UpdateChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFileSystemAssociationCommand = async (
+/**
+ * serializeAws_json1_1UpdateFileSystemAssociationCommand
+ */
+export const se_UpdateFileSystemAssociationCommand = async (
   input: UpdateFileSystemAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1517,11 +1757,14 @@ export const serializeAws_json1_1UpdateFileSystemAssociationCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateFileSystemAssociation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFileSystemAssociationInput(input, context));
+  body = JSON.stringify(se_UpdateFileSystemAssociationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateGatewayInformationCommand = async (
+/**
+ * serializeAws_json1_1UpdateGatewayInformationCommand
+ */
+export const se_UpdateGatewayInformationCommand = async (
   input: UpdateGatewayInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1530,11 +1773,14 @@ export const serializeAws_json1_1UpdateGatewayInformationCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateGatewayInformation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateGatewayInformationInput(input, context));
+  body = JSON.stringify(se_UpdateGatewayInformationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
+/**
+ * serializeAws_json1_1UpdateGatewaySoftwareNowCommand
+ */
+export const se_UpdateGatewaySoftwareNowCommand = async (
   input: UpdateGatewaySoftwareNowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1543,11 +1789,14 @@ export const serializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateGatewaySoftwareNow",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context));
+  body = JSON.stringify(se_UpdateGatewaySoftwareNowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
+/**
+ * serializeAws_json1_1UpdateMaintenanceStartTimeCommand
+ */
+export const se_UpdateMaintenanceStartTimeCommand = async (
   input: UpdateMaintenanceStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1556,11 +1805,14 @@ export const serializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateMaintenanceStartTime",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context));
+  body = JSON.stringify(se_UpdateMaintenanceStartTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateNFSFileShareCommand = async (
+/**
+ * serializeAws_json1_1UpdateNFSFileShareCommand
+ */
+export const se_UpdateNFSFileShareCommand = async (
   input: UpdateNFSFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1569,11 +1821,14 @@ export const serializeAws_json1_1UpdateNFSFileShareCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateNFSFileShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateNFSFileShareInput(input, context));
+  body = JSON.stringify(se_UpdateNFSFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
+/**
+ * serializeAws_json1_1UpdateSMBFileShareCommand
+ */
+export const se_UpdateSMBFileShareCommand = async (
   input: UpdateSMBFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1582,11 +1837,14 @@ export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateSMBFileShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareInput(input, context));
+  body = JSON.stringify(se_UpdateSMBFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
+/**
+ * serializeAws_json1_1UpdateSMBFileShareVisibilityCommand
+ */
+export const se_UpdateSMBFileShareVisibilityCommand = async (
   input: UpdateSMBFileShareVisibilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1595,11 +1853,14 @@ export const serializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateSMBFileShareVisibility",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareVisibilityInput(input, context));
+  body = JSON.stringify(se_UpdateSMBFileShareVisibilityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
+/**
+ * serializeAws_json1_1UpdateSMBLocalGroupsCommand
+ */
+export const se_UpdateSMBLocalGroupsCommand = async (
   input: UpdateSMBLocalGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1608,11 +1869,14 @@ export const serializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateSMBLocalGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSMBLocalGroupsInput(input, context));
+  body = JSON.stringify(se_UpdateSMBLocalGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
+/**
+ * serializeAws_json1_1UpdateSMBSecurityStrategyCommand
+ */
+export const se_UpdateSMBSecurityStrategyCommand = async (
   input: UpdateSMBSecurityStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1621,11 +1885,14 @@ export const serializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateSMBSecurityStrategy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context));
+  body = JSON.stringify(se_UpdateSMBSecurityStrategyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSnapshotScheduleCommand = async (
+/**
+ * serializeAws_json1_1UpdateSnapshotScheduleCommand
+ */
+export const se_UpdateSnapshotScheduleCommand = async (
   input: UpdateSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1634,11 +1901,14 @@ export const serializeAws_json1_1UpdateSnapshotScheduleCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateSnapshotSchedule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSnapshotScheduleInput(input, context));
+  body = JSON.stringify(se_UpdateSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
+/**
+ * serializeAws_json1_1UpdateVTLDeviceTypeCommand
+ */
+export const se_UpdateVTLDeviceTypeCommand = async (
   input: UpdateVTLDeviceTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1647,20 +1917,23 @@ export const serializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
     "x-amz-target": "StorageGateway_20130630.UpdateVTLDeviceType",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context));
+  body = JSON.stringify(se_UpdateVTLDeviceTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1ActivateGatewayCommand = async (
+/**
+ * deserializeAws_json1_1ActivateGatewayCommand
+ */
+export const de_ActivateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ActivateGatewayCommandError(output, context);
+    return de_ActivateGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ActivateGatewayOutput(data, context);
+  contents = de_ActivateGatewayOutput(data, context);
   const response: ActivateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1668,7 +1941,10 @@ export const deserializeAws_json1_1ActivateGatewayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ActivateGatewayCommandError = async (
+/**
+ * deserializeAws_json1_1ActivateGatewayCommandError
+ */
+const de_ActivateGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateGatewayCommandOutput> => {
@@ -1680,10 +1956,10 @@ const deserializeAws_json1_1ActivateGatewayCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1695,16 +1971,19 @@ const deserializeAws_json1_1ActivateGatewayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddCacheCommand = async (
+/**
+ * deserializeAws_json1_1AddCacheCommand
+ */
+export const de_AddCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddCacheCommandError(output, context);
+    return de_AddCacheCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCacheOutput(data, context);
+  contents = de_AddCacheOutput(data, context);
   const response: AddCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1712,7 +1991,10 @@ export const deserializeAws_json1_1AddCacheCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddCacheCommandError = async (
+/**
+ * deserializeAws_json1_1AddCacheCommandError
+ */
+const de_AddCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCacheCommandOutput> => {
@@ -1724,10 +2006,10 @@ const deserializeAws_json1_1AddCacheCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1739,16 +2021,19 @@ const deserializeAws_json1_1AddCacheCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddTagsToResourceCommand = async (
+/**
+ * deserializeAws_json1_1AddTagsToResourceCommand
+ */
+export const de_AddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddTagsToResourceCommandError(output, context);
+    return de_AddTagsToResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsToResourceOutput(data, context);
+  contents = de_AddTagsToResourceOutput(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1756,7 +2041,10 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddTagsToResourceCommandError = async (
+/**
+ * deserializeAws_json1_1AddTagsToResourceCommandError
+ */
+const de_AddTagsToResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
@@ -1768,10 +2056,10 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1783,16 +2071,19 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddUploadBufferCommand = async (
+/**
+ * deserializeAws_json1_1AddUploadBufferCommand
+ */
+export const de_AddUploadBufferCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddUploadBufferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddUploadBufferCommandError(output, context);
+    return de_AddUploadBufferCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddUploadBufferOutput(data, context);
+  contents = de_AddUploadBufferOutput(data, context);
   const response: AddUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1800,7 +2091,10 @@ export const deserializeAws_json1_1AddUploadBufferCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddUploadBufferCommandError = async (
+/**
+ * deserializeAws_json1_1AddUploadBufferCommandError
+ */
+const de_AddUploadBufferCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddUploadBufferCommandOutput> => {
@@ -1812,10 +2106,10 @@ const deserializeAws_json1_1AddUploadBufferCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1827,16 +2121,19 @@ const deserializeAws_json1_1AddUploadBufferCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AddWorkingStorageCommand = async (
+/**
+ * deserializeAws_json1_1AddWorkingStorageCommand
+ */
+export const de_AddWorkingStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddWorkingStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddWorkingStorageCommandError(output, context);
+    return de_AddWorkingStorageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddWorkingStorageOutput(data, context);
+  contents = de_AddWorkingStorageOutput(data, context);
   const response: AddWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1844,7 +2141,10 @@ export const deserializeAws_json1_1AddWorkingStorageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddWorkingStorageCommandError = async (
+/**
+ * deserializeAws_json1_1AddWorkingStorageCommandError
+ */
+const de_AddWorkingStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddWorkingStorageCommandOutput> => {
@@ -1856,10 +2156,10 @@ const deserializeAws_json1_1AddWorkingStorageCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1871,16 +2171,19 @@ const deserializeAws_json1_1AddWorkingStorageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssignTapePoolCommand = async (
+/**
+ * deserializeAws_json1_1AssignTapePoolCommand
+ */
+export const de_AssignTapePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssignTapePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssignTapePoolCommandError(output, context);
+    return de_AssignTapePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssignTapePoolOutput(data, context);
+  contents = de_AssignTapePoolOutput(data, context);
   const response: AssignTapePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1888,7 +2191,10 @@ export const deserializeAws_json1_1AssignTapePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssignTapePoolCommandError = async (
+/**
+ * deserializeAws_json1_1AssignTapePoolCommandError
+ */
+const de_AssignTapePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssignTapePoolCommandOutput> => {
@@ -1900,10 +2206,10 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1915,16 +2221,19 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateFileSystemCommand = async (
+/**
+ * deserializeAws_json1_1AssociateFileSystemCommand
+ */
+export const de_AssociateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFileSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateFileSystemCommandError(output, context);
+    return de_AssociateFileSystemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateFileSystemOutput(data, context);
+  contents = de_AssociateFileSystemOutput(data, context);
   const response: AssociateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1932,7 +2241,10 @@ export const deserializeAws_json1_1AssociateFileSystemCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateFileSystemCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateFileSystemCommandError
+ */
+const de_AssociateFileSystemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFileSystemCommandOutput> => {
@@ -1944,10 +2256,10 @@ const deserializeAws_json1_1AssociateFileSystemCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1959,16 +2271,19 @@ const deserializeAws_json1_1AssociateFileSystemCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AttachVolumeCommand = async (
+/**
+ * deserializeAws_json1_1AttachVolumeCommand
+ */
+export const de_AttachVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AttachVolumeCommandError(output, context);
+    return de_AttachVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AttachVolumeOutput(data, context);
+  contents = de_AttachVolumeOutput(data, context);
   const response: AttachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1976,7 +2291,10 @@ export const deserializeAws_json1_1AttachVolumeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AttachVolumeCommandError = async (
+/**
+ * deserializeAws_json1_1AttachVolumeCommandError
+ */
+const de_AttachVolumeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachVolumeCommandOutput> => {
@@ -1988,10 +2306,10 @@ const deserializeAws_json1_1AttachVolumeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2003,16 +2321,19 @@ const deserializeAws_json1_1AttachVolumeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CancelArchivalCommand = async (
+/**
+ * deserializeAws_json1_1CancelArchivalCommand
+ */
+export const de_CancelArchivalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelArchivalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelArchivalCommandError(output, context);
+    return de_CancelArchivalCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelArchivalOutput(data, context);
+  contents = de_CancelArchivalOutput(data, context);
   const response: CancelArchivalCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2020,7 +2341,10 @@ export const deserializeAws_json1_1CancelArchivalCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelArchivalCommandError = async (
+/**
+ * deserializeAws_json1_1CancelArchivalCommandError
+ */
+const de_CancelArchivalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelArchivalCommandOutput> => {
@@ -2032,10 +2356,10 @@ const deserializeAws_json1_1CancelArchivalCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2047,16 +2371,19 @@ const deserializeAws_json1_1CancelArchivalCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CancelRetrievalCommand = async (
+/**
+ * deserializeAws_json1_1CancelRetrievalCommand
+ */
+export const de_CancelRetrievalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRetrievalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelRetrievalCommandError(output, context);
+    return de_CancelRetrievalCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelRetrievalOutput(data, context);
+  contents = de_CancelRetrievalOutput(data, context);
   const response: CancelRetrievalCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2064,7 +2391,10 @@ export const deserializeAws_json1_1CancelRetrievalCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelRetrievalCommandError = async (
+/**
+ * deserializeAws_json1_1CancelRetrievalCommandError
+ */
+const de_CancelRetrievalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRetrievalCommandOutput> => {
@@ -2076,10 +2406,10 @@ const deserializeAws_json1_1CancelRetrievalCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2091,16 +2421,19 @@ const deserializeAws_json1_1CancelRetrievalCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
+/**
+ * deserializeAws_json1_1CreateCachediSCSIVolumeCommand
+ */
+export const de_CreateCachediSCSIVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCachediSCSIVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(output, context);
+    return de_CreateCachediSCSIVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCachediSCSIVolumeOutput(data, context);
+  contents = de_CreateCachediSCSIVolumeOutput(data, context);
   const response: CreateCachediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2108,7 +2441,10 @@ export const deserializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCachediSCSIVolumeCommandError
+ */
+const de_CreateCachediSCSIVolumeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCachediSCSIVolumeCommandOutput> => {
@@ -2120,10 +2456,10 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2135,16 +2471,19 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateNFSFileShareCommand = async (
+/**
+ * deserializeAws_json1_1CreateNFSFileShareCommand
+ */
+export const de_CreateNFSFileShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNFSFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateNFSFileShareCommandError(output, context);
+    return de_CreateNFSFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNFSFileShareOutput(data, context);
+  contents = de_CreateNFSFileShareOutput(data, context);
   const response: CreateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2152,7 +2491,10 @@ export const deserializeAws_json1_1CreateNFSFileShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
+/**
+ * deserializeAws_json1_1CreateNFSFileShareCommandError
+ */
+const de_CreateNFSFileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNFSFileShareCommandOutput> => {
@@ -2164,10 +2506,10 @@ const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2179,16 +2521,19 @@ const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateSMBFileShareCommand = async (
+/**
+ * deserializeAws_json1_1CreateSMBFileShareCommand
+ */
+export const de_CreateSMBFileShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSMBFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSMBFileShareCommandError(output, context);
+    return de_CreateSMBFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSMBFileShareOutput(data, context);
+  contents = de_CreateSMBFileShareOutput(data, context);
   const response: CreateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2196,7 +2541,10 @@ export const deserializeAws_json1_1CreateSMBFileShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSMBFileShareCommandError
+ */
+const de_CreateSMBFileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSMBFileShareCommandOutput> => {
@@ -2208,10 +2556,10 @@ const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2223,16 +2571,19 @@ const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSnapshotCommandError(output, context);
+    return de_CreateSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotOutput(data, context);
+  contents = de_CreateSnapshotOutput(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2240,7 +2591,10 @@ export const deserializeAws_json1_1CreateSnapshotCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotCommandError
+ */
+const de_CreateSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
@@ -2252,13 +2606,13 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.storagegateway#ServiceUnavailableError":
-      throw await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2270,16 +2624,19 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand
+ */
+export const de_CreateSnapshotFromVolumeRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError(output, context);
+    return de_CreateSnapshotFromVolumeRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput(data, context);
+  contents = de_CreateSnapshotFromVolumeRecoveryPointOutput(data, context);
   const response: CreateSnapshotFromVolumeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2287,7 +2644,10 @@ export const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError
+ */
+const de_CreateSnapshotFromVolumeRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> => {
@@ -2299,13 +2659,13 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.storagegateway#ServiceUnavailableError":
-      throw await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2317,16 +2677,19 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
   }
 };
 
-export const deserializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
+/**
+ * deserializeAws_json1_1CreateStorediSCSIVolumeCommand
+ */
+export const de_CreateStorediSCSIVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStorediSCSIVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(output, context);
+    return de_CreateStorediSCSIVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStorediSCSIVolumeOutput(data, context);
+  contents = de_CreateStorediSCSIVolumeOutput(data, context);
   const response: CreateStorediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2334,7 +2697,10 @@ export const deserializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateStorediSCSIVolumeCommandError
+ */
+const de_CreateStorediSCSIVolumeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStorediSCSIVolumeCommandOutput> => {
@@ -2346,10 +2712,10 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2361,16 +2727,19 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateTapePoolCommand = async (
+/**
+ * deserializeAws_json1_1CreateTapePoolCommand
+ */
+export const de_CreateTapePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateTapePoolCommandError(output, context);
+    return de_CreateTapePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTapePoolOutput(data, context);
+  contents = de_CreateTapePoolOutput(data, context);
   const response: CreateTapePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2378,7 +2747,10 @@ export const deserializeAws_json1_1CreateTapePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateTapePoolCommandError = async (
+/**
+ * deserializeAws_json1_1CreateTapePoolCommandError
+ */
+const de_CreateTapePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapePoolCommandOutput> => {
@@ -2390,10 +2762,10 @@ const deserializeAws_json1_1CreateTapePoolCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2405,16 +2777,19 @@ const deserializeAws_json1_1CreateTapePoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateTapesCommand = async (
+/**
+ * deserializeAws_json1_1CreateTapesCommand
+ */
+export const de_CreateTapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateTapesCommandError(output, context);
+    return de_CreateTapesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTapesOutput(data, context);
+  contents = de_CreateTapesOutput(data, context);
   const response: CreateTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2422,7 +2797,10 @@ export const deserializeAws_json1_1CreateTapesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateTapesCommandError = async (
+/**
+ * deserializeAws_json1_1CreateTapesCommandError
+ */
+const de_CreateTapesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapesCommandOutput> => {
@@ -2434,10 +2812,10 @@ const deserializeAws_json1_1CreateTapesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2449,16 +2827,19 @@ const deserializeAws_json1_1CreateTapesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateTapeWithBarcodeCommand = async (
+/**
+ * deserializeAws_json1_1CreateTapeWithBarcodeCommand
+ */
+export const de_CreateTapeWithBarcodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapeWithBarcodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateTapeWithBarcodeCommandError(output, context);
+    return de_CreateTapeWithBarcodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTapeWithBarcodeOutput(data, context);
+  contents = de_CreateTapeWithBarcodeOutput(data, context);
   const response: CreateTapeWithBarcodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2466,7 +2847,10 @@ export const deserializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateTapeWithBarcodeCommandError
+ */
+const de_CreateTapeWithBarcodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapeWithBarcodeCommandOutput> => {
@@ -2478,10 +2862,10 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2493,16 +2877,19 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand
+ */
+export const de_DeleteAutomaticTapeCreationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError(output, context);
+    return de_DeleteAutomaticTapeCreationPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput(data, context);
+  contents = de_DeleteAutomaticTapeCreationPolicyOutput(data, context);
   const response: DeleteAutomaticTapeCreationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2510,7 +2897,10 @@ export const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError
+ */
+const de_DeleteAutomaticTapeCreationPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
@@ -2522,10 +2912,10 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = asyn
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2537,16 +2927,19 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
+/**
+ * deserializeAws_json1_1DeleteBandwidthRateLimitCommand
+ */
+export const de_DeleteBandwidthRateLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(output, context);
+    return de_DeleteBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBandwidthRateLimitOutput(data, context);
+  contents = de_DeleteBandwidthRateLimitOutput(data, context);
   const response: DeleteBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2554,7 +2947,10 @@ export const deserializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteBandwidthRateLimitCommandError
+ */
+const de_DeleteBandwidthRateLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBandwidthRateLimitCommandOutput> => {
@@ -2566,10 +2962,10 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2581,16 +2977,19 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteChapCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1DeleteChapCredentialsCommand
+ */
+export const de_DeleteChapCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChapCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteChapCredentialsCommandError(output, context);
+    return de_DeleteChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteChapCredentialsOutput(data, context);
+  contents = de_DeleteChapCredentialsOutput(data, context);
   const response: DeleteChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2598,7 +2997,10 @@ export const deserializeAws_json1_1DeleteChapCredentialsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteChapCredentialsCommandError
+ */
+const de_DeleteChapCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChapCredentialsCommandOutput> => {
@@ -2610,10 +3012,10 @@ const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2625,16 +3027,19 @@ const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteFileShareCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFileShareCommand
+ */
+export const de_DeleteFileShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFileShareCommandError(output, context);
+    return de_DeleteFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFileShareOutput(data, context);
+  contents = de_DeleteFileShareOutput(data, context);
   const response: DeleteFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2642,7 +3047,10 @@ export const deserializeAws_json1_1DeleteFileShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteFileShareCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFileShareCommandError
+ */
+const de_DeleteFileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileShareCommandOutput> => {
@@ -2654,10 +3062,10 @@ const deserializeAws_json1_1DeleteFileShareCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2669,16 +3077,19 @@ const deserializeAws_json1_1DeleteFileShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGatewayCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGatewayCommand
+ */
+export const de_DeleteGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGatewayCommandError(output, context);
+    return de_DeleteGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGatewayOutput(data, context);
+  contents = de_DeleteGatewayOutput(data, context);
   const response: DeleteGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2686,7 +3097,10 @@ export const deserializeAws_json1_1DeleteGatewayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGatewayCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGatewayCommandError
+ */
+const de_DeleteGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
@@ -2698,10 +3112,10 @@ const deserializeAws_json1_1DeleteGatewayCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2713,16 +3127,19 @@ const deserializeAws_json1_1DeleteGatewayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteSnapshotScheduleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSnapshotScheduleCommand
+ */
+export const de_DeleteSnapshotScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSnapshotScheduleCommandError(output, context);
+    return de_DeleteSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSnapshotScheduleOutput(data, context);
+  contents = de_DeleteSnapshotScheduleOutput(data, context);
   const response: DeleteSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2730,7 +3147,10 @@ export const deserializeAws_json1_1DeleteSnapshotScheduleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSnapshotScheduleCommandError
+ */
+const de_DeleteSnapshotScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotScheduleCommandOutput> => {
@@ -2742,10 +3162,10 @@ const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2757,16 +3177,19 @@ const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteTapeCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTapeCommand
+ */
+export const de_DeleteTapeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTapeCommandError(output, context);
+    return de_DeleteTapeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTapeOutput(data, context);
+  contents = de_DeleteTapeOutput(data, context);
   const response: DeleteTapeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2774,7 +3197,10 @@ export const deserializeAws_json1_1DeleteTapeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTapeCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTapeCommandError
+ */
+const de_DeleteTapeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapeCommandOutput> => {
@@ -2786,10 +3212,10 @@ const deserializeAws_json1_1DeleteTapeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2801,16 +3227,19 @@ const deserializeAws_json1_1DeleteTapeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteTapeArchiveCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTapeArchiveCommand
+ */
+export const de_DeleteTapeArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapeArchiveCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTapeArchiveCommandError(output, context);
+    return de_DeleteTapeArchiveCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTapeArchiveOutput(data, context);
+  contents = de_DeleteTapeArchiveOutput(data, context);
   const response: DeleteTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2818,7 +3247,10 @@ export const deserializeAws_json1_1DeleteTapeArchiveCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTapeArchiveCommandError
+ */
+const de_DeleteTapeArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapeArchiveCommandOutput> => {
@@ -2830,10 +3262,10 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2845,16 +3277,19 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteTapePoolCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTapePoolCommand
+ */
+export const de_DeleteTapePoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTapePoolCommandError(output, context);
+    return de_DeleteTapePoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTapePoolOutput(data, context);
+  contents = de_DeleteTapePoolOutput(data, context);
   const response: DeleteTapePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2862,7 +3297,10 @@ export const deserializeAws_json1_1DeleteTapePoolCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTapePoolCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTapePoolCommandError
+ */
+const de_DeleteTapePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapePoolCommandOutput> => {
@@ -2874,10 +3312,10 @@ const deserializeAws_json1_1DeleteTapePoolCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2889,16 +3327,19 @@ const deserializeAws_json1_1DeleteTapePoolCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteVolumeCommand = async (
+/**
+ * deserializeAws_json1_1DeleteVolumeCommand
+ */
+export const de_DeleteVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteVolumeCommandError(output, context);
+    return de_DeleteVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteVolumeOutput(data, context);
+  contents = de_DeleteVolumeOutput(data, context);
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2906,7 +3347,10 @@ export const deserializeAws_json1_1DeleteVolumeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteVolumeCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteVolumeCommandError
+ */
+const de_DeleteVolumeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVolumeCommandOutput> => {
@@ -2918,10 +3362,10 @@ const deserializeAws_json1_1DeleteVolumeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2933,16 +3377,19 @@ const deserializeAws_json1_1DeleteVolumeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand
+ */
+export const de_DescribeAvailabilityMonitorTestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError(output, context);
+    return de_DescribeAvailabilityMonitorTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput(data, context);
+  contents = de_DescribeAvailabilityMonitorTestOutput(data, context);
   const response: DescribeAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2950,7 +3397,10 @@ export const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError
+ */
+const de_DescribeAvailabilityMonitorTestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
@@ -2962,10 +3412,10 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async 
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2977,16 +3427,19 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitCommand
+ */
+export const de_DescribeBandwidthRateLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(output, context);
+    return de_DescribeBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBandwidthRateLimitOutput(data, context);
+  contents = de_DescribeBandwidthRateLimitOutput(data, context);
   const response: DescribeBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2994,7 +3447,10 @@ export const deserializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitCommandError
+ */
+const de_DescribeBandwidthRateLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitCommandOutput> => {
@@ -3006,10 +3462,10 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3021,16 +3477,19 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = async (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand
+ */
+export const de_DescribeBandwidthRateLimitScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError(output, context);
+    return de_DescribeBandwidthRateLimitScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput(data, context);
+  contents = de_DescribeBandwidthRateLimitScheduleOutput(data, context);
   const response: DescribeBandwidthRateLimitScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3038,7 +3497,10 @@ export const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError
+ */
+const de_DescribeBandwidthRateLimitScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
@@ -3050,10 +3512,10 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = asy
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3065,16 +3527,19 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1DescribeCacheCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCacheCommand
+ */
+export const de_DescribeCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCacheCommandError(output, context);
+    return de_DescribeCacheCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCacheOutput(data, context);
+  contents = de_DescribeCacheOutput(data, context);
   const response: DescribeCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3082,7 +3547,10 @@ export const deserializeAws_json1_1DescribeCacheCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeCacheCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCacheCommandError
+ */
+const de_DescribeCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheCommandOutput> => {
@@ -3094,10 +3562,10 @@ const deserializeAws_json1_1DescribeCacheCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3109,16 +3577,19 @@ const deserializeAws_json1_1DescribeCacheCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCachediSCSIVolumesCommand
+ */
+export const de_DescribeCachediSCSIVolumesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(output, context);
+    return de_DescribeCachediSCSIVolumesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCachediSCSIVolumesOutput(data, context);
+  contents = de_DescribeCachediSCSIVolumesOutput(data, context);
   const response: DescribeCachediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3126,7 +3597,10 @@ export const deserializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError
+ */
+const de_DescribeCachediSCSIVolumesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
@@ -3138,10 +3612,10 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3153,16 +3627,19 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeChapCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeChapCredentialsCommand
+ */
+export const de_DescribeChapCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChapCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeChapCredentialsCommandError(output, context);
+    return de_DescribeChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeChapCredentialsOutput(data, context);
+  contents = de_DescribeChapCredentialsOutput(data, context);
   const response: DescribeChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3170,7 +3647,10 @@ export const deserializeAws_json1_1DescribeChapCredentialsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeChapCredentialsCommandError
+ */
+const de_DescribeChapCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChapCredentialsCommandOutput> => {
@@ -3182,10 +3662,10 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3197,16 +3677,19 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeFileSystemAssociationsCommand
+ */
+export const de_DescribeFileSystemAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeFileSystemAssociationsCommandError(output, context);
+    return de_DescribeFileSystemAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFileSystemAssociationsOutput(data, context);
+  contents = de_DescribeFileSystemAssociationsOutput(data, context);
   const response: DescribeFileSystemAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3214,7 +3697,10 @@ export const deserializeAws_json1_1DescribeFileSystemAssociationsCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeFileSystemAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeFileSystemAssociationsCommandError
+ */
+const de_DescribeFileSystemAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemAssociationsCommandOutput> => {
@@ -3226,10 +3712,10 @@ const deserializeAws_json1_1DescribeFileSystemAssociationsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3241,16 +3727,19 @@ const deserializeAws_json1_1DescribeFileSystemAssociationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeGatewayInformationCommand
+ */
+export const de_DescribeGatewayInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayInformationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeGatewayInformationCommandError(output, context);
+    return de_DescribeGatewayInformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGatewayInformationOutput(data, context);
+  contents = de_DescribeGatewayInformationOutput(data, context);
   const response: DescribeGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3258,7 +3747,10 @@ export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeGatewayInformationCommandError
+ */
+const de_DescribeGatewayInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayInformationCommandOutput> => {
@@ -3270,10 +3762,10 @@ const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3285,16 +3777,19 @@ const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMaintenanceStartTimeCommand
+ */
+export const de_DescribeMaintenanceStartTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(output, context);
+    return de_DescribeMaintenanceStartTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceStartTimeOutput(data, context);
+  contents = de_DescribeMaintenanceStartTimeOutput(data, context);
   const response: DescribeMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3302,7 +3797,10 @@ export const deserializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError
+ */
+const de_DescribeMaintenanceStartTimeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
@@ -3314,10 +3812,10 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3329,16 +3827,19 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeNFSFileSharesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeNFSFileSharesCommand
+ */
+export const de_DescribeNFSFileSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNFSFileSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeNFSFileSharesCommandError(output, context);
+    return de_DescribeNFSFileSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeNFSFileSharesOutput(data, context);
+  contents = de_DescribeNFSFileSharesOutput(data, context);
   const response: DescribeNFSFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3346,7 +3847,10 @@ export const deserializeAws_json1_1DescribeNFSFileSharesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeNFSFileSharesCommandError
+ */
+const de_DescribeNFSFileSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNFSFileSharesCommandOutput> => {
@@ -3358,10 +3862,10 @@ const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3373,16 +3877,19 @@ const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSMBFileSharesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSMBFileSharesCommand
+ */
+export const de_DescribeSMBFileSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSMBFileSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSMBFileSharesCommandError(output, context);
+    return de_DescribeSMBFileSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSMBFileSharesOutput(data, context);
+  contents = de_DescribeSMBFileSharesOutput(data, context);
   const response: DescribeSMBFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3390,7 +3897,10 @@ export const deserializeAws_json1_1DescribeSMBFileSharesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSMBFileSharesCommandError
+ */
+const de_DescribeSMBFileSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSMBFileSharesCommandOutput> => {
@@ -3402,10 +3912,10 @@ const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3417,16 +3927,19 @@ const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSMBSettingsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSMBSettingsCommand
+ */
+export const de_DescribeSMBSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSMBSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSMBSettingsCommandError(output, context);
+    return de_DescribeSMBSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSMBSettingsOutput(data, context);
+  contents = de_DescribeSMBSettingsOutput(data, context);
   const response: DescribeSMBSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3434,7 +3947,10 @@ export const deserializeAws_json1_1DescribeSMBSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSMBSettingsCommandError
+ */
+const de_DescribeSMBSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSMBSettingsCommandOutput> => {
@@ -3446,10 +3962,10 @@ const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3461,16 +3977,19 @@ const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSnapshotScheduleCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSnapshotScheduleCommand
+ */
+export const de_DescribeSnapshotScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSnapshotScheduleCommandError(output, context);
+    return de_DescribeSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSnapshotScheduleOutput(data, context);
+  contents = de_DescribeSnapshotScheduleOutput(data, context);
   const response: DescribeSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3478,7 +3997,10 @@ export const deserializeAws_json1_1DescribeSnapshotScheduleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSnapshotScheduleCommandError
+ */
+const de_DescribeSnapshotScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSnapshotScheduleCommandOutput> => {
@@ -3490,10 +4012,10 @@ const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3505,16 +4027,19 @@ const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeStorediSCSIVolumesCommand
+ */
+export const de_DescribeStorediSCSIVolumesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(output, context);
+    return de_DescribeStorediSCSIVolumesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStorediSCSIVolumesOutput(data, context);
+  contents = de_DescribeStorediSCSIVolumesOutput(data, context);
   const response: DescribeStorediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3522,7 +4047,10 @@ export const deserializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError
+ */
+const de_DescribeStorediSCSIVolumesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
@@ -3534,10 +4062,10 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3549,16 +4077,19 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeTapeArchivesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTapeArchivesCommand
+ */
+export const de_DescribeTapeArchivesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapeArchivesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTapeArchivesCommandError(output, context);
+    return de_DescribeTapeArchivesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapeArchivesOutput(data, context);
+  contents = de_DescribeTapeArchivesOutput(data, context);
   const response: DescribeTapeArchivesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3566,7 +4097,10 @@ export const deserializeAws_json1_1DescribeTapeArchivesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTapeArchivesCommandError
+ */
+const de_DescribeTapeArchivesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapeArchivesCommandOutput> => {
@@ -3578,10 +4112,10 @@ const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3593,16 +4127,19 @@ const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTapeRecoveryPointsCommand
+ */
+export const de_DescribeTapeRecoveryPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(output, context);
+    return de_DescribeTapeRecoveryPointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapeRecoveryPointsOutput(data, context);
+  contents = de_DescribeTapeRecoveryPointsOutput(data, context);
   const response: DescribeTapeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3610,7 +4147,10 @@ export const deserializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError
+ */
+const de_DescribeTapeRecoveryPointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
@@ -3622,10 +4162,10 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3637,16 +4177,19 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeTapesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTapesCommand
+ */
+export const de_DescribeTapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTapesCommandError(output, context);
+    return de_DescribeTapesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapesOutput(data, context);
+  contents = de_DescribeTapesOutput(data, context);
   const response: DescribeTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3654,7 +4197,10 @@ export const deserializeAws_json1_1DescribeTapesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeTapesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTapesCommandError
+ */
+const de_DescribeTapesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTapesCommandOutput> => {
@@ -3666,10 +4212,10 @@ const deserializeAws_json1_1DescribeTapesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3681,16 +4227,19 @@ const deserializeAws_json1_1DescribeTapesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUploadBufferCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUploadBufferCommand
+ */
+export const de_DescribeUploadBufferCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUploadBufferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUploadBufferCommandError(output, context);
+    return de_DescribeUploadBufferCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUploadBufferOutput(data, context);
+  contents = de_DescribeUploadBufferOutput(data, context);
   const response: DescribeUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3698,7 +4247,10 @@ export const deserializeAws_json1_1DescribeUploadBufferCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUploadBufferCommandError
+ */
+const de_DescribeUploadBufferCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUploadBufferCommandOutput> => {
@@ -3710,10 +4262,10 @@ const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3725,16 +4277,19 @@ const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeVTLDevicesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeVTLDevicesCommand
+ */
+export const de_DescribeVTLDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVTLDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeVTLDevicesCommandError(output, context);
+    return de_DescribeVTLDevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeVTLDevicesOutput(data, context);
+  contents = de_DescribeVTLDevicesOutput(data, context);
   const response: DescribeVTLDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3742,7 +4297,10 @@ export const deserializeAws_json1_1DescribeVTLDevicesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeVTLDevicesCommandError
+ */
+const de_DescribeVTLDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVTLDevicesCommandOutput> => {
@@ -3754,10 +4312,10 @@ const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3769,16 +4327,19 @@ const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeWorkingStorageCommand = async (
+/**
+ * deserializeAws_json1_1DescribeWorkingStorageCommand
+ */
+export const de_DescribeWorkingStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkingStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeWorkingStorageCommandError(output, context);
+    return de_DescribeWorkingStorageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkingStorageOutput(data, context);
+  contents = de_DescribeWorkingStorageOutput(data, context);
   const response: DescribeWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3786,7 +4347,10 @@ export const deserializeAws_json1_1DescribeWorkingStorageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeWorkingStorageCommandError
+ */
+const de_DescribeWorkingStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkingStorageCommandOutput> => {
@@ -3798,10 +4362,10 @@ const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3813,16 +4377,19 @@ const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DetachVolumeCommand = async (
+/**
+ * deserializeAws_json1_1DetachVolumeCommand
+ */
+export const de_DetachVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DetachVolumeCommandError(output, context);
+    return de_DetachVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetachVolumeOutput(data, context);
+  contents = de_DetachVolumeOutput(data, context);
   const response: DetachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3830,7 +4397,10 @@ export const deserializeAws_json1_1DetachVolumeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DetachVolumeCommandError = async (
+/**
+ * deserializeAws_json1_1DetachVolumeCommandError
+ */
+const de_DetachVolumeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachVolumeCommandOutput> => {
@@ -3842,10 +4412,10 @@ const deserializeAws_json1_1DetachVolumeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3857,16 +4427,19 @@ const deserializeAws_json1_1DetachVolumeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisableGatewayCommand = async (
+/**
+ * deserializeAws_json1_1DisableGatewayCommand
+ */
+export const de_DisableGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableGatewayCommandError(output, context);
+    return de_DisableGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableGatewayOutput(data, context);
+  contents = de_DisableGatewayOutput(data, context);
   const response: DisableGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3874,7 +4447,10 @@ export const deserializeAws_json1_1DisableGatewayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisableGatewayCommandError = async (
+/**
+ * deserializeAws_json1_1DisableGatewayCommandError
+ */
+const de_DisableGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableGatewayCommandOutput> => {
@@ -3886,10 +4462,10 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3901,16 +4477,19 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateFileSystemCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateFileSystemCommand
+ */
+export const de_DisassociateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFileSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateFileSystemCommandError(output, context);
+    return de_DisassociateFileSystemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateFileSystemOutput(data, context);
+  contents = de_DisassociateFileSystemOutput(data, context);
   const response: DisassociateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3918,7 +4497,10 @@ export const deserializeAws_json1_1DisassociateFileSystemCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateFileSystemCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateFileSystemCommandError
+ */
+const de_DisassociateFileSystemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFileSystemCommandOutput> => {
@@ -3930,10 +4512,10 @@ const deserializeAws_json1_1DisassociateFileSystemCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3945,16 +4527,19 @@ const deserializeAws_json1_1DisassociateFileSystemCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1JoinDomainCommand = async (
+/**
+ * deserializeAws_json1_1JoinDomainCommand
+ */
+export const de_JoinDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1JoinDomainCommandError(output, context);
+    return de_JoinDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1JoinDomainOutput(data, context);
+  contents = de_JoinDomainOutput(data, context);
   const response: JoinDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3962,7 +4547,10 @@ export const deserializeAws_json1_1JoinDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1JoinDomainCommandError = async (
+/**
+ * deserializeAws_json1_1JoinDomainCommandError
+ */
+const de_JoinDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinDomainCommandOutput> => {
@@ -3974,10 +4562,10 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3989,16 +4577,19 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand
+ */
+export const de_ListAutomaticTapeCreationPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError(output, context);
+    return de_ListAutomaticTapeCreationPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput(data, context);
+  contents = de_ListAutomaticTapeCreationPoliciesOutput(data, context);
   const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4006,7 +4597,10 @@ export const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError
+ */
+const de_ListAutomaticTapeCreationPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
@@ -4018,10 +4612,10 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = asyn
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4033,16 +4627,19 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1ListFileSharesCommand = async (
+/**
+ * deserializeAws_json1_1ListFileSharesCommand
+ */
+export const de_ListFileSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFileSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFileSharesCommandError(output, context);
+    return de_ListFileSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFileSharesOutput(data, context);
+  contents = de_ListFileSharesOutput(data, context);
   const response: ListFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4050,7 +4647,10 @@ export const deserializeAws_json1_1ListFileSharesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFileSharesCommandError = async (
+/**
+ * deserializeAws_json1_1ListFileSharesCommandError
+ */
+const de_ListFileSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFileSharesCommandOutput> => {
@@ -4062,10 +4662,10 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4077,16 +4677,19 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFileSystemAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1ListFileSystemAssociationsCommand
+ */
+export const de_ListFileSystemAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFileSystemAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFileSystemAssociationsCommandError(output, context);
+    return de_ListFileSystemAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFileSystemAssociationsOutput(data, context);
+  contents = de_ListFileSystemAssociationsOutput(data, context);
   const response: ListFileSystemAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4094,7 +4697,10 @@ export const deserializeAws_json1_1ListFileSystemAssociationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFileSystemAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFileSystemAssociationsCommandError
+ */
+const de_ListFileSystemAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFileSystemAssociationsCommandOutput> => {
@@ -4106,10 +4712,10 @@ const deserializeAws_json1_1ListFileSystemAssociationsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4121,16 +4727,19 @@ const deserializeAws_json1_1ListFileSystemAssociationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGatewaysCommand = async (
+/**
+ * deserializeAws_json1_1ListGatewaysCommand
+ */
+export const de_ListGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGatewaysCommandError(output, context);
+    return de_ListGatewaysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewaysOutput(data, context);
+  contents = de_ListGatewaysOutput(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4138,7 +4747,10 @@ export const deserializeAws_json1_1ListGatewaysCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGatewaysCommandError = async (
+/**
+ * deserializeAws_json1_1ListGatewaysCommandError
+ */
+const de_ListGatewaysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
@@ -4150,10 +4762,10 @@ const deserializeAws_json1_1ListGatewaysCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4165,16 +4777,19 @@ const deserializeAws_json1_1ListGatewaysCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListLocalDisksCommand = async (
+/**
+ * deserializeAws_json1_1ListLocalDisksCommand
+ */
+export const de_ListLocalDisksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLocalDisksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLocalDisksCommandError(output, context);
+    return de_ListLocalDisksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLocalDisksOutput(data, context);
+  contents = de_ListLocalDisksOutput(data, context);
   const response: ListLocalDisksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4182,7 +4797,10 @@ export const deserializeAws_json1_1ListLocalDisksCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLocalDisksCommandError = async (
+/**
+ * deserializeAws_json1_1ListLocalDisksCommandError
+ */
+const de_ListLocalDisksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLocalDisksCommandOutput> => {
@@ -4194,10 +4812,10 @@ const deserializeAws_json1_1ListLocalDisksCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4209,16 +4827,19 @@ const deserializeAws_json1_1ListLocalDisksCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
+  contents = de_ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4226,7 +4847,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -4238,10 +4862,10 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4253,16 +4877,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTapePoolsCommand = async (
+/**
+ * deserializeAws_json1_1ListTapePoolsCommand
+ */
+export const de_ListTapePoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTapePoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTapePoolsCommandError(output, context);
+    return de_ListTapePoolsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTapePoolsOutput(data, context);
+  contents = de_ListTapePoolsOutput(data, context);
   const response: ListTapePoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4270,7 +4897,10 @@ export const deserializeAws_json1_1ListTapePoolsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTapePoolsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTapePoolsCommandError
+ */
+const de_ListTapePoolsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTapePoolsCommandOutput> => {
@@ -4282,10 +4912,10 @@ const deserializeAws_json1_1ListTapePoolsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4297,16 +4927,19 @@ const deserializeAws_json1_1ListTapePoolsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTapesCommand = async (
+/**
+ * deserializeAws_json1_1ListTapesCommand
+ */
+export const de_ListTapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTapesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTapesCommandError(output, context);
+    return de_ListTapesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTapesOutput(data, context);
+  contents = de_ListTapesOutput(data, context);
   const response: ListTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4314,7 +4947,10 @@ export const deserializeAws_json1_1ListTapesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTapesCommandError = async (
+/**
+ * deserializeAws_json1_1ListTapesCommandError
+ */
+const de_ListTapesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTapesCommandOutput> => {
@@ -4326,10 +4962,10 @@ const deserializeAws_json1_1ListTapesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4341,16 +4977,19 @@ const deserializeAws_json1_1ListTapesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListVolumeInitiatorsCommand = async (
+/**
+ * deserializeAws_json1_1ListVolumeInitiatorsCommand
+ */
+export const de_ListVolumeInitiatorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumeInitiatorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListVolumeInitiatorsCommandError(output, context);
+    return de_ListVolumeInitiatorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumeInitiatorsOutput(data, context);
+  contents = de_ListVolumeInitiatorsOutput(data, context);
   const response: ListVolumeInitiatorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4358,7 +4997,10 @@ export const deserializeAws_json1_1ListVolumeInitiatorsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
+/**
+ * deserializeAws_json1_1ListVolumeInitiatorsCommandError
+ */
+const de_ListVolumeInitiatorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumeInitiatorsCommandOutput> => {
@@ -4370,10 +5012,10 @@ const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4385,16 +5027,19 @@ const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
+/**
+ * deserializeAws_json1_1ListVolumeRecoveryPointsCommand
+ */
+export const de_ListVolumeRecoveryPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumeRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(output, context);
+    return de_ListVolumeRecoveryPointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumeRecoveryPointsOutput(data, context);
+  contents = de_ListVolumeRecoveryPointsOutput(data, context);
   const response: ListVolumeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4402,7 +5047,10 @@ export const deserializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
+/**
+ * deserializeAws_json1_1ListVolumeRecoveryPointsCommandError
+ */
+const de_ListVolumeRecoveryPointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumeRecoveryPointsCommandOutput> => {
@@ -4414,10 +5062,10 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4429,16 +5077,19 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListVolumesCommand = async (
+/**
+ * deserializeAws_json1_1ListVolumesCommand
+ */
+export const de_ListVolumesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListVolumesCommandError(output, context);
+    return de_ListVolumesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumesOutput(data, context);
+  contents = de_ListVolumesOutput(data, context);
   const response: ListVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4446,7 +5097,10 @@ export const deserializeAws_json1_1ListVolumesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListVolumesCommandError = async (
+/**
+ * deserializeAws_json1_1ListVolumesCommandError
+ */
+const de_ListVolumesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVolumesCommandOutput> => {
@@ -4458,10 +5112,10 @@ const deserializeAws_json1_1ListVolumesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4473,16 +5127,19 @@ const deserializeAws_json1_1ListVolumesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1NotifyWhenUploadedCommand = async (
+/**
+ * deserializeAws_json1_1NotifyWhenUploadedCommand
+ */
+export const de_NotifyWhenUploadedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyWhenUploadedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1NotifyWhenUploadedCommandError(output, context);
+    return de_NotifyWhenUploadedCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyWhenUploadedOutput(data, context);
+  contents = de_NotifyWhenUploadedOutput(data, context);
   const response: NotifyWhenUploadedCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4490,7 +5147,10 @@ export const deserializeAws_json1_1NotifyWhenUploadedCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
+/**
+ * deserializeAws_json1_1NotifyWhenUploadedCommandError
+ */
+const de_NotifyWhenUploadedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyWhenUploadedCommandOutput> => {
@@ -4502,10 +5162,10 @@ const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4517,16 +5177,19 @@ const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RefreshCacheCommand = async (
+/**
+ * deserializeAws_json1_1RefreshCacheCommand
+ */
+export const de_RefreshCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RefreshCacheCommandError(output, context);
+    return de_RefreshCacheCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RefreshCacheOutput(data, context);
+  contents = de_RefreshCacheOutput(data, context);
   const response: RefreshCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4534,7 +5197,10 @@ export const deserializeAws_json1_1RefreshCacheCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RefreshCacheCommandError = async (
+/**
+ * deserializeAws_json1_1RefreshCacheCommandError
+ */
+const de_RefreshCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshCacheCommandOutput> => {
@@ -4546,10 +5212,10 @@ const deserializeAws_json1_1RefreshCacheCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4561,16 +5227,19 @@ const deserializeAws_json1_1RefreshCacheCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveTagsFromResourceCommandError(output, context);
+    return de_RemoveTagsFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsFromResourceOutput(data, context);
+  contents = de_RemoveTagsFromResourceOutput(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4578,7 +5247,10 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommandError
+ */
+const de_RemoveTagsFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
@@ -4590,10 +5262,10 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4605,16 +5277,19 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ResetCacheCommand = async (
+/**
+ * deserializeAws_json1_1ResetCacheCommand
+ */
+export const de_ResetCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ResetCacheCommandError(output, context);
+    return de_ResetCacheCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResetCacheOutput(data, context);
+  contents = de_ResetCacheOutput(data, context);
   const response: ResetCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4622,7 +5297,10 @@ export const deserializeAws_json1_1ResetCacheCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ResetCacheCommandError = async (
+/**
+ * deserializeAws_json1_1ResetCacheCommandError
+ */
+const de_ResetCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetCacheCommandOutput> => {
@@ -4634,10 +5312,10 @@ const deserializeAws_json1_1ResetCacheCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4649,16 +5327,19 @@ const deserializeAws_json1_1ResetCacheCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RetrieveTapeArchiveCommand = async (
+/**
+ * deserializeAws_json1_1RetrieveTapeArchiveCommand
+ */
+export const de_RetrieveTapeArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveTapeArchiveCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RetrieveTapeArchiveCommandError(output, context);
+    return de_RetrieveTapeArchiveCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetrieveTapeArchiveOutput(data, context);
+  contents = de_RetrieveTapeArchiveOutput(data, context);
   const response: RetrieveTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4666,7 +5347,10 @@ export const deserializeAws_json1_1RetrieveTapeArchiveCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
+/**
+ * deserializeAws_json1_1RetrieveTapeArchiveCommandError
+ */
+const de_RetrieveTapeArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveTapeArchiveCommandOutput> => {
@@ -4678,10 +5362,10 @@ const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4693,16 +5377,19 @@ const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
+/**
+ * deserializeAws_json1_1RetrieveTapeRecoveryPointCommand
+ */
+export const de_RetrieveTapeRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(output, context);
+    return de_RetrieveTapeRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetrieveTapeRecoveryPointOutput(data, context);
+  contents = de_RetrieveTapeRecoveryPointOutput(data, context);
   const response: RetrieveTapeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4710,7 +5397,10 @@ export const deserializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
+/**
+ * deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError
+ */
+const de_RetrieveTapeRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
@@ -4722,10 +5412,10 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4737,16 +5427,19 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetLocalConsolePasswordCommand = async (
+/**
+ * deserializeAws_json1_1SetLocalConsolePasswordCommand
+ */
+export const de_SetLocalConsolePasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLocalConsolePasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetLocalConsolePasswordCommandError(output, context);
+    return de_SetLocalConsolePasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetLocalConsolePasswordOutput(data, context);
+  contents = de_SetLocalConsolePasswordOutput(data, context);
   const response: SetLocalConsolePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4754,7 +5447,10 @@ export const deserializeAws_json1_1SetLocalConsolePasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
+/**
+ * deserializeAws_json1_1SetLocalConsolePasswordCommandError
+ */
+const de_SetLocalConsolePasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLocalConsolePasswordCommandOutput> => {
@@ -4766,10 +5462,10 @@ const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4781,16 +5477,19 @@ const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SetSMBGuestPasswordCommand = async (
+/**
+ * deserializeAws_json1_1SetSMBGuestPasswordCommand
+ */
+export const de_SetSMBGuestPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSMBGuestPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetSMBGuestPasswordCommandError(output, context);
+    return de_SetSMBGuestPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetSMBGuestPasswordOutput(data, context);
+  contents = de_SetSMBGuestPasswordOutput(data, context);
   const response: SetSMBGuestPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4798,7 +5497,10 @@ export const deserializeAws_json1_1SetSMBGuestPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1SetSMBGuestPasswordCommandError
+ */
+const de_SetSMBGuestPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSMBGuestPasswordCommandOutput> => {
@@ -4810,10 +5512,10 @@ const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4825,16 +5527,19 @@ const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ShutdownGatewayCommand = async (
+/**
+ * deserializeAws_json1_1ShutdownGatewayCommand
+ */
+export const de_ShutdownGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ShutdownGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ShutdownGatewayCommandError(output, context);
+    return de_ShutdownGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ShutdownGatewayOutput(data, context);
+  contents = de_ShutdownGatewayOutput(data, context);
   const response: ShutdownGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4842,7 +5547,10 @@ export const deserializeAws_json1_1ShutdownGatewayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ShutdownGatewayCommandError = async (
+/**
+ * deserializeAws_json1_1ShutdownGatewayCommandError
+ */
+const de_ShutdownGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ShutdownGatewayCommandOutput> => {
@@ -4854,10 +5562,10 @@ const deserializeAws_json1_1ShutdownGatewayCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4869,16 +5577,19 @@ const deserializeAws_json1_1ShutdownGatewayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
+/**
+ * deserializeAws_json1_1StartAvailabilityMonitorTestCommand
+ */
+export const de_StartAvailabilityMonitorTestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAvailabilityMonitorTestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(output, context);
+    return de_StartAvailabilityMonitorTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartAvailabilityMonitorTestOutput(data, context);
+  contents = de_StartAvailabilityMonitorTestOutput(data, context);
   const response: StartAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4886,7 +5597,10 @@ export const deserializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
+/**
+ * deserializeAws_json1_1StartAvailabilityMonitorTestCommandError
+ */
+const de_StartAvailabilityMonitorTestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAvailabilityMonitorTestCommandOutput> => {
@@ -4898,10 +5612,10 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4913,16 +5627,19 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartGatewayCommand = async (
+/**
+ * deserializeAws_json1_1StartGatewayCommand
+ */
+export const de_StartGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartGatewayCommandError(output, context);
+    return de_StartGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartGatewayOutput(data, context);
+  contents = de_StartGatewayOutput(data, context);
   const response: StartGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4930,7 +5647,10 @@ export const deserializeAws_json1_1StartGatewayCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartGatewayCommandError = async (
+/**
+ * deserializeAws_json1_1StartGatewayCommandError
+ */
+const de_StartGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartGatewayCommandOutput> => {
@@ -4942,10 +5662,10 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4957,16 +5677,19 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand
+ */
+export const de_UpdateAutomaticTapeCreationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError(output, context);
+    return de_UpdateAutomaticTapeCreationPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput(data, context);
+  contents = de_UpdateAutomaticTapeCreationPolicyOutput(data, context);
   const response: UpdateAutomaticTapeCreationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4974,7 +5697,10 @@ export const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError
+ */
+const de_UpdateAutomaticTapeCreationPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
@@ -4986,10 +5712,10 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = asyn
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5001,16 +5727,19 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitCommand
+ */
+export const de_UpdateBandwidthRateLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(output, context);
+    return de_UpdateBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBandwidthRateLimitOutput(data, context);
+  contents = de_UpdateBandwidthRateLimitOutput(data, context);
   const response: UpdateBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5018,7 +5747,10 @@ export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitCommandError
+ */
+const de_UpdateBandwidthRateLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBandwidthRateLimitCommandOutput> => {
@@ -5030,10 +5762,10 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5045,16 +5777,19 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand
+ */
+export const de_UpdateBandwidthRateLimitScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError(output, context);
+    return de_UpdateBandwidthRateLimitScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput(data, context);
+  contents = de_UpdateBandwidthRateLimitScheduleOutput(data, context);
   const response: UpdateBandwidthRateLimitScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5062,7 +5797,10 @@ export const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError
+ */
+const de_UpdateBandwidthRateLimitScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
@@ -5074,10 +5812,10 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5089,16 +5827,19 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async
   }
 };
 
-export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateChapCredentialsCommand
+ */
+export const de_UpdateChapCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChapCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateChapCredentialsCommandError(output, context);
+    return de_UpdateChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateChapCredentialsOutput(data, context);
+  contents = de_UpdateChapCredentialsOutput(data, context);
   const response: UpdateChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5106,7 +5847,10 @@ export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateChapCredentialsCommandError
+ */
+const de_UpdateChapCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChapCredentialsCommandOutput> => {
@@ -5118,10 +5862,10 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5133,16 +5877,19 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateFileSystemAssociationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFileSystemAssociationCommand
+ */
+export const de_UpdateFileSystemAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFileSystemAssociationCommandError(output, context);
+    return de_UpdateFileSystemAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFileSystemAssociationOutput(data, context);
+  contents = de_UpdateFileSystemAssociationOutput(data, context);
   const response: UpdateFileSystemAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5150,7 +5897,10 @@ export const deserializeAws_json1_1UpdateFileSystemAssociationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateFileSystemAssociationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFileSystemAssociationCommandError
+ */
+const de_UpdateFileSystemAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemAssociationCommandOutput> => {
@@ -5162,10 +5912,10 @@ const deserializeAws_json1_1UpdateFileSystemAssociationCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5177,16 +5927,19 @@ const deserializeAws_json1_1UpdateFileSystemAssociationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateGatewayInformationCommand
+ */
+export const de_UpdateGatewayInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayInformationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateGatewayInformationCommandError(output, context);
+    return de_UpdateGatewayInformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayInformationOutput(data, context);
+  contents = de_UpdateGatewayInformationOutput(data, context);
   const response: UpdateGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5194,7 +5947,10 @@ export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateGatewayInformationCommandError
+ */
+const de_UpdateGatewayInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayInformationCommandOutput> => {
@@ -5206,10 +5962,10 @@ const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5221,16 +5977,19 @@ const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
+/**
+ * deserializeAws_json1_1UpdateGatewaySoftwareNowCommand
+ */
+export const de_UpdateGatewaySoftwareNowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(output, context);
+    return de_UpdateGatewaySoftwareNowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewaySoftwareNowOutput(data, context);
+  contents = de_UpdateGatewaySoftwareNowOutput(data, context);
   const response: UpdateGatewaySoftwareNowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5238,7 +5997,10 @@ export const deserializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError
+ */
+const de_UpdateGatewaySoftwareNowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
@@ -5250,10 +6012,10 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5265,16 +6027,19 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
+/**
+ * deserializeAws_json1_1UpdateMaintenanceStartTimeCommand
+ */
+export const de_UpdateMaintenanceStartTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(output, context);
+    return de_UpdateMaintenanceStartTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMaintenanceStartTimeOutput(data, context);
+  contents = de_UpdateMaintenanceStartTimeOutput(data, context);
   const response: UpdateMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5282,7 +6047,10 @@ export const deserializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError
+ */
+const de_UpdateMaintenanceStartTimeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
@@ -5294,10 +6062,10 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5309,16 +6077,19 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateNFSFileShareCommand = async (
+/**
+ * deserializeAws_json1_1UpdateNFSFileShareCommand
+ */
+export const de_UpdateNFSFileShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNFSFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateNFSFileShareCommandError(output, context);
+    return de_UpdateNFSFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNFSFileShareOutput(data, context);
+  contents = de_UpdateNFSFileShareOutput(data, context);
   const response: UpdateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5326,7 +6097,10 @@ export const deserializeAws_json1_1UpdateNFSFileShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateNFSFileShareCommandError
+ */
+const de_UpdateNFSFileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNFSFileShareCommandOutput> => {
@@ -5338,10 +6112,10 @@ const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5353,16 +6127,19 @@ const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSMBFileShareCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareCommand
+ */
+export const de_UpdateSMBFileShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSMBFileShareCommandError(output, context);
+    return de_UpdateSMBFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBFileShareOutput(data, context);
+  contents = de_UpdateSMBFileShareOutput(data, context);
   const response: UpdateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5370,7 +6147,10 @@ export const deserializeAws_json1_1UpdateSMBFileShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareCommandError
+ */
+const de_UpdateSMBFileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBFileShareCommandOutput> => {
@@ -5382,10 +6162,10 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5397,16 +6177,19 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand
+ */
+export const de_UpdateSMBFileShareVisibilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError(output, context);
+    return de_UpdateSMBFileShareVisibilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput(data, context);
+  contents = de_UpdateSMBFileShareVisibilityOutput(data, context);
   const response: UpdateSMBFileShareVisibilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5414,7 +6197,10 @@ export const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError
+ */
+const de_UpdateSMBFileShareVisibilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
@@ -5426,10 +6212,10 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5441,16 +6227,19 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSMBLocalGroupsCommand
+ */
+export const de_UpdateSMBLocalGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBLocalGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSMBLocalGroupsCommandError(output, context);
+    return de_UpdateSMBLocalGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBLocalGroupsOutput(data, context);
+  contents = de_UpdateSMBLocalGroupsOutput(data, context);
   const response: UpdateSMBLocalGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5458,7 +6247,10 @@ export const deserializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSMBLocalGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSMBLocalGroupsCommandError
+ */
+const de_UpdateSMBLocalGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBLocalGroupsCommandOutput> => {
@@ -5470,10 +6262,10 @@ const deserializeAws_json1_1UpdateSMBLocalGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5485,16 +6277,19 @@ const deserializeAws_json1_1UpdateSMBLocalGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSMBSecurityStrategyCommand
+ */
+export const de_UpdateSMBSecurityStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(output, context);
+    return de_UpdateSMBSecurityStrategyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBSecurityStrategyOutput(data, context);
+  contents = de_UpdateSMBSecurityStrategyOutput(data, context);
   const response: UpdateSMBSecurityStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5502,7 +6297,10 @@ export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError
+ */
+const de_UpdateSMBSecurityStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
@@ -5514,10 +6312,10 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5529,16 +6327,19 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateSnapshotScheduleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSnapshotScheduleCommand
+ */
+export const de_UpdateSnapshotScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSnapshotScheduleCommandError(output, context);
+    return de_UpdateSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSnapshotScheduleOutput(data, context);
+  contents = de_UpdateSnapshotScheduleOutput(data, context);
   const response: UpdateSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5546,7 +6347,10 @@ export const deserializeAws_json1_1UpdateSnapshotScheduleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSnapshotScheduleCommandError
+ */
+const de_UpdateSnapshotScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSnapshotScheduleCommandOutput> => {
@@ -5558,10 +6362,10 @@ const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5573,16 +6377,19 @@ const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
+/**
+ * deserializeAws_json1_1UpdateVTLDeviceTypeCommand
+ */
+export const de_UpdateVTLDeviceTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVTLDeviceTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(output, context);
+    return de_UpdateVTLDeviceTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVTLDeviceTypeOutput(data, context);
+  contents = de_UpdateVTLDeviceTypeOutput(data, context);
   const response: UpdateVTLDeviceTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5590,7 +6397,10 @@ export const deserializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateVTLDeviceTypeCommandError
+ */
+const de_UpdateVTLDeviceTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVTLDeviceTypeCommandOutput> => {
@@ -5602,10 +6412,10 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5617,12 +6427,12 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
   }
 };
 
-const deserializeAws_json1_1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
+  const deserialized: any = de_InternalServerError(body, context);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5630,12 +6440,15 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidGatewayRequestExceptionRes
+ */
+const de_InvalidGatewayRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGatewayRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGatewayRequestException(body, context);
+  const deserialized: any = de_InvalidGatewayRequestException(body, context);
   const exception = new InvalidGatewayRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5643,12 +6456,15 @@ const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
+/**
+ * deserializeAws_json1_1ServiceUnavailableErrorRes
+ */
+const de_ServiceUnavailableErrorRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableError(body, context);
+  const deserialized: any = de_ServiceUnavailableError(body, context);
   const exception = new ServiceUnavailableError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5656,7 +6472,10 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ActivateGatewayInput = (input: ActivateGatewayInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ActivateGatewayInput
+ */
+const se_ActivateGatewayInput = (input: ActivateGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.ActivationKey != null && { ActivationKey: input.ActivationKey }),
     ...(input.GatewayName != null && { GatewayName: input.GatewayName }),
@@ -5664,40 +6483,55 @@ const serializeAws_json1_1ActivateGatewayInput = (input: ActivateGatewayInput, c
     ...(input.GatewayTimezone != null && { GatewayTimezone: input.GatewayTimezone }),
     ...(input.GatewayType != null && { GatewayType: input.GatewayType }),
     ...(input.MediumChangerType != null && { MediumChangerType: input.MediumChangerType }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TapeDriveType != null && { TapeDriveType: input.TapeDriveType }),
   };
 };
 
-const serializeAws_json1_1AddCacheInput = (input: AddCacheInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddCacheInput
+ */
+const se_AddCacheInput = (input: AddCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds != null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.DiskIds != null && { DiskIds: se_DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1AddTagsToResourceInput = (input: AddTagsToResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddTagsToResourceInput
+ */
+const se_AddTagsToResourceInput = (input: AddTagsToResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1AddUploadBufferInput = (input: AddUploadBufferInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddUploadBufferInput
+ */
+const se_AddUploadBufferInput = (input: AddUploadBufferInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds != null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.DiskIds != null && { DiskIds: se_DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1AddWorkingStorageInput = (input: AddWorkingStorageInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddWorkingStorageInput
+ */
+const se_AddWorkingStorageInput = (input: AddWorkingStorageInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds != null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.DiskIds != null && { DiskIds: se_DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1AssignTapePoolInput = (input: AssignTapePoolInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AssignTapePoolInput
+ */
+const se_AssignTapePoolInput = (input: AssignTapePoolInput, context: __SerdeContext): any => {
   return {
     ...(input.BypassGovernanceRetention != null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
@@ -5705,31 +6539,29 @@ const serializeAws_json1_1AssignTapePoolInput = (input: AssignTapePoolInput, con
   };
 };
 
-const serializeAws_json1_1AssociateFileSystemInput = (
-  input: AssociateFileSystemInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateFileSystemInput
+ */
+const se_AssociateFileSystemInput = (input: AssociateFileSystemInput, context: __SerdeContext): any => {
   return {
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.EndpointNetworkConfiguration != null && {
-      EndpointNetworkConfiguration: serializeAws_json1_1EndpointNetworkConfiguration(
-        input.EndpointNetworkConfiguration,
-        context
-      ),
+      EndpointNetworkConfiguration: se_EndpointNetworkConfiguration(input.EndpointNetworkConfiguration, context),
     }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.LocationARN != null && { LocationARN: input.LocationARN }),
     ...(input.Password != null && { Password: input.Password }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttachVolumeInput
+ */
+const se_AttachVolumeInput = (input: AttachVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.DiskId != null && { DiskId: input.DiskId }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -5739,10 +6571,10 @@ const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context
   };
 };
 
-const serializeAws_json1_1AutomaticTapeCreationRule = (
-  input: AutomaticTapeCreationRule,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AutomaticTapeCreationRule
+ */
+const se_AutomaticTapeCreationRule = (input: AutomaticTapeCreationRule, context: __SerdeContext): any => {
   return {
     ...(input.MinimumNumTapes != null && { MinimumNumTapes: input.MinimumNumTapes }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
@@ -5752,21 +6584,21 @@ const serializeAws_json1_1AutomaticTapeCreationRule = (
   };
 };
 
-const serializeAws_json1_1AutomaticTapeCreationRules = (
-  input: AutomaticTapeCreationRule[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AutomaticTapeCreationRules
+ */
+const se_AutomaticTapeCreationRules = (input: AutomaticTapeCreationRule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1AutomaticTapeCreationRule(entry, context);
+      return se_AutomaticTapeCreationRule(entry, context);
     });
 };
 
-const serializeAws_json1_1BandwidthRateLimitInterval = (
-  input: BandwidthRateLimitInterval,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BandwidthRateLimitInterval
+ */
+const se_BandwidthRateLimitInterval = (input: BandwidthRateLimitInterval, context: __SerdeContext): any => {
   return {
     ...(input.AverageDownloadRateLimitInBitsPerSec != null && {
       AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
@@ -5774,7 +6606,7 @@ const serializeAws_json1_1BandwidthRateLimitInterval = (
     ...(input.AverageUploadRateLimitInBitsPerSec != null && {
       AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
     }),
-    ...(input.DaysOfWeek != null && { DaysOfWeek: serializeAws_json1_1DaysOfWeek(input.DaysOfWeek, context) }),
+    ...(input.DaysOfWeek != null && { DaysOfWeek: se_DaysOfWeek(input.DaysOfWeek, context) }),
     ...(input.EndHourOfDay != null && { EndHourOfDay: input.EndHourOfDay }),
     ...(input.EndMinuteOfHour != null && { EndMinuteOfHour: input.EndMinuteOfHour }),
     ...(input.StartHourOfDay != null && { StartHourOfDay: input.StartHourOfDay }),
@@ -5782,41 +6614,50 @@ const serializeAws_json1_1BandwidthRateLimitInterval = (
   };
 };
 
-const serializeAws_json1_1BandwidthRateLimitIntervals = (
-  input: BandwidthRateLimitInterval[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BandwidthRateLimitIntervals
+ */
+const se_BandwidthRateLimitIntervals = (input: BandwidthRateLimitInterval[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1BandwidthRateLimitInterval(entry, context);
+      return se_BandwidthRateLimitInterval(entry, context);
     });
 };
 
-const serializeAws_json1_1CacheAttributes = (input: CacheAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CacheAttributes
+ */
+const se_CacheAttributes = (input: CacheAttributes, context: __SerdeContext): any => {
   return {
     ...(input.CacheStaleTimeoutInSeconds != null && { CacheStaleTimeoutInSeconds: input.CacheStaleTimeoutInSeconds }),
   };
 };
 
-const serializeAws_json1_1CancelArchivalInput = (input: CancelArchivalInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CancelArchivalInput
+ */
+const se_CancelArchivalInput = (input: CancelArchivalInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
   };
 };
 
-const serializeAws_json1_1CancelRetrievalInput = (input: CancelRetrievalInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CancelRetrievalInput
+ */
+const se_CancelRetrievalInput = (input: CancelRetrievalInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
   };
 };
 
-const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
-  input: CreateCachediSCSIVolumeInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateCachediSCSIVolumeInput
+ */
+const se_CreateCachediSCSIVolumeInput = (input: CreateCachediSCSIVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -5825,20 +6666,21 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
     ...(input.NetworkInterfaceId != null && { NetworkInterfaceId: input.NetworkInterfaceId }),
     ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
     ...(input.SourceVolumeARN != null && { SourceVolumeARN: input.SourceVolumeARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TargetName != null && { TargetName: input.TargetName }),
     ...(input.VolumeSizeInBytes != null && { VolumeSizeInBytes: input.VolumeSizeInBytes }),
   };
 };
 
-const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateNFSFileShareInput
+ */
+const se_CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.BucketRegion != null && { BucketRegion: input.BucketRegion }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.ClientList != null && { ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context) }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
+    ...(input.ClientList != null && { ClientList: se_FileShareClientList(input.ClientList, context) }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.DefaultStorageClass != null && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareName != null && { FileShareName: input.FileShareName }),
@@ -5848,7 +6690,7 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.LocationARN != null && { LocationARN: input.LocationARN }),
     ...(input.NFSFileShareDefaults != null && {
-      NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
+      NFSFileShareDefaults: se_NFSFileShareDefaults(input.NFSFileShareDefaults, context),
     }),
     ...(input.NotificationPolicy != null && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL != null && { ObjectACL: input.ObjectACL }),
@@ -5856,30 +6698,29 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
     ...(input.RequesterPays != null && { RequesterPays: input.RequesterPays }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Squash != null && { Squash: input.Squash }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.VPCEndpointDNSName != null && { VPCEndpointDNSName: input.VPCEndpointDNSName }),
   };
 };
 
-const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateSMBFileShareInput
+ */
+const se_CreateSMBFileShareInput = (input: CreateSMBFileShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AccessBasedEnumeration != null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
-    ...(input.AdminUserList != null && { AdminUserList: serializeAws_json1_1UserList(input.AdminUserList, context) }),
+    ...(input.AdminUserList != null && { AdminUserList: se_UserList(input.AdminUserList, context) }),
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.Authentication != null && { Authentication: input.Authentication }),
     ...(input.BucketRegion != null && { BucketRegion: input.BucketRegion }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
     ...(input.CaseSensitivity != null && { CaseSensitivity: input.CaseSensitivity }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.DefaultStorageClass != null && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareName != null && { FileShareName: input.FileShareName }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.GuessMIMETypeEnabled != null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.InvalidUserList != null && {
-      InvalidUserList: serializeAws_json1_1UserList(input.InvalidUserList, context),
-    }),
+    ...(input.InvalidUserList != null && { InvalidUserList: se_UserList(input.InvalidUserList, context) }),
     ...(input.KMSEncrypted != null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.LocationARN != null && { LocationARN: input.LocationARN }),
@@ -5890,35 +6731,41 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.RequesterPays != null && { RequesterPays: input.RequesterPays }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.SMBACLEnabled != null && { SMBACLEnabled: input.SMBACLEnabled }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.VPCEndpointDNSName != null && { VPCEndpointDNSName: input.VPCEndpointDNSName }),
-    ...(input.ValidUserList != null && { ValidUserList: serializeAws_json1_1UserList(input.ValidUserList, context) }),
+    ...(input.ValidUserList != null && { ValidUserList: se_UserList(input.ValidUserList, context) }),
   };
 };
 
-const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
+/**
+ * serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput
+ */
+const se_CreateSnapshotFromVolumeRecoveryPointInput = (
   input: CreateSnapshotFromVolumeRecoveryPointInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.SnapshotDescription != null && { SnapshotDescription: input.SnapshotDescription }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1CreateSnapshotInput = (input: CreateSnapshotInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateSnapshotInput
+ */
+const se_CreateSnapshotInput = (input: CreateSnapshotInput, context: __SerdeContext): any => {
   return {
     ...(input.SnapshotDescription != null && { SnapshotDescription: input.SnapshotDescription }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
-  input: CreateStorediSCSIVolumeInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateStorediSCSIVolumeInput
+ */
+const se_CreateStorediSCSIVolumeInput = (input: CreateStorediSCSIVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.DiskId != null && { DiskId: input.DiskId }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -5927,22 +6774,28 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
     ...(input.NetworkInterfaceId != null && { NetworkInterfaceId: input.NetworkInterfaceId }),
     ...(input.PreserveExistingData != null && { PreserveExistingData: input.PreserveExistingData }),
     ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TargetName != null && { TargetName: input.TargetName }),
   };
 };
 
-const serializeAws_json1_1CreateTapePoolInput = (input: CreateTapePoolInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateTapePoolInput
+ */
+const se_CreateTapePoolInput = (input: CreateTapePoolInput, context: __SerdeContext): any => {
   return {
     ...(input.PoolName != null && { PoolName: input.PoolName }),
     ...(input.RetentionLockTimeInDays != null && { RetentionLockTimeInDays: input.RetentionLockTimeInDays }),
     ...(input.RetentionLockType != null && { RetentionLockType: input.RetentionLockType }),
     ...(input.StorageClass != null && { StorageClass: input.StorageClass }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateTapesInput
+ */
+const se_CreateTapesInput = (input: CreateTapesInput, context: __SerdeContext): any => {
   return {
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -5950,30 +6803,33 @@ const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: 
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.NumTapesToCreate != null && { NumTapesToCreate: input.NumTapesToCreate }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TapeBarcodePrefix != null && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
     ...(input.TapeSizeInBytes != null && { TapeSizeInBytes: input.TapeSizeInBytes }),
     ...(input.Worm != null && { Worm: input.Worm }),
   };
 };
 
-const serializeAws_json1_1CreateTapeWithBarcodeInput = (
-  input: CreateTapeWithBarcodeInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateTapeWithBarcodeInput
+ */
+const se_CreateTapeWithBarcodeInput = (input: CreateTapeWithBarcodeInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.KMSEncrypted != null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.PoolId != null && { PoolId: input.PoolId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TapeBarcode != null && { TapeBarcode: input.TapeBarcode }),
     ...(input.TapeSizeInBytes != null && { TapeSizeInBytes: input.TapeSizeInBytes }),
     ...(input.Worm != null && { Worm: input.Worm }),
   };
 };
 
-const serializeAws_json1_1DaysOfWeek = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DaysOfWeek
+ */
+const se_DaysOfWeek = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5981,7 +6837,10 @@ const serializeAws_json1_1DaysOfWeek = (input: number[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
+/**
+ * serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput
+ */
+const se_DeleteAutomaticTapeCreationPolicyInput = (
   input: DeleteAutomaticTapeCreationPolicyInput,
   context: __SerdeContext
 ): any => {
@@ -5990,56 +6849,68 @@ const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
   };
 };
 
-const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
-  input: DeleteBandwidthRateLimitInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteBandwidthRateLimitInput
+ */
+const se_DeleteBandwidthRateLimitInput = (input: DeleteBandwidthRateLimitInput, context: __SerdeContext): any => {
   return {
     ...(input.BandwidthType != null && { BandwidthType: input.BandwidthType }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DeleteChapCredentialsInput = (
-  input: DeleteChapCredentialsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteChapCredentialsInput
+ */
+const se_DeleteChapCredentialsInput = (input: DeleteChapCredentialsInput, context: __SerdeContext): any => {
   return {
     ...(input.InitiatorName != null && { InitiatorName: input.InitiatorName }),
     ...(input.TargetARN != null && { TargetARN: input.TargetARN }),
   };
 };
 
-const serializeAws_json1_1DeleteFileShareInput = (input: DeleteFileShareInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteFileShareInput
+ */
+const se_DeleteFileShareInput = (input: DeleteFileShareInput, context: __SerdeContext): any => {
   return {
     ...(input.FileShareARN != null && { FileShareARN: input.FileShareARN }),
     ...(input.ForceDelete != null && { ForceDelete: input.ForceDelete }),
   };
 };
 
-const serializeAws_json1_1DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteGatewayInput
+ */
+const se_DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DeleteSnapshotScheduleInput = (
-  input: DeleteSnapshotScheduleInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteSnapshotScheduleInput
+ */
+const se_DeleteSnapshotScheduleInput = (input: DeleteSnapshotScheduleInput, context: __SerdeContext): any => {
   return {
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1DeleteTapeArchiveInput = (input: DeleteTapeArchiveInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTapeArchiveInput
+ */
+const se_DeleteTapeArchiveInput = (input: DeleteTapeArchiveInput, context: __SerdeContext): any => {
   return {
     ...(input.BypassGovernanceRetention != null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
     ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
   };
 };
 
-const serializeAws_json1_1DeleteTapeInput = (input: DeleteTapeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTapeInput
+ */
+const se_DeleteTapeInput = (input: DeleteTapeInput, context: __SerdeContext): any => {
   return {
     ...(input.BypassGovernanceRetention != null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -6047,19 +6918,28 @@ const serializeAws_json1_1DeleteTapeInput = (input: DeleteTapeInput, context: __
   };
 };
 
-const serializeAws_json1_1DeleteTapePoolInput = (input: DeleteTapePoolInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTapePoolInput
+ */
+const se_DeleteTapePoolInput = (input: DeleteTapePoolInput, context: __SerdeContext): any => {
   return {
     ...(input.PoolARN != null && { PoolARN: input.PoolARN }),
   };
 };
 
-const serializeAws_json1_1DeleteVolumeInput = (input: DeleteVolumeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteVolumeInput
+ */
+const se_DeleteVolumeInput = (input: DeleteVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
+/**
+ * serializeAws_json1_1DescribeAvailabilityMonitorTestInput
+ */
+const se_DescribeAvailabilityMonitorTestInput = (
   input: DescribeAvailabilityMonitorTestInput,
   context: __SerdeContext
 ): any => {
@@ -6068,16 +6948,19 @@ const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
   };
 };
 
-const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
-  input: DescribeBandwidthRateLimitInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeBandwidthRateLimitInput
+ */
+const se_DescribeBandwidthRateLimitInput = (input: DescribeBandwidthRateLimitInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput = (
+/**
+ * serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput
+ */
+const se_DescribeBandwidthRateLimitScheduleInput = (
   input: DescribeBandwidthRateLimitScheduleInput,
   context: __SerdeContext
 ): any => {
@@ -6086,54 +6969,60 @@ const serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput = (
   };
 };
 
-const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
-  input: DescribeCachediSCSIVolumesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeCachediSCSIVolumesInput
+ */
+const se_DescribeCachediSCSIVolumesInput = (input: DescribeCachediSCSIVolumesInput, context: __SerdeContext): any => {
   return {
-    ...(input.VolumeARNs != null && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
+    ...(input.VolumeARNs != null && { VolumeARNs: se_VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeCacheInput = (input: DescribeCacheInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeCacheInput
+ */
+const se_DescribeCacheInput = (input: DescribeCacheInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DescribeChapCredentialsInput = (
-  input: DescribeChapCredentialsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeChapCredentialsInput
+ */
+const se_DescribeChapCredentialsInput = (input: DescribeChapCredentialsInput, context: __SerdeContext): any => {
   return {
     ...(input.TargetARN != null && { TargetARN: input.TargetARN }),
   };
 };
 
-const serializeAws_json1_1DescribeFileSystemAssociationsInput = (
+/**
+ * serializeAws_json1_1DescribeFileSystemAssociationsInput
+ */
+const se_DescribeFileSystemAssociationsInput = (
   input: DescribeFileSystemAssociationsInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.FileSystemAssociationARNList != null && {
-      FileSystemAssociationARNList: serializeAws_json1_1FileSystemAssociationARNList(
-        input.FileSystemAssociationARNList,
-        context
-      ),
+      FileSystemAssociationARNList: se_FileSystemAssociationARNList(input.FileSystemAssociationARNList, context),
     }),
   };
 };
 
-const serializeAws_json1_1DescribeGatewayInformationInput = (
-  input: DescribeGatewayInformationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeGatewayInformationInput
+ */
+const se_DescribeGatewayInformationInput = (input: DescribeGatewayInformationInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
+/**
+ * serializeAws_json1_1DescribeMaintenanceStartTimeInput
+ */
+const se_DescribeMaintenanceStartTimeInput = (
   input: DescribeMaintenanceStartTimeInput,
   context: __SerdeContext
 ): any => {
@@ -6142,139 +7031,148 @@ const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
   };
 };
 
-const serializeAws_json1_1DescribeNFSFileSharesInput = (
-  input: DescribeNFSFileSharesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeNFSFileSharesInput
+ */
+const se_DescribeNFSFileSharesInput = (input: DescribeNFSFileSharesInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARNList != null && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
-    }),
+    ...(input.FileShareARNList != null && { FileShareARNList: se_FileShareARNList(input.FileShareARNList, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeSMBFileSharesInput = (
-  input: DescribeSMBFileSharesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeSMBFileSharesInput
+ */
+const se_DescribeSMBFileSharesInput = (input: DescribeSMBFileSharesInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARNList != null && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
-    }),
+    ...(input.FileShareARNList != null && { FileShareARNList: se_FileShareARNList(input.FileShareARNList, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeSMBSettingsInput = (
-  input: DescribeSMBSettingsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeSMBSettingsInput
+ */
+const se_DescribeSMBSettingsInput = (input: DescribeSMBSettingsInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DescribeSnapshotScheduleInput = (
-  input: DescribeSnapshotScheduleInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeSnapshotScheduleInput
+ */
+const se_DescribeSnapshotScheduleInput = (input: DescribeSnapshotScheduleInput, context: __SerdeContext): any => {
   return {
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
-  input: DescribeStorediSCSIVolumesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeStorediSCSIVolumesInput
+ */
+const se_DescribeStorediSCSIVolumesInput = (input: DescribeStorediSCSIVolumesInput, context: __SerdeContext): any => {
   return {
-    ...(input.VolumeARNs != null && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
+    ...(input.VolumeARNs != null && { VolumeARNs: se_VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeTapeArchivesInput = (
-  input: DescribeTapeArchivesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeTapeArchivesInput
+ */
+const se_DescribeTapeArchivesInput = (input: DescribeTapeArchivesInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.TapeARNs != null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
+    ...(input.TapeARNs != null && { TapeARNs: se_TapeARNs(input.TapeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
-  input: DescribeTapeRecoveryPointsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1DescribeTapesInput = (input: DescribeTapesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeTapeRecoveryPointsInput
+ */
+const se_DescribeTapeRecoveryPointsInput = (input: DescribeTapeRecoveryPointsInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.TapeARNs != null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeUploadBufferInput = (
-  input: DescribeUploadBufferInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
-  };
-};
-
-const serializeAws_json1_1DescribeVTLDevicesInput = (input: DescribeVTLDevicesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeTapesInput
+ */
+const se_DescribeTapesInput = (input: DescribeTapesInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.VTLDeviceARNs != null && {
-      VTLDeviceARNs: serializeAws_json1_1VTLDeviceARNs(input.VTLDeviceARNs, context),
-    }),
+    ...(input.TapeARNs != null && { TapeARNs: se_TapeARNs(input.TapeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeWorkingStorageInput = (
-  input: DescribeWorkingStorageInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeUploadBufferInput
+ */
+const se_DescribeUploadBufferInput = (input: DescribeUploadBufferInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DetachVolumeInput = (input: DetachVolumeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeVTLDevicesInput
+ */
+const se_DescribeVTLDevicesInput = (input: DescribeVTLDevicesInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.Marker != null && { Marker: input.Marker }),
+    ...(input.VTLDeviceARNs != null && { VTLDeviceARNs: se_VTLDeviceARNs(input.VTLDeviceARNs, context) }),
+  };
+};
+
+/**
+ * serializeAws_json1_1DescribeWorkingStorageInput
+ */
+const se_DescribeWorkingStorageInput = (input: DescribeWorkingStorageInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
+  };
+};
+
+/**
+ * serializeAws_json1_1DetachVolumeInput
+ */
+const se_DetachVolumeInput = (input: DetachVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.ForceDetach != null && { ForceDetach: input.ForceDetach }),
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1DisableGatewayInput = (input: DisableGatewayInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DisableGatewayInput
+ */
+const se_DisableGatewayInput = (input: DisableGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1DisassociateFileSystemInput = (
-  input: DisassociateFileSystemInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DisassociateFileSystemInput
+ */
+const se_DisassociateFileSystemInput = (input: DisassociateFileSystemInput, context: __SerdeContext): any => {
   return {
     ...(input.FileSystemAssociationARN != null && { FileSystemAssociationARN: input.FileSystemAssociationARN }),
     ...(input.ForceDelete != null && { ForceDelete: input.ForceDelete }),
   };
 };
 
-const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DiskIds
+ */
+const se_DiskIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6282,16 +7180,19 @@ const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1EndpointNetworkConfiguration = (
-  input: EndpointNetworkConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1EndpointNetworkConfiguration
+ */
+const se_EndpointNetworkConfiguration = (input: EndpointNetworkConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.IpAddresses != null && { IpAddresses: serializeAws_json1_1IpAddressList(input.IpAddresses, context) }),
+    ...(input.IpAddresses != null && { IpAddresses: se_IpAddressList(input.IpAddresses, context) }),
   };
 };
 
-const serializeAws_json1_1FileShareARNList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FileShareARNList
+ */
+const se_FileShareARNList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6299,7 +7200,10 @@ const serializeAws_json1_1FileShareARNList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1FileShareClientList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FileShareClientList
+ */
+const se_FileShareClientList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6307,7 +7211,10 @@ const serializeAws_json1_1FileShareClientList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_json1_1FileSystemAssociationARNList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FileSystemAssociationARNList
+ */
+const se_FileSystemAssociationARNList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6315,7 +7222,10 @@ const serializeAws_json1_1FileSystemAssociationARNList = (input: string[], conte
     });
 };
 
-const serializeAws_json1_1FolderList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FolderList
+ */
+const se_FolderList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6323,7 +7233,10 @@ const serializeAws_json1_1FolderList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1Hosts = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Hosts
+ */
+const se_Hosts = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6331,7 +7244,10 @@ const serializeAws_json1_1Hosts = (input: string[], context: __SerdeContext): an
     });
 };
 
-const serializeAws_json1_1IpAddressList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IpAddressList
+ */
+const se_IpAddressList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6339,11 +7255,12 @@ const serializeAws_json1_1IpAddressList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1JoinDomainInput = (input: JoinDomainInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1JoinDomainInput
+ */
+const se_JoinDomainInput = (input: JoinDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.DomainControllers != null && {
-      DomainControllers: serializeAws_json1_1Hosts(input.DomainControllers, context),
-    }),
+    ...(input.DomainControllers != null && { DomainControllers: se_Hosts(input.DomainControllers, context) }),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.OrganizationalUnit != null && { OrganizationalUnit: input.OrganizationalUnit }),
@@ -6353,7 +7270,10 @@ const serializeAws_json1_1JoinDomainInput = (input: JoinDomainInput, context: __
   };
 };
 
-const serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput = (
+/**
+ * serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput
+ */
+const se_ListAutomaticTapeCreationPoliciesInput = (
   input: ListAutomaticTapeCreationPoliciesInput,
   context: __SerdeContext
 ): any => {
@@ -6362,7 +7282,10 @@ const serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput = (
   };
 };
 
-const serializeAws_json1_1ListFileSharesInput = (input: ListFileSharesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListFileSharesInput
+ */
+const se_ListFileSharesInput = (input: ListFileSharesInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -6370,10 +7293,10 @@ const serializeAws_json1_1ListFileSharesInput = (input: ListFileSharesInput, con
   };
 };
 
-const serializeAws_json1_1ListFileSystemAssociationsInput = (
-  input: ListFileSystemAssociationsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListFileSystemAssociationsInput
+ */
+const se_ListFileSystemAssociationsInput = (input: ListFileSystemAssociationsInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -6381,23 +7304,29 @@ const serializeAws_json1_1ListFileSystemAssociationsInput = (
   };
 };
 
-const serializeAws_json1_1ListGatewaysInput = (input: ListGatewaysInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListGatewaysInput
+ */
+const se_ListGatewaysInput = (input: ListGatewaysInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
 
-const serializeAws_json1_1ListLocalDisksInput = (input: ListLocalDisksInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListLocalDisksInput
+ */
+const se_ListLocalDisksInput = (input: ListLocalDisksInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceInput = (
-  input: ListTagsForResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceInput
+ */
+const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
@@ -6405,41 +7334,50 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   };
 };
 
-const serializeAws_json1_1ListTapePoolsInput = (input: ListTapePoolsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListTapePoolsInput
+ */
+const se_ListTapePoolsInput = (input: ListTapePoolsInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.PoolARNs != null && { PoolARNs: serializeAws_json1_1PoolARNs(input.PoolARNs, context) }),
+    ...(input.PoolARNs != null && { PoolARNs: se_PoolARNs(input.PoolARNs, context) }),
   };
 };
 
-const serializeAws_json1_1ListTapesInput = (input: ListTapesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListTapesInput
+ */
+const se_ListTapesInput = (input: ListTapesInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.TapeARNs != null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
+    ...(input.TapeARNs != null && { TapeARNs: se_TapeARNs(input.TapeARNs, context) }),
   };
 };
 
-const serializeAws_json1_1ListVolumeInitiatorsInput = (
-  input: ListVolumeInitiatorsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListVolumeInitiatorsInput
+ */
+const se_ListVolumeInitiatorsInput = (input: ListVolumeInitiatorsInput, context: __SerdeContext): any => {
   return {
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1ListVolumeRecoveryPointsInput = (
-  input: ListVolumeRecoveryPointsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListVolumeRecoveryPointsInput
+ */
+const se_ListVolumeRecoveryPointsInput = (input: ListVolumeRecoveryPointsInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1ListVolumesInput = (input: ListVolumesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListVolumesInput
+ */
+const se_ListVolumesInput = (input: ListVolumesInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit != null && { Limit: input.Limit }),
@@ -6447,7 +7385,10 @@ const serializeAws_json1_1ListVolumesInput = (input: ListVolumesInput, context: 
   };
 };
 
-const serializeAws_json1_1NFSFileShareDefaults = (input: NFSFileShareDefaults, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NFSFileShareDefaults
+ */
+const se_NFSFileShareDefaults = (input: NFSFileShareDefaults, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryMode != null && { DirectoryMode: input.DirectoryMode }),
     ...(input.FileMode != null && { FileMode: input.FileMode }),
@@ -6456,13 +7397,19 @@ const serializeAws_json1_1NFSFileShareDefaults = (input: NFSFileShareDefaults, c
   };
 };
 
-const serializeAws_json1_1NotifyWhenUploadedInput = (input: NotifyWhenUploadedInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NotifyWhenUploadedInput
+ */
+const se_NotifyWhenUploadedInput = (input: NotifyWhenUploadedInput, context: __SerdeContext): any => {
   return {
     ...(input.FileShareARN != null && { FileShareARN: input.FileShareARN }),
   };
 };
 
-const serializeAws_json1_1PoolARNs = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PoolARNs
+ */
+const se_PoolARNs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6470,83 +7417,98 @@ const serializeAws_json1_1PoolARNs = (input: string[], context: __SerdeContext):
     });
 };
 
-const serializeAws_json1_1RefreshCacheInput = (input: RefreshCacheInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RefreshCacheInput
+ */
+const se_RefreshCacheInput = (input: RefreshCacheInput, context: __SerdeContext): any => {
   return {
     ...(input.FileShareARN != null && { FileShareARN: input.FileShareARN }),
-    ...(input.FolderList != null && { FolderList: serializeAws_json1_1FolderList(input.FolderList, context) }),
+    ...(input.FolderList != null && { FolderList: se_FolderList(input.FolderList, context) }),
     ...(input.Recursive != null && { Recursive: input.Recursive }),
   };
 };
 
-const serializeAws_json1_1RemoveTagsFromResourceInput = (
-  input: RemoveTagsFromResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RemoveTagsFromResourceInput
+ */
+const se_RemoveTagsFromResourceInput = (input: RemoveTagsFromResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1ResetCacheInput = (input: ResetCacheInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResetCacheInput
+ */
+const se_ResetCacheInput = (input: ResetCacheInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1RetrieveTapeArchiveInput = (
-  input: RetrieveTapeArchiveInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
-  };
-};
-
-const serializeAws_json1_1RetrieveTapeRecoveryPointInput = (
-  input: RetrieveTapeRecoveryPointInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RetrieveTapeArchiveInput
+ */
+const se_RetrieveTapeArchiveInput = (input: RetrieveTapeArchiveInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
   };
 };
 
-const serializeAws_json1_1SetLocalConsolePasswordInput = (
-  input: SetLocalConsolePasswordInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RetrieveTapeRecoveryPointInput
+ */
+const se_RetrieveTapeRecoveryPointInput = (input: RetrieveTapeRecoveryPointInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN != null && { TapeARN: input.TapeARN }),
+  };
+};
+
+/**
+ * serializeAws_json1_1SetLocalConsolePasswordInput
+ */
+const se_SetLocalConsolePasswordInput = (input: SetLocalConsolePasswordInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.LocalConsolePassword != null && { LocalConsolePassword: input.LocalConsolePassword }),
   };
 };
 
-const serializeAws_json1_1SetSMBGuestPasswordInput = (
-  input: SetSMBGuestPasswordInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SetSMBGuestPasswordInput
+ */
+const se_SetSMBGuestPasswordInput = (input: SetSMBGuestPasswordInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.Password != null && { Password: input.Password }),
   };
 };
 
-const serializeAws_json1_1ShutdownGatewayInput = (input: ShutdownGatewayInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ShutdownGatewayInput
+ */
+const se_ShutdownGatewayInput = (input: ShutdownGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1SMBLocalGroups = (input: SMBLocalGroups, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SMBLocalGroups
+ */
+const se_SMBLocalGroups = (input: SMBLocalGroups, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayAdmins != null && { GatewayAdmins: serializeAws_json1_1UserList(input.GatewayAdmins, context) }),
+    ...(input.GatewayAdmins != null && { GatewayAdmins: se_UserList(input.GatewayAdmins, context) }),
   };
 };
 
-const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
+/**
+ * serializeAws_json1_1StartAvailabilityMonitorTestInput
+ */
+const se_StartAvailabilityMonitorTestInput = (
   input: StartAvailabilityMonitorTestInput,
   context: __SerdeContext
 ): any => {
@@ -6555,20 +7517,29 @@ const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
   };
 };
 
-const serializeAws_json1_1StartGatewayInput = (input: StartGatewayInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StartGatewayInput
+ */
+const se_StartGatewayInput = (input: StartGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeys
+ */
+const se_TagKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6576,15 +7547,21 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tags
+ */
+const se_Tags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TapeARNs = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TapeARNs
+ */
+const se_TapeARNs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6592,25 +7569,25 @@ const serializeAws_json1_1TapeARNs = (input: string[], context: __SerdeContext):
     });
 };
 
-const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput = (
+/**
+ * serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput
+ */
+const se_UpdateAutomaticTapeCreationPolicyInput = (
   input: UpdateAutomaticTapeCreationPolicyInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AutomaticTapeCreationRules != null && {
-      AutomaticTapeCreationRules: serializeAws_json1_1AutomaticTapeCreationRules(
-        input.AutomaticTapeCreationRules,
-        context
-      ),
+      AutomaticTapeCreationRules: se_AutomaticTapeCreationRules(input.AutomaticTapeCreationRules, context),
     }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
-  input: UpdateBandwidthRateLimitInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateBandwidthRateLimitInput
+ */
+const se_UpdateBandwidthRateLimitInput = (input: UpdateBandwidthRateLimitInput, context: __SerdeContext): any => {
   return {
     ...(input.AverageDownloadRateLimitInBitsPerSec != null && {
       AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
@@ -6622,25 +7599,25 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   };
 };
 
-const serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput = (
+/**
+ * serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput
+ */
+const se_UpdateBandwidthRateLimitScheduleInput = (
   input: UpdateBandwidthRateLimitScheduleInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BandwidthRateLimitIntervals != null && {
-      BandwidthRateLimitIntervals: serializeAws_json1_1BandwidthRateLimitIntervals(
-        input.BandwidthRateLimitIntervals,
-        context
-      ),
+      BandwidthRateLimitIntervals: se_BandwidthRateLimitIntervals(input.BandwidthRateLimitIntervals, context),
     }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1UpdateChapCredentialsInput = (
-  input: UpdateChapCredentialsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateChapCredentialsInput
+ */
+const se_UpdateChapCredentialsInput = (input: UpdateChapCredentialsInput, context: __SerdeContext): any => {
   return {
     ...(input.InitiatorName != null && { InitiatorName: input.InitiatorName }),
     ...(input.SecretToAuthenticateInitiator != null && {
@@ -6651,25 +7628,23 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   };
 };
 
-const serializeAws_json1_1UpdateFileSystemAssociationInput = (
-  input: UpdateFileSystemAssociationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateFileSystemAssociationInput
+ */
+const se_UpdateFileSystemAssociationInput = (input: UpdateFileSystemAssociationInput, context: __SerdeContext): any => {
   return {
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
     ...(input.FileSystemAssociationARN != null && { FileSystemAssociationARN: input.FileSystemAssociationARN }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1UpdateGatewayInformationInput = (
-  input: UpdateGatewayInformationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateGatewayInformationInput
+ */
+const se_UpdateGatewayInformationInput = (input: UpdateGatewayInformationInput, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogGroupARN != null && { CloudWatchLogGroupARN: input.CloudWatchLogGroupARN }),
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
@@ -6679,19 +7654,19 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   };
 };
 
-const serializeAws_json1_1UpdateGatewaySoftwareNowInput = (
-  input: UpdateGatewaySoftwareNowInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateGatewaySoftwareNowInput
+ */
+const se_UpdateGatewaySoftwareNowInput = (input: UpdateGatewaySoftwareNowInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
   };
 };
 
-const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
-  input: UpdateMaintenanceStartTimeInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateMaintenanceStartTimeInput
+ */
+const se_UpdateMaintenanceStartTimeInput = (input: UpdateMaintenanceStartTimeInput, context: __SerdeContext): any => {
   return {
     ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
     ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
@@ -6701,13 +7676,14 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
   };
 };
 
-const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateNFSFileShareInput
+ */
+const se_UpdateNFSFileShareInput = (input: UpdateNFSFileShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.ClientList != null && { ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context) }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
+    ...(input.ClientList != null && { ClientList: se_FileShareClientList(input.ClientList, context) }),
     ...(input.DefaultStorageClass != null && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareARN != null && { FileShareARN: input.FileShareARN }),
     ...(input.FileShareName != null && { FileShareName: input.FileShareName }),
@@ -6715,7 +7691,7 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareIn
     ...(input.KMSEncrypted != null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.NFSFileShareDefaults != null && {
-      NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
+      NFSFileShareDefaults: se_NFSFileShareDefaults(input.NFSFileShareDefaults, context),
     }),
     ...(input.NotificationPolicy != null && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL != null && { ObjectACL: input.ObjectACL }),
@@ -6725,22 +7701,21 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareIn
   };
 };
 
-const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateSMBFileShareInput
+ */
+const se_UpdateSMBFileShareInput = (input: UpdateSMBFileShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AccessBasedEnumeration != null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
-    ...(input.AdminUserList != null && { AdminUserList: serializeAws_json1_1UserList(input.AdminUserList, context) }),
+    ...(input.AdminUserList != null && { AdminUserList: se_UserList(input.AdminUserList, context) }),
     ...(input.AuditDestinationARN != null && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.CacheAttributes != null && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
+    ...(input.CacheAttributes != null && { CacheAttributes: se_CacheAttributes(input.CacheAttributes, context) }),
     ...(input.CaseSensitivity != null && { CaseSensitivity: input.CaseSensitivity }),
     ...(input.DefaultStorageClass != null && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareARN != null && { FileShareARN: input.FileShareARN }),
     ...(input.FileShareName != null && { FileShareName: input.FileShareName }),
     ...(input.GuessMIMETypeEnabled != null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.InvalidUserList != null && {
-      InvalidUserList: serializeAws_json1_1UserList(input.InvalidUserList, context),
-    }),
+    ...(input.InvalidUserList != null && { InvalidUserList: se_UserList(input.InvalidUserList, context) }),
     ...(input.KMSEncrypted != null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey != null && { KMSKey: input.KMSKey }),
     ...(input.NotificationPolicy != null && { NotificationPolicy: input.NotificationPolicy }),
@@ -6749,11 +7724,14 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.ReadOnly != null && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays != null && { RequesterPays: input.RequesterPays }),
     ...(input.SMBACLEnabled != null && { SMBACLEnabled: input.SMBACLEnabled }),
-    ...(input.ValidUserList != null && { ValidUserList: serializeAws_json1_1UserList(input.ValidUserList, context) }),
+    ...(input.ValidUserList != null && { ValidUserList: se_UserList(input.ValidUserList, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateSMBFileShareVisibilityInput = (
+/**
+ * serializeAws_json1_1UpdateSMBFileShareVisibilityInput
+ */
+const se_UpdateSMBFileShareVisibilityInput = (
   input: UpdateSMBFileShareVisibilityInput,
   context: __SerdeContext
 ): any => {
@@ -6763,52 +7741,53 @@ const serializeAws_json1_1UpdateSMBFileShareVisibilityInput = (
   };
 };
 
-const serializeAws_json1_1UpdateSMBLocalGroupsInput = (
-  input: UpdateSMBLocalGroupsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateSMBLocalGroupsInput
+ */
+const se_UpdateSMBLocalGroupsInput = (input: UpdateSMBLocalGroupsInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
-    ...(input.SMBLocalGroups != null && {
-      SMBLocalGroups: serializeAws_json1_1SMBLocalGroups(input.SMBLocalGroups, context),
-    }),
+    ...(input.SMBLocalGroups != null && { SMBLocalGroups: se_SMBLocalGroups(input.SMBLocalGroups, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
-  input: UpdateSMBSecurityStrategyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateSMBSecurityStrategyInput
+ */
+const se_UpdateSMBSecurityStrategyInput = (input: UpdateSMBSecurityStrategyInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN != null && { GatewayARN: input.GatewayARN }),
     ...(input.SMBSecurityStrategy != null && { SMBSecurityStrategy: input.SMBSecurityStrategy }),
   };
 };
 
-const serializeAws_json1_1UpdateSnapshotScheduleInput = (
-  input: UpdateSnapshotScheduleInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateSnapshotScheduleInput
+ */
+const se_UpdateSnapshotScheduleInput = (input: UpdateSnapshotScheduleInput, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.RecurrenceInHours != null && { RecurrenceInHours: input.RecurrenceInHours }),
     ...(input.StartAt != null && { StartAt: input.StartAt }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.VolumeARN != null && { VolumeARN: input.VolumeARN }),
   };
 };
 
-const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
-  input: UpdateVTLDeviceTypeInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateVTLDeviceTypeInput
+ */
+const se_UpdateVTLDeviceTypeInput = (input: UpdateVTLDeviceTypeInput, context: __SerdeContext): any => {
   return {
     ...(input.DeviceType != null && { DeviceType: input.DeviceType }),
     ...(input.VTLDeviceARN != null && { VTLDeviceARN: input.VTLDeviceARN }),
   };
 };
 
-const serializeAws_json1_1UserList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserList
+ */
+const se_UserList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6816,7 +7795,10 @@ const serializeAws_json1_1UserList = (input: string[], context: __SerdeContext):
     });
 };
 
-const serializeAws_json1_1VolumeARNs = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1VolumeARNs
+ */
+const se_VolumeARNs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6824,7 +7806,10 @@ const serializeAws_json1_1VolumeARNs = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1VTLDeviceARNs
+ */
+const se_VTLDeviceARNs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6832,78 +7817,96 @@ const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeCont
     });
 };
 
-const deserializeAws_json1_1ActivateGatewayOutput = (output: any, context: __SerdeContext): ActivateGatewayOutput => {
+/**
+ * deserializeAws_json1_1ActivateGatewayOutput
+ */
+const de_ActivateGatewayOutput = (output: any, context: __SerdeContext): ActivateGatewayOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1AddCacheOutput = (output: any, context: __SerdeContext): AddCacheOutput => {
+/**
+ * deserializeAws_json1_1AddCacheOutput
+ */
+const de_AddCacheOutput = (output: any, context: __SerdeContext): AddCacheOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1AddTagsToResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): AddTagsToResourceOutput => {
+/**
+ * deserializeAws_json1_1AddTagsToResourceOutput
+ */
+const de_AddTagsToResourceOutput = (output: any, context: __SerdeContext): AddTagsToResourceOutput => {
   return {
     ResourceARN: __expectString(output.ResourceARN),
   } as any;
 };
 
-const deserializeAws_json1_1AddUploadBufferOutput = (output: any, context: __SerdeContext): AddUploadBufferOutput => {
+/**
+ * deserializeAws_json1_1AddUploadBufferOutput
+ */
+const de_AddUploadBufferOutput = (output: any, context: __SerdeContext): AddUploadBufferOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1AddWorkingStorageOutput = (
-  output: any,
-  context: __SerdeContext
-): AddWorkingStorageOutput => {
+/**
+ * deserializeAws_json1_1AddWorkingStorageOutput
+ */
+const de_AddWorkingStorageOutput = (output: any, context: __SerdeContext): AddWorkingStorageOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1AssignTapePoolOutput = (output: any, context: __SerdeContext): AssignTapePoolOutput => {
+/**
+ * deserializeAws_json1_1AssignTapePoolOutput
+ */
+const de_AssignTapePoolOutput = (output: any, context: __SerdeContext): AssignTapePoolOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1AssociateFileSystemOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociateFileSystemOutput => {
+/**
+ * deserializeAws_json1_1AssociateFileSystemOutput
+ */
+const de_AssociateFileSystemOutput = (output: any, context: __SerdeContext): AssociateFileSystemOutput => {
   return {
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
   } as any;
 };
 
-const deserializeAws_json1_1AttachVolumeOutput = (output: any, context: __SerdeContext): AttachVolumeOutput => {
+/**
+ * deserializeAws_json1_1AttachVolumeOutput
+ */
+const de_AttachVolumeOutput = (output: any, context: __SerdeContext): AttachVolumeOutput => {
   return {
     TargetARN: __expectString(output.TargetARN),
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1AutomaticTapeCreationPolicyInfo = (
-  output: any,
-  context: __SerdeContext
-): AutomaticTapeCreationPolicyInfo => {
+/**
+ * deserializeAws_json1_1AutomaticTapeCreationPolicyInfo
+ */
+const de_AutomaticTapeCreationPolicyInfo = (output: any, context: __SerdeContext): AutomaticTapeCreationPolicyInfo => {
   return {
     AutomaticTapeCreationRules:
       output.AutomaticTapeCreationRules != null
-        ? deserializeAws_json1_1AutomaticTapeCreationRules(output.AutomaticTapeCreationRules, context)
+        ? de_AutomaticTapeCreationRules(output.AutomaticTapeCreationRules, context)
         : undefined,
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1AutomaticTapeCreationPolicyInfos = (
+/**
+ * deserializeAws_json1_1AutomaticTapeCreationPolicyInfos
+ */
+const de_AutomaticTapeCreationPolicyInfos = (
   output: any,
   context: __SerdeContext
 ): AutomaticTapeCreationPolicyInfo[] => {
@@ -6913,15 +7916,15 @@ const deserializeAws_json1_1AutomaticTapeCreationPolicyInfos = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AutomaticTapeCreationPolicyInfo(entry, context);
+      return de_AutomaticTapeCreationPolicyInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AutomaticTapeCreationRule = (
-  output: any,
-  context: __SerdeContext
-): AutomaticTapeCreationRule => {
+/**
+ * deserializeAws_json1_1AutomaticTapeCreationRule
+ */
+const de_AutomaticTapeCreationRule = (output: any, context: __SerdeContext): AutomaticTapeCreationRule => {
   return {
     MinimumNumTapes: __expectInt32(output.MinimumNumTapes),
     PoolId: __expectString(output.PoolId),
@@ -6931,29 +7934,29 @@ const deserializeAws_json1_1AutomaticTapeCreationRule = (
   } as any;
 };
 
-const deserializeAws_json1_1AutomaticTapeCreationRules = (
-  output: any,
-  context: __SerdeContext
-): AutomaticTapeCreationRule[] => {
+/**
+ * deserializeAws_json1_1AutomaticTapeCreationRules
+ */
+const de_AutomaticTapeCreationRules = (output: any, context: __SerdeContext): AutomaticTapeCreationRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AutomaticTapeCreationRule(entry, context);
+      return de_AutomaticTapeCreationRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BandwidthRateLimitInterval = (
-  output: any,
-  context: __SerdeContext
-): BandwidthRateLimitInterval => {
+/**
+ * deserializeAws_json1_1BandwidthRateLimitInterval
+ */
+const de_BandwidthRateLimitInterval = (output: any, context: __SerdeContext): BandwidthRateLimitInterval => {
   return {
     AverageDownloadRateLimitInBitsPerSec: __expectLong(output.AverageDownloadRateLimitInBitsPerSec),
     AverageUploadRateLimitInBitsPerSec: __expectLong(output.AverageUploadRateLimitInBitsPerSec),
-    DaysOfWeek: output.DaysOfWeek != null ? deserializeAws_json1_1DaysOfWeek(output.DaysOfWeek, context) : undefined,
+    DaysOfWeek: output.DaysOfWeek != null ? de_DaysOfWeek(output.DaysOfWeek, context) : undefined,
     EndHourOfDay: __expectInt32(output.EndHourOfDay),
     EndMinuteOfHour: __expectInt32(output.EndMinuteOfHour),
     StartHourOfDay: __expectInt32(output.StartHourOfDay),
@@ -6961,28 +7964,34 @@ const deserializeAws_json1_1BandwidthRateLimitInterval = (
   } as any;
 };
 
-const deserializeAws_json1_1BandwidthRateLimitIntervals = (
-  output: any,
-  context: __SerdeContext
-): BandwidthRateLimitInterval[] => {
+/**
+ * deserializeAws_json1_1BandwidthRateLimitIntervals
+ */
+const de_BandwidthRateLimitIntervals = (output: any, context: __SerdeContext): BandwidthRateLimitInterval[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BandwidthRateLimitInterval(entry, context);
+      return de_BandwidthRateLimitInterval(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
+/**
+ * deserializeAws_json1_1CacheAttributes
+ */
+const de_CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
   return {
     CacheStaleTimeoutInSeconds: __expectInt32(output.CacheStaleTimeoutInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeContext): CachediSCSIVolume => {
+/**
+ * deserializeAws_json1_1CachediSCSIVolume
+ */
+const de_CachediSCSIVolume = (output: any, context: __SerdeContext): CachediSCSIVolume => {
   return {
     CreatedDate:
       output.CreatedDate != null
@@ -7001,48 +8010,63 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
     VolumeUsedInBytes: __expectLong(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes != null
-        ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
+        ? de_VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CachediSCSIVolumes = (output: any, context: __SerdeContext): CachediSCSIVolume[] => {
+/**
+ * deserializeAws_json1_1CachediSCSIVolumes
+ */
+const de_CachediSCSIVolumes = (output: any, context: __SerdeContext): CachediSCSIVolume[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CachediSCSIVolume(entry, context);
+      return de_CachediSCSIVolume(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CancelArchivalOutput = (output: any, context: __SerdeContext): CancelArchivalOutput => {
+/**
+ * deserializeAws_json1_1CancelArchivalOutput
+ */
+const de_CancelArchivalOutput = (output: any, context: __SerdeContext): CancelArchivalOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1CancelRetrievalOutput = (output: any, context: __SerdeContext): CancelRetrievalOutput => {
+/**
+ * deserializeAws_json1_1CancelRetrievalOutput
+ */
+const de_CancelRetrievalOutput = (output: any, context: __SerdeContext): CancelRetrievalOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1ChapCredentials = (output: any, context: __SerdeContext): ChapInfo[] => {
+/**
+ * deserializeAws_json1_1ChapCredentials
+ */
+const de_ChapCredentials = (output: any, context: __SerdeContext): ChapInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ChapInfo(entry, context);
+      return de_ChapInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
+/**
+ * deserializeAws_json1_1ChapInfo
+ */
+const de_ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
   return {
     InitiatorName: __expectString(output.InitiatorName),
     SecretToAuthenticateInitiator: __expectString(output.SecretToAuthenticateInitiator),
@@ -7051,35 +8075,38 @@ const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): C
   } as any;
 };
 
-const deserializeAws_json1_1CreateCachediSCSIVolumeOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateCachediSCSIVolumeOutput => {
+/**
+ * deserializeAws_json1_1CreateCachediSCSIVolumeOutput
+ */
+const de_CreateCachediSCSIVolumeOutput = (output: any, context: __SerdeContext): CreateCachediSCSIVolumeOutput => {
   return {
     TargetARN: __expectString(output.TargetARN),
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1CreateNFSFileShareOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateNFSFileShareOutput => {
+/**
+ * deserializeAws_json1_1CreateNFSFileShareOutput
+ */
+const de_CreateNFSFileShareOutput = (output: any, context: __SerdeContext): CreateNFSFileShareOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
-const deserializeAws_json1_1CreateSMBFileShareOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateSMBFileShareOutput => {
+/**
+ * deserializeAws_json1_1CreateSMBFileShareOutput
+ */
+const de_CreateSMBFileShareOutput = (output: any, context: __SerdeContext): CreateSMBFileShareOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
-const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
+/**
+ * deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput
+ */
+const de_CreateSnapshotFromVolumeRecoveryPointOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSnapshotFromVolumeRecoveryPointOutput => {
@@ -7090,17 +8117,20 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateSnapshotOutput = (output: any, context: __SerdeContext): CreateSnapshotOutput => {
+/**
+ * deserializeAws_json1_1CreateSnapshotOutput
+ */
+const de_CreateSnapshotOutput = (output: any, context: __SerdeContext): CreateSnapshotOutput => {
   return {
     SnapshotId: __expectString(output.SnapshotId),
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateStorediSCSIVolumeOutput => {
+/**
+ * deserializeAws_json1_1CreateStorediSCSIVolumeOutput
+ */
+const de_CreateStorediSCSIVolumeOutput = (output: any, context: __SerdeContext): CreateStorediSCSIVolumeOutput => {
   return {
     TargetARN: __expectString(output.TargetARN),
     VolumeARN: __expectString(output.VolumeARN),
@@ -7108,28 +8138,37 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateTapePoolOutput = (output: any, context: __SerdeContext): CreateTapePoolOutput => {
+/**
+ * deserializeAws_json1_1CreateTapePoolOutput
+ */
+const de_CreateTapePoolOutput = (output: any, context: __SerdeContext): CreateTapePoolOutput => {
   return {
     PoolARN: __expectString(output.PoolARN),
   } as any;
 };
 
-const deserializeAws_json1_1CreateTapesOutput = (output: any, context: __SerdeContext): CreateTapesOutput => {
+/**
+ * deserializeAws_json1_1CreateTapesOutput
+ */
+const de_CreateTapesOutput = (output: any, context: __SerdeContext): CreateTapesOutput => {
   return {
-    TapeARNs: output.TapeARNs != null ? deserializeAws_json1_1TapeARNs(output.TapeARNs, context) : undefined,
+    TapeARNs: output.TapeARNs != null ? de_TapeARNs(output.TapeARNs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateTapeWithBarcodeOutput => {
+/**
+ * deserializeAws_json1_1CreateTapeWithBarcodeOutput
+ */
+const de_CreateTapeWithBarcodeOutput = (output: any, context: __SerdeContext): CreateTapeWithBarcodeOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_json1_1DaysOfWeek
+ */
+const de_DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7141,7 +8180,10 @@ const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
+/**
+ * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput
+ */
+const de_DeleteAutomaticTapeCreationPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteAutomaticTapeCreationPolicyOutput => {
@@ -7150,74 +8192,92 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteBandwidthRateLimitOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteBandwidthRateLimitOutput => {
+/**
+ * deserializeAws_json1_1DeleteBandwidthRateLimitOutput
+ */
+const de_DeleteBandwidthRateLimitOutput = (output: any, context: __SerdeContext): DeleteBandwidthRateLimitOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteChapCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteChapCredentialsOutput => {
+/**
+ * deserializeAws_json1_1DeleteChapCredentialsOutput
+ */
+const de_DeleteChapCredentialsOutput = (output: any, context: __SerdeContext): DeleteChapCredentialsOutput => {
   return {
     InitiatorName: __expectString(output.InitiatorName),
     TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFileShareOutput = (output: any, context: __SerdeContext): DeleteFileShareOutput => {
+/**
+ * deserializeAws_json1_1DeleteFileShareOutput
+ */
+const de_DeleteFileShareOutput = (output: any, context: __SerdeContext): DeleteFileShareOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
+/**
+ * deserializeAws_json1_1DeleteGatewayOutput
+ */
+const de_DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteSnapshotScheduleOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteSnapshotScheduleOutput => {
+/**
+ * deserializeAws_json1_1DeleteSnapshotScheduleOutput
+ */
+const de_DeleteSnapshotScheduleOutput = (output: any, context: __SerdeContext): DeleteSnapshotScheduleOutput => {
   return {
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTapeArchiveOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteTapeArchiveOutput => {
+/**
+ * deserializeAws_json1_1DeleteTapeArchiveOutput
+ */
+const de_DeleteTapeArchiveOutput = (output: any, context: __SerdeContext): DeleteTapeArchiveOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTapeOutput = (output: any, context: __SerdeContext): DeleteTapeOutput => {
+/**
+ * deserializeAws_json1_1DeleteTapeOutput
+ */
+const de_DeleteTapeOutput = (output: any, context: __SerdeContext): DeleteTapeOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTapePoolOutput = (output: any, context: __SerdeContext): DeleteTapePoolOutput => {
+/**
+ * deserializeAws_json1_1DeleteTapePoolOutput
+ */
+const de_DeleteTapePoolOutput = (output: any, context: __SerdeContext): DeleteTapePoolOutput => {
   return {
     PoolARN: __expectString(output.PoolARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteVolumeOutput = (output: any, context: __SerdeContext): DeleteVolumeOutput => {
+/**
+ * deserializeAws_json1_1DeleteVolumeOutput
+ */
+const de_DeleteVolumeOutput = (output: any, context: __SerdeContext): DeleteVolumeOutput => {
   return {
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
+/**
+ * deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput
+ */
+const de_DescribeAvailabilityMonitorTestOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityMonitorTestOutput => {
@@ -7229,7 +8289,10 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitOutput
+ */
+const de_DescribeBandwidthRateLimitOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeBandwidthRateLimitOutput => {
@@ -7240,68 +8303,78 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput = (
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput
+ */
+const de_DescribeBandwidthRateLimitScheduleOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeBandwidthRateLimitScheduleOutput => {
   return {
     BandwidthRateLimitIntervals:
       output.BandwidthRateLimitIntervals != null
-        ? deserializeAws_json1_1BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
+        ? de_BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
         : undefined,
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
+/**
+ * deserializeAws_json1_1DescribeCachediSCSIVolumesOutput
+ */
+const de_DescribeCachediSCSIVolumesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeCachediSCSIVolumesOutput => {
   return {
     CachediSCSIVolumes:
-      output.CachediSCSIVolumes != null
-        ? deserializeAws_json1_1CachediSCSIVolumes(output.CachediSCSIVolumes, context)
-        : undefined,
+      output.CachediSCSIVolumes != null ? de_CachediSCSIVolumes(output.CachediSCSIVolumes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
+/**
+ * deserializeAws_json1_1DescribeCacheOutput
+ */
+const de_DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
   return {
     CacheAllocatedInBytes: __expectLong(output.CacheAllocatedInBytes),
     CacheDirtyPercentage: __limitedParseDouble(output.CacheDirtyPercentage),
     CacheHitPercentage: __limitedParseDouble(output.CacheHitPercentage),
     CacheMissPercentage: __limitedParseDouble(output.CacheMissPercentage),
     CacheUsedPercentage: __limitedParseDouble(output.CacheUsedPercentage),
-    DiskIds: output.DiskIds != null ? deserializeAws_json1_1DiskIds(output.DiskIds, context) : undefined,
+    DiskIds: output.DiskIds != null ? de_DiskIds(output.DiskIds, context) : undefined,
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeChapCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeChapCredentialsOutput => {
+/**
+ * deserializeAws_json1_1DescribeChapCredentialsOutput
+ */
+const de_DescribeChapCredentialsOutput = (output: any, context: __SerdeContext): DescribeChapCredentialsOutput => {
   return {
-    ChapCredentials:
-      output.ChapCredentials != null
-        ? deserializeAws_json1_1ChapCredentials(output.ChapCredentials, context)
-        : undefined,
+    ChapCredentials: output.ChapCredentials != null ? de_ChapCredentials(output.ChapCredentials, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeFileSystemAssociationsOutput = (
+/**
+ * deserializeAws_json1_1DescribeFileSystemAssociationsOutput
+ */
+const de_DescribeFileSystemAssociationsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeFileSystemAssociationsOutput => {
   return {
     FileSystemAssociationInfoList:
       output.FileSystemAssociationInfoList != null
-        ? deserializeAws_json1_1FileSystemAssociationInfoList(output.FileSystemAssociationInfoList, context)
+        ? de_FileSystemAssociationInfoList(output.FileSystemAssociationInfoList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeGatewayInformationOutput = (
+/**
+ * deserializeAws_json1_1DescribeGatewayInformationOutput
+ */
+const de_DescribeGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeGatewayInformationOutput => {
@@ -7317,7 +8390,7 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     GatewayName: __expectString(output.GatewayName),
     GatewayNetworkInterfaces:
       output.GatewayNetworkInterfaces != null
-        ? deserializeAws_json1_1GatewayNetworkInterfaces(output.GatewayNetworkInterfaces, context)
+        ? de_GatewayNetworkInterfaces(output.GatewayNetworkInterfaces, context)
         : undefined,
     GatewayState: __expectString(output.GatewayState),
     GatewayTimezone: __expectString(output.GatewayTimezone),
@@ -7329,14 +8402,17 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     SoftwareUpdatesEndDate: __expectString(output.SoftwareUpdatesEndDate),
     SupportedGatewayCapacities:
       output.SupportedGatewayCapacities != null
-        ? deserializeAws_json1_1SupportedGatewayCapacities(output.SupportedGatewayCapacities, context)
+        ? de_SupportedGatewayCapacities(output.SupportedGatewayCapacities, context)
         : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     VPCEndpoint: __expectString(output.VPCEndpoint),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
+/**
+ * deserializeAws_json1_1DescribeMaintenanceStartTimeOutput
+ */
+const de_DescribeMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeMaintenanceStartTimeOutput => {
@@ -7350,84 +8426,82 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeNFSFileSharesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeNFSFileSharesOutput => {
+/**
+ * deserializeAws_json1_1DescribeNFSFileSharesOutput
+ */
+const de_DescribeNFSFileSharesOutput = (output: any, context: __SerdeContext): DescribeNFSFileSharesOutput => {
   return {
     NFSFileShareInfoList:
-      output.NFSFileShareInfoList != null
-        ? deserializeAws_json1_1NFSFileShareInfoList(output.NFSFileShareInfoList, context)
-        : undefined,
+      output.NFSFileShareInfoList != null ? de_NFSFileShareInfoList(output.NFSFileShareInfoList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSMBFileSharesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeSMBFileSharesOutput => {
+/**
+ * deserializeAws_json1_1DescribeSMBFileSharesOutput
+ */
+const de_DescribeSMBFileSharesOutput = (output: any, context: __SerdeContext): DescribeSMBFileSharesOutput => {
   return {
     SMBFileShareInfoList:
-      output.SMBFileShareInfoList != null
-        ? deserializeAws_json1_1SMBFileShareInfoList(output.SMBFileShareInfoList, context)
-        : undefined,
+      output.SMBFileShareInfoList != null ? de_SMBFileShareInfoList(output.SMBFileShareInfoList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSMBSettingsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeSMBSettingsOutput => {
+/**
+ * deserializeAws_json1_1DescribeSMBSettingsOutput
+ */
+const de_DescribeSMBSettingsOutput = (output: any, context: __SerdeContext): DescribeSMBSettingsOutput => {
   return {
     ActiveDirectoryStatus: __expectString(output.ActiveDirectoryStatus),
     DomainName: __expectString(output.DomainName),
     FileSharesVisible: __expectBoolean(output.FileSharesVisible),
     GatewayARN: __expectString(output.GatewayARN),
     SMBGuestPasswordSet: __expectBoolean(output.SMBGuestPasswordSet),
-    SMBLocalGroups:
-      output.SMBLocalGroups != null ? deserializeAws_json1_1SMBLocalGroups(output.SMBLocalGroups, context) : undefined,
+    SMBLocalGroups: output.SMBLocalGroups != null ? de_SMBLocalGroups(output.SMBLocalGroups, context) : undefined,
     SMBSecurityStrategy: __expectString(output.SMBSecurityStrategy),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeSnapshotScheduleOutput => {
+/**
+ * deserializeAws_json1_1DescribeSnapshotScheduleOutput
+ */
+const de_DescribeSnapshotScheduleOutput = (output: any, context: __SerdeContext): DescribeSnapshotScheduleOutput => {
   return {
     Description: __expectString(output.Description),
     RecurrenceInHours: __expectInt32(output.RecurrenceInHours),
     StartAt: __expectInt32(output.StartAt),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     Timezone: __expectString(output.Timezone),
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeStorediSCSIVolumesOutput = (
+/**
+ * deserializeAws_json1_1DescribeStorediSCSIVolumesOutput
+ */
+const de_DescribeStorediSCSIVolumesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeStorediSCSIVolumesOutput => {
   return {
     StorediSCSIVolumes:
-      output.StorediSCSIVolumes != null
-        ? deserializeAws_json1_1StorediSCSIVolumes(output.StorediSCSIVolumes, context)
-        : undefined,
+      output.StorediSCSIVolumes != null ? de_StorediSCSIVolumes(output.StorediSCSIVolumes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTapeArchivesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTapeArchivesOutput => {
+/**
+ * deserializeAws_json1_1DescribeTapeArchivesOutput
+ */
+const de_DescribeTapeArchivesOutput = (output: any, context: __SerdeContext): DescribeTapeArchivesOutput => {
   return {
     Marker: __expectString(output.Marker),
-    TapeArchives:
-      output.TapeArchives != null ? deserializeAws_json1_1TapeArchives(output.TapeArchives, context) : undefined,
+    TapeArchives: output.TapeArchives != null ? de_TapeArchives(output.TapeArchives, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
+/**
+ * deserializeAws_json1_1DescribeTapeRecoveryPointsOutput
+ */
+const de_DescribeTapeRecoveryPointsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTapeRecoveryPointsOutput => {
@@ -7436,60 +8510,69 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
     Marker: __expectString(output.Marker),
     TapeRecoveryPointInfos:
       output.TapeRecoveryPointInfos != null
-        ? deserializeAws_json1_1TapeRecoveryPointInfos(output.TapeRecoveryPointInfos, context)
+        ? de_TapeRecoveryPointInfos(output.TapeRecoveryPointInfos, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeTapesOutput => {
+/**
+ * deserializeAws_json1_1DescribeTapesOutput
+ */
+const de_DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeTapesOutput => {
   return {
     Marker: __expectString(output.Marker),
-    Tapes: output.Tapes != null ? deserializeAws_json1_1Tapes(output.Tapes, context) : undefined,
+    Tapes: output.Tapes != null ? de_Tapes(output.Tapes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUploadBufferOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeUploadBufferOutput => {
+/**
+ * deserializeAws_json1_1DescribeUploadBufferOutput
+ */
+const de_DescribeUploadBufferOutput = (output: any, context: __SerdeContext): DescribeUploadBufferOutput => {
   return {
-    DiskIds: output.DiskIds != null ? deserializeAws_json1_1DiskIds(output.DiskIds, context) : undefined,
+    DiskIds: output.DiskIds != null ? de_DiskIds(output.DiskIds, context) : undefined,
     GatewayARN: __expectString(output.GatewayARN),
     UploadBufferAllocatedInBytes: __expectLong(output.UploadBufferAllocatedInBytes),
     UploadBufferUsedInBytes: __expectLong(output.UploadBufferUsedInBytes),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeVTLDevicesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeVTLDevicesOutput => {
+/**
+ * deserializeAws_json1_1DescribeVTLDevicesOutput
+ */
+const de_DescribeVTLDevicesOutput = (output: any, context: __SerdeContext): DescribeVTLDevicesOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     Marker: __expectString(output.Marker),
-    VTLDevices: output.VTLDevices != null ? deserializeAws_json1_1VTLDevices(output.VTLDevices, context) : undefined,
+    VTLDevices: output.VTLDevices != null ? de_VTLDevices(output.VTLDevices, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeWorkingStorageOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeWorkingStorageOutput => {
+/**
+ * deserializeAws_json1_1DescribeWorkingStorageOutput
+ */
+const de_DescribeWorkingStorageOutput = (output: any, context: __SerdeContext): DescribeWorkingStorageOutput => {
   return {
-    DiskIds: output.DiskIds != null ? deserializeAws_json1_1DiskIds(output.DiskIds, context) : undefined,
+    DiskIds: output.DiskIds != null ? de_DiskIds(output.DiskIds, context) : undefined,
     GatewayARN: __expectString(output.GatewayARN),
     WorkingStorageAllocatedInBytes: __expectLong(output.WorkingStorageAllocatedInBytes),
     WorkingStorageUsedInBytes: __expectLong(output.WorkingStorageUsedInBytes),
   } as any;
 };
 
-const deserializeAws_json1_1DetachVolumeOutput = (output: any, context: __SerdeContext): DetachVolumeOutput => {
+/**
+ * deserializeAws_json1_1DetachVolumeOutput
+ */
+const de_DetachVolumeOutput = (output: any, context: __SerdeContext): DetachVolumeOutput => {
   return {
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __SerdeContext): DeviceiSCSIAttributes => {
+/**
+ * deserializeAws_json1_1DeviceiSCSIAttributes
+ */
+const de_DeviceiSCSIAttributes = (output: any, context: __SerdeContext): DeviceiSCSIAttributes => {
   return {
     ChapEnabled: __expectBoolean(output.ChapEnabled),
     NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
@@ -7498,29 +8581,33 @@ const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1DisableGatewayOutput = (output: any, context: __SerdeContext): DisableGatewayOutput => {
+/**
+ * deserializeAws_json1_1DisableGatewayOutput
+ */
+const de_DisableGatewayOutput = (output: any, context: __SerdeContext): DisableGatewayOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateFileSystemOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateFileSystemOutput => {
+/**
+ * deserializeAws_json1_1DisassociateFileSystemOutput
+ */
+const de_DisassociateFileSystemOutput = (output: any, context: __SerdeContext): DisassociateFileSystemOutput => {
   return {
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
   } as any;
 };
 
-const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
+/**
+ * deserializeAws_json1_1Disk
+ */
+const de_Disk = (output: any, context: __SerdeContext): Disk => {
   return {
     DiskAllocationResource: __expectString(output.DiskAllocationResource),
     DiskAllocationType: __expectString(output.DiskAllocationType),
     DiskAttributeList:
-      output.DiskAttributeList != null
-        ? deserializeAws_json1_1DiskAttributeList(output.DiskAttributeList, context)
-        : undefined,
+      output.DiskAttributeList != null ? de_DiskAttributeList(output.DiskAttributeList, context) : undefined,
     DiskId: __expectString(output.DiskId),
     DiskNode: __expectString(output.DiskNode),
     DiskPath: __expectString(output.DiskPath),
@@ -7529,7 +8616,10 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
   } as any;
 };
 
-const deserializeAws_json1_1DiskAttributeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DiskAttributeList
+ */
+const de_DiskAttributeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7541,7 +8631,10 @@ const deserializeAws_json1_1DiskAttributeList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1DiskIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DiskIds
+ */
+const de_DiskIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7553,29 +8646,34 @@ const deserializeAws_json1_1DiskIds = (output: any, context: __SerdeContext): st
   return retVal;
 };
 
-const deserializeAws_json1_1Disks = (output: any, context: __SerdeContext): Disk[] => {
+/**
+ * deserializeAws_json1_1Disks
+ */
+const de_Disks = (output: any, context: __SerdeContext): Disk[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Disk(entry, context);
+      return de_Disk(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EndpointNetworkConfiguration = (
-  output: any,
-  context: __SerdeContext
-): EndpointNetworkConfiguration => {
+/**
+ * deserializeAws_json1_1EndpointNetworkConfiguration
+ */
+const de_EndpointNetworkConfiguration = (output: any, context: __SerdeContext): EndpointNetworkConfiguration => {
   return {
-    IpAddresses:
-      output.IpAddresses != null ? deserializeAws_json1_1IpAddressList(output.IpAddresses, context) : undefined,
+    IpAddresses: output.IpAddresses != null ? de_IpAddressList(output.IpAddresses, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1errorDetails
+ */
+const de_errorDetails = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7585,7 +8683,10 @@ const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext
   }, {});
 };
 
-const deserializeAws_json1_1FileShareClientList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1FileShareClientList
+ */
+const de_FileShareClientList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7597,7 +8698,10 @@ const deserializeAws_json1_1FileShareClientList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContext): FileShareInfo => {
+/**
+ * deserializeAws_json1_1FileShareInfo
+ */
+const de_FileShareInfo = (output: any, context: __SerdeContext): FileShareInfo => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
     FileShareId: __expectString(output.FileShareId),
@@ -7607,60 +8711,63 @@ const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1FileShareInfoList = (output: any, context: __SerdeContext): FileShareInfo[] => {
+/**
+ * deserializeAws_json1_1FileShareInfoList
+ */
+const de_FileShareInfoList = (output: any, context: __SerdeContext): FileShareInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FileShareInfo(entry, context);
+      return de_FileShareInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileSystemAssociationInfo = (
-  output: any,
-  context: __SerdeContext
-): FileSystemAssociationInfo => {
+/**
+ * deserializeAws_json1_1FileSystemAssociationInfo
+ */
+const de_FileSystemAssociationInfo = (output: any, context: __SerdeContext): FileSystemAssociationInfo => {
   return {
     AuditDestinationARN: __expectString(output.AuditDestinationARN),
-    CacheAttributes:
-      output.CacheAttributes != null
-        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
-        : undefined,
+    CacheAttributes: output.CacheAttributes != null ? de_CacheAttributes(output.CacheAttributes, context) : undefined,
     EndpointNetworkConfiguration:
       output.EndpointNetworkConfiguration != null
-        ? deserializeAws_json1_1EndpointNetworkConfiguration(output.EndpointNetworkConfiguration, context)
+        ? de_EndpointNetworkConfiguration(output.EndpointNetworkConfiguration, context)
         : undefined,
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
     FileSystemAssociationStatus: __expectString(output.FileSystemAssociationStatus),
     FileSystemAssociationStatusDetails:
       output.FileSystemAssociationStatusDetails != null
-        ? deserializeAws_json1_1FileSystemAssociationStatusDetails(output.FileSystemAssociationStatusDetails, context)
+        ? de_FileSystemAssociationStatusDetails(output.FileSystemAssociationStatusDetails, context)
         : undefined,
     GatewayARN: __expectString(output.GatewayARN),
     LocationARN: __expectString(output.LocationARN),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1FileSystemAssociationInfoList = (
-  output: any,
-  context: __SerdeContext
-): FileSystemAssociationInfo[] => {
+/**
+ * deserializeAws_json1_1FileSystemAssociationInfoList
+ */
+const de_FileSystemAssociationInfoList = (output: any, context: __SerdeContext): FileSystemAssociationInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FileSystemAssociationInfo(entry, context);
+      return de_FileSystemAssociationInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileSystemAssociationStatusDetail = (
+/**
+ * deserializeAws_json1_1FileSystemAssociationStatusDetail
+ */
+const de_FileSystemAssociationStatusDetail = (
   output: any,
   context: __SerdeContext
 ): FileSystemAssociationStatusDetail => {
@@ -7669,7 +8776,10 @@ const deserializeAws_json1_1FileSystemAssociationStatusDetail = (
   } as any;
 };
 
-const deserializeAws_json1_1FileSystemAssociationStatusDetails = (
+/**
+ * deserializeAws_json1_1FileSystemAssociationStatusDetails
+ */
+const de_FileSystemAssociationStatusDetails = (
   output: any,
   context: __SerdeContext
 ): FileSystemAssociationStatusDetail[] => {
@@ -7679,15 +8789,15 @@ const deserializeAws_json1_1FileSystemAssociationStatusDetails = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FileSystemAssociationStatusDetail(entry, context);
+      return de_FileSystemAssociationStatusDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileSystemAssociationSummary = (
-  output: any,
-  context: __SerdeContext
-): FileSystemAssociationSummary => {
+/**
+ * deserializeAws_json1_1FileSystemAssociationSummary
+ */
+const de_FileSystemAssociationSummary = (output: any, context: __SerdeContext): FileSystemAssociationSummary => {
   return {
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
     FileSystemAssociationId: __expectString(output.FileSystemAssociationId),
@@ -7696,22 +8806,25 @@ const deserializeAws_json1_1FileSystemAssociationSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1FileSystemAssociationSummaryList = (
-  output: any,
-  context: __SerdeContext
-): FileSystemAssociationSummary[] => {
+/**
+ * deserializeAws_json1_1FileSystemAssociationSummaryList
+ */
+const de_FileSystemAssociationSummaryList = (output: any, context: __SerdeContext): FileSystemAssociationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FileSystemAssociationSummary(entry, context);
+      return de_FileSystemAssociationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
+/**
+ * deserializeAws_json1_1GatewayInfo
+ */
+const de_GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
   return {
     Ec2InstanceId: __expectString(output.Ec2InstanceId),
     Ec2InstanceRegion: __expectString(output.Ec2InstanceRegion),
@@ -7725,60 +8838,40 @@ const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1GatewayNetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
+/**
+ * deserializeAws_json1_1GatewayNetworkInterfaces
+ */
+const de_GatewayNetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1NetworkInterface(entry, context);
+      return de_NetworkInterface(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Gateways = (output: any, context: __SerdeContext): GatewayInfo[] => {
+/**
+ * deserializeAws_json1_1Gateways
+ */
+const de_Gateways = (output: any, context: __SerdeContext): GatewayInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1GatewayInfo(entry, context);
+      return de_GatewayInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Initiators = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    error: output.error != null ? deserializeAws_json1_1StorageGatewayError(output.error, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidGatewayRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidGatewayRequestException => {
-  return {
-    error: output.error != null ? deserializeAws_json1_1StorageGatewayError(output.error, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1IpAddressList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1Initiators
+ */
+const de_Initiators = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7790,121 +8883,183 @@ const deserializeAws_json1_1IpAddressList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1JoinDomainOutput = (output: any, context: __SerdeContext): JoinDomainOutput => {
+/**
+ * deserializeAws_json1_1InternalServerError
+ */
+const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
+  return {
+    error: output.error != null ? de_StorageGatewayError(output.error, context) : undefined,
+    message: __expectString(output.message),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1InvalidGatewayRequestException
+ */
+const de_InvalidGatewayRequestException = (output: any, context: __SerdeContext): InvalidGatewayRequestException => {
+  return {
+    error: output.error != null ? de_StorageGatewayError(output.error, context) : undefined,
+    message: __expectString(output.message),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1IpAddressList
+ */
+const de_IpAddressList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1JoinDomainOutput
+ */
+const de_JoinDomainOutput = (output: any, context: __SerdeContext): JoinDomainOutput => {
   return {
     ActiveDirectoryStatus: __expectString(output.ActiveDirectoryStatus),
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput = (
+/**
+ * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput
+ */
+const de_ListAutomaticTapeCreationPoliciesOutput = (
   output: any,
   context: __SerdeContext
 ): ListAutomaticTapeCreationPoliciesOutput => {
   return {
     AutomaticTapeCreationPolicyInfos:
       output.AutomaticTapeCreationPolicyInfos != null
-        ? deserializeAws_json1_1AutomaticTapeCreationPolicyInfos(output.AutomaticTapeCreationPolicyInfos, context)
+        ? de_AutomaticTapeCreationPolicyInfos(output.AutomaticTapeCreationPolicyInfos, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __SerdeContext): ListFileSharesOutput => {
+/**
+ * deserializeAws_json1_1ListFileSharesOutput
+ */
+const de_ListFileSharesOutput = (output: any, context: __SerdeContext): ListFileSharesOutput => {
   return {
     FileShareInfoList:
-      output.FileShareInfoList != null
-        ? deserializeAws_json1_1FileShareInfoList(output.FileShareInfoList, context)
-        : undefined,
+      output.FileShareInfoList != null ? de_FileShareInfoList(output.FileShareInfoList, context) : undefined,
     Marker: __expectString(output.Marker),
     NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
-const deserializeAws_json1_1ListFileSystemAssociationsOutput = (
+/**
+ * deserializeAws_json1_1ListFileSystemAssociationsOutput
+ */
+const de_ListFileSystemAssociationsOutput = (
   output: any,
   context: __SerdeContext
 ): ListFileSystemAssociationsOutput => {
   return {
     FileSystemAssociationSummaryList:
       output.FileSystemAssociationSummaryList != null
-        ? deserializeAws_json1_1FileSystemAssociationSummaryList(output.FileSystemAssociationSummaryList, context)
+        ? de_FileSystemAssociationSummaryList(output.FileSystemAssociationSummaryList, context)
         : undefined,
     Marker: __expectString(output.Marker),
     NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
-const deserializeAws_json1_1ListGatewaysOutput = (output: any, context: __SerdeContext): ListGatewaysOutput => {
+/**
+ * deserializeAws_json1_1ListGatewaysOutput
+ */
+const de_ListGatewaysOutput = (output: any, context: __SerdeContext): ListGatewaysOutput => {
   return {
-    Gateways: output.Gateways != null ? deserializeAws_json1_1Gateways(output.Gateways, context) : undefined,
+    Gateways: output.Gateways != null ? de_Gateways(output.Gateways, context) : undefined,
     Marker: __expectString(output.Marker),
   } as any;
 };
 
-const deserializeAws_json1_1ListLocalDisksOutput = (output: any, context: __SerdeContext): ListLocalDisksOutput => {
+/**
+ * deserializeAws_json1_1ListLocalDisksOutput
+ */
+const de_ListLocalDisksOutput = (output: any, context: __SerdeContext): ListLocalDisksOutput => {
   return {
-    Disks: output.Disks != null ? deserializeAws_json1_1Disks(output.Disks, context) : undefined,
+    Disks: output.Disks != null ? de_Disks(output.Disks, context) : undefined,
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceOutput => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceOutput
+ */
+const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   return {
     Marker: __expectString(output.Marker),
     ResourceARN: __expectString(output.ResourceARN),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTapePoolsOutput = (output: any, context: __SerdeContext): ListTapePoolsOutput => {
+/**
+ * deserializeAws_json1_1ListTapePoolsOutput
+ */
+const de_ListTapePoolsOutput = (output: any, context: __SerdeContext): ListTapePoolsOutput => {
   return {
     Marker: __expectString(output.Marker),
-    PoolInfos: output.PoolInfos != null ? deserializeAws_json1_1PoolInfos(output.PoolInfos, context) : undefined,
+    PoolInfos: output.PoolInfos != null ? de_PoolInfos(output.PoolInfos, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutput => {
+/**
+ * deserializeAws_json1_1ListTapesOutput
+ */
+const de_ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutput => {
   return {
     Marker: __expectString(output.Marker),
-    TapeInfos: output.TapeInfos != null ? deserializeAws_json1_1TapeInfos(output.TapeInfos, context) : undefined,
+    TapeInfos: output.TapeInfos != null ? de_TapeInfos(output.TapeInfos, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListVolumeInitiatorsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListVolumeInitiatorsOutput => {
+/**
+ * deserializeAws_json1_1ListVolumeInitiatorsOutput
+ */
+const de_ListVolumeInitiatorsOutput = (output: any, context: __SerdeContext): ListVolumeInitiatorsOutput => {
   return {
-    Initiators: output.Initiators != null ? deserializeAws_json1_1Initiators(output.Initiators, context) : undefined,
+    Initiators: output.Initiators != null ? de_Initiators(output.Initiators, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListVolumeRecoveryPointsOutput => {
+/**
+ * deserializeAws_json1_1ListVolumeRecoveryPointsOutput
+ */
+const de_ListVolumeRecoveryPointsOutput = (output: any, context: __SerdeContext): ListVolumeRecoveryPointsOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     VolumeRecoveryPointInfos:
       output.VolumeRecoveryPointInfos != null
-        ? deserializeAws_json1_1VolumeRecoveryPointInfos(output.VolumeRecoveryPointInfos, context)
+        ? de_VolumeRecoveryPointInfos(output.VolumeRecoveryPointInfos, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListVolumesOutput = (output: any, context: __SerdeContext): ListVolumesOutput => {
+/**
+ * deserializeAws_json1_1ListVolumesOutput
+ */
+const de_ListVolumesOutput = (output: any, context: __SerdeContext): ListVolumesOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     Marker: __expectString(output.Marker),
-    VolumeInfos:
-      output.VolumeInfos != null ? deserializeAws_json1_1VolumeInfos(output.VolumeInfos, context) : undefined,
+    VolumeInfos: output.VolumeInfos != null ? de_VolumeInfos(output.VolumeInfos, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
+/**
+ * deserializeAws_json1_1NetworkInterface
+ */
+const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
     Ipv4Address: __expectString(output.Ipv4Address),
     Ipv6Address: __expectString(output.Ipv6Address),
@@ -7912,7 +9067,10 @@ const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __SerdeContext): NFSFileShareDefaults => {
+/**
+ * deserializeAws_json1_1NFSFileShareDefaults
+ */
+const de_NFSFileShareDefaults = (output: any, context: __SerdeContext): NFSFileShareDefaults => {
   return {
     DirectoryMode: __expectString(output.DirectoryMode),
     FileMode: __expectString(output.FileMode),
@@ -7921,16 +9079,15 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
+/**
+ * deserializeAws_json1_1NFSFileShareInfo
+ */
+const de_NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
   return {
     AuditDestinationARN: __expectString(output.AuditDestinationARN),
     BucketRegion: __expectString(output.BucketRegion),
-    CacheAttributes:
-      output.CacheAttributes != null
-        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
-        : undefined,
-    ClientList:
-      output.ClientList != null ? deserializeAws_json1_1FileShareClientList(output.ClientList, context) : undefined,
+    CacheAttributes: output.CacheAttributes != null ? de_CacheAttributes(output.CacheAttributes, context) : undefined,
+    ClientList: output.ClientList != null ? de_FileShareClientList(output.ClientList, context) : undefined,
     DefaultStorageClass: __expectString(output.DefaultStorageClass),
     FileShareARN: __expectString(output.FileShareARN),
     FileShareId: __expectString(output.FileShareId),
@@ -7942,9 +9099,7 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
     KMSKey: __expectString(output.KMSKey),
     LocationARN: __expectString(output.LocationARN),
     NFSFileShareDefaults:
-      output.NFSFileShareDefaults != null
-        ? deserializeAws_json1_1NFSFileShareDefaults(output.NFSFileShareDefaults, context)
-        : undefined,
+      output.NFSFileShareDefaults != null ? de_NFSFileShareDefaults(output.NFSFileShareDefaults, context) : undefined,
     NotificationPolicy: __expectString(output.NotificationPolicy),
     ObjectACL: __expectString(output.ObjectACL),
     Path: __expectString(output.Path),
@@ -7952,34 +9107,40 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
     RequesterPays: __expectBoolean(output.RequesterPays),
     Role: __expectString(output.Role),
     Squash: __expectString(output.Squash),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     VPCEndpointDNSName: __expectString(output.VPCEndpointDNSName),
   } as any;
 };
 
-const deserializeAws_json1_1NFSFileShareInfoList = (output: any, context: __SerdeContext): NFSFileShareInfo[] => {
+/**
+ * deserializeAws_json1_1NFSFileShareInfoList
+ */
+const de_NFSFileShareInfoList = (output: any, context: __SerdeContext): NFSFileShareInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1NFSFileShareInfo(entry, context);
+      return de_NFSFileShareInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NotifyWhenUploadedOutput = (
-  output: any,
-  context: __SerdeContext
-): NotifyWhenUploadedOutput => {
+/**
+ * deserializeAws_json1_1NotifyWhenUploadedOutput
+ */
+const de_NotifyWhenUploadedOutput = (output: any, context: __SerdeContext): NotifyWhenUploadedOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
     NotificationId: __expectString(output.NotificationId),
   } as any;
 };
 
-const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): PoolInfo => {
+/**
+ * deserializeAws_json1_1PoolInfo
+ */
+const de_PoolInfo = (output: any, context: __SerdeContext): PoolInfo => {
   return {
     PoolARN: __expectString(output.PoolARN),
     PoolName: __expectString(output.PoolName),
@@ -7990,104 +9151,115 @@ const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): P
   } as any;
 };
 
-const deserializeAws_json1_1PoolInfos = (output: any, context: __SerdeContext): PoolInfo[] => {
+/**
+ * deserializeAws_json1_1PoolInfos
+ */
+const de_PoolInfos = (output: any, context: __SerdeContext): PoolInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PoolInfo(entry, context);
+      return de_PoolInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
+/**
+ * deserializeAws_json1_1RefreshCacheOutput
+ */
+const de_RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
     NotificationId: __expectString(output.NotificationId),
   } as any;
 };
 
-const deserializeAws_json1_1RemoveTagsFromResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): RemoveTagsFromResourceOutput => {
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceOutput
+ */
+const de_RemoveTagsFromResourceOutput = (output: any, context: __SerdeContext): RemoveTagsFromResourceOutput => {
   return {
     ResourceARN: __expectString(output.ResourceARN),
   } as any;
 };
 
-const deserializeAws_json1_1ResetCacheOutput = (output: any, context: __SerdeContext): ResetCacheOutput => {
+/**
+ * deserializeAws_json1_1ResetCacheOutput
+ */
+const de_ResetCacheOutput = (output: any, context: __SerdeContext): ResetCacheOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1RetrieveTapeArchiveOutput = (
-  output: any,
-  context: __SerdeContext
-): RetrieveTapeArchiveOutput => {
+/**
+ * deserializeAws_json1_1RetrieveTapeArchiveOutput
+ */
+const de_RetrieveTapeArchiveOutput = (output: any, context: __SerdeContext): RetrieveTapeArchiveOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1RetrieveTapeRecoveryPointOutput = (
-  output: any,
-  context: __SerdeContext
-): RetrieveTapeRecoveryPointOutput => {
+/**
+ * deserializeAws_json1_1RetrieveTapeRecoveryPointOutput
+ */
+const de_RetrieveTapeRecoveryPointOutput = (output: any, context: __SerdeContext): RetrieveTapeRecoveryPointOutput => {
   return {
     TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
-const deserializeAws_json1_1ServiceUnavailableError = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableError => {
+/**
+ * deserializeAws_json1_1ServiceUnavailableError
+ */
+const de_ServiceUnavailableError = (output: any, context: __SerdeContext): ServiceUnavailableError => {
   return {
-    error: output.error != null ? deserializeAws_json1_1StorageGatewayError(output.error, context) : undefined,
+    error: output.error != null ? de_StorageGatewayError(output.error, context) : undefined,
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
-  output: any,
-  context: __SerdeContext
-): SetLocalConsolePasswordOutput => {
+/**
+ * deserializeAws_json1_1SetLocalConsolePasswordOutput
+ */
+const de_SetLocalConsolePasswordOutput = (output: any, context: __SerdeContext): SetLocalConsolePasswordOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1SetSMBGuestPasswordOutput = (
-  output: any,
-  context: __SerdeContext
-): SetSMBGuestPasswordOutput => {
+/**
+ * deserializeAws_json1_1SetSMBGuestPasswordOutput
+ */
+const de_SetSMBGuestPasswordOutput = (output: any, context: __SerdeContext): SetSMBGuestPasswordOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1ShutdownGatewayOutput = (output: any, context: __SerdeContext): ShutdownGatewayOutput => {
+/**
+ * deserializeAws_json1_1ShutdownGatewayOutput
+ */
+const de_ShutdownGatewayOutput = (output: any, context: __SerdeContext): ShutdownGatewayOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeContext): SMBFileShareInfo => {
+/**
+ * deserializeAws_json1_1SMBFileShareInfo
+ */
+const de_SMBFileShareInfo = (output: any, context: __SerdeContext): SMBFileShareInfo => {
   return {
     AccessBasedEnumeration: __expectBoolean(output.AccessBasedEnumeration),
-    AdminUserList:
-      output.AdminUserList != null ? deserializeAws_json1_1UserList(output.AdminUserList, context) : undefined,
+    AdminUserList: output.AdminUserList != null ? de_UserList(output.AdminUserList, context) : undefined,
     AuditDestinationARN: __expectString(output.AuditDestinationARN),
     Authentication: __expectString(output.Authentication),
     BucketRegion: __expectString(output.BucketRegion),
-    CacheAttributes:
-      output.CacheAttributes != null
-        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
-        : undefined,
+    CacheAttributes: output.CacheAttributes != null ? de_CacheAttributes(output.CacheAttributes, context) : undefined,
     CaseSensitivity: __expectString(output.CaseSensitivity),
     DefaultStorageClass: __expectString(output.DefaultStorageClass),
     FileShareARN: __expectString(output.FileShareARN),
@@ -8096,8 +9268,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
     FileShareStatus: __expectString(output.FileShareStatus),
     GatewayARN: __expectString(output.GatewayARN),
     GuessMIMETypeEnabled: __expectBoolean(output.GuessMIMETypeEnabled),
-    InvalidUserList:
-      output.InvalidUserList != null ? deserializeAws_json1_1UserList(output.InvalidUserList, context) : undefined,
+    InvalidUserList: output.InvalidUserList != null ? de_UserList(output.InvalidUserList, context) : undefined,
     KMSEncrypted: __expectBoolean(output.KMSEncrypted),
     KMSKey: __expectString(output.KMSKey),
     LocationARN: __expectString(output.LocationARN),
@@ -8109,33 +9280,40 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
     RequesterPays: __expectBoolean(output.RequesterPays),
     Role: __expectString(output.Role),
     SMBACLEnabled: __expectBoolean(output.SMBACLEnabled),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     VPCEndpointDNSName: __expectString(output.VPCEndpointDNSName),
-    ValidUserList:
-      output.ValidUserList != null ? deserializeAws_json1_1UserList(output.ValidUserList, context) : undefined,
+    ValidUserList: output.ValidUserList != null ? de_UserList(output.ValidUserList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SMBFileShareInfoList = (output: any, context: __SerdeContext): SMBFileShareInfo[] => {
+/**
+ * deserializeAws_json1_1SMBFileShareInfoList
+ */
+const de_SMBFileShareInfoList = (output: any, context: __SerdeContext): SMBFileShareInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SMBFileShareInfo(entry, context);
+      return de_SMBFileShareInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SMBLocalGroups = (output: any, context: __SerdeContext): SMBLocalGroups => {
+/**
+ * deserializeAws_json1_1SMBLocalGroups
+ */
+const de_SMBLocalGroups = (output: any, context: __SerdeContext): SMBLocalGroups => {
   return {
-    GatewayAdmins:
-      output.GatewayAdmins != null ? deserializeAws_json1_1UserList(output.GatewayAdmins, context) : undefined,
+    GatewayAdmins: output.GatewayAdmins != null ? de_UserList(output.GatewayAdmins, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
+/**
+ * deserializeAws_json1_1StartAvailabilityMonitorTestOutput
+ */
+const de_StartAvailabilityMonitorTestOutput = (
   output: any,
   context: __SerdeContext
 ): StartAvailabilityMonitorTestOutput => {
@@ -8144,21 +9322,29 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1StartGatewayOutput = (output: any, context: __SerdeContext): StartGatewayOutput => {
+/**
+ * deserializeAws_json1_1StartGatewayOutput
+ */
+const de_StartGatewayOutput = (output: any, context: __SerdeContext): StartGatewayOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1StorageGatewayError = (output: any, context: __SerdeContext): StorageGatewayError => {
+/**
+ * deserializeAws_json1_1StorageGatewayError
+ */
+const de_StorageGatewayError = (output: any, context: __SerdeContext): StorageGatewayError => {
   return {
     errorCode: __expectString(output.errorCode),
-    errorDetails:
-      output.errorDetails != null ? deserializeAws_json1_1errorDetails(output.errorDetails, context) : undefined,
+    errorDetails: output.errorDetails != null ? de_errorDetails(output.errorDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeContext): StorediSCSIVolume => {
+/**
+ * deserializeAws_json1_1StorediSCSIVolume
+ */
+const de_StorediSCSIVolume = (output: any, context: __SerdeContext): StorediSCSIVolume => {
   return {
     CreatedDate:
       output.CreatedDate != null
@@ -8179,27 +9365,30 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
     VolumeUsedInBytes: __expectLong(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes != null
-        ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
+        ? de_VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeContext): StorediSCSIVolume[] => {
+/**
+ * deserializeAws_json1_1StorediSCSIVolumes
+ */
+const de_StorediSCSIVolumes = (output: any, context: __SerdeContext): StorediSCSIVolume[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StorediSCSIVolume(entry, context);
+      return de_StorediSCSIVolume(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SupportedGatewayCapacities = (
-  output: any,
-  context: __SerdeContext
-): (GatewayCapacity | string)[] => {
+/**
+ * deserializeAws_json1_1SupportedGatewayCapacities
+ */
+const de_SupportedGatewayCapacities = (output: any, context: __SerdeContext): (GatewayCapacity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8211,26 +9400,35 @@ const deserializeAws_json1_1SupportedGatewayCapacities = (
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
+/**
+ * deserializeAws_json1_1Tape
+ */
+const de_Tape = (output: any, context: __SerdeContext): Tape => {
   return {
     KMSKey: __expectString(output.KMSKey),
     PoolEntryDate:
@@ -8257,7 +9455,10 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
   } as any;
 };
 
-const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext): TapeArchive => {
+/**
+ * deserializeAws_json1_1TapeArchive
+ */
+const de_TapeArchive = (output: any, context: __SerdeContext): TapeArchive => {
   return {
     CompletionTime:
       output.CompletionTime != null
@@ -8287,19 +9488,25 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1TapeArchives = (output: any, context: __SerdeContext): TapeArchive[] => {
+/**
+ * deserializeAws_json1_1TapeArchives
+ */
+const de_TapeArchives = (output: any, context: __SerdeContext): TapeArchive[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TapeArchive(entry, context);
+      return de_TapeArchive(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TapeARNs
+ */
+const de_TapeARNs = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8311,7 +9518,10 @@ const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): s
   return retVal;
 };
 
-const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
+/**
+ * deserializeAws_json1_1TapeInfo
+ */
+const de_TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     PoolEntryDate:
@@ -8330,19 +9540,25 @@ const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): T
   } as any;
 };
 
-const deserializeAws_json1_1TapeInfos = (output: any, context: __SerdeContext): TapeInfo[] => {
+/**
+ * deserializeAws_json1_1TapeInfos
+ */
+const de_TapeInfos = (output: any, context: __SerdeContext): TapeInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TapeInfo(entry, context);
+      return de_TapeInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __SerdeContext): TapeRecoveryPointInfo => {
+/**
+ * deserializeAws_json1_1TapeRecoveryPointInfo
+ */
+const de_TapeRecoveryPointInfo = (output: any, context: __SerdeContext): TapeRecoveryPointInfo => {
   return {
     TapeARN: __expectString(output.TapeARN),
     TapeRecoveryPointTime:
@@ -8354,34 +9570,40 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1TapeRecoveryPointInfos = (
-  output: any,
-  context: __SerdeContext
-): TapeRecoveryPointInfo[] => {
+/**
+ * deserializeAws_json1_1TapeRecoveryPointInfos
+ */
+const de_TapeRecoveryPointInfos = (output: any, context: __SerdeContext): TapeRecoveryPointInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TapeRecoveryPointInfo(entry, context);
+      return de_TapeRecoveryPointInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Tapes = (output: any, context: __SerdeContext): Tape[] => {
+/**
+ * deserializeAws_json1_1Tapes
+ */
+const de_Tapes = (output: any, context: __SerdeContext): Tape[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tape(entry, context);
+      return de_Tape(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
+/**
+ * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput
+ */
+const de_UpdateAutomaticTapeCreationPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateAutomaticTapeCreationPolicyOutput => {
@@ -8390,16 +9612,19 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateBandwidthRateLimitOutput => {
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitOutput
+ */
+const de_UpdateBandwidthRateLimitOutput = (output: any, context: __SerdeContext): UpdateBandwidthRateLimitOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput = (
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput
+ */
+const de_UpdateBandwidthRateLimitScheduleOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateBandwidthRateLimitScheduleOutput => {
@@ -8408,17 +9633,20 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateChapCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateChapCredentialsOutput => {
+/**
+ * deserializeAws_json1_1UpdateChapCredentialsOutput
+ */
+const de_UpdateChapCredentialsOutput = (output: any, context: __SerdeContext): UpdateChapCredentialsOutput => {
   return {
     InitiatorName: __expectString(output.InitiatorName),
     TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateFileSystemAssociationOutput = (
+/**
+ * deserializeAws_json1_1UpdateFileSystemAssociationOutput
+ */
+const de_UpdateFileSystemAssociationOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateFileSystemAssociationOutput => {
@@ -8427,26 +9655,29 @@ const deserializeAws_json1_1UpdateFileSystemAssociationOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateGatewayInformationOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateGatewayInformationOutput => {
+/**
+ * deserializeAws_json1_1UpdateGatewayInformationOutput
+ */
+const de_UpdateGatewayInformationOutput = (output: any, context: __SerdeContext): UpdateGatewayInformationOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     GatewayName: __expectString(output.GatewayName),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateGatewaySoftwareNowOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateGatewaySoftwareNowOutput => {
+/**
+ * deserializeAws_json1_1UpdateGatewaySoftwareNowOutput
+ */
+const de_UpdateGatewaySoftwareNowOutput = (output: any, context: __SerdeContext): UpdateGatewaySoftwareNowOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
+/**
+ * deserializeAws_json1_1UpdateMaintenanceStartTimeOutput
+ */
+const de_UpdateMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateMaintenanceStartTimeOutput => {
@@ -8455,25 +9686,28 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateNFSFileShareOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateNFSFileShareOutput => {
+/**
+ * deserializeAws_json1_1UpdateNFSFileShareOutput
+ */
+const de_UpdateNFSFileShareOutput = (output: any, context: __SerdeContext): UpdateNFSFileShareOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSMBFileShareOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateSMBFileShareOutput => {
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareOutput
+ */
+const de_UpdateSMBFileShareOutput = (output: any, context: __SerdeContext): UpdateSMBFileShareOutput => {
   return {
     FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput = (
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput
+ */
+const de_UpdateSMBFileShareVisibilityOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateSMBFileShareVisibilityOutput => {
@@ -8482,43 +9716,46 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSMBLocalGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateSMBLocalGroupsOutput => {
+/**
+ * deserializeAws_json1_1UpdateSMBLocalGroupsOutput
+ */
+const de_UpdateSMBLocalGroupsOutput = (output: any, context: __SerdeContext): UpdateSMBLocalGroupsOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSMBSecurityStrategyOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateSMBSecurityStrategyOutput => {
+/**
+ * deserializeAws_json1_1UpdateSMBSecurityStrategyOutput
+ */
+const de_UpdateSMBSecurityStrategyOutput = (output: any, context: __SerdeContext): UpdateSMBSecurityStrategyOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateSnapshotScheduleOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateSnapshotScheduleOutput => {
+/**
+ * deserializeAws_json1_1UpdateSnapshotScheduleOutput
+ */
+const de_UpdateSnapshotScheduleOutput = (output: any, context: __SerdeContext): UpdateSnapshotScheduleOutput => {
   return {
     VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateVTLDeviceTypeOutput => {
+/**
+ * deserializeAws_json1_1UpdateVTLDeviceTypeOutput
+ */
+const de_UpdateVTLDeviceTypeOutput = (output: any, context: __SerdeContext): UpdateVTLDeviceTypeOutput => {
   return {
     VTLDeviceARN: __expectString(output.VTLDeviceARN),
   } as any;
 };
 
-const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1UserList
+ */
+const de_UserList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8530,7 +9767,10 @@ const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): s
   return retVal;
 };
 
-const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {
+/**
+ * deserializeAws_json1_1VolumeInfo
+ */
+const de_VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
     GatewayId: __expectString(output.GatewayId),
@@ -8542,19 +9782,25 @@ const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext): VolumeInfo[] => {
+/**
+ * deserializeAws_json1_1VolumeInfos
+ */
+const de_VolumeInfos = (output: any, context: __SerdeContext): VolumeInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1VolumeInfo(entry, context);
+      return de_VolumeInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
+/**
+ * deserializeAws_json1_1VolumeiSCSIAttributes
+ */
+const de_VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
   return {
     ChapEnabled: __expectBoolean(output.ChapEnabled),
     LunNumber: __expectInt32(output.LunNumber),
@@ -8564,10 +9810,10 @@ const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1VolumeRecoveryPointInfo = (
-  output: any,
-  context: __SerdeContext
-): VolumeRecoveryPointInfo => {
+/**
+ * deserializeAws_json1_1VolumeRecoveryPointInfo
+ */
+const de_VolumeRecoveryPointInfo = (output: any, context: __SerdeContext): VolumeRecoveryPointInfo => {
   return {
     VolumeARN: __expectString(output.VolumeARN),
     VolumeRecoveryPointTime: __expectString(output.VolumeRecoveryPointTime),
@@ -8576,26 +9822,29 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   } as any;
 };
 
-const deserializeAws_json1_1VolumeRecoveryPointInfos = (
-  output: any,
-  context: __SerdeContext
-): VolumeRecoveryPointInfo[] => {
+/**
+ * deserializeAws_json1_1VolumeRecoveryPointInfos
+ */
+const de_VolumeRecoveryPointInfos = (output: any, context: __SerdeContext): VolumeRecoveryPointInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1VolumeRecoveryPointInfo(entry, context);
+      return de_VolumeRecoveryPointInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): VTLDevice => {
+/**
+ * deserializeAws_json1_1VTLDevice
+ */
+const de_VTLDevice = (output: any, context: __SerdeContext): VTLDevice => {
   return {
     DeviceiSCSIAttributes:
       output.DeviceiSCSIAttributes != null
-        ? deserializeAws_json1_1DeviceiSCSIAttributes(output.DeviceiSCSIAttributes, context)
+        ? de_DeviceiSCSIAttributes(output.DeviceiSCSIAttributes, context)
         : undefined,
     VTLDeviceARN: __expectString(output.VTLDeviceARN),
     VTLDeviceProductIdentifier: __expectString(output.VTLDeviceProductIdentifier),
@@ -8604,14 +9853,17 @@ const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1VTLDevices = (output: any, context: __SerdeContext): VTLDevice[] => {
+/**
+ * deserializeAws_json1_1VTLDevices
+ */
+const de_VTLDevices = (output: any, context: __SerdeContext): VTLDevice[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1VTLDevice(entry, context);
+      return de_VTLDevice(entry, context);
     });
   return retVal;
 };

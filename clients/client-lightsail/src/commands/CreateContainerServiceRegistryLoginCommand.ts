@@ -19,8 +19,8 @@ import {
   CreateContainerServiceRegistryLoginResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateContainerServiceRegistryLoginCommand,
-  serializeAws_json1_1CreateContainerServiceRegistryLoginCommand,
+  de_CreateContainerServiceRegistryLoginCommand,
+  se_CreateContainerServiceRegistryLoginCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -168,7 +168,7 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
     input: CreateContainerServiceRegistryLoginCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerServiceRegistryLoginCommand(input, context);
+    return se_CreateContainerServiceRegistryLoginCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateContainerServiceRegistryLoginCommandOutput> {
-    return deserializeAws_json1_1CreateContainerServiceRegistryLoginCommand(output, context);
+    return de_CreateContainerServiceRegistryLoginCommand(output, context);
   }
 
   // Start section: command_body_extra

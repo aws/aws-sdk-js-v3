@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { StopRunRequest, StopRunResult } from "../models/models_0";
-import { deserializeAws_json1_1StopRunCommand, serializeAws_json1_1StopRunCommand } from "../protocols/Aws_json1_1";
+import { de_StopRunCommand, se_StopRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +146,14 @@ export class StopRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StopRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRunCommand(input, context);
+    return se_StopRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRunCommandOutput> {
-    return deserializeAws_json1_1StopRunCommand(output, context);
+    return de_StopRunCommand(output, context);
   }
 
   // Start section: command_body_extra

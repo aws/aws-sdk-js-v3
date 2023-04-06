@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListOperationsCommand,
-  serializeAws_json1_0ListOperationsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListOperationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_json1_0ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

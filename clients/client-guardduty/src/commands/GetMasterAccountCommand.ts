@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMasterAccountCommand,
-  serializeAws_restJson1GetMasterAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMasterAccountCommand, se_GetMasterAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetMasterAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMasterAccountCommand(input, context);
+    return se_GetMasterAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMasterAccountCommandOutput> {
-    return deserializeAws_restJson1GetMasterAccountCommand(output, context);
+    return de_GetMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

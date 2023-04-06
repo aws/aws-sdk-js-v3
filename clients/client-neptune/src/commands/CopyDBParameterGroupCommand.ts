@@ -15,10 +15,7 @@ import {
 
 import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCopyDBParameterGroupCommand,
-  serializeAws_queryCopyDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBParameterGroupCommand, se_CopyDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class CopyDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBParameterGroupCommand(input, context);
+    return se_CopyDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBParameterGroupCommand(output, context);
+    return de_CopyDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

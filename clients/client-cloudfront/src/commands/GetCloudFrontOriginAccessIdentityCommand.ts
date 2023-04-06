@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
+  de_GetCloudFrontOriginAccessIdentityCommand,
+  se_GetCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -131,7 +131,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
     input: GetCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_GetCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_GetCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

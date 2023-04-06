@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ExtendLicenseConsumptionRequest, ExtendLicenseConsumptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExtendLicenseConsumptionCommand,
-  serializeAws_json1_1ExtendLicenseConsumptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExtendLicenseConsumptionCommand, se_ExtendLicenseConsumptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ExtendLicenseConsumptionCommand extends $Command<
    * @internal
    */
   private serialize(input: ExtendLicenseConsumptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExtendLicenseConsumptionCommand(input, context);
+    return se_ExtendLicenseConsumptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendLicenseConsumptionCommandOutput> {
-    return deserializeAws_json1_1ExtendLicenseConsumptionCommand(output, context);
+    return de_ExtendLicenseConsumptionCommand(output, context);
   }
 
   // Start section: command_body_extra

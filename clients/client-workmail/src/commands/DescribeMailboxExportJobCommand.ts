@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeMailboxExportJobRequest, DescribeMailboxExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMailboxExportJobCommand,
-  serializeAws_json1_1DescribeMailboxExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMailboxExportJobCommand, se_DescribeMailboxExportJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -136,14 +133,14 @@ export class DescribeMailboxExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMailboxExportJobCommand(input, context);
+    return se_DescribeMailboxExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMailboxExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeMailboxExportJobCommand(output, context);
+    return de_DescribeMailboxExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

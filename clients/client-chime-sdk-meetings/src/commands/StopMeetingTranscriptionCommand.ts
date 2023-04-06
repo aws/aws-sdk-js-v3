@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { StopMeetingTranscriptionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopMeetingTranscriptionCommand,
-  serializeAws_restJson1StopMeetingTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopMeetingTranscriptionCommand, se_StopMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class StopMeetingTranscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopMeetingTranscriptionCommand(input, context);
+    return se_StopMeetingTranscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StopMeetingTranscriptionCommand(output, context);
+    return de_StopMeetingTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

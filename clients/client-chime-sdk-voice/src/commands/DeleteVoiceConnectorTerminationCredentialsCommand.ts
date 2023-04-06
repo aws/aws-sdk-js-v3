@@ -19,8 +19,8 @@ import {
   DeleteVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand,
+  de_DeleteVoiceConnectorTerminationCredentialsCommand,
+  se_DeleteVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_DeleteVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

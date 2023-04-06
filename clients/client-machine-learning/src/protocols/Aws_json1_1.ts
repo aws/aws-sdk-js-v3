@@ -167,7 +167,10 @@ import {
   UpdateMLModelOutput,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AddTagsCommand = async (
+/**
+ * serializeAws_json1_1AddTagsCommand
+ */
+export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -176,11 +179,14 @@ export const serializeAws_json1_1AddTagsCommand = async (
     "x-amz-target": "AmazonML_20141212.AddTags",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
+  body = JSON.stringify(se_AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateBatchPredictionCommand = async (
+/**
+ * serializeAws_json1_1CreateBatchPredictionCommand
+ */
+export const se_CreateBatchPredictionCommand = async (
   input: CreateBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -189,11 +195,14 @@ export const serializeAws_json1_1CreateBatchPredictionCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateBatchPrediction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateBatchPredictionInput(input, context));
+  body = JSON.stringify(se_CreateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDataSourceFromRDSCommand = async (
+/**
+ * serializeAws_json1_1CreateDataSourceFromRDSCommand
+ */
+export const se_CreateDataSourceFromRDSCommand = async (
   input: CreateDataSourceFromRDSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -202,11 +211,14 @@ export const serializeAws_json1_1CreateDataSourceFromRDSCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateDataSourceFromRDS",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromRDSInput(input, context));
+  body = JSON.stringify(se_CreateDataSourceFromRDSInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
+/**
+ * serializeAws_json1_1CreateDataSourceFromRedshiftCommand
+ */
+export const se_CreateDataSourceFromRedshiftCommand = async (
   input: CreateDataSourceFromRedshiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -215,11 +227,14 @@ export const serializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateDataSourceFromRedshift",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context));
+  body = JSON.stringify(se_CreateDataSourceFromRedshiftInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDataSourceFromS3Command = async (
+/**
+ * serializeAws_json1_1CreateDataSourceFromS3Command
+ */
+export const se_CreateDataSourceFromS3Command = async (
   input: CreateDataSourceFromS3CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -228,11 +243,14 @@ export const serializeAws_json1_1CreateDataSourceFromS3Command = async (
     "x-amz-target": "AmazonML_20141212.CreateDataSourceFromS3",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromS3Input(input, context));
+  body = JSON.stringify(se_CreateDataSourceFromS3Input(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateEvaluationCommand = async (
+/**
+ * serializeAws_json1_1CreateEvaluationCommand
+ */
+export const se_CreateEvaluationCommand = async (
   input: CreateEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -241,11 +259,14 @@ export const serializeAws_json1_1CreateEvaluationCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateEvaluation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEvaluationInput(input, context));
+  body = JSON.stringify(se_CreateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateMLModelCommand = async (
+/**
+ * serializeAws_json1_1CreateMLModelCommand
+ */
+export const se_CreateMLModelCommand = async (
   input: CreateMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -254,11 +275,14 @@ export const serializeAws_json1_1CreateMLModelCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateMLModel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateMLModelInput(input, context));
+  body = JSON.stringify(se_CreateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateRealtimeEndpointCommand = async (
+/**
+ * serializeAws_json1_1CreateRealtimeEndpointCommand
+ */
+export const se_CreateRealtimeEndpointCommand = async (
   input: CreateRealtimeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -267,11 +291,14 @@ export const serializeAws_json1_1CreateRealtimeEndpointCommand = async (
     "x-amz-target": "AmazonML_20141212.CreateRealtimeEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateRealtimeEndpointInput(input, context));
+  body = JSON.stringify(se_CreateRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteBatchPredictionCommand = async (
+/**
+ * serializeAws_json1_1DeleteBatchPredictionCommand
+ */
+export const se_DeleteBatchPredictionCommand = async (
   input: DeleteBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -280,11 +307,14 @@ export const serializeAws_json1_1DeleteBatchPredictionCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteBatchPrediction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteBatchPredictionInput(input, context));
+  body = JSON.stringify(se_DeleteBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDataSourceCommand = async (
+/**
+ * serializeAws_json1_1DeleteDataSourceCommand
+ */
+export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -293,11 +323,14 @@ export const serializeAws_json1_1DeleteDataSourceCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteDataSource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDataSourceInput(input, context));
+  body = JSON.stringify(se_DeleteDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEvaluationCommand = async (
+/**
+ * serializeAws_json1_1DeleteEvaluationCommand
+ */
+export const se_DeleteEvaluationCommand = async (
   input: DeleteEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -306,11 +339,14 @@ export const serializeAws_json1_1DeleteEvaluationCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteEvaluation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEvaluationInput(input, context));
+  body = JSON.stringify(se_DeleteEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMLModelCommand = async (
+/**
+ * serializeAws_json1_1DeleteMLModelCommand
+ */
+export const se_DeleteMLModelCommand = async (
   input: DeleteMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -319,11 +355,14 @@ export const serializeAws_json1_1DeleteMLModelCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteMLModel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMLModelInput(input, context));
+  body = JSON.stringify(se_DeleteMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRealtimeEndpointCommand = async (
+/**
+ * serializeAws_json1_1DeleteRealtimeEndpointCommand
+ */
+export const se_DeleteRealtimeEndpointCommand = async (
   input: DeleteRealtimeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -332,11 +371,14 @@ export const serializeAws_json1_1DeleteRealtimeEndpointCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteRealtimeEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRealtimeEndpointInput(input, context));
+  body = JSON.stringify(se_DeleteRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTagsCommand = async (
+/**
+ * serializeAws_json1_1DeleteTagsCommand
+ */
+export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,11 +387,14 @@ export const serializeAws_json1_1DeleteTagsCommand = async (
     "x-amz-target": "AmazonML_20141212.DeleteTags",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTagsInput(input, context));
+  body = JSON.stringify(se_DeleteTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeBatchPredictionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeBatchPredictionsCommand
+ */
+export const se_DescribeBatchPredictionsCommand = async (
   input: DescribeBatchPredictionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -358,11 +403,14 @@ export const serializeAws_json1_1DescribeBatchPredictionsCommand = async (
     "x-amz-target": "AmazonML_20141212.DescribeBatchPredictions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeBatchPredictionsInput(input, context));
+  body = JSON.stringify(se_DescribeBatchPredictionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDataSourcesCommand = async (
+/**
+ * serializeAws_json1_1DescribeDataSourcesCommand
+ */
+export const se_DescribeDataSourcesCommand = async (
   input: DescribeDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -371,11 +419,14 @@ export const serializeAws_json1_1DescribeDataSourcesCommand = async (
     "x-amz-target": "AmazonML_20141212.DescribeDataSources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDataSourcesInput(input, context));
+  body = JSON.stringify(se_DescribeDataSourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEvaluationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEvaluationsCommand
+ */
+export const se_DescribeEvaluationsCommand = async (
   input: DescribeEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -384,11 +435,14 @@ export const serializeAws_json1_1DescribeEvaluationsCommand = async (
     "x-amz-target": "AmazonML_20141212.DescribeEvaluations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEvaluationsInput(input, context));
+  body = JSON.stringify(se_DescribeEvaluationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeMLModelsCommand = async (
+/**
+ * serializeAws_json1_1DescribeMLModelsCommand
+ */
+export const se_DescribeMLModelsCommand = async (
   input: DescribeMLModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -397,11 +451,14 @@ export const serializeAws_json1_1DescribeMLModelsCommand = async (
     "x-amz-target": "AmazonML_20141212.DescribeMLModels",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeMLModelsInput(input, context));
+  body = JSON.stringify(se_DescribeMLModelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTagsCommand = async (
+/**
+ * serializeAws_json1_1DescribeTagsCommand
+ */
+export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -410,11 +467,14 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
     "x-amz-target": "AmazonML_20141212.DescribeTags",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTagsInput(input, context));
+  body = JSON.stringify(se_DescribeTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetBatchPredictionCommand = async (
+/**
+ * serializeAws_json1_1GetBatchPredictionCommand
+ */
+export const se_GetBatchPredictionCommand = async (
   input: GetBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -423,11 +483,14 @@ export const serializeAws_json1_1GetBatchPredictionCommand = async (
     "x-amz-target": "AmazonML_20141212.GetBatchPrediction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetBatchPredictionInput(input, context));
+  body = JSON.stringify(se_GetBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDataSourceCommand = async (
+/**
+ * serializeAws_json1_1GetDataSourceCommand
+ */
+export const se_GetDataSourceCommand = async (
   input: GetDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -436,11 +499,14 @@ export const serializeAws_json1_1GetDataSourceCommand = async (
     "x-amz-target": "AmazonML_20141212.GetDataSource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDataSourceInput(input, context));
+  body = JSON.stringify(se_GetDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetEvaluationCommand = async (
+/**
+ * serializeAws_json1_1GetEvaluationCommand
+ */
+export const se_GetEvaluationCommand = async (
   input: GetEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -449,11 +515,14 @@ export const serializeAws_json1_1GetEvaluationCommand = async (
     "x-amz-target": "AmazonML_20141212.GetEvaluation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetEvaluationInput(input, context));
+  body = JSON.stringify(se_GetEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMLModelCommand = async (
+/**
+ * serializeAws_json1_1GetMLModelCommand
+ */
+export const se_GetMLModelCommand = async (
   input: GetMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -462,11 +531,14 @@ export const serializeAws_json1_1GetMLModelCommand = async (
     "x-amz-target": "AmazonML_20141212.GetMLModel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMLModelInput(input, context));
+  body = JSON.stringify(se_GetMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PredictCommand = async (
+/**
+ * serializeAws_json1_1PredictCommand
+ */
+export const se_PredictCommand = async (
   input: PredictCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -475,11 +547,14 @@ export const serializeAws_json1_1PredictCommand = async (
     "x-amz-target": "AmazonML_20141212.Predict",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PredictInput(input, context));
+  body = JSON.stringify(se_PredictInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateBatchPredictionCommand = async (
+/**
+ * serializeAws_json1_1UpdateBatchPredictionCommand
+ */
+export const se_UpdateBatchPredictionCommand = async (
   input: UpdateBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -488,11 +563,14 @@ export const serializeAws_json1_1UpdateBatchPredictionCommand = async (
     "x-amz-target": "AmazonML_20141212.UpdateBatchPrediction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateBatchPredictionInput(input, context));
+  body = JSON.stringify(se_UpdateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDataSourceCommand = async (
+/**
+ * serializeAws_json1_1UpdateDataSourceCommand
+ */
+export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -501,11 +579,14 @@ export const serializeAws_json1_1UpdateDataSourceCommand = async (
     "x-amz-target": "AmazonML_20141212.UpdateDataSource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDataSourceInput(input, context));
+  body = JSON.stringify(se_UpdateDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateEvaluationCommand = async (
+/**
+ * serializeAws_json1_1UpdateEvaluationCommand
+ */
+export const se_UpdateEvaluationCommand = async (
   input: UpdateEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -514,11 +595,14 @@ export const serializeAws_json1_1UpdateEvaluationCommand = async (
     "x-amz-target": "AmazonML_20141212.UpdateEvaluation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateEvaluationInput(input, context));
+  body = JSON.stringify(se_UpdateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateMLModelCommand = async (
+/**
+ * serializeAws_json1_1UpdateMLModelCommand
+ */
+export const se_UpdateMLModelCommand = async (
   input: UpdateMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -527,20 +611,23 @@ export const serializeAws_json1_1UpdateMLModelCommand = async (
     "x-amz-target": "AmazonML_20141212.UpdateMLModel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateMLModelInput(input, context));
+  body = JSON.stringify(se_UpdateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddTagsCommand = async (
+/**
+ * deserializeAws_json1_1AddTagsCommand
+ */
+export const de_AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddTagsCommandError(output, context);
+    return de_AddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsOutput(data, context);
+  contents = de_AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -548,7 +635,10 @@ export const deserializeAws_json1_1AddTagsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddTagsCommandError = async (
+/**
+ * deserializeAws_json1_1AddTagsCommandError
+ */
+const de_AddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
@@ -560,19 +650,19 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.machinelearning#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagLimitExceededException":
     case "com.amazonaws.machinelearning#TagLimitExceededException":
-      throw await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -584,16 +674,19 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateBatchPredictionCommand = async (
+/**
+ * deserializeAws_json1_1CreateBatchPredictionCommand
+ */
+export const de_CreateBatchPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBatchPredictionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateBatchPredictionCommandError(output, context);
+    return de_CreateBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBatchPredictionOutput(data, context);
+  contents = de_CreateBatchPredictionOutput(data, context);
   const response: CreateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -601,7 +694,10 @@ export const deserializeAws_json1_1CreateBatchPredictionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateBatchPredictionCommandError
+ */
+const de_CreateBatchPredictionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBatchPredictionCommandOutput> => {
@@ -613,13 +709,13 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -631,16 +727,19 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDataSourceFromRDSCommand = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRDSCommand
+ */
+export const de_CreateDataSourceFromRDSCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRDSCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommandError(output, context);
+    return de_CreateDataSourceFromRDSCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromRDSOutput(data, context);
+  contents = de_CreateDataSourceFromRDSOutput(data, context);
   const response: CreateDataSourceFromRDSCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -648,7 +747,10 @@ export const deserializeAws_json1_1CreateDataSourceFromRDSCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRDSCommandError
+ */
+const de_CreateDataSourceFromRDSCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRDSCommandOutput> => {
@@ -660,13 +762,13 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -678,16 +780,19 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRedshiftCommand
+ */
+export const de_CreateDataSourceFromRedshiftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(output, context);
+    return de_CreateDataSourceFromRedshiftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromRedshiftOutput(data, context);
+  contents = de_CreateDataSourceFromRedshiftOutput(data, context);
   const response: CreateDataSourceFromRedshiftCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -695,7 +800,10 @@ export const deserializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError
+ */
+const de_CreateDataSourceFromRedshiftCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
@@ -707,13 +815,13 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -725,16 +833,19 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDataSourceFromS3Command = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromS3Command
+ */
+export const de_CreateDataSourceFromS3Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromS3CommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDataSourceFromS3CommandError(output, context);
+    return de_CreateDataSourceFromS3CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromS3Output(data, context);
+  contents = de_CreateDataSourceFromS3Output(data, context);
   const response: CreateDataSourceFromS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -742,7 +853,10 @@ export const deserializeAws_json1_1CreateDataSourceFromS3Command = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromS3CommandError
+ */
+const de_CreateDataSourceFromS3CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceFromS3CommandOutput> => {
@@ -754,13 +868,13 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -772,16 +886,19 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateEvaluationCommand = async (
+/**
+ * deserializeAws_json1_1CreateEvaluationCommand
+ */
+export const de_CreateEvaluationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEvaluationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEvaluationCommandError(output, context);
+    return de_CreateEvaluationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEvaluationOutput(data, context);
+  contents = de_CreateEvaluationOutput(data, context);
   const response: CreateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -789,7 +906,10 @@ export const deserializeAws_json1_1CreateEvaluationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateEvaluationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateEvaluationCommandError
+ */
+const de_CreateEvaluationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEvaluationCommandOutput> => {
@@ -801,13 +921,13 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -819,16 +939,19 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateMLModelCommand = async (
+/**
+ * deserializeAws_json1_1CreateMLModelCommand
+ */
+export const de_CreateMLModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMLModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateMLModelCommandError(output, context);
+    return de_CreateMLModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMLModelOutput(data, context);
+  contents = de_CreateMLModelOutput(data, context);
   const response: CreateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -836,7 +959,10 @@ export const deserializeAws_json1_1CreateMLModelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateMLModelCommandError = async (
+/**
+ * deserializeAws_json1_1CreateMLModelCommandError
+ */
+const de_CreateMLModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMLModelCommandOutput> => {
@@ -848,13 +974,13 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -866,16 +992,19 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateRealtimeEndpointCommand = async (
+/**
+ * deserializeAws_json1_1CreateRealtimeEndpointCommand
+ */
+export const de_CreateRealtimeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRealtimeEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateRealtimeEndpointCommandError(output, context);
+    return de_CreateRealtimeEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRealtimeEndpointOutput(data, context);
+  contents = de_CreateRealtimeEndpointOutput(data, context);
   const response: CreateRealtimeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -883,7 +1012,10 @@ export const deserializeAws_json1_1CreateRealtimeEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1CreateRealtimeEndpointCommandError
+ */
+const de_CreateRealtimeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRealtimeEndpointCommandOutput> => {
@@ -895,13 +1027,13 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -913,16 +1045,19 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteBatchPredictionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteBatchPredictionCommand
+ */
+export const de_DeleteBatchPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBatchPredictionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteBatchPredictionCommandError(output, context);
+    return de_DeleteBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBatchPredictionOutput(data, context);
+  contents = de_DeleteBatchPredictionOutput(data, context);
   const response: DeleteBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -930,7 +1065,10 @@ export const deserializeAws_json1_1DeleteBatchPredictionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteBatchPredictionCommandError
+ */
+const de_DeleteBatchPredictionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBatchPredictionCommandOutput> => {
@@ -942,13 +1080,13 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -960,16 +1098,19 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteDataSourceCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDataSourceCommand
+ */
+export const de_DeleteDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDataSourceCommandError(output, context);
+    return de_DeleteDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDataSourceOutput(data, context);
+  contents = de_DeleteDataSourceOutput(data, context);
   const response: DeleteDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -977,7 +1118,10 @@ export const deserializeAws_json1_1DeleteDataSourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteDataSourceCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDataSourceCommandError
+ */
+const de_DeleteDataSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
@@ -989,13 +1133,13 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1007,16 +1151,19 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteEvaluationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEvaluationCommand
+ */
+export const de_DeleteEvaluationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEvaluationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEvaluationCommandError(output, context);
+    return de_DeleteEvaluationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEvaluationOutput(data, context);
+  contents = de_DeleteEvaluationOutput(data, context);
   const response: DeleteEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1024,7 +1171,10 @@ export const deserializeAws_json1_1DeleteEvaluationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteEvaluationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEvaluationCommandError
+ */
+const de_DeleteEvaluationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEvaluationCommandOutput> => {
@@ -1036,13 +1186,13 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1054,16 +1204,19 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteMLModelCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMLModelCommand
+ */
+export const de_DeleteMLModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMLModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMLModelCommandError(output, context);
+    return de_DeleteMLModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMLModelOutput(data, context);
+  contents = de_DeleteMLModelOutput(data, context);
   const response: DeleteMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1071,7 +1224,10 @@ export const deserializeAws_json1_1DeleteMLModelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteMLModelCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMLModelCommandError
+ */
+const de_DeleteMLModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMLModelCommandOutput> => {
@@ -1083,13 +1239,13 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1101,16 +1257,19 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteRealtimeEndpointCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRealtimeEndpointCommand
+ */
+export const de_DeleteRealtimeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRealtimeEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRealtimeEndpointCommandError(output, context);
+    return de_DeleteRealtimeEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRealtimeEndpointOutput(data, context);
+  contents = de_DeleteRealtimeEndpointOutput(data, context);
   const response: DeleteRealtimeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1118,7 +1277,10 @@ export const deserializeAws_json1_1DeleteRealtimeEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRealtimeEndpointCommandError
+ */
+const de_DeleteRealtimeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRealtimeEndpointCommandOutput> => {
@@ -1130,13 +1292,13 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1148,16 +1310,19 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteTagsCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTagsCommand
+ */
+export const de_DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTagsCommandError(output, context);
+    return de_DeleteTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagsOutput(data, context);
+  contents = de_DeleteTagsOutput(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1165,7 +1330,10 @@ export const deserializeAws_json1_1DeleteTagsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTagsCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTagsCommandError
+ */
+const de_DeleteTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
@@ -1177,16 +1345,16 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.machinelearning#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1198,16 +1366,19 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeBatchPredictionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeBatchPredictionsCommand
+ */
+export const de_DescribeBatchPredictionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBatchPredictionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeBatchPredictionsCommandError(output, context);
+    return de_DescribeBatchPredictionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBatchPredictionsOutput(data, context);
+  contents = de_DescribeBatchPredictionsOutput(data, context);
   const response: DescribeBatchPredictionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1215,7 +1386,10 @@ export const deserializeAws_json1_1DescribeBatchPredictionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeBatchPredictionsCommandError
+ */
+const de_DescribeBatchPredictionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBatchPredictionsCommandOutput> => {
@@ -1227,10 +1401,10 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1242,16 +1416,19 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeDataSourcesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDataSourcesCommand
+ */
+export const de_DescribeDataSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDataSourcesCommandError(output, context);
+    return de_DescribeDataSourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDataSourcesOutput(data, context);
+  contents = de_DescribeDataSourcesOutput(data, context);
   const response: DescribeDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1259,7 +1436,10 @@ export const deserializeAws_json1_1DescribeDataSourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDataSourcesCommandError
+ */
+const de_DescribeDataSourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourcesCommandOutput> => {
@@ -1271,10 +1451,10 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1286,16 +1466,19 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEvaluationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEvaluationsCommand
+ */
+export const de_DescribeEvaluationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEvaluationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEvaluationsCommandError(output, context);
+    return de_DescribeEvaluationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEvaluationsOutput(data, context);
+  contents = de_DescribeEvaluationsOutput(data, context);
   const response: DescribeEvaluationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1303,7 +1486,10 @@ export const deserializeAws_json1_1DescribeEvaluationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEvaluationsCommandError
+ */
+const de_DescribeEvaluationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEvaluationsCommandOutput> => {
@@ -1315,10 +1501,10 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1330,16 +1516,19 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeMLModelsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMLModelsCommand
+ */
+export const de_DescribeMLModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMLModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeMLModelsCommandError(output, context);
+    return de_DescribeMLModelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMLModelsOutput(data, context);
+  contents = de_DescribeMLModelsOutput(data, context);
   const response: DescribeMLModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1347,7 +1536,10 @@ export const deserializeAws_json1_1DescribeMLModelsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeMLModelsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeMLModelsCommandError
+ */
+const de_DescribeMLModelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMLModelsCommandOutput> => {
@@ -1359,10 +1551,10 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1374,16 +1566,19 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeTagsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTagsCommandError(output, context);
+    return de_DescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsOutput(data, context);
+  contents = de_DescribeTagsOutput(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1391,7 +1586,10 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeTagsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTagsCommandError
+ */
+const de_DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
@@ -1403,13 +1601,13 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1421,16 +1619,19 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetBatchPredictionCommand = async (
+/**
+ * deserializeAws_json1_1GetBatchPredictionCommand
+ */
+export const de_GetBatchPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBatchPredictionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetBatchPredictionCommandError(output, context);
+    return de_GetBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBatchPredictionOutput(data, context);
+  contents = de_GetBatchPredictionOutput(data, context);
   const response: GetBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1438,7 +1639,10 @@ export const deserializeAws_json1_1GetBatchPredictionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetBatchPredictionCommandError = async (
+/**
+ * deserializeAws_json1_1GetBatchPredictionCommandError
+ */
+const de_GetBatchPredictionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBatchPredictionCommandOutput> => {
@@ -1450,13 +1654,13 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1468,16 +1672,19 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDataSourceCommand = async (
+/**
+ * deserializeAws_json1_1GetDataSourceCommand
+ */
+export const de_GetDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDataSourceCommandError(output, context);
+    return de_GetDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDataSourceOutput(data, context);
+  contents = de_GetDataSourceOutput(data, context);
   const response: GetDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1485,7 +1692,10 @@ export const deserializeAws_json1_1GetDataSourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDataSourceCommandError = async (
+/**
+ * deserializeAws_json1_1GetDataSourceCommandError
+ */
+const de_GetDataSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> => {
@@ -1497,13 +1707,13 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1515,16 +1725,19 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetEvaluationCommand = async (
+/**
+ * deserializeAws_json1_1GetEvaluationCommand
+ */
+export const de_GetEvaluationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvaluationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetEvaluationCommandError(output, context);
+    return de_GetEvaluationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEvaluationOutput(data, context);
+  contents = de_GetEvaluationOutput(data, context);
   const response: GetEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1532,7 +1745,10 @@ export const deserializeAws_json1_1GetEvaluationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetEvaluationCommandError = async (
+/**
+ * deserializeAws_json1_1GetEvaluationCommandError
+ */
+const de_GetEvaluationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvaluationCommandOutput> => {
@@ -1544,13 +1760,13 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1562,16 +1778,19 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMLModelCommand = async (
+/**
+ * deserializeAws_json1_1GetMLModelCommand
+ */
+export const de_GetMLModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMLModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMLModelCommandError(output, context);
+    return de_GetMLModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLModelOutput(data, context);
+  contents = de_GetMLModelOutput(data, context);
   const response: GetMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1579,7 +1798,10 @@ export const deserializeAws_json1_1GetMLModelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMLModelCommandError = async (
+/**
+ * deserializeAws_json1_1GetMLModelCommandError
+ */
+const de_GetMLModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMLModelCommandOutput> => {
@@ -1591,13 +1813,13 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1609,16 +1831,19 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PredictCommand = async (
+/**
+ * deserializeAws_json1_1PredictCommand
+ */
+export const de_PredictCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PredictCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PredictCommandError(output, context);
+    return de_PredictCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PredictOutput(data, context);
+  contents = de_PredictOutput(data, context);
   const response: PredictCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1626,7 +1851,10 @@ export const deserializeAws_json1_1PredictCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PredictCommandError = async (
+/**
+ * deserializeAws_json1_1PredictCommandError
+ */
+const de_PredictCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PredictCommandOutput> => {
@@ -1638,19 +1866,19 @@ const deserializeAws_json1_1PredictCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.machinelearning#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PredictorNotMountedException":
     case "com.amazonaws.machinelearning#PredictorNotMountedException":
-      throw await deserializeAws_json1_1PredictorNotMountedExceptionResponse(parsedOutput, context);
+      throw await de_PredictorNotMountedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1662,16 +1890,19 @@ const deserializeAws_json1_1PredictCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateBatchPredictionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateBatchPredictionCommand
+ */
+export const de_UpdateBatchPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBatchPredictionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateBatchPredictionCommandError(output, context);
+    return de_UpdateBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBatchPredictionOutput(data, context);
+  contents = de_UpdateBatchPredictionOutput(data, context);
   const response: UpdateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1679,7 +1910,10 @@ export const deserializeAws_json1_1UpdateBatchPredictionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateBatchPredictionCommandError
+ */
+const de_UpdateBatchPredictionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBatchPredictionCommandOutput> => {
@@ -1691,13 +1925,13 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1709,16 +1943,19 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateDataSourceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDataSourceCommand
+ */
+export const de_UpdateDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDataSourceCommandError(output, context);
+    return de_UpdateDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDataSourceOutput(data, context);
+  contents = de_UpdateDataSourceOutput(data, context);
   const response: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1726,7 +1963,10 @@ export const deserializeAws_json1_1UpdateDataSourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDataSourceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDataSourceCommandError
+ */
+const de_UpdateDataSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
@@ -1738,13 +1978,13 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1756,16 +1996,19 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateEvaluationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateEvaluationCommand
+ */
+export const de_UpdateEvaluationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEvaluationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateEvaluationCommandError(output, context);
+    return de_UpdateEvaluationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEvaluationOutput(data, context);
+  contents = de_UpdateEvaluationOutput(data, context);
   const response: UpdateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1773,7 +2016,10 @@ export const deserializeAws_json1_1UpdateEvaluationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateEvaluationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateEvaluationCommandError
+ */
+const de_UpdateEvaluationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEvaluationCommandOutput> => {
@@ -1785,13 +2031,13 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1803,16 +2049,19 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateMLModelCommand = async (
+/**
+ * deserializeAws_json1_1UpdateMLModelCommand
+ */
+export const de_UpdateMLModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMLModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateMLModelCommandError(output, context);
+    return de_UpdateMLModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMLModelOutput(data, context);
+  contents = de_UpdateMLModelOutput(data, context);
   const response: UpdateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1820,7 +2069,10 @@ export const deserializeAws_json1_1UpdateMLModelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateMLModelCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateMLModelCommandError
+ */
+const de_UpdateMLModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMLModelCommandOutput> => {
@@ -1832,13 +2084,13 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1850,12 +2102,15 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
   }
 };
 
-const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IdempotentParameterMismatchExceptionRes
+ */
+const de_IdempotentParameterMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(body, context);
+  const deserialized: any = de_IdempotentParameterMismatchException(body, context);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1863,12 +2118,15 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1876,12 +2134,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = de_InvalidInputException(body, context);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1889,12 +2150,12 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidTagException> => {
+/**
+ * deserializeAws_json1_1InvalidTagExceptionRes
+ */
+const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const deserialized: any = de_InvalidTagException(body, context);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1902,12 +2163,15 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1915,12 +2179,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PredictorNotMountedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PredictorNotMountedExceptionRes
+ */
+const de_PredictorNotMountedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PredictorNotMountedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PredictorNotMountedException(body, context);
+  const deserialized: any = de_PredictorNotMountedException(body, context);
   const exception = new PredictorNotMountedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1928,12 +2195,15 @@ const deserializeAws_json1_1PredictorNotMountedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1941,12 +2211,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagLimitExceededExceptionRes
+ */
+const de_TagLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(body, context);
+  const deserialized: any = de_TagLimitExceededException(body, context);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1954,18 +2227,21 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddTagsInput
+ */
+const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateBatchPredictionInput = (
-  input: CreateBatchPredictionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateBatchPredictionInput
+ */
+const se_CreateBatchPredictionInput = (input: CreateBatchPredictionInput, context: __SerdeContext): any => {
   return {
     ...(input.BatchPredictionDataSourceId != null && {
       BatchPredictionDataSourceId: input.BatchPredictionDataSourceId,
@@ -1977,20 +2253,23 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
   };
 };
 
-const serializeAws_json1_1CreateDataSourceFromRDSInput = (
-  input: CreateDataSourceFromRDSInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateDataSourceFromRDSInput
+ */
+const se_CreateDataSourceFromRDSInput = (input: CreateDataSourceFromRDSInput, context: __SerdeContext): any => {
   return {
     ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
     ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.RDSData != null && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
+    ...(input.RDSData != null && { RDSData: se_RDSDataSpec(input.RDSData, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
   };
 };
 
-const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
+/**
+ * serializeAws_json1_1CreateDataSourceFromRedshiftInput
+ */
+const se_CreateDataSourceFromRedshiftInput = (
   input: CreateDataSourceFromRedshiftInput,
   context: __SerdeContext
 ): any => {
@@ -1998,24 +2277,27 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
     ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
     ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec != null && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
+    ...(input.DataSpec != null && { DataSpec: se_RedshiftDataSpec(input.DataSpec, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
   };
 };
 
-const serializeAws_json1_1CreateDataSourceFromS3Input = (
-  input: CreateDataSourceFromS3Input,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateDataSourceFromS3Input
+ */
+const se_CreateDataSourceFromS3Input = (input: CreateDataSourceFromS3Input, context: __SerdeContext): any => {
   return {
     ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
     ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec != null && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
+    ...(input.DataSpec != null && { DataSpec: se_S3DataSpec(input.DataSpec, context) }),
   };
 };
 
-const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateEvaluationInput
+ */
+const se_CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationDataSourceId != null && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
     ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
@@ -2024,75 +2306,90 @@ const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput,
   };
 };
 
-const serializeAws_json1_1CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateMLModelInput
+ */
+const se_CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
     ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
     ...(input.MLModelType != null && { MLModelType: input.MLModelType }),
-    ...(input.Parameters != null && { Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context) }),
+    ...(input.Parameters != null && { Parameters: se_TrainingParameters(input.Parameters, context) }),
     ...(input.Recipe != null && { Recipe: input.Recipe }),
     ...(input.RecipeUri != null && { RecipeUri: input.RecipeUri }),
     ...(input.TrainingDataSourceId != null && { TrainingDataSourceId: input.TrainingDataSourceId }),
   };
 };
 
-const serializeAws_json1_1CreateRealtimeEndpointInput = (
-  input: CreateRealtimeEndpointInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateRealtimeEndpointInput
+ */
+const se_CreateRealtimeEndpointInput = (input: CreateRealtimeEndpointInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
-const serializeAws_json1_1DeleteBatchPredictionInput = (
-  input: DeleteBatchPredictionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteBatchPredictionInput
+ */
+const se_DeleteBatchPredictionInput = (input: DeleteBatchPredictionInput, context: __SerdeContext): any => {
   return {
     ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
-const serializeAws_json1_1DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteDataSourceInput
+ */
+const se_DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
   };
 };
 
-const serializeAws_json1_1DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteEvaluationInput
+ */
+const se_DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
   };
 };
 
-const serializeAws_json1_1DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteMLModelInput
+ */
+const se_DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
-const serializeAws_json1_1DeleteRealtimeEndpointInput = (
-  input: DeleteRealtimeEndpointInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteRealtimeEndpointInput
+ */
+const se_DeleteRealtimeEndpointInput = (input: DeleteRealtimeEndpointInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
-const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTagsInput
+ */
+const se_DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1DescribeBatchPredictionsInput = (
-  input: DescribeBatchPredictionsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeBatchPredictionsInput
+ */
+const se_DescribeBatchPredictionsInput = (input: DescribeBatchPredictionsInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ != null && { EQ: input.EQ }),
     ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
@@ -2108,10 +2405,10 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
   };
 };
 
-const serializeAws_json1_1DescribeDataSourcesInput = (
-  input: DescribeDataSourcesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeDataSourcesInput
+ */
+const se_DescribeDataSourcesInput = (input: DescribeDataSourcesInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ != null && { EQ: input.EQ }),
     ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
@@ -2127,10 +2424,10 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
   };
 };
 
-const serializeAws_json1_1DescribeEvaluationsInput = (
-  input: DescribeEvaluationsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEvaluationsInput
+ */
+const se_DescribeEvaluationsInput = (input: DescribeEvaluationsInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ != null && { EQ: input.EQ }),
     ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
@@ -2146,7 +2443,10 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
   };
 };
 
-const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeMLModelsInput
+ */
+const se_DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ != null && { EQ: input.EQ }),
     ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
@@ -2162,14 +2462,20 @@ const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput,
   };
 };
 
-const serializeAws_json1_1DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeTagsInput
+ */
+const se_DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
-const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EDPSecurityGroupIds
+ */
+const se_EDPSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2177,69 +2483,93 @@ const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_json1_1GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetBatchPredictionInput
+ */
+const se_GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
   return {
     ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
-const serializeAws_json1_1GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetDataSourceInput
+ */
+const se_GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
     ...(input.Verbose != null && { Verbose: input.Verbose }),
   };
 };
 
-const serializeAws_json1_1GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetEvaluationInput
+ */
+const se_GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
   };
 };
 
-const serializeAws_json1_1GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetMLModelInput
+ */
+const se_GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
     ...(input.Verbose != null && { Verbose: input.Verbose }),
   };
 };
 
-const serializeAws_json1_1PredictInput = (input: PredictInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PredictInput
+ */
+const se_PredictInput = (input: PredictInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
     ...(input.PredictEndpoint != null && { PredictEndpoint: input.PredictEndpoint }),
-    ...(input.Record != null && { Record: serializeAws_json1_1Record(input.Record, context) }),
+    ...(input.Record != null && { Record: se_Record(input.Record, context) }),
   };
 };
 
-const serializeAws_json1_1RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RDSDatabase
+ */
+const se_RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
     ...(input.InstanceIdentifier != null && { InstanceIdentifier: input.InstanceIdentifier }),
   };
 };
 
-const serializeAws_json1_1RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RDSDatabaseCredentials
+ */
+const se_RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
   return {
     ...(input.Password != null && { Password: input.Password }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RDSDataSpec
+ */
+const se_RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
     ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
     ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
     ...(input.DatabaseCredentials != null && {
-      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
+      DatabaseCredentials: se_RDSDatabaseCredentials(input.DatabaseCredentials, context),
     }),
     ...(input.DatabaseInformation != null && {
-      DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
+      DatabaseInformation: se_RDSDatabase(input.DatabaseInformation, context),
     }),
     ...(input.ResourceRole != null && { ResourceRole: input.ResourceRole }),
     ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
     ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
+      SecurityGroupIds: se_EDPSecurityGroupIds(input.SecurityGroupIds, context),
     }),
     ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
     ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
@@ -2247,7 +2577,10 @@ const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1Record = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Record
+ */
+const se_Record = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2257,40 +2590,49 @@ const serializeAws_json1_1Record = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const serializeAws_json1_1RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RedshiftDatabase
+ */
+const se_RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
   return {
     ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
   };
 };
 
-const serializeAws_json1_1RedshiftDatabaseCredentials = (
-  input: RedshiftDatabaseCredentials,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RedshiftDatabaseCredentials
+ */
+const se_RedshiftDatabaseCredentials = (input: RedshiftDatabaseCredentials, context: __SerdeContext): any => {
   return {
     ...(input.Password != null && { Password: input.Password }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RedshiftDataSpec
+ */
+const se_RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
     ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
     ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
     ...(input.DatabaseCredentials != null && {
-      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
+      DatabaseCredentials: se_RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
     }),
     ...(input.DatabaseInformation != null && {
-      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
+      DatabaseInformation: se_RedshiftDatabase(input.DatabaseInformation, context),
     }),
     ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
     ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
   };
 };
 
-const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3DataSpec
+ */
+const se_S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataLocationS3 != null && { DataLocationS3: input.DataLocationS3 }),
     ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
@@ -2299,14 +2641,20 @@ const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeConte
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2314,15 +2662,21 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TrainingParameters
+ */
+const se_TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2332,31 +2686,40 @@ const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, c
   }, {});
 };
 
-const serializeAws_json1_1UpdateBatchPredictionInput = (
-  input: UpdateBatchPredictionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateBatchPredictionInput
+ */
+const se_UpdateBatchPredictionInput = (input: UpdateBatchPredictionInput, context: __SerdeContext): any => {
   return {
     ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
     ...(input.BatchPredictionName != null && { BatchPredictionName: input.BatchPredictionName }),
   };
 };
 
-const serializeAws_json1_1UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateDataSourceInput
+ */
+const se_UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
     ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
   };
 };
 
-const serializeAws_json1_1UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateEvaluationInput
+ */
+const se_UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
     ...(input.EvaluationName != null && { EvaluationName: input.EvaluationName }),
   };
 };
 
-const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateMLModelInput
+ */
+const se_UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
     ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
@@ -2364,14 +2727,20 @@ const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, conte
   };
 };
 
-const deserializeAws_json1_1AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
+/**
+ * deserializeAws_json1_1AddTagsOutput
+ */
+const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
   return {
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
+/**
+ * deserializeAws_json1_1BatchPrediction
+ */
+const de_BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
   return {
     BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
     BatchPredictionId: __expectString(output.BatchPredictionId),
@@ -2398,37 +2767,43 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1BatchPredictions = (output: any, context: __SerdeContext): BatchPrediction[] => {
+/**
+ * deserializeAws_json1_1BatchPredictions
+ */
+const de_BatchPredictions = (output: any, context: __SerdeContext): BatchPrediction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BatchPrediction(entry, context);
+      return de_BatchPrediction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CreateBatchPredictionOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateBatchPredictionOutput => {
+/**
+ * deserializeAws_json1_1CreateBatchPredictionOutput
+ */
+const de_CreateBatchPredictionOutput = (output: any, context: __SerdeContext): CreateBatchPredictionOutput => {
   return {
     BatchPredictionId: __expectString(output.BatchPredictionId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateDataSourceFromRDSOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateDataSourceFromRDSOutput => {
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRDSOutput
+ */
+const de_CreateDataSourceFromRDSOutput = (output: any, context: __SerdeContext): CreateDataSourceFromRDSOutput => {
   return {
     DataSourceId: __expectString(output.DataSourceId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRedshiftOutput
+ */
+const de_CreateDataSourceFromRedshiftOutput = (
   output: any,
   context: __SerdeContext
 ): CreateDataSourceFromRedshiftOutput => {
@@ -2437,41 +2812,48 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateDataSourceFromS3Output = (
-  output: any,
-  context: __SerdeContext
-): CreateDataSourceFromS3Output => {
+/**
+ * deserializeAws_json1_1CreateDataSourceFromS3Output
+ */
+const de_CreateDataSourceFromS3Output = (output: any, context: __SerdeContext): CreateDataSourceFromS3Output => {
   return {
     DataSourceId: __expectString(output.DataSourceId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateEvaluationOutput = (output: any, context: __SerdeContext): CreateEvaluationOutput => {
+/**
+ * deserializeAws_json1_1CreateEvaluationOutput
+ */
+const de_CreateEvaluationOutput = (output: any, context: __SerdeContext): CreateEvaluationOutput => {
   return {
     EvaluationId: __expectString(output.EvaluationId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateMLModelOutput = (output: any, context: __SerdeContext): CreateMLModelOutput => {
+/**
+ * deserializeAws_json1_1CreateMLModelOutput
+ */
+const de_CreateMLModelOutput = (output: any, context: __SerdeContext): CreateMLModelOutput => {
   return {
     MLModelId: __expectString(output.MLModelId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateRealtimeEndpointOutput => {
+/**
+ * deserializeAws_json1_1CreateRealtimeEndpointOutput
+ */
+const de_CreateRealtimeEndpointOutput = (output: any, context: __SerdeContext): CreateRealtimeEndpointOutput => {
   return {
     MLModelId: __expectString(output.MLModelId),
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo != null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
-        : undefined,
+      output.RealtimeEndpointInfo != null ? de_RealtimeEndpointInfo(output.RealtimeEndpointInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
+/**
+ * deserializeAws_json1_1DataSource
+ */
+const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
     ComputeTime: __expectLong(output.ComputeTime),
@@ -2491,12 +2873,9 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     NumberOfFiles: __expectLong(output.NumberOfFiles),
-    RDSMetadata:
-      output.RDSMetadata != null ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context) : undefined,
+    RDSMetadata: output.RDSMetadata != null ? de_RDSMetadata(output.RDSMetadata, context) : undefined,
     RedshiftMetadata:
-      output.RedshiftMetadata != null
-        ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
-        : undefined,
+      output.RedshiftMetadata != null ? de_RedshiftMetadata(output.RedshiftMetadata, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
       output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
@@ -2504,111 +2883,133 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
+/**
+ * deserializeAws_json1_1DataSources
+ */
+const de_DataSources = (output: any, context: __SerdeContext): DataSource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DataSource(entry, context);
+      return de_DataSource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DeleteBatchPredictionOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteBatchPredictionOutput => {
+/**
+ * deserializeAws_json1_1DeleteBatchPredictionOutput
+ */
+const de_DeleteBatchPredictionOutput = (output: any, context: __SerdeContext): DeleteBatchPredictionOutput => {
   return {
     BatchPredictionId: __expectString(output.BatchPredictionId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteDataSourceOutput = (output: any, context: __SerdeContext): DeleteDataSourceOutput => {
+/**
+ * deserializeAws_json1_1DeleteDataSourceOutput
+ */
+const de_DeleteDataSourceOutput = (output: any, context: __SerdeContext): DeleteDataSourceOutput => {
   return {
     DataSourceId: __expectString(output.DataSourceId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteEvaluationOutput = (output: any, context: __SerdeContext): DeleteEvaluationOutput => {
+/**
+ * deserializeAws_json1_1DeleteEvaluationOutput
+ */
+const de_DeleteEvaluationOutput = (output: any, context: __SerdeContext): DeleteEvaluationOutput => {
   return {
     EvaluationId: __expectString(output.EvaluationId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteMLModelOutput = (output: any, context: __SerdeContext): DeleteMLModelOutput => {
+/**
+ * deserializeAws_json1_1DeleteMLModelOutput
+ */
+const de_DeleteMLModelOutput = (output: any, context: __SerdeContext): DeleteMLModelOutput => {
   return {
     MLModelId: __expectString(output.MLModelId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteRealtimeEndpointOutput => {
+/**
+ * deserializeAws_json1_1DeleteRealtimeEndpointOutput
+ */
+const de_DeleteRealtimeEndpointOutput = (output: any, context: __SerdeContext): DeleteRealtimeEndpointOutput => {
   return {
     MLModelId: __expectString(output.MLModelId),
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo != null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
-        : undefined,
+      output.RealtimeEndpointInfo != null ? de_RealtimeEndpointInfo(output.RealtimeEndpointInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTagsOutput = (output: any, context: __SerdeContext): DeleteTagsOutput => {
+/**
+ * deserializeAws_json1_1DeleteTagsOutput
+ */
+const de_DeleteTagsOutput = (output: any, context: __SerdeContext): DeleteTagsOutput => {
   return {
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeBatchPredictionsOutput => {
+/**
+ * deserializeAws_json1_1DescribeBatchPredictionsOutput
+ */
+const de_DescribeBatchPredictionsOutput = (output: any, context: __SerdeContext): DescribeBatchPredictionsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? deserializeAws_json1_1BatchPredictions(output.Results, context) : undefined,
+    Results: output.Results != null ? de_BatchPredictions(output.Results, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeDataSourcesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeDataSourcesOutput => {
+/**
+ * deserializeAws_json1_1DescribeDataSourcesOutput
+ */
+const de_DescribeDataSourcesOutput = (output: any, context: __SerdeContext): DescribeDataSourcesOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? deserializeAws_json1_1DataSources(output.Results, context) : undefined,
+    Results: output.Results != null ? de_DataSources(output.Results, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEvaluationsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeEvaluationsOutput => {
+/**
+ * deserializeAws_json1_1DescribeEvaluationsOutput
+ */
+const de_DescribeEvaluationsOutput = (output: any, context: __SerdeContext): DescribeEvaluationsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? deserializeAws_json1_1Evaluations(output.Results, context) : undefined,
+    Results: output.Results != null ? de_Evaluations(output.Results, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMLModelsOutput = (output: any, context: __SerdeContext): DescribeMLModelsOutput => {
+/**
+ * deserializeAws_json1_1DescribeMLModelsOutput
+ */
+const de_DescribeMLModelsOutput = (output: any, context: __SerdeContext): DescribeMLModelsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? deserializeAws_json1_1MLModels(output.Results, context) : undefined,
+    Results: output.Results != null ? de_MLModels(output.Results, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
+/**
+ * deserializeAws_json1_1DescribeTagsOutput
+ */
+const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   return {
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1DetailsMap
+ */
+const de_DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
     (acc: Record<string, string>, [key, value]: [DetailsAttributes | string, any]) => {
       if (value === null) {
@@ -2621,7 +3022,10 @@ const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext):
   );
 };
 
-const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext): Evaluation => {
+/**
+ * deserializeAws_json1_1Evaluation
+ */
+const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
@@ -2640,31 +3044,32 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     PerformanceMetrics:
-      output.PerformanceMetrics != null
-        ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
-        : undefined,
+      output.PerformanceMetrics != null ? de_PerformanceMetrics(output.PerformanceMetrics, context) : undefined,
     StartedAt:
       output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
+/**
+ * deserializeAws_json1_1Evaluations
+ */
+const de_Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Evaluation(entry, context);
+      return de_Evaluation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetBatchPredictionOutput = (
-  output: any,
-  context: __SerdeContext
-): GetBatchPredictionOutput => {
+/**
+ * deserializeAws_json1_1GetBatchPredictionOutput
+ */
+const de_GetBatchPredictionOutput = (output: any, context: __SerdeContext): GetBatchPredictionOutput => {
   return {
     BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
     BatchPredictionId: __expectString(output.BatchPredictionId),
@@ -2692,7 +3097,10 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __SerdeContext): GetDataSourceOutput => {
+/**
+ * deserializeAws_json1_1GetDataSourceOutput
+ */
+const de_GetDataSourceOutput = (output: any, context: __SerdeContext): GetDataSourceOutput => {
   return {
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
     ComputeTime: __expectLong(output.ComputeTime),
@@ -2714,12 +3122,9 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     NumberOfFiles: __expectLong(output.NumberOfFiles),
-    RDSMetadata:
-      output.RDSMetadata != null ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context) : undefined,
+    RDSMetadata: output.RDSMetadata != null ? de_RDSMetadata(output.RDSMetadata, context) : undefined,
     RedshiftMetadata:
-      output.RedshiftMetadata != null
-        ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
-        : undefined,
+      output.RedshiftMetadata != null ? de_RedshiftMetadata(output.RedshiftMetadata, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
       output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
@@ -2727,7 +3132,10 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __SerdeContext): GetEvaluationOutput => {
+/**
+ * deserializeAws_json1_1GetEvaluationOutput
+ */
+const de_GetEvaluationOutput = (output: any, context: __SerdeContext): GetEvaluationOutput => {
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
@@ -2747,25 +3155,23 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     PerformanceMetrics:
-      output.PerformanceMetrics != null
-        ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
-        : undefined,
+      output.PerformanceMetrics != null ? de_PerformanceMetrics(output.PerformanceMetrics, context) : undefined,
     StartedAt:
       output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeContext): GetMLModelOutput => {
+/**
+ * deserializeAws_json1_1GetMLModelOutput
+ */
+const de_GetMLModelOutput = (output: any, context: __SerdeContext): GetMLModelOutput => {
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EndpointInfo:
-      output.EndpointInfo != null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
-        : undefined,
+    EndpointInfo: output.EndpointInfo != null ? de_RealtimeEndpointInfo(output.EndpointInfo, context) : undefined,
     FinishedAt:
       output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
@@ -2791,13 +3197,14 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
     TrainingParameters:
-      output.TrainingParameters != null
-        ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
-        : undefined,
+      output.TrainingParameters != null ? de_TrainingParameters(output.TrainingParameters, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1IdempotentParameterMismatchException = (
+/**
+ * deserializeAws_json1_1IdempotentParameterMismatchException
+ */
+const de_IdempotentParameterMismatchException = (
   output: any,
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
@@ -2807,47 +3214,56 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   } as any;
 };
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_1InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
+/**
+ * deserializeAws_json1_1InvalidInputException
+ */
+const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
+/**
+ * deserializeAws_json1_1InvalidTagException
+ */
+const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): MLModel => {
+/**
+ * deserializeAws_json1_1MLModel
+ */
+const de_MLModel = (output: any, context: __SerdeContext): MLModel => {
   return {
     Algorithm: __expectString(output.Algorithm),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
-    EndpointInfo:
-      output.EndpointInfo != null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
-        : undefined,
+    EndpointInfo: output.EndpointInfo != null ? de_RealtimeEndpointInfo(output.EndpointInfo, context) : undefined,
     FinishedAt:
       output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
@@ -2870,37 +3286,38 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
     TrainingParameters:
-      output.TrainingParameters != null
-        ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
-        : undefined,
+      output.TrainingParameters != null ? de_TrainingParameters(output.TrainingParameters, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): MLModel[] => {
+/**
+ * deserializeAws_json1_1MLModels
+ */
+const de_MLModels = (output: any, context: __SerdeContext): MLModel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MLModel(entry, context);
+      return de_MLModel(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
+/**
+ * deserializeAws_json1_1PerformanceMetrics
+ */
+const de_PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
   return {
-    Properties:
-      output.Properties != null
-        ? deserializeAws_json1_1PerformanceMetricsProperties(output.Properties, context)
-        : undefined,
+    Properties: output.Properties != null ? de_PerformanceMetricsProperties(output.Properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PerformanceMetricsProperties = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1PerformanceMetricsProperties
+ */
+const de_PerformanceMetricsProperties = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2910,44 +3327,54 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
   }, {});
 };
 
-const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
+/**
+ * deserializeAws_json1_1Prediction
+ */
+const de_Prediction = (output: any, context: __SerdeContext): Prediction => {
   return {
-    details: output.details != null ? deserializeAws_json1_1DetailsMap(output.details, context) : undefined,
+    details: output.details != null ? de_DetailsMap(output.details, context) : undefined,
     predictedLabel: __expectString(output.predictedLabel),
     predictedScores:
-      output.predictedScores != null
-        ? deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context)
-        : undefined,
+      output.predictedScores != null ? de_ScoreValuePerLabelMap(output.predictedScores, context) : undefined,
     predictedValue: __limitedParseFloat32(output.predictedValue),
   } as any;
 };
 
-const deserializeAws_json1_1PredictorNotMountedException = (
-  output: any,
-  context: __SerdeContext
-): PredictorNotMountedException => {
+/**
+ * deserializeAws_json1_1PredictorNotMountedException
+ */
+const de_PredictorNotMountedException = (output: any, context: __SerdeContext): PredictorNotMountedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
+/**
+ * deserializeAws_json1_1PredictOutput
+ */
+const de_PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
   return {
-    Prediction: output.Prediction != null ? deserializeAws_json1_1Prediction(output.Prediction, context) : undefined,
+    Prediction: output.Prediction != null ? de_Prediction(output.Prediction, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RDSDatabase = (output: any, context: __SerdeContext): RDSDatabase => {
+/**
+ * deserializeAws_json1_1RDSDatabase
+ */
+const de_RDSDatabase = (output: any, context: __SerdeContext): RDSDatabase => {
   return {
     DatabaseName: __expectString(output.DatabaseName),
     InstanceIdentifier: __expectString(output.InstanceIdentifier),
   } as any;
 };
 
-const deserializeAws_json1_1RDSMetadata = (output: any, context: __SerdeContext): RDSMetadata => {
+/**
+ * deserializeAws_json1_1RDSMetadata
+ */
+const de_RDSMetadata = (output: any, context: __SerdeContext): RDSMetadata => {
   return {
     DataPipelineId: __expectString(output.DataPipelineId),
-    Database: output.Database != null ? deserializeAws_json1_1RDSDatabase(output.Database, context) : undefined,
+    Database: output.Database != null ? de_RDSDatabase(output.Database, context) : undefined,
     DatabaseUserName: __expectString(output.DatabaseUserName),
     ResourceRole: __expectString(output.ResourceRole),
     SelectSqlQuery: __expectString(output.SelectSqlQuery),
@@ -2955,7 +3382,10 @@ const deserializeAws_json1_1RDSMetadata = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __SerdeContext): RealtimeEndpointInfo => {
+/**
+ * deserializeAws_json1_1RealtimeEndpointInfo
+ */
+const de_RealtimeEndpointInfo = (output: any, context: __SerdeContext): RealtimeEndpointInfo => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -2965,35 +3395,42 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftDatabase = (output: any, context: __SerdeContext): RedshiftDatabase => {
+/**
+ * deserializeAws_json1_1RedshiftDatabase
+ */
+const de_RedshiftDatabase = (output: any, context: __SerdeContext): RedshiftDatabase => {
   return {
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     DatabaseName: __expectString(output.DatabaseName),
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftMetadata = (output: any, context: __SerdeContext): RedshiftMetadata => {
+/**
+ * deserializeAws_json1_1RedshiftMetadata
+ */
+const de_RedshiftMetadata = (output: any, context: __SerdeContext): RedshiftMetadata => {
   return {
     DatabaseUserName: __expectString(output.DatabaseUserName),
     RedshiftDatabase:
-      output.RedshiftDatabase != null
-        ? deserializeAws_json1_1RedshiftDatabase(output.RedshiftDatabase, context)
-        : undefined,
+      output.RedshiftDatabase != null ? de_RedshiftDatabase(output.RedshiftDatabase, context) : undefined,
     SelectSqlQuery: __expectString(output.SelectSqlQuery),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ScoreValuePerLabelMap = (output: any, context: __SerdeContext): Record<string, number> => {
+/**
+ * deserializeAws_json1_1ScoreValuePerLabelMap
+ */
+const de_ScoreValuePerLabelMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3003,35 +3440,44 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (output: any, context: __Ser
   }, {});
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): TagLimitExceededException => {
+/**
+ * deserializeAws_json1_1TagLimitExceededException
+ */
+const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1TrainingParameters
+ */
+const de_TrainingParameters = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3041,28 +3487,37 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
   }, {});
 };
 
-const deserializeAws_json1_1UpdateBatchPredictionOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateBatchPredictionOutput => {
+/**
+ * deserializeAws_json1_1UpdateBatchPredictionOutput
+ */
+const de_UpdateBatchPredictionOutput = (output: any, context: __SerdeContext): UpdateBatchPredictionOutput => {
   return {
     BatchPredictionId: __expectString(output.BatchPredictionId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateDataSourceOutput = (output: any, context: __SerdeContext): UpdateDataSourceOutput => {
+/**
+ * deserializeAws_json1_1UpdateDataSourceOutput
+ */
+const de_UpdateDataSourceOutput = (output: any, context: __SerdeContext): UpdateDataSourceOutput => {
   return {
     DataSourceId: __expectString(output.DataSourceId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateEvaluationOutput = (output: any, context: __SerdeContext): UpdateEvaluationOutput => {
+/**
+ * deserializeAws_json1_1UpdateEvaluationOutput
+ */
+const de_UpdateEvaluationOutput = (output: any, context: __SerdeContext): UpdateEvaluationOutput => {
   return {
     EvaluationId: __expectString(output.EvaluationId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateMLModelOutput = (output: any, context: __SerdeContext): UpdateMLModelOutput => {
+/**
+ * deserializeAws_json1_1UpdateMLModelOutput
+ */
+const de_UpdateMLModelOutput = (output: any, context: __SerdeContext): UpdateMLModelOutput => {
   return {
     MLModelId: __expectString(output.MLModelId),
   } as any;

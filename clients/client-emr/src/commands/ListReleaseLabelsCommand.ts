@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListReleaseLabelsInput, ListReleaseLabelsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReleaseLabelsCommand,
-  serializeAws_json1_1ListReleaseLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListReleaseLabelsCommand, se_ListReleaseLabelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListReleaseLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReleaseLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReleaseLabelsCommand(input, context);
+    return se_ListReleaseLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReleaseLabelsCommandOutput> {
-    return deserializeAws_json1_1ListReleaseLabelsCommand(output, context);
+    return de_ListReleaseLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

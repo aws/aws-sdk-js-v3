@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebACLCommand,
-  serializeAws_json1_1CreateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWebACLCommand, se_CreateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -272,14 +269,14 @@ export class CreateWebACLCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebACLCommand(input, context);
+    return se_CreateWebACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
-    return deserializeAws_json1_1CreateWebACLCommand(output, context);
+    return de_CreateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

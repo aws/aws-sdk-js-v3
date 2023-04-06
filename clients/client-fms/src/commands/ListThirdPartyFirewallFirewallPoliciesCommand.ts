@@ -19,8 +19,8 @@ import {
   ListThirdPartyFirewallFirewallPoliciesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand,
-  serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand,
+  de_ListThirdPartyFirewallFirewallPoliciesCommand,
+  se_ListThirdPartyFirewallFirewallPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand(input, context);
+    return se_ListThirdPartyFirewallFirewallPoliciesCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand(output, context);
+    return de_ListThirdPartyFirewallFirewallPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

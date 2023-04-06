@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ApplicationVersionDescriptionsMessage, DescribeApplicationVersionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeApplicationVersionsCommand,
-  serializeAws_queryDescribeApplicationVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeApplicationVersionsCommand, se_DescribeApplicationVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -169,7 +166,7 @@ export class DescribeApplicationVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeApplicationVersionsCommand(input, context);
+    return se_DescribeApplicationVersionsCommand(input, context);
   }
 
   /**
@@ -179,7 +176,7 @@ export class DescribeApplicationVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationVersionsCommandOutput> {
-    return deserializeAws_queryDescribeApplicationVersionsCommand(output, context);
+    return de_DescribeApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

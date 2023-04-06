@@ -18,10 +18,7 @@ import {
   ImportHostKeyRequestFilterSensitiveLog,
   ImportHostKeyResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportHostKeyCommand,
-  serializeAws_json1_1ImportHostKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportHostKeyCommand, se_ImportHostKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -150,14 +147,14 @@ export class ImportHostKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportHostKeyCommand(input, context);
+    return se_ImportHostKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportHostKeyCommandOutput> {
-    return deserializeAws_json1_1ImportHostKeyCommand(output, context);
+    return de_ImportHostKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

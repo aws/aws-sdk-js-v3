@@ -19,10 +19,7 @@ import {
   UpdatePartnerAccountRequestFilterSensitiveLog,
   UpdatePartnerAccountResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePartnerAccountCommand,
-  serializeAws_restJson1UpdatePartnerAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePartnerAccountCommand, se_UpdatePartnerAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdatePartnerAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePartnerAccountCommand(input, context);
+    return se_UpdatePartnerAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerAccountCommandOutput> {
-    return deserializeAws_restJson1UpdatePartnerAccountCommand(output, context);
+    return de_UpdatePartnerAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

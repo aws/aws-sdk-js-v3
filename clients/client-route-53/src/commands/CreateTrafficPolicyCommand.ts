@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateTrafficPolicyCommand,
-  serializeAws_restXmlCreateTrafficPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateTrafficPolicyCommand, se_CreateTrafficPolicyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -143,14 +140,14 @@ export class CreateTrafficPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateTrafficPolicyCommand(input, context);
+    return se_CreateTrafficPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrafficPolicyCommandOutput> {
-    return deserializeAws_restXmlCreateTrafficPolicyCommand(output, context);
+    return de_CreateTrafficPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

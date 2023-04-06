@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstanceInformationCommand,
-  serializeAws_json1_1DescribeInstanceInformationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInstanceInformationCommand, se_DescribeInstanceInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -179,7 +176,7 @@ export class DescribeInstanceInformationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceInformationCommand(input, context);
+    return se_DescribeInstanceInformationCommand(input, context);
   }
 
   /**
@@ -189,7 +186,7 @@ export class DescribeInstanceInformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceInformationCommand(output, context);
+    return de_DescribeInstanceInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

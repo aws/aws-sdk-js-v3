@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateSSHPublicKeyRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateSSHPublicKeyCommand,
-  serializeAws_queryUpdateSSHPublicKeyCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateSSHPublicKeyCommand, se_UpdateSSHPublicKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class UpdateSSHPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateSSHPublicKeyCommand(input, context);
+    return se_UpdateSSHPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSSHPublicKeyCommandOutput> {
-    return deserializeAws_queryUpdateSSHPublicKeyCommand(output, context);
+    return de_UpdateSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

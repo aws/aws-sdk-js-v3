@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateKeyPairRequest, KeyPair, KeyPairFilterSensitiveLog } from "../models/models_1";
-import { deserializeAws_ec2CreateKeyPairCommand, serializeAws_ec2CreateKeyPairCommand } from "../protocols/Aws_ec2";
+import { de_CreateKeyPairCommand, se_CreateKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -150,14 +150,14 @@ export class CreateKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateKeyPairCommand(input, context);
+    return se_CreateKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyPairCommandOutput> {
-    return deserializeAws_ec2CreateKeyPairCommand(output, context);
+    return de_CreateKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

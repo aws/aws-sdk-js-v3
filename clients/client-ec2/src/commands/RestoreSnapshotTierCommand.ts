@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreSnapshotTierCommand,
-  serializeAws_ec2RestoreSnapshotTierCommand,
-} from "../protocols/Aws_ec2";
+import { de_RestoreSnapshotTierCommand, se_RestoreSnapshotTierCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class RestoreSnapshotTierCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreSnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreSnapshotTierCommand(input, context);
+    return se_RestoreSnapshotTierCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSnapshotTierCommandOutput> {
-    return deserializeAws_ec2RestoreSnapshotTierCommand(output, context);
+    return de_RestoreSnapshotTierCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListDestinationsRequest, ListDestinationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDestinationsCommand,
-  serializeAws_restJson1ListDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDestinationsCommand, se_ListDestinationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListDestinationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDestinationsCommand(input, context);
+    return se_ListDestinationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListDestinationsCommand(output, context);
+    return de_ListDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

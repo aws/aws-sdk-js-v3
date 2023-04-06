@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDecodeAuthorizationMessageCommand,
-  serializeAws_queryDecodeAuthorizationMessageCommand,
-} from "../protocols/Aws_query";
+import { de_DecodeAuthorizationMessageCommand, se_DecodeAuthorizationMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -179,7 +176,7 @@ export class DecodeAuthorizationMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: DecodeAuthorizationMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDecodeAuthorizationMessageCommand(input, context);
+    return se_DecodeAuthorizationMessageCommand(input, context);
   }
 
   /**
@@ -189,7 +186,7 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecodeAuthorizationMessageCommandOutput> {
-    return deserializeAws_queryDecodeAuthorizationMessageCommand(output, context);
+    return de_DecodeAuthorizationMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,7 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { StartInstancesRequest } from "../models/models_6";
 import { StartInstancesResult } from "../models/models_7";
-import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
+import { de_StartInstancesCommand, se_StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -170,14 +170,14 @@ export class StartInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: StartInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2StartInstancesCommand(input, context);
+    return se_StartInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstancesCommandOutput> {
-    return deserializeAws_ec2StartInstancesCommand(output, context);
+    return de_StartInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

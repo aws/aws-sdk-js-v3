@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAuthorizerCommand,
-  serializeAws_restJson1DeleteAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAuthorizerCommand, se_DeleteAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAuthorizerCommand(input, context);
+    return se_DeleteAuthorizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuthorizerCommandOutput> {
-    return deserializeAws_restJson1DeleteAuthorizerCommand(output, context);
+    return de_DeleteAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

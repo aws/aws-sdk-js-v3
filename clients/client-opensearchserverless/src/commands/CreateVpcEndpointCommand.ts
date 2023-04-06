@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateVpcEndpointCommand,
-  serializeAws_json1_0CreateVpcEndpointCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CreateVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateVpcEndpointCommand(input, context);
+    return se_CreateVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
-    return deserializeAws_json1_0CreateVpcEndpointCommand(output, context);
+    return de_CreateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

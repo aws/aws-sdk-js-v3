@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkflowCommand,
-  serializeAws_restJson1DeleteWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkflowCommand(input, context);
+    return se_DeleteWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkflowCommand(output, context);
+    return de_DeleteWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

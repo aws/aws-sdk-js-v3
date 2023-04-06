@@ -18,8 +18,8 @@ import {
   DescribeServiceActionExecutionParametersOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
-  serializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
+  de_DescribeServiceActionExecutionParametersCommand,
+  se_DescribeServiceActionExecutionParametersCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -143,7 +143,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     input: DescribeServiceActionExecutionParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(input, context);
+    return se_DescribeServiceActionExecutionParametersCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand(output, context);
+    return de_DescribeServiceActionExecutionParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

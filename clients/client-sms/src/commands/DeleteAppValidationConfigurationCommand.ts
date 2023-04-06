@@ -15,8 +15,8 @@ import {
 
 import { DeleteAppValidationConfigurationRequest, DeleteAppValidationConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteAppValidationConfigurationCommand,
-  serializeAws_json1_1DeleteAppValidationConfigurationCommand,
+  de_DeleteAppValidationConfigurationCommand,
+  se_DeleteAppValidationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -141,7 +141,7 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     input: DeleteAppValidationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppValidationConfigurationCommand(input, context);
+    return se_DeleteAppValidationConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppValidationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppValidationConfigurationCommand(output, context);
+    return de_DeleteAppValidationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

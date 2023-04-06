@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { CreateAllowListRequest, CreateAllowListResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAllowListCommand,
-  serializeAws_restJson1CreateAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAllowListCommand, se_CreateAllowListCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateAllowListCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAllowListCommand(input, context);
+    return se_CreateAllowListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAllowListCommandOutput> {
-    return deserializeAws_restJson1CreateAllowListCommand(output, context);
+    return de_CreateAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

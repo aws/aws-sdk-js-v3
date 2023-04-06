@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
 import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSessionCommand,
-  serializeAws_restJson1DeleteSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSessionCommand(input, context);
+    return se_DeleteSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
-    return deserializeAws_restJson1DeleteSessionCommand(output, context);
+    return de_DeleteSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

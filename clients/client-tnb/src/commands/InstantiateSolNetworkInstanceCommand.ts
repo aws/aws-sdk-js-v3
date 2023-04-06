@@ -20,8 +20,8 @@ import {
   InstantiateSolNetworkInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1InstantiateSolNetworkInstanceCommand,
-  serializeAws_restJson1InstantiateSolNetworkInstanceCommand,
+  de_InstantiateSolNetworkInstanceCommand,
+  se_InstantiateSolNetworkInstanceCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -152,7 +152,7 @@ export class InstantiateSolNetworkInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: InstantiateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InstantiateSolNetworkInstanceCommand(input, context);
+    return se_InstantiateSolNetworkInstanceCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class InstantiateSolNetworkInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InstantiateSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1InstantiateSolNetworkInstanceCommand(output, context);
+    return de_InstantiateSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

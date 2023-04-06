@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetAwsNetworkPerformanceDataRequest, GetAwsNetworkPerformanceDataResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetAwsNetworkPerformanceDataCommand,
-  serializeAws_ec2GetAwsNetworkPerformanceDataCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetAwsNetworkPerformanceDataCommand, se_GetAwsNetworkPerformanceDataCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAwsNetworkPerformanceDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetAwsNetworkPerformanceDataCommand(input, context);
+    return se_GetAwsNetworkPerformanceDataCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAwsNetworkPerformanceDataCommandOutput> {
-    return deserializeAws_ec2GetAwsNetworkPerformanceDataCommand(output, context);
+    return de_GetAwsNetworkPerformanceDataCommand(output, context);
   }
 
   // Start section: command_body_extra

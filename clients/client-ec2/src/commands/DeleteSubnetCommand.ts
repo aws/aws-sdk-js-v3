@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteSubnetRequest } from "../models/models_3";
-import { deserializeAws_ec2DeleteSubnetCommand, serializeAws_ec2DeleteSubnetCommand } from "../protocols/Aws_ec2";
+import { de_DeleteSubnetCommand, se_DeleteSubnetCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,14 +127,14 @@ export class DeleteSubnetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSubnetCommand(input, context);
+    return se_DeleteSubnetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetCommandOutput> {
-    return deserializeAws_ec2DeleteSubnetCommand(output, context);
+    return de_DeleteSubnetCommand(output, context);
   }
 
   // Start section: command_body_extra

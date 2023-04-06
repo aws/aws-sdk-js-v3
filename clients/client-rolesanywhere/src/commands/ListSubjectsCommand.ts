@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRequest, ListSubjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubjectsCommand,
-  serializeAws_restJson1ListSubjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSubjectsCommand, se_ListSubjectsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListSubjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSubjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubjectsCommand(input, context);
+    return se_ListSubjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubjectsCommandOutput> {
-    return deserializeAws_restJson1ListSubjectsCommand(output, context);
+    return de_ListSubjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

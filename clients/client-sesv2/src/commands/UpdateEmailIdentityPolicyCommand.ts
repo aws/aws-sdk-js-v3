@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEmailIdentityPolicyCommand,
-  serializeAws_restJson1UpdateEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEmailIdentityPolicyCommand, se_UpdateEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -142,7 +139,7 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailIdentityPolicyCommand(input, context);
+    return se_UpdateEmailIdentityPolicyCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailIdentityPolicyCommand(output, context);
+    return de_UpdateEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

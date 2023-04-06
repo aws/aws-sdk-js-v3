@@ -15,8 +15,8 @@ import {
 
 import { ListBucketAnalyticsConfigurationsOutput, ListBucketAnalyticsConfigurationsRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand,
-  serializeAws_restXmlListBucketAnalyticsConfigurationsCommand,
+  de_ListBucketAnalyticsConfigurationsCommand,
+  se_ListBucketAnalyticsConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -168,7 +168,7 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     input: ListBucketAnalyticsConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(input, context);
+    return se_ListBucketAnalyticsConfigurationsCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand(output, context);
+    return de_ListBucketAnalyticsConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateScheduleInput, UpdateScheduleOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateScheduleCommand,
-  serializeAws_restJson1UpdateScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateScheduleCommand, se_UpdateScheduleCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
@@ -232,14 +229,14 @@ export class UpdateScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateScheduleCommand(input, context);
+    return se_UpdateScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduleCommandOutput> {
-    return deserializeAws_restJson1UpdateScheduleCommand(output, context);
+    return de_UpdateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   DescribeIdentityProviderConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
-  serializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
+  de_DescribeIdentityProviderConfigurationCommand,
+  se_DescribeIdentityProviderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -146,7 +146,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     input: DescribeIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityProviderConfigurationCommand(input, context);
+    return se_DescribeIdentityProviderConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand(output, context);
+    return de_DescribeIdentityProviderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

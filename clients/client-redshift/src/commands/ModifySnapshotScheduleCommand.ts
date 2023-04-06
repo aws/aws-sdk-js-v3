@@ -15,10 +15,7 @@ import {
 
 import { SnapshotSchedule } from "../models/models_0";
 import { ModifySnapshotScheduleMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifySnapshotScheduleCommand,
-  serializeAws_queryModifySnapshotScheduleCommand,
-} from "../protocols/Aws_query";
+import { de_ModifySnapshotScheduleCommand, se_ModifySnapshotScheduleCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -134,14 +131,14 @@ export class ModifySnapshotScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifySnapshotScheduleCommand(input, context);
+    return se_ModifySnapshotScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotScheduleCommandOutput> {
-    return deserializeAws_queryModifySnapshotScheduleCommand(output, context);
+    return de_ModifySnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

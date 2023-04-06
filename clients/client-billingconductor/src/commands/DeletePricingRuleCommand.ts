@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { DeletePricingRuleInput, DeletePricingRuleOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePricingRuleCommand,
-  serializeAws_restJson1DeletePricingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePricingRuleCommand, se_DeletePricingRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeletePricingRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePricingRuleCommand(input, context);
+    return se_DeletePricingRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePricingRuleCommandOutput> {
-    return deserializeAws_restJson1DeletePricingRuleCommand(output, context);
+    return de_DeletePricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

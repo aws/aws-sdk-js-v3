@@ -19,8 +19,8 @@ import {
   DescribeVpcEndpointConnectionNotificationsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand,
-  serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand,
+  de_DescribeVpcEndpointConnectionNotificationsCommand,
+  se_DescribeVpcEndpointConnectionNotificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -147,7 +147,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     input: DescribeVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(input, context);
+    return se_DescribeVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(output, context);
+    return de_DescribeVpcEndpointConnectionNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

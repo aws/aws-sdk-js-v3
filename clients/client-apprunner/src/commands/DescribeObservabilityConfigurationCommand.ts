@@ -19,8 +19,8 @@ import {
   DescribeObservabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeObservabilityConfigurationCommand,
-  serializeAws_json1_0DescribeObservabilityConfigurationCommand,
+  de_DescribeObservabilityConfigurationCommand,
+  se_DescribeObservabilityConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeObservabilityConfigurationCommand extends $Command<
     input: DescribeObservabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeObservabilityConfigurationCommand(input, context);
+    return se_DescribeObservabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeObservabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeObservabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeObservabilityConfigurationCommand(output, context);
+    return de_DescribeObservabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

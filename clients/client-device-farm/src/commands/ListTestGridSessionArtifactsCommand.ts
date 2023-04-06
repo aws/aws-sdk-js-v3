@@ -20,8 +20,8 @@ import {
   ListTestGridSessionArtifactsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListTestGridSessionArtifactsCommand,
-  serializeAws_json1_1ListTestGridSessionArtifactsCommand,
+  de_ListTestGridSessionArtifactsCommand,
+  se_ListTestGridSessionArtifactsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTestGridSessionArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionArtifactsCommand(input, context);
+    return se_ListTestGridSessionArtifactsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionArtifactsCommand(output, context);
+    return de_ListTestGridSessionArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

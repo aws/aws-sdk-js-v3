@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateGatewayGroupRequest, UpdateGatewayGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewayGroupCommand,
-  serializeAws_json1_1UpdateGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateGatewayGroupCommand, se_UpdateGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class UpdateGatewayGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewayGroupCommand(input, context);
+    return se_UpdateGatewayGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewayGroupCommand(output, context);
+    return de_UpdateGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

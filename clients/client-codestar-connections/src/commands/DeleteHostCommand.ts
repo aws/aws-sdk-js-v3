@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteHostCommand,
-  serializeAws_json1_0DeleteHostCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteHostCommand, se_DeleteHostCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteHostCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteHostCommand(input, context);
+    return se_DeleteHostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostCommandOutput> {
-    return deserializeAws_json1_0DeleteHostCommand(output, context);
+    return de_DeleteHostCommand(output, context);
   }
 
   // Start section: command_body_extra

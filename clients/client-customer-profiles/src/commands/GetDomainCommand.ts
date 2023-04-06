@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetDomainRequest, GetDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainCommand,
-  serializeAws_restJson1GetDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDomainCommand, se_GetDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainCommand(input, context);
+    return se_GetDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainCommandOutput> {
-    return deserializeAws_restJson1GetDomainCommand(output, context);
+    return de_GetDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

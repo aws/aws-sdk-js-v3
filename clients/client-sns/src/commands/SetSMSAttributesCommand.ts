@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetSMSAttributesInput, SetSMSAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetSMSAttributesCommand,
-  serializeAws_querySetSMSAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_SetSMSAttributesCommand, se_SetSMSAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -145,14 +142,14 @@ export class SetSMSAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: SetSMSAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSMSAttributesCommand(input, context);
+    return se_SetSMSAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMSAttributesCommandOutput> {
-    return deserializeAws_querySetSMSAttributesCommand(output, context);
+    return de_SetSMSAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

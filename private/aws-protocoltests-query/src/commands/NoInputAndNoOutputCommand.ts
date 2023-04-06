@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_queryNoInputAndNoOutputCommand,
-  serializeAws_queryNoInputAndNoOutputCommand,
-} from "../protocols/Aws_query";
+import { de_NoInputAndNoOutputCommand, se_NoInputAndNoOutputCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -107,14 +104,14 @@ export class NoInputAndNoOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: NoInputAndNoOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryNoInputAndNoOutputCommand(input, context);
+    return se_NoInputAndNoOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndNoOutputCommandOutput> {
-    return deserializeAws_queryNoInputAndNoOutputCommand(output, context);
+    return de_NoInputAndNoOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

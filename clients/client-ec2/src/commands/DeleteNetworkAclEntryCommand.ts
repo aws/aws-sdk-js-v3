@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNetworkAclEntryRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkAclEntryCommand,
-  serializeAws_ec2DeleteNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteNetworkAclEntryCommand, se_DeleteNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteNetworkAclEntryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkAclEntryCommand(input, context);
+    return se_DeleteNetworkAclEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkAclEntryCommand(output, context);
+    return de_DeleteNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

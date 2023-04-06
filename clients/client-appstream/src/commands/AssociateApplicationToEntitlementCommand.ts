@@ -16,8 +16,8 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { AssociateApplicationToEntitlementRequest, AssociateApplicationToEntitlementResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateApplicationToEntitlementCommand,
-  serializeAws_json1_1AssociateApplicationToEntitlementCommand,
+  de_AssociateApplicationToEntitlementCommand,
+  se_AssociateApplicationToEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
     input: AssociateApplicationToEntitlementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApplicationToEntitlementCommand(input, context);
+    return se_AssociateApplicationToEntitlementCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateApplicationToEntitlementCommandOutput> {
-    return deserializeAws_json1_1AssociateApplicationToEntitlementCommand(output, context);
+    return de_AssociateApplicationToEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

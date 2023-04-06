@@ -16,8 +16,8 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListRecoveryPointsByBackupVaultInput, ListRecoveryPointsByBackupVaultOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
-  serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
+  de_ListRecoveryPointsByBackupVaultCommand,
+  se_ListRecoveryPointsByBackupVaultCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     input: ListRecoveryPointsByBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand(input, context);
+    return se_ListRecoveryPointsByBackupVaultCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand(output, context);
+    return de_ListRecoveryPointsByBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   AssociateConfigurationItemsToApplicationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
-  serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
+  de_AssociateConfigurationItemsToApplicationCommand,
+  se_AssociateConfigurationItemsToApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     input: AssociateConfigurationItemsToApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(input, context);
+    return se_AssociateConfigurationItemsToApplicationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput> {
-    return deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(output, context);
+    return de_AssociateConfigurationItemsToApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

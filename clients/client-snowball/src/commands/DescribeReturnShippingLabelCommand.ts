@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeReturnShippingLabelRequest, DescribeReturnShippingLabelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReturnShippingLabelCommand,
-  serializeAws_json1_1DescribeReturnShippingLabelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReturnShippingLabelCommand, se_DescribeReturnShippingLabelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -132,7 +129,7 @@ export class DescribeReturnShippingLabelCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReturnShippingLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReturnShippingLabelCommand(input, context);
+    return se_DescribeReturnShippingLabelCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReturnShippingLabelCommandOutput> {
-    return deserializeAws_json1_1DescribeReturnShippingLabelCommand(output, context);
+    return de_DescribeReturnShippingLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

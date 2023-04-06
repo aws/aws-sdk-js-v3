@@ -19,8 +19,8 @@ import {
   UpdateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand,
-  serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand,
+  de_UpdateDirectConnectGatewayAssociationCommand,
+  se_UpdateDirectConnectGatewayAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     input: UpdateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(input, context);
+    return se_UpdateDirectConnectGatewayAssociationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(output, context);
+    return de_UpdateDirectConnectGatewayAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

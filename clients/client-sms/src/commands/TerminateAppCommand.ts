@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TerminateAppRequest, TerminateAppResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateAppCommand,
-  serializeAws_json1_1TerminateAppCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateAppCommand, se_TerminateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -134,14 +131,14 @@ export class TerminateAppCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateAppCommand(input, context);
+    return se_TerminateAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateAppCommandOutput> {
-    return deserializeAws_json1_1TerminateAppCommand(output, context);
+    return de_TerminateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

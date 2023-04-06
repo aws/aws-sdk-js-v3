@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeRecommendationsRequest, DescribeRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRecommendationsCommand,
-  serializeAws_json1_1DescribeRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRecommendationsCommand, se_DescribeRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommendationsCommand(input, context);
+    return se_DescribeRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommendationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommendationsCommand(output, context);
+    return de_DescribeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

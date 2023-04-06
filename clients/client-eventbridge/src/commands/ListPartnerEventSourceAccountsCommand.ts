@@ -16,8 +16,8 @@ import {
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPartnerEventSourceAccountsCommand,
-  serializeAws_json1_1ListPartnerEventSourceAccountsCommand,
+  de_ListPartnerEventSourceAccountsCommand,
+  se_ListPartnerEventSourceAccountsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     input: ListPartnerEventSourceAccountsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(input, context);
+    return se_ListPartnerEventSourceAccountsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(output, context);
+    return de_ListPartnerEventSourceAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

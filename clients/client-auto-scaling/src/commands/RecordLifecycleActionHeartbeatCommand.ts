@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/models_0";
 import {
-  deserializeAws_queryRecordLifecycleActionHeartbeatCommand,
-  serializeAws_queryRecordLifecycleActionHeartbeatCommand,
+  de_RecordLifecycleActionHeartbeatCommand,
+  se_RecordLifecycleActionHeartbeatCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -181,7 +181,7 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     input: RecordLifecycleActionHeartbeatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRecordLifecycleActionHeartbeatCommand(input, context);
+    return se_RecordLifecycleActionHeartbeatCommand(input, context);
   }
 
   /**
@@ -191,7 +191,7 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RecordLifecycleActionHeartbeatCommandOutput> {
-    return deserializeAws_queryRecordLifecycleActionHeartbeatCommand(output, context);
+    return de_RecordLifecycleActionHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

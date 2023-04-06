@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFlowLogsCommand,
-  serializeAws_ec2DescribeFlowLogsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeFlowLogsCommand, se_DescribeFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeFlowLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFlowLogsCommand(input, context);
+    return se_DescribeFlowLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowLogsCommandOutput> {
-    return deserializeAws_ec2DescribeFlowLogsCommand(output, context);
+    return de_DescribeFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

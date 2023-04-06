@@ -15,8 +15,8 @@ import {
 
 import { DeleteCrossAccountAuthorizationRequest, DeleteCrossAccountAuthorizationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteCrossAccountAuthorizationCommand,
-  serializeAws_restJson1DeleteCrossAccountAuthorizationCommand,
+  de_DeleteCrossAccountAuthorizationCommand,
+  se_DeleteCrossAccountAuthorizationCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -141,7 +141,7 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
     input: DeleteCrossAccountAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCrossAccountAuthorizationCommand(input, context);
+    return se_DeleteCrossAccountAuthorizationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCrossAccountAuthorizationCommandOutput> {
-    return deserializeAws_restJson1DeleteCrossAccountAuthorizationCommand(output, context);
+    return de_DeleteCrossAccountAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutLifecycleConfigurationCommand,
-  serializeAws_restJson1PutLifecycleConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutLifecycleConfigurationCommand, se_PutLifecycleConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -211,7 +208,7 @@ export class PutLifecycleConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLifecycleConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLifecycleConfigurationCommand(input, context);
+    return se_PutLifecycleConfigurationCommand(input, context);
   }
 
   /**
@@ -221,7 +218,7 @@ export class PutLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutLifecycleConfigurationCommand(output, context);
+    return de_PutLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

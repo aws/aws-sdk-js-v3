@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { AssociateApplicationFleetRequest, AssociateApplicationFleetResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateApplicationFleetCommand,
-  serializeAws_json1_1AssociateApplicationFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateApplicationFleetCommand, se_AssociateApplicationFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class AssociateApplicationFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateApplicationFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApplicationFleetCommand(input, context);
+    return se_AssociateApplicationFleetCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class AssociateApplicationFleetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateApplicationFleetCommandOutput> {
-    return deserializeAws_json1_1AssociateApplicationFleetCommand(output, context);
+    return de_AssociateApplicationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

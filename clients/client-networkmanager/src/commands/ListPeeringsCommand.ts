@@ -15,10 +15,7 @@ import {
 
 import { ListPeeringsRequest, ListPeeringsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListPeeringsCommand,
-  serializeAws_restJson1ListPeeringsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPeeringsCommand, se_ListPeeringsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListPeeringsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPeeringsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPeeringsCommand(input, context);
+    return se_ListPeeringsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPeeringsCommandOutput> {
-    return deserializeAws_restJson1ListPeeringsCommand(output, context);
+    return de_ListPeeringsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { ListEntitiesDetectionV2JobsRequest, ListEntitiesDetectionV2JobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand,
-  serializeAws_json1_1ListEntitiesDetectionV2JobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEntitiesDetectionV2JobsCommand, se_ListEntitiesDetectionV2JobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,7 +146,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntitiesDetectionV2JobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(input, context);
+    return se_ListEntitiesDetectionV2JobsCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(output, context);
+    return de_ListEntitiesDetectionV2JobsCommand(output, context);
   }
 
   // Start section: command_body_extra

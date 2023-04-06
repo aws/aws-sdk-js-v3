@@ -15,10 +15,7 @@ import {
 
 import { CreateJobForDevicesRequest, CreateJobForDevicesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreateJobForDevicesCommand,
-  serializeAws_restJson1CreateJobForDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateJobForDevicesCommand, se_CreateJobForDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateJobForDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateJobForDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobForDevicesCommand(input, context);
+    return se_CreateJobForDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobForDevicesCommandOutput> {
-    return deserializeAws_restJson1CreateJobForDevicesCommand(output, context);
+    return de_CreateJobForDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

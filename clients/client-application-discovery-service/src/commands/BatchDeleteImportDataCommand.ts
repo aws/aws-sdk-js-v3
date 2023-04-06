@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteImportDataCommand,
-  serializeAws_json1_1BatchDeleteImportDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class BatchDeleteImportDataCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteImportDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteImportDataCommand(input, context);
+    return se_BatchDeleteImportDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImportDataCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteImportDataCommand(output, context);
+    return de_BatchDeleteImportDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListImportsRequest, ListImportsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImportsCommand,
-  serializeAws_restJson1ListImportsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListImportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImportsCommand(input, context);
+    return se_ListImportsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return deserializeAws_restJson1ListImportsCommand(output, context);
+    return de_ListImportsCommand(output, context);
   }
 
   // Start section: command_body_extra

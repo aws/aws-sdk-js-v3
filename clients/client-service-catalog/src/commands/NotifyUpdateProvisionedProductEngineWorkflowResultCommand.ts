@@ -18,8 +18,8 @@ import {
   NotifyUpdateProvisionedProductEngineWorkflowResultOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
-  serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
+  de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
+  se_NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -155,7 +155,7 @@ export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $
     input: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand(input, context);
+    return se_NotifyUpdateProvisionedProductEngineWorkflowResultCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> {
-    return deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand(output, context);
+    return de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand(output, context);
   }
 
   // Start section: command_body_extra

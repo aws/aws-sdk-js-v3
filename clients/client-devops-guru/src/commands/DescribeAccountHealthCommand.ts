@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeAccountHealthRequest, DescribeAccountHealthResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccountHealthCommand,
-  serializeAws_restJson1DescribeAccountHealthCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAccountHealthCommand, se_DescribeAccountHealthCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeAccountHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountHealthCommand(input, context);
+    return se_DescribeAccountHealthCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountHealthCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountHealthCommand(output, context);
+    return de_DescribeAccountHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

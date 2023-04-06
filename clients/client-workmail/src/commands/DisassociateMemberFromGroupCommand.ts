@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateMemberFromGroupRequest, DisassociateMemberFromGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateMemberFromGroupCommand,
-  serializeAws_json1_1DisassociateMemberFromGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateMemberFromGroupCommand, se_DisassociateMemberFromGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -152,7 +149,7 @@ export class DisassociateMemberFromGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateMemberFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateMemberFromGroupCommand(input, context);
+    return se_DisassociateMemberFromGroupCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class DisassociateMemberFromGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMemberFromGroupCommandOutput> {
-    return deserializeAws_json1_1DisassociateMemberFromGroupCommand(output, context);
+    return de_DisassociateMemberFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,8 @@ import {
   PutChannelMembershipPreferencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutChannelMembershipPreferencesCommand,
-  serializeAws_restJson1PutChannelMembershipPreferencesCommand,
+  de_PutChannelMembershipPreferencesCommand,
+  se_PutChannelMembershipPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -173,7 +173,7 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
     input: PutChannelMembershipPreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutChannelMembershipPreferencesCommand(input, context);
+    return se_PutChannelMembershipPreferencesCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutChannelMembershipPreferencesCommandOutput> {
-    return deserializeAws_restJson1PutChannelMembershipPreferencesCommand(output, context);
+    return de_PutChannelMembershipPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

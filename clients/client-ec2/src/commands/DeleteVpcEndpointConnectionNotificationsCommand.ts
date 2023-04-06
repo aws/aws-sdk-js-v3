@@ -19,8 +19,8 @@ import {
   DeleteVpcEndpointConnectionNotificationsResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
-  serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
+  de_DeleteVpcEndpointConnectionNotificationsCommand,
+  se_DeleteVpcEndpointConnectionNotificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     input: DeleteVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(input, context);
+    return se_DeleteVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(output, context);
+    return de_DeleteVpcEndpointConnectionNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

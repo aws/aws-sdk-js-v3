@@ -15,10 +15,7 @@ import {
 
 import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeResourcePolicyCommand,
-  serializeAws_json1_0DescribeResourcePolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DescribeResourcePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeResourcePolicyCommand(input, context);
+    return se_DescribeResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
-    return deserializeAws_json1_0DescribeResourcePolicyCommand(output, context);
+    return de_DescribeResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

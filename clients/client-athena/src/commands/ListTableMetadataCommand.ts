@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListTableMetadataInput, ListTableMetadataOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTableMetadataCommand,
-  serializeAws_json1_1ListTableMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTableMetadataCommand, se_ListTableMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListTableMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTableMetadataCommand(input, context);
+    return se_ListTableMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableMetadataCommandOutput> {
-    return deserializeAws_json1_1ListTableMetadataCommand(output, context);
+    return de_ListTableMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

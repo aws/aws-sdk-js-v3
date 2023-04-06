@@ -15,8 +15,8 @@ import {
 
 import { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListOrganizationPortfolioAccessCommand,
-  serializeAws_json1_1ListOrganizationPortfolioAccessCommand,
+  de_ListOrganizationPortfolioAccessCommand,
+  se_ListOrganizationPortfolioAccessCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -141,7 +141,7 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     input: ListOrganizationPortfolioAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationPortfolioAccessCommand(input, context);
+    return se_ListOrganizationPortfolioAccessCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationPortfolioAccessCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationPortfolioAccessCommand(output, context);
+    return de_ListOrganizationPortfolioAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

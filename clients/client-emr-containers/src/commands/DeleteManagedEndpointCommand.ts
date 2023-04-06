@@ -15,10 +15,7 @@ import {
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { DeleteManagedEndpointRequest, DeleteManagedEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteManagedEndpointCommand,
-  serializeAws_restJson1DeleteManagedEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteManagedEndpointCommand, se_DeleteManagedEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteManagedEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteManagedEndpointCommand(input, context);
+    return se_DeleteManagedEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteManagedEndpointCommand(output, context);
+    return de_DeleteManagedEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

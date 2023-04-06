@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListCrawlersRequest, ListCrawlersResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListCrawlersCommand,
-  serializeAws_json1_1ListCrawlersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCrawlersCommand, se_ListCrawlersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListCrawlersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCrawlersCommand(input, context);
+    return se_ListCrawlersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrawlersCommandOutput> {
-    return deserializeAws_json1_1ListCrawlersCommand(output, context);
+    return de_ListCrawlersCommand(output, context);
   }
 
   // Start section: command_body_extra

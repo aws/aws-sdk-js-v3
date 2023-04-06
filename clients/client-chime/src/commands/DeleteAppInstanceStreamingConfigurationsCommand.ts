@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteAppInstanceStreamingConfigurationsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand,
-  serializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand,
+  de_DeleteAppInstanceStreamingConfigurationsCommand,
+  se_DeleteAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     input: DeleteAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand(input, context);
+    return se_DeleteAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand(output, context);
+    return de_DeleteAppInstanceStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

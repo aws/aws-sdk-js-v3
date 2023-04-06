@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryStopDBClusterCommand,
-  serializeAws_queryStopDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class StopDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBClusterCommand(input, context);
+    return se_StopDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return deserializeAws_queryStopDBClusterCommand(output, context);
+    return de_StopDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

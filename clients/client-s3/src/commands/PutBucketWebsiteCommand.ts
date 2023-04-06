@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketWebsiteRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketWebsiteCommand,
-  serializeAws_restXmlPutBucketWebsiteCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketWebsiteCommand, se_PutBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -305,14 +302,14 @@ export class PutBucketWebsiteCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketWebsiteCommand(input, context);
+    return se_PutBucketWebsiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketWebsiteCommandOutput> {
-    return deserializeAws_restXmlPutBucketWebsiteCommand(output, context);
+    return de_PutBucketWebsiteCommand(output, context);
   }
 
   // Start section: command_body_extra

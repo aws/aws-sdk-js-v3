@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CloseInstancePublicPortsCommand,
-  serializeAws_json1_1CloseInstancePublicPortsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloseInstancePublicPortsCommand, se_CloseInstancePublicPortsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CloseInstancePublicPortsCommand extends $Command<
    * @internal
    */
   private serialize(input: CloseInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseInstancePublicPortsCommand(input, context);
+    return se_CloseInstancePublicPortsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1CloseInstancePublicPortsCommand(output, context);
+    return de_CloseInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

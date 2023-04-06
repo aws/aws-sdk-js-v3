@@ -15,10 +15,7 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEventAggregatesRequest, DescribeEventAggregatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventAggregatesCommand,
-  serializeAws_json1_1DescribeEventAggregatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventAggregatesCommand, se_DescribeEventAggregatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class DescribeEventAggregatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventAggregatesCommand(input, context);
+    return se_DescribeEventAggregatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventAggregatesCommand(output, context);
+    return de_DescribeEventAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

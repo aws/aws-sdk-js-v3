@@ -15,10 +15,7 @@ import {
 
 import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteRuleGroupCommand,
-  serializeAws_json1_0DeleteRuleGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteRuleGroupCommand, se_DeleteRuleGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class DeleteRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteRuleGroupCommand(input, context);
+    return se_DeleteRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
-    return deserializeAws_json1_0DeleteRuleGroupCommand(output, context);
+    return de_DeleteRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

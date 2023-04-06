@@ -18,10 +18,7 @@ import {
   UpdateChapCredentialsInputFilterSensitiveLog,
   UpdateChapCredentialsOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateChapCredentialsCommand,
-  serializeAws_json1_1UpdateChapCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateChapCredentialsCommand, se_UpdateChapCredentialsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -163,14 +160,14 @@ export class UpdateChapCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateChapCredentialsCommand(input, context);
+    return se_UpdateChapCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1UpdateChapCredentialsCommand(output, context);
+    return de_UpdateChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

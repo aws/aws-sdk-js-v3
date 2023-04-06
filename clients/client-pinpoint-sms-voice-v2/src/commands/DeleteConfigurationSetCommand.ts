@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteConfigurationSetCommand,
-  serializeAws_json1_0DeleteConfigurationSetCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteConfigurationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteConfigurationSetCommand(input, context);
+    return se_DeleteConfigurationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_json1_0DeleteConfigurationSetCommand(output, context);
+    return de_DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

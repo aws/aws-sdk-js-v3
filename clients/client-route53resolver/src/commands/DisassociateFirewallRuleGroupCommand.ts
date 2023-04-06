@@ -15,8 +15,8 @@ import {
 
 import { DisassociateFirewallRuleGroupRequest, DisassociateFirewallRuleGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateFirewallRuleGroupCommand,
-  serializeAws_json1_1DisassociateFirewallRuleGroupCommand,
+  de_DisassociateFirewallRuleGroupCommand,
+  se_DisassociateFirewallRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -143,7 +143,7 @@ export class DisassociateFirewallRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFirewallRuleGroupCommand(input, context);
+    return se_DisassociateFirewallRuleGroupCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisassociateFirewallRuleGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFirewallRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DisassociateFirewallRuleGroupCommand(output, context);
+    return de_DisassociateFirewallRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

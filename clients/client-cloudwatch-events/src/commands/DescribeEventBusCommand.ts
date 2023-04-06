@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventBusCommand,
-  serializeAws_json1_1DescribeEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventBusCommand, se_DescribeEventBusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeEventBusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventBusCommand(input, context);
+    return se_DescribeEventBusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventBusCommandOutput> {
-    return deserializeAws_json1_1DescribeEventBusCommand(output, context);
+    return de_DescribeEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

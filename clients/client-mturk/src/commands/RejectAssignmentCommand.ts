@@ -15,10 +15,7 @@ import {
 
 import { RejectAssignmentRequest, RejectAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1RejectAssignmentCommand,
-  serializeAws_json1_1RejectAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectAssignmentCommand, se_RejectAssignmentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RejectAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectAssignmentCommand(input, context);
+    return se_RejectAssignmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectAssignmentCommandOutput> {
-    return deserializeAws_json1_1RejectAssignmentCommand(output, context);
+    return de_RejectAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

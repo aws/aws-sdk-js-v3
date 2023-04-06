@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceRoleForAccountCommand,
-  serializeAws_restJson1GetServiceRoleForAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServiceRoleForAccountCommand, se_GetServiceRoleForAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class GetServiceRoleForAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceRoleForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceRoleForAccountCommand(input, context);
+    return se_GetServiceRoleForAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceRoleForAccountCommandOutput> {
-    return deserializeAws_restJson1GetServiceRoleForAccountCommand(output, context);
+    return de_GetServiceRoleForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

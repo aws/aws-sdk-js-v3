@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DeregisterClusterRequest, DeregisterClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterClusterCommand,
-  serializeAws_restJson1DeregisterClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterClusterCommand, se_DeregisterClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeregisterClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterClusterCommand(input, context);
+    return se_DeregisterClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterClusterCommandOutput> {
-    return deserializeAws_restJson1DeregisterClusterCommand(output, context);
+    return de_DeregisterClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseBlueprintsRequest, GetRelationalDatabaseBlueprintsResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand,
-  serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand,
+  de_GetRelationalDatabaseBlueprintsCommand,
+  se_GetRelationalDatabaseBlueprintsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -158,7 +158,7 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     input: GetRelationalDatabaseBlueprintsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand(input, context);
+    return se_GetRelationalDatabaseBlueprintsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseBlueprintsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand(output, context);
+    return de_GetRelationalDatabaseBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

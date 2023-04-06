@@ -19,8 +19,8 @@ import {
   DisassociateTransitGatewayMulticastDomainResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand,
-  serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand,
+  de_DisassociateTransitGatewayMulticastDomainCommand,
+  se_DisassociateTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     input: DisassociateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(input, context);
+    return se_DisassociateTransitGatewayMulticastDomainCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(output, context);
+    return de_DisassociateTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

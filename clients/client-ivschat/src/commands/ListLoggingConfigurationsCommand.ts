@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLoggingConfigurationsCommand,
-  serializeAws_restJson1ListLoggingConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLoggingConfigurationsCommand, se_ListLoggingConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,7 +125,7 @@ export class ListLoggingConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLoggingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLoggingConfigurationsCommand(input, context);
+    return se_ListLoggingConfigurationsCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class ListLoggingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListLoggingConfigurationsCommand(output, context);
+    return de_ListLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

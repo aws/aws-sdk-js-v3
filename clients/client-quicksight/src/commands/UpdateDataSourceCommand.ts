@@ -18,10 +18,7 @@ import {
   UpdateDataSourceRequestFilterSensitiveLog,
   UpdateDataSourceResponse,
 } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDataSourceCommand,
-  serializeAws_restJson1UpdateDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -373,14 +370,14 @@ export class UpdateDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSourceCommand(input, context);
+    return se_UpdateDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSourceCommand(output, context);
+    return de_UpdateDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

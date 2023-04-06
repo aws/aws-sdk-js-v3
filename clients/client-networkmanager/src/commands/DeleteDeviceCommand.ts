@@ -15,10 +15,7 @@ import {
 
 import { DeleteDeviceRequest, DeleteDeviceResponse, DeleteDeviceResponseFilterSensitiveLog } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteDeviceCommand,
-  serializeAws_restJson1DeleteDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeviceCommand(input, context);
+    return se_DeleteDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteDeviceCommand(output, context);
+    return de_DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

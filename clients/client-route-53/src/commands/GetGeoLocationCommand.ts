@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetGeoLocationCommand,
-  serializeAws_restXmlGetGeoLocationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetGeoLocationCommand, se_GetGeoLocationCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -155,14 +152,14 @@ export class GetGeoLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGeoLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetGeoLocationCommand(input, context);
+    return se_GetGeoLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoLocationCommandOutput> {
-    return deserializeAws_restXmlGetGeoLocationCommand(output, context);
+    return de_GetGeoLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

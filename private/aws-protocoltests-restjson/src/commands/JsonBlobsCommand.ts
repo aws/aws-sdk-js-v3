@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonBlobsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonBlobsCommand,
-  serializeAws_restJson1JsonBlobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonBlobsCommand, se_JsonBlobsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -107,14 +104,14 @@ export class JsonBlobsCommand extends $Command<
    * @internal
    */
   private serialize(input: JsonBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonBlobsCommand(input, context);
+    return se_JsonBlobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonBlobsCommandOutput> {
-    return deserializeAws_restJson1JsonBlobsCommand(output, context);
+    return de_JsonBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

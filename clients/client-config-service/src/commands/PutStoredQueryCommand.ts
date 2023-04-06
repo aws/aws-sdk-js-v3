@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutStoredQueryRequest, PutStoredQueryResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutStoredQueryCommand,
-  serializeAws_json1_1PutStoredQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutStoredQueryCommand, se_PutStoredQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class PutStoredQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: PutStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutStoredQueryCommand(input, context);
+    return se_PutStoredQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStoredQueryCommandOutput> {
-    return deserializeAws_json1_1PutStoredQueryCommand(output, context);
+    return de_PutStoredQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

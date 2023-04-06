@@ -15,10 +15,7 @@ import {
 
 import { DeleteRecommenderRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteRecommenderCommand,
-  serializeAws_json1_1DeleteRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRecommenderCommand, se_DeleteRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteRecommenderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRecommenderCommand(input, context);
+    return se_DeleteRecommenderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecommenderCommandOutput> {
-    return deserializeAws_json1_1DeleteRecommenderCommand(output, context);
+    return de_DeleteRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

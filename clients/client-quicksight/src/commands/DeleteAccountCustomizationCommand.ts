@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteAccountCustomizationCommand,
-  serializeAws_restJson1DeleteAccountCustomizationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccountCustomizationCommand, se_DeleteAccountCustomizationCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -146,7 +143,7 @@ export class DeleteAccountCustomizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountCustomizationCommand(input, context);
+    return se_DeleteAccountCustomizationCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class DeleteAccountCustomizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountCustomizationCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountCustomizationCommand(output, context);
+    return de_DeleteAccountCustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

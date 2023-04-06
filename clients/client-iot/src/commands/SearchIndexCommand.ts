@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { SearchIndexRequest, SearchIndexResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1SearchIndexCommand,
-  serializeAws_restJson1SearchIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchIndexCommand, se_SearchIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class SearchIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchIndexCommand(input, context);
+    return se_SearchIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchIndexCommandOutput> {
-    return deserializeAws_restJson1SearchIndexCommand(output, context);
+    return de_SearchIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

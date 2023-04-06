@@ -15,10 +15,7 @@ import {
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { DisassociateS3ResourcesRequest, DisassociateS3ResourcesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateS3ResourcesCommand,
-  serializeAws_json1_1DisassociateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateS3ResourcesCommand, se_DisassociateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DisassociateS3ResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateS3ResourcesCommand(input, context);
+    return se_DisassociateS3ResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1DisassociateS3ResourcesCommand(output, context);
+    return de_DisassociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

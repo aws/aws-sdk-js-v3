@@ -15,7 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { QueryRequest, QueryResult } from "../models/models_1";
-import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
+import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -297,14 +297,14 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
    * @internal
    */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryCommand(input, context);
+    return se_QueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return deserializeAws_json1_1QueryCommand(output, context);
+    return de_QueryCommand(output, context);
   }
 
   // Start section: command_body_extra

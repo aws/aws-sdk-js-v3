@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDevicePoolCommand,
-  serializeAws_json1_1DeleteDevicePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDevicePoolCommand, se_DeleteDevicePoolCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteDevicePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDevicePoolCommand(input, context);
+    return se_DeleteDevicePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevicePoolCommandOutput> {
-    return deserializeAws_json1_1DeleteDevicePoolCommand(output, context);
+    return de_DeleteDevicePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

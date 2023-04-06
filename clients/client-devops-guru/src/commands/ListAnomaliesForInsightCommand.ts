@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnomaliesForInsightCommand,
-  serializeAws_restJson1ListAnomaliesForInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnomaliesForInsightCommand, se_ListAnomaliesForInsightCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListAnomaliesForInsightCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAnomaliesForInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomaliesForInsightCommand(input, context);
+    return se_ListAnomaliesForInsightCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomaliesForInsightCommandOutput> {
-    return deserializeAws_restJson1ListAnomaliesForInsightCommand(output, context);
+    return de_ListAnomaliesForInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

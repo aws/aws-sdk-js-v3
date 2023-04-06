@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand,
-  serializeAws_restJson1GetConfigurationSetEventDestinationsCommand,
+  de_GetConfigurationSetEventDestinationsCommand,
+  se_GetConfigurationSetEventDestinationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     input: GetConfigurationSetEventDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationSetEventDestinationsCommand(input, context);
+    return se_GetConfigurationSetEventDestinationsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand(output, context);
+    return de_GetConfigurationSetEventDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

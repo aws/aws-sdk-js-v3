@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetQuerySuggestionsCommand,
-  serializeAws_json1_1GetQuerySuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class GetQuerySuggestionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQuerySuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQuerySuggestionsCommand(input, context);
+    return se_GetQuerySuggestionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuerySuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetQuerySuggestionsCommand(output, context);
+    return de_GetQuerySuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketWebsiteCommand,
-  serializeAws_restXmlGetBucketWebsiteCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketWebsiteCommand, se_GetBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -167,14 +164,14 @@ export class GetBucketWebsiteCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketWebsiteCommand(input, context);
+    return se_GetBucketWebsiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketWebsiteCommandOutput> {
-    return deserializeAws_restXmlGetBucketWebsiteCommand(output, context);
+    return de_GetBucketWebsiteCommand(output, context);
   }
 
   // Start section: command_body_extra

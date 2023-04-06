@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivateContactChannelRequest, ActivateContactChannelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivateContactChannelCommand,
-  serializeAws_json1_1ActivateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ActivateContactChannelCommand, se_ActivateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -138,14 +135,14 @@ export class ActivateContactChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivateContactChannelCommand(input, context);
+    return se_ActivateContactChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateContactChannelCommandOutput> {
-    return deserializeAws_json1_1ActivateContactChannelCommand(output, context);
+    return de_ActivateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

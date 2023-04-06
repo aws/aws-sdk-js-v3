@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateBucketRequest, UpdateBucketResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateBucketCommand,
-  serializeAws_json1_1UpdateBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateBucketCommand, se_UpdateBucketCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class UpdateBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBucketCommand(input, context);
+    return se_UpdateBucketCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBucketCommandOutput> {
-    return deserializeAws_json1_1UpdateBucketCommand(output, context);
+    return de_UpdateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

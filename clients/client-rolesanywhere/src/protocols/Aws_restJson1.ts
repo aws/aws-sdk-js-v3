@@ -67,7 +67,10 @@ import {
 } from "../models/models_0";
 import { RolesAnywhereServiceException as __BaseException } from "../models/RolesAnywhereServiceException";
 
-export const serializeAws_restJson1CreateProfileCommand = async (
+/**
+ * serializeAws_restJson1CreateProfileCommand
+ */
+export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -81,13 +84,13 @@ export const serializeAws_restJson1CreateProfileCommand = async (
     ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.managedPolicyArns != null && {
-      managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
+      managedPolicyArns: se_ManagedPolicyList(input.managedPolicyArns, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.requireInstanceProperties != null && { requireInstanceProperties: input.requireInstanceProperties }),
-    ...(input.roleArns != null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
+    ...(input.roleArns != null && { roleArns: se_RoleArnList(input.roleArns, context) }),
     ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -100,7 +103,10 @@ export const serializeAws_restJson1CreateProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1CreateTrustAnchorCommand
+ */
+export const se_CreateTrustAnchorCommand = async (
   input: CreateTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -113,8 +119,8 @@ export const serializeAws_restJson1CreateTrustAnchorCommand = async (
   body = JSON.stringify({
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.name != null && { name: input.name }),
-    ...(input.source != null && { source: serializeAws_restJson1Source(input.source, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.source != null && { source: se_Source(input.source, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -127,7 +133,10 @@ export const serializeAws_restJson1CreateTrustAnchorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCrlCommand = async (
+/**
+ * serializeAws_restJson1DeleteCrlCommand
+ */
+export const se_DeleteCrlCommand = async (
   input: DeleteCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -147,7 +156,10 @@ export const serializeAws_restJson1DeleteCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteProfileCommand = async (
+/**
+ * serializeAws_restJson1DeleteProfileCommand
+ */
+export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -167,7 +179,10 @@ export const serializeAws_restJson1DeleteProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1DeleteTrustAnchorCommand
+ */
+export const se_DeleteTrustAnchorCommand = async (
   input: DeleteTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -195,7 +210,10 @@ export const serializeAws_restJson1DeleteTrustAnchorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisableCrlCommand = async (
+/**
+ * serializeAws_restJson1DisableCrlCommand
+ */
+export const se_DisableCrlCommand = async (
   input: DisableCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -215,7 +233,10 @@ export const serializeAws_restJson1DisableCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisableProfileCommand = async (
+/**
+ * serializeAws_restJson1DisableProfileCommand
+ */
+export const se_DisableProfileCommand = async (
   input: DisableProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -236,7 +257,10 @@ export const serializeAws_restJson1DisableProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisableTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1DisableTrustAnchorCommand
+ */
+export const se_DisableTrustAnchorCommand = async (
   input: DisableTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -264,7 +288,10 @@ export const serializeAws_restJson1DisableTrustAnchorCommand = async (
   });
 };
 
-export const serializeAws_restJson1EnableCrlCommand = async (
+/**
+ * serializeAws_restJson1EnableCrlCommand
+ */
+export const se_EnableCrlCommand = async (
   input: EnableCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -284,7 +311,10 @@ export const serializeAws_restJson1EnableCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1EnableProfileCommand = async (
+/**
+ * serializeAws_restJson1EnableProfileCommand
+ */
+export const se_EnableProfileCommand = async (
   input: EnableProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,7 +335,10 @@ export const serializeAws_restJson1EnableProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1EnableTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1EnableTrustAnchorCommand
+ */
+export const se_EnableTrustAnchorCommand = async (
   input: EnableTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -333,10 +366,10 @@ export const serializeAws_restJson1EnableTrustAnchorCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCrlCommand = async (
-  input: GetCrlCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1GetCrlCommand
+ */
+export const se_GetCrlCommand = async (input: GetCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}";
@@ -353,7 +386,10 @@ export const serializeAws_restJson1GetCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetProfileCommand = async (
+/**
+ * serializeAws_restJson1GetProfileCommand
+ */
+export const se_GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -373,7 +409,10 @@ export const serializeAws_restJson1GetProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSubjectCommand = async (
+/**
+ * serializeAws_restJson1GetSubjectCommand
+ */
+export const se_GetSubjectCommand = async (
   input: GetSubjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -393,7 +432,10 @@ export const serializeAws_restJson1GetSubjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1GetTrustAnchorCommand
+ */
+export const se_GetTrustAnchorCommand = async (
   input: GetTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -421,7 +463,10 @@ export const serializeAws_restJson1GetTrustAnchorCommand = async (
   });
 };
 
-export const serializeAws_restJson1ImportCrlCommand = async (
+/**
+ * serializeAws_restJson1ImportCrlCommand
+ */
+export const se_ImportCrlCommand = async (
   input: ImportCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -435,7 +480,7 @@ export const serializeAws_restJson1ImportCrlCommand = async (
     ...(input.crlData != null && { crlData: context.base64Encoder(input.crlData) }),
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.trustAnchorArn != null && { trustAnchorArn: input.trustAnchorArn }),
   });
   return new __HttpRequest({
@@ -449,7 +494,10 @@ export const serializeAws_restJson1ImportCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListCrlsCommand = async (
+/**
+ * serializeAws_restJson1ListCrlsCommand
+ */
+export const se_ListCrlsCommand = async (
   input: ListCrlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -473,7 +521,10 @@ export const serializeAws_restJson1ListCrlsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProfilesCommand = async (
+/**
+ * serializeAws_restJson1ListProfilesCommand
+ */
+export const se_ListProfilesCommand = async (
   input: ListProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -497,7 +548,10 @@ export const serializeAws_restJson1ListProfilesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSubjectsCommand = async (
+/**
+ * serializeAws_restJson1ListSubjectsCommand
+ */
+export const se_ListSubjectsCommand = async (
   input: ListSubjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,7 +575,10 @@ export const serializeAws_restJson1ListSubjectsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -544,7 +601,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTrustAnchorsCommand = async (
+/**
+ * serializeAws_restJson1ListTrustAnchorsCommand
+ */
+export const se_ListTrustAnchorsCommand = async (
   input: ListTrustAnchorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -568,7 +628,10 @@ export const serializeAws_restJson1ListTrustAnchorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -580,7 +643,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -593,7 +656,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -605,7 +671,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
+    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -618,7 +684,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCrlCommand = async (
+/**
+ * serializeAws_restJson1UpdateCrlCommand
+ */
+export const se_UpdateCrlCommand = async (
   input: UpdateCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -644,7 +713,10 @@ export const serializeAws_restJson1UpdateCrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateProfileCommand = async (
+/**
+ * serializeAws_restJson1UpdateProfileCommand
+ */
+export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -658,10 +730,10 @@ export const serializeAws_restJson1UpdateProfileCommand = async (
   body = JSON.stringify({
     ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
     ...(input.managedPolicyArns != null && {
-      managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
+      managedPolicyArns: se_ManagedPolicyList(input.managedPolicyArns, context),
     }),
     ...(input.name != null && { name: input.name }),
-    ...(input.roleArns != null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
+    ...(input.roleArns != null && { roleArns: se_RoleArnList(input.roleArns, context) }),
     ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
   });
   return new __HttpRequest({
@@ -675,7 +747,10 @@ export const serializeAws_restJson1UpdateProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateTrustAnchorCommand = async (
+/**
+ * serializeAws_restJson1UpdateTrustAnchorCommand
+ */
+export const se_UpdateTrustAnchorCommand = async (
   input: UpdateTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -696,7 +771,7 @@ export const serializeAws_restJson1UpdateTrustAnchorCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.name != null && { name: input.name }),
-    ...(input.source != null && { source: serializeAws_restJson1Source(input.source, context) }),
+    ...(input.source != null && { source: se_Source(input.source, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -709,24 +784,30 @@ export const serializeAws_restJson1UpdateTrustAnchorCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateProfileCommand = async (
+/**
+ * deserializeAws_restJson1CreateProfileCommand
+ */
+export const de_CreateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateProfileCommandError(output, context);
+    return de_CreateProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateProfileCommandError = async (
+/**
+ * deserializeAws_restJson1CreateProfileCommandError
+ */
+const de_CreateProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
@@ -738,10 +819,10 @@ const deserializeAws_restJson1CreateProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -753,24 +834,30 @@ const deserializeAws_restJson1CreateProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1CreateTrustAnchorCommand
+ */
+export const de_CreateTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrustAnchorCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateTrustAnchorCommandError(output, context);
+    return de_CreateTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1CreateTrustAnchorCommandError
+ */
+const de_CreateTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrustAnchorCommandOutput> => {
@@ -782,10 +869,10 @@ const deserializeAws_restJson1CreateTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -797,24 +884,30 @@ const deserializeAws_restJson1CreateTrustAnchorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteCrlCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCrlCommand
+ */
+export const de_DeleteCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCrlCommandError(output, context);
+    return de_DeleteCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCrlCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCrlCommandError
+ */
+const de_DeleteCrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCrlCommandOutput> => {
@@ -826,10 +919,10 @@ const deserializeAws_restJson1DeleteCrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -841,24 +934,30 @@ const deserializeAws_restJson1DeleteCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteProfileCommand = async (
+/**
+ * deserializeAws_restJson1DeleteProfileCommand
+ */
+export const de_DeleteProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteProfileCommandError(output, context);
+    return de_DeleteProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteProfileCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteProfileCommandError
+ */
+const de_DeleteProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
@@ -870,10 +969,10 @@ const deserializeAws_restJson1DeleteProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -885,24 +984,30 @@ const deserializeAws_restJson1DeleteProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1DeleteTrustAnchorCommand
+ */
+export const de_DeleteTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrustAnchorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteTrustAnchorCommandError(output, context);
+    return de_DeleteTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteTrustAnchorCommandError
+ */
+const de_DeleteTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrustAnchorCommandOutput> => {
@@ -914,10 +1019,10 @@ const deserializeAws_restJson1DeleteTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -929,24 +1034,30 @@ const deserializeAws_restJson1DeleteTrustAnchorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DisableCrlCommand = async (
+/**
+ * deserializeAws_restJson1DisableCrlCommand
+ */
+export const de_DisableCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableCrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisableCrlCommandError(output, context);
+    return de_DisableCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DisableCrlCommandError = async (
+/**
+ * deserializeAws_restJson1DisableCrlCommandError
+ */
+const de_DisableCrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableCrlCommandOutput> => {
@@ -958,10 +1069,10 @@ const deserializeAws_restJson1DisableCrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -973,24 +1084,30 @@ const deserializeAws_restJson1DisableCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DisableProfileCommand = async (
+/**
+ * deserializeAws_restJson1DisableProfileCommand
+ */
+export const de_DisableProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisableProfileCommandError(output, context);
+    return de_DisableProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DisableProfileCommandError = async (
+/**
+ * deserializeAws_restJson1DisableProfileCommandError
+ */
+const de_DisableProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableProfileCommandOutput> => {
@@ -1002,10 +1119,10 @@ const deserializeAws_restJson1DisableProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1017,24 +1134,30 @@ const deserializeAws_restJson1DisableProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DisableTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1DisableTrustAnchorCommand
+ */
+export const de_DisableTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableTrustAnchorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisableTrustAnchorCommandError(output, context);
+    return de_DisableTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DisableTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1DisableTrustAnchorCommandError
+ */
+const de_DisableTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableTrustAnchorCommandOutput> => {
@@ -1046,10 +1169,10 @@ const deserializeAws_restJson1DisableTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1061,24 +1184,30 @@ const deserializeAws_restJson1DisableTrustAnchorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1EnableCrlCommand = async (
+/**
+ * deserializeAws_restJson1EnableCrlCommand
+ */
+export const de_EnableCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableCrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EnableCrlCommandError(output, context);
+    return de_EnableCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1EnableCrlCommandError = async (
+/**
+ * deserializeAws_restJson1EnableCrlCommandError
+ */
+const de_EnableCrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableCrlCommandOutput> => {
@@ -1090,10 +1219,10 @@ const deserializeAws_restJson1EnableCrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1105,24 +1234,30 @@ const deserializeAws_restJson1EnableCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1EnableProfileCommand = async (
+/**
+ * deserializeAws_restJson1EnableProfileCommand
+ */
+export const de_EnableProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EnableProfileCommandError(output, context);
+    return de_EnableProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1EnableProfileCommandError = async (
+/**
+ * deserializeAws_restJson1EnableProfileCommandError
+ */
+const de_EnableProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableProfileCommandOutput> => {
@@ -1134,10 +1269,10 @@ const deserializeAws_restJson1EnableProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1149,24 +1284,30 @@ const deserializeAws_restJson1EnableProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1EnableTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1EnableTrustAnchorCommand
+ */
+export const de_EnableTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableTrustAnchorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EnableTrustAnchorCommandError(output, context);
+    return de_EnableTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1EnableTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1EnableTrustAnchorCommandError
+ */
+const de_EnableTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableTrustAnchorCommandOutput> => {
@@ -1178,10 +1319,10 @@ const deserializeAws_restJson1EnableTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1193,27 +1334,30 @@ const deserializeAws_restJson1EnableTrustAnchorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetCrlCommand = async (
+/**
+ * deserializeAws_restJson1GetCrlCommand
+ */
+export const de_GetCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCrlCommandError(output, context);
+    return de_GetCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetCrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCrlCommandOutput> => {
+/**
+ * deserializeAws_restJson1GetCrlCommandError
+ */
+const de_GetCrlCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1222,7 +1366,7 @@ const deserializeAws_restJson1GetCrlCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1234,24 +1378,30 @@ const deserializeAws_restJson1GetCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetProfileCommand = async (
+/**
+ * deserializeAws_restJson1GetProfileCommand
+ */
+export const de_GetProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetProfileCommandError(output, context);
+    return de_GetProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetProfileCommandError = async (
+/**
+ * deserializeAws_restJson1GetProfileCommandError
+ */
+const de_GetProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileCommandOutput> => {
@@ -1263,10 +1413,10 @@ const deserializeAws_restJson1GetProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1278,24 +1428,30 @@ const deserializeAws_restJson1GetProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSubjectCommand = async (
+/**
+ * deserializeAws_restJson1GetSubjectCommand
+ */
+export const de_GetSubjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSubjectCommandError(output, context);
+    return de_GetSubjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.subject != null) {
-    contents.subject = deserializeAws_restJson1SubjectDetail(data.subject, context);
+    contents.subject = de_SubjectDetail(data.subject, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSubjectCommandError = async (
+/**
+ * deserializeAws_restJson1GetSubjectCommandError
+ */
+const de_GetSubjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubjectCommandOutput> => {
@@ -1307,10 +1463,10 @@ const deserializeAws_restJson1GetSubjectCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1322,24 +1478,30 @@ const deserializeAws_restJson1GetSubjectCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1GetTrustAnchorCommand
+ */
+export const de_GetTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrustAnchorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTrustAnchorCommandError(output, context);
+    return de_GetTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1GetTrustAnchorCommandError
+ */
+const de_GetTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrustAnchorCommandOutput> => {
@@ -1351,13 +1513,13 @@ const deserializeAws_restJson1GetTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1369,24 +1531,30 @@ const deserializeAws_restJson1GetTrustAnchorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ImportCrlCommand = async (
+/**
+ * deserializeAws_restJson1ImportCrlCommand
+ */
+export const de_ImportCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCrlCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ImportCrlCommandError(output, context);
+    return de_ImportCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ImportCrlCommandError = async (
+/**
+ * deserializeAws_restJson1ImportCrlCommandError
+ */
+const de_ImportCrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCrlCommandOutput> => {
@@ -1398,10 +1566,10 @@ const deserializeAws_restJson1ImportCrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1413,19 +1581,22 @@ const deserializeAws_restJson1ImportCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListCrlsCommand = async (
+/**
+ * deserializeAws_restJson1ListCrlsCommand
+ */
+export const de_ListCrlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCrlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCrlsCommandError(output, context);
+    return de_ListCrlsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crls != null) {
-    contents.crls = deserializeAws_restJson1CrlDetails(data.crls, context);
+    contents.crls = de_CrlDetails(data.crls, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1433,7 +1604,10 @@ export const deserializeAws_restJson1ListCrlsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListCrlsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCrlsCommandError
+ */
+const de_ListCrlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCrlsCommandOutput> => {
@@ -1445,10 +1619,10 @@ const deserializeAws_restJson1ListCrlsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1460,12 +1634,15 @@ const deserializeAws_restJson1ListCrlsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListProfilesCommand = async (
+/**
+ * deserializeAws_restJson1ListProfilesCommand
+ */
+export const de_ListProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProfilesCommandError(output, context);
+    return de_ListProfilesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1475,12 +1652,15 @@ export const deserializeAws_restJson1ListProfilesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.profiles != null) {
-    contents.profiles = deserializeAws_restJson1ProfileDetails(data.profiles, context);
+    contents.profiles = de_ProfileDetails(data.profiles, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListProfilesCommandError = async (
+/**
+ * deserializeAws_restJson1ListProfilesCommandError
+ */
+const de_ListProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilesCommandOutput> => {
@@ -1492,10 +1672,10 @@ const deserializeAws_restJson1ListProfilesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1507,12 +1687,15 @@ const deserializeAws_restJson1ListProfilesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSubjectsCommand = async (
+/**
+ * deserializeAws_restJson1ListSubjectsCommand
+ */
+export const de_ListSubjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSubjectsCommandError(output, context);
+    return de_ListSubjectsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1522,12 +1705,15 @@ export const deserializeAws_restJson1ListSubjectsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.subjects != null) {
-    contents.subjects = deserializeAws_restJson1SubjectSummaries(data.subjects, context);
+    contents.subjects = de_SubjectSummaries(data.subjects, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSubjectsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSubjectsCommandError
+ */
+const de_ListSubjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubjectsCommandOutput> => {
@@ -1539,10 +1725,10 @@ const deserializeAws_restJson1ListSubjectsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1554,24 +1740,30 @@ const deserializeAws_restJson1ListSubjectsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
+    contents.tags = de_TagList(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1583,13 +1775,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1601,12 +1793,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTrustAnchorsCommand = async (
+/**
+ * deserializeAws_restJson1ListTrustAnchorsCommand
+ */
+export const de_ListTrustAnchorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrustAnchorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTrustAnchorsCommandError(output, context);
+    return de_ListTrustAnchorsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1616,12 +1811,15 @@ export const deserializeAws_restJson1ListTrustAnchorsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.trustAnchors != null) {
-    contents.trustAnchors = deserializeAws_restJson1TrustAnchorDetails(data.trustAnchors, context);
+    contents.trustAnchors = de_TrustAnchorDetails(data.trustAnchors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTrustAnchorsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTrustAnchorsCommandError
+ */
+const de_ListTrustAnchorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrustAnchorsCommandOutput> => {
@@ -1633,10 +1831,10 @@ const deserializeAws_restJson1ListTrustAnchorsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1648,12 +1846,15 @@ const deserializeAws_restJson1ListTrustAnchorsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1662,7 +1863,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1674,16 +1878,16 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.rolesanywhere#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1695,12 +1899,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1709,7 +1916,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1721,13 +1931,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1739,24 +1949,30 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateCrlCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCrlCommand
+ */
+export const de_UpdateCrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCrlCommandError(output, context);
+    return de_UpdateCrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.crl != null) {
-    contents.crl = deserializeAws_restJson1CrlDetail(data.crl, context);
+    contents.crl = de_CrlDetail(data.crl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCrlCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCrlCommandError
+ */
+const de_UpdateCrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCrlCommandOutput> => {
@@ -1768,13 +1984,13 @@ const deserializeAws_restJson1UpdateCrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1786,24 +2002,30 @@ const deserializeAws_restJson1UpdateCrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateProfileCommand = async (
+/**
+ * deserializeAws_restJson1UpdateProfileCommand
+ */
+export const de_UpdateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateProfileCommandError(output, context);
+    return de_UpdateProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.profile != null) {
-    contents.profile = deserializeAws_restJson1ProfileDetail(data.profile, context);
+    contents.profile = de_ProfileDetail(data.profile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateProfileCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateProfileCommandError
+ */
+const de_UpdateProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
@@ -1815,13 +2037,13 @@ const deserializeAws_restJson1UpdateProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1833,24 +2055,30 @@ const deserializeAws_restJson1UpdateProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateTrustAnchorCommand = async (
+/**
+ * deserializeAws_restJson1UpdateTrustAnchorCommand
+ */
+export const de_UpdateTrustAnchorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrustAnchorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateTrustAnchorCommandError(output, context);
+    return de_UpdateTrustAnchorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustAnchor != null) {
-    contents.trustAnchor = deserializeAws_restJson1TrustAnchorDetail(data.trustAnchor, context);
+    contents.trustAnchor = de_TrustAnchorDetail(data.trustAnchor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateTrustAnchorCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateTrustAnchorCommandError
+ */
+const de_UpdateTrustAnchorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrustAnchorCommandOutput> => {
@@ -1862,13 +2090,13 @@ const deserializeAws_restJson1UpdateTrustAnchorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rolesanywhere#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rolesanywhere#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rolesanywhere#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1881,7 +2109,10 @@ const deserializeAws_restJson1UpdateTrustAnchorCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -1897,7 +2128,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1913,7 +2147,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
@@ -1929,10 +2166,10 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1945,7 +2182,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ManagedPolicyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ManagedPolicyList
+ */
+const se_ManagedPolicyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1953,7 +2193,10 @@ const serializeAws_restJson1ManagedPolicyList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1RoleArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RoleArnList
+ */
+const se_RoleArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1961,14 +2204,20 @@ const serializeAws_restJson1RoleArnList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_restJson1Source = (input: Source, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Source
+ */
+const se_Source = (input: Source, context: __SerdeContext): any => {
   return {
-    ...(input.sourceData != null && { sourceData: serializeAws_restJson1SourceData(input.sourceData, context) }),
+    ...(input.sourceData != null && { sourceData: se_SourceData(input.sourceData, context) }),
     ...(input.sourceType != null && { sourceType: input.sourceType }),
   };
 };
 
-const serializeAws_restJson1SourceData = (input: SourceData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourceData
+ */
+const se_SourceData = (input: SourceData, context: __SerdeContext): any => {
   return SourceData.visit(input, {
     acmPcaArn: (value) => ({ acmPcaArn: value }),
     x509CertificateData: (value) => ({ x509CertificateData: value }),
@@ -1976,14 +2225,20 @@ const serializeAws_restJson1SourceData = (input: SourceData, context: __SerdeCon
   });
 };
 
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key != null && { key: input.key }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1991,27 +2246,36 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const deserializeAws_restJson1CredentialSummaries = (output: any, context: __SerdeContext): CredentialSummary[] => {
+/**
+ * deserializeAws_restJson1CredentialSummaries
+ */
+const de_CredentialSummaries = (output: any, context: __SerdeContext): CredentialSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CredentialSummary(entry, context);
+      return de_CredentialSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CredentialSummary = (output: any, context: __SerdeContext): CredentialSummary => {
+/**
+ * deserializeAws_restJson1CredentialSummary
+ */
+const de_CredentialSummary = (output: any, context: __SerdeContext): CredentialSummary => {
   return {
     enabled: __expectBoolean(output.enabled),
     failed: __expectBoolean(output.failed),
@@ -2022,7 +2286,10 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
+/**
+ * deserializeAws_restJson1CrlDetail
+ */
+const de_CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -2037,40 +2304,51 @@ const deserializeAws_restJson1CrlDetail = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1CrlDetails = (output: any, context: __SerdeContext): CrlDetail[] => {
+/**
+ * deserializeAws_restJson1CrlDetails
+ */
+const de_CrlDetails = (output: any, context: __SerdeContext): CrlDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CrlDetail(entry, context);
+      return de_CrlDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceProperties = (output: any, context: __SerdeContext): InstanceProperty[] => {
+/**
+ * deserializeAws_restJson1InstanceProperties
+ */
+const de_InstanceProperties = (output: any, context: __SerdeContext): InstanceProperty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InstanceProperty(entry, context);
+      return de_InstanceProperty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceProperty = (output: any, context: __SerdeContext): InstanceProperty => {
+/**
+ * deserializeAws_restJson1InstanceProperty
+ */
+const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProperty => {
   return {
     failed: __expectBoolean(output.failed),
-    properties:
-      output.properties != null ? deserializeAws_restJson1InstancePropertyMap(output.properties, context) : undefined,
+    properties: output.properties != null ? de_InstancePropertyMap(output.properties, context) : undefined,
     seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1InstancePropertyMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1InstancePropertyMap
+ */
+const de_InstancePropertyMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2080,7 +2358,10 @@ const deserializeAws_restJson1InstancePropertyMap = (output: any, context: __Ser
   }, {});
 };
 
-const deserializeAws_restJson1ManagedPolicyList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ManagedPolicyList
+ */
+const de_ManagedPolicyList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2092,7 +2373,10 @@ const deserializeAws_restJson1ManagedPolicyList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
+/**
+ * deserializeAws_restJson1ProfileDetail
+ */
+const de_ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -2100,33 +2384,37 @@ const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeCont
     durationSeconds: __expectInt32(output.durationSeconds),
     enabled: __expectBoolean(output.enabled),
     managedPolicyArns:
-      output.managedPolicyArns != null
-        ? deserializeAws_restJson1ManagedPolicyList(output.managedPolicyArns, context)
-        : undefined,
+      output.managedPolicyArns != null ? de_ManagedPolicyList(output.managedPolicyArns, context) : undefined,
     name: __expectString(output.name),
     profileArn: __expectString(output.profileArn),
     profileId: __expectString(output.profileId),
     requireInstanceProperties: __expectBoolean(output.requireInstanceProperties),
-    roleArns: output.roleArns != null ? deserializeAws_restJson1RoleArnList(output.roleArns, context) : undefined,
+    roleArns: output.roleArns != null ? de_RoleArnList(output.roleArns, context) : undefined,
     sessionPolicy: __expectString(output.sessionPolicy),
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProfileDetails = (output: any, context: __SerdeContext): ProfileDetail[] => {
+/**
+ * deserializeAws_restJson1ProfileDetails
+ */
+const de_ProfileDetails = (output: any, context: __SerdeContext): ProfileDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ProfileDetail(entry, context);
+      return de_ProfileDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RoleArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1RoleArnList
+ */
+const de_RoleArnList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2138,17 +2426,20 @@ const deserializeAws_restJson1RoleArnList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
+/**
+ * deserializeAws_restJson1Source
+ */
+const de_Source = (output: any, context: __SerdeContext): Source => {
   return {
-    sourceData:
-      output.sourceData != null
-        ? deserializeAws_restJson1SourceData(__expectUnion(output.sourceData), context)
-        : undefined,
+    sourceData: output.sourceData != null ? de_SourceData(__expectUnion(output.sourceData), context) : undefined,
     sourceType: __expectString(output.sourceType),
   } as any;
 };
 
-const deserializeAws_restJson1SourceData = (output: any, context: __SerdeContext): SourceData => {
+/**
+ * deserializeAws_restJson1SourceData
+ */
+const de_SourceData = (output: any, context: __SerdeContext): SourceData => {
   if (__expectString(output.acmPcaArn) !== undefined) {
     return { acmPcaArn: __expectString(output.acmPcaArn) as any };
   }
@@ -2158,17 +2449,17 @@ const deserializeAws_restJson1SourceData = (output: any, context: __SerdeContext
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
+/**
+ * deserializeAws_restJson1SubjectDetail
+ */
+const de_SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    credentials:
-      output.credentials != null ? deserializeAws_restJson1CredentialSummaries(output.credentials, context) : undefined,
+    credentials: output.credentials != null ? de_CredentialSummaries(output.credentials, context) : undefined,
     enabled: __expectBoolean(output.enabled),
     instanceProperties:
-      output.instanceProperties != null
-        ? deserializeAws_restJson1InstanceProperties(output.instanceProperties, context)
-        : undefined,
+      output.instanceProperties != null ? de_InstanceProperties(output.instanceProperties, context) : undefined,
     lastSeenAt:
       output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
@@ -2179,19 +2470,25 @@ const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1SubjectSummaries = (output: any, context: __SerdeContext): SubjectSummary[] => {
+/**
+ * deserializeAws_restJson1SubjectSummaries
+ */
+const de_SubjectSummaries = (output: any, context: __SerdeContext): SubjectSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SubjectSummary(entry, context);
+      return de_SubjectSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
+/**
+ * deserializeAws_restJson1SubjectSummary
+ */
+const de_SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -2206,32 +2503,41 @@ const deserializeAws_restJson1SubjectSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_restJson1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     key: __expectString(output.key),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_restJson1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
+/**
+ * deserializeAws_restJson1TrustAnchorDetail
+ */
+const de_TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
-    source: output.source != null ? deserializeAws_restJson1Source(output.source, context) : undefined,
+    source: output.source != null ? de_Source(output.source, context) : undefined,
     trustAnchorArn: __expectString(output.trustAnchorArn),
     trustAnchorId: __expectString(output.trustAnchorId),
     updatedAt:
@@ -2239,14 +2545,17 @@ const deserializeAws_restJson1TrustAnchorDetail = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1TrustAnchorDetails = (output: any, context: __SerdeContext): TrustAnchorDetail[] => {
+/**
+ * deserializeAws_restJson1TrustAnchorDetails
+ */
+const de_TrustAnchorDetails = (output: any, context: __SerdeContext): TrustAnchorDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TrustAnchorDetail(entry, context);
+      return de_TrustAnchorDetail(entry, context);
     });
   return retVal;
 };

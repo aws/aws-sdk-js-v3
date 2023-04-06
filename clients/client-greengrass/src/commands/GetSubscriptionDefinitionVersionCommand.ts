@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetSubscriptionDefinitionVersionRequest, GetSubscriptionDefinitionVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand,
-  serializeAws_restJson1GetSubscriptionDefinitionVersionCommand,
+  de_GetSubscriptionDefinitionVersionCommand,
+  se_GetSubscriptionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -130,7 +130,7 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
     input: GetSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubscriptionDefinitionVersionCommand(input, context);
+    return se_GetSubscriptionDefinitionVersionCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand(output, context);
+    return de_GetSubscriptionDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

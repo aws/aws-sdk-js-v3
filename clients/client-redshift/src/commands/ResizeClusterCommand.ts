@@ -15,10 +15,7 @@ import {
 
 import { ResizeClusterMessage } from "../models/models_0";
 import { ResizeClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryResizeClusterCommand,
-  serializeAws_queryResizeClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ResizeClusterCommand, se_ResizeClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -219,14 +216,14 @@ export class ResizeClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ResizeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResizeClusterCommand(input, context);
+    return se_ResizeClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResizeClusterCommandOutput> {
-    return deserializeAws_queryResizeClusterCommand(output, context);
+    return de_ResizeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

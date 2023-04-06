@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
-  serializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteTrafficPolicyInstanceCommand, se_DeleteTrafficPolicyInstanceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -142,7 +139,7 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(input, context);
+    return se_DeleteTrafficPolicyInstanceCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(output, context);
+    return de_DeleteTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTraceGraphRequest, GetTraceGraphResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTraceGraphCommand,
-  serializeAws_restJson1GetTraceGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTraceGraphCommand, se_GetTraceGraphCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -127,14 +124,14 @@ export class GetTraceGraphCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTraceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTraceGraphCommand(input, context);
+    return se_GetTraceGraphCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceGraphCommandOutput> {
-    return deserializeAws_restJson1GetTraceGraphCommand(output, context);
+    return de_GetTraceGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

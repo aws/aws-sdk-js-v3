@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { CreateObjectRequest, CreateObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateObjectCommand,
-  serializeAws_restJson1CreateObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateObjectCommand, se_CreateObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class CreateObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateObjectCommand(input, context);
+    return se_CreateObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateObjectCommandOutput> {
-    return deserializeAws_restJson1CreateObjectCommand(output, context);
+    return de_CreateObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSchemaFromJsonCommand,
-  serializeAws_restJson1PutSchemaFromJsonCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSchemaFromJsonCommand, se_PutSchemaFromJsonCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutSchemaFromJsonCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSchemaFromJsonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSchemaFromJsonCommand(input, context);
+    return se_PutSchemaFromJsonCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSchemaFromJsonCommandOutput> {
-    return deserializeAws_restJson1PutSchemaFromJsonCommand(output, context);
+    return de_PutSchemaFromJsonCommand(output, context);
   }
 
   // Start section: command_body_extra

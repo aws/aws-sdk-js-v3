@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { UpdateVpcIngressConnectionRequest, UpdateVpcIngressConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateVpcIngressConnectionCommand,
-  serializeAws_json1_0UpdateVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateVpcIngressConnectionCommand, se_UpdateVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateVpcIngressConnectionCommand(input, context);
+    return se_UpdateVpcIngressConnectionCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0UpdateVpcIngressConnectionCommand(output, context);
+    return de_UpdateVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

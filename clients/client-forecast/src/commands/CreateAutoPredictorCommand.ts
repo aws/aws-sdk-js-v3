@@ -19,10 +19,7 @@ import {
   CreateAutoPredictorRequestFilterSensitiveLog,
   CreateAutoPredictorResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAutoPredictorCommand,
-  serializeAws_json1_1CreateAutoPredictorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAutoPredictorCommand, se_CreateAutoPredictorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -240,14 +237,14 @@ export class CreateAutoPredictorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAutoPredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAutoPredictorCommand(input, context);
+    return se_CreateAutoPredictorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoPredictorCommandOutput> {
-    return deserializeAws_json1_1CreateAutoPredictorCommand(output, context);
+    return de_CreateAutoPredictorCommand(output, context);
   }
 
   // Start section: command_body_extra

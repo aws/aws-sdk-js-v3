@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePoliciesCommand,
-  serializeAws_restJson1GetResourcePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourcePoliciesCommand, se_GetResourcePoliciesCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -144,14 +141,14 @@ export class GetResourcePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePoliciesCommand(input, context);
+    return se_GetResourcePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetResourcePoliciesCommand(output, context);
+    return de_GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

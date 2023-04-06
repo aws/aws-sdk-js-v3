@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRemainingFreeTrialDaysCommand,
-  serializeAws_restJson1GetRemainingFreeTrialDaysCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRemainingFreeTrialDaysCommand, se_GetRemainingFreeTrialDaysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRemainingFreeTrialDaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRemainingFreeTrialDaysCommand(input, context);
+    return se_GetRemainingFreeTrialDaysCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRemainingFreeTrialDaysCommandOutput> {
-    return deserializeAws_restJson1GetRemainingFreeTrialDaysCommand(output, context);
+    return de_GetRemainingFreeTrialDaysCommand(output, context);
   }
 
   // Start section: command_body_extra

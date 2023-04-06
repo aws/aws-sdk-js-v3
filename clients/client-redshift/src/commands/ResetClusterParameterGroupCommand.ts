@@ -15,10 +15,7 @@ import {
 
 import { ClusterParameterGroupNameMessage } from "../models/models_0";
 import { ResetClusterParameterGroupMessage } from "../models/models_1";
-import {
-  deserializeAws_queryResetClusterParameterGroupCommand,
-  serializeAws_queryResetClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetClusterParameterGroupCommand, se_ResetClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -146,7 +143,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetClusterParameterGroupCommand(input, context);
+    return se_ResetClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetClusterParameterGroupCommand(output, context);
+    return de_ResetClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

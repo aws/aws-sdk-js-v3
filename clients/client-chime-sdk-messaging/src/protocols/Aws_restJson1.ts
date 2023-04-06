@@ -216,7 +216,10 @@ import {
   UnauthorizedClientException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AssociateChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1AssociateChannelFlowCommand
+ */
+export const se_AssociateChannelFlowCommand = async (
   input: AssociateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -243,7 +246,10 @@ export const serializeAws_restJson1AssociateChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
+/**
+ * serializeAws_restJson1BatchCreateChannelMembershipCommand
+ */
+export const se_BatchCreateChannelMembershipCommand = async (
   input: BatchCreateChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -260,7 +266,7 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArns != null && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
+    ...(input.MemberArns != null && { MemberArns: se_MemberArns(input.MemberArns, context) }),
     ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
     ...(input.Type != null && { Type: input.Type }),
   });
@@ -276,7 +282,10 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   });
 };
 
-export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
+/**
+ * serializeAws_restJson1ChannelFlowCallbackCommand
+ */
+export const se_ChannelFlowCallbackCommand = async (
   input: ChannelFlowCallbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -292,9 +301,7 @@ export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
   let body: any;
   body = JSON.stringify({
     CallbackId: input.CallbackId ?? generateIdempotencyToken(),
-    ...(input.ChannelMessage != null && {
-      ChannelMessage: serializeAws_restJson1ChannelMessageCallback(input.ChannelMessage, context),
-    }),
+    ...(input.ChannelMessage != null && { ChannelMessage: se_ChannelMessageCallback(input.ChannelMessage, context) }),
     ...(input.DeleteResource != null && { DeleteResource: input.DeleteResource }),
   });
   return new __HttpRequest({
@@ -309,7 +316,10 @@ export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateChannelCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelCommand
+ */
+export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -325,23 +335,18 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.ElasticChannelConfiguration != null && {
-      ElasticChannelConfiguration: serializeAws_restJson1ElasticChannelConfiguration(
-        input.ElasticChannelConfiguration,
-        context
-      ),
+      ElasticChannelConfiguration: se_ElasticChannelConfiguration(input.ElasticChannelConfiguration, context),
     }),
     ...(input.ExpirationSettings != null && {
-      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
+      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
     }),
-    ...(input.MemberArns != null && { MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context) }),
+    ...(input.MemberArns != null && { MemberArns: se_ChannelMemberArns(input.MemberArns, context) }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.ModeratorArns != null && {
-      ModeratorArns: serializeAws_restJson1ChannelModeratorArns(input.ModeratorArns, context),
-    }),
+    ...(input.ModeratorArns != null && { ModeratorArns: se_ChannelModeratorArns(input.ModeratorArns, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Privacy != null && { Privacy: input.Privacy }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -354,7 +359,10 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateChannelBanCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelBanCommand
+ */
+export const se_CreateChannelBanCommand = async (
   input: CreateChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -381,7 +389,10 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelFlowCommand
+ */
+export const se_CreateChannelFlowCommand = async (
   input: CreateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -395,8 +406,8 @@ export const serializeAws_restJson1CreateChannelFlowCommand = async (
     ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Processors != null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -409,7 +420,10 @@ export const serializeAws_restJson1CreateChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateChannelMembershipCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelMembershipCommand
+ */
+export const se_CreateChannelMembershipCommand = async (
   input: CreateChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -438,7 +452,10 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateChannelModeratorCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelModeratorCommand
+ */
+export const se_CreateChannelModeratorCommand = async (
   input: CreateChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -465,7 +482,10 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelCommand
+ */
+export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -491,7 +511,10 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelBanCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelBanCommand
+ */
+export const se_DeleteChannelBanCommand = async (
   input: DeleteChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -515,7 +538,10 @@ export const serializeAws_restJson1DeleteChannelBanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelFlowCommand
+ */
+export const se_DeleteChannelFlowCommand = async (
   input: DeleteChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -543,7 +569,10 @@ export const serializeAws_restJson1DeleteChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelMembershipCommand
+ */
+export const se_DeleteChannelMembershipCommand = async (
   input: DeleteChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -572,7 +601,10 @@ export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelMessageCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelMessageCommand
+ */
+export const se_DeleteChannelMessageCommand = async (
   input: DeleteChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -601,7 +633,10 @@ export const serializeAws_restJson1DeleteChannelMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelModeratorCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelModeratorCommand
+ */
+export const se_DeleteChannelModeratorCommand = async (
   input: DeleteChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -633,7 +668,10 @@ export const serializeAws_restJson1DeleteChannelModeratorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand
+ */
+export const se_DeleteMessagingStreamingConfigurationsCommand = async (
   input: DeleteMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -662,7 +700,10 @@ export const serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand
   });
 };
 
-export const serializeAws_restJson1DescribeChannelCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelCommand
+ */
+export const se_DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,7 +725,10 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChannelBanCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelBanCommand
+ */
+export const se_DescribeChannelBanCommand = async (
   input: DescribeChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -708,7 +752,10 @@ export const serializeAws_restJson1DescribeChannelBanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelFlowCommand
+ */
+export const se_DescribeChannelFlowCommand = async (
   input: DescribeChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,7 +783,10 @@ export const serializeAws_restJson1DescribeChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelMembershipCommand
+ */
+export const se_DescribeChannelMembershipCommand = async (
   input: DescribeChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -765,7 +815,10 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand
+ */
+export const se_DescribeChannelMembershipForAppInstanceUserCommand = async (
   input: DescribeChannelMembershipForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -792,7 +845,10 @@ export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCo
   });
 };
 
-export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand
+ */
+export const se_DescribeChannelModeratedByAppInstanceUserCommand = async (
   input: DescribeChannelModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -819,7 +875,10 @@ export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserComm
   });
 };
 
-export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelModeratorCommand
+ */
+export const se_DescribeChannelModeratorCommand = async (
   input: DescribeChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -851,7 +910,10 @@ export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1DisassociateChannelFlowCommand
+ */
+export const se_DisassociateChannelFlowCommand = async (
   input: DisassociateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -883,7 +945,10 @@ export const serializeAws_restJson1DisassociateChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChannelMembershipPreferencesCommand = async (
+/**
+ * serializeAws_restJson1GetChannelMembershipPreferencesCommand
+ */
+export const se_GetChannelMembershipPreferencesCommand = async (
   input: GetChannelMembershipPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -908,7 +973,10 @@ export const serializeAws_restJson1GetChannelMembershipPreferencesCommand = asyn
   });
 };
 
-export const serializeAws_restJson1GetChannelMessageCommand = async (
+/**
+ * serializeAws_restJson1GetChannelMessageCommand
+ */
+export const se_GetChannelMessageCommand = async (
   input: GetChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -937,7 +1005,10 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChannelMessageStatusCommand = async (
+/**
+ * serializeAws_restJson1GetChannelMessageStatusCommand
+ */
+export const se_GetChannelMessageStatusCommand = async (
   input: GetChannelMessageStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -967,7 +1038,10 @@ export const serializeAws_restJson1GetChannelMessageStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMessagingSessionEndpointCommand = async (
+/**
+ * serializeAws_restJson1GetMessagingSessionEndpointCommand
+ */
+export const se_GetMessagingSessionEndpointCommand = async (
   input: GetMessagingSessionEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -990,7 +1064,10 @@ export const serializeAws_restJson1GetMessagingSessionEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMessagingStreamingConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1GetMessagingStreamingConfigurationsCommand
+ */
+export const se_GetMessagingStreamingConfigurationsCommand = async (
   input: GetMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1019,7 +1096,10 @@ export const serializeAws_restJson1GetMessagingStreamingConfigurationsCommand = 
   });
 };
 
-export const serializeAws_restJson1ListChannelBansCommand = async (
+/**
+ * serializeAws_restJson1ListChannelBansCommand
+ */
+export const se_ListChannelBansCommand = async (
   input: ListChannelBansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1047,7 +1127,10 @@ export const serializeAws_restJson1ListChannelBansCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelFlowsCommand = async (
+/**
+ * serializeAws_restJson1ListChannelFlowsCommand
+ */
+export const se_ListChannelFlowsCommand = async (
   input: ListChannelFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1072,7 +1155,10 @@ export const serializeAws_restJson1ListChannelFlowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelMembershipsCommand = async (
+/**
+ * serializeAws_restJson1ListChannelMembershipsCommand
+ */
+export const se_ListChannelMembershipsCommand = async (
   input: ListChannelMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1102,7 +1188,10 @@ export const serializeAws_restJson1ListChannelMembershipsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand
+ */
+export const se_ListChannelMembershipsForAppInstanceUserCommand = async (
   input: ListChannelMembershipsForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1130,7 +1219,10 @@ export const serializeAws_restJson1ListChannelMembershipsForAppInstanceUserComma
   });
 };
 
-export const serializeAws_restJson1ListChannelMessagesCommand = async (
+/**
+ * serializeAws_restJson1ListChannelMessagesCommand
+ */
+export const se_ListChannelMessagesCommand = async (
   input: ListChannelMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1168,7 +1260,10 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelModeratorsCommand = async (
+/**
+ * serializeAws_restJson1ListChannelModeratorsCommand
+ */
+export const se_ListChannelModeratorsCommand = async (
   input: ListChannelModeratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1196,7 +1291,10 @@ export const serializeAws_restJson1ListChannelModeratorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelsCommand = async (
+/**
+ * serializeAws_restJson1ListChannelsCommand
+ */
+export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1224,7 +1322,10 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand
+ */
+export const se_ListChannelsAssociatedWithChannelFlowCommand = async (
   input: ListChannelsAssociatedWithChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1250,7 +1351,10 @@ export const serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand 
   });
 };
 
-export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
+ */
+export const se_ListChannelsModeratedByAppInstanceUserCommand = async (
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1278,7 +1382,10 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
   });
 };
 
-export const serializeAws_restJson1ListSubChannelsCommand = async (
+/**
+ * serializeAws_restJson1ListSubChannelsCommand
+ */
+export const se_ListSubChannelsCommand = async (
   input: ListSubChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1306,7 +1413,10 @@ export const serializeAws_restJson1ListSubChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1329,7 +1439,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutChannelExpirationSettingsCommand = async (
+/**
+ * serializeAws_restJson1PutChannelExpirationSettingsCommand
+ */
+export const se_PutChannelExpirationSettingsCommand = async (
   input: PutChannelExpirationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1345,7 +1458,7 @@ export const serializeAws_restJson1PutChannelExpirationSettingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ExpirationSettings != null && {
-      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
+      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
     }),
   });
   return new __HttpRequest({
@@ -1359,7 +1472,10 @@ export const serializeAws_restJson1PutChannelExpirationSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = async (
+/**
+ * serializeAws_restJson1PutChannelMembershipPreferencesCommand
+ */
+export const se_PutChannelMembershipPreferencesCommand = async (
   input: PutChannelMembershipPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1375,9 +1491,7 @@ export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = asyn
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Preferences != null && {
-      Preferences: serializeAws_restJson1ChannelMembershipPreferences(input.Preferences, context),
-    }),
+    ...(input.Preferences != null && { Preferences: se_ChannelMembershipPreferences(input.Preferences, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1390,7 +1504,10 @@ export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = asyn
   });
 };
 
-export const serializeAws_restJson1PutMessagingStreamingConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1PutMessagingStreamingConfigurationsCommand
+ */
+export const se_PutMessagingStreamingConfigurationsCommand = async (
   input: PutMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1412,7 +1529,7 @@ export const serializeAws_restJson1PutMessagingStreamingConfigurationsCommand = 
   let body: any;
   body = JSON.stringify({
     ...(input.StreamingConfigurations != null && {
-      StreamingConfigurations: serializeAws_restJson1StreamingConfigurationList(input.StreamingConfigurations, context),
+      StreamingConfigurations: se_StreamingConfigurationList(input.StreamingConfigurations, context),
     }),
   });
   return new __HttpRequest({
@@ -1426,7 +1543,10 @@ export const serializeAws_restJson1PutMessagingStreamingConfigurationsCommand = 
   });
 };
 
-export const serializeAws_restJson1RedactChannelMessageCommand = async (
+/**
+ * serializeAws_restJson1RedactChannelMessageCommand
+ */
+export const se_RedactChannelMessageCommand = async (
   input: RedactChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1459,7 +1579,10 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1SearchChannelsCommand = async (
+/**
+ * serializeAws_restJson1SearchChannelsCommand
+ */
+export const se_SearchChannelsCommand = async (
   input: SearchChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1476,7 +1599,7 @@ export const serializeAws_restJson1SearchChannelsCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.Fields != null && { Fields: serializeAws_restJson1SearchFields(input.Fields, context) }),
+    ...(input.Fields != null && { Fields: se_SearchFields(input.Fields, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1490,7 +1613,10 @@ export const serializeAws_restJson1SearchChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendChannelMessageCommand = async (
+/**
+ * serializeAws_restJson1SendChannelMessageCommand
+ */
+export const se_SendChannelMessageCommand = async (
   input: SendChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1508,12 +1634,12 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
     ...(input.Content != null && { Content: input.Content }),
     ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.MessageAttributes != null && {
-      MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
+      MessageAttributes: se_MessageAttributeMap(input.MessageAttributes, context),
     }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Persistence != null && { Persistence: input.Persistence }),
     ...(input.PushNotification != null && {
-      PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
+      PushNotification: se_PushNotificationConfiguration(input.PushNotification, context),
     }),
     ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
     ...(input.Type != null && { Type: input.Type }),
@@ -1529,7 +1655,10 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1544,7 +1673,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1558,7 +1687,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1573,7 +1705,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1587,7 +1719,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateChannelCommand
+ */
+export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1615,7 +1750,10 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateChannelFlowCommand = async (
+/**
+ * serializeAws_restJson1UpdateChannelFlowCommand
+ */
+export const se_UpdateChannelFlowCommand = async (
   input: UpdateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1636,7 +1774,7 @@ export const serializeAws_restJson1UpdateChannelFlowCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Processors != null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
+    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1649,7 +1787,10 @@ export const serializeAws_restJson1UpdateChannelFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateChannelMessageCommand = async (
+/**
+ * serializeAws_restJson1UpdateChannelMessageCommand
+ */
+export const se_UpdateChannelMessageCommand = async (
   input: UpdateChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1681,7 +1822,10 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
+/**
+ * serializeAws_restJson1UpdateChannelReadMarkerCommand
+ */
+export const se_UpdateChannelReadMarkerCommand = async (
   input: UpdateChannelReadMarkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1708,12 +1852,15 @@ export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AssociateChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1AssociateChannelFlowCommand
+ */
+export const de_AssociateChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateChannelFlowCommandError(output, context);
+    return de_AssociateChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1722,7 +1869,10 @@ export const deserializeAws_restJson1AssociateChannelFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AssociateChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateChannelFlowCommandError
+ */
+const de_AssociateChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateChannelFlowCommandOutput> => {
@@ -1734,28 +1884,28 @@ const deserializeAws_restJson1AssociateChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1767,30 +1917,33 @@ const deserializeAws_restJson1AssociateChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1BatchCreateChannelMembershipCommand = async (
+/**
+ * deserializeAws_restJson1BatchCreateChannelMembershipCommand
+ */
+export const de_BatchCreateChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateChannelMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchCreateChannelMembershipCommandError(output, context);
+    return de_BatchCreateChannelMembershipCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchChannelMemberships != null) {
-    contents.BatchChannelMemberships = deserializeAws_restJson1BatchChannelMemberships(
-      data.BatchChannelMemberships,
-      context
-    );
+    contents.BatchChannelMemberships = de_BatchChannelMemberships(data.BatchChannelMemberships, context);
   }
   if (data.Errors != null) {
-    contents.Errors = deserializeAws_restJson1BatchCreateChannelMembershipErrors(data.Errors, context);
+    contents.Errors = de_BatchCreateChannelMembershipErrors(data.Errors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateChannelMembershipCommandError
+ */
+const de_BatchCreateChannelMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateChannelMembershipCommandOutput> => {
@@ -1802,28 +1955,28 @@ const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1835,12 +1988,15 @@ const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ChannelFlowCallbackCommand = async (
+/**
+ * deserializeAws_restJson1ChannelFlowCallbackCommand
+ */
+export const de_ChannelFlowCallbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChannelFlowCallbackCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ChannelFlowCallbackCommandError(output, context);
+    return de_ChannelFlowCallbackCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1855,7 +2011,10 @@ export const deserializeAws_restJson1ChannelFlowCallbackCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ChannelFlowCallbackCommandError = async (
+/**
+ * deserializeAws_restJson1ChannelFlowCallbackCommandError
+ */
+const de_ChannelFlowCallbackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChannelFlowCallbackCommandOutput> => {
@@ -1867,25 +2026,25 @@ const deserializeAws_restJson1ChannelFlowCallbackCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1897,12 +2056,15 @@ const deserializeAws_restJson1ChannelFlowCallbackCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateChannelCommand = async (
+/**
+ * deserializeAws_restJson1CreateChannelCommand
+ */
+export const de_CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelCommandError(output, context);
+    return de_CreateChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1914,7 +2076,10 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateChannelCommandError = async (
+/**
+ * deserializeAws_restJson1CreateChannelCommandError
+ */
+const de_CreateChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
@@ -1926,28 +2091,28 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1959,12 +2124,15 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateChannelBanCommand = async (
+/**
+ * deserializeAws_restJson1CreateChannelBanCommand
+ */
+export const de_CreateChannelBanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelBanCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelBanCommandError(output, context);
+    return de_CreateChannelBanCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1974,12 +2142,15 @@ export const deserializeAws_restJson1CreateChannelBanCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.Member != null) {
-    contents.Member = deserializeAws_restJson1Identity(data.Member, context);
+    contents.Member = de_Identity(data.Member, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateChannelBanCommandError = async (
+/**
+ * deserializeAws_restJson1CreateChannelBanCommandError
+ */
+const de_CreateChannelBanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelBanCommandOutput> => {
@@ -1991,28 +2162,28 @@ const deserializeAws_restJson1CreateChannelBanCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2024,12 +2195,15 @@ const deserializeAws_restJson1CreateChannelBanCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1CreateChannelFlowCommand
+ */
+export const de_CreateChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelFlowCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelFlowCommandError(output, context);
+    return de_CreateChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2041,7 +2215,10 @@ export const deserializeAws_restJson1CreateChannelFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1CreateChannelFlowCommandError
+ */
+const de_CreateChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelFlowCommandOutput> => {
@@ -2053,28 +2230,28 @@ const deserializeAws_restJson1CreateChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2086,12 +2263,15 @@ const deserializeAws_restJson1CreateChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateChannelMembershipCommand = async (
+/**
+ * deserializeAws_restJson1CreateChannelMembershipCommand
+ */
+export const de_CreateChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelMembershipCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelMembershipCommandError(output, context);
+    return de_CreateChannelMembershipCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2101,7 +2281,7 @@ export const deserializeAws_restJson1CreateChannelMembershipCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.Member != null) {
-    contents.Member = deserializeAws_restJson1Identity(data.Member, context);
+    contents.Member = de_Identity(data.Member, context);
   }
   if (data.SubChannelId != null) {
     contents.SubChannelId = __expectString(data.SubChannelId);
@@ -2109,7 +2289,10 @@ export const deserializeAws_restJson1CreateChannelMembershipCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateChannelMembershipCommandError = async (
+/**
+ * deserializeAws_restJson1CreateChannelMembershipCommandError
+ */
+const de_CreateChannelMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelMembershipCommandOutput> => {
@@ -2121,31 +2304,31 @@ const deserializeAws_restJson1CreateChannelMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2157,12 +2340,15 @@ const deserializeAws_restJson1CreateChannelMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateChannelModeratorCommand = async (
+/**
+ * deserializeAws_restJson1CreateChannelModeratorCommand
+ */
+export const de_CreateChannelModeratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelModeratorCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelModeratorCommandError(output, context);
+    return de_CreateChannelModeratorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2172,12 +2358,15 @@ export const deserializeAws_restJson1CreateChannelModeratorCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ChannelModerator != null) {
-    contents.ChannelModerator = deserializeAws_restJson1Identity(data.ChannelModerator, context);
+    contents.ChannelModerator = de_Identity(data.ChannelModerator, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateChannelModeratorCommandError = async (
+/**
+ * deserializeAws_restJson1CreateChannelModeratorCommandError
+ */
+const de_CreateChannelModeratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelModeratorCommandOutput> => {
@@ -2189,28 +2378,28 @@ const deserializeAws_restJson1CreateChannelModeratorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2222,12 +2411,15 @@ const deserializeAws_restJson1CreateChannelModeratorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelCommand
+ */
+export const de_DeleteChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelCommandError(output, context);
+    return de_DeleteChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2236,7 +2428,10 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelCommandError
+ */
+const de_DeleteChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
@@ -2248,22 +2443,22 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2275,12 +2470,15 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelBanCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelBanCommand
+ */
+export const de_DeleteChannelBanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelBanCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelBanCommandError(output, context);
+    return de_DeleteChannelBanCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2289,7 +2487,10 @@ export const deserializeAws_restJson1DeleteChannelBanCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelBanCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelBanCommandError
+ */
+const de_DeleteChannelBanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelBanCommandOutput> => {
@@ -2301,22 +2502,22 @@ const deserializeAws_restJson1DeleteChannelBanCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2328,12 +2529,15 @@ const deserializeAws_restJson1DeleteChannelBanCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelFlowCommand
+ */
+export const de_DeleteChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelFlowCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelFlowCommandError(output, context);
+    return de_DeleteChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2342,7 +2546,10 @@ export const deserializeAws_restJson1DeleteChannelFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelFlowCommandError
+ */
+const de_DeleteChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelFlowCommandOutput> => {
@@ -2354,25 +2561,25 @@ const deserializeAws_restJson1DeleteChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2384,12 +2591,15 @@ const deserializeAws_restJson1DeleteChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelMembershipCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelMembershipCommand
+ */
+export const de_DeleteChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelMembershipCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelMembershipCommandError(output, context);
+    return de_DeleteChannelMembershipCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2398,7 +2608,10 @@ export const deserializeAws_restJson1DeleteChannelMembershipCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelMembershipCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelMembershipCommandError
+ */
+const de_DeleteChannelMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelMembershipCommandOutput> => {
@@ -2410,25 +2623,25 @@ const deserializeAws_restJson1DeleteChannelMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2440,12 +2653,15 @@ const deserializeAws_restJson1DeleteChannelMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelMessageCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelMessageCommand
+ */
+export const de_DeleteChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelMessageCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelMessageCommandError(output, context);
+    return de_DeleteChannelMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2454,7 +2670,10 @@ export const deserializeAws_restJson1DeleteChannelMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelMessageCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelMessageCommandError
+ */
+const de_DeleteChannelMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelMessageCommandOutput> => {
@@ -2466,22 +2685,22 @@ const deserializeAws_restJson1DeleteChannelMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2493,12 +2712,15 @@ const deserializeAws_restJson1DeleteChannelMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteChannelModeratorCommand = async (
+/**
+ * deserializeAws_restJson1DeleteChannelModeratorCommand
+ */
+export const de_DeleteChannelModeratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelModeratorCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelModeratorCommandError(output, context);
+    return de_DeleteChannelModeratorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2507,7 +2729,10 @@ export const deserializeAws_restJson1DeleteChannelModeratorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteChannelModeratorCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteChannelModeratorCommandError
+ */
+const de_DeleteChannelModeratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelModeratorCommandOutput> => {
@@ -2519,22 +2744,22 @@ const deserializeAws_restJson1DeleteChannelModeratorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2546,12 +2771,15 @@ const deserializeAws_restJson1DeleteChannelModeratorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand
+ */
+export const de_DeleteMessagingStreamingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError(output, context);
+    return de_DeleteMessagingStreamingConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2560,7 +2788,10 @@ export const deserializeAws_restJson1DeleteMessagingStreamingConfigurationsComma
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError
+ */
+const de_DeleteMessagingStreamingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> => {
@@ -2572,19 +2803,19 @@ const deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2596,24 +2827,30 @@ const deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelCommand
+ */
+export const de_DescribeChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelCommandError(output, context);
+    return de_DescribeChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channel != null) {
-    contents.Channel = deserializeAws_restJson1Channel(data.Channel, context);
+    contents.Channel = de_Channel(data.Channel, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelCommandError
+ */
+const de_DescribeChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
@@ -2625,22 +2862,22 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2652,24 +2889,30 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelBanCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelBanCommand
+ */
+export const de_DescribeChannelBanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelBanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelBanCommandError(output, context);
+    return de_DescribeChannelBanCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelBan != null) {
-    contents.ChannelBan = deserializeAws_restJson1ChannelBan(data.ChannelBan, context);
+    contents.ChannelBan = de_ChannelBan(data.ChannelBan, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelBanCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelBanCommandError
+ */
+const de_DescribeChannelBanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelBanCommandOutput> => {
@@ -2681,25 +2924,25 @@ const deserializeAws_restJson1DescribeChannelBanCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2711,24 +2954,30 @@ const deserializeAws_restJson1DescribeChannelBanCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelFlowCommand
+ */
+export const de_DescribeChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelFlowCommandError(output, context);
+    return de_DescribeChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlow != null) {
-    contents.ChannelFlow = deserializeAws_restJson1ChannelFlow(data.ChannelFlow, context);
+    contents.ChannelFlow = de_ChannelFlow(data.ChannelFlow, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelFlowCommandError
+ */
+const de_DescribeChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelFlowCommandOutput> => {
@@ -2740,22 +2989,22 @@ const deserializeAws_restJson1DescribeChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2767,24 +3016,30 @@ const deserializeAws_restJson1DescribeChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelMembershipCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelMembershipCommand
+ */
+export const de_DescribeChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelMembershipCommandError(output, context);
+    return de_DescribeChannelMembershipCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMembership != null) {
-    contents.ChannelMembership = deserializeAws_restJson1ChannelMembership(data.ChannelMembership, context);
+    contents.ChannelMembership = de_ChannelMembership(data.ChannelMembership, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelMembershipCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelMembershipCommandError
+ */
+const de_DescribeChannelMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipCommandOutput> => {
@@ -2796,25 +3051,25 @@ const deserializeAws_restJson1DescribeChannelMembershipCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2826,27 +3081,30 @@ const deserializeAws_restJson1DescribeChannelMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand
+ */
+export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommandError(output, context);
+    return de_DescribeChannelMembershipForAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMembership != null) {
-    contents.ChannelMembership = deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(
-      data.ChannelMembership,
-      context
-    );
+    contents.ChannelMembership = de_ChannelMembershipForAppInstanceUserSummary(data.ChannelMembership, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommandError
+ */
+const de_DescribeChannelMembershipForAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> => {
@@ -2858,22 +3116,22 @@ const deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2885,24 +3143,30 @@ const deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand
+ */
+export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandError(output, context);
+    return de_DescribeChannelModeratedByAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channel != null) {
-    contents.Channel = deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(data.Channel, context);
+    contents.Channel = de_ChannelModeratedByAppInstanceUserSummary(data.Channel, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandError
+ */
+const de_DescribeChannelModeratedByAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> => {
@@ -2914,22 +3178,22 @@ const deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandEr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2941,24 +3205,30 @@ const deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandEr
   }
 };
 
-export const deserializeAws_restJson1DescribeChannelModeratorCommand = async (
+/**
+ * deserializeAws_restJson1DescribeChannelModeratorCommand
+ */
+export const de_DescribeChannelModeratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelModeratorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelModeratorCommandError(output, context);
+    return de_DescribeChannelModeratorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelModerator != null) {
-    contents.ChannelModerator = deserializeAws_restJson1ChannelModerator(data.ChannelModerator, context);
+    contents.ChannelModerator = de_ChannelModerator(data.ChannelModerator, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeChannelModeratorCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChannelModeratorCommandError
+ */
+const de_DescribeChannelModeratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelModeratorCommandOutput> => {
@@ -2970,25 +3240,25 @@ const deserializeAws_restJson1DescribeChannelModeratorCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3000,12 +3270,15 @@ const deserializeAws_restJson1DescribeChannelModeratorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DisassociateChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateChannelFlowCommand
+ */
+export const de_DisassociateChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateChannelFlowCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateChannelFlowCommandError(output, context);
+    return de_DisassociateChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3014,7 +3287,10 @@ export const deserializeAws_restJson1DisassociateChannelFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateChannelFlowCommandError
+ */
+const de_DisassociateChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateChannelFlowCommandOutput> => {
@@ -3026,28 +3302,28 @@ const deserializeAws_restJson1DisassociateChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3059,12 +3335,15 @@ const deserializeAws_restJson1DisassociateChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetChannelMembershipPreferencesCommand = async (
+/**
+ * deserializeAws_restJson1GetChannelMembershipPreferencesCommand
+ */
+export const de_GetChannelMembershipPreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMembershipPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelMembershipPreferencesCommandError(output, context);
+    return de_GetChannelMembershipPreferencesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3074,15 +3353,18 @@ export const deserializeAws_restJson1GetChannelMembershipPreferencesCommand = as
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.Member != null) {
-    contents.Member = deserializeAws_restJson1Identity(data.Member, context);
+    contents.Member = de_Identity(data.Member, context);
   }
   if (data.Preferences != null) {
-    contents.Preferences = deserializeAws_restJson1ChannelMembershipPreferences(data.Preferences, context);
+    contents.Preferences = de_ChannelMembershipPreferences(data.Preferences, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetChannelMembershipPreferencesCommandError = async (
+/**
+ * deserializeAws_restJson1GetChannelMembershipPreferencesCommandError
+ */
+const de_GetChannelMembershipPreferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMembershipPreferencesCommandOutput> => {
@@ -3094,22 +3376,22 @@ const deserializeAws_restJson1GetChannelMembershipPreferencesCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3121,24 +3403,30 @@ const deserializeAws_restJson1GetChannelMembershipPreferencesCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1GetChannelMessageCommand = async (
+/**
+ * deserializeAws_restJson1GetChannelMessageCommand
+ */
+export const de_GetChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelMessageCommandError(output, context);
+    return de_GetChannelMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMessage != null) {
-    contents.ChannelMessage = deserializeAws_restJson1ChannelMessage(data.ChannelMessage, context);
+    contents.ChannelMessage = de_ChannelMessage(data.ChannelMessage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetChannelMessageCommandError = async (
+/**
+ * deserializeAws_restJson1GetChannelMessageCommandError
+ */
+const de_GetChannelMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMessageCommandOutput> => {
@@ -3150,25 +3438,25 @@ const deserializeAws_restJson1GetChannelMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3180,24 +3468,30 @@ const deserializeAws_restJson1GetChannelMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetChannelMessageStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetChannelMessageStatusCommand
+ */
+export const de_GetChannelMessageStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMessageStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelMessageStatusCommandError(output, context);
+    return de_GetChannelMessageStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Status != null) {
-    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
+    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetChannelMessageStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetChannelMessageStatusCommandError
+ */
+const de_GetChannelMessageStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelMessageStatusCommandOutput> => {
@@ -3209,22 +3503,22 @@ const deserializeAws_restJson1GetChannelMessageStatusCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3236,24 +3530,30 @@ const deserializeAws_restJson1GetChannelMessageStatusCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetMessagingSessionEndpointCommand = async (
+/**
+ * deserializeAws_restJson1GetMessagingSessionEndpointCommand
+ */
+export const de_GetMessagingSessionEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMessagingSessionEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMessagingSessionEndpointCommandError(output, context);
+    return de_GetMessagingSessionEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Endpoint != null) {
-    contents.Endpoint = deserializeAws_restJson1MessagingSessionEndpoint(data.Endpoint, context);
+    contents.Endpoint = de_MessagingSessionEndpoint(data.Endpoint, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetMessagingSessionEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1GetMessagingSessionEndpointCommandError
+ */
+const de_GetMessagingSessionEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMessagingSessionEndpointCommandOutput> => {
@@ -3265,19 +3565,19 @@ const deserializeAws_restJson1GetMessagingSessionEndpointCommandError = async (
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3289,27 +3589,30 @@ const deserializeAws_restJson1GetMessagingSessionEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand
+ */
+export const de_GetMessagingStreamingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError(output, context);
+    return de_GetMessagingStreamingConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamingConfigurations != null) {
-    contents.StreamingConfigurations = deserializeAws_restJson1StreamingConfigurationList(
-      data.StreamingConfigurations,
-      context
-    );
+    contents.StreamingConfigurations = de_StreamingConfigurationList(data.StreamingConfigurations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError
+ */
+const de_GetMessagingStreamingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMessagingStreamingConfigurationsCommandOutput> => {
@@ -3321,25 +3624,25 @@ const deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError = 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3351,12 +3654,15 @@ const deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError = 
   }
 };
 
-export const deserializeAws_restJson1ListChannelBansCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelBansCommand
+ */
+export const de_ListChannelBansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelBansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelBansCommandError(output, context);
+    return de_ListChannelBansCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3366,7 +3672,7 @@ export const deserializeAws_restJson1ListChannelBansCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ChannelBans != null) {
-    contents.ChannelBans = deserializeAws_restJson1ChannelBanSummaryList(data.ChannelBans, context);
+    contents.ChannelBans = de_ChannelBanSummaryList(data.ChannelBans, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3374,7 +3680,10 @@ export const deserializeAws_restJson1ListChannelBansCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelBansCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelBansCommandError
+ */
+const de_ListChannelBansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelBansCommandOutput> => {
@@ -3386,22 +3695,22 @@ const deserializeAws_restJson1ListChannelBansCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3413,19 +3722,22 @@ const deserializeAws_restJson1ListChannelBansCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelFlowsCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelFlowsCommand
+ */
+export const de_ListChannelFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelFlowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelFlowsCommandError(output, context);
+    return de_ListChannelFlowsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlows != null) {
-    contents.ChannelFlows = deserializeAws_restJson1ChannelFlowSummaryList(data.ChannelFlows, context);
+    contents.ChannelFlows = de_ChannelFlowSummaryList(data.ChannelFlows, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3433,7 +3745,10 @@ export const deserializeAws_restJson1ListChannelFlowsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelFlowsCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelFlowsCommandError
+ */
+const de_ListChannelFlowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelFlowsCommandOutput> => {
@@ -3445,22 +3760,22 @@ const deserializeAws_restJson1ListChannelFlowsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3472,12 +3787,15 @@ const deserializeAws_restJson1ListChannelFlowsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelMembershipsCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelMembershipsCommand
+ */
+export const de_ListChannelMembershipsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMembershipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelMembershipsCommandError(output, context);
+    return de_ListChannelMembershipsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3487,10 +3805,7 @@ export const deserializeAws_restJson1ListChannelMembershipsCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = deserializeAws_restJson1ChannelMembershipSummaryList(
-      data.ChannelMemberships,
-      context
-    );
+    contents.ChannelMemberships = de_ChannelMembershipSummaryList(data.ChannelMemberships, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3498,7 +3813,10 @@ export const deserializeAws_restJson1ListChannelMembershipsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelMembershipsCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelMembershipsCommandError
+ */
+const de_ListChannelMembershipsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMembershipsCommandOutput> => {
@@ -3510,22 +3828,22 @@ const deserializeAws_restJson1ListChannelMembershipsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3537,22 +3855,22 @@ const deserializeAws_restJson1ListChannelMembershipsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand
+ */
+export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandError(output, context);
+    return de_ListChannelMembershipsForAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList(
-      data.ChannelMemberships,
-      context
-    );
+    contents.ChannelMemberships = de_ChannelMembershipForAppInstanceUserSummaryList(data.ChannelMemberships, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3560,7 +3878,10 @@ export const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCom
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandError
+ */
+const de_ListChannelMembershipsForAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> => {
@@ -3572,22 +3893,22 @@ const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandErr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3599,12 +3920,15 @@ const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandErr
   }
 };
 
-export const deserializeAws_restJson1ListChannelMessagesCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelMessagesCommand
+ */
+export const de_ListChannelMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelMessagesCommandError(output, context);
+    return de_ListChannelMessagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3614,7 +3938,7 @@ export const deserializeAws_restJson1ListChannelMessagesCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ChannelMessages != null) {
-    contents.ChannelMessages = deserializeAws_restJson1ChannelMessageSummaryList(data.ChannelMessages, context);
+    contents.ChannelMessages = de_ChannelMessageSummaryList(data.ChannelMessages, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3625,7 +3949,10 @@ export const deserializeAws_restJson1ListChannelMessagesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelMessagesCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelMessagesCommandError
+ */
+const de_ListChannelMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelMessagesCommandOutput> => {
@@ -3637,22 +3964,22 @@ const deserializeAws_restJson1ListChannelMessagesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3664,12 +3991,15 @@ const deserializeAws_restJson1ListChannelMessagesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelModeratorsCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelModeratorsCommand
+ */
+export const de_ListChannelModeratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelModeratorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelModeratorsCommandError(output, context);
+    return de_ListChannelModeratorsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3679,7 +4009,7 @@ export const deserializeAws_restJson1ListChannelModeratorsCommand = async (
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ChannelModerators != null) {
-    contents.ChannelModerators = deserializeAws_restJson1ChannelModeratorSummaryList(data.ChannelModerators, context);
+    contents.ChannelModerators = de_ChannelModeratorSummaryList(data.ChannelModerators, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3687,7 +4017,10 @@ export const deserializeAws_restJson1ListChannelModeratorsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelModeratorsCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelModeratorsCommandError
+ */
+const de_ListChannelModeratorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelModeratorsCommandOutput> => {
@@ -3699,22 +4032,22 @@ const deserializeAws_restJson1ListChannelModeratorsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3726,19 +4059,22 @@ const deserializeAws_restJson1ListChannelModeratorsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelsCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelsCommand
+ */
+export const de_ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelsCommandError(output, context);
+    return de_ListChannelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels != null) {
-    contents.Channels = deserializeAws_restJson1ChannelSummaryList(data.Channels, context);
+    contents.Channels = de_ChannelSummaryList(data.Channels, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3746,7 +4082,10 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelsCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelsCommandError
+ */
+const de_ListChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
@@ -3758,22 +4097,22 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3785,19 +4124,22 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand
+ */
+export const de_ListChannelsAssociatedWithChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError(output, context);
+    return de_ListChannelsAssociatedWithChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels != null) {
-    contents.Channels = deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList(data.Channels, context);
+    contents.Channels = de_ChannelAssociatedWithFlowSummaryList(data.Channels, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3805,7 +4147,10 @@ export const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowComman
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError
+ */
+const de_ListChannelsAssociatedWithChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
@@ -3817,22 +4162,22 @@ const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3844,19 +4189,22 @@ const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError 
   }
 };
 
-export const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
+ */
+export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError(output, context);
+    return de_ListChannelsModeratedByAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels != null) {
-    contents.Channels = deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList(data.Channels, context);
+    contents.Channels = de_ChannelModeratedByAppInstanceUserSummaryList(data.Channels, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3864,7 +4212,10 @@ export const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserComma
   return contents;
 };
 
-const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
+ */
+const de_ListChannelsModeratedByAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
@@ -3876,22 +4227,22 @@ const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3903,12 +4254,15 @@ const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
   }
 };
 
-export const deserializeAws_restJson1ListSubChannelsCommand = async (
+/**
+ * deserializeAws_restJson1ListSubChannelsCommand
+ */
+export const de_ListSubChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSubChannelsCommandError(output, context);
+    return de_ListSubChannelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3921,12 +4275,15 @@ export const deserializeAws_restJson1ListSubChannelsCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.SubChannels != null) {
-    contents.SubChannels = deserializeAws_restJson1SubChannelSummaryList(data.SubChannels, context);
+    contents.SubChannels = de_SubChannelSummaryList(data.SubChannels, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSubChannelsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSubChannelsCommandError
+ */
+const de_ListSubChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubChannelsCommandOutput> => {
@@ -3938,22 +4295,22 @@ const deserializeAws_restJson1ListSubChannelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3965,24 +4322,30 @@ const deserializeAws_restJson1ListSubChannelsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+    contents.Tags = de_TagList(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3994,22 +4357,22 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4021,12 +4384,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutChannelExpirationSettingsCommand = async (
+/**
+ * deserializeAws_restJson1PutChannelExpirationSettingsCommand
+ */
+export const de_PutChannelExpirationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChannelExpirationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutChannelExpirationSettingsCommandError(output, context);
+    return de_PutChannelExpirationSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4036,12 +4402,15 @@ export const deserializeAws_restJson1PutChannelExpirationSettingsCommand = async
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.ExpirationSettings != null) {
-    contents.ExpirationSettings = deserializeAws_restJson1ExpirationSettings(data.ExpirationSettings, context);
+    contents.ExpirationSettings = de_ExpirationSettings(data.ExpirationSettings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PutChannelExpirationSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1PutChannelExpirationSettingsCommandError
+ */
+const de_PutChannelExpirationSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChannelExpirationSettingsCommandOutput> => {
@@ -4053,25 +4422,25 @@ const deserializeAws_restJson1PutChannelExpirationSettingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4083,12 +4452,15 @@ const deserializeAws_restJson1PutChannelExpirationSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutChannelMembershipPreferencesCommand = async (
+/**
+ * deserializeAws_restJson1PutChannelMembershipPreferencesCommand
+ */
+export const de_PutChannelMembershipPreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChannelMembershipPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutChannelMembershipPreferencesCommandError(output, context);
+    return de_PutChannelMembershipPreferencesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4098,15 +4470,18 @@ export const deserializeAws_restJson1PutChannelMembershipPreferencesCommand = as
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
   if (data.Member != null) {
-    contents.Member = deserializeAws_restJson1Identity(data.Member, context);
+    contents.Member = de_Identity(data.Member, context);
   }
   if (data.Preferences != null) {
-    contents.Preferences = deserializeAws_restJson1ChannelMembershipPreferences(data.Preferences, context);
+    contents.Preferences = de_ChannelMembershipPreferences(data.Preferences, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PutChannelMembershipPreferencesCommandError = async (
+/**
+ * deserializeAws_restJson1PutChannelMembershipPreferencesCommandError
+ */
+const de_PutChannelMembershipPreferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChannelMembershipPreferencesCommandOutput> => {
@@ -4118,25 +4493,25 @@ const deserializeAws_restJson1PutChannelMembershipPreferencesCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4148,27 +4523,30 @@ const deserializeAws_restJson1PutChannelMembershipPreferencesCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand
+ */
+export const de_PutMessagingStreamingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError(output, context);
+    return de_PutMessagingStreamingConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamingConfigurations != null) {
-    contents.StreamingConfigurations = deserializeAws_restJson1StreamingConfigurationList(
-      data.StreamingConfigurations,
-      context
-    );
+    contents.StreamingConfigurations = de_StreamingConfigurationList(data.StreamingConfigurations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError
+ */
+const de_PutMessagingStreamingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMessagingStreamingConfigurationsCommandOutput> => {
@@ -4180,28 +4558,28 @@ const deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError = 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4213,12 +4591,15 @@ const deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError = 
   }
 };
 
-export const deserializeAws_restJson1RedactChannelMessageCommand = async (
+/**
+ * deserializeAws_restJson1RedactChannelMessageCommand
+ */
+export const de_RedactChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RedactChannelMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RedactChannelMessageCommandError(output, context);
+    return de_RedactChannelMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4236,7 +4617,10 @@ export const deserializeAws_restJson1RedactChannelMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RedactChannelMessageCommandError = async (
+/**
+ * deserializeAws_restJson1RedactChannelMessageCommandError
+ */
+const de_RedactChannelMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RedactChannelMessageCommandOutput> => {
@@ -4248,25 +4632,25 @@ const deserializeAws_restJson1RedactChannelMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4278,19 +4662,22 @@ const deserializeAws_restJson1RedactChannelMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SearchChannelsCommand = async (
+/**
+ * deserializeAws_restJson1SearchChannelsCommand
+ */
+export const de_SearchChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchChannelsCommandError(output, context);
+    return de_SearchChannelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels != null) {
-    contents.Channels = deserializeAws_restJson1ChannelSummaryList(data.Channels, context);
+    contents.Channels = de_ChannelSummaryList(data.Channels, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -4298,7 +4685,10 @@ export const deserializeAws_restJson1SearchChannelsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SearchChannelsCommandError = async (
+/**
+ * deserializeAws_restJson1SearchChannelsCommandError
+ */
+const de_SearchChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchChannelsCommandOutput> => {
@@ -4310,22 +4700,22 @@ const deserializeAws_restJson1SearchChannelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4337,12 +4727,15 @@ const deserializeAws_restJson1SearchChannelsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SendChannelMessageCommand = async (
+/**
+ * deserializeAws_restJson1SendChannelMessageCommand
+ */
+export const de_SendChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendChannelMessageCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendChannelMessageCommandError(output, context);
+    return de_SendChannelMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4355,7 +4748,7 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
     contents.MessageId = __expectString(data.MessageId);
   }
   if (data.Status != null) {
-    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
+    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
   }
   if (data.SubChannelId != null) {
     contents.SubChannelId = __expectString(data.SubChannelId);
@@ -4363,7 +4756,10 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SendChannelMessageCommandError = async (
+/**
+ * deserializeAws_restJson1SendChannelMessageCommandError
+ */
+const de_SendChannelMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendChannelMessageCommandOutput> => {
@@ -4375,25 +4771,25 @@ const deserializeAws_restJson1SendChannelMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4405,12 +4801,15 @@ const deserializeAws_restJson1SendChannelMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4419,7 +4818,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -4431,25 +4833,25 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4461,12 +4863,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4475,7 +4880,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -4487,22 +4895,22 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4514,12 +4922,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateChannelCommand
+ */
+export const de_UpdateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateChannelCommandError(output, context);
+    return de_UpdateChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4531,7 +4942,10 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateChannelCommandError
+ */
+const de_UpdateChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
@@ -4543,25 +4957,25 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4573,12 +4987,15 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateChannelFlowCommand = async (
+/**
+ * deserializeAws_restJson1UpdateChannelFlowCommand
+ */
+export const de_UpdateChannelFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateChannelFlowCommandError(output, context);
+    return de_UpdateChannelFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4590,7 +5007,10 @@ export const deserializeAws_restJson1UpdateChannelFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateChannelFlowCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateChannelFlowCommandError
+ */
+const de_UpdateChannelFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelFlowCommandOutput> => {
@@ -4602,25 +5022,25 @@ const deserializeAws_restJson1UpdateChannelFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4632,12 +5052,15 @@ const deserializeAws_restJson1UpdateChannelFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
+/**
+ * deserializeAws_restJson1UpdateChannelMessageCommand
+ */
+export const de_UpdateChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateChannelMessageCommandError(output, context);
+    return de_UpdateChannelMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4650,7 +5073,7 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
     contents.MessageId = __expectString(data.MessageId);
   }
   if (data.Status != null) {
-    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
+    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
   }
   if (data.SubChannelId != null) {
     contents.SubChannelId = __expectString(data.SubChannelId);
@@ -4658,7 +5081,10 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateChannelMessageCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateChannelMessageCommandError
+ */
+const de_UpdateChannelMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelMessageCommandOutput> => {
@@ -4670,25 +5096,25 @@ const deserializeAws_restJson1UpdateChannelMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4700,12 +5126,15 @@ const deserializeAws_restJson1UpdateChannelMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateChannelReadMarkerCommand = async (
+/**
+ * deserializeAws_restJson1UpdateChannelReadMarkerCommand
+ */
+export const de_UpdateChannelReadMarkerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelReadMarkerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateChannelReadMarkerCommandError(output, context);
+    return de_UpdateChannelReadMarkerCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4720,7 +5149,10 @@ export const deserializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateChannelReadMarkerCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateChannelReadMarkerCommandError
+ */
+const de_UpdateChannelReadMarkerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelReadMarkerCommandOutput> => {
@@ -4732,25 +5164,25 @@ const deserializeAws_restJson1UpdateChannelReadMarkerCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4763,10 +5195,10 @@ const deserializeAws_restJson1UpdateChannelReadMarkerCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -4782,10 +5214,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -4801,10 +5233,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -4820,10 +5252,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -4839,7 +5271,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceLimitExceededExceptionRes
+ */
+const de_ResourceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
@@ -4858,7 +5293,10 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceFailureExceptionRes
+ */
+const de_ServiceFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
@@ -4877,7 +5315,10 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -4896,7 +5337,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ThrottledClientExceptionRes
+ */
+const de_ThrottledClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottledClientException> => {
@@ -4915,7 +5359,10 @@ const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedClientExceptionRes
+ */
+const de_UnauthorizedClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
@@ -4934,7 +5381,10 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ChannelMemberArns = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ChannelMemberArns
+ */
+const se_ChannelMemberArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4942,34 +5392,40 @@ const serializeAws_restJson1ChannelMemberArns = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1ChannelMembershipPreferences = (
-  input: ChannelMembershipPreferences,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ChannelMembershipPreferences
+ */
+const se_ChannelMembershipPreferences = (input: ChannelMembershipPreferences, context: __SerdeContext): any => {
   return {
     ...(input.PushNotifications != null && {
-      PushNotifications: serializeAws_restJson1PushNotificationPreferences(input.PushNotifications, context),
+      PushNotifications: se_PushNotificationPreferences(input.PushNotifications, context),
     }),
   };
 };
 
-const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ChannelMessageCallback
+ */
+const se_ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
   return {
     ...(input.Content != null && { Content: input.Content }),
     ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.MessageAttributes != null && {
-      MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
+      MessageAttributes: se_MessageAttributeMap(input.MessageAttributes, context),
     }),
     ...(input.MessageId != null && { MessageId: input.MessageId }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.PushNotification != null && {
-      PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
+      PushNotification: se_PushNotificationConfiguration(input.PushNotification, context),
     }),
     ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
   };
 };
 
-const serializeAws_restJson1ChannelModeratorArns = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ChannelModeratorArns
+ */
+const se_ChannelModeratorArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4977,10 +5433,10 @@ const serializeAws_restJson1ChannelModeratorArns = (input: string[], context: __
     });
 };
 
-const serializeAws_restJson1ElasticChannelConfiguration = (
-  input: ElasticChannelConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ElasticChannelConfiguration
+ */
+const se_ElasticChannelConfiguration = (input: ElasticChannelConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.MaximumSubChannels != null && { MaximumSubChannels: input.MaximumSubChannels }),
     ...(input.MinimumMembershipPercentage != null && {
@@ -4992,21 +5448,30 @@ const serializeAws_restJson1ElasticChannelConfiguration = (
   };
 };
 
-const serializeAws_restJson1ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ExpirationSettings
+ */
+const se_ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
   return {
     ...(input.ExpirationCriterion != null && { ExpirationCriterion: input.ExpirationCriterion }),
     ...(input.ExpirationDays != null && { ExpirationDays: input.ExpirationDays }),
   };
 };
 
-const serializeAws_restJson1LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LambdaConfiguration
+ */
+const se_LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.InvocationType != null && { InvocationType: input.InvocationType }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MemberArns
+ */
+const se_MemberArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5014,20 +5479,23 @@ const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1MessageAttributeMap = (
-  input: Record<string, MessageAttributeValue>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MessageAttributeMap
+ */
+const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1MessageAttributeValue(value, context);
+    acc[key] = se_MessageAttributeValue(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1MessageAttributeStringValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MessageAttributeStringValues
+ */
+const se_MessageAttributeStringValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5035,43 +5503,51 @@ const serializeAws_restJson1MessageAttributeStringValues = (input: string[], con
     });
 };
 
-const serializeAws_restJson1MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MessageAttributeValue
+ */
+const se_MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.StringValues != null && {
-      StringValues: serializeAws_restJson1MessageAttributeStringValues(input.StringValues, context),
-    }),
+    ...(input.StringValues != null && { StringValues: se_MessageAttributeStringValues(input.StringValues, context) }),
   };
 };
 
-const serializeAws_restJson1Processor = (input: Processor, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Processor
+ */
+const se_Processor = (input: Processor, context: __SerdeContext): any => {
   return {
-    ...(input.Configuration != null && {
-      Configuration: serializeAws_restJson1ProcessorConfiguration(input.Configuration, context),
-    }),
+    ...(input.Configuration != null && { Configuration: se_ProcessorConfiguration(input.Configuration, context) }),
     ...(input.ExecutionOrder != null && { ExecutionOrder: input.ExecutionOrder }),
     ...(input.FallbackAction != null && { FallbackAction: input.FallbackAction }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_restJson1ProcessorConfiguration = (input: ProcessorConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ProcessorConfiguration
+ */
+const se_ProcessorConfiguration = (input: ProcessorConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Lambda != null && { Lambda: serializeAws_restJson1LambdaConfiguration(input.Lambda, context) }),
+    ...(input.Lambda != null && { Lambda: se_LambdaConfiguration(input.Lambda, context) }),
   };
 };
 
-const serializeAws_restJson1ProcessorList = (input: Processor[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ProcessorList
+ */
+const se_ProcessorList = (input: Processor[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Processor(entry, context);
+      return se_Processor(entry, context);
     });
 };
 
-const serializeAws_restJson1PushNotificationConfiguration = (
-  input: PushNotificationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1PushNotificationConfiguration
+ */
+const se_PushNotificationConfiguration = (input: PushNotificationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Body != null && { Body: input.Body }),
     ...(input.Title != null && { Title: input.Title }),
@@ -5079,33 +5555,42 @@ const serializeAws_restJson1PushNotificationConfiguration = (
   };
 };
 
-const serializeAws_restJson1PushNotificationPreferences = (
-  input: PushNotificationPreferences,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1PushNotificationPreferences
+ */
+const se_PushNotificationPreferences = (input: PushNotificationPreferences, context: __SerdeContext): any => {
   return {
     ...(input.AllowNotifications != null && { AllowNotifications: input.AllowNotifications }),
     ...(input.FilterRule != null && { FilterRule: input.FilterRule }),
   };
 };
 
-const serializeAws_restJson1SearchField = (input: SearchField, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SearchField
+ */
+const se_SearchField = (input: SearchField, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Operator != null && { Operator: input.Operator }),
-    ...(input.Values != null && { Values: serializeAws_restJson1SearchFieldValues(input.Values, context) }),
+    ...(input.Values != null && { Values: se_SearchFieldValues(input.Values, context) }),
   };
 };
 
-const serializeAws_restJson1SearchFields = (input: SearchField[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SearchFields
+ */
+const se_SearchFields = (input: SearchField[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SearchField(entry, context);
+      return se_SearchField(entry, context);
     });
 };
 
-const serializeAws_restJson1SearchFieldValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SearchFieldValues
+ */
+const se_SearchFieldValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5113,32 +5598,41 @@ const serializeAws_restJson1SearchFieldValues = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StreamingConfiguration
+ */
+const se_StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.DataType != null && { DataType: input.DataType }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_restJson1StreamingConfigurationList = (
-  input: StreamingConfiguration[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StreamingConfigurationList
+ */
+const se_StreamingConfigurationList = (input: StreamingConfiguration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1StreamingConfiguration(entry, context);
+      return se_StreamingConfiguration(entry, context);
     });
 };
 
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5146,15 +5640,21 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
+/**
+ * deserializeAws_restJson1AppInstanceUserMembershipSummary
+ */
+const de_AppInstanceUserMembershipSummary = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserMembershipSummary => {
@@ -5168,20 +5668,23 @@ const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1BatchChannelMemberships = (
-  output: any,
-  context: __SerdeContext
-): BatchChannelMemberships => {
+/**
+ * deserializeAws_restJson1BatchChannelMemberships
+ */
+const de_BatchChannelMemberships = (output: any, context: __SerdeContext): BatchChannelMemberships => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    InvitedBy: output.InvitedBy != null ? deserializeAws_restJson1Identity(output.InvitedBy, context) : undefined,
-    Members: output.Members != null ? deserializeAws_restJson1Members(output.Members, context) : undefined,
+    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
+    Members: output.Members != null ? de_Members(output.Members, context) : undefined,
     SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1BatchCreateChannelMembershipError = (
+/**
+ * deserializeAws_restJson1BatchCreateChannelMembershipError
+ */
+const de_BatchCreateChannelMembershipError = (
   output: any,
   context: __SerdeContext
 ): BatchCreateChannelMembershipError => {
@@ -5192,7 +5695,10 @@ const deserializeAws_restJson1BatchCreateChannelMembershipError = (
   } as any;
 };
 
-const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
+/**
+ * deserializeAws_restJson1BatchCreateChannelMembershipErrors
+ */
+const de_BatchCreateChannelMembershipErrors = (
   output: any,
   context: __SerdeContext
 ): BatchCreateChannelMembershipError[] => {
@@ -5202,28 +5708,29 @@ const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchCreateChannelMembershipError(entry, context);
+      return de_BatchCreateChannelMembershipError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
+/**
+ * deserializeAws_restJson1Channel
+ */
+const de_Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
-    CreatedBy: output.CreatedBy != null ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
+    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     ElasticChannelConfiguration:
       output.ElasticChannelConfiguration != null
-        ? deserializeAws_restJson1ElasticChannelConfiguration(output.ElasticChannelConfiguration, context)
+        ? de_ElasticChannelConfiguration(output.ElasticChannelConfiguration, context)
         : undefined,
     ExpirationSettings:
-      output.ExpirationSettings != null
-        ? deserializeAws_restJson1ExpirationSettings(output.ExpirationSettings, context)
-        : undefined,
+      output.ExpirationSettings != null ? de_ExpirationSettings(output.ExpirationSettings, context) : undefined,
     LastMessageTimestamp:
       output.LastMessageTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
@@ -5239,7 +5746,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_restJson1ChannelAssociatedWithFlowSummary = (
+/**
+ * deserializeAws_restJson1ChannelAssociatedWithFlowSummary
+ */
+const de_ChannelAssociatedWithFlowSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelAssociatedWithFlowSummary => {
@@ -5252,7 +5762,10 @@ const deserializeAws_restJson1ChannelAssociatedWithFlowSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList = (
+/**
+ * deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList
+ */
+const de_ChannelAssociatedWithFlowSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelAssociatedWithFlowSummary[] => {
@@ -5262,42 +5775,54 @@ const deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelAssociatedWithFlowSummary(entry, context);
+      return de_ChannelAssociatedWithFlowSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
+/**
+ * deserializeAws_restJson1ChannelBan
+ */
+const de_ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
+    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Member: output.Member != null ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
+    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelBanSummary = (output: any, context: __SerdeContext): ChannelBanSummary => {
+/**
+ * deserializeAws_restJson1ChannelBanSummary
+ */
+const de_ChannelBanSummary = (output: any, context: __SerdeContext): ChannelBanSummary => {
   return {
-    Member: output.Member != null ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
+    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelBanSummaryList
+ */
+const de_ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelBanSummary(entry, context);
+      return de_ChannelBanSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelFlow = (output: any, context: __SerdeContext): ChannelFlow => {
+/**
+ * deserializeAws_restJson1ChannelFlow
+ */
+const de_ChannelFlow = (output: any, context: __SerdeContext): ChannelFlow => {
   return {
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
     CreatedTimestamp:
@@ -5309,67 +5834,77 @@ const deserializeAws_restJson1ChannelFlow = (output: any, context: __SerdeContex
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
-    Processors:
-      output.Processors != null ? deserializeAws_restJson1ProcessorList(output.Processors, context) : undefined,
+    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelFlowSummary = (output: any, context: __SerdeContext): ChannelFlowSummary => {
+/**
+ * deserializeAws_restJson1ChannelFlowSummary
+ */
+const de_ChannelFlowSummary = (output: any, context: __SerdeContext): ChannelFlowSummary => {
   return {
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
     Name: __expectString(output.Name),
-    Processors:
-      output.Processors != null ? deserializeAws_restJson1ProcessorList(output.Processors, context) : undefined,
+    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelFlowSummaryList = (output: any, context: __SerdeContext): ChannelFlowSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelFlowSummaryList
+ */
+const de_ChannelFlowSummaryList = (output: any, context: __SerdeContext): ChannelFlowSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelFlowSummary(entry, context);
+      return de_ChannelFlowSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
+/**
+ * deserializeAws_restJson1ChannelMembership
+ */
+const de_ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    InvitedBy: output.InvitedBy != null ? deserializeAws_restJson1Identity(output.InvitedBy, context) : undefined,
+    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
-    Member: output.Member != null ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
+    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
     SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary = (
+/**
+ * deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary
+ */
+const de_ChannelMembershipForAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary => {
   return {
     AppInstanceUserMembershipSummary:
       output.AppInstanceUserMembershipSummary != null
-        ? deserializeAws_restJson1AppInstanceUserMembershipSummary(output.AppInstanceUserMembershipSummary, context)
+        ? de_AppInstanceUserMembershipSummary(output.AppInstanceUserMembershipSummary, context)
         : undefined,
-    ChannelSummary:
-      output.ChannelSummary != null
-        ? deserializeAws_restJson1ChannelSummary(output.ChannelSummary, context)
-        : undefined,
+    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList = (
+/**
+ * deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList
+ */
+const de_ChannelMembershipForAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary[] => {
@@ -5379,48 +5914,49 @@ const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(entry, context);
+      return de_ChannelMembershipForAppInstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelMembershipPreferences = (
-  output: any,
-  context: __SerdeContext
-): ChannelMembershipPreferences => {
+/**
+ * deserializeAws_restJson1ChannelMembershipPreferences
+ */
+const de_ChannelMembershipPreferences = (output: any, context: __SerdeContext): ChannelMembershipPreferences => {
   return {
     PushNotifications:
-      output.PushNotifications != null
-        ? deserializeAws_restJson1PushNotificationPreferences(output.PushNotifications, context)
-        : undefined,
+      output.PushNotifications != null ? de_PushNotificationPreferences(output.PushNotifications, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMembershipSummary = (
-  output: any,
-  context: __SerdeContext
-): ChannelMembershipSummary => {
+/**
+ * deserializeAws_restJson1ChannelMembershipSummary
+ */
+const de_ChannelMembershipSummary = (output: any, context: __SerdeContext): ChannelMembershipSummary => {
   return {
-    Member: output.Member != null ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
+    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMembershipSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ChannelMembershipSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelMembershipSummaryList
+ */
+const de_ChannelMembershipSummaryList = (output: any, context: __SerdeContext): ChannelMembershipSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelMembershipSummary(entry, context);
+      return de_ChannelMembershipSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
+/**
+ * deserializeAws_restJson1ChannelMessage
+ */
+const de_ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
     Content: __expectString(output.Content),
@@ -5438,32 +5974,32 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageAttributes:
-      output.MessageAttributes != null
-        ? deserializeAws_restJson1MessageAttributeMap(output.MessageAttributes, context)
-        : undefined,
+      output.MessageAttributes != null ? de_MessageAttributeMap(output.MessageAttributes, context) : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
     Persistence: __expectString(output.Persistence),
     Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? deserializeAws_restJson1Identity(output.Sender, context) : undefined,
-    Status:
-      output.Status != null ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context) : undefined,
+    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
+    Status: output.Status != null ? de_ChannelMessageStatusStructure(output.Status, context) : undefined,
     SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMessageStatusStructure = (
-  output: any,
-  context: __SerdeContext
-): ChannelMessageStatusStructure => {
+/**
+ * deserializeAws_restJson1ChannelMessageStatusStructure
+ */
+const de_ChannelMessageStatusStructure = (output: any, context: __SerdeContext): ChannelMessageStatusStructure => {
   return {
     Detail: __expectString(output.Detail),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __SerdeContext): ChannelMessageSummary => {
+/**
+ * deserializeAws_restJson1ChannelMessageSummary
+ */
+const de_ChannelMessageSummary = (output: any, context: __SerdeContext): ChannelMessageSummary => {
   return {
     Content: __expectString(output.Content),
     ContentType: __expectString(output.ContentType),
@@ -5480,47 +6016,47 @@ const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __S
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageAttributes:
-      output.MessageAttributes != null
-        ? deserializeAws_restJson1MessageAttributeMap(output.MessageAttributes, context)
-        : undefined,
+      output.MessageAttributes != null ? de_MessageAttributeMap(output.MessageAttributes, context) : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
     Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? deserializeAws_restJson1Identity(output.Sender, context) : undefined,
-    Status:
-      output.Status != null ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context) : undefined,
+    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
+    Status: output.Status != null ? de_ChannelMessageStatusStructure(output.Status, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1ChannelMessageSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ChannelMessageSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelMessageSummaryList
+ */
+const de_ChannelMessageSummaryList = (output: any, context: __SerdeContext): ChannelMessageSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelMessageSummary(entry, context);
+      return de_ChannelMessageSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary = (
+/**
+ * deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary
+ */
+const de_ChannelModeratedByAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary => {
   return {
-    ChannelSummary:
-      output.ChannelSummary != null
-        ? deserializeAws_restJson1ChannelSummary(output.ChannelSummary, context)
-        : undefined,
+    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
+/**
+ * deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList
+ */
+const de_ChannelModeratedByAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary[] => {
@@ -5530,48 +6066,54 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(entry, context);
+      return de_ChannelModeratedByAppInstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
+/**
+ * deserializeAws_restJson1ChannelModerator
+ */
+const de_ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
+    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Moderator: output.Moderator != null ? deserializeAws_restJson1Identity(output.Moderator, context) : undefined,
+    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelModeratorSummary = (
-  output: any,
-  context: __SerdeContext
-): ChannelModeratorSummary => {
+/**
+ * deserializeAws_restJson1ChannelModeratorSummary
+ */
+const de_ChannelModeratorSummary = (output: any, context: __SerdeContext): ChannelModeratorSummary => {
   return {
-    Moderator: output.Moderator != null ? deserializeAws_restJson1Identity(output.Moderator, context) : undefined,
+    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelModeratorSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ChannelModeratorSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelModeratorSummaryList
+ */
+const de_ChannelModeratorSummaryList = (output: any, context: __SerdeContext): ChannelModeratorSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelModeratorSummary(entry, context);
+      return de_ChannelModeratorSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
+/**
+ * deserializeAws_restJson1ChannelSummary
+ */
+const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
     LastMessageTimestamp:
@@ -5585,22 +6127,25 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSummary[] => {
+/**
+ * deserializeAws_restJson1ChannelSummaryList
+ */
+const de_ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChannelSummary(entry, context);
+      return de_ChannelSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ElasticChannelConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ElasticChannelConfiguration => {
+/**
+ * deserializeAws_restJson1ElasticChannelConfiguration
+ */
+const de_ElasticChannelConfiguration = (output: any, context: __SerdeContext): ElasticChannelConfiguration => {
   return {
     MaximumSubChannels: __expectInt32(output.MaximumSubChannels),
     MinimumMembershipPercentage: __expectInt32(output.MinimumMembershipPercentage),
@@ -5608,53 +6153,68 @@ const deserializeAws_restJson1ElasticChannelConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
+/**
+ * deserializeAws_restJson1ExpirationSettings
+ */
+const de_ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
   return {
     ExpirationCriterion: __expectString(output.ExpirationCriterion),
     ExpirationDays: __expectInt32(output.ExpirationDays),
   } as any;
 };
 
-const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
+/**
+ * deserializeAws_restJson1Identity
+ */
+const de_Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     Arn: __expectString(output.Arn),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_restJson1LambdaConfiguration = (output: any, context: __SerdeContext): LambdaConfiguration => {
+/**
+ * deserializeAws_restJson1LambdaConfiguration
+ */
+const de_LambdaConfiguration = (output: any, context: __SerdeContext): LambdaConfiguration => {
   return {
     InvocationType: __expectString(output.InvocationType),
     ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
-const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): Identity[] => {
+/**
+ * deserializeAws_restJson1Members
+ */
+const de_Members = (output: any, context: __SerdeContext): Identity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Identity(entry, context);
+      return de_Identity(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1MessageAttributeMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, MessageAttributeValue> => {
+/**
+ * deserializeAws_restJson1MessageAttributeMap
+ */
+const de_MessageAttributeMap = (output: any, context: __SerdeContext): Record<string, MessageAttributeValue> => {
   return Object.entries(output).reduce((acc: Record<string, MessageAttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1MessageAttributeValue(value, context);
+    acc[key] = de_MessageAttributeValue(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1MessageAttributeStringValues = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1MessageAttributeStringValues
+ */
+const de_MessageAttributeStringValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5666,126 +6226,142 @@ const deserializeAws_restJson1MessageAttributeStringValues = (output: any, conte
   return retVal;
 };
 
-const deserializeAws_restJson1MessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
+/**
+ * deserializeAws_restJson1MessageAttributeValue
+ */
+const de_MessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
   return {
     StringValues:
-      output.StringValues != null
-        ? deserializeAws_restJson1MessageAttributeStringValues(output.StringValues, context)
-        : undefined,
+      output.StringValues != null ? de_MessageAttributeStringValues(output.StringValues, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MessagingSessionEndpoint = (
-  output: any,
-  context: __SerdeContext
-): MessagingSessionEndpoint => {
+/**
+ * deserializeAws_restJson1MessagingSessionEndpoint
+ */
+const de_MessagingSessionEndpoint = (output: any, context: __SerdeContext): MessagingSessionEndpoint => {
   return {
     Url: __expectString(output.Url),
   } as any;
 };
 
-const deserializeAws_restJson1Processor = (output: any, context: __SerdeContext): Processor => {
+/**
+ * deserializeAws_restJson1Processor
+ */
+const de_Processor = (output: any, context: __SerdeContext): Processor => {
   return {
-    Configuration:
-      output.Configuration != null
-        ? deserializeAws_restJson1ProcessorConfiguration(output.Configuration, context)
-        : undefined,
+    Configuration: output.Configuration != null ? de_ProcessorConfiguration(output.Configuration, context) : undefined,
     ExecutionOrder: __expectInt32(output.ExecutionOrder),
     FallbackAction: __expectString(output.FallbackAction),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_restJson1ProcessorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProcessorConfiguration => {
+/**
+ * deserializeAws_restJson1ProcessorConfiguration
+ */
+const de_ProcessorConfiguration = (output: any, context: __SerdeContext): ProcessorConfiguration => {
   return {
-    Lambda: output.Lambda != null ? deserializeAws_restJson1LambdaConfiguration(output.Lambda, context) : undefined,
+    Lambda: output.Lambda != null ? de_LambdaConfiguration(output.Lambda, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
+/**
+ * deserializeAws_restJson1ProcessorList
+ */
+const de_ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Processor(entry, context);
+      return de_Processor(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PushNotificationPreferences = (
-  output: any,
-  context: __SerdeContext
-): PushNotificationPreferences => {
+/**
+ * deserializeAws_restJson1PushNotificationPreferences
+ */
+const de_PushNotificationPreferences = (output: any, context: __SerdeContext): PushNotificationPreferences => {
   return {
     AllowNotifications: __expectString(output.AllowNotifications),
     FilterRule: __expectString(output.FilterRule),
   } as any;
 };
 
-const deserializeAws_restJson1StreamingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StreamingConfiguration => {
+/**
+ * deserializeAws_restJson1StreamingConfiguration
+ */
+const de_StreamingConfiguration = (output: any, context: __SerdeContext): StreamingConfiguration => {
   return {
     DataType: __expectString(output.DataType),
     ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
-const deserializeAws_restJson1StreamingConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): StreamingConfiguration[] => {
+/**
+ * deserializeAws_restJson1StreamingConfigurationList
+ */
+const de_StreamingConfigurationList = (output: any, context: __SerdeContext): StreamingConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StreamingConfiguration(entry, context);
+      return de_StreamingConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SubChannelSummary = (output: any, context: __SerdeContext): SubChannelSummary => {
+/**
+ * deserializeAws_restJson1SubChannelSummary
+ */
+const de_SubChannelSummary = (output: any, context: __SerdeContext): SubChannelSummary => {
   return {
     MembershipCount: __expectInt32(output.MembershipCount),
     SubChannelId: __expectString(output.SubChannelId),
   } as any;
 };
 
-const deserializeAws_restJson1SubChannelSummaryList = (output: any, context: __SerdeContext): SubChannelSummary[] => {
+/**
+ * deserializeAws_restJson1SubChannelSummaryList
+ */
+const de_SubChannelSummaryList = (output: any, context: __SerdeContext): SubChannelSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SubChannelSummary(entry, context);
+      return de_SubChannelSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_restJson1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_restJson1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };

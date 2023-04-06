@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { DeleteEnvironmentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEnvironmentCommand,
-  serializeAws_restJson1DeleteEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEnvironmentCommand(input, context);
+    return se_DeleteEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteEnvironmentCommand(output, context);
+    return de_DeleteEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

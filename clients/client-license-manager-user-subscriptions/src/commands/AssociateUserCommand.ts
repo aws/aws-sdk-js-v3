@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { AssociateUserRequest, AssociateUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateUserCommand,
-  serializeAws_restJson1AssociateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateUserCommand, se_AssociateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class AssociateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserCommand(input, context);
+    return se_AssociateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserCommandOutput> {
-    return deserializeAws_restJson1AssociateUserCommand(output, context);
+    return de_AssociateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

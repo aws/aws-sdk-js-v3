@@ -15,10 +15,7 @@ import {
 
 import { AssociateSubnetsRequest, AssociateSubnetsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0AssociateSubnetsCommand,
-  serializeAws_json1_0AssociateSubnetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_AssociateSubnetsCommand, se_AssociateSubnetsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class AssociateSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateSubnetsCommand(input, context);
+    return se_AssociateSubnetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetsCommandOutput> {
-    return deserializeAws_json1_0AssociateSubnetsCommand(output, context);
+    return de_AssociateSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

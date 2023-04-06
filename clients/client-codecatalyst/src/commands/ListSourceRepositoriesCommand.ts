@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { ListSourceRepositoriesRequest, ListSourceRepositoriesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSourceRepositoriesCommand,
-  serializeAws_restJson1ListSourceRepositoriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSourceRepositoriesCommand, se_ListSourceRepositoriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListSourceRepositoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSourceRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSourceRepositoriesCommand(input, context);
+    return se_ListSourceRepositoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceRepositoriesCommandOutput> {
-    return deserializeAws_restJson1ListSourceRepositoriesCommand(output, context);
+    return de_ListSourceRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

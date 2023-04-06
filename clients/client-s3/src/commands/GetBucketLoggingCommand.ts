@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketLoggingCommand,
-  serializeAws_restXmlGetBucketLoggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketLoggingCommand, se_GetBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -141,14 +138,14 @@ export class GetBucketLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLoggingCommand(input, context);
+    return se_GetBucketLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketLoggingCommandOutput> {
-    return deserializeAws_restXmlGetBucketLoggingCommand(output, context);
+    return de_GetBucketLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

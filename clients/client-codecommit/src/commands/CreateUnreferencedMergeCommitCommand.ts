@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateUnreferencedMergeCommitCommand,
-  serializeAws_json1_1CreateUnreferencedMergeCommitCommand,
+  de_CreateUnreferencedMergeCommitCommand,
+  se_CreateUnreferencedMergeCommitCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -280,7 +280,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUnreferencedMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUnreferencedMergeCommitCommand(input, context);
+    return se_CreateUnreferencedMergeCommitCommand(input, context);
   }
 
   /**
@@ -290,7 +290,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUnreferencedMergeCommitCommandOutput> {
-    return deserializeAws_json1_1CreateUnreferencedMergeCommitCommand(output, context);
+    return de_CreateUnreferencedMergeCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

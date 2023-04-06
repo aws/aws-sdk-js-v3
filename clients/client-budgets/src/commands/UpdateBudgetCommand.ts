@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { UpdateBudgetRequest, UpdateBudgetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBudgetCommand,
-  serializeAws_json1_1UpdateBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateBudgetCommand, se_UpdateBudgetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class UpdateBudgetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBudgetCommand(input, context);
+    return se_UpdateBudgetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBudgetCommandOutput> {
-    return deserializeAws_json1_1UpdateBudgetCommand(output, context);
+    return de_UpdateBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

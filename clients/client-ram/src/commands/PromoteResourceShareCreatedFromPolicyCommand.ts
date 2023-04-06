@@ -18,8 +18,8 @@ import {
   PromoteResourceShareCreatedFromPolicyResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
-  serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
+  de_PromoteResourceShareCreatedFromPolicyCommand,
+  se_PromoteResourceShareCreatedFromPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -158,7 +158,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(input, context);
+    return se_PromoteResourceShareCreatedFromPolicyCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(output, context);
+    return de_PromoteResourceShareCreatedFromPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

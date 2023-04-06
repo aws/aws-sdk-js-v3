@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubnetGroupCommand,
-  serializeAws_json1_1DeleteSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSubnetGroupCommand, se_DeleteSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
+    return se_DeleteSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
+    return de_DeleteSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

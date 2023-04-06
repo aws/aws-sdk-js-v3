@@ -18,8 +18,8 @@ import {
   DescribeModelExplainabilityJobDefinitionResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand,
-  serializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand,
+  de_DescribeModelExplainabilityJobDefinitionCommand,
+  se_DescribeModelExplainabilityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -138,7 +138,7 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command<
     input: DescribeModelExplainabilityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand(input, context);
+    return se_DescribeModelExplainabilityJobDefinitionCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand(output, context);
+    return de_DescribeModelExplainabilityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeregisterPackageVersionRequest, DeregisterPackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DeregisterPackageVersionCommand,
-  serializeAws_restJson1DeregisterPackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterPackageVersionCommand, se_DeregisterPackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeregisterPackageVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterPackageVersionCommand(input, context);
+    return se_DeregisterPackageVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterPackageVersionCommandOutput> {
-    return deserializeAws_restJson1DeregisterPackageVersionCommand(output, context);
+    return de_DeregisterPackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateExternalConnectionCommand,
-  serializeAws_restJson1DisassociateExternalConnectionCommand,
+  de_DisassociateExternalConnectionCommand,
+  se_DisassociateExternalConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -163,7 +163,7 @@ export class DisassociateExternalConnectionCommand extends $Command<
     input: DisassociateExternalConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateExternalConnectionCommand(input, context);
+    return se_DisassociateExternalConnectionCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DisassociateExternalConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateExternalConnectionCommandOutput> {
-    return deserializeAws_restJson1DisassociateExternalConnectionCommand(output, context);
+    return de_DisassociateExternalConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

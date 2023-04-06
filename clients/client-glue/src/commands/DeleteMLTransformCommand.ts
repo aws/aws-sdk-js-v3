@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteMLTransformCommand,
-  serializeAws_json1_1DeleteMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMLTransformCommand, se_DeleteMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteMLTransformCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMLTransformCommand(input, context);
+    return se_DeleteMLTransformCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLTransformCommandOutput> {
-    return deserializeAws_json1_1DeleteMLTransformCommand(output, context);
+    return de_DeleteMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

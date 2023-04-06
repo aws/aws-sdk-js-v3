@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListProjectPoliciesRequest, ListProjectPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProjectPoliciesCommand,
-  serializeAws_json1_1ListProjectPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListProjectPoliciesCommand, se_ListProjectPoliciesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -174,14 +171,14 @@ export class ListProjectPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProjectPoliciesCommand(input, context);
+    return se_ListProjectPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListProjectPoliciesCommand(output, context);
+    return de_ListProjectPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

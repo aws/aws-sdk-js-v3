@@ -15,10 +15,7 @@ import {
 
 import { UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1UpdateOrganizationalUnitCommand,
-  serializeAws_json1_1UpdateOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateOrganizationalUnitCommand, se_UpdateOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -282,14 +279,14 @@ export class UpdateOrganizationalUnitCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateOrganizationalUnitCommand(input, context);
+    return se_UpdateOrganizationalUnitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1UpdateOrganizationalUnitCommand(output, context);
+    return de_UpdateOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

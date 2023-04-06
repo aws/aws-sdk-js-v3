@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SearchQueuesRequest, SearchQueuesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchQueuesCommand,
-  serializeAws_restJson1SearchQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchQueuesCommand, se_SearchQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class SearchQueuesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchQueuesCommand(input, context);
+    return se_SearchQueuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQueuesCommandOutput> {
-    return deserializeAws_restJson1SearchQueuesCommand(output, context);
+    return de_SearchQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

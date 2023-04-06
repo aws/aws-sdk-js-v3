@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOrganizationsCommand,
-  serializeAws_json1_1ListOrganizationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListOrganizationsCommand, se_ListOrganizationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -124,14 +121,14 @@ export class ListOrganizationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOrganizationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationsCommand(input, context);
+    return se_ListOrganizationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrganizationsCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationsCommand(output, context);
+    return de_ListOrganizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

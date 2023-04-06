@@ -15,10 +15,7 @@ import {
 
 import { DescribeEventTrackerRequest, DescribeEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeEventTrackerCommand,
-  serializeAws_json1_1DescribeEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventTrackerCommand, se_DescribeEventTrackerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeEventTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventTrackerCommand(input, context);
+    return se_DescribeEventTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTrackerCommandOutput> {
-    return deserializeAws_json1_1DescribeEventTrackerCommand(output, context);
+    return de_DescribeEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

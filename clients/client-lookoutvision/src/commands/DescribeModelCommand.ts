@@ -15,10 +15,7 @@ import {
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeModelCommand,
-  serializeAws_restJson1DescribeModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeModelCommand(input, context);
+    return se_DescribeModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return deserializeAws_restJson1DescribeModelCommand(output, context);
+    return de_DescribeModelCommand(output, context);
   }
 
   // Start section: command_body_extra

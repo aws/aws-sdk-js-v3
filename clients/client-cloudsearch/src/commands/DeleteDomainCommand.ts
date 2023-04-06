@@ -15,7 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import { deserializeAws_queryDeleteDomainCommand, serializeAws_queryDeleteDomainCommand } from "../protocols/Aws_query";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -123,14 +123,14 @@ export class DeleteDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_queryDeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   CreateTransitGatewayPrefixListReferenceResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand,
+  de_CreateTransitGatewayPrefixListReferenceCommand,
+  se_CreateTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
     input: CreateTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_CreateTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_CreateTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

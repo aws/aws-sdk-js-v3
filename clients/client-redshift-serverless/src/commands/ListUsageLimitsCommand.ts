@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListUsageLimitsRequest, ListUsageLimitsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUsageLimitsCommand,
-  serializeAws_json1_1ListUsageLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUsageLimitsCommand, se_ListUsageLimitsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class ListUsageLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUsageLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsageLimitsCommand(input, context);
+    return se_ListUsageLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsageLimitsCommandOutput> {
-    return deserializeAws_json1_1ListUsageLimitsCommand(output, context);
+    return de_ListUsageLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

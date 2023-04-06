@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { DescribeComponentRequest, DescribeComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeComponentCommand,
-  serializeAws_restJson1DescribeComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeComponentCommand, se_DescribeComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeComponentCommand(input, context);
+    return se_DescribeComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComponentCommandOutput> {
-    return deserializeAws_restJson1DescribeComponentCommand(output, context);
+    return de_DescribeComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

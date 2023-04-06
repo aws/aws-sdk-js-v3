@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteActionRequest, DeleteActionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteActionCommand,
-  serializeAws_json1_1DeleteActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteActionCommand, se_DeleteActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,14 +118,14 @@ export class DeleteActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteActionCommand(input, context);
+    return se_DeleteActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActionCommandOutput> {
-    return deserializeAws_json1_1DeleteActionCommand(output, context);
+    return de_DeleteActionCommand(output, context);
   }
 
   // Start section: command_body_extra

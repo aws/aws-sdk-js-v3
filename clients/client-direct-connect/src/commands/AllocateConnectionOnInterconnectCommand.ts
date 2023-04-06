@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AllocateConnectionOnInterconnectRequest, Connection } from "../models/models_0";
 import {
-  deserializeAws_json1_1AllocateConnectionOnInterconnectCommand,
-  serializeAws_json1_1AllocateConnectionOnInterconnectCommand,
+  de_AllocateConnectionOnInterconnectCommand,
+  se_AllocateConnectionOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     input: AllocateConnectionOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateConnectionOnInterconnectCommand(input, context);
+    return se_AllocateConnectionOnInterconnectCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1AllocateConnectionOnInterconnectCommand(output, context);
+    return de_AllocateConnectionOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

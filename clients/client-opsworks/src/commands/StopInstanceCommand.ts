@@ -15,10 +15,7 @@ import {
 
 import { StopInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1StopInstanceCommand,
-  serializeAws_json1_1StopInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopInstanceCommand, se_StopInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class StopInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: StopInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInstanceCommand(input, context);
+    return se_StopInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstanceCommandOutput> {
-    return deserializeAws_json1_1StopInstanceCommand(output, context);
+    return de_StopInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

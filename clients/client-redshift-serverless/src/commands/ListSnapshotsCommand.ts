@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSnapshotsRequest, ListSnapshotsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSnapshotsCommand,
-  serializeAws_json1_1ListSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSnapshotsCommand, se_ListSnapshotsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -137,14 +134,14 @@ export class ListSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSnapshotsCommand(input, context);
+    return se_ListSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotsCommandOutput> {
-    return deserializeAws_json1_1ListSnapshotsCommand(output, context);
+    return de_ListSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

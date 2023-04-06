@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ClaimDeviceRequest, ClaimDeviceResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ClaimDeviceCommand,
-  serializeAws_restJson1ClaimDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ClaimDeviceCommand, se_ClaimDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ClaimDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: ClaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClaimDeviceCommand(input, context);
+    return se_ClaimDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDeviceCommandOutput> {
-    return deserializeAws_restJson1ClaimDeviceCommand(output, context);
+    return de_ClaimDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

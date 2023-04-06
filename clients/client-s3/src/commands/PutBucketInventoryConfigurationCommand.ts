@@ -18,8 +18,8 @@ import {
   PutBucketInventoryConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketInventoryConfigurationCommand,
-  serializeAws_restXmlPutBucketInventoryConfigurationCommand,
+  de_PutBucketInventoryConfigurationCommand,
+  se_PutBucketInventoryConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -272,7 +272,7 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     input: PutBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketInventoryConfigurationCommand(input, context);
+    return se_PutBucketInventoryConfigurationCommand(input, context);
   }
 
   /**
@@ -282,7 +282,7 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketInventoryConfigurationCommand(output, context);
+    return de_PutBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1ListV2LoggingLevelsCommand,
-  serializeAws_restJson1ListV2LoggingLevelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListV2LoggingLevelsCommand, se_ListV2LoggingLevelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListV2LoggingLevelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListV2LoggingLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListV2LoggingLevelsCommand(input, context);
+    return se_ListV2LoggingLevelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListV2LoggingLevelsCommandOutput> {
-    return deserializeAws_restJson1ListV2LoggingLevelsCommand(output, context);
+    return de_ListV2LoggingLevelsCommand(output, context);
   }
 
   // Start section: command_body_extra

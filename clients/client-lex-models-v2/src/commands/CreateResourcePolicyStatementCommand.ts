@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateResourcePolicyStatementRequest, CreateResourcePolicyStatementResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateResourcePolicyStatementCommand,
-  serializeAws_restJson1CreateResourcePolicyStatementCommand,
+  de_CreateResourcePolicyStatementCommand,
+  se_CreateResourcePolicyStatementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -172,7 +172,7 @@ export class CreateResourcePolicyStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourcePolicyStatementCommand(input, context);
+    return se_CreateResourcePolicyStatementCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class CreateResourcePolicyStatementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResourcePolicyStatementCommandOutput> {
-    return deserializeAws_restJson1CreateResourcePolicyStatementCommand(output, context);
+    return de_CreateResourcePolicyStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

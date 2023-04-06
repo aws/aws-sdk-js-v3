@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDRTLogBucketCommand,
-  serializeAws_json1_1AssociateDRTLogBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateDRTLogBucketCommand, se_AssociateDRTLogBucketCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -146,14 +143,14 @@ export class AssociateDRTLogBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDRTLogBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDRTLogBucketCommand(input, context);
+    return se_AssociateDRTLogBucketCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDRTLogBucketCommandOutput> {
-    return deserializeAws_json1_1AssociateDRTLogBucketCommand(output, context);
+    return de_AssociateDRTLogBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

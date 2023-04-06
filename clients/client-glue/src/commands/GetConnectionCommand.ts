@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetConnectionRequest, GetConnectionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetConnectionCommand,
-  serializeAws_json1_1GetConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConnectionCommand(input, context);
+    return se_GetConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
-    return deserializeAws_json1_1GetConnectionCommand(output, context);
+    return de_GetConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

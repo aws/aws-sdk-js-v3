@@ -15,10 +15,7 @@ import {
 
 import { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
 import { StartConfigurationSessionRequest, StartConfigurationSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartConfigurationSessionCommand,
-  serializeAws_restJson1StartConfigurationSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartConfigurationSessionCommand, se_StartConfigurationSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class StartConfigurationSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartConfigurationSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConfigurationSessionCommand(input, context);
+    return se_StartConfigurationSessionCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class StartConfigurationSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartConfigurationSessionCommandOutput> {
-    return deserializeAws_restJson1StartConfigurationSessionCommand(output, context);
+    return de_StartConfigurationSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

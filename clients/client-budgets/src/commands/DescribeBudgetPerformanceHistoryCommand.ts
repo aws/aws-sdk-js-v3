@@ -16,8 +16,8 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
-  serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
+  de_DescribeBudgetPerformanceHistoryCommand,
+  se_DescribeBudgetPerformanceHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     input: DescribeBudgetPerformanceHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(input, context);
+    return se_DescribeBudgetPerformanceHistoryCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(output, context);
+    return de_DescribeBudgetPerformanceHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

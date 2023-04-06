@@ -19,10 +19,7 @@ import {
   CreateBackupVaultInputFilterSensitiveLog,
   CreateBackupVaultOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackupVaultCommand,
-  serializeAws_restJson1CreateBackupVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBackupVaultCommand, se_CreateBackupVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class CreateBackupVaultCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBackupVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackupVaultCommand(input, context);
+    return se_CreateBackupVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupVaultCommandOutput> {
-    return deserializeAws_restJson1CreateBackupVaultCommand(output, context);
+    return de_CreateBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

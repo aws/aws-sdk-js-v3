@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
 import { PostToConnectionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostToConnectionCommand,
-  serializeAws_restJson1PostToConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostToConnectionCommand, se_PostToConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class PostToConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: PostToConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostToConnectionCommand(input, context);
+    return se_PostToConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostToConnectionCommandOutput> {
-    return deserializeAws_restJson1PostToConnectionCommand(output, context);
+    return de_PostToConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

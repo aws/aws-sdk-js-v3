@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartOnDemandAppReplicationRequest, StartOnDemandAppReplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartOnDemandAppReplicationCommand,
-  serializeAws_json1_1StartOnDemandAppReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartOnDemandAppReplicationCommand, se_StartOnDemandAppReplicationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -139,7 +136,7 @@ export class StartOnDemandAppReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartOnDemandAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandAppReplicationCommand(input, context);
+    return se_StartOnDemandAppReplicationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandAppReplicationCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandAppReplicationCommand(output, context);
+    return de_StartOnDemandAppReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

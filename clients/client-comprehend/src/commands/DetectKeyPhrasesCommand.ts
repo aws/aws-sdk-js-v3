@@ -20,10 +20,7 @@ import {
   DetectKeyPhrasesResponse,
   DetectKeyPhrasesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectKeyPhrasesCommand,
-  serializeAws_json1_1DetectKeyPhrasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectKeyPhrasesCommand, se_DetectKeyPhrasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DetectKeyPhrasesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectKeyPhrasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectKeyPhrasesCommand(input, context);
+    return se_DetectKeyPhrasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectKeyPhrasesCommandOutput> {
-    return deserializeAws_json1_1DetectKeyPhrasesCommand(output, context);
+    return de_DetectKeyPhrasesCommand(output, context);
   }
 
   // Start section: command_body_extra

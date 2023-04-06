@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateMLTransformRequest, UpdateMLTransformResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateMLTransformCommand,
-  serializeAws_json1_1UpdateMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMLTransformCommand, se_UpdateMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class UpdateMLTransformCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMLTransformCommand(input, context);
+    return se_UpdateMLTransformCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLTransformCommandOutput> {
-    return deserializeAws_json1_1UpdateMLTransformCommand(output, context);
+    return de_UpdateMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

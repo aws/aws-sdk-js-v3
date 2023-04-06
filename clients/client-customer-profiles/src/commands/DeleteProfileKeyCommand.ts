@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { DeleteProfileKeyRequest, DeleteProfileKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProfileKeyCommand,
-  serializeAws_restJson1DeleteProfileKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProfileKeyCommand, se_DeleteProfileKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteProfileKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProfileKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProfileKeyCommand(input, context);
+    return se_DeleteProfileKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteProfileKeyCommand(output, context);
+    return de_DeleteProfileKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

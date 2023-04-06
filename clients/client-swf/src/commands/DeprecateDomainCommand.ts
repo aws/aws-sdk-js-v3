@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeprecateDomainInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeprecateDomainCommand,
-  serializeAws_json1_0DeprecateDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeprecateDomainCommand, se_DeprecateDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -160,14 +157,14 @@ export class DeprecateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeprecateDomainCommand(input, context);
+    return se_DeprecateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateDomainCommandOutput> {
-    return deserializeAws_json1_0DeprecateDomainCommand(output, context);
+    return de_DeprecateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

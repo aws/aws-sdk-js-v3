@@ -15,8 +15,8 @@ import {
 
 import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
-  serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
+  de_ListActivatedRulesInRuleGroupCommand,
+  se_ListActivatedRulesInRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
@@ -178,7 +178,7 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ListActivatedRulesInRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
+    return se_ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
   /**
@@ -188,7 +188,7 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(output, context);
+    return de_ListActivatedRulesInRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

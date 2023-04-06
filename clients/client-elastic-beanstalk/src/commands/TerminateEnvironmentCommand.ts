@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/models_0";
-import {
-  deserializeAws_queryTerminateEnvironmentCommand,
-  serializeAws_queryTerminateEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { de_TerminateEnvironmentCommand, se_TerminateEnvironmentCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class TerminateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTerminateEnvironmentCommand(input, context);
+    return se_TerminateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateEnvironmentCommandOutput> {
-    return deserializeAws_queryTerminateEnvironmentCommand(output, context);
+    return de_TerminateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDBSnapshotAttributesMessage, DescribeDBSnapshotAttributesResult } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSnapshotAttributesCommand,
-  serializeAws_queryDescribeDBSnapshotAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBSnapshotAttributesCommand, se_DescribeDBSnapshotAttributesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -69,9 +66,9 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  *
- * @example To list DB snapshot attributes
+ * @example To describe the attribute names and values for a DB snapshot
  * ```javascript
- * // This example lists attributes for the specified DB snapshot.
+ * // The following example describes the attribute names and values for a DB snapshot.
  * const input = {
  *   "DBSnapshotIdentifier": "mydbsnapshot"
  * };
@@ -79,10 +76,21 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshotAttributesResult": {}
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "123456789012",
+ *           "210987654321"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
  * }
  * *\/
- * // example id: describe-db-snapshot-attributes-1d4fb750-34f6-4e43-8b3d-b2751d796a95
+ * // example id: to-describe-the-attribute-names-and-values-for-a-db-snapshot-1680280194370
  * ```
  *
  */
@@ -149,7 +157,7 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBSnapshotAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSnapshotAttributesCommand(input, context);
+    return se_DescribeDBSnapshotAttributesCommand(input, context);
   }
 
   /**
@@ -159,7 +167,7 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBSnapshotAttributesCommand(output, context);
+    return de_DescribeDBSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

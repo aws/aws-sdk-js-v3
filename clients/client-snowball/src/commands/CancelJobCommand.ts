@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelJobRequest, CancelJobResult } from "../models/models_0";
-import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCommand } from "../protocols/Aws_json1_1";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -141,14 +141,14 @@ export class CancelJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_json1_1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

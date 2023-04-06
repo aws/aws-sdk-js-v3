@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListCustomEntityTypesRequest, ListCustomEntityTypesResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListCustomEntityTypesCommand,
-  serializeAws_json1_1ListCustomEntityTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCustomEntityTypesCommand, se_ListCustomEntityTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListCustomEntityTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomEntityTypesCommand(input, context);
+    return se_ListCustomEntityTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomEntityTypesCommandOutput> {
-    return deserializeAws_json1_1ListCustomEntityTypesCommand(output, context);
+    return de_ListCustomEntityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

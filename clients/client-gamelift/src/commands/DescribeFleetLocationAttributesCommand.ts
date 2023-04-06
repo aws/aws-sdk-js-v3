@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetLocationAttributesInput, DescribeFleetLocationAttributesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFleetLocationAttributesCommand,
-  serializeAws_json1_1DescribeFleetLocationAttributesCommand,
+  de_DescribeFleetLocationAttributesCommand,
+  se_DescribeFleetLocationAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -172,7 +172,7 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     input: DescribeFleetLocationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetLocationAttributesCommand(input, context);
+    return se_DescribeFleetLocationAttributesCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetLocationAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetLocationAttributesCommand(output, context);
+    return de_DescribeFleetLocationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

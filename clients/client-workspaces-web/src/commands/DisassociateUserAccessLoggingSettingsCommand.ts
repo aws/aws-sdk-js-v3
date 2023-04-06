@@ -18,8 +18,8 @@ import {
   DisassociateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand,
+  de_DisassociateUserAccessLoggingSettingsCommand,
+  se_DisassociateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -144,7 +144,7 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     input: DisassociateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand(input, context);
+    return se_DisassociateUserAccessLoggingSettingsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand(output, context);
+    return de_DisassociateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

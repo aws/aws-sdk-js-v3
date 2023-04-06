@@ -15,8 +15,8 @@ import {
 
 import { PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetVdmOptionsCommand,
+  de_PutConfigurationSetVdmOptionsCommand,
+  se_PutConfigurationSetVdmOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -140,7 +140,7 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutConfigurationSetVdmOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetVdmOptionsCommand(input, context);
+    return se_PutConfigurationSetVdmOptionsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetVdmOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand(output, context);
+    return de_PutConfigurationSetVdmOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

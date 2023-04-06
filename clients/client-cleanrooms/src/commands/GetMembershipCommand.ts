@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { GetMembershipInput, GetMembershipOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMembershipCommand,
-  serializeAws_restJson1GetMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMembershipCommand, se_GetMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMembershipCommand(input, context);
+    return se_GetMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembershipCommandOutput> {
-    return deserializeAws_restJson1GetMembershipCommand(output, context);
+    return de_GetMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

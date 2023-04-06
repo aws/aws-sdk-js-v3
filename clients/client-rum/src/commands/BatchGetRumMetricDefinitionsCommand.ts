@@ -15,8 +15,8 @@ import {
 
 import { BatchGetRumMetricDefinitionsRequest, BatchGetRumMetricDefinitionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand,
-  serializeAws_restJson1BatchGetRumMetricDefinitionsCommand,
+  de_BatchGetRumMetricDefinitionsCommand,
+  se_BatchGetRumMetricDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
@@ -138,7 +138,7 @@ export class BatchGetRumMetricDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetRumMetricDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetRumMetricDefinitionsCommand(input, context);
+    return se_BatchGetRumMetricDefinitionsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class BatchGetRumMetricDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetRumMetricDefinitionsCommandOutput> {
-    return deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand(output, context);
+    return de_BatchGetRumMetricDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

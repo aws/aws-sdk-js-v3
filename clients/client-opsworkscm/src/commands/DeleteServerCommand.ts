@@ -15,10 +15,7 @@ import {
 
 import { DeleteServerRequest, DeleteServerResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DeleteServerCommand,
-  serializeAws_json1_1DeleteServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteServerCommand, se_DeleteServerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServerCommand(input, context);
+    return se_DeleteServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCommandOutput> {
-    return deserializeAws_json1_1DeleteServerCommand(output, context);
+    return de_DeleteServerCommand(output, context);
   }
 
   // Start section: command_body_extra

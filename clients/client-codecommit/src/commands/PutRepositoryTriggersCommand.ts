@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRepositoryTriggersCommand,
-  serializeAws_json1_1PutRepositoryTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRepositoryTriggersCommand, se_PutRepositoryTriggersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -206,14 +203,14 @@ export class PutRepositoryTriggersCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRepositoryTriggersCommand(input, context);
+    return se_PutRepositoryTriggersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRepositoryTriggersCommandOutput> {
-    return deserializeAws_json1_1PutRepositoryTriggersCommand(output, context);
+    return de_PutRepositoryTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { PutContactInformationRequest, PutContactInformationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutContactInformationCommand,
-  serializeAws_restJson1PutContactInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutContactInformationCommand, se_PutContactInformationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class PutContactInformationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutContactInformationCommand(input, context);
+    return se_PutContactInformationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactInformationCommandOutput> {
-    return deserializeAws_restJson1PutContactInformationCommand(output, context);
+    return de_PutContactInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

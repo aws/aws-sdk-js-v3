@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAuthorizersCommand,
-  serializeAws_restJson1ListAuthorizersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAuthorizersCommand, se_ListAuthorizersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListAuthorizersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAuthorizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAuthorizersCommand(input, context);
+    return se_ListAuthorizersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuthorizersCommandOutput> {
-    return deserializeAws_restJson1ListAuthorizersCommand(output, context);
+    return de_ListAuthorizersCommand(output, context);
   }
 
   // Start section: command_body_extra

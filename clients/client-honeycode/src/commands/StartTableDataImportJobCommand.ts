@@ -19,10 +19,7 @@ import {
   StartTableDataImportJobRequestFilterSensitiveLog,
   StartTableDataImportJobResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartTableDataImportJobCommand,
-  serializeAws_restJson1StartTableDataImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartTableDataImportJobCommand, se_StartTableDataImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class StartTableDataImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTableDataImportJobCommand(input, context);
+    return se_StartTableDataImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTableDataImportJobCommandOutput> {
-    return deserializeAws_restJson1StartTableDataImportJobCommand(output, context);
+    return de_StartTableDataImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

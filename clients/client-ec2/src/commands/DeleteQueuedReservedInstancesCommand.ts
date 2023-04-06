@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteQueuedReservedInstancesCommand,
-  serializeAws_ec2DeleteQueuedReservedInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteQueuedReservedInstancesCommand, se_DeleteQueuedReservedInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueuedReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteQueuedReservedInstancesCommand(input, context);
+    return se_DeleteQueuedReservedInstancesCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQueuedReservedInstancesCommandOutput> {
-    return deserializeAws_ec2DeleteQueuedReservedInstancesCommand(output, context);
+    return de_DeleteQueuedReservedInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

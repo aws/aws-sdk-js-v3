@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIPSetCommand,
-  serializeAws_restJson1DeleteIPSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIPSetCommand, se_DeleteIPSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteIPSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIPSetCommand(input, context);
+    return se_DeleteIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIPSetCommandOutput> {
-    return deserializeAws_restJson1DeleteIPSetCommand(output, context);
+    return de_DeleteIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

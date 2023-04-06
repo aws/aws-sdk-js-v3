@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCodeCoveragesCommand,
-  serializeAws_json1_1DescribeCodeCoveragesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCodeCoveragesCommand, se_DescribeCodeCoveragesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DescribeCodeCoveragesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCodeCoveragesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCodeCoveragesCommand(input, context);
+    return se_DescribeCodeCoveragesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeCoveragesCommandOutput> {
-    return deserializeAws_json1_1DescribeCodeCoveragesCommand(output, context);
+    return de_DescribeCodeCoveragesCommand(output, context);
   }
 
   // Start section: command_body_extra

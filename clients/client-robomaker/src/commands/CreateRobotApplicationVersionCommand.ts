@@ -15,8 +15,8 @@ import {
 
 import { CreateRobotApplicationVersionRequest, CreateRobotApplicationVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateRobotApplicationVersionCommand,
-  serializeAws_restJson1CreateRobotApplicationVersionCommand,
+  de_CreateRobotApplicationVersionCommand,
+  se_CreateRobotApplicationVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -145,7 +145,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRobotApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRobotApplicationVersionCommand(input, context);
+    return se_CreateRobotApplicationVersionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRobotApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateRobotApplicationVersionCommand(output, context);
+    return de_CreateRobotApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

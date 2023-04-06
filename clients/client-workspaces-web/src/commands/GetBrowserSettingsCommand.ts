@@ -18,10 +18,7 @@ import {
   GetBrowserSettingsResponse,
   GetBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBrowserSettingsCommand,
-  serializeAws_restJson1GetBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBrowserSettingsCommand, se_GetBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -139,14 +136,14 @@ export class GetBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBrowserSettingsCommand(input, context);
+    return se_GetBrowserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1GetBrowserSettingsCommand(output, context);
+    return de_GetBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

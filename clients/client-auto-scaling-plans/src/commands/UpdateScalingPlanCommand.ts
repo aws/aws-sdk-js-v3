@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
 import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateScalingPlanCommand,
-  serializeAws_json1_1UpdateScalingPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateScalingPlanCommand, se_UpdateScalingPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -203,14 +200,14 @@ export class UpdateScalingPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateScalingPlanCommand(input, context);
+    return se_UpdateScalingPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScalingPlanCommandOutput> {
-    return deserializeAws_json1_1UpdateScalingPlanCommand(output, context);
+    return de_UpdateScalingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

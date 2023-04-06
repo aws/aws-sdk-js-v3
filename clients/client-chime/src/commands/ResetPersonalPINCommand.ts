@@ -19,10 +19,7 @@ import {
   ResetPersonalPINResponse,
   ResetPersonalPINResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ResetPersonalPINCommand,
-  serializeAws_restJson1ResetPersonalPINCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResetPersonalPINCommand, se_ResetPersonalPINCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ResetPersonalPINCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetPersonalPINCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResetPersonalPINCommand(input, context);
+    return se_ResetPersonalPINCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPersonalPINCommandOutput> {
-    return deserializeAws_restJson1ResetPersonalPINCommand(output, context);
+    return de_ResetPersonalPINCommand(output, context);
   }
 
   // Start section: command_body_extra

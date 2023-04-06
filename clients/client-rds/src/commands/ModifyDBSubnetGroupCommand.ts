@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBSubnetGroupCommand,
-  serializeAws_queryModifyDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBSubnetGroupCommand, se_ModifyDBSubnetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -77,24 +74,63 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  *  <p>The DB subnet is already in use in the Availability Zone.</p>
  *
  *
- * @example To change DB subnet group settings
+ * @example To modify a DB subnet group
  * ```javascript
- * // This example changes the specified setting for the specified DB subnet group.
+ * // The following example adds a subnet with the ID subnet-08e41f9e230222222 to the DB subnet group named mysubnetgroup. To keep the existing subnets in the subnet group, include their IDs as values in the --subnet-ids option. Make sure to have subnets with at least two different Availability Zones in the DB subnet group.
  * const input = {
- *   "DBSubnetGroupName": "mydbsubnetgroup",
+ *   "DBSubnetGroupDescription": "",
+ *   "DBSubnetGroupName": "mysubnetgroup",
  *   "SubnetIds": [
- *     "subnet-70e1975a",
- *     "subnet-747a5c49"
+ *     "subnet-0a1dc4e1a6f123456",
+ *     "subnet-070dd7ecb3aaaaaaa",
+ *     "subnet-00f5b198bc0abcdef",
+ *     "subnet-08e41f9e230222222"
  *   ]
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSubnetGroup": {}
+ *   "DBSubnetGroup": {
+ *     "DBSubnetGroupArn": "arn:aws:rds:us-west-2:123456789012:subgrp:mysubnetgroup",
+ *     "DBSubnetGroupDescription": "test DB subnet group",
+ *     "DBSubnetGroupName": "mysubnetgroup",
+ *     "SubnetGroupStatus": "Complete",
+ *     "Subnets": [
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2a"
+ *         },
+ *         "SubnetIdentifier": "subnet-08e41f9e230222222",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-070dd7ecb3aaaaaaa",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2d"
+ *         },
+ *         "SubnetIdentifier": "subnet-00f5b198bc0abcdef",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-0a1dc4e1a6f123456",
+ *         "SubnetStatus": "Active"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-0f08e7610a1b2c3d4"
+ *   }
  * }
  * *\/
- * // example id: modify-db-subnet-group-e34a97d9-8fe6-4239-a4ed-ad6e73a956b0
+ * // example id: to-modify-a-db-subnet-group-1680383300785
  * ```
  *
  */
@@ -161,14 +197,14 @@ export class ModifyDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSubnetGroupCommand(input, context);
+    return se_ModifyDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBSubnetGroupCommand(output, context);
+    return de_ModifyDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

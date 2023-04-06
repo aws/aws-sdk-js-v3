@@ -18,10 +18,7 @@ import {
   GetSecretValueResponse,
   GetSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSecretValueCommand,
-  serializeAws_json1_1GetSecretValueCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSecretValueCommand, se_GetSecretValueCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -195,14 +192,14 @@ export class GetSecretValueCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSecretValueCommand(input, context);
+    return se_GetSecretValueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecretValueCommandOutput> {
-    return deserializeAws_json1_1GetSecretValueCommand(output, context);
+    return de_GetSecretValueCommand(output, context);
   }
 
   // Start section: command_body_extra

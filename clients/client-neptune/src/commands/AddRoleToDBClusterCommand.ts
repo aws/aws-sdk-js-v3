@@ -15,10 +15,7 @@ import {
 
 import { AddRoleToDBClusterMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryAddRoleToDBClusterCommand,
-  serializeAws_queryAddRoleToDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToDBClusterCommand, se_AddRoleToDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class AddRoleToDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToDBClusterCommand(input, context);
+    return se_AddRoleToDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
-    return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
+    return de_AddRoleToDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

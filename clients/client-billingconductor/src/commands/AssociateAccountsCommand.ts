@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { AssociateAccountsInput, AssociateAccountsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateAccountsCommand,
-  serializeAws_restJson1AssociateAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateAccountsCommand, se_AssociateAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class AssociateAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateAccountsCommand(input, context);
+    return se_AssociateAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAccountsCommandOutput> {
-    return deserializeAws_restJson1AssociateAccountsCommand(output, context);
+    return de_AssociateAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

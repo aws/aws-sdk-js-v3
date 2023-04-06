@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteInstanceRequest, DeleteInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInstanceCommand,
-  serializeAws_json1_1DeleteInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteInstanceCommand, se_DeleteInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class DeleteInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceCommand(input, context);
+    return se_DeleteInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceCommand(output, context);
+    return de_DeleteInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

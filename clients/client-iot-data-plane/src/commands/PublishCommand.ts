@@ -15,10 +15,7 @@ import {
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { PublishRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishCommand,
-  serializeAws_restJson1PublishCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class PublishCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishCommand(input, context);
+    return se_PublishCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
-    return deserializeAws_restJson1PublishCommand(output, context);
+    return de_PublishCommand(output, context);
   }
 
   // Start section: command_body_extra

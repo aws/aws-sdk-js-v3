@@ -19,8 +19,8 @@ import {
   DisassociateFromAdministratorAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
-  serializeAws_restJson1DisassociateFromAdministratorAccountCommand,
+  de_DisassociateFromAdministratorAccountCommand,
+  se_DisassociateFromAdministratorAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +137,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     input: DisassociateFromAdministratorAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromAdministratorAccountCommand(input, context);
+    return se_DisassociateFromAdministratorAccountCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromAdministratorAccountCommand(output, context);
+    return de_DisassociateFromAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

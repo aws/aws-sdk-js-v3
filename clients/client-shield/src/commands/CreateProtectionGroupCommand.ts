@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateProtectionGroupRequest, CreateProtectionGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProtectionGroupCommand,
-  serializeAws_json1_1CreateProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateProtectionGroupCommand, se_CreateProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -151,14 +148,14 @@ export class CreateProtectionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProtectionGroupCommand(input, context);
+    return se_CreateProtectionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1CreateProtectionGroupCommand(output, context);
+    return de_CreateProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

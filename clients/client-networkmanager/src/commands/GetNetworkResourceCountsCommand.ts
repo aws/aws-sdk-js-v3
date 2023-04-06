@@ -15,10 +15,7 @@ import {
 
 import { GetNetworkResourceCountsRequest, GetNetworkResourceCountsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkResourceCountsCommand,
-  serializeAws_restJson1GetNetworkResourceCountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkResourceCountsCommand, se_GetNetworkResourceCountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetNetworkResourceCountsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNetworkResourceCountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourceCountsCommand(input, context);
+    return se_GetNetworkResourceCountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourceCountsCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourceCountsCommand(output, context);
+    return de_GetNetworkResourceCountsCommand(output, context);
   }
 
   // Start section: command_body_extra

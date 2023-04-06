@@ -15,10 +15,7 @@ import {
 
 import { CreateQualificationTypeRequest, CreateQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateQualificationTypeCommand,
-  serializeAws_json1_1CreateQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateQualificationTypeCommand, se_CreateQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class CreateQualificationTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateQualificationTypeCommand(input, context);
+    return se_CreateQualificationTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1CreateQualificationTypeCommand(output, context);
+    return de_CreateQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

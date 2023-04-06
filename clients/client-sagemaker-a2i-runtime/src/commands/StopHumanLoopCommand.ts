@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopHumanLoopRequest, StopHumanLoopResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopHumanLoopCommand,
-  serializeAws_restJson1StopHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopHumanLoopCommand, se_StopHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class StopHumanLoopCommand extends $Command<
    * @internal
    */
   private serialize(input: StopHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopHumanLoopCommand(input, context);
+    return se_StopHumanLoopCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopHumanLoopCommandOutput> {
-    return deserializeAws_restJson1StopHumanLoopCommand(output, context);
+    return de_StopHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

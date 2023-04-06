@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteImageRecipeCommand,
-  serializeAws_restJson1DeleteImageRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteImageRecipeCommand, se_DeleteImageRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteImageRecipeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteImageRecipeCommand(input, context);
+    return se_DeleteImageRecipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageRecipeCommandOutput> {
-    return deserializeAws_restJson1DeleteImageRecipeCommand(output, context);
+    return de_DeleteImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

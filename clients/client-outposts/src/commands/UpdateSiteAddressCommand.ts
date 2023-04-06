@@ -15,10 +15,7 @@ import {
 
 import { UpdateSiteAddressInput, UpdateSiteAddressOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1UpdateSiteAddressCommand,
-  serializeAws_restJson1UpdateSiteAddressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSiteAddressCommand, se_UpdateSiteAddressCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class UpdateSiteAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSiteAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteAddressCommand(input, context);
+    return se_UpdateSiteAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteAddressCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteAddressCommand(output, context);
+    return de_UpdateSiteAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

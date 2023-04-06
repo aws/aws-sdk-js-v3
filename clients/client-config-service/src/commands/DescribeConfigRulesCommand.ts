@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConfigRulesCommand,
-  serializeAws_json1_1DescribeConfigRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConfigRulesCommand, se_DescribeConfigRulesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeConfigRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConfigRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigRulesCommand(input, context);
+    return se_DescribeConfigRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigRulesCommand(output, context);
+    return de_DescribeConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterCommand,
-  serializeAws_queryDeleteDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterCommand(input, context);
+    return se_DeleteDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterCommand(output, context);
+    return de_DeleteDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

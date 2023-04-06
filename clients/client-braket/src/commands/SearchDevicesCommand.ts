@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { SearchDevicesRequest, SearchDevicesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchDevicesCommand,
-  serializeAws_restJson1SearchDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchDevicesCommand, se_SearchDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class SearchDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDevicesCommand(input, context);
+    return se_SearchDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDevicesCommandOutput> {
-    return deserializeAws_restJson1SearchDevicesCommand(output, context);
+    return de_SearchDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

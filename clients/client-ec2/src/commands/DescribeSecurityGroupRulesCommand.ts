@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSecurityGroupRulesRequest, DescribeSecurityGroupRulesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSecurityGroupRulesCommand,
-  serializeAws_ec2DescribeSecurityGroupRulesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSecurityGroupRulesCommand, se_DescribeSecurityGroupRulesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSecurityGroupRulesCommand(input, context);
+    return se_DescribeSecurityGroupRulesCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityGroupRulesCommandOutput> {
-    return deserializeAws_ec2DescribeSecurityGroupRulesCommand(output, context);
+    return de_DescribeSecurityGroupRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

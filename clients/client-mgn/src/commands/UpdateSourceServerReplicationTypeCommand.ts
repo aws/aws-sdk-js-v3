@@ -20,8 +20,8 @@ import {
   UpdateSourceServerReplicationTypeRequest,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
-  serializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
+  de_UpdateSourceServerReplicationTypeCommand,
+  se_UpdateSourceServerReplicationTypeCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     input: UpdateSourceServerReplicationTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSourceServerReplicationTypeCommand(input, context);
+    return se_UpdateSourceServerReplicationTypeCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSourceServerReplicationTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand(output, context);
+    return de_UpdateSourceServerReplicationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

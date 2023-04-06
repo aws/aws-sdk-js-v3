@@ -20,8 +20,8 @@ import {
 } from "../ChimeSDKMediaPipelinesClient";
 import { UpdateMediaInsightsPipelineStatusRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand,
-  serializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand,
+  de_UpdateMediaInsightsPipelineStatusCommand,
+  se_UpdateMediaInsightsPipelineStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class UpdateMediaInsightsPipelineStatusCommand extends $Command<
     input: UpdateMediaInsightsPipelineStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand(input, context);
+    return se_UpdateMediaInsightsPipelineStatusCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class UpdateMediaInsightsPipelineStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> {
-    return deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand(output, context);
+    return de_UpdateMediaInsightsPipelineStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

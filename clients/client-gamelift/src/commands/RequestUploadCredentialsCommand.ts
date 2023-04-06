@@ -19,10 +19,7 @@ import {
   RequestUploadCredentialsOutput,
   RequestUploadCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestUploadCredentialsCommand,
-  serializeAws_json1_1RequestUploadCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class RequestUploadCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: RequestUploadCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestUploadCredentialsCommand(input, context);
+    return se_RequestUploadCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestUploadCredentialsCommandOutput> {
-    return deserializeAws_json1_1RequestUploadCredentialsCommand(output, context);
+    return de_RequestUploadCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

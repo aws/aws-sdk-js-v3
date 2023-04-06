@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeletePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePolicyCommand,
-  serializeAws_restJson1DeletePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeletePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePolicyCommand(input, context);
+    return se_DeletePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
-    return deserializeAws_restJson1DeletePolicyCommand(output, context);
+    return de_DeletePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

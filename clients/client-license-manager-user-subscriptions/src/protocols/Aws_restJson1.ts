@@ -70,7 +70,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AssociateUserCommand = async (
+/**
+ * serializeAws_restJson1AssociateUserCommand
+ */
+export const se_AssociateUserCommand = async (
   input: AssociateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -82,9 +85,7 @@ export const serializeAws_restJson1AssociateUserCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
     ...(input.Username != null && { Username: input.Username }),
   });
@@ -99,7 +100,10 @@ export const serializeAws_restJson1AssociateUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeregisterIdentityProviderCommand = async (
+/**
+ * serializeAws_restJson1DeregisterIdentityProviderCommand
+ */
+export const se_DeregisterIdentityProviderCommand = async (
   input: DeregisterIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -112,9 +116,7 @@ export const serializeAws_restJson1DeregisterIdentityProviderCommand = async (
     "/identity-provider/DeregisterIdentityProvider";
   let body: any;
   body = JSON.stringify({
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.Product != null && { Product: input.Product }),
   });
   return new __HttpRequest({
@@ -128,7 +130,10 @@ export const serializeAws_restJson1DeregisterIdentityProviderCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateUserCommand = async (
+/**
+ * serializeAws_restJson1DisassociateUserCommand
+ */
+export const se_DisassociateUserCommand = async (
   input: DisassociateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -140,9 +145,7 @@ export const serializeAws_restJson1DisassociateUserCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
     ...(input.Username != null && { Username: input.Username }),
   });
@@ -157,7 +160,10 @@ export const serializeAws_restJson1DisassociateUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListIdentityProvidersCommand = async (
+/**
+ * serializeAws_restJson1ListIdentityProvidersCommand
+ */
+export const se_ListIdentityProvidersCommand = async (
   input: ListIdentityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -183,7 +189,10 @@ export const serializeAws_restJson1ListIdentityProvidersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListInstancesCommand = async (
+/**
+ * serializeAws_restJson1ListInstancesCommand
+ */
+export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -195,7 +204,7 @@ export const serializeAws_restJson1ListInstancesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/ListInstances";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
@@ -210,7 +219,10 @@ export const serializeAws_restJson1ListInstancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProductSubscriptionsCommand = async (
+/**
+ * serializeAws_restJson1ListProductSubscriptionsCommand
+ */
+export const se_ListProductSubscriptionsCommand = async (
   input: ListProductSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -222,10 +234,8 @@ export const serializeAws_restJson1ListProductSubscriptionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListProductSubscriptions";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.Product != null && { Product: input.Product }),
@@ -241,7 +251,10 @@ export const serializeAws_restJson1ListProductSubscriptionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListUserAssociationsCommand = async (
+/**
+ * serializeAws_restJson1ListUserAssociationsCommand
+ */
+export const se_ListUserAssociationsCommand = async (
   input: ListUserAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -253,10 +266,8 @@ export const serializeAws_restJson1ListUserAssociationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListUserAssociations";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -272,7 +283,10 @@ export const serializeAws_restJson1ListUserAssociationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RegisterIdentityProviderCommand = async (
+/**
+ * serializeAws_restJson1RegisterIdentityProviderCommand
+ */
+export const se_RegisterIdentityProviderCommand = async (
   input: RegisterIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -285,11 +299,9 @@ export const serializeAws_restJson1RegisterIdentityProviderCommand = async (
     "/identity-provider/RegisterIdentityProvider";
   let body: any;
   body = JSON.stringify({
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.Product != null && { Product: input.Product }),
-    ...(input.Settings != null && { Settings: serializeAws_restJson1Settings(input.Settings, context) }),
+    ...(input.Settings != null && { Settings: se_Settings(input.Settings, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -302,7 +314,10 @@ export const serializeAws_restJson1RegisterIdentityProviderCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartProductSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1StartProductSubscriptionCommand
+ */
+export const se_StartProductSubscriptionCommand = async (
   input: StartProductSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -315,9 +330,7 @@ export const serializeAws_restJson1StartProductSubscriptionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.Product != null && { Product: input.Product }),
     ...(input.Username != null && { Username: input.Username }),
   });
@@ -332,7 +345,10 @@ export const serializeAws_restJson1StartProductSubscriptionCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopProductSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1StopProductSubscriptionCommand
+ */
+export const se_StopProductSubscriptionCommand = async (
   input: StopProductSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,9 +361,7 @@ export const serializeAws_restJson1StopProductSubscriptionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.Product != null && { Product: input.Product }),
     ...(input.Username != null && { Username: input.Username }),
   });
@@ -362,7 +376,10 @@ export const serializeAws_restJson1StopProductSubscriptionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateIdentityProviderSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateIdentityProviderSettingsCommand
+ */
+export const se_UpdateIdentityProviderSettingsCommand = async (
   input: UpdateIdentityProviderSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -375,13 +392,9 @@ export const serializeAws_restJson1UpdateIdentityProviderSettingsCommand = async
     "/identity-provider/UpdateIdentityProviderSettings";
   let body: any;
   body = JSON.stringify({
-    ...(input.IdentityProvider != null && {
-      IdentityProvider: serializeAws_restJson1IdentityProvider(input.IdentityProvider, context),
-    }),
+    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
     ...(input.Product != null && { Product: input.Product }),
-    ...(input.UpdateSettings != null && {
-      UpdateSettings: serializeAws_restJson1UpdateSettings(input.UpdateSettings, context),
-    }),
+    ...(input.UpdateSettings != null && { UpdateSettings: se_UpdateSettings(input.UpdateSettings, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -394,24 +407,30 @@ export const serializeAws_restJson1UpdateIdentityProviderSettingsCommand = async
   });
 };
 
-export const deserializeAws_restJson1AssociateUserCommand = async (
+/**
+ * deserializeAws_restJson1AssociateUserCommand
+ */
+export const de_AssociateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateUserCommandError(output, context);
+    return de_AssociateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceUserSummary != null) {
-    contents.InstanceUserSummary = deserializeAws_restJson1InstanceUserSummary(data.InstanceUserSummary, context);
+    contents.InstanceUserSummary = de_InstanceUserSummary(data.InstanceUserSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AssociateUserCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateUserCommandError
+ */
+const de_AssociateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateUserCommandOutput> => {
@@ -423,25 +442,25 @@ const deserializeAws_restJson1AssociateUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -453,27 +472,30 @@ const deserializeAws_restJson1AssociateUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeregisterIdentityProviderCommand = async (
+/**
+ * deserializeAws_restJson1DeregisterIdentityProviderCommand
+ */
+export const de_DeregisterIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterIdentityProviderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeregisterIdentityProviderCommandError(output, context);
+    return de_DeregisterIdentityProviderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = deserializeAws_restJson1IdentityProviderSummary(
-      data.IdentityProviderSummary,
-      context
-    );
+    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeregisterIdentityProviderCommandError = async (
+/**
+ * deserializeAws_restJson1DeregisterIdentityProviderCommandError
+ */
+const de_DeregisterIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterIdentityProviderCommandOutput> => {
@@ -485,25 +507,25 @@ const deserializeAws_restJson1DeregisterIdentityProviderCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -515,24 +537,30 @@ const deserializeAws_restJson1DeregisterIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DisassociateUserCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateUserCommand
+ */
+export const de_DisassociateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateUserCommandError(output, context);
+    return de_DisassociateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceUserSummary != null) {
-    contents.InstanceUserSummary = deserializeAws_restJson1InstanceUserSummary(data.InstanceUserSummary, context);
+    contents.InstanceUserSummary = de_InstanceUserSummary(data.InstanceUserSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateUserCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateUserCommandError
+ */
+const de_DisassociateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateUserCommandOutput> => {
@@ -544,25 +572,25 @@ const deserializeAws_restJson1DisassociateUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -574,22 +602,22 @@ const deserializeAws_restJson1DisassociateUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListIdentityProvidersCommand = async (
+/**
+ * deserializeAws_restJson1ListIdentityProvidersCommand
+ */
+export const de_ListIdentityProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListIdentityProvidersCommandError(output, context);
+    return de_ListIdentityProvidersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityProviderSummaries != null) {
-    contents.IdentityProviderSummaries = deserializeAws_restJson1IdentityProviderSummaryList(
-      data.IdentityProviderSummaries,
-      context
-    );
+    contents.IdentityProviderSummaries = de_IdentityProviderSummaryList(data.IdentityProviderSummaries, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -597,7 +625,10 @@ export const deserializeAws_restJson1ListIdentityProvidersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListIdentityProvidersCommandError = async (
+/**
+ * deserializeAws_restJson1ListIdentityProvidersCommandError
+ */
+const de_ListIdentityProvidersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
@@ -609,25 +640,25 @@ const deserializeAws_restJson1ListIdentityProvidersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -639,19 +670,22 @@ const deserializeAws_restJson1ListIdentityProvidersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListInstancesCommand = async (
+/**
+ * deserializeAws_restJson1ListInstancesCommand
+ */
+export const de_ListInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListInstancesCommandError(output, context);
+    return de_ListInstancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceSummaries != null) {
-    contents.InstanceSummaries = deserializeAws_restJson1InstanceSummaryList(data.InstanceSummaries, context);
+    contents.InstanceSummaries = de_InstanceSummaryList(data.InstanceSummaries, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -659,7 +693,10 @@ export const deserializeAws_restJson1ListInstancesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListInstancesCommandError = async (
+/**
+ * deserializeAws_restJson1ListInstancesCommandError
+ */
+const de_ListInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
@@ -671,25 +708,25 @@ const deserializeAws_restJson1ListInstancesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -701,12 +738,15 @@ const deserializeAws_restJson1ListInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListProductSubscriptionsCommand = async (
+/**
+ * deserializeAws_restJson1ListProductSubscriptionsCommand
+ */
+export const de_ListProductSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProductSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProductSubscriptionsCommandError(output, context);
+    return de_ListProductSubscriptionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -716,12 +756,15 @@ export const deserializeAws_restJson1ListProductSubscriptionsCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ProductUserSummaries != null) {
-    contents.ProductUserSummaries = deserializeAws_restJson1ProductUserSummaryList(data.ProductUserSummaries, context);
+    contents.ProductUserSummaries = de_ProductUserSummaryList(data.ProductUserSummaries, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListProductSubscriptionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListProductSubscriptionsCommandError
+ */
+const de_ListProductSubscriptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProductSubscriptionsCommandOutput> => {
@@ -733,25 +776,25 @@ const deserializeAws_restJson1ListProductSubscriptionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -763,22 +806,22 @@ const deserializeAws_restJson1ListProductSubscriptionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListUserAssociationsCommand = async (
+/**
+ * deserializeAws_restJson1ListUserAssociationsCommand
+ */
+export const de_ListUserAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListUserAssociationsCommandError(output, context);
+    return de_ListUserAssociationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceUserSummaries != null) {
-    contents.InstanceUserSummaries = deserializeAws_restJson1InstanceUserSummaryList(
-      data.InstanceUserSummaries,
-      context
-    );
+    contents.InstanceUserSummaries = de_InstanceUserSummaryList(data.InstanceUserSummaries, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -786,7 +829,10 @@ export const deserializeAws_restJson1ListUserAssociationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListUserAssociationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListUserAssociationsCommandError
+ */
+const de_ListUserAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserAssociationsCommandOutput> => {
@@ -798,25 +844,25 @@ const deserializeAws_restJson1ListUserAssociationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -828,27 +874,30 @@ const deserializeAws_restJson1ListUserAssociationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RegisterIdentityProviderCommand = async (
+/**
+ * deserializeAws_restJson1RegisterIdentityProviderCommand
+ */
+export const de_RegisterIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterIdentityProviderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RegisterIdentityProviderCommandError(output, context);
+    return de_RegisterIdentityProviderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = deserializeAws_restJson1IdentityProviderSummary(
-      data.IdentityProviderSummary,
-      context
-    );
+    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1RegisterIdentityProviderCommandError = async (
+/**
+ * deserializeAws_restJson1RegisterIdentityProviderCommandError
+ */
+const de_RegisterIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterIdentityProviderCommandOutput> => {
@@ -860,25 +909,25 @@ const deserializeAws_restJson1RegisterIdentityProviderCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -890,24 +939,30 @@ const deserializeAws_restJson1RegisterIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartProductSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1StartProductSubscriptionCommand
+ */
+export const de_StartProductSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartProductSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartProductSubscriptionCommandError(output, context);
+    return de_StartProductSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProductUserSummary != null) {
-    contents.ProductUserSummary = deserializeAws_restJson1ProductUserSummary(data.ProductUserSummary, context);
+    contents.ProductUserSummary = de_ProductUserSummary(data.ProductUserSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StartProductSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1StartProductSubscriptionCommandError
+ */
+const de_StartProductSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartProductSubscriptionCommandOutput> => {
@@ -919,25 +974,25 @@ const deserializeAws_restJson1StartProductSubscriptionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -949,24 +1004,30 @@ const deserializeAws_restJson1StartProductSubscriptionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StopProductSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1StopProductSubscriptionCommand
+ */
+export const de_StopProductSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopProductSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopProductSubscriptionCommandError(output, context);
+    return de_StopProductSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProductUserSummary != null) {
-    contents.ProductUserSummary = deserializeAws_restJson1ProductUserSummary(data.ProductUserSummary, context);
+    contents.ProductUserSummary = de_ProductUserSummary(data.ProductUserSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StopProductSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1StopProductSubscriptionCommandError
+ */
+const de_StopProductSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopProductSubscriptionCommandOutput> => {
@@ -978,25 +1039,25 @@ const deserializeAws_restJson1StopProductSubscriptionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanagerusersubscriptions#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1008,27 +1069,30 @@ const deserializeAws_restJson1StopProductSubscriptionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateIdentityProviderSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateIdentityProviderSettingsCommand
+ */
+export const de_UpdateIdentityProviderSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateIdentityProviderSettingsCommandError(output, context);
+    return de_UpdateIdentityProviderSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = deserializeAws_restJson1IdentityProviderSummary(
-      data.IdentityProviderSummary,
-      context
-    );
+    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateIdentityProviderSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateIdentityProviderSettingsCommandError
+ */
+const de_UpdateIdentityProviderSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderSettingsCommandOutput> => {
@@ -1040,16 +1104,16 @@ const deserializeAws_restJson1UpdateIdentityProviderSettingsCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.licensemanagerusersubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerusersubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1062,7 +1126,10 @@ const deserializeAws_restJson1UpdateIdentityProviderSettingsCommandError = async
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -1078,10 +1145,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1094,7 +1161,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1110,7 +1180,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1126,7 +1199,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1142,10 +1218,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1158,10 +1234,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1174,16 +1250,19 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ActiveDirectoryIdentityProvider = (
-  input: ActiveDirectoryIdentityProvider,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ActiveDirectoryIdentityProvider
+ */
+const se_ActiveDirectoryIdentityProvider = (input: ActiveDirectoryIdentityProvider, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Attribute != null && { Attribute: input.Attribute }),
     ...(input.Operation != null && { Operation: input.Operation }),
@@ -1191,31 +1270,43 @@ const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): a
   };
 };
 
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FilterList
+ */
+const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_restJson1IdentityProvider = (input: IdentityProvider, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IdentityProvider
+ */
+const se_IdentityProvider = (input: IdentityProvider, context: __SerdeContext): any => {
   return IdentityProvider.visit(input, {
     ActiveDirectoryIdentityProvider: (value) => ({
-      ActiveDirectoryIdentityProvider: serializeAws_restJson1ActiveDirectoryIdentityProvider(value, context),
+      ActiveDirectoryIdentityProvider: se_ActiveDirectoryIdentityProvider(value, context),
     }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1Settings = (input: Settings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Settings
+ */
+const se_Settings = (input: Settings, context: __SerdeContext): any => {
   return {
     ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
-    ...(input.Subnets != null && { Subnets: serializeAws_restJson1Subnets(input.Subnets, context) }),
+    ...(input.Subnets != null && { Subnets: se_Subnets(input.Subnets, context) }),
   };
 };
 
-const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Subnets
+ */
+const se_Subnets = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1223,27 +1314,33 @@ const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_restJson1UpdateSettings = (input: UpdateSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateSettings
+ */
+const se_UpdateSettings = (input: UpdateSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AddSubnets != null && { AddSubnets: serializeAws_restJson1Subnets(input.AddSubnets, context) }),
-    ...(input.RemoveSubnets != null && { RemoveSubnets: serializeAws_restJson1Subnets(input.RemoveSubnets, context) }),
+    ...(input.AddSubnets != null && { AddSubnets: se_Subnets(input.AddSubnets, context) }),
+    ...(input.RemoveSubnets != null && { RemoveSubnets: se_Subnets(input.RemoveSubnets, context) }),
     ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
   };
 };
 
-const deserializeAws_restJson1ActiveDirectoryIdentityProvider = (
-  output: any,
-  context: __SerdeContext
-): ActiveDirectoryIdentityProvider => {
+/**
+ * deserializeAws_restJson1ActiveDirectoryIdentityProvider
+ */
+const de_ActiveDirectoryIdentityProvider = (output: any, context: __SerdeContext): ActiveDirectoryIdentityProvider => {
   return {
     DirectoryId: __expectString(output.DirectoryId),
   } as any;
 };
 
-const deserializeAws_restJson1IdentityProvider = (output: any, context: __SerdeContext): IdentityProvider => {
+/**
+ * deserializeAws_restJson1IdentityProvider
+ */
+const de_IdentityProvider = (output: any, context: __SerdeContext): IdentityProvider => {
   if (output.ActiveDirectoryIdentityProvider != null) {
     return {
-      ActiveDirectoryIdentityProvider: deserializeAws_restJson1ActiveDirectoryIdentityProvider(
+      ActiveDirectoryIdentityProvider: de_ActiveDirectoryIdentityProvider(
         output.ActiveDirectoryIdentityProvider,
         context
       ),
@@ -1252,67 +1349,76 @@ const deserializeAws_restJson1IdentityProvider = (output: any, context: __SerdeC
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1IdentityProviderSummary = (
-  output: any,
-  context: __SerdeContext
-): IdentityProviderSummary => {
+/**
+ * deserializeAws_restJson1IdentityProviderSummary
+ */
+const de_IdentityProviderSummary = (output: any, context: __SerdeContext): IdentityProviderSummary => {
   return {
     FailureMessage: __expectString(output.FailureMessage),
     IdentityProvider:
       output.IdentityProvider != null
-        ? deserializeAws_restJson1IdentityProvider(__expectUnion(output.IdentityProvider), context)
+        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
         : undefined,
     Product: __expectString(output.Product),
-    Settings: output.Settings != null ? deserializeAws_restJson1Settings(output.Settings, context) : undefined,
+    Settings: output.Settings != null ? de_Settings(output.Settings, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_restJson1IdentityProviderSummaryList = (
-  output: any,
-  context: __SerdeContext
-): IdentityProviderSummary[] => {
+/**
+ * deserializeAws_restJson1IdentityProviderSummaryList
+ */
+const de_IdentityProviderSummaryList = (output: any, context: __SerdeContext): IdentityProviderSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1IdentityProviderSummary(entry, context);
+      return de_IdentityProviderSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
+/**
+ * deserializeAws_restJson1InstanceSummary
+ */
+const de_InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
   return {
     InstanceId: __expectString(output.InstanceId),
     LastStatusCheckDate: __expectString(output.LastStatusCheckDate),
-    Products: output.Products != null ? deserializeAws_restJson1StringList(output.Products, context) : undefined,
+    Products: output.Products != null ? de_StringList(output.Products, context) : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
 };
 
-const deserializeAws_restJson1InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
+/**
+ * deserializeAws_restJson1InstanceSummaryList
+ */
+const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InstanceSummary(entry, context);
+      return de_InstanceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceUserSummary = (output: any, context: __SerdeContext): InstanceUserSummary => {
+/**
+ * deserializeAws_restJson1InstanceUserSummary
+ */
+const de_InstanceUserSummary = (output: any, context: __SerdeContext): InstanceUserSummary => {
   return {
     AssociationDate: __expectString(output.AssociationDate),
     DisassociationDate: __expectString(output.DisassociationDate),
     Domain: __expectString(output.Domain),
     IdentityProvider:
       output.IdentityProvider != null
-        ? deserializeAws_restJson1IdentityProvider(__expectUnion(output.IdentityProvider), context)
+        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
         : undefined,
     InstanceId: __expectString(output.InstanceId),
     Status: __expectString(output.Status),
@@ -1321,27 +1427,30 @@ const deserializeAws_restJson1InstanceUserSummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1InstanceUserSummaryList = (
-  output: any,
-  context: __SerdeContext
-): InstanceUserSummary[] => {
+/**
+ * deserializeAws_restJson1InstanceUserSummaryList
+ */
+const de_InstanceUserSummaryList = (output: any, context: __SerdeContext): InstanceUserSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InstanceUserSummary(entry, context);
+      return de_InstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ProductUserSummary = (output: any, context: __SerdeContext): ProductUserSummary => {
+/**
+ * deserializeAws_restJson1ProductUserSummary
+ */
+const de_ProductUserSummary = (output: any, context: __SerdeContext): ProductUserSummary => {
   return {
     Domain: __expectString(output.Domain),
     IdentityProvider:
       output.IdentityProvider != null
-        ? deserializeAws_restJson1IdentityProvider(__expectUnion(output.IdentityProvider), context)
+        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
         : undefined,
     Product: __expectString(output.Product),
     Status: __expectString(output.Status),
@@ -1352,26 +1461,35 @@ const deserializeAws_restJson1ProductUserSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1ProductUserSummaryList = (output: any, context: __SerdeContext): ProductUserSummary[] => {
+/**
+ * deserializeAws_restJson1ProductUserSummaryList
+ */
+const de_ProductUserSummaryList = (output: any, context: __SerdeContext): ProductUserSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ProductUserSummary(entry, context);
+      return de_ProductUserSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext): Settings => {
+/**
+ * deserializeAws_restJson1Settings
+ */
+const de_Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     SecurityGroupId: __expectString(output.SecurityGroupId),
-    Subnets: output.Subnets != null ? deserializeAws_restJson1Subnets(output.Subnets, context) : undefined,
+    Subnets: output.Subnets != null ? de_Subnets(output.Subnets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1383,7 +1501,10 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1Subnets
+ */
+const de_Subnets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

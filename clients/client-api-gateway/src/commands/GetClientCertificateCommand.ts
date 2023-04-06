@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { ClientCertificate, GetClientCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClientCertificateCommand,
-  serializeAws_restJson1GetClientCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetClientCertificateCommand, se_GetClientCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetClientCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClientCertificateCommand(input, context);
+    return se_GetClientCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClientCertificateCommandOutput> {
-    return deserializeAws_restJson1GetClientCertificateCommand(output, context);
+    return de_GetClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

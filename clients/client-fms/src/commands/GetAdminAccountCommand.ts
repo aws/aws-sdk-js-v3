@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetAdminAccountRequest, GetAdminAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAdminAccountCommand,
-  serializeAws_json1_1GetAdminAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAdminAccountCommand, se_GetAdminAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetAdminAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAdminAccountCommand(input, context);
+    return se_GetAdminAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminAccountCommandOutput> {
-    return deserializeAws_json1_1GetAdminAccountCommand(output, context);
+    return de_GetAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

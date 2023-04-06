@@ -18,10 +18,7 @@ import {
   CreateTrustAnchorRequestFilterSensitiveLog,
   TrustAnchorDetailResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTrustAnchorCommand,
-  serializeAws_restJson1CreateTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTrustAnchorCommand, se_CreateTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -148,14 +145,14 @@ export class CreateTrustAnchorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTrustAnchorCommand(input, context);
+    return se_CreateTrustAnchorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1CreateTrustAnchorCommand(output, context);
+    return de_CreateTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

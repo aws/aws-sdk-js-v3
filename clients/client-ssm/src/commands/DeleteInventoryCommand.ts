@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteInventoryRequest, DeleteInventoryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInventoryCommand,
-  serializeAws_json1_1DeleteInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteInventoryCommand, se_DeleteInventoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -140,14 +137,14 @@ export class DeleteInventoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInventoryCommand(input, context);
+    return se_DeleteInventoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInventoryCommandOutput> {
-    return deserializeAws_json1_1DeleteInventoryCommand(output, context);
+    return de_DeleteInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

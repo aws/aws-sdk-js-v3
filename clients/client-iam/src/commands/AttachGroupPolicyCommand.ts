@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AttachGroupPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryAttachGroupPolicyCommand,
-  serializeAws_queryAttachGroupPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_AttachGroupPolicyCommand, se_AttachGroupPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class AttachGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachGroupPolicyCommand(input, context);
+    return se_AttachGroupPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachGroupPolicyCommandOutput> {
-    return deserializeAws_queryAttachGroupPolicyCommand(output, context);
+    return de_AttachGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

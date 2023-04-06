@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/models_0";
-import {
-  deserializeAws_queryListDeadLetterSourceQueuesCommand,
-  serializeAws_queryListDeadLetterSourceQueuesCommand,
-} from "../protocols/Aws_query";
+import { de_ListDeadLetterSourceQueuesCommand, se_ListDeadLetterSourceQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -135,7 +132,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeadLetterSourceQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDeadLetterSourceQueuesCommand(input, context);
+    return se_ListDeadLetterSourceQueuesCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> {
-    return deserializeAws_queryListDeadLetterSourceQueuesCommand(output, context);
+    return de_ListDeadLetterSourceQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListResourceDefinitionsRequest, ListResourceDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourceDefinitionsCommand,
-  serializeAws_restJson1ListResourceDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResourceDefinitionsCommand, se_ListResourceDefinitionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class ListResourceDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceDefinitionsCommand(input, context);
+    return se_ListResourceDefinitionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListResourceDefinitionsCommand(output, context);
+    return de_ListResourceDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

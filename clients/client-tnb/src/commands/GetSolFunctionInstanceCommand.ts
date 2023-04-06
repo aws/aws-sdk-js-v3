@@ -18,10 +18,7 @@ import {
   GetSolFunctionInstanceOutput,
   GetSolFunctionInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolFunctionInstanceCommand,
-  serializeAws_restJson1GetSolFunctionInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSolFunctionInstanceCommand, se_GetSolFunctionInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -140,14 +137,14 @@ export class GetSolFunctionInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSolFunctionInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolFunctionInstanceCommand(input, context);
+    return se_GetSolFunctionInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolFunctionInstanceCommandOutput> {
-    return deserializeAws_restJson1GetSolFunctionInstanceCommand(output, context);
+    return de_GetSolFunctionInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

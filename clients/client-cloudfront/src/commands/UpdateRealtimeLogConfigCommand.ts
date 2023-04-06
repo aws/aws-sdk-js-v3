@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateRealtimeLogConfigRequest, UpdateRealtimeLogConfigResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateRealtimeLogConfigCommand,
-  serializeAws_restXmlUpdateRealtimeLogConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateRealtimeLogConfigCommand, se_UpdateRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateRealtimeLogConfigCommand(input, context);
+    return se_UpdateRealtimeLogConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlUpdateRealtimeLogConfigCommand(output, context);
+    return de_UpdateRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

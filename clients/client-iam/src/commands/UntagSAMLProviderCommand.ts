@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagSAMLProviderRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUntagSAMLProviderCommand,
-  serializeAws_queryUntagSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { de_UntagSAMLProviderCommand, se_UntagSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UntagSAMLProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagSAMLProviderCommand(input, context);
+    return se_UntagSAMLProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagSAMLProviderCommandOutput> {
-    return deserializeAws_queryUntagSAMLProviderCommand(output, context);
+    return de_UntagSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

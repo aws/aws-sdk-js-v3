@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeletePredictorRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePredictorCommand,
-  serializeAws_json1_1DeletePredictorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePredictorCommand, se_DeletePredictorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeletePredictorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePredictorCommand(input, context);
+    return se_DeletePredictorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePredictorCommandOutput> {
-    return deserializeAws_json1_1DeletePredictorCommand(output, context);
+    return de_DeletePredictorCommand(output, context);
   }
 
   // Start section: command_body_extra

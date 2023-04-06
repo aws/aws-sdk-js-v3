@@ -18,10 +18,7 @@ import {
   DescribeMaintenanceWindowsResult,
   DescribeMaintenanceWindowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMaintenanceWindowsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMaintenanceWindowsCommand, se_DescribeMaintenanceWindowsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -136,7 +133,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMaintenanceWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsCommand(input, context);
+    return se_DescribeMaintenanceWindowsCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsCommand(output, context);
+    return de_DescribeMaintenanceWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

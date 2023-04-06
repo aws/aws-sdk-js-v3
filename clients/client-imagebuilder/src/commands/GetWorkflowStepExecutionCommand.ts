@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetWorkflowStepExecutionRequest, GetWorkflowStepExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowStepExecutionCommand,
-  serializeAws_restJson1GetWorkflowStepExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkflowStepExecutionCommand, se_GetWorkflowStepExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetWorkflowStepExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkflowStepExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowStepExecutionCommand(input, context);
+    return se_GetWorkflowStepExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowStepExecutionCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowStepExecutionCommand(output, context);
+    return de_GetWorkflowStepExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

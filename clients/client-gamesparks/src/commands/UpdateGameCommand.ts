@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { UpdateGameRequest, UpdateGameResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGameCommand,
-  serializeAws_restJson1UpdateGameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGameCommand, se_UpdateGameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class UpdateGameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGameCommand(input, context);
+    return se_UpdateGameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameCommandOutput> {
-    return deserializeAws_restJson1UpdateGameCommand(output, context);
+    return de_UpdateGameCommand(output, context);
   }
 
   // Start section: command_body_extra

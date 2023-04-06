@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DetachDiskRequest, DetachDiskResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetachDiskCommand,
-  serializeAws_json1_1DetachDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetachDiskCommand, se_DetachDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class DetachDiskCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachDiskCommand(input, context);
+    return se_DetachDiskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachDiskCommandOutput> {
-    return deserializeAws_json1_1DetachDiskCommand(output, context);
+    return de_DetachDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_queryRebootDBInstanceCommand,
-  serializeAws_queryRebootDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_RebootDBInstanceCommand, se_RebootDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class RebootDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBInstanceCommand(input, context);
+    return se_RebootDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
-    return deserializeAws_queryRebootDBInstanceCommand(output, context);
+    return de_RebootDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

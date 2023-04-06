@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryBatchApplyUpdateActionCommand,
-  serializeAws_queryBatchApplyUpdateActionCommand,
-} from "../protocols/Aws_query";
+import { de_BatchApplyUpdateActionCommand, se_BatchApplyUpdateActionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class BatchApplyUpdateActionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchApplyUpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchApplyUpdateActionCommand(input, context);
+    return se_BatchApplyUpdateActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchApplyUpdateActionCommandOutput> {
-    return deserializeAws_queryBatchApplyUpdateActionCommand(output, context);
+    return de_BatchApplyUpdateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

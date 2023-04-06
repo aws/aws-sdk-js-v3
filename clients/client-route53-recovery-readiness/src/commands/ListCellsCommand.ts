@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCellsRequest, ListCellsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCellsCommand,
-  serializeAws_restJson1ListCellsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCellsCommand, se_ListCellsCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -135,14 +132,14 @@ export class ListCellsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCellsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCellsCommand(input, context);
+    return se_ListCellsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCellsCommandOutput> {
-    return deserializeAws_restJson1ListCellsCommand(output, context);
+    return de_ListCellsCommand(output, context);
   }
 
   // Start section: command_body_extra

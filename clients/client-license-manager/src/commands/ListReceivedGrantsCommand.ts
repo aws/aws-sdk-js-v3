@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListReceivedGrantsRequest, ListReceivedGrantsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReceivedGrantsCommand,
-  serializeAws_json1_1ListReceivedGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListReceivedGrantsCommand, se_ListReceivedGrantsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ListReceivedGrantsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReceivedGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedGrantsCommand(input, context);
+    return se_ListReceivedGrantsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceivedGrantsCommandOutput> {
-    return deserializeAws_json1_1ListReceivedGrantsCommand(output, context);
+    return de_ListReceivedGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

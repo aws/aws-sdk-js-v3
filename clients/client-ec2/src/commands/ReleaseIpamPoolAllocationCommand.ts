@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReleaseIpamPoolAllocationRequest, ReleaseIpamPoolAllocationResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ReleaseIpamPoolAllocationCommand,
-  serializeAws_ec2ReleaseIpamPoolAllocationCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReleaseIpamPoolAllocationCommand, se_ReleaseIpamPoolAllocationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class ReleaseIpamPoolAllocationCommand extends $Command<
    * @internal
    */
   private serialize(input: ReleaseIpamPoolAllocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReleaseIpamPoolAllocationCommand(input, context);
+    return se_ReleaseIpamPoolAllocationCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class ReleaseIpamPoolAllocationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReleaseIpamPoolAllocationCommandOutput> {
-    return deserializeAws_ec2ReleaseIpamPoolAllocationCommand(output, context);
+    return de_ReleaseIpamPoolAllocationCommand(output, context);
   }
 
   // Start section: command_body_extra

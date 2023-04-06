@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDataSetPermissionsCommand,
-  serializeAws_restJson1UpdateDataSetPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataSetPermissionsCommand, se_UpdateDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -159,14 +156,14 @@ export class UpdateDataSetPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSetPermissionsCommand(input, context);
+    return se_UpdateDataSetPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSetPermissionsCommand(output, context);
+    return de_UpdateDataSetPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

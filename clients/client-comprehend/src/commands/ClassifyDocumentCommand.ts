@@ -20,10 +20,7 @@ import {
   ClassifyDocumentResponse,
   ClassifyDocumentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ClassifyDocumentCommand,
-  serializeAws_json1_1ClassifyDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ClassifyDocumentCommand, se_ClassifyDocumentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ClassifyDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: ClassifyDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ClassifyDocumentCommand(input, context);
+    return se_ClassifyDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClassifyDocumentCommandOutput> {
-    return deserializeAws_json1_1ClassifyDocumentCommand(output, context);
+    return de_ClassifyDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

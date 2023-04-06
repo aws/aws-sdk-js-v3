@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePlacementGroupsCommand,
-  serializeAws_ec2DescribePlacementGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribePlacementGroupsCommand, se_DescribePlacementGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribePlacementGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePlacementGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePlacementGroupsCommand(input, context);
+    return se_DescribePlacementGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlacementGroupsCommandOutput> {
-    return deserializeAws_ec2DescribePlacementGroupsCommand(output, context);
+    return de_DescribePlacementGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

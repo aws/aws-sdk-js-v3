@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVirtualInterfaceCommand,
-  serializeAws_json1_1DeleteVirtualInterfaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteVirtualInterfaceCommand, se_DeleteVirtualInterfaceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteVirtualInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVirtualInterfaceCommand(input, context);
+    return se_DeleteVirtualInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1DeleteVirtualInterfaceCommand(output, context);
+    return de_DeleteVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCallAnalyticsCategoriesCommand,
-  serializeAws_json1_1ListCallAnalyticsCategoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCallAnalyticsCategoriesCommand, se_ListCallAnalyticsCategoriesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -139,7 +136,7 @@ export class ListCallAnalyticsCategoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCallAnalyticsCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCallAnalyticsCategoriesCommand(input, context);
+    return se_ListCallAnalyticsCategoriesCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class ListCallAnalyticsCategoriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCallAnalyticsCategoriesCommandOutput> {
-    return deserializeAws_json1_1ListCallAnalyticsCategoriesCommand(output, context);
+    return de_ListCallAnalyticsCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

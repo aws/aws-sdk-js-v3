@@ -19,8 +19,8 @@ import {
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
-  serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
+  de_ApplySecurityGroupsToClientVpnTargetNetworkCommand,
+  se_ApplySecurityGroupsToClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(input, context);
+    return se_ApplySecurityGroupsToClientVpnTargetNetworkCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> {
-    return deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(output, context);
+    return de_ApplySecurityGroupsToClientVpnTargetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

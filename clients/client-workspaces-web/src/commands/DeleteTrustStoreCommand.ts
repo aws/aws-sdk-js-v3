@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTrustStoreRequest, DeleteTrustStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTrustStoreCommand,
-  serializeAws_restJson1DeleteTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTrustStoreCommand, se_DeleteTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteTrustStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrustStoreCommand(input, context);
+    return se_DeleteTrustStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteTrustStoreCommand(output, context);
+    return de_DeleteTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

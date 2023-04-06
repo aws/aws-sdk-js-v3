@@ -19,10 +19,7 @@ import {
   GetPartnerAccountResponse,
   GetPartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPartnerAccountCommand,
-  serializeAws_restJson1GetPartnerAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPartnerAccountCommand, se_GetPartnerAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetPartnerAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPartnerAccountCommand(input, context);
+    return se_GetPartnerAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartnerAccountCommandOutput> {
-    return deserializeAws_restJson1GetPartnerAccountCommand(output, context);
+    return de_GetPartnerAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

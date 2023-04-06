@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { GetExperimentResultsRequest, GetExperimentResultsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExperimentResultsCommand,
-  serializeAws_restJson1GetExperimentResultsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetExperimentResultsCommand, se_GetExperimentResultsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class GetExperimentResultsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExperimentResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExperimentResultsCommand(input, context);
+    return se_GetExperimentResultsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentResultsCommandOutput> {
-    return deserializeAws_restJson1GetExperimentResultsCommand(output, context);
+    return de_GetExperimentResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

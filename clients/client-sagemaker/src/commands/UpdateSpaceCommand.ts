@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateSpaceCommand,
-  serializeAws_json1_1UpdateSpaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSpaceCommand, se_UpdateSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -165,14 +162,14 @@ export class UpdateSpaceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSpaceCommand(input, context);
+    return se_UpdateSpaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSpaceCommandOutput> {
-    return deserializeAws_json1_1UpdateSpaceCommand(output, context);
+    return de_UpdateSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

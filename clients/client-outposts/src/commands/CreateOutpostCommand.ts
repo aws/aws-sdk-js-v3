@@ -15,10 +15,7 @@ import {
 
 import { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateOutpostCommand,
-  serializeAws_restJson1CreateOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOutpostCommand, se_CreateOutpostCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class CreateOutpostCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutpostCommand(input, context);
+    return se_CreateOutpostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutpostCommandOutput> {
-    return deserializeAws_restJson1CreateOutpostCommand(output, context);
+    return de_CreateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTriggerCommand,
-  serializeAws_json1_1DeleteTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTriggerCommand, se_DeleteTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteTriggerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTriggerCommand(input, context);
+    return se_DeleteTriggerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTriggerCommandOutput> {
-    return deserializeAws_json1_1DeleteTriggerCommand(output, context);
+    return de_DeleteTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

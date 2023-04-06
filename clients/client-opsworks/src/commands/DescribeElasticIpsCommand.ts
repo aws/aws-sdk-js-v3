@@ -15,10 +15,7 @@ import {
 
 import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeElasticIpsCommand,
-  serializeAws_json1_1DescribeElasticIpsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeElasticIpsCommand, se_DescribeElasticIpsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeElasticIpsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeElasticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
+    return se_DescribeElasticIpsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticIpsCommandOutput> {
-    return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
+    return de_DescribeElasticIpsCommand(output, context);
   }
 
   // Start section: command_body_extra

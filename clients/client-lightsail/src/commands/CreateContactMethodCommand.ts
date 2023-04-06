@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateContactMethodRequest, CreateContactMethodResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactMethodCommand,
-  serializeAws_json1_1CreateContactMethodCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContactMethodCommand, se_CreateContactMethodCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateContactMethodCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContactMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactMethodCommand(input, context);
+    return se_CreateContactMethodCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactMethodCommandOutput> {
-    return deserializeAws_json1_1CreateContactMethodCommand(output, context);
+    return de_CreateContactMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

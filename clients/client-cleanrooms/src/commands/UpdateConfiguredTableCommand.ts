@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { UpdateConfiguredTableInput, UpdateConfiguredTableOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfiguredTableCommand,
-  serializeAws_restJson1UpdateConfiguredTableCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConfiguredTableCommand, se_UpdateConfiguredTableCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateConfiguredTableCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfiguredTableCommand(input, context);
+    return se_UpdateConfiguredTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfiguredTableCommandOutput> {
-    return deserializeAws_restJson1UpdateConfiguredTableCommand(output, context);
+    return de_UpdateConfiguredTableCommand(output, context);
   }
 
   // Start section: command_body_extra

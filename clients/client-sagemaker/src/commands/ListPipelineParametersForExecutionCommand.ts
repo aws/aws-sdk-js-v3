@@ -18,8 +18,8 @@ import {
   ListPipelineParametersForExecutionResponse,
 } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListPipelineParametersForExecutionCommand,
-  serializeAws_json1_1ListPipelineParametersForExecutionCommand,
+  de_ListPipelineParametersForExecutionCommand,
+  se_ListPipelineParametersForExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -133,7 +133,7 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     input: ListPipelineParametersForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineParametersForExecutionCommand(input, context);
+    return se_ListPipelineParametersForExecutionCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPipelineParametersForExecutionCommandOutput> {
-    return deserializeAws_json1_1ListPipelineParametersForExecutionCommand(output, context);
+    return de_ListPipelineParametersForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

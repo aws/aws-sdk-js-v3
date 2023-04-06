@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMapRunsInput, ListMapRunsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListMapRunsCommand,
-  serializeAws_json1_0ListMapRunsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListMapRunsCommand, se_ListMapRunsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListMapRunsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMapRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListMapRunsCommand(input, context);
+    return se_ListMapRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapRunsCommandOutput> {
-    return deserializeAws_json1_0ListMapRunsCommand(output, context);
+    return de_ListMapRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetCostForecastRequest, GetCostForecastResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCostForecastCommand,
-  serializeAws_json1_1GetCostForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCostForecastCommand, se_GetCostForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -200,14 +197,14 @@ export class GetCostForecastCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCostForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCostForecastCommand(input, context);
+    return se_GetCostForecastCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostForecastCommandOutput> {
-    return deserializeAws_json1_1GetCostForecastCommand(output, context);
+    return de_GetCostForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

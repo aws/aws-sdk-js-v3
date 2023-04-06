@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutStorageConfigurationCommand,
-  serializeAws_restJson1PutStorageConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class PutStorageConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutStorageConfigurationCommand(input, context);
+    return se_PutStorageConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutStorageConfigurationCommand(output, context);
+    return de_PutStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

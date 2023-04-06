@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetServiceNetworkRequest, GetServiceNetworkResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceNetworkCommand,
-  serializeAws_restJson1GetServiceNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServiceNetworkCommand, se_GetServiceNetworkCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -136,14 +133,14 @@ export class GetServiceNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceNetworkCommand(input, context);
+    return se_GetServiceNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceNetworkCommandOutput> {
-    return deserializeAws_restJson1GetServiceNetworkCommand(output, context);
+    return de_GetServiceNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

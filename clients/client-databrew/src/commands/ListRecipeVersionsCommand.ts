@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { ListRecipeVersionsRequest, ListRecipeVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecipeVersionsCommand,
-  serializeAws_restJson1ListRecipeVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRecipeVersionsCommand, se_ListRecipeVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListRecipeVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecipeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecipeVersionsCommand(input, context);
+    return se_ListRecipeVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipeVersionsCommandOutput> {
-    return deserializeAws_restJson1ListRecipeVersionsCommand(output, context);
+    return de_ListRecipeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

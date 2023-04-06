@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateInstanceEventWindowRequest, CreateInstanceEventWindowResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateInstanceEventWindowCommand,
-  serializeAws_ec2CreateInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateInstanceEventWindowCommand, se_CreateInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -163,7 +160,7 @@ export class CreateInstanceEventWindowCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateInstanceEventWindowCommand(input, context);
+    return se_CreateInstanceEventWindowCommand(input, context);
   }
 
   /**
@@ -173,7 +170,7 @@ export class CreateInstanceEventWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2CreateInstanceEventWindowCommand(output, context);
+    return de_CreateInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

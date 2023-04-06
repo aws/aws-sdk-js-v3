@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutPackageOriginConfigurationCommand,
-  serializeAws_restJson1PutPackageOriginConfigurationCommand,
+  de_PutPackageOriginConfigurationCommand,
+  se_PutPackageOriginConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class PutPackageOriginConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutPackageOriginConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPackageOriginConfigurationCommand(input, context);
+    return se_PutPackageOriginConfigurationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class PutPackageOriginConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutPackageOriginConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutPackageOriginConfigurationCommand(output, context);
+    return de_PutPackageOriginConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

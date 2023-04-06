@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DeleteUserPoolClientRequest, DeleteUserPoolClientRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserPoolClientCommand,
-  serializeAws_json1_1DeleteUserPoolClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUserPoolClientCommand, se_DeleteUserPoolClientCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteUserPoolClientCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserPoolClientCommand(input, context);
+    return se_DeleteUserPoolClientCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserPoolClientCommandOutput> {
-    return deserializeAws_json1_1DeleteUserPoolClientCommand(output, context);
+    return de_DeleteUserPoolClientCommand(output, context);
   }
 
   // Start section: command_body_extra

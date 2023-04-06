@@ -19,10 +19,7 @@ import {
   ListCreateAccountStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListCreateAccountStatusCommand,
-  serializeAws_json1_1ListCreateAccountStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCreateAccountStatusCommand, se_ListCreateAccountStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -320,14 +317,14 @@ export class ListCreateAccountStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCreateAccountStatusCommand(input, context);
+    return se_ListCreateAccountStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCreateAccountStatusCommandOutput> {
-    return deserializeAws_json1_1ListCreateAccountStatusCommand(output, context);
+    return de_ListCreateAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

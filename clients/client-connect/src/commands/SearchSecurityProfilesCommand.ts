@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SearchSecurityProfilesRequest, SearchSecurityProfilesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchSecurityProfilesCommand,
-  serializeAws_restJson1SearchSecurityProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class SearchSecurityProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchSecurityProfilesCommand(input, context);
+    return se_SearchSecurityProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1SearchSecurityProfilesCommand(output, context);
+    return de_SearchSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

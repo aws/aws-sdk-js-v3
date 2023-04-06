@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { CreateWebhookInput, CreateWebhookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebhookCommand,
-  serializeAws_json1_1CreateWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWebhookCommand, se_CreateWebhookCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class CreateWebhookCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebhookCommand(input, context);
+    return se_CreateWebhookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebhookCommandOutput> {
-    return deserializeAws_json1_1CreateWebhookCommand(output, context);
+    return de_CreateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteInputRequest, DeleteInputResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteInputCommand,
-  serializeAws_restJson1DeleteInputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInputCommand, se_DeleteInputCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteInputCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInputCommand(input, context);
+    return se_DeleteInputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputCommandOutput> {
-    return deserializeAws_restJson1DeleteInputCommand(output, context);
+    return de_DeleteInputCommand(output, context);
   }
 
   // Start section: command_body_extra

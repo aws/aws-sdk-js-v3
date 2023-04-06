@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetImageRequest, GetImageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImageCommand,
-  serializeAws_restJson1GetImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImageCommand, se_GetImageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetImageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImageCommand(input, context);
+    return se_GetImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImageCommandOutput> {
-    return deserializeAws_restJson1GetImageCommand(output, context);
+    return de_GetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

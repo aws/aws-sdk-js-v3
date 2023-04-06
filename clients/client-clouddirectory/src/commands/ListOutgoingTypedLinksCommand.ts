@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListOutgoingTypedLinksRequest, ListOutgoingTypedLinksResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOutgoingTypedLinksCommand,
-  serializeAws_restJson1ListOutgoingTypedLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOutgoingTypedLinksCommand, se_ListOutgoingTypedLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class ListOutgoingTypedLinksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOutgoingTypedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutgoingTypedLinksCommand(input, context);
+    return se_ListOutgoingTypedLinksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutgoingTypedLinksCommandOutput> {
-    return deserializeAws_restJson1ListOutgoingTypedLinksCommand(output, context);
+    return de_ListOutgoingTypedLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

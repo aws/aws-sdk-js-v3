@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssociatedStacksCommand,
-  serializeAws_json1_1ListAssociatedStacksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssociatedStacksCommand, se_ListAssociatedStacksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class ListAssociatedStacksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssociatedStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociatedStacksCommand(input, context);
+    return se_ListAssociatedStacksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedStacksCommandOutput> {
-    return deserializeAws_json1_1ListAssociatedStacksCommand(output, context);
+    return de_ListAssociatedStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

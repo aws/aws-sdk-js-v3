@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { ListEventLogsRequest, ListEventLogsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventLogsCommand,
-  serializeAws_restJson1ListEventLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEventLogsCommand, se_ListEventLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListEventLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventLogsCommand(input, context);
+    return se_ListEventLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventLogsCommandOutput> {
-    return deserializeAws_restJson1ListEventLogsCommand(output, context);
+    return de_ListEventLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

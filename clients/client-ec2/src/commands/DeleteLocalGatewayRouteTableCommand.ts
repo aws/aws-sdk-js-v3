@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteLocalGatewayRouteTableRequest, DeleteLocalGatewayRouteTableResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteLocalGatewayRouteTableCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteLocalGatewayRouteTableCommand, se_DeleteLocalGatewayRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class DeleteLocalGatewayRouteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLocalGatewayRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableCommand(input, context);
+    return se_DeleteLocalGatewayRouteTableCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class DeleteLocalGatewayRouteTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableCommand(output, context);
+    return de_DeleteLocalGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

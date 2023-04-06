@@ -19,8 +19,8 @@ import {
   UpdateApprovalRuleTemplateDescriptionOutput,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
-  serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
+  de_UpdateApprovalRuleTemplateDescriptionCommand,
+  se_UpdateApprovalRuleTemplateDescriptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     input: UpdateApprovalRuleTemplateDescriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(input, context);
+    return se_UpdateApprovalRuleTemplateDescriptionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(output, context);
+    return de_UpdateApprovalRuleTemplateDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

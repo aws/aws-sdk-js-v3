@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetrieveTapeRecoveryPointCommand,
-  serializeAws_json1_1RetrieveTapeRecoveryPointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetrieveTapeRecoveryPointCommand, se_RetrieveTapeRecoveryPointCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -157,7 +154,7 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
    * @internal
    */
   private serialize(input: RetrieveTapeRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetrieveTapeRecoveryPointCommand(input, context);
+    return se_RetrieveTapeRecoveryPointCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RetrieveTapeRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1RetrieveTapeRecoveryPointCommand(output, context);
+    return de_RetrieveTapeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

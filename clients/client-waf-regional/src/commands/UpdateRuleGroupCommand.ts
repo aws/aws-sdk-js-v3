@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleGroupCommand,
-  serializeAws_json1_1UpdateRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRuleGroupCommand, se_UpdateRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -269,14 +266,14 @@ export class UpdateRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleGroupCommand(input, context);
+    return se_UpdateRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleGroupCommand(output, context);
+    return de_UpdateRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

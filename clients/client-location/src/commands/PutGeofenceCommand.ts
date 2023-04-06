@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { PutGeofenceRequest, PutGeofenceRequestFilterSensitiveLog, PutGeofenceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutGeofenceCommand,
-  serializeAws_restJson1PutGeofenceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutGeofenceCommand, se_PutGeofenceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class PutGeofenceCommand extends $Command<
    * @internal
    */
   private serialize(input: PutGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutGeofenceCommand(input, context);
+    return se_PutGeofenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGeofenceCommandOutput> {
-    return deserializeAws_restJson1PutGeofenceCommand(output, context);
+    return de_PutGeofenceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,8 @@ import {
   AdminUpdateAuthEventFeedbackResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
-  serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
+  de_AdminUpdateAuthEventFeedbackCommand,
+  se_AdminUpdateAuthEventFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -161,7 +161,7 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminUpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(input, context);
+    return se_AdminUpdateAuthEventFeedbackCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(output, context);
+    return de_AdminUpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

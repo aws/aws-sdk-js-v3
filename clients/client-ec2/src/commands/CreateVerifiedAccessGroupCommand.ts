@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVerifiedAccessGroupRequest, CreateVerifiedAccessGroupResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVerifiedAccessGroupCommand,
-  serializeAws_ec2CreateVerifiedAccessGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateVerifiedAccessGroupCommand, se_CreateVerifiedAccessGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class CreateVerifiedAccessGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessGroupCommand(input, context);
+    return se_CreateVerifiedAccessGroupCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class CreateVerifiedAccessGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessGroupCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessGroupCommand(output, context);
+    return de_CreateVerifiedAccessGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

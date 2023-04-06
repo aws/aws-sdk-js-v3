@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEndpointInput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEndpointCommand,
-  serializeAws_queryDeleteEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEndpointCommand(input, context);
+    return se_DeleteEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
-    return deserializeAws_queryDeleteEndpointCommand(output, context);
+    return de_DeleteEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTapesInput, ListTapesOutput } from "../models/models_0";
-import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCommand } from "../protocols/Aws_json1_1";
+import { de_ListTapesCommand, se_ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -137,14 +137,14 @@ export class ListTapesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTapesCommand(input, context);
+    return se_ListTapesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapesCommandOutput> {
-    return deserializeAws_json1_1ListTapesCommand(output, context);
+    return de_ListTapesCommand(output, context);
   }
 
   // Start section: command_body_extra

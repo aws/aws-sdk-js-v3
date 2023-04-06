@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeKeyPairsCommand,
-  serializeAws_ec2DescribeKeyPairsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeKeyPairsCommand, se_DescribeKeyPairsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class DescribeKeyPairsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeKeyPairsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeKeyPairsCommand(input, context);
+    return se_DescribeKeyPairsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyPairsCommandOutput> {
-    return deserializeAws_ec2DescribeKeyPairsCommand(output, context);
+    return de_DescribeKeyPairsCommand(output, context);
   }
 
   // Start section: command_body_extra

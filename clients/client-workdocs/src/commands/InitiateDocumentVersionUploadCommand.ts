@@ -20,8 +20,8 @@ import {
   InitiateDocumentVersionUploadResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1InitiateDocumentVersionUploadCommand,
-  serializeAws_restJson1InitiateDocumentVersionUploadCommand,
+  de_InitiateDocumentVersionUploadCommand,
+  se_InitiateDocumentVersionUploadCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
@@ -184,7 +184,7 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: InitiateDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateDocumentVersionUploadCommand(input, context);
+    return se_InitiateDocumentVersionUploadCommand(input, context);
   }
 
   /**
@@ -194,7 +194,7 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1InitiateDocumentVersionUploadCommand(output, context);
+    return de_InitiateDocumentVersionUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

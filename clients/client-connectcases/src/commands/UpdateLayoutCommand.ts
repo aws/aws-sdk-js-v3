@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { UpdateLayoutRequest, UpdateLayoutResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLayoutCommand,
-  serializeAws_restJson1UpdateLayoutCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLayoutCommand, se_UpdateLayoutCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class UpdateLayoutCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLayoutCommand(input, context);
+    return se_UpdateLayoutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayoutCommandOutput> {
-    return deserializeAws_restJson1UpdateLayoutCommand(output, context);
+    return de_UpdateLayoutCommand(output, context);
   }
 
   // Start section: command_body_extra

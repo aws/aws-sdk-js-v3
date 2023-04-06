@@ -19,10 +19,7 @@ import {
   UploadMultipartPartInputFilterSensitiveLog,
   UploadMultipartPartOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UploadMultipartPartCommand,
-  serializeAws_restJson1UploadMultipartPartCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -226,14 +223,14 @@ export class UploadMultipartPartCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadMultipartPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadMultipartPartCommand(input, context);
+    return se_UploadMultipartPartCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadMultipartPartCommandOutput> {
-    return deserializeAws_restJson1UploadMultipartPartCommand(output, context);
+    return de_UploadMultipartPartCommand(output, context);
   }
 
   // Start section: command_body_extra

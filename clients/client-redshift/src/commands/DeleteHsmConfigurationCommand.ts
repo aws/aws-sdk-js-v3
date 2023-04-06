@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHsmConfigurationMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteHsmConfigurationCommand,
-  serializeAws_queryDeleteHsmConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteHsmConfigurationCommand, se_DeleteHsmConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteHsmConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteHsmConfigurationCommand(input, context);
+    return se_DeleteHsmConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteHsmConfigurationCommand(output, context);
+    return de_DeleteHsmConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   TestHypervisorConfigurationInputFilterSensitiveLog,
   TestHypervisorConfigurationOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0TestHypervisorConfigurationCommand,
-  serializeAws_json1_0TestHypervisorConfigurationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TestHypervisorConfigurationCommand, se_TestHypervisorConfigurationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class TestHypervisorConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: TestHypervisorConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TestHypervisorConfigurationCommand(input, context);
+    return se_TestHypervisorConfigurationCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class TestHypervisorConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestHypervisorConfigurationCommandOutput> {
-    return deserializeAws_json1_0TestHypervisorConfigurationCommand(output, context);
+    return de_TestHypervisorConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

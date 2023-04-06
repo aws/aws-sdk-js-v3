@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { PutVerificationStateOnViolationRequest, PutVerificationStateOnViolationResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1PutVerificationStateOnViolationCommand,
-  serializeAws_restJson1PutVerificationStateOnViolationCommand,
+  de_PutVerificationStateOnViolationCommand,
+  se_PutVerificationStateOnViolationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,7 +136,7 @@ export class PutVerificationStateOnViolationCommand extends $Command<
     input: PutVerificationStateOnViolationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVerificationStateOnViolationCommand(input, context);
+    return se_PutVerificationStateOnViolationCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class PutVerificationStateOnViolationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVerificationStateOnViolationCommandOutput> {
-    return deserializeAws_restJson1PutVerificationStateOnViolationCommand(output, context);
+    return de_PutVerificationStateOnViolationCommand(output, context);
   }
 
   // Start section: command_body_extra

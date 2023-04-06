@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagRoleRequest } from "../models/models_0";
-import { deserializeAws_queryTagRoleCommand, serializeAws_queryTagRoleCommand } from "../protocols/Aws_query";
+import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -202,14 +202,14 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
    * @internal
    */
   private serialize(input: TagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagRoleCommand(input, context);
+    return se_TagRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagRoleCommandOutput> {
-    return deserializeAws_queryTagRoleCommand(output, context);
+    return de_TagRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

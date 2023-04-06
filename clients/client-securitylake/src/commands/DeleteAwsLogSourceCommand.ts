@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAwsLogSourceRequest, DeleteAwsLogSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAwsLogSourceCommand,
-  serializeAws_restJson1DeleteAwsLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAwsLogSourceCommand, se_DeleteAwsLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -169,14 +166,14 @@ export class DeleteAwsLogSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAwsLogSourceCommand(input, context);
+    return se_DeleteAwsLogSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAwsLogSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteAwsLogSourceCommand(output, context);
+    return de_DeleteAwsLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

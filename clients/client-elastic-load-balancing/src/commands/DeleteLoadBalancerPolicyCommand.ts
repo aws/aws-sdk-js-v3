@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoadBalancerPolicyCommand,
-  serializeAws_queryDeleteLoadBalancerPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteLoadBalancerPolicyCommand, se_DeleteLoadBalancerPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLoadBalancerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoadBalancerPolicyCommand(input, context);
+    return se_DeleteLoadBalancerPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerPolicyCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerPolicyCommand(output, context);
+    return de_DeleteLoadBalancerPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

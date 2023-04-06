@@ -24,10 +24,7 @@ import {
   UpdateAuthEventFeedbackRequestFilterSensitiveLog,
   UpdateAuthEventFeedbackResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
-  serializeAws_json1_1UpdateAuthEventFeedbackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAuthEventFeedbackCommand, se_UpdateAuthEventFeedbackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAuthEventFeedbackCommand(input, context);
+    return se_UpdateAuthEventFeedbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(output, context);
+    return de_UpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

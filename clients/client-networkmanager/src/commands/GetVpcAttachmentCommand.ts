@@ -15,10 +15,7 @@ import {
 
 import { GetVpcAttachmentRequest, GetVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetVpcAttachmentCommand,
-  serializeAws_restJson1GetVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVpcAttachmentCommand, se_GetVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetVpcAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVpcAttachmentCommand(input, context);
+    return se_GetVpcAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetVpcAttachmentCommand(output, context);
+    return de_GetVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

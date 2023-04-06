@@ -15,10 +15,7 @@ import {
 
 import { RemoveRoleFromDBClusterMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryRemoveRoleFromDBClusterCommand,
-  serializeAws_queryRemoveRoleFromDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveRoleFromDBClusterCommand, se_RemoveRoleFromDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveRoleFromDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromDBClusterCommand(input, context);
+    return se_RemoveRoleFromDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBClusterCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromDBClusterCommand(output, context);
+    return de_RemoveRoleFromDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

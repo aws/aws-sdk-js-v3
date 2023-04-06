@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSigningJobCommand,
-  serializeAws_restJson1StartSigningJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSigningJobCommand, se_StartSigningJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -182,14 +179,14 @@ export class StartSigningJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSigningJobCommand(input, context);
+    return se_StartSigningJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSigningJobCommandOutput> {
-    return deserializeAws_restJson1StartSigningJobCommand(output, context);
+    return de_StartSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

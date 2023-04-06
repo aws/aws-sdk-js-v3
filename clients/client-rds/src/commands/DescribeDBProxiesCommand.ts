@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDBProxiesRequest, DescribeDBProxiesResponse } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBProxiesCommand,
-  serializeAws_queryDescribeDBProxiesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBProxiesCommand, se_DescribeDBProxiesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -133,14 +130,14 @@ export class DescribeDBProxiesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBProxiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxiesCommand(input, context);
+    return se_DescribeDBProxiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBProxiesCommandOutput> {
-    return deserializeAws_queryDescribeDBProxiesCommand(output, context);
+    return de_DescribeDBProxiesCommand(output, context);
   }
 
   // Start section: command_body_extra

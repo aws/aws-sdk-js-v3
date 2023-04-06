@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlListMultipartUploadsCommand,
-  serializeAws_restXmlListMultipartUploadsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -278,14 +275,14 @@ export class ListMultipartUploadsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListMultipartUploadsCommand(input, context);
+    return se_ListMultipartUploadsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
-    return deserializeAws_restXmlListMultipartUploadsCommand(output, context);
+    return de_ListMultipartUploadsCommand(output, context);
   }
 
   // Start section: command_body_extra

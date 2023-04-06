@@ -16,8 +16,8 @@ import {
 import { ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListDelegatedServicesForAccountCommand,
-  serializeAws_json1_1ListDelegatedServicesForAccountCommand,
+  de_ListDelegatedServicesForAccountCommand,
+  se_ListDelegatedServicesForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -464,7 +464,7 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     input: ListDelegatedServicesForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDelegatedServicesForAccountCommand(input, context);
+    return se_ListDelegatedServicesForAccountCommand(input, context);
   }
 
   /**
@@ -474,7 +474,7 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDelegatedServicesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListDelegatedServicesForAccountCommand(output, context);
+    return de_ListDelegatedServicesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
   AssociatePhoneNumberWithUserResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumberWithUserCommand,
-  serializeAws_restJson1AssociatePhoneNumberWithUserCommand,
+  de_AssociatePhoneNumberWithUserCommand,
+  se_AssociatePhoneNumberWithUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -152,7 +152,7 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociatePhoneNumberWithUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumberWithUserCommand(input, context);
+    return se_AssociatePhoneNumberWithUserCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumberWithUserCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumberWithUserCommand(output, context);
+    return de_AssociatePhoneNumberWithUserCommand(output, context);
   }
 
   // Start section: command_body_extra

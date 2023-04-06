@@ -15,8 +15,8 @@ import {
 
 import { GetProvisionedProductOutputsInput, GetProvisionedProductOutputsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetProvisionedProductOutputsCommand,
-  serializeAws_json1_1GetProvisionedProductOutputsCommand,
+  de_GetProvisionedProductOutputsCommand,
+  se_GetProvisionedProductOutputsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -135,7 +135,7 @@ export class GetProvisionedProductOutputsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProvisionedProductOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProvisionedProductOutputsCommand(input, context);
+    return se_GetProvisionedProductOutputsCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProvisionedProductOutputsCommandOutput> {
-    return deserializeAws_json1_1GetProvisionedProductOutputsCommand(output, context);
+    return de_GetProvisionedProductOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

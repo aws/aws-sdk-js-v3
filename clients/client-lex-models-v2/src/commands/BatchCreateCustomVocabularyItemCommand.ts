@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { BatchCreateCustomVocabularyItemRequest, BatchCreateCustomVocabularyItemResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
-  serializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
+  de_BatchCreateCustomVocabularyItemCommand,
+  se_BatchCreateCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
     input: BatchCreateCustomVocabularyItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateCustomVocabularyItemCommand(input, context);
+    return se_BatchCreateCustomVocabularyItemCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateCustomVocabularyItemCommandOutput> {
-    return deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand(output, context);
+    return de_BatchCreateCustomVocabularyItemCommand(output, context);
   }
 
   // Start section: command_body_extra

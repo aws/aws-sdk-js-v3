@@ -19,8 +19,8 @@ import {
   DescribeTransitGatewayPeeringAttachmentsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
-  serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
+  de_DescribeTransitGatewayPeeringAttachmentsCommand,
+  se_DescribeTransitGatewayPeeringAttachmentsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
+    return se_DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
+    return de_DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

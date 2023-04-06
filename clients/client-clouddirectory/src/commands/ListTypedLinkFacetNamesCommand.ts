@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTypedLinkFacetNamesCommand,
-  serializeAws_restJson1ListTypedLinkFacetNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTypedLinkFacetNamesCommand, se_ListTypedLinkFacetNamesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTypedLinkFacetNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypedLinkFacetNamesCommand(input, context);
+    return se_ListTypedLinkFacetNamesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypedLinkFacetNamesCommandOutput> {
-    return deserializeAws_restJson1ListTypedLinkFacetNamesCommand(output, context);
+    return de_ListTypedLinkFacetNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

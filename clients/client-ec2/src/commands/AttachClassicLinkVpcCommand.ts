@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AttachClassicLinkVpcCommand,
-  serializeAws_ec2AttachClassicLinkVpcCommand,
-} from "../protocols/Aws_ec2";
+import { de_AttachClassicLinkVpcCommand, se_AttachClassicLinkVpcCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class AttachClassicLinkVpcCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachClassicLinkVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachClassicLinkVpcCommand(input, context);
+    return se_AttachClassicLinkVpcCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachClassicLinkVpcCommandOutput> {
-    return deserializeAws_ec2AttachClassicLinkVpcCommand(output, context);
+    return de_AttachClassicLinkVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

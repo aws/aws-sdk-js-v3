@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListClusterJobsRequest, ListClusterJobsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListClusterJobsCommand,
-  serializeAws_json1_1ListClusterJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListClusterJobsCommand, se_ListClusterJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -195,14 +192,14 @@ export class ListClusterJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListClusterJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListClusterJobsCommand(input, context);
+    return se_ListClusterJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterJobsCommandOutput> {
-    return deserializeAws_json1_1ListClusterJobsCommand(output, context);
+    return de_ListClusterJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { CreateStreamInput, CreateStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateStreamCommand,
-  serializeAws_restJson1CreateStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class CreateStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamCommand(input, context);
+    return se_CreateStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_restJson1CreateStreamCommand(output, context);
+    return de_CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

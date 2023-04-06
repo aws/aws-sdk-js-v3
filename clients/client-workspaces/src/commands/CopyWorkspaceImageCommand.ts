@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyWorkspaceImageCommand,
-  serializeAws_json1_1CopyWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CopyWorkspaceImageCommand, se_CopyWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -159,14 +156,14 @@ export class CopyWorkspaceImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyWorkspaceImageCommand(input, context);
+    return se_CopyWorkspaceImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1CopyWorkspaceImageCommand(output, context);
+    return de_CopyWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

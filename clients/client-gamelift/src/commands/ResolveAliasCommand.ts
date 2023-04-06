@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveAliasCommand,
-  serializeAws_json1_1ResolveAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResolveAliasCommand, se_ResolveAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ResolveAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: ResolveAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveAliasCommand(input, context);
+    return se_ResolveAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveAliasCommandOutput> {
-    return deserializeAws_json1_1ResolveAliasCommand(output, context);
+    return de_ResolveAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetSecurityConfigurationsRequest, GetSecurityConfigurationsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSecurityConfigurationsCommand,
-  serializeAws_json1_1GetSecurityConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSecurityConfigurationsCommand, se_GetSecurityConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class GetSecurityConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSecurityConfigurationsCommand(input, context);
+    return se_GetSecurityConfigurationsCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class GetSecurityConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1GetSecurityConfigurationsCommand(output, context);
+    return de_GetSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

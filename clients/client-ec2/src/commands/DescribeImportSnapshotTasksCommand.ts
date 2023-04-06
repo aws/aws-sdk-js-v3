@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeImportSnapshotTasksRequest, DescribeImportSnapshotTasksResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeImportSnapshotTasksCommand,
-  serializeAws_ec2DescribeImportSnapshotTasksCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeImportSnapshotTasksCommand, se_DescribeImportSnapshotTasksCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImportSnapshotTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeImportSnapshotTasksCommand(input, context);
+    return se_DescribeImportSnapshotTasksCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImportSnapshotTasksCommandOutput> {
-    return deserializeAws_ec2DescribeImportSnapshotTasksCommand(output, context);
+    return de_DescribeImportSnapshotTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

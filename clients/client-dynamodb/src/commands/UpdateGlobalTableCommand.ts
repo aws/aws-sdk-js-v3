@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGlobalTableCommand,
-  serializeAws_json1_0UpdateGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateGlobalTableCommand, se_UpdateGlobalTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class UpdateGlobalTableCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGlobalTableCommand(input, context);
+    return se_UpdateGlobalTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalTableCommandOutput> {
-    return deserializeAws_json1_0UpdateGlobalTableCommand(output, context);
+    return de_UpdateGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

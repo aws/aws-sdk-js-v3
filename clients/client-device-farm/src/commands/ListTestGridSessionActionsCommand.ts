@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListTestGridSessionActionsRequest, ListTestGridSessionActionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTestGridSessionActionsCommand,
-  serializeAws_json1_1ListTestGridSessionActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTestGridSessionActionsCommand, se_ListTestGridSessionActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class ListTestGridSessionActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTestGridSessionActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionActionsCommand(input, context);
+    return se_ListTestGridSessionActionsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListTestGridSessionActionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionActionsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionActionsCommand(output, context);
+    return de_ListTestGridSessionActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

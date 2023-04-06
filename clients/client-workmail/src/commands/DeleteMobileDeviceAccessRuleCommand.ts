@@ -15,8 +15,8 @@ import {
 
 import { DeleteMobileDeviceAccessRuleRequest, DeleteMobileDeviceAccessRuleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand,
-  serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand,
+  de_DeleteMobileDeviceAccessRuleCommand,
+  se_DeleteMobileDeviceAccessRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -137,7 +137,7 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMobileDeviceAccessRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand(input, context);
+    return se_DeleteMobileDeviceAccessRuleCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMobileDeviceAccessRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand(output, context);
+    return de_DeleteMobileDeviceAccessRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

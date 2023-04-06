@@ -15,7 +15,7 @@ import {
 
 import { PauseClusterMessage } from "../models/models_0";
 import { PauseClusterResult } from "../models/models_1";
-import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseClusterCommand } from "../protocols/Aws_query";
+import { de_PauseClusterCommand, se_PauseClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -123,14 +123,14 @@ export class PauseClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: PauseClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPauseClusterCommand(input, context);
+    return se_PauseClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseClusterCommandOutput> {
-    return deserializeAws_queryPauseClusterCommand(output, context);
+    return de_PauseClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

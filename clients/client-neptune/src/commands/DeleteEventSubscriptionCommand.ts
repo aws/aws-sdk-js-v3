@@ -15,10 +15,7 @@ import {
 
 import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteEventSubscriptionCommand,
-  serializeAws_queryDeleteEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_queryDeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

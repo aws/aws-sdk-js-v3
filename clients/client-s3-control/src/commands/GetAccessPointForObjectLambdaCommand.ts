@@ -16,8 +16,8 @@ import {
 
 import { GetAccessPointForObjectLambdaRequest, GetAccessPointForObjectLambdaResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetAccessPointForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointForObjectLambdaCommand,
+  de_GetAccessPointForObjectLambdaCommand,
+  se_GetAccessPointForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -146,7 +146,7 @@ export class GetAccessPointForObjectLambdaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessPointForObjectLambdaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointForObjectLambdaCommand(input, context);
+    return se_GetAccessPointForObjectLambdaCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetAccessPointForObjectLambdaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointForObjectLambdaCommand(output, context);
+    return de_GetAccessPointForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

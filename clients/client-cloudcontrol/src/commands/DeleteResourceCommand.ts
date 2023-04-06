@@ -15,10 +15,7 @@ import {
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { DeleteResourceInput, DeleteResourceOutput, DeleteResourceOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteResourceCommand,
-  serializeAws_json1_0DeleteResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteResourceCommand, se_DeleteResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -201,14 +198,14 @@ export class DeleteResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteResourceCommand(input, context);
+    return se_DeleteResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
-    return deserializeAws_json1_0DeleteResourceCommand(output, context);
+    return de_DeleteResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   ValidateE911AddressResponse,
   ValidateE911AddressResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ValidateE911AddressCommand,
-  serializeAws_restJson1ValidateE911AddressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class ValidateE911AddressCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateE911AddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateE911AddressCommand(input, context);
+    return se_ValidateE911AddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateE911AddressCommandOutput> {
-    return deserializeAws_restJson1ValidateE911AddressCommand(output, context);
+    return de_ValidateE911AddressCommand(output, context);
   }
 
   // Start section: command_body_extra

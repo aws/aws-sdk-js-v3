@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { DisableRequest, DisableResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableCommand,
-  serializeAws_restJson1DisableCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableCommand, se_DisableCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DisableCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableCommand(input, context);
+    return se_DisableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCommandOutput> {
-    return deserializeAws_restJson1DisableCommand(output, context);
+    return de_DisableCommand(output, context);
   }
 
   // Start section: command_body_extra

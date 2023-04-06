@@ -15,10 +15,7 @@ import {
 
 import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1ListTemplatesCommand,
-  serializeAws_restJson1ListTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

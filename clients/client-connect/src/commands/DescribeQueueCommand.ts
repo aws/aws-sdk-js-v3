@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeQueueRequest, DescribeQueueResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeQueueCommand,
-  serializeAws_restJson1DescribeQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeQueueCommand, se_DescribeQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeQueueCommand(input, context);
+    return se_DescribeQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueueCommandOutput> {
-    return deserializeAws_restJson1DescribeQueueCommand(output, context);
+    return de_DescribeQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

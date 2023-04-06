@@ -15,8 +15,8 @@ import {
 
 import { CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreateHyperParameterTuningJobCommand,
-  serializeAws_json1_1CreateHyperParameterTuningJobCommand,
+  de_CreateHyperParameterTuningJobCommand,
+  se_CreateHyperParameterTuningJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -486,7 +486,7 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHyperParameterTuningJobCommand(input, context);
+    return se_CreateHyperParameterTuningJobCommand(input, context);
   }
 
   /**
@@ -496,7 +496,7 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1CreateHyperParameterTuningJobCommand(output, context);
+    return de_CreateHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

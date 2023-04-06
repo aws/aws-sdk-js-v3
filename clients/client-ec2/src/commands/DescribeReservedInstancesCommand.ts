@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeReservedInstancesRequest, DescribeReservedInstancesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeReservedInstancesCommand,
-  serializeAws_ec2DescribeReservedInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeReservedInstancesCommand, se_DescribeReservedInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DescribeReservedInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReservedInstancesCommand(input, context);
+    return se_DescribeReservedInstancesCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeReservedInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeReservedInstancesCommand(output, context);
+    return de_DescribeReservedInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

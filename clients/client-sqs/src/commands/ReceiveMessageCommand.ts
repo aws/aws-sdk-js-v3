@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
-import {
-  deserializeAws_queryReceiveMessageCommand,
-  serializeAws_queryReceiveMessageCommand,
-} from "../protocols/Aws_query";
+import { de_ReceiveMessageCommand, se_ReceiveMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -173,14 +170,14 @@ export class ReceiveMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: ReceiveMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryReceiveMessageCommand(input, context);
+    return se_ReceiveMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReceiveMessageCommandOutput> {
-    return deserializeAws_queryReceiveMessageCommand(output, context);
+    return de_ReceiveMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

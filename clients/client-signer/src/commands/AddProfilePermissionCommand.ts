@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddProfilePermissionRequest, AddProfilePermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddProfilePermissionCommand,
-  serializeAws_restJson1AddProfilePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddProfilePermissionCommand, se_AddProfilePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -147,14 +144,14 @@ export class AddProfilePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: AddProfilePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddProfilePermissionCommand(input, context);
+    return se_AddProfilePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddProfilePermissionCommandOutput> {
-    return deserializeAws_restJson1AddProfilePermissionCommand(output, context);
+    return de_AddProfilePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

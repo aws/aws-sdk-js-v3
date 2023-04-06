@@ -18,8 +18,8 @@ import {
   PutConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
+  de_PutConfigurationSetTrackingOptionsCommand,
+  se_PutConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -139,7 +139,7 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     input: PutConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand(input, context);
+    return se_PutConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand(output, context);
+    return de_PutConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

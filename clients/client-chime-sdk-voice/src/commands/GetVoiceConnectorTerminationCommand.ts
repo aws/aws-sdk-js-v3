@@ -20,8 +20,8 @@ import {
   GetVoiceConnectorTerminationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetVoiceConnectorTerminationCommand,
-  serializeAws_restJson1GetVoiceConnectorTerminationCommand,
+  de_GetVoiceConnectorTerminationCommand,
+  se_GetVoiceConnectorTerminationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceConnectorTerminationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorTerminationCommand(input, context);
+    return se_GetVoiceConnectorTerminationCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorTerminationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorTerminationCommand(output, context);
+    return de_GetVoiceConnectorTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

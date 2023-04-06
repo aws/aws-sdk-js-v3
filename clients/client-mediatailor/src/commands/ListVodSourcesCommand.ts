@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { ListVodSourcesRequest, ListVodSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVodSourcesCommand,
-  serializeAws_restJson1ListVodSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVodSourcesCommand, se_ListVodSourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class ListVodSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVodSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVodSourcesCommand(input, context);
+    return se_ListVodSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVodSourcesCommandOutput> {
-    return deserializeAws_restJson1ListVodSourcesCommand(output, context);
+    return de_ListVodSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

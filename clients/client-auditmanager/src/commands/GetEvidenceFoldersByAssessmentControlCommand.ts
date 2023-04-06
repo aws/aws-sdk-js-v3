@@ -19,8 +19,8 @@ import {
   GetEvidenceFoldersByAssessmentControlResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand,
-  serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand,
+  de_GetEvidenceFoldersByAssessmentControlCommand,
+  se_GetEvidenceFoldersByAssessmentControlCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     input: GetEvidenceFoldersByAssessmentControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand(input, context);
+    return se_GetEvidenceFoldersByAssessmentControlCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEvidenceFoldersByAssessmentControlCommandOutput> {
-    return deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand(output, context);
+    return de_GetEvidenceFoldersByAssessmentControlCommand(output, context);
   }
 
   // Start section: command_body_extra

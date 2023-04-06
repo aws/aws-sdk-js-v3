@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DiscoverInstancesCommand,
-  serializeAws_json1_1DiscoverInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DiscoverInstancesCommand, se_DiscoverInstancesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -177,14 +174,14 @@ export class DiscoverInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DiscoverInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DiscoverInstancesCommand(input, context);
+    return se_DiscoverInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInstancesCommandOutput> {
-    return deserializeAws_json1_1DiscoverInstancesCommand(output, context);
+    return de_DiscoverInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

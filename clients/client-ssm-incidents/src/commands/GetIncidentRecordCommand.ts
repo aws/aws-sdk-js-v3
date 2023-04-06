@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetIncidentRecordInput, GetIncidentRecordOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIncidentRecordCommand,
-  serializeAws_restJson1GetIncidentRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIncidentRecordCommand, se_GetIncidentRecordCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetIncidentRecordCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIncidentRecordCommand(input, context);
+    return se_GetIncidentRecordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIncidentRecordCommandOutput> {
-    return deserializeAws_restJson1GetIncidentRecordCommand(output, context);
+    return de_GetIncidentRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

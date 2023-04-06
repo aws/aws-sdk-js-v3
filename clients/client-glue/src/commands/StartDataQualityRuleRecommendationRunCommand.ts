@@ -19,8 +19,8 @@ import {
   StartDataQualityRuleRecommendationRunResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
-  serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
+  de_StartDataQualityRuleRecommendationRunCommand,
+  se_StartDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     input: StartDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(input, context);
+    return se_StartDataQualityRuleRecommendationRunCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> {
-    return deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(output, context);
+    return de_StartDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

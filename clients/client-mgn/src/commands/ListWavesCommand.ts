@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { ListWavesRequest, ListWavesResponse, ListWavesResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWavesCommand,
-  serializeAws_restJson1ListWavesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWavesCommand, se_ListWavesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
    * @internal
    */
   private serialize(input: ListWavesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWavesCommand(input, context);
+    return se_ListWavesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWavesCommandOutput> {
-    return deserializeAws_restJson1ListWavesCommand(output, context);
+    return de_ListWavesCommand(output, context);
   }
 
   // Start section: command_body_extra

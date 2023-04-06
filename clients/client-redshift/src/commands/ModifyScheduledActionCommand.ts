@@ -15,10 +15,7 @@ import {
 
 import { ScheduledAction } from "../models/models_0";
 import { ModifyScheduledActionMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyScheduledActionCommand,
-  serializeAws_queryModifyScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyScheduledActionCommand, se_ModifyScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -160,14 +157,14 @@ export class ModifyScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyScheduledActionCommand(input, context);
+    return se_ModifyScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyScheduledActionCommandOutput> {
-    return deserializeAws_queryModifyScheduledActionCommand(output, context);
+    return de_ModifyScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

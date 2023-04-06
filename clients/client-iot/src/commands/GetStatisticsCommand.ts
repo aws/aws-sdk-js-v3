@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetStatisticsRequest, GetStatisticsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetStatisticsCommand,
-  serializeAws_restJson1GetStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStatisticsCommand, se_GetStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class GetStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStatisticsCommand(input, context);
+    return se_GetStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetStatisticsCommand(output, context);
+    return de_GetStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

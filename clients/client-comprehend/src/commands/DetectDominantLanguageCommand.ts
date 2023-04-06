@@ -20,10 +20,7 @@ import {
   DetectDominantLanguageResponse,
   DetectDominantLanguageResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectDominantLanguageCommand,
-  serializeAws_json1_1DetectDominantLanguageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectDominantLanguageCommand, se_DetectDominantLanguageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DetectDominantLanguageCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectDominantLanguageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectDominantLanguageCommand(input, context);
+    return se_DetectDominantLanguageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDominantLanguageCommandOutput> {
-    return deserializeAws_json1_1DetectDominantLanguageCommand(output, context);
+    return de_DetectDominantLanguageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRuleRequest, UpdateRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRuleCommand,
-  serializeAws_restJson1UpdateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -178,14 +175,14 @@ export class UpdateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRuleCommand(input, context);
+    return se_UpdateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateRuleCommand(output, context);
+    return de_UpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

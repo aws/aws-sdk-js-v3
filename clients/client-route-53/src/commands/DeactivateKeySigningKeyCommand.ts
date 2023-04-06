@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeactivateKeySigningKeyCommand,
-  serializeAws_restXmlDeactivateKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeactivateKeySigningKeyCommand, se_DeactivateKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -150,14 +147,14 @@ export class DeactivateKeySigningKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeactivateKeySigningKeyCommand(input, context);
+    return se_DeactivateKeySigningKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlDeactivateKeySigningKeyCommand(output, context);
+    return de_DeactivateKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

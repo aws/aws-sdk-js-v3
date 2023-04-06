@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterActivityTypeCommand,
-  serializeAws_json1_0RegisterActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RegisterActivityTypeCommand, se_RegisterActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -189,14 +186,14 @@ export class RegisterActivityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterActivityTypeCommand(input, context);
+    return se_RegisterActivityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterActivityTypeCommandOutput> {
-    return deserializeAws_json1_0RegisterActivityTypeCommand(output, context);
+    return de_RegisterActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

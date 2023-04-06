@@ -20,10 +20,7 @@ import {
   UpdateStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateStreamingImageCommand,
-  serializeAws_restJson1UpdateStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStreamingImageCommand, se_UpdateStreamingImageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class UpdateStreamingImageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStreamingImageCommand(input, context);
+    return se_UpdateStreamingImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamingImageCommandOutput> {
-    return deserializeAws_restJson1UpdateStreamingImageCommand(output, context);
+    return de_UpdateStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

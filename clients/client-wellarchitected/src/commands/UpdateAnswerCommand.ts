@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAnswerInput, UpdateAnswerOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAnswerCommand,
-  serializeAws_restJson1UpdateAnswerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAnswerCommand, se_UpdateAnswerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -151,14 +148,14 @@ export class UpdateAnswerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAnswerCommand(input, context);
+    return se_UpdateAnswerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnswerCommandOutput> {
-    return deserializeAws_restJson1UpdateAnswerCommand(output, context);
+    return de_UpdateAnswerCommand(output, context);
   }
 
   // Start section: command_body_extra

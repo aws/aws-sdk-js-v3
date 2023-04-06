@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssetCommand,
-  serializeAws_restJson1DeleteAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAssetCommand, se_DeleteAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteAssetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssetCommand(input, context);
+    return se_DeleteAssetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssetCommandOutput> {
-    return deserializeAws_restJson1DeleteAssetCommand(output, context);
+    return de_DeleteAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

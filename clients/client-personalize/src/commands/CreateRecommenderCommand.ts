@@ -15,10 +15,7 @@ import {
 
 import { CreateRecommenderRequest, CreateRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateRecommenderCommand,
-  serializeAws_json1_1CreateRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRecommenderCommand, se_CreateRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -227,14 +224,14 @@ export class CreateRecommenderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRecommenderCommand(input, context);
+    return se_CreateRecommenderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecommenderCommandOutput> {
-    return deserializeAws_json1_1CreateRecommenderCommand(output, context);
+    return de_CreateRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

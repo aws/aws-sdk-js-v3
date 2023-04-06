@@ -23,8 +23,8 @@ import {
   UpdateApplicationMaintenanceConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
-  serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
+  de_UpdateApplicationMaintenanceConfigurationCommand,
+  se_UpdateApplicationMaintenanceConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -175,7 +175,7 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     input: UpdateApplicationMaintenanceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand(input, context);
+    return se_UpdateApplicationMaintenanceConfigurationCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand(output, context);
+    return de_UpdateApplicationMaintenanceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

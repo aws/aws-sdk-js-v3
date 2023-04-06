@@ -18,8 +18,8 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand,
-  serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand,
+  de_BatchDisassociateServiceActionFromProvisioningArtifactCommand,
+  se_BatchDisassociateServiceActionFromProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -145,7 +145,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(input, context);
+    return se_BatchDisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(output, context);
+    return de_BatchDisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

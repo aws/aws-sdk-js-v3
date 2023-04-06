@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectivityInfoCommand,
-  serializeAws_restJson1GetConnectivityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectivityInfoCommand, se_GetConnectivityInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetConnectivityInfoCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectivityInfoCommand(input, context);
+    return se_GetConnectivityInfoCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1GetConnectivityInfoCommand(output, context);
+    return de_GetConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

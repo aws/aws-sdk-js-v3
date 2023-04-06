@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetInfrastructureConfigurationRequest, GetInfrastructureConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetInfrastructureConfigurationCommand,
-  serializeAws_restJson1GetInfrastructureConfigurationCommand,
+  de_GetInfrastructureConfigurationCommand,
+  se_GetInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     input: GetInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInfrastructureConfigurationCommand(input, context);
+    return se_GetInfrastructureConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetInfrastructureConfigurationCommand(output, context);
+    return de_GetInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

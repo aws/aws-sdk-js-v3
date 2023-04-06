@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLifecycleHookCommand,
-  serializeAws_queryDeleteLifecycleHookCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteLifecycleHookCommand, se_DeleteLifecycleHookCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteLifecycleHookCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLifecycleHookCommand(input, context);
+    return se_DeleteLifecycleHookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecycleHookCommandOutput> {
-    return deserializeAws_queryDeleteLifecycleHookCommand(output, context);
+    return de_DeleteLifecycleHookCommand(output, context);
   }
 
   // Start section: command_body_extra

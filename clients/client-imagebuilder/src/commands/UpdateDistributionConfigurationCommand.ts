@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { UpdateDistributionConfigurationRequest, UpdateDistributionConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateDistributionConfigurationCommand,
-  serializeAws_restJson1UpdateDistributionConfigurationCommand,
+  de_UpdateDistributionConfigurationCommand,
+  se_UpdateDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -232,7 +232,7 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     input: UpdateDistributionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDistributionConfigurationCommand(input, context);
+    return se_UpdateDistributionConfigurationCommand(input, context);
   }
 
   /**
@@ -242,7 +242,7 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateDistributionConfigurationCommand(output, context);
+    return de_UpdateDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetReplicationSetInput, GetReplicationSetOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReplicationSetCommand,
-  serializeAws_restJson1GetReplicationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReplicationSetCommand, se_GetReplicationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetReplicationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReplicationSetCommand(input, context);
+    return se_GetReplicationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationSetCommandOutput> {
-    return deserializeAws_restJson1GetReplicationSetCommand(output, context);
+    return de_GetReplicationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

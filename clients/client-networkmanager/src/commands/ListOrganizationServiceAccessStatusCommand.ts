@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1ListOrganizationServiceAccessStatusCommand,
-  serializeAws_restJson1ListOrganizationServiceAccessStatusCommand,
+  de_ListOrganizationServiceAccessStatusCommand,
+  se_ListOrganizationServiceAccessStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -129,7 +129,7 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     input: ListOrganizationServiceAccessStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrganizationServiceAccessStatusCommand(input, context);
+    return se_ListOrganizationServiceAccessStatusCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationServiceAccessStatusCommandOutput> {
-    return deserializeAws_restJson1ListOrganizationServiceAccessStatusCommand(output, context);
+    return de_ListOrganizationServiceAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

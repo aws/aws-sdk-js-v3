@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteScalingPolicyInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScalingPolicyCommand,
-  serializeAws_json1_1DeleteScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteScalingPolicyCommand, se_DeleteScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
+    return se_DeleteScalingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
+    return de_DeleteScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

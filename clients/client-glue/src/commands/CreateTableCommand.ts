@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateTableRequest, CreateTableResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTableCommand,
-  serializeAws_json1_1CreateTableCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -238,14 +235,14 @@ export class CreateTableCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTableCommand(input, context);
+    return se_CreateTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return deserializeAws_json1_1CreateTableCommand(output, context);
+    return de_CreateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

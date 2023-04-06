@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
-  serializeAws_json1_1DescribeLocationFsxWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLocationFsxWindowsCommand, se_DescribeLocationFsxWindowsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationFsxWindowsCommand(input, context);
+    return se_DescribeLocationFsxWindowsCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocationFsxWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationFsxWindowsCommand(output, context);
+    return de_DescribeLocationFsxWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

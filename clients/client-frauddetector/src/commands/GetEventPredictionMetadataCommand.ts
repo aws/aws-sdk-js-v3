@@ -19,10 +19,7 @@ import {
   GetEventPredictionMetadataResult,
   GetEventPredictionMetadataResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventPredictionMetadataCommand,
-  serializeAws_json1_1GetEventPredictionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetEventPredictionMetadataCommand, se_GetEventPredictionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class GetEventPredictionMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEventPredictionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventPredictionMetadataCommand(input, context);
+    return se_GetEventPredictionMetadataCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class GetEventPredictionMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventPredictionMetadataCommandOutput> {
-    return deserializeAws_json1_1GetEventPredictionMetadataCommand(output, context);
+    return de_GetEventPredictionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

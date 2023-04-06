@@ -16,8 +16,8 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { DeleteAssessmentFrameworkShareRequest, DeleteAssessmentFrameworkShareResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand,
-  serializeAws_restJson1DeleteAssessmentFrameworkShareCommand,
+  de_DeleteAssessmentFrameworkShareCommand,
+  se_DeleteAssessmentFrameworkShareCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     input: DeleteAssessmentFrameworkShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssessmentFrameworkShareCommand(input, context);
+    return se_DeleteAssessmentFrameworkShareCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssessmentFrameworkShareCommandOutput> {
-    return deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand(output, context);
+    return de_DeleteAssessmentFrameworkShareCommand(output, context);
   }
 
   // Start section: command_body_extra

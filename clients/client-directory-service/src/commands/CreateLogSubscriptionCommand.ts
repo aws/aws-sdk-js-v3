@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogSubscriptionCommand,
-  serializeAws_json1_1CreateLogSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLogSubscriptionCommand, se_CreateLogSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateLogSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogSubscriptionCommand(input, context);
+    return se_CreateLogSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateLogSubscriptionCommand(output, context);
+    return de_CreateLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

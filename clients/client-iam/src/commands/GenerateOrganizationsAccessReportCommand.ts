@@ -19,8 +19,8 @@ import {
   GenerateOrganizationsAccessReportResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGenerateOrganizationsAccessReportCommand,
-  serializeAws_queryGenerateOrganizationsAccessReportCommand,
+  de_GenerateOrganizationsAccessReportCommand,
+  se_GenerateOrganizationsAccessReportCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -279,7 +279,7 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     input: GenerateOrganizationsAccessReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateOrganizationsAccessReportCommand(input, context);
+    return se_GenerateOrganizationsAccessReportCommand(input, context);
   }
 
   /**
@@ -289,7 +289,7 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGenerateOrganizationsAccessReportCommand(output, context);
+    return de_GenerateOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

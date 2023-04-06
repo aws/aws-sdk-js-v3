@@ -19,10 +19,7 @@ import {
   ListDelegatedAdministratorsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListDelegatedAdministratorsCommand,
-  serializeAws_json1_1ListDelegatedAdministratorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDelegatedAdministratorsCommand, se_ListDelegatedAdministratorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -457,7 +454,7 @@ export class ListDelegatedAdministratorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDelegatedAdministratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDelegatedAdministratorsCommand(input, context);
+    return se_ListDelegatedAdministratorsCommand(input, context);
   }
 
   /**
@@ -467,7 +464,7 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDelegatedAdministratorsCommandOutput> {
-    return deserializeAws_json1_1ListDelegatedAdministratorsCommand(output, context);
+    return de_ListDelegatedAdministratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

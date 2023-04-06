@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteHumanLoopCommand,
-  serializeAws_restJson1DeleteHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteHumanLoopCommand, se_DeleteHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -143,14 +140,14 @@ export class DeleteHumanLoopCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteHumanLoopCommand(input, context);
+    return se_DeleteHumanLoopCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanLoopCommandOutput> {
-    return deserializeAws_restJson1DeleteHumanLoopCommand(output, context);
+    return de_DeleteHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { DeleteApplicationFromEnvironmentRequest, DeleteApplicationFromEnvironmentResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand,
-  serializeAws_restJson1DeleteApplicationFromEnvironmentCommand,
+  de_DeleteApplicationFromEnvironmentCommand,
+  se_DeleteApplicationFromEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     input: DeleteApplicationFromEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApplicationFromEnvironmentCommand(input, context);
+    return se_DeleteApplicationFromEnvironmentCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationFromEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand(output, context);
+    return de_DeleteApplicationFromEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

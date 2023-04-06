@@ -16,8 +16,8 @@ import {
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetNotificationConfigurationRequest, GetNotificationConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetNotificationConfigurationCommand,
-  serializeAws_restJson1GetNotificationConfigurationCommand,
+  de_GetNotificationConfigurationCommand,
+  se_GetNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -134,7 +134,7 @@ export class GetNotificationConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNotificationConfigurationCommand(input, context);
+    return se_GetNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class GetNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetNotificationConfigurationCommand(output, context);
+    return de_GetNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

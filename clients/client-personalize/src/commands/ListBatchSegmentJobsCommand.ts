@@ -15,10 +15,7 @@ import {
 
 import { ListBatchSegmentJobsRequest, ListBatchSegmentJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListBatchSegmentJobsCommand,
-  serializeAws_json1_1ListBatchSegmentJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBatchSegmentJobsCommand, se_ListBatchSegmentJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListBatchSegmentJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBatchSegmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBatchSegmentJobsCommand(input, context);
+    return se_ListBatchSegmentJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchSegmentJobsCommandOutput> {
-    return deserializeAws_json1_1ListBatchSegmentJobsCommand(output, context);
+    return de_ListBatchSegmentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

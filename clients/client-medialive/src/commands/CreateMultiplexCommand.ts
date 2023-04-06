@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CreateMultiplexRequest, CreateMultiplexResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateMultiplexCommand,
-  serializeAws_restJson1CreateMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMultiplexCommand, se_CreateMultiplexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class CreateMultiplexCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMultiplexCommand(input, context);
+    return se_CreateMultiplexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultiplexCommandOutput> {
-    return deserializeAws_restJson1CreateMultiplexCommand(output, context);
+    return de_CreateMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

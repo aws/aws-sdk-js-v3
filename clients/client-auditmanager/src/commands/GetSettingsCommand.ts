@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetSettingsRequest, GetSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSettingsCommand,
-  serializeAws_restJson1GetSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSettingsCommand, se_GetSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSettingsCommand(input, context);
+    return se_GetSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSettingsCommandOutput> {
-    return deserializeAws_restJson1GetSettingsCommand(output, context);
+    return de_GetSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

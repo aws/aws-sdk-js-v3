@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { GetStreamKeyRequest, GetStreamKeyResponse, GetStreamKeyResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStreamKeyCommand,
-  serializeAws_restJson1GetStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamKeyCommand, se_GetStreamKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetStreamKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamKeyCommand(input, context);
+    return se_GetStreamKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamKeyCommandOutput> {
-    return deserializeAws_restJson1GetStreamKeyCommand(output, context);
+    return de_GetStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

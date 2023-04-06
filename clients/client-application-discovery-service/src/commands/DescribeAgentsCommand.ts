@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAgentsCommand,
-  serializeAws_json1_1DescribeAgentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAgentsCommand, se_DescribeAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class DescribeAgentsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgentsCommand(input, context);
+    return se_DescribeAgentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentsCommandOutput> {
-    return deserializeAws_json1_1DescribeAgentsCommand(output, context);
+    return de_DescribeAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

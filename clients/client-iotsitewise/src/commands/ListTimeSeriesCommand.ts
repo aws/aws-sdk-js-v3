@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTimeSeriesCommand,
-  serializeAws_restJson1ListTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTimeSeriesCommand, se_ListTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListTimeSeriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTimeSeriesCommand(input, context);
+    return se_ListTimeSeriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1ListTimeSeriesCommand(output, context);
+    return de_ListTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

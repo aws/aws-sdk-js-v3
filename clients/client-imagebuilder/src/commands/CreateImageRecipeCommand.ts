@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { CreateImageRecipeRequest, CreateImageRecipeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateImageRecipeCommand,
-  serializeAws_restJson1CreateImageRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateImageRecipeCommand, se_CreateImageRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class CreateImageRecipeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateImageRecipeCommand(input, context);
+    return se_CreateImageRecipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageRecipeCommandOutput> {
-    return deserializeAws_restJson1CreateImageRecipeCommand(output, context);
+    return de_CreateImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

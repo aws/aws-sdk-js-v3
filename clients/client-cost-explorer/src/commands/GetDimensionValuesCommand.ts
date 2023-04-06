@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDimensionValuesCommand,
-  serializeAws_json1_1GetDimensionValuesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDimensionValuesCommand, se_GetDimensionValuesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -218,14 +215,14 @@ export class GetDimensionValuesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDimensionValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDimensionValuesCommand(input, context);
+    return se_GetDimensionValuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionValuesCommandOutput> {
-    return deserializeAws_json1_1GetDimensionValuesCommand(output, context);
+    return de_GetDimensionValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

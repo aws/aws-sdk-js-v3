@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1LeaveOrganizationCommand,
-  serializeAws_json1_1LeaveOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_LeaveOrganizationCommand, se_LeaveOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -527,14 +524,14 @@ export class LeaveOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: LeaveOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LeaveOrganizationCommand(input, context);
+    return se_LeaveOrganizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LeaveOrganizationCommandOutput> {
-    return deserializeAws_json1_1LeaveOrganizationCommand(output, context);
+    return de_LeaveOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

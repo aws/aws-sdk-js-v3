@@ -15,8 +15,8 @@ import {
 
 import { DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFileSystemAssociationsCommand,
-  serializeAws_json1_1DescribeFileSystemAssociationsCommand,
+  de_DescribeFileSystemAssociationsCommand,
+  se_DescribeFileSystemAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -136,7 +136,7 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     input: DescribeFileSystemAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileSystemAssociationsCommand(input, context);
+    return se_DescribeFileSystemAssociationsCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeFileSystemAssociationsCommand(output, context);
+    return de_DescribeFileSystemAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

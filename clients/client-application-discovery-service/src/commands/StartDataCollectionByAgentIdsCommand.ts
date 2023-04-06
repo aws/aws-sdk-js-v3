@@ -20,8 +20,8 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import { StartDataCollectionByAgentIdsRequest, StartDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StartDataCollectionByAgentIdsCommand,
+  de_StartDataCollectionByAgentIdsCommand,
+  se_StartDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(input, context);
+    return se_StartDataCollectionByAgentIdsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(output, context);
+    return de_StartDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateHoursOfOperationRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateHoursOfOperationCommand,
-  serializeAws_restJson1UpdateHoursOfOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateHoursOfOperationCommand, se_UpdateHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class UpdateHoursOfOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateHoursOfOperationCommand(input, context);
+    return se_UpdateHoursOfOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHoursOfOperationCommandOutput> {
-    return deserializeAws_restJson1UpdateHoursOfOperationCommand(output, context);
+    return de_UpdateHoursOfOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

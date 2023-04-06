@@ -18,8 +18,8 @@ import {
   ListResolverQueryLogConfigAssociationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand,
-  serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand,
+  de_ListResolverQueryLogConfigAssociationsCommand,
+  se_ListResolverQueryLogConfigAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -158,7 +158,7 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     input: ListResolverQueryLogConfigAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand(input, context);
+    return se_ListResolverQueryLogConfigAssociationsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand(output, context);
+    return de_ListResolverQueryLogConfigAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

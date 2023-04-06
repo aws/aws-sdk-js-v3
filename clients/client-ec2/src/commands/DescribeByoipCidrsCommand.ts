@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeByoipCidrsCommand,
-  serializeAws_ec2DescribeByoipCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeByoipCidrsCommand, se_DescribeByoipCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DescribeByoipCidrsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeByoipCidrsCommand(input, context);
+    return se_DescribeByoipCidrsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeByoipCidrsCommandOutput> {
-    return deserializeAws_ec2DescribeByoipCidrsCommand(output, context);
+    return de_DescribeByoipCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

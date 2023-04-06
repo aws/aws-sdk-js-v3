@@ -18,8 +18,8 @@ import {
   DisassociateResolverEndpointIpAddressResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
-  serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
+  de_DisassociateResolverEndpointIpAddressCommand,
+  se_DisassociateResolverEndpointIpAddressCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -157,7 +157,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     input: DisassociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(input, context);
+    return se_DisassociateResolverEndpointIpAddressCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(output, context);
+    return de_DisassociateResolverEndpointIpAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

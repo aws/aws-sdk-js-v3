@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetFlowLogsIntegrationTemplateRequest, GetFlowLogsIntegrationTemplateResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
-  serializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
+  de_GetFlowLogsIntegrationTemplateCommand,
+  se_GetFlowLogsIntegrationTemplateCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -154,7 +154,7 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     input: GetFlowLogsIntegrationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetFlowLogsIntegrationTemplateCommand(input, context);
+    return se_GetFlowLogsIntegrationTemplateCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFlowLogsIntegrationTemplateCommandOutput> {
-    return deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand(output, context);
+    return de_GetFlowLogsIntegrationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

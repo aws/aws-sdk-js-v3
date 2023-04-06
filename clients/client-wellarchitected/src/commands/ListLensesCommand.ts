@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLensesInput, ListLensesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensesCommand,
-  serializeAws_restJson1ListLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLensesCommand, se_ListLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListLensesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensesCommand(input, context);
+    return se_ListLensesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensesCommandOutput> {
-    return deserializeAws_restJson1ListLensesCommand(output, context);
+    return de_ListLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

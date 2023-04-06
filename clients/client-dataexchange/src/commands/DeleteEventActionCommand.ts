@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { DeleteEventActionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventActionCommand,
-  serializeAws_restJson1DeleteEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventActionCommand, se_DeleteEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteEventActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventActionCommand(input, context);
+    return se_DeleteEventActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventActionCommandOutput> {
-    return deserializeAws_restJson1DeleteEventActionCommand(output, context);
+    return de_DeleteEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSimulationInput, DeleteSimulationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSimulationCommand,
-  serializeAws_restJson1DeleteSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSimulationCommand, se_DeleteSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteSimulationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSimulationCommand(input, context);
+    return se_DeleteSimulationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSimulationCommandOutput> {
-    return deserializeAws_restJson1DeleteSimulationCommand(output, context);
+    return de_DeleteSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

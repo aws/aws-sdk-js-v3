@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UnlockRuleRequest, UnlockRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnlockRuleCommand,
-  serializeAws_restJson1UnlockRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnlockRuleCommand, se_UnlockRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
@@ -131,14 +128,14 @@ export class UnlockRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UnlockRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnlockRuleCommand(input, context);
+    return se_UnlockRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlockRuleCommandOutput> {
-    return deserializeAws_restJson1UnlockRuleCommand(output, context);
+    return de_UnlockRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

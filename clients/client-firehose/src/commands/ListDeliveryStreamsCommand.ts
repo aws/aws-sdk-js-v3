@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeliveryStreamsCommand,
-  serializeAws_json1_1ListDeliveryStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeliveryStreamsCommand, se_ListDeliveryStreamsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListDeliveryStreamsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeliveryStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeliveryStreamsCommand(input, context);
+    return se_ListDeliveryStreamsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeliveryStreamsCommandOutput> {
-    return deserializeAws_json1_1ListDeliveryStreamsCommand(output, context);
+    return de_ListDeliveryStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

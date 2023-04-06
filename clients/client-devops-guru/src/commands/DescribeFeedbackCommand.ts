@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeFeedbackRequest, DescribeFeedbackResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFeedbackCommand,
-  serializeAws_restJson1DescribeFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFeedbackCommand, se_DescribeFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFeedbackCommand(input, context);
+    return se_DescribeFeedbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeedbackCommandOutput> {
-    return deserializeAws_restJson1DescribeFeedbackCommand(output, context);
+    return de_DescribeFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

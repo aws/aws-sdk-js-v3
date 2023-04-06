@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSubnetGroupCommand,
-  serializeAws_json1_1UpdateSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSubnetGroupCommand, se_UpdateSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubnetGroupCommand(input, context);
+    return se_UpdateSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateSubnetGroupCommand(output, context);
+    return de_UpdateSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

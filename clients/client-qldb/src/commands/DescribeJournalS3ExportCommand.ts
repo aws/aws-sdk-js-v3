@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeJournalS3ExportRequest, DescribeJournalS3ExportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJournalS3ExportCommand,
-  serializeAws_restJson1DescribeJournalS3ExportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJournalS3ExportCommand, se_DescribeJournalS3ExportCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribeJournalS3ExportCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJournalS3ExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJournalS3ExportCommand(input, context);
+    return se_DescribeJournalS3ExportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJournalS3ExportCommandOutput> {
-    return deserializeAws_restJson1DescribeJournalS3ExportCommand(output, context);
+    return de_DescribeJournalS3ExportCommand(output, context);
   }
 
   // Start section: command_body_extra

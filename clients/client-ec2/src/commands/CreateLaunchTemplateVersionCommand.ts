@@ -20,10 +20,7 @@ import {
   CreateLaunchTemplateVersionResult,
   CreateLaunchTemplateVersionResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateLaunchTemplateVersionCommand,
-  serializeAws_ec2CreateLaunchTemplateVersionCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateLaunchTemplateVersionCommand, se_CreateLaunchTemplateVersionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -419,7 +416,7 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLaunchTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateLaunchTemplateVersionCommand(input, context);
+    return se_CreateLaunchTemplateVersionCommand(input, context);
   }
 
   /**
@@ -429,7 +426,7 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLaunchTemplateVersionCommandOutput> {
-    return deserializeAws_ec2CreateLaunchTemplateVersionCommand(output, context);
+    return de_CreateLaunchTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

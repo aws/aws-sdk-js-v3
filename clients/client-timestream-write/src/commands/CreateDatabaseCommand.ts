@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateDatabaseCommand,
-  serializeAws_json1_0CreateDatabaseCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -159,14 +156,14 @@ export class CreateDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateDatabaseCommand(input, context);
+    return se_CreateDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatabaseCommandOutput> {
-    return deserializeAws_json1_0CreateDatabaseCommand(output, context);
+    return de_CreateDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

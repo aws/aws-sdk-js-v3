@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogSubscriptionCommand,
-  serializeAws_json1_1DeleteLogSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLogSubscriptionCommand, se_DeleteLogSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteLogSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogSubscriptionCommand(input, context);
+    return se_DeleteLogSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteLogSubscriptionCommand(output, context);
+    return de_DeleteLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

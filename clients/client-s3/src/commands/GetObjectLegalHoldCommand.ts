@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetObjectLegalHoldOutput, GetObjectLegalHoldRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectLegalHoldCommand,
-  serializeAws_restXmlGetObjectLegalHoldCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectLegalHoldCommand, se_GetObjectLegalHoldCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -140,14 +137,14 @@ export class GetObjectLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectLegalHoldCommand(input, context);
+    return se_GetObjectLegalHoldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectLegalHoldCommandOutput> {
-    return deserializeAws_restXmlGetObjectLegalHoldCommand(output, context);
+    return de_GetObjectLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

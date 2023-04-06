@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRuleRequest, UpdateRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleCommand,
-  serializeAws_json1_1UpdateRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -314,14 +311,14 @@ export class UpdateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleCommand(input, context);
+    return se_UpdateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleCommand(output, context);
+    return de_UpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

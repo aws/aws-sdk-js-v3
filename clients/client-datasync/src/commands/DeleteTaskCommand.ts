@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DeleteTaskRequest, DeleteTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTaskCommand,
-  serializeAws_json1_1DeleteTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTaskCommand, se_DeleteTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DeleteTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTaskCommand(input, context);
+    return se_DeleteTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskCommandOutput> {
-    return deserializeAws_json1_1DeleteTaskCommand(output, context);
+    return de_DeleteTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

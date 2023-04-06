@@ -19,8 +19,8 @@ import {
   DeregisterTransitGatewayMulticastGroupMembersResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,
-  serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,
+  de_DeregisterTransitGatewayMulticastGroupMembersCommand,
+  se_DeregisterTransitGatewayMulticastGroupMembersCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
     input: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand(input, context);
+    return se_DeregisterTransitGatewayMulticastGroupMembersCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> {
-    return deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand(output, context);
+    return de_DeregisterTransitGatewayMulticastGroupMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

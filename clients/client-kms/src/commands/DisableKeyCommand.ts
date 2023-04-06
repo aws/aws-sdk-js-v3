@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DisableKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableKeyCommand,
-  serializeAws_json1_1DisableKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableKeyCommand, se_DisableKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class DisableKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableKeyCommand(input, context);
+    return se_DisableKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyCommandOutput> {
-    return deserializeAws_json1_1DisableKeyCommand(output, context);
+    return de_DisableKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

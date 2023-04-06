@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
-import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
+import { de_SetSubnetsCommand, se_SetSubnetsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -183,14 +183,14 @@ export class SetSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: SetSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSubnetsCommand(input, context);
+    return se_SetSubnetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSubnetsCommandOutput> {
-    return deserializeAws_querySetSubnetsCommand(output, context);
+    return de_SetSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

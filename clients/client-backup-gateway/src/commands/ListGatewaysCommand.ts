@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListGatewaysCommand,
-  serializeAws_json1_0ListGatewaysCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListGatewaysCommand(input, context);
+    return se_ListGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewaysCommandOutput> {
-    return deserializeAws_json1_0ListGatewaysCommand(output, context);
+    return de_ListGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

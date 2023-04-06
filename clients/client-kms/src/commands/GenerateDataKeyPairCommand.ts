@@ -19,10 +19,7 @@ import {
   GenerateDataKeyPairResponse,
   GenerateDataKeyPairResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateDataKeyPairCommand,
-  serializeAws_json1_1GenerateDataKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateDataKeyPairCommand, se_GenerateDataKeyPairCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -287,14 +284,14 @@ export class GenerateDataKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateDataKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairCommand(input, context);
+    return se_GenerateDataKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyPairCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairCommand(output, context);
+    return de_GenerateDataKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { MonitorContactRequest, MonitorContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1MonitorContactCommand,
-  serializeAws_restJson1MonitorContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MonitorContactCommand, se_MonitorContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class MonitorContactCommand extends $Command<
    * @internal
    */
   private serialize(input: MonitorContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MonitorContactCommand(input, context);
+    return se_MonitorContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorContactCommandOutput> {
-    return deserializeAws_restJson1MonitorContactCommand(output, context);
+    return de_MonitorContactCommand(output, context);
   }
 
   // Start section: command_body_extra

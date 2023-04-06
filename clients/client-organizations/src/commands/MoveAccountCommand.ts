@@ -15,10 +15,7 @@ import {
 
 import { MoveAccountRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1MoveAccountCommand,
-  serializeAws_json1_1MoveAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MoveAccountCommand, se_MoveAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -281,14 +278,14 @@ export class MoveAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: MoveAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MoveAccountCommand(input, context);
+    return se_MoveAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveAccountCommandOutput> {
-    return deserializeAws_json1_1MoveAccountCommand(output, context);
+    return de_MoveAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

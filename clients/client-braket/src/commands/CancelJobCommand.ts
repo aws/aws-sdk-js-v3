@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobCommand,
-  serializeAws_restJson1CancelJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class CancelJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_restJson1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
-  serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
+  de_GetReservedInstancesExchangeQuoteCommand,
+  se_GetReservedInstancesExchangeQuoteCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     input: GetReservedInstancesExchangeQuoteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetReservedInstancesExchangeQuoteCommand(input, context);
+    return se_GetReservedInstancesExchangeQuoteCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> {
-    return deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand(output, context);
+    return de_GetReservedInstancesExchangeQuoteCommand(output, context);
   }
 
   // Start section: command_body_extra

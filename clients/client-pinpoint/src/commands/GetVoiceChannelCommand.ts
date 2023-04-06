@@ -15,10 +15,7 @@ import {
 
 import { GetVoiceChannelRequest, GetVoiceChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetVoiceChannelCommand,
-  serializeAws_restJson1GetVoiceChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceChannelCommand, se_GetVoiceChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetVoiceChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceChannelCommand(input, context);
+    return se_GetVoiceChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceChannelCommandOutput> {
-    return deserializeAws_restJson1GetVoiceChannelCommand(output, context);
+    return de_GetVoiceChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

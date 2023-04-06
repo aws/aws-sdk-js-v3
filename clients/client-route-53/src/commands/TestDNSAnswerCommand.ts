@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlTestDNSAnswerCommand,
-  serializeAws_restXmlTestDNSAnswerCommand,
-} from "../protocols/Aws_restXml";
+import { de_TestDNSAnswerCommand, se_TestDNSAnswerCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -134,14 +131,14 @@ export class TestDNSAnswerCommand extends $Command<
    * @internal
    */
   private serialize(input: TestDNSAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTestDNSAnswerCommand(input, context);
+    return se_TestDNSAnswerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestDNSAnswerCommandOutput> {
-    return deserializeAws_restXmlTestDNSAnswerCommand(output, context);
+    return de_TestDNSAnswerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   AssociateProactiveEngagementDetailsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
-  serializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
+  de_AssociateProactiveEngagementDetailsCommand,
+  se_AssociateProactiveEngagementDetailsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
@@ -155,7 +155,7 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     input: AssociateProactiveEngagementDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateProactiveEngagementDetailsCommand(input, context);
+    return se_AssociateProactiveEngagementDetailsCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateProactiveEngagementDetailsCommandOutput> {
-    return deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand(output, context);
+    return de_AssociateProactiveEngagementDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

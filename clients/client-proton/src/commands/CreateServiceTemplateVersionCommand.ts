@@ -20,8 +20,8 @@ import {
   CreateServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CreateServiceTemplateVersionCommand,
-  serializeAws_json1_0CreateServiceTemplateVersionCommand,
+  de_CreateServiceTemplateVersionCommand,
+  se_CreateServiceTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -175,7 +175,7 @@ export class CreateServiceTemplateVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateServiceTemplateVersionCommand(input, context);
+    return se_CreateServiceTemplateVersionCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class CreateServiceTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateServiceTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0CreateServiceTemplateVersionCommand(output, context);
+    return de_CreateServiceTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

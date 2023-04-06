@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetCoreDeviceRequest, GetCoreDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCoreDeviceCommand,
-  serializeAws_restJson1GetCoreDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreDeviceCommand, se_GetCoreDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class GetCoreDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCoreDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreDeviceCommand(input, context);
+    return se_GetCoreDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1GetCoreDeviceCommand(output, context);
+    return de_GetCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

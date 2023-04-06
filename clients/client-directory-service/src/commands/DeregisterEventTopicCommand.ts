@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterEventTopicCommand,
-  serializeAws_json1_1DeregisterEventTopicCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterEventTopicCommand, se_DeregisterEventTopicCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeregisterEventTopicCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterEventTopicCommand(input, context);
+    return se_DeregisterEventTopicCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEventTopicCommandOutput> {
-    return deserializeAws_json1_1DeregisterEventTopicCommand(output, context);
+    return de_DeregisterEventTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

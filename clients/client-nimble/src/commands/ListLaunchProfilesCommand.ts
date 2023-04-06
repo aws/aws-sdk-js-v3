@@ -19,10 +19,7 @@ import {
   ListLaunchProfilesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListLaunchProfilesCommand,
-  serializeAws_restJson1ListLaunchProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLaunchProfilesCommand, se_ListLaunchProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListLaunchProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLaunchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLaunchProfilesCommand(input, context);
+    return se_ListLaunchProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchProfilesCommandOutput> {
-    return deserializeAws_restJson1ListLaunchProfilesCommand(output, context);
+    return de_ListLaunchProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedBooleanInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedBooleanCommand,
-  serializeAws_restJson1MalformedBooleanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedBooleanCommand, se_MalformedBooleanCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedBooleanCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedBooleanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedBooleanCommand(input, context);
+    return se_MalformedBooleanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedBooleanCommandOutput> {
-    return deserializeAws_restJson1MalformedBooleanCommand(output, context);
+    return de_MalformedBooleanCommand(output, context);
   }
 
   // Start section: command_body_extra

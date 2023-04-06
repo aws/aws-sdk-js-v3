@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeProjectsRequest, DescribeProjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProjectsCommand,
-  serializeAws_json1_1DescribeProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProjectsCommand, se_DescribeProjectsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -145,14 +142,14 @@ export class DescribeProjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProjectsCommand(input, context);
+    return se_DescribeProjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectsCommandOutput> {
-    return deserializeAws_json1_1DescribeProjectsCommand(output, context);
+    return de_DescribeProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

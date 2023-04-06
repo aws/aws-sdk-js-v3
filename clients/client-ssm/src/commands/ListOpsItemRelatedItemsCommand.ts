@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOpsItemRelatedItemsRequest, ListOpsItemRelatedItemsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListOpsItemRelatedItemsCommand,
-  serializeAws_json1_1ListOpsItemRelatedItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListOpsItemRelatedItemsCommand, se_ListOpsItemRelatedItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOpsItemRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOpsItemRelatedItemsCommand(input, context);
+    return se_ListOpsItemRelatedItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsItemRelatedItemsCommandOutput> {
-    return deserializeAws_json1_1ListOpsItemRelatedItemsCommand(output, context);
+    return de_ListOpsItemRelatedItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

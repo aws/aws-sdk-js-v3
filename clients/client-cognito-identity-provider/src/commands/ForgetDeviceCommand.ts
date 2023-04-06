@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { ForgetDeviceRequest, ForgetDeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1ForgetDeviceCommand,
-  serializeAws_json1_1ForgetDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ForgetDeviceCommand, se_ForgetDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class ForgetDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: ForgetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ForgetDeviceCommand(input, context);
+    return se_ForgetDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ForgetDeviceCommandOutput> {
-    return deserializeAws_json1_1ForgetDeviceCommand(output, context);
+    return de_ForgetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListSecurityPoliciesCommand,
-  serializeAws_json1_0ListSecurityPoliciesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSecurityPoliciesCommand, se_ListSecurityPoliciesCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListSecurityPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecurityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSecurityPoliciesCommand(input, context);
+    return se_ListSecurityPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityPoliciesCommandOutput> {
-    return deserializeAws_json1_0ListSecurityPoliciesCommand(output, context);
+    return de_ListSecurityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

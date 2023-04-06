@@ -19,8 +19,8 @@ import {
   GetECSServiceRecommendationProjectedMetricsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand,
-  serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand,
+  de_GetECSServiceRecommendationProjectedMetricsCommand,
+  se_GetECSServiceRecommendationProjectedMetricsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -166,7 +166,7 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     input: GetECSServiceRecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand(input, context);
+    return se_GetECSServiceRecommendationProjectedMetricsCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> {
-    return deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand(output, context);
+    return de_GetECSServiceRecommendationProjectedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

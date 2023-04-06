@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DisassociateMacSecKeyRequest, DisassociateMacSecKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateMacSecKeyCommand,
-  serializeAws_json1_1DisassociateMacSecKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateMacSecKeyCommand, se_DisassociateMacSecKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DisassociateMacSecKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateMacSecKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateMacSecKeyCommand(input, context);
+    return se_DisassociateMacSecKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMacSecKeyCommandOutput> {
-    return deserializeAws_json1_1DisassociateMacSecKeyCommand(output, context);
+    return de_DisassociateMacSecKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

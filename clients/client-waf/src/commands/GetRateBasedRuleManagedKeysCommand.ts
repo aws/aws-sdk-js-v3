@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand,
-  serializeAws_json1_1GetRateBasedRuleManagedKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRateBasedRuleManagedKeysCommand, se_GetRateBasedRuleManagedKeysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -182,7 +179,7 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRateBasedRuleManagedKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(input, context);
+    return se_GetRateBasedRuleManagedKeysCommand(input, context);
   }
 
   /**
@@ -192,7 +189,7 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand(output, context);
+    return de_GetRateBasedRuleManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

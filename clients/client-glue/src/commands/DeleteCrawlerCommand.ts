@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCrawlerCommand,
-  serializeAws_json1_1DeleteCrawlerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCrawlerCommand, se_DeleteCrawlerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteCrawlerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCrawlerCommand(input, context);
+    return se_DeleteCrawlerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrawlerCommandOutput> {
-    return deserializeAws_json1_1DeleteCrawlerCommand(output, context);
+    return de_DeleteCrawlerCommand(output, context);
   }
 
   // Start section: command_body_extra

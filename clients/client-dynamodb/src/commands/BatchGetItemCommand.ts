@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchGetItemCommand,
-  serializeAws_json1_0BatchGetItemCommand,
-} from "../protocols/Aws_json1_0";
+import { de_BatchGetItemCommand, se_BatchGetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -307,14 +304,14 @@ export class BatchGetItemCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchGetItemCommand(input, context);
+    return se_BatchGetItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetItemCommandOutput> {
-    return deserializeAws_json1_0BatchGetItemCommand(output, context);
+    return de_BatchGetItemCommand(output, context);
   }
 
   // Start section: command_body_extra

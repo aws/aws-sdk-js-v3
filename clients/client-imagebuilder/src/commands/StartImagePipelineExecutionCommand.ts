@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartImagePipelineExecutionCommand,
-  serializeAws_restJson1StartImagePipelineExecutionCommand,
+  de_StartImagePipelineExecutionCommand,
+  se_StartImagePipelineExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class StartImagePipelineExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImagePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImagePipelineExecutionCommand(input, context);
+    return se_StartImagePipelineExecutionCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class StartImagePipelineExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartImagePipelineExecutionCommandOutput> {
-    return deserializeAws_restJson1StartImagePipelineExecutionCommand(output, context);
+    return de_StartImagePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   DescribeCompanyNetworkConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand,
-  serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand,
+  de_DescribeCompanyNetworkConfigurationCommand,
+  se_DescribeCompanyNetworkConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -146,7 +146,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     input: DescribeCompanyNetworkConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(input, context);
+    return se_DescribeCompanyNetworkConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(output, context);
+    return de_DescribeCompanyNetworkConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

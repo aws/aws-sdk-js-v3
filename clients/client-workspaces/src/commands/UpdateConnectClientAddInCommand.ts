@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConnectClientAddInCommand,
-  serializeAws_json1_1UpdateConnectClientAddInCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConnectClientAddInCommand, se_UpdateConnectClientAddInCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -133,14 +130,14 @@ export class UpdateConnectClientAddInCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectClientAddInCommand(input, context);
+    return se_UpdateConnectClientAddInCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectClientAddInCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectClientAddInCommand(output, context);
+    return de_UpdateConnectClientAddInCommand(output, context);
   }
 
   // Start section: command_body_extra

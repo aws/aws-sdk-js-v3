@@ -18,8 +18,8 @@ import {
   BatchUpdateStandardsControlAssociationsResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
-  serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
+  de_BatchUpdateStandardsControlAssociationsCommand,
+  se_BatchUpdateStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -158,7 +158,7 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     input: BatchUpdateStandardsControlAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(input, context);
+    return se_BatchUpdateStandardsControlAssociationsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(output, context);
+    return de_BatchUpdateStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

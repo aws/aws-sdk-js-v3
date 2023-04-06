@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileSystemCommand,
-  serializeAws_json1_1DeleteFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -208,14 +205,14 @@ export class DeleteFileSystemCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileSystemCommand(input, context);
+    return se_DeleteFileSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
-    return deserializeAws_json1_1DeleteFileSystemCommand(output, context);
+    return de_DeleteFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

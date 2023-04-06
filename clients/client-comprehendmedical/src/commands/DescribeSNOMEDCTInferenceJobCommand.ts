@@ -20,8 +20,8 @@ import {
 } from "../ComprehendMedicalClient";
 import { DescribeSNOMEDCTInferenceJobRequest, DescribeSNOMEDCTInferenceJobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand,
-  serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand,
+  de_DescribeSNOMEDCTInferenceJobCommand,
+  se_DescribeSNOMEDCTInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand(input, context);
+    return se_DescribeSNOMEDCTInferenceJobCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand(output, context);
+    return de_DescribeSNOMEDCTInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

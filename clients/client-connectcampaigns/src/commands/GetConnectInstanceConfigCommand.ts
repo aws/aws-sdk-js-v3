@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { GetConnectInstanceConfigRequest, GetConnectInstanceConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectInstanceConfigCommand,
-  serializeAws_restJson1GetConnectInstanceConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectInstanceConfigCommand, se_GetConnectInstanceConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetConnectInstanceConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectInstanceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectInstanceConfigCommand(input, context);
+    return se_GetConnectInstanceConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectInstanceConfigCommandOutput> {
-    return deserializeAws_restJson1GetConnectInstanceConfigCommand(output, context);
+    return de_GetConnectInstanceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

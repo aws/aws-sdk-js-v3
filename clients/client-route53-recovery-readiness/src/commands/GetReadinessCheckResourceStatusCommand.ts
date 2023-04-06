@@ -15,8 +15,8 @@ import {
 
 import { GetReadinessCheckResourceStatusRequest, GetReadinessCheckResourceStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetReadinessCheckResourceStatusCommand,
-  serializeAws_restJson1GetReadinessCheckResourceStatusCommand,
+  de_GetReadinessCheckResourceStatusCommand,
+  se_GetReadinessCheckResourceStatusCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -147,7 +147,7 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     input: GetReadinessCheckResourceStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadinessCheckResourceStatusCommand(input, context);
+    return se_GetReadinessCheckResourceStatusCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReadinessCheckResourceStatusCommandOutput> {
-    return deserializeAws_restJson1GetReadinessCheckResourceStatusCommand(output, context);
+    return de_GetReadinessCheckResourceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

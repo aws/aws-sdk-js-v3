@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeNFSFileSharesCommand,
-  serializeAws_json1_1DescribeNFSFileSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeNFSFileSharesCommand, se_DescribeNFSFileSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -131,14 +128,14 @@ export class DescribeNFSFileSharesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNFSFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNFSFileSharesCommand(input, context);
+    return se_DescribeNFSFileSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNFSFileSharesCommandOutput> {
-    return deserializeAws_json1_1DescribeNFSFileSharesCommand(output, context);
+    return de_DescribeNFSFileSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

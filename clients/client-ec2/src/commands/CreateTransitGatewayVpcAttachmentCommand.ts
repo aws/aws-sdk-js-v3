@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateTransitGatewayVpcAttachmentRequest, CreateTransitGatewayVpcAttachmentResult } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand,
+  de_CreateTransitGatewayVpcAttachmentCommand,
+  se_CreateTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -149,7 +149,7 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command<
     input: CreateTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(input, context);
+    return se_CreateTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(output, context);
+    return de_CreateTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

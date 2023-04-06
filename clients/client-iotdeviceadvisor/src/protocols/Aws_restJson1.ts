@@ -66,7 +66,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateSuiteDefinitionCommand
+ */
+export const se_CreateSuiteDefinitionCommand = async (
   input: CreateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -78,12 +81,9 @@ export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.suiteDefinitionConfiguration != null && {
-      suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
-        input.suiteDefinitionConfiguration,
-        context
-      ),
+      suiteDefinitionConfiguration: se_SuiteDefinitionConfiguration(input.suiteDefinitionConfiguration, context),
     }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -96,7 +96,10 @@ export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSuiteDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteSuiteDefinitionCommand
+ */
+export const se_DeleteSuiteDefinitionCommand = async (
   input: DeleteSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -124,7 +127,10 @@ export const serializeAws_restJson1DeleteSuiteDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEndpointCommand = async (
+/**
+ * serializeAws_restJson1GetEndpointCommand
+ */
+export const se_GetEndpointCommand = async (
   input: GetEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,7 +154,10 @@ export const serializeAws_restJson1GetEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSuiteDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetSuiteDefinitionCommand
+ */
+export const se_GetSuiteDefinitionCommand = async (
   input: GetSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -180,7 +189,10 @@ export const serializeAws_restJson1GetSuiteDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSuiteRunCommand = async (
+/**
+ * serializeAws_restJson1GetSuiteRunCommand
+ */
+export const se_GetSuiteRunCommand = async (
   input: GetSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -210,7 +222,10 @@ export const serializeAws_restJson1GetSuiteRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSuiteRunReportCommand = async (
+/**
+ * serializeAws_restJson1GetSuiteRunReportCommand
+ */
+export const se_GetSuiteRunReportCommand = async (
   input: GetSuiteRunReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -240,7 +255,10 @@ export const serializeAws_restJson1GetSuiteRunReportCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSuiteDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListSuiteDefinitionsCommand
+ */
+export const se_ListSuiteDefinitionsCommand = async (
   input: ListSuiteDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -264,7 +282,10 @@ export const serializeAws_restJson1ListSuiteDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSuiteRunsCommand = async (
+/**
+ * serializeAws_restJson1ListSuiteRunsCommand
+ */
+export const se_ListSuiteRunsCommand = async (
   input: ListSuiteRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -290,7 +311,10 @@ export const serializeAws_restJson1ListSuiteRunsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -310,7 +334,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartSuiteRunCommand = async (
+/**
+ * serializeAws_restJson1StartSuiteRunCommand
+ */
+export const se_StartSuiteRunCommand = async (
   input: StartSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -333,9 +360,9 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
   body = JSON.stringify({
     ...(input.suiteDefinitionVersion != null && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
     ...(input.suiteRunConfiguration != null && {
-      suiteRunConfiguration: serializeAws_restJson1SuiteRunConfiguration(input.suiteRunConfiguration, context),
+      suiteRunConfiguration: se_SuiteRunConfiguration(input.suiteRunConfiguration, context),
     }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -348,7 +375,10 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopSuiteRunCommand = async (
+/**
+ * serializeAws_restJson1StopSuiteRunCommand
+ */
+export const se_StopSuiteRunCommand = async (
   input: StopSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +408,10 @@ export const serializeAws_restJson1StopSuiteRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -390,7 +423,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -403,7 +436,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -430,7 +466,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateSuiteDefinitionCommand
+ */
+export const se_UpdateSuiteDefinitionCommand = async (
   input: UpdateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -451,10 +490,7 @@ export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.suiteDefinitionConfiguration != null && {
-      suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
-        input.suiteDefinitionConfiguration,
-        context
-      ),
+      suiteDefinitionConfiguration: se_SuiteDefinitionConfiguration(input.suiteDefinitionConfiguration, context),
     }),
   });
   return new __HttpRequest({
@@ -468,12 +504,15 @@ export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateSuiteDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateSuiteDefinitionCommand
+ */
+export const de_CreateSuiteDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSuiteDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSuiteDefinitionCommandError(output, context);
+    return de_CreateSuiteDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -494,7 +533,10 @@ export const deserializeAws_restJson1CreateSuiteDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateSuiteDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSuiteDefinitionCommandError
+ */
+const de_CreateSuiteDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSuiteDefinitionCommandOutput> => {
@@ -506,10 +548,10 @@ const deserializeAws_restJson1CreateSuiteDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -521,12 +563,15 @@ const deserializeAws_restJson1CreateSuiteDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteSuiteDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSuiteDefinitionCommand
+ */
+export const de_DeleteSuiteDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuiteDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSuiteDefinitionCommandError(output, context);
+    return de_DeleteSuiteDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -535,7 +580,10 @@ export const deserializeAws_restJson1DeleteSuiteDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSuiteDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSuiteDefinitionCommandError
+ */
+const de_DeleteSuiteDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuiteDefinitionCommandOutput> => {
@@ -547,10 +595,10 @@ const deserializeAws_restJson1DeleteSuiteDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -562,12 +610,15 @@ const deserializeAws_restJson1DeleteSuiteDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEndpointCommand = async (
+/**
+ * deserializeAws_restJson1GetEndpointCommand
+ */
+export const de_GetEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEndpointCommandError(output, context);
+    return de_GetEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -579,7 +630,10 @@ export const deserializeAws_restJson1GetEndpointCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1GetEndpointCommandError
+ */
+const de_GetEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> => {
@@ -591,13 +645,13 @@ const deserializeAws_restJson1GetEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -609,12 +663,15 @@ const deserializeAws_restJson1GetEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetSuiteDefinitionCommand
+ */
+export const de_GetSuiteDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSuiteDefinitionCommandError(output, context);
+    return de_GetSuiteDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -633,10 +690,7 @@ export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
     contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
   }
   if (data.suiteDefinitionConfiguration != null) {
-    contents.suiteDefinitionConfiguration = deserializeAws_restJson1SuiteDefinitionConfiguration(
-      data.suiteDefinitionConfiguration,
-      context
-    );
+    contents.suiteDefinitionConfiguration = de_SuiteDefinitionConfiguration(data.suiteDefinitionConfiguration, context);
   }
   if (data.suiteDefinitionId != null) {
     contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
@@ -645,12 +699,15 @@ export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
     contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSuiteDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSuiteDefinitionCommandError
+ */
+const de_GetSuiteDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteDefinitionCommandOutput> => {
@@ -662,13 +719,13 @@ const deserializeAws_restJson1GetSuiteDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -680,12 +737,15 @@ const deserializeAws_restJson1GetSuiteDefinitionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSuiteRunCommand = async (
+/**
+ * deserializeAws_restJson1GetSuiteRunCommand
+ */
+export const de_GetSuiteRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSuiteRunCommandError(output, context);
+    return de_GetSuiteRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -713,21 +773,24 @@ export const deserializeAws_restJson1GetSuiteRunCommand = async (
     contents.suiteRunArn = __expectString(data.suiteRunArn);
   }
   if (data.suiteRunConfiguration != null) {
-    contents.suiteRunConfiguration = deserializeAws_restJson1SuiteRunConfiguration(data.suiteRunConfiguration, context);
+    contents.suiteRunConfiguration = de_SuiteRunConfiguration(data.suiteRunConfiguration, context);
   }
   if (data.suiteRunId != null) {
     contents.suiteRunId = __expectString(data.suiteRunId);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   if (data.testResult != null) {
-    contents.testResult = deserializeAws_restJson1TestResult(data.testResult, context);
+    contents.testResult = de_TestResult(data.testResult, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSuiteRunCommandError = async (
+/**
+ * deserializeAws_restJson1GetSuiteRunCommandError
+ */
+const de_GetSuiteRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteRunCommandOutput> => {
@@ -739,13 +802,13 @@ const deserializeAws_restJson1GetSuiteRunCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -757,12 +820,15 @@ const deserializeAws_restJson1GetSuiteRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSuiteRunReportCommand = async (
+/**
+ * deserializeAws_restJson1GetSuiteRunReportCommand
+ */
+export const de_GetSuiteRunReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteRunReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSuiteRunReportCommandError(output, context);
+    return de_GetSuiteRunReportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -774,7 +840,10 @@ export const deserializeAws_restJson1GetSuiteRunReportCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetSuiteRunReportCommandError = async (
+/**
+ * deserializeAws_restJson1GetSuiteRunReportCommandError
+ */
+const de_GetSuiteRunReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuiteRunReportCommandOutput> => {
@@ -786,13 +855,13 @@ const deserializeAws_restJson1GetSuiteRunReportCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -804,12 +873,15 @@ const deserializeAws_restJson1GetSuiteRunReportCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSuiteDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListSuiteDefinitionsCommand
+ */
+export const de_ListSuiteDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuiteDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSuiteDefinitionsCommandError(output, context);
+    return de_ListSuiteDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -819,7 +891,7 @@ export const deserializeAws_restJson1ListSuiteDefinitionsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.suiteDefinitionInformationList != null) {
-    contents.suiteDefinitionInformationList = deserializeAws_restJson1SuiteDefinitionInformationList(
+    contents.suiteDefinitionInformationList = de_SuiteDefinitionInformationList(
       data.suiteDefinitionInformationList,
       context
     );
@@ -827,7 +899,10 @@ export const deserializeAws_restJson1ListSuiteDefinitionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListSuiteDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSuiteDefinitionsCommandError
+ */
+const de_ListSuiteDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuiteDefinitionsCommandOutput> => {
@@ -839,10 +914,10 @@ const deserializeAws_restJson1ListSuiteDefinitionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -854,12 +929,15 @@ const deserializeAws_restJson1ListSuiteDefinitionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSuiteRunsCommand = async (
+/**
+ * deserializeAws_restJson1ListSuiteRunsCommand
+ */
+export const de_ListSuiteRunsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuiteRunsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSuiteRunsCommandError(output, context);
+    return de_ListSuiteRunsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -869,12 +947,15 @@ export const deserializeAws_restJson1ListSuiteRunsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.suiteRunsList != null) {
-    contents.suiteRunsList = deserializeAws_restJson1SuiteRunsList(data.suiteRunsList, context);
+    contents.suiteRunsList = de_SuiteRunsList(data.suiteRunsList, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSuiteRunsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSuiteRunsCommandError
+ */
+const de_ListSuiteRunsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuiteRunsCommandOutput> => {
@@ -886,10 +967,10 @@ const deserializeAws_restJson1ListSuiteRunsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -901,24 +982,30 @@ const deserializeAws_restJson1ListSuiteRunsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -930,13 +1017,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -948,12 +1035,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartSuiteRunCommand = async (
+/**
+ * deserializeAws_restJson1StartSuiteRunCommand
+ */
+export const de_StartSuiteRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSuiteRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartSuiteRunCommandError(output, context);
+    return de_StartSuiteRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -974,7 +1064,10 @@ export const deserializeAws_restJson1StartSuiteRunCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartSuiteRunCommandError = async (
+/**
+ * deserializeAws_restJson1StartSuiteRunCommandError
+ */
+const de_StartSuiteRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSuiteRunCommandOutput> => {
@@ -986,13 +1079,13 @@ const deserializeAws_restJson1StartSuiteRunCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.iotdeviceadvisor#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1004,12 +1097,15 @@ const deserializeAws_restJson1StartSuiteRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StopSuiteRunCommand = async (
+/**
+ * deserializeAws_restJson1StopSuiteRunCommand
+ */
+export const de_StopSuiteRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopSuiteRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopSuiteRunCommandError(output, context);
+    return de_StopSuiteRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1018,7 +1114,10 @@ export const deserializeAws_restJson1StopSuiteRunCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopSuiteRunCommandError = async (
+/**
+ * deserializeAws_restJson1StopSuiteRunCommandError
+ */
+const de_StopSuiteRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopSuiteRunCommandOutput> => {
@@ -1030,13 +1129,13 @@ const deserializeAws_restJson1StopSuiteRunCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1048,12 +1147,15 @@ const deserializeAws_restJson1StopSuiteRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1062,7 +1164,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1074,13 +1179,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1092,12 +1197,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1106,7 +1214,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1118,13 +1229,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1136,12 +1247,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateSuiteDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSuiteDefinitionCommand
+ */
+export const de_UpdateSuiteDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSuiteDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSuiteDefinitionCommandError(output, context);
+    return de_UpdateSuiteDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1168,7 +1282,10 @@ export const deserializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSuiteDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSuiteDefinitionCommandError
+ */
+const de_UpdateSuiteDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSuiteDefinitionCommandOutput> => {
@@ -1180,10 +1297,10 @@ const deserializeAws_restJson1UpdateSuiteDefinitionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotdeviceadvisor#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1196,10 +1313,10 @@ const deserializeAws_restJson1UpdateSuiteDefinitionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1212,7 +1329,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1228,7 +1348,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1244,10 +1367,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1260,22 +1383,31 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1DeviceUnderTest = (input: DeviceUnderTest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeviceUnderTest
+ */
+const se_DeviceUnderTest = (input: DeviceUnderTest, context: __SerdeContext): any => {
   return {
     ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
     ...(input.thingArn != null && { thingArn: input.thingArn }),
   };
 };
 
-const serializeAws_restJson1DeviceUnderTestList = (input: DeviceUnderTest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeviceUnderTestList
+ */
+const se_DeviceUnderTestList = (input: DeviceUnderTest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DeviceUnderTest(entry, context);
+      return se_DeviceUnderTest(entry, context);
     });
 };
 
-const serializeAws_restJson1SelectedTestList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SelectedTestList
+ */
+const se_SelectedTestList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1283,13 +1415,13 @@ const serializeAws_restJson1SelectedTestList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1SuiteDefinitionConfiguration = (
-  input: SuiteDefinitionConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SuiteDefinitionConfiguration
+ */
+const se_SuiteDefinitionConfiguration = (input: SuiteDefinitionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.devicePermissionRoleArn != null && { devicePermissionRoleArn: input.devicePermissionRoleArn }),
-    ...(input.devices != null && { devices: serializeAws_restJson1DeviceUnderTestList(input.devices, context) }),
+    ...(input.devices != null && { devices: se_DeviceUnderTestList(input.devices, context) }),
     ...(input.intendedForQualification != null && { intendedForQualification: input.intendedForQualification }),
     ...(input.isLongDurationTest != null && { isLongDurationTest: input.isLongDurationTest }),
     ...(input.protocol != null && { protocol: input.protocol }),
@@ -1298,19 +1430,21 @@ const serializeAws_restJson1SuiteDefinitionConfiguration = (
   };
 };
 
-const serializeAws_restJson1SuiteRunConfiguration = (input: SuiteRunConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SuiteRunConfiguration
+ */
+const se_SuiteRunConfiguration = (input: SuiteRunConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.parallelRun != null && { parallelRun: input.parallelRun }),
-    ...(input.primaryDevice != null && {
-      primaryDevice: serializeAws_restJson1DeviceUnderTest(input.primaryDevice, context),
-    }),
-    ...(input.selectedTestList != null && {
-      selectedTestList: serializeAws_restJson1SelectedTestList(input.selectedTestList, context),
-    }),
+    ...(input.primaryDevice != null && { primaryDevice: se_DeviceUnderTest(input.primaryDevice, context) }),
+    ...(input.selectedTestList != null && { selectedTestList: se_SelectedTestList(input.selectedTestList, context) }),
   };
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1320,46 +1454,61 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const deserializeAws_restJson1DeviceUnderTest = (output: any, context: __SerdeContext): DeviceUnderTest => {
+/**
+ * deserializeAws_restJson1DeviceUnderTest
+ */
+const de_DeviceUnderTest = (output: any, context: __SerdeContext): DeviceUnderTest => {
   return {
     certificateArn: __expectString(output.certificateArn),
     thingArn: __expectString(output.thingArn),
   } as any;
 };
 
-const deserializeAws_restJson1DeviceUnderTestList = (output: any, context: __SerdeContext): DeviceUnderTest[] => {
+/**
+ * deserializeAws_restJson1DeviceUnderTestList
+ */
+const de_DeviceUnderTestList = (output: any, context: __SerdeContext): DeviceUnderTest[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DeviceUnderTest(entry, context);
+      return de_DeviceUnderTest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GroupResult = (output: any, context: __SerdeContext): GroupResult => {
+/**
+ * deserializeAws_restJson1GroupResult
+ */
+const de_GroupResult = (output: any, context: __SerdeContext): GroupResult => {
   return {
     groupId: __expectString(output.groupId),
     groupName: __expectString(output.groupName),
-    tests: output.tests != null ? deserializeAws_restJson1TestCaseRuns(output.tests, context) : undefined,
+    tests: output.tests != null ? de_TestCaseRuns(output.tests, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GroupResultList = (output: any, context: __SerdeContext): GroupResult[] => {
+/**
+ * deserializeAws_restJson1GroupResultList
+ */
+const de_GroupResultList = (output: any, context: __SerdeContext): GroupResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1GroupResult(entry, context);
+      return de_GroupResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SelectedTestList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SelectedTestList
+ */
+const de_SelectedTestList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1371,13 +1520,13 @@ const deserializeAws_restJson1SelectedTestList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1SuiteDefinitionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SuiteDefinitionConfiguration => {
+/**
+ * deserializeAws_restJson1SuiteDefinitionConfiguration
+ */
+const de_SuiteDefinitionConfiguration = (output: any, context: __SerdeContext): SuiteDefinitionConfiguration => {
   return {
     devicePermissionRoleArn: __expectString(output.devicePermissionRoleArn),
-    devices: output.devices != null ? deserializeAws_restJson1DeviceUnderTestList(output.devices, context) : undefined,
+    devices: output.devices != null ? de_DeviceUnderTestList(output.devices, context) : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
     isLongDurationTest: __expectBoolean(output.isLongDurationTest),
     protocol: __expectString(output.protocol),
@@ -1386,17 +1535,14 @@ const deserializeAws_restJson1SuiteDefinitionConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1SuiteDefinitionInformation = (
-  output: any,
-  context: __SerdeContext
-): SuiteDefinitionInformation => {
+/**
+ * deserializeAws_restJson1SuiteDefinitionInformation
+ */
+const de_SuiteDefinitionInformation = (output: any, context: __SerdeContext): SuiteDefinitionInformation => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    defaultDevices:
-      output.defaultDevices != null
-        ? deserializeAws_restJson1DeviceUnderTestList(output.defaultDevices, context)
-        : undefined,
+    defaultDevices: output.defaultDevices != null ? de_DeviceUnderTestList(output.defaultDevices, context) : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
     isLongDurationTest: __expectBoolean(output.isLongDurationTest),
     protocol: __expectString(output.protocol),
@@ -1405,34 +1551,37 @@ const deserializeAws_restJson1SuiteDefinitionInformation = (
   } as any;
 };
 
-const deserializeAws_restJson1SuiteDefinitionInformationList = (
-  output: any,
-  context: __SerdeContext
-): SuiteDefinitionInformation[] => {
+/**
+ * deserializeAws_restJson1SuiteDefinitionInformationList
+ */
+const de_SuiteDefinitionInformationList = (output: any, context: __SerdeContext): SuiteDefinitionInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SuiteDefinitionInformation(entry, context);
+      return de_SuiteDefinitionInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SuiteRunConfiguration = (output: any, context: __SerdeContext): SuiteRunConfiguration => {
+/**
+ * deserializeAws_restJson1SuiteRunConfiguration
+ */
+const de_SuiteRunConfiguration = (output: any, context: __SerdeContext): SuiteRunConfiguration => {
   return {
     parallelRun: __expectBoolean(output.parallelRun),
-    primaryDevice:
-      output.primaryDevice != null ? deserializeAws_restJson1DeviceUnderTest(output.primaryDevice, context) : undefined,
+    primaryDevice: output.primaryDevice != null ? de_DeviceUnderTest(output.primaryDevice, context) : undefined,
     selectedTestList:
-      output.selectedTestList != null
-        ? deserializeAws_restJson1SelectedTestList(output.selectedTestList, context)
-        : undefined,
+      output.selectedTestList != null ? de_SelectedTestList(output.selectedTestList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __SerdeContext): SuiteRunInformation => {
+/**
+ * deserializeAws_restJson1SuiteRunInformation
+ */
+const de_SuiteRunInformation = (output: any, context: __SerdeContext): SuiteRunInformation => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -1449,19 +1598,25 @@ const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1SuiteRunsList = (output: any, context: __SerdeContext): SuiteRunInformation[] => {
+/**
+ * deserializeAws_restJson1SuiteRunsList
+ */
+const de_SuiteRunsList = (output: any, context: __SerdeContext): SuiteRunInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SuiteRunInformation(entry, context);
+      return de_SuiteRunInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1471,7 +1626,10 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
+/**
+ * deserializeAws_restJson1TestCaseRun
+ */
+const de_TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
   return {
     endTime:
       output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
@@ -1483,27 +1641,30 @@ const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContex
     testCaseDefinitionId: __expectString(output.testCaseDefinitionId),
     testCaseDefinitionName: __expectString(output.testCaseDefinitionName),
     testCaseRunId: __expectString(output.testCaseRunId),
-    testScenarios:
-      output.testScenarios != null
-        ? deserializeAws_restJson1TestCaseScenariosList(output.testScenarios, context)
-        : undefined,
+    testScenarios: output.testScenarios != null ? de_TestCaseScenariosList(output.testScenarios, context) : undefined,
     warnings: __expectString(output.warnings),
   } as any;
 };
 
-const deserializeAws_restJson1TestCaseRuns = (output: any, context: __SerdeContext): TestCaseRun[] => {
+/**
+ * deserializeAws_restJson1TestCaseRuns
+ */
+const de_TestCaseRuns = (output: any, context: __SerdeContext): TestCaseRun[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TestCaseRun(entry, context);
+      return de_TestCaseRun(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TestCaseScenario = (output: any, context: __SerdeContext): TestCaseScenario => {
+/**
+ * deserializeAws_restJson1TestCaseScenario
+ */
+const de_TestCaseScenario = (output: any, context: __SerdeContext): TestCaseScenario => {
   return {
     failure: __expectString(output.failure),
     status: __expectString(output.status),
@@ -1513,21 +1674,27 @@ const deserializeAws_restJson1TestCaseScenario = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1TestCaseScenariosList = (output: any, context: __SerdeContext): TestCaseScenario[] => {
+/**
+ * deserializeAws_restJson1TestCaseScenariosList
+ */
+const de_TestCaseScenariosList = (output: any, context: __SerdeContext): TestCaseScenario[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TestCaseScenario(entry, context);
+      return de_TestCaseScenario(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TestResult = (output: any, context: __SerdeContext): TestResult => {
+/**
+ * deserializeAws_restJson1TestResult
+ */
+const de_TestResult = (output: any, context: __SerdeContext): TestResult => {
   return {
-    groups: output.groups != null ? deserializeAws_restJson1GroupResultList(output.groups, context) : undefined,
+    groups: output.groups != null ? de_GroupResultList(output.groups, context) : undefined,
   } as any;
 };
 

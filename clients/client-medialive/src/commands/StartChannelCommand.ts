@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { StartChannelRequest, StartChannelResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartChannelCommand,
-  serializeAws_restJson1StartChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartChannelCommand, se_StartChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class StartChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: StartChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartChannelCommand(input, context);
+    return se_StartChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChannelCommandOutput> {
-    return deserializeAws_restJson1StartChannelCommand(output, context);
+    return de_StartChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

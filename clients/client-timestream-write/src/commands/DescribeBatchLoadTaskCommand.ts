@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeBatchLoadTaskRequest, DescribeBatchLoadTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeBatchLoadTaskCommand,
-  serializeAws_json1_0DescribeBatchLoadTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeBatchLoadTaskCommand, se_DescribeBatchLoadTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -146,14 +143,14 @@ export class DescribeBatchLoadTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeBatchLoadTaskCommand(input, context);
+    return se_DescribeBatchLoadTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchLoadTaskCommandOutput> {
-    return deserializeAws_json1_0DescribeBatchLoadTaskCommand(output, context);
+    return de_DescribeBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

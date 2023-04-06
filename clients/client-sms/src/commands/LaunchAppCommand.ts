@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LaunchAppRequest, LaunchAppResponse } from "../models/models_0";
-import { deserializeAws_json1_1LaunchAppCommand, serializeAws_json1_1LaunchAppCommand } from "../protocols/Aws_json1_1";
+import { de_LaunchAppCommand, se_LaunchAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -127,14 +127,14 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
    * @internal
    */
   private serialize(input: LaunchAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LaunchAppCommand(input, context);
+    return se_LaunchAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LaunchAppCommandOutput> {
-    return deserializeAws_json1_1LaunchAppCommand(output, context);
+    return de_LaunchAppCommand(output, context);
   }
 
   // Start section: command_body_extra

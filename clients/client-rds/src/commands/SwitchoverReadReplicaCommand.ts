@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SwitchoverReadReplicaMessage, SwitchoverReadReplicaResult } from "../models/models_1";
-import {
-  deserializeAws_querySwitchoverReadReplicaCommand,
-  serializeAws_querySwitchoverReadReplicaCommand,
-} from "../protocols/Aws_query";
+import { de_SwitchoverReadReplicaCommand, se_SwitchoverReadReplicaCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -128,14 +125,14 @@ export class SwitchoverReadReplicaCommand extends $Command<
    * @internal
    */
   private serialize(input: SwitchoverReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySwitchoverReadReplicaCommand(input, context);
+    return se_SwitchoverReadReplicaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwitchoverReadReplicaCommandOutput> {
-    return deserializeAws_querySwitchoverReadReplicaCommand(output, context);
+    return de_SwitchoverReadReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

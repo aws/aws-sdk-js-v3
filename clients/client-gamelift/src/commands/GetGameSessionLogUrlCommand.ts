@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGameSessionLogUrlCommand,
-  serializeAws_json1_1GetGameSessionLogUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetGameSessionLogUrlCommand, se_GetGameSessionLogUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetGameSessionLogUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGameSessionLogUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGameSessionLogUrlCommand(input, context);
+    return se_GetGameSessionLogUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameSessionLogUrlCommandOutput> {
-    return deserializeAws_json1_1GetGameSessionLogUrlCommand(output, context);
+    return de_GetGameSessionLogUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

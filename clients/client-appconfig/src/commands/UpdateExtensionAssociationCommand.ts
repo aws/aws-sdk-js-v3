@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { ExtensionAssociation, UpdateExtensionAssociationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateExtensionAssociationCommand,
-  serializeAws_restJson1UpdateExtensionAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateExtensionAssociationCommand, se_UpdateExtensionAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class UpdateExtensionAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExtensionAssociationCommand(input, context);
+    return se_UpdateExtensionAssociationCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class UpdateExtensionAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateExtensionAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateExtensionAssociationCommand(output, context);
+    return de_UpdateExtensionAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

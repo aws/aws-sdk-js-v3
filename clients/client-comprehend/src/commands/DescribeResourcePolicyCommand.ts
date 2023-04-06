@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourcePolicyCommand,
-  serializeAws_json1_1DescribeResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeResourcePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourcePolicyCommand(input, context);
+    return se_DescribeResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1DescribeResourcePolicyCommand(output, context);
+    return de_DescribeResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

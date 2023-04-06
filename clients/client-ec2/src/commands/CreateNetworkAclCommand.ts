@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNetworkAclCommand,
-  serializeAws_ec2CreateNetworkAclCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateNetworkAclCommand, se_CreateNetworkAclCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class CreateNetworkAclCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNetworkAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkAclCommand(input, context);
+    return se_CreateNetworkAclCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkAclCommandOutput> {
-    return deserializeAws_ec2CreateNetworkAclCommand(output, context);
+    return de_CreateNetworkAclCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetCampaignVersionCommand,
-  serializeAws_restJson1GetCampaignVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignVersionCommand, se_GetCampaignVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetCampaignVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCampaignVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignVersionCommand(input, context);
+    return se_GetCampaignVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignVersionCommandOutput> {
-    return deserializeAws_restJson1GetCampaignVersionCommand(output, context);
+    return de_GetCampaignVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

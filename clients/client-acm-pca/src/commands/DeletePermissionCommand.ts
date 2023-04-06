@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { DeletePermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePermissionCommand,
-  serializeAws_json1_1DeletePermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePermissionCommand, se_DeletePermissionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class DeletePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionCommand(input, context);
+    return se_DeletePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionCommand(output, context);
+    return de_DeletePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

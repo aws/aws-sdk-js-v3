@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCacheInput, DescribeCacheOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCacheCommand,
-  serializeAws_json1_1DescribeCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCacheCommand, se_DescribeCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -155,14 +152,14 @@ export class DescribeCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCacheCommand(input, context);
+    return se_DescribeCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheCommandOutput> {
-    return deserializeAws_json1_1DescribeCacheCommand(output, context);
+    return de_DescribeCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

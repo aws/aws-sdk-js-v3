@@ -18,10 +18,7 @@ import {
   CreateCustomMetadataRequestFilterSensitiveLog,
   CreateCustomMetadataResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomMetadataCommand,
-  serializeAws_restJson1CreateCustomMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCustomMetadataCommand, se_CreateCustomMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -154,14 +151,14 @@ export class CreateCustomMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomMetadataCommand(input, context);
+    return se_CreateCustomMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1CreateCustomMetadataCommand(output, context);
+    return de_CreateCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

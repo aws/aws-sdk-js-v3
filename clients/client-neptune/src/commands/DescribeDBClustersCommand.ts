@@ -15,10 +15,7 @@ import {
 
 import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBClustersCommand,
-  serializeAws_queryDescribeDBClustersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClustersCommand, se_DescribeDBClustersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeDBClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClustersCommand(input, context);
+    return se_DescribeDBClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBClustersCommandOutput> {
-    return deserializeAws_queryDescribeDBClustersCommand(output, context);
+    return de_DescribeDBClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

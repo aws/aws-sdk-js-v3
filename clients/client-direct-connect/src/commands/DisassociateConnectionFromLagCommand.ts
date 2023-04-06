@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { Connection, DisassociateConnectionFromLagRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateConnectionFromLagCommand,
-  serializeAws_json1_1DisassociateConnectionFromLagCommand,
+  de_DisassociateConnectionFromLagCommand,
+  se_DisassociateConnectionFromLagCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -136,7 +136,7 @@ export class DisassociateConnectionFromLagCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateConnectionFromLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionFromLagCommand(input, context);
+    return se_DisassociateConnectionFromLagCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionFromLagCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionFromLagCommand(output, context);
+    return de_DisassociateConnectionFromLagCommand(output, context);
   }
 
   // Start section: command_body_extra

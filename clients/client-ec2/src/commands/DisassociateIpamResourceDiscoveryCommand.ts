@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateIpamResourceDiscoveryRequest, DisassociateIpamResourceDiscoveryResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand,
-  serializeAws_ec2DisassociateIpamResourceDiscoveryCommand,
+  de_DisassociateIpamResourceDiscoveryCommand,
+  se_DisassociateIpamResourceDiscoveryCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -126,7 +126,7 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
     input: DisassociateIpamResourceDiscoveryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateIpamResourceDiscoveryCommand(input, context);
+    return se_DisassociateIpamResourceDiscoveryCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateIpamResourceDiscoveryCommandOutput> {
-    return deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand(output, context);
+    return de_DisassociateIpamResourceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

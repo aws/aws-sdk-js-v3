@@ -19,10 +19,7 @@ import {
   ReplicateInstanceRequestFilterSensitiveLog,
   ReplicateInstanceResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ReplicateInstanceCommand,
-  serializeAws_restJson1ReplicateInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReplicateInstanceCommand, se_ReplicateInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ReplicateInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplicateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReplicateInstanceCommand(input, context);
+    return se_ReplicateInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateInstanceCommandOutput> {
-    return deserializeAws_restJson1ReplicateInstanceCommand(output, context);
+    return de_ReplicateInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

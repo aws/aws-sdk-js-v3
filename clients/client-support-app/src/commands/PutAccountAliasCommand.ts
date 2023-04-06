@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAccountAliasRequest, PutAccountAliasResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountAliasCommand,
-  serializeAws_restJson1PutAccountAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAccountAliasCommand, se_PutAccountAliasCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -131,14 +128,14 @@ export class PutAccountAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountAliasCommand(input, context);
+    return se_PutAccountAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountAliasCommandOutput> {
-    return deserializeAws_restJson1PutAccountAliasCommand(output, context);
+    return de_PutAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

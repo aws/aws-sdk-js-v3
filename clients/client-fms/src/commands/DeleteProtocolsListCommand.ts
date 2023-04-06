@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DeleteProtocolsListRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProtocolsListCommand,
-  serializeAws_json1_1DeleteProtocolsListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProtocolsListCommand, se_DeleteProtocolsListCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteProtocolsListCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProtocolsListCommand(input, context);
+    return se_DeleteProtocolsListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtocolsListCommandOutput> {
-    return deserializeAws_json1_1DeleteProtocolsListCommand(output, context);
+    return de_DeleteProtocolsListCommand(output, context);
   }
 
   // Start section: command_body_extra

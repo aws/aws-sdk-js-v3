@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1ResumeSessionCommand,
-  serializeAws_json1_1ResumeSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResumeSessionCommand, se_ResumeSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,14 +129,14 @@ export class ResumeSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: ResumeSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeSessionCommand(input, context);
+    return se_ResumeSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeSessionCommandOutput> {
-    return deserializeAws_json1_1ResumeSessionCommand(output, context);
+    return de_ResumeSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

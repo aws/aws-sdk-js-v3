@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetListenerRequest, GetListenerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetListenerCommand,
-  serializeAws_restJson1GetListenerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetListenerCommand, se_GetListenerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: GetListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetListenerCommand(input, context);
+    return se_GetListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListenerCommandOutput> {
-    return deserializeAws_restJson1GetListenerCommand(output, context);
+    return de_GetListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateHostKeyRequest, UpdateHostKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateHostKeyCommand,
-  serializeAws_json1_1UpdateHostKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateHostKeyCommand, se_UpdateHostKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -137,14 +134,14 @@ export class UpdateHostKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHostKeyCommand(input, context);
+    return se_UpdateHostKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostKeyCommandOutput> {
-    return deserializeAws_json1_1UpdateHostKeyCommand(output, context);
+    return de_UpdateHostKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

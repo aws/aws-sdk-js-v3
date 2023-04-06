@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCidrBlocksRequest, ListCidrBlocksResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListCidrBlocksCommand,
-  serializeAws_restXmlListCidrBlocksCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListCidrBlocksCommand, se_ListCidrBlocksCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -132,14 +129,14 @@ export class ListCidrBlocksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCidrBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCidrBlocksCommand(input, context);
+    return se_ListCidrBlocksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCidrBlocksCommandOutput> {
-    return deserializeAws_restXmlListCidrBlocksCommand(output, context);
+    return de_ListCidrBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

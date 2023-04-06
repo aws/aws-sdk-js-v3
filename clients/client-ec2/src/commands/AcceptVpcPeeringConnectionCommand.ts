@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AcceptVpcPeeringConnectionRequest, AcceptVpcPeeringConnectionResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AcceptVpcPeeringConnectionCommand,
-  serializeAws_ec2AcceptVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { de_AcceptVpcPeeringConnectionCommand, se_AcceptVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptVpcPeeringConnectionCommand(input, context);
+    return se_AcceptVpcPeeringConnectionCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2AcceptVpcPeeringConnectionCommand(output, context);
+    return de_AcceptVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

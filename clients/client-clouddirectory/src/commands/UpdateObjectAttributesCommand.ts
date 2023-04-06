@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { UpdateObjectAttributesRequest, UpdateObjectAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateObjectAttributesCommand,
-  serializeAws_restJson1UpdateObjectAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateObjectAttributesCommand, se_UpdateObjectAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class UpdateObjectAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateObjectAttributesCommand(input, context);
+    return se_UpdateObjectAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1UpdateObjectAttributesCommand(output, context);
+    return de_UpdateObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

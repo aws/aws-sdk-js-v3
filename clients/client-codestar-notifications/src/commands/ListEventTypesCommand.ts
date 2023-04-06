@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { ListEventTypesRequest, ListEventTypesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventTypesCommand,
-  serializeAws_restJson1ListEventTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEventTypesCommand, se_ListEventTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListEventTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventTypesCommand(input, context);
+    return se_ListEventTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTypesCommandOutput> {
-    return deserializeAws_restJson1ListEventTypesCommand(output, context);
+    return de_ListEventTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeHumanTaskUiRequest, DescribeHumanTaskUiResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeHumanTaskUiCommand,
-  serializeAws_json1_1DescribeHumanTaskUiCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeHumanTaskUiCommand, se_DescribeHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeHumanTaskUiCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHumanTaskUiCommand(input, context);
+    return se_DescribeHumanTaskUiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHumanTaskUiCommandOutput> {
-    return deserializeAws_json1_1DescribeHumanTaskUiCommand(output, context);
+    return de_DescribeHumanTaskUiCommand(output, context);
   }
 
   // Start section: command_body_extra

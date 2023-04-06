@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteScheduledActionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteScheduledActionCommand,
-  serializeAws_queryDeleteScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteScheduledActionCommand(input, context);
+    return se_DeleteScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryDeleteScheduledActionCommand(output, context);
+    return de_DeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

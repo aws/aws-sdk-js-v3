@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateEndpointAccessRequest, UpdateEndpointAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEndpointAccessCommand,
-  serializeAws_json1_1UpdateEndpointAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateEndpointAccessCommand, se_UpdateEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class UpdateEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointAccessCommand(input, context);
+    return se_UpdateEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointAccessCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointAccessCommand(output, context);
+    return de_UpdateEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

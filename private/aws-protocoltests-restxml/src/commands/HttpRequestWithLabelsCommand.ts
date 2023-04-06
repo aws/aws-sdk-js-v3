@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpRequestWithLabelsInput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpRequestWithLabelsCommand,
-  serializeAws_restXmlHttpRequestWithLabelsCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpRequestWithLabelsCommand, se_HttpRequestWithLabelsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class HttpRequestWithLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpRequestWithLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpRequestWithLabelsCommand(input, context);
+    return se_HttpRequestWithLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpRequestWithLabelsCommandOutput> {
-    return deserializeAws_restXmlHttpRequestWithLabelsCommand(output, context);
+    return de_HttpRequestWithLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { GetPortalServiceProviderMetadataRequest, GetPortalServiceProviderMetadataResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetPortalServiceProviderMetadataCommand,
-  serializeAws_restJson1GetPortalServiceProviderMetadataCommand,
+  de_GetPortalServiceProviderMetadataCommand,
+  se_GetPortalServiceProviderMetadataCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -140,7 +140,7 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
     input: GetPortalServiceProviderMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPortalServiceProviderMetadataCommand(input, context);
+    return se_GetPortalServiceProviderMetadataCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPortalServiceProviderMetadataCommandOutput> {
-    return deserializeAws_restJson1GetPortalServiceProviderMetadataCommand(output, context);
+    return de_GetPortalServiceProviderMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1DeleteWorkerBlockCommand,
-  serializeAws_json1_1DeleteWorkerBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkerBlockCommand, se_DeleteWorkerBlockCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteWorkerBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkerBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkerBlockCommand(input, context);
+    return se_DeleteWorkerBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerBlockCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkerBlockCommand(output, context);
+    return de_DeleteWorkerBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

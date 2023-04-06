@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetChangeLogsRequest, GetChangeLogsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChangeLogsCommand,
-  serializeAws_restJson1GetChangeLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChangeLogsCommand, se_GetChangeLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetChangeLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChangeLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChangeLogsCommand(input, context);
+    return se_GetChangeLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeLogsCommandOutput> {
-    return deserializeAws_restJson1GetChangeLogsCommand(output, context);
+    return de_GetChangeLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

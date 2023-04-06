@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { StartBuildInput, StartBuildOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartBuildCommand,
-  serializeAws_json1_1StartBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartBuildCommand, se_StartBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -242,14 +239,14 @@ export class StartBuildCommand extends $Command<
    * @internal
    */
   private serialize(input: StartBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartBuildCommand(input, context);
+    return se_StartBuildCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBuildCommandOutput> {
-    return deserializeAws_json1_1StartBuildCommand(output, context);
+    return de_StartBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

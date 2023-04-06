@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UntagResourcesInput, UntagResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagResourcesCommand,
-  serializeAws_json1_1UntagResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagResourcesCommand, se_UntagResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -195,14 +192,14 @@ export class UntagResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagResourcesCommand(input, context);
+    return se_UntagResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourcesCommandOutput> {
-    return deserializeAws_json1_1UntagResourcesCommand(output, context);
+    return de_UntagResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { ListArtifactsRequest, ListArtifactsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListArtifactsCommand,
-  serializeAws_restJson1ListArtifactsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListArtifactsCommand, se_ListArtifactsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListArtifactsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListArtifactsCommand(input, context);
+    return se_ListArtifactsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArtifactsCommandOutput> {
-    return deserializeAws_restJson1ListArtifactsCommand(output, context);
+    return de_ListArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

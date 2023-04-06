@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainCommand,
-  serializeAws_restJson1DeleteDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

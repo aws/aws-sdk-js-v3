@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RejectVpcEndpointConnectionsRequest, RejectVpcEndpointConnectionsResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RejectVpcEndpointConnectionsCommand,
-  serializeAws_ec2RejectVpcEndpointConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_RejectVpcEndpointConnectionsCommand, se_RejectVpcEndpointConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectVpcEndpointConnectionsCommand(input, context);
+    return se_RejectVpcEndpointConnectionsCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2RejectVpcEndpointConnectionsCommand(output, context);
+    return de_RejectVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { UpdateInAppTemplateRequest, UpdateInAppTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateInAppTemplateCommand,
-  serializeAws_restJson1UpdateInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateInAppTemplateCommand, se_UpdateInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -210,14 +207,14 @@ export class UpdateInAppTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInAppTemplateCommand(input, context);
+    return se_UpdateInAppTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateInAppTemplateCommand(output, context);
+    return de_UpdateInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

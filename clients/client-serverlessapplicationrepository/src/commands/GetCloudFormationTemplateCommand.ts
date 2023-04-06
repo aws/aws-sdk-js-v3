@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCloudFormationTemplateCommand,
-  serializeAws_restJson1GetCloudFormationTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCloudFormationTemplateCommand, se_GetCloudFormationTemplateCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -140,7 +137,7 @@ export class GetCloudFormationTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCloudFormationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCloudFormationTemplateCommand(input, context);
+    return se_GetCloudFormationTemplateCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class GetCloudFormationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFormationTemplateCommandOutput> {
-    return deserializeAws_restJson1GetCloudFormationTemplateCommand(output, context);
+    return de_GetCloudFormationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

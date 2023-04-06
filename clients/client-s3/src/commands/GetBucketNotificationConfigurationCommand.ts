@@ -15,8 +15,8 @@ import {
 
 import { GetBucketNotificationConfigurationRequest, NotificationConfiguration } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketNotificationConfigurationCommand,
-  serializeAws_restXmlGetBucketNotificationConfigurationCommand,
+  de_GetBucketNotificationConfigurationCommand,
+  se_GetBucketNotificationConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -148,7 +148,7 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     input: GetBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketNotificationConfigurationCommand(input, context);
+    return se_GetBucketNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketNotificationConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketNotificationConfigurationCommand(output, context);
+    return de_GetBucketNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

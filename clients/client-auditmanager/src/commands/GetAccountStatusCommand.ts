@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetAccountStatusRequest, GetAccountStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountStatusCommand,
-  serializeAws_restJson1GetAccountStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAccountStatusCommand, se_GetAccountStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class GetAccountStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountStatusCommand(input, context);
+    return se_GetAccountStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountStatusCommandOutput> {
-    return deserializeAws_restJson1GetAccountStatusCommand(output, context);
+    return de_GetAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

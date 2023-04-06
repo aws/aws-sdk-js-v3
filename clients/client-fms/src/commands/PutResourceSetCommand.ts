@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutResourceSetRequest, PutResourceSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResourceSetCommand,
-  serializeAws_json1_1PutResourceSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutResourceSetCommand, se_PutResourceSetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class PutResourceSetCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResourceSetCommand(input, context);
+    return se_PutResourceSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceSetCommandOutput> {
-    return deserializeAws_json1_1PutResourceSetCommand(output, context);
+    return de_PutResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

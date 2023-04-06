@@ -15,10 +15,7 @@ import {
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkingLocationCommand,
-  serializeAws_restJson1GetWorkingLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkingLocationCommand, se_GetWorkingLocationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetWorkingLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkingLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkingLocationCommand(input, context);
+    return se_GetWorkingLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkingLocationCommandOutput> {
-    return deserializeAws_restJson1GetWorkingLocationCommand(output, context);
+    return de_GetWorkingLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteOrganizationConfigRuleRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteOrganizationConfigRuleCommand,
-  serializeAws_json1_1DeleteOrganizationConfigRuleCommand,
+  de_DeleteOrganizationConfigRuleCommand,
+  se_DeleteOrganizationConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -175,7 +175,7 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOrganizationConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationConfigRuleCommand(input, context);
+    return se_DeleteOrganizationConfigRuleCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationConfigRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(output, context);
+    return de_DeleteOrganizationConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

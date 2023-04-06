@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInstanceSnapshotCommand,
-  serializeAws_json1_1DeleteInstanceSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteInstanceSnapshotCommand, se_DeleteInstanceSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class DeleteInstanceSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceSnapshotCommand(input, context);
+    return se_DeleteInstanceSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceSnapshotCommand(output, context);
+    return de_DeleteInstanceSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

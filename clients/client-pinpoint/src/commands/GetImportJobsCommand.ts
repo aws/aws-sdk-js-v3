@@ -15,10 +15,7 @@ import {
 
 import { GetImportJobsRequest, GetImportJobsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetImportJobsCommand,
-  serializeAws_restJson1GetImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImportJobsCommand, se_GetImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetImportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportJobsCommand(input, context);
+    return se_GetImportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobsCommandOutput> {
-    return deserializeAws_restJson1GetImportJobsCommand(output, context);
+    return de_GetImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

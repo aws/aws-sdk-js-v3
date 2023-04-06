@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResourceDataSyncCommand,
-  serializeAws_json1_1CreateResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateResourceDataSyncCommand, se_CreateResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -179,14 +176,14 @@ export class CreateResourceDataSyncCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResourceDataSyncCommand(input, context);
+    return se_CreateResourceDataSyncCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1CreateResourceDataSyncCommand(output, context);
+    return de_CreateResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

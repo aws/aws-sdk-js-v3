@@ -15,8 +15,8 @@ import {
 
 import { GetResolverQueryLogConfigPolicyRequest, GetResolverQueryLogConfigPolicyResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand,
-  serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand,
+  de_GetResolverQueryLogConfigPolicyCommand,
+  se_GetResolverQueryLogConfigPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -141,7 +141,7 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     input: GetResolverQueryLogConfigPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand(input, context);
+    return se_GetResolverQueryLogConfigPolicyCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> {
-    return deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand(output, context);
+    return de_GetResolverQueryLogConfigPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

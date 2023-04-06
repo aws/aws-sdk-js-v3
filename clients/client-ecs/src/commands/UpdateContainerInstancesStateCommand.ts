@@ -16,8 +16,8 @@ import {
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateContainerInstancesStateCommand,
-  serializeAws_json1_1UpdateContainerInstancesStateCommand,
+  de_UpdateContainerInstancesStateCommand,
+  se_UpdateContainerInstancesStateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -189,7 +189,7 @@ export class UpdateContainerInstancesStateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateContainerInstancesStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerInstancesStateCommand(input, context);
+    return se_UpdateContainerInstancesStateCommand(input, context);
   }
 
   /**
@@ -199,7 +199,7 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContainerInstancesStateCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerInstancesStateCommand(output, context);
+    return de_UpdateContainerInstancesStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDataSetPermissionsRequest, DescribeDataSetPermissionsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDataSetPermissionsCommand,
-  serializeAws_restJson1DescribeDataSetPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDataSetPermissionsCommand, se_DescribeDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -140,7 +137,7 @@ export class DescribeDataSetPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSetPermissionsCommand(input, context);
+    return se_DescribeDataSetPermissionsCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSetPermissionsCommand(output, context);
+    return de_DescribeDataSetPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

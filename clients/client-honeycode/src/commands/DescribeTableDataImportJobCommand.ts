@@ -19,10 +19,7 @@ import {
   DescribeTableDataImportJobResult,
   DescribeTableDataImportJobResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTableDataImportJobCommand,
-  serializeAws_restJson1DescribeTableDataImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTableDataImportJobCommand, se_DescribeTableDataImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class DescribeTableDataImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTableDataImportJobCommand(input, context);
+    return se_DescribeTableDataImportJobCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class DescribeTableDataImportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableDataImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeTableDataImportJobCommand(output, context);
+    return de_DescribeTableDataImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

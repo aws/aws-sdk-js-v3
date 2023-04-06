@@ -15,10 +15,7 @@ import {
 
 import { PublishMetricsInput, PublishMetricsOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1PublishMetricsCommand,
-  serializeAws_restJson1PublishMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishMetricsCommand, se_PublishMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class PublishMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishMetricsCommand(input, context);
+    return se_PublishMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishMetricsCommandOutput> {
-    return deserializeAws_restJson1PublishMetricsCommand(output, context);
+    return de_PublishMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

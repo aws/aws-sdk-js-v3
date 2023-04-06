@@ -15,10 +15,7 @@ import {
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { GetRetainedMessageRequest, GetRetainedMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRetainedMessageCommand,
-  serializeAws_restJson1GetRetainedMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRetainedMessageCommand, se_GetRetainedMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetRetainedMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRetainedMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRetainedMessageCommand(input, context);
+    return se_GetRetainedMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRetainedMessageCommandOutput> {
-    return deserializeAws_restJson1GetRetainedMessageCommand(output, context);
+    return de_GetRetainedMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

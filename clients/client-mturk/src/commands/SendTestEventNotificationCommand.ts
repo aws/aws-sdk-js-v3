@@ -15,10 +15,7 @@ import {
 
 import { SendTestEventNotificationRequest, SendTestEventNotificationResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1SendTestEventNotificationCommand,
-  serializeAws_json1_1SendTestEventNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendTestEventNotificationCommand, se_SendTestEventNotificationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class SendTestEventNotificationCommand extends $Command<
    * @internal
    */
   private serialize(input: SendTestEventNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendTestEventNotificationCommand(input, context);
+    return se_SendTestEventNotificationCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class SendTestEventNotificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendTestEventNotificationCommandOutput> {
-    return deserializeAws_json1_1SendTestEventNotificationCommand(output, context);
+    return de_SendTestEventNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

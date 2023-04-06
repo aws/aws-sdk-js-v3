@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetInvalidationCommand,
-  serializeAws_restXmlGetInvalidationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetInvalidationCommand, se_GetInvalidationCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetInvalidationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetInvalidationCommand(input, context);
+    return se_GetInvalidationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvalidationCommandOutput> {
-    return deserializeAws_restXmlGetInvalidationCommand(output, context);
+    return de_GetInvalidationCommand(output, context);
   }
 
   // Start section: command_body_extra

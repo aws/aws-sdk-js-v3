@@ -15,10 +15,7 @@ import {
 
 import { DeleteRunGroupRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteRunGroupCommand,
-  serializeAws_restJson1DeleteRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRunGroupCommand, se_DeleteRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteRunGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRunGroupCommand(input, context);
+    return se_DeleteRunGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRunGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteRunGroupCommand(output, context);
+    return de_DeleteRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

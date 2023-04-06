@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureAgentCommand,
-  serializeAws_restJson1ConfigureAgentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureAgentCommand, se_ConfigureAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ConfigureAgentCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfigureAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureAgentCommand(input, context);
+    return se_ConfigureAgentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAgentCommandOutput> {
-    return deserializeAws_restJson1ConfigureAgentCommand(output, context);
+    return de_ConfigureAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

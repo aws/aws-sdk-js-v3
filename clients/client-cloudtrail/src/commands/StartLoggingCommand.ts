@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { StartLoggingRequest, StartLoggingResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLoggingCommand,
-  serializeAws_json1_1StartLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartLoggingCommand, se_StartLoggingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class StartLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: StartLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLoggingCommand(input, context);
+    return se_StartLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLoggingCommandOutput> {
-    return deserializeAws_json1_1StartLoggingCommand(output, context);
+    return de_StartLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

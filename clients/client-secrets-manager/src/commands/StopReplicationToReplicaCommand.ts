@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopReplicationToReplicaRequest, StopReplicationToReplicaResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopReplicationToReplicaCommand,
-  serializeAws_json1_1StopReplicationToReplicaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopReplicationToReplicaCommand, se_StopReplicationToReplicaCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -155,14 +152,14 @@ export class StopReplicationToReplicaCommand extends $Command<
    * @internal
    */
   private serialize(input: StopReplicationToReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopReplicationToReplicaCommand(input, context);
+    return se_StopReplicationToReplicaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationToReplicaCommandOutput> {
-    return deserializeAws_json1_1StopReplicationToReplicaCommand(output, context);
+    return de_StopReplicationToReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

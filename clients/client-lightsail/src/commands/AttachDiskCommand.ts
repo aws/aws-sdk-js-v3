@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { AttachDiskRequest, AttachDiskResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachDiskCommand,
-  serializeAws_json1_1AttachDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AttachDiskCommand, se_AttachDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class AttachDiskCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachDiskCommand(input, context);
+    return se_AttachDiskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachDiskCommandOutput> {
-    return deserializeAws_json1_1AttachDiskCommand(output, context);
+    return de_AttachDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

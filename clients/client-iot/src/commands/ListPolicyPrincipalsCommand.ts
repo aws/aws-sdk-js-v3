@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPolicyPrincipalsCommand,
-  serializeAws_restJson1ListPolicyPrincipalsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPolicyPrincipalsCommand, se_ListPolicyPrincipalsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ListPolicyPrincipalsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPolicyPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPolicyPrincipalsCommand(input, context);
+    return se_ListPolicyPrincipalsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyPrincipalsCommandOutput> {
-    return deserializeAws_restJson1ListPolicyPrincipalsCommand(output, context);
+    return de_ListPolicyPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

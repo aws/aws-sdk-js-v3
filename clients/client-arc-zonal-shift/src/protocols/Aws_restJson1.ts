@@ -41,7 +41,10 @@ import {
   ZonalShiftSummary,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CancelZonalShiftCommand = async (
+/**
+ * serializeAws_restJson1CancelZonalShiftCommand
+ */
+export const se_CancelZonalShiftCommand = async (
   input: CancelZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -69,7 +72,10 @@ export const serializeAws_restJson1CancelZonalShiftCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetManagedResourceCommand = async (
+/**
+ * serializeAws_restJson1GetManagedResourceCommand
+ */
+export const se_GetManagedResourceCommand = async (
   input: GetManagedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -97,7 +103,10 @@ export const serializeAws_restJson1GetManagedResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListManagedResourcesCommand = async (
+/**
+ * serializeAws_restJson1ListManagedResourcesCommand
+ */
+export const se_ListManagedResourcesCommand = async (
   input: ListManagedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -121,7 +130,10 @@ export const serializeAws_restJson1ListManagedResourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListZonalShiftsCommand = async (
+/**
+ * serializeAws_restJson1ListZonalShiftsCommand
+ */
+export const se_ListZonalShiftsCommand = async (
   input: ListZonalShiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -146,7 +158,10 @@ export const serializeAws_restJson1ListZonalShiftsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartZonalShiftCommand = async (
+/**
+ * serializeAws_restJson1StartZonalShiftCommand
+ */
+export const se_StartZonalShiftCommand = async (
   input: StartZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -173,7 +188,10 @@ export const serializeAws_restJson1StartZonalShiftCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateZonalShiftCommand = async (
+/**
+ * serializeAws_restJson1UpdateZonalShiftCommand
+ */
+export const se_UpdateZonalShiftCommand = async (
   input: UpdateZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -207,12 +225,15 @@ export const serializeAws_restJson1UpdateZonalShiftCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelZonalShiftCommand = async (
+/**
+ * deserializeAws_restJson1CancelZonalShiftCommand
+ */
+export const de_CancelZonalShiftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelZonalShiftCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelZonalShiftCommandError(output, context);
+    return de_CancelZonalShiftCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -242,7 +263,10 @@ export const deserializeAws_restJson1CancelZonalShiftCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CancelZonalShiftCommandError = async (
+/**
+ * deserializeAws_restJson1CancelZonalShiftCommandError
+ */
+const de_CancelZonalShiftCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelZonalShiftCommandOutput> => {
@@ -254,22 +278,22 @@ const deserializeAws_restJson1CancelZonalShiftCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.arczonalshift#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.arczonalshift#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -281,19 +305,22 @@ const deserializeAws_restJson1CancelZonalShiftCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetManagedResourceCommand = async (
+/**
+ * deserializeAws_restJson1GetManagedResourceCommand
+ */
+export const de_GetManagedResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetManagedResourceCommandError(output, context);
+    return de_GetManagedResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appliedWeights != null) {
-    contents.appliedWeights = deserializeAws_restJson1AppliedWeights(data.appliedWeights, context);
+    contents.appliedWeights = de_AppliedWeights(data.appliedWeights, context);
   }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
@@ -302,12 +329,15 @@ export const deserializeAws_restJson1GetManagedResourceCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.zonalShifts != null) {
-    contents.zonalShifts = deserializeAws_restJson1ZonalShiftsInResource(data.zonalShifts, context);
+    contents.zonalShifts = de_ZonalShiftsInResource(data.zonalShifts, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetManagedResourceCommandError = async (
+/**
+ * deserializeAws_restJson1GetManagedResourceCommandError
+ */
+const de_GetManagedResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedResourceCommandOutput> => {
@@ -319,19 +349,19 @@ const deserializeAws_restJson1GetManagedResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.arczonalshift#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -343,19 +373,22 @@ const deserializeAws_restJson1GetManagedResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListManagedResourcesCommand = async (
+/**
+ * deserializeAws_restJson1ListManagedResourcesCommand
+ */
+export const de_ListManagedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListManagedResourcesCommandError(output, context);
+    return de_ListManagedResourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.items = deserializeAws_restJson1ManagedResourceSummaries(data.items, context);
+    contents.items = de_ManagedResourceSummaries(data.items, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -363,7 +396,10 @@ export const deserializeAws_restJson1ListManagedResourcesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListManagedResourcesCommandError = async (
+/**
+ * deserializeAws_restJson1ListManagedResourcesCommandError
+ */
+const de_ListManagedResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedResourcesCommandOutput> => {
@@ -375,16 +411,16 @@ const deserializeAws_restJson1ListManagedResourcesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -396,19 +432,22 @@ const deserializeAws_restJson1ListManagedResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListZonalShiftsCommand = async (
+/**
+ * deserializeAws_restJson1ListZonalShiftsCommand
+ */
+export const de_ListZonalShiftsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListZonalShiftsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListZonalShiftsCommandError(output, context);
+    return de_ListZonalShiftsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.items = deserializeAws_restJson1ZonalShiftSummaries(data.items, context);
+    contents.items = de_ZonalShiftSummaries(data.items, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -416,7 +455,10 @@ export const deserializeAws_restJson1ListZonalShiftsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListZonalShiftsCommandError = async (
+/**
+ * deserializeAws_restJson1ListZonalShiftsCommandError
+ */
+const de_ListZonalShiftsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListZonalShiftsCommandOutput> => {
@@ -428,16 +470,16 @@ const deserializeAws_restJson1ListZonalShiftsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -449,12 +491,15 @@ const deserializeAws_restJson1ListZonalShiftsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartZonalShiftCommand = async (
+/**
+ * deserializeAws_restJson1StartZonalShiftCommand
+ */
+export const de_StartZonalShiftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartZonalShiftCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartZonalShiftCommandError(output, context);
+    return de_StartZonalShiftCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -484,7 +529,10 @@ export const deserializeAws_restJson1StartZonalShiftCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartZonalShiftCommandError = async (
+/**
+ * deserializeAws_restJson1StartZonalShiftCommandError
+ */
+const de_StartZonalShiftCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartZonalShiftCommandOutput> => {
@@ -496,22 +544,22 @@ const deserializeAws_restJson1StartZonalShiftCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.arczonalshift#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.arczonalshift#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -523,12 +571,15 @@ const deserializeAws_restJson1StartZonalShiftCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateZonalShiftCommand = async (
+/**
+ * deserializeAws_restJson1UpdateZonalShiftCommand
+ */
+export const de_UpdateZonalShiftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateZonalShiftCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateZonalShiftCommandError(output, context);
+    return de_UpdateZonalShiftCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -558,7 +609,10 @@ export const deserializeAws_restJson1UpdateZonalShiftCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateZonalShiftCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateZonalShiftCommandError
+ */
+const de_UpdateZonalShiftCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateZonalShiftCommandOutput> => {
@@ -570,22 +624,22 @@ const deserializeAws_restJson1UpdateZonalShiftCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.arczonalshift#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.arczonalshift#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.arczonalshift#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.arczonalshift#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.arczonalshift#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.arczonalshift#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -598,7 +652,10 @@ const deserializeAws_restJson1UpdateZonalShiftCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -614,10 +671,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -636,7 +693,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -652,7 +712,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -668,10 +731,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -684,10 +747,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -703,7 +766,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AppliedWeights = (output: any, context: __SerdeContext): Record<string, number> => {
+/**
+ * deserializeAws_restJson1AppliedWeights
+ */
+const de_AppliedWeights = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -713,7 +779,10 @@ const deserializeAws_restJson1AppliedWeights = (output: any, context: __SerdeCon
   }, {});
 };
 
-const deserializeAws_restJson1AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1AvailabilityZones
+ */
+const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -725,36 +794,37 @@ const deserializeAws_restJson1AvailabilityZones = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1ManagedResourceSummaries = (
-  output: any,
-  context: __SerdeContext
-): ManagedResourceSummary[] => {
+/**
+ * deserializeAws_restJson1ManagedResourceSummaries
+ */
+const de_ManagedResourceSummaries = (output: any, context: __SerdeContext): ManagedResourceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ManagedResourceSummary(entry, context);
+      return de_ManagedResourceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ManagedResourceSummary = (
-  output: any,
-  context: __SerdeContext
-): ManagedResourceSummary => {
+/**
+ * deserializeAws_restJson1ManagedResourceSummary
+ */
+const de_ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
   return {
     arn: __expectString(output.arn),
     availabilityZones:
-      output.availabilityZones != null
-        ? deserializeAws_restJson1AvailabilityZones(output.availabilityZones, context)
-        : undefined,
+      output.availabilityZones != null ? de_AvailabilityZones(output.availabilityZones, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ZonalShiftInResource = (output: any, context: __SerdeContext): ZonalShiftInResource => {
+/**
+ * deserializeAws_restJson1ZonalShiftInResource
+ */
+const de_ZonalShiftInResource = (output: any, context: __SerdeContext): ZonalShiftInResource => {
   return {
     appliedStatus: __expectString(output.appliedStatus),
     awayFrom: __expectString(output.awayFrom),
@@ -768,34 +838,40 @@ const deserializeAws_restJson1ZonalShiftInResource = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1ZonalShiftsInResource = (
-  output: any,
-  context: __SerdeContext
-): ZonalShiftInResource[] => {
+/**
+ * deserializeAws_restJson1ZonalShiftsInResource
+ */
+const de_ZonalShiftsInResource = (output: any, context: __SerdeContext): ZonalShiftInResource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ZonalShiftInResource(entry, context);
+      return de_ZonalShiftInResource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ZonalShiftSummaries = (output: any, context: __SerdeContext): ZonalShiftSummary[] => {
+/**
+ * deserializeAws_restJson1ZonalShiftSummaries
+ */
+const de_ZonalShiftSummaries = (output: any, context: __SerdeContext): ZonalShiftSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ZonalShiftSummary(entry, context);
+      return de_ZonalShiftSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ZonalShiftSummary = (output: any, context: __SerdeContext): ZonalShiftSummary => {
+/**
+ * deserializeAws_restJson1ZonalShiftSummary
+ */
+const de_ZonalShiftSummary = (output: any, context: __SerdeContext): ZonalShiftSummary => {
   return {
     awayFrom: __expectString(output.awayFrom),
     comment: __expectString(output.comment),

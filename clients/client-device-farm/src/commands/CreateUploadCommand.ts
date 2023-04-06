@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { CreateUploadRequest, CreateUploadResult, CreateUploadResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUploadCommand,
-  serializeAws_json1_1CreateUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateUploadCommand, se_CreateUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class CreateUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUploadCommand(input, context);
+    return se_CreateUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUploadCommandOutput> {
-    return deserializeAws_json1_1CreateUploadCommand(output, context);
+    return de_CreateUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

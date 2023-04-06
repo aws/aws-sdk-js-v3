@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyWorkspacePropertiesCommand,
-  serializeAws_json1_1ModifyWorkspacePropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyWorkspacePropertiesCommand, se_ModifyWorkspacePropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -161,7 +158,7 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyWorkspacePropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspacePropertiesCommand(input, context);
+    return se_ModifyWorkspacePropertiesCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspacePropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspacePropertiesCommand(output, context);
+    return de_ModifyWorkspacePropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

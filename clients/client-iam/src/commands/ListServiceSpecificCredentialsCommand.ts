@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse } from "../models/models_0";
 import {
-  deserializeAws_queryListServiceSpecificCredentialsCommand,
-  serializeAws_queryListServiceSpecificCredentialsCommand,
+  de_ListServiceSpecificCredentialsCommand,
+  se_ListServiceSpecificCredentialsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -138,7 +138,7 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     input: ListServiceSpecificCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListServiceSpecificCredentialsCommand(input, context);
+    return se_ListServiceSpecificCredentialsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceSpecificCredentialsCommandOutput> {
-    return deserializeAws_queryListServiceSpecificCredentialsCommand(output, context);
+    return de_ListServiceSpecificCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

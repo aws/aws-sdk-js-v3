@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteAlarmRequest, DeleteAlarmResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAlarmCommand,
-  serializeAws_json1_1DeleteAlarmCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAlarmCommand, se_DeleteAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAlarmCommand(input, context);
+    return se_DeleteAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmCommandOutput> {
-    return deserializeAws_json1_1DeleteAlarmCommand(output, context);
+    return de_DeleteAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

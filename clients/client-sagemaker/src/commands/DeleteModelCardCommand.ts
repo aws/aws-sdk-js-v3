@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteModelCardRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelCardCommand,
-  serializeAws_json1_1DeleteModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteModelCardCommand, se_DeleteModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteModelCardCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelCardCommand(input, context);
+    return se_DeleteModelCardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCardCommandOutput> {
-    return deserializeAws_json1_1DeleteModelCardCommand(output, context);
+    return de_DeleteModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

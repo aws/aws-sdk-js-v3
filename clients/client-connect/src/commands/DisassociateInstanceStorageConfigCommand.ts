@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateInstanceStorageConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateInstanceStorageConfigCommand,
-  serializeAws_restJson1DisassociateInstanceStorageConfigCommand,
+  de_DisassociateInstanceStorageConfigCommand,
+  se_DisassociateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     input: DisassociateInstanceStorageConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateInstanceStorageConfigCommand(input, context);
+    return se_DisassociateInstanceStorageConfigCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1DisassociateInstanceStorageConfigCommand(output, context);
+    return de_DisassociateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

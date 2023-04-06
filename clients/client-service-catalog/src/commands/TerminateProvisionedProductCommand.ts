@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateProvisionedProductCommand,
-  serializeAws_json1_1TerminateProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateProvisionedProductCommand, se_TerminateProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -130,7 +127,7 @@ export class TerminateProvisionedProductCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateProvisionedProductCommand(input, context);
+    return se_TerminateProvisionedProductCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class TerminateProvisionedProductCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1TerminateProvisionedProductCommand(output, context);
+    return de_TerminateProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

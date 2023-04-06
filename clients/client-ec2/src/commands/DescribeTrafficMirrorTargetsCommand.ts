@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTrafficMirrorTargetsCommand,
-  serializeAws_ec2DescribeTrafficMirrorTargetsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeTrafficMirrorTargetsCommand, se_DescribeTrafficMirrorTargetsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTrafficMirrorTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTrafficMirrorTargetsCommand(input, context);
+    return se_DescribeTrafficMirrorTargetsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrafficMirrorTargetsCommandOutput> {
-    return deserializeAws_ec2DescribeTrafficMirrorTargetsCommand(output, context);
+    return de_DescribeTrafficMirrorTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

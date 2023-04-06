@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { AddEndpointsRequest, AddEndpointsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddEndpointsCommand,
-  serializeAws_json1_1AddEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddEndpointsCommand, se_AddEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class AddEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddEndpointsCommand(input, context);
+    return se_AddEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddEndpointsCommandOutput> {
-    return deserializeAws_json1_1AddEndpointsCommand(output, context);
+    return de_AddEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

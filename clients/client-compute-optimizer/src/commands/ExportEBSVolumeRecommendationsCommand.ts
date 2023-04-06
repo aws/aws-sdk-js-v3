@@ -16,8 +16,8 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
-  serializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
+  de_ExportEBSVolumeRecommendationsCommand,
+  se_ExportEBSVolumeRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -174,7 +174,7 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
     input: ExportEBSVolumeRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportEBSVolumeRecommendationsCommand(input, context);
+    return se_ExportEBSVolumeRecommendationsCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportEBSVolumeRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand(output, context);
+    return de_ExportEBSVolumeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

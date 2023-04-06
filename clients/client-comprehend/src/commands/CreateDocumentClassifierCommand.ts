@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { CreateDocumentClassifierRequest, CreateDocumentClassifierResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDocumentClassifierCommand,
-  serializeAws_json1_1CreateDocumentClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDocumentClassifierCommand, se_CreateDocumentClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -203,14 +200,14 @@ export class CreateDocumentClassifierCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDocumentClassifierCommand(input, context);
+    return se_CreateDocumentClassifierCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1CreateDocumentClassifierCommand(output, context);
+    return de_CreateDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

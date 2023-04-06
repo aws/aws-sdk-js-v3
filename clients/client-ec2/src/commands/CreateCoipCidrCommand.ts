@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateCoipCidrRequest, CreateCoipCidrResult } from "../models/models_1";
-import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
+import { de_CreateCoipCidrCommand, se_CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +121,14 @@ export class CreateCoipCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateCoipCidrCommand(input, context);
+    return se_CreateCoipCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoipCidrCommandOutput> {
-    return deserializeAws_ec2CreateCoipCidrCommand(output, context);
+    return de_CreateCoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

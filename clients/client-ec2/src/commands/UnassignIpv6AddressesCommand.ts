@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
-import {
-  deserializeAws_ec2UnassignIpv6AddressesCommand,
-  serializeAws_ec2UnassignIpv6AddressesCommand,
-} from "../protocols/Aws_ec2";
+import { de_UnassignIpv6AddressesCommand, se_UnassignIpv6AddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class UnassignIpv6AddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: UnassignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2UnassignIpv6AddressesCommand(input, context);
+    return se_UnassignIpv6AddressesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignIpv6AddressesCommandOutput> {
-    return deserializeAws_ec2UnassignIpv6AddressesCommand(output, context);
+    return de_UnassignIpv6AddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { CreateCustomRoutingAcceleratorRequest, CreateCustomRoutingAcceleratorResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand,
-  serializeAws_json1_1CreateCustomRoutingAcceleratorCommand,
+  de_CreateCustomRoutingAcceleratorCommand,
+  se_CreateCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -163,7 +163,7 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     input: CreateCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomRoutingAcceleratorCommand(input, context);
+    return se_CreateCustomRoutingAcceleratorCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomRoutingAcceleratorCommandOutput> {
-    return deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand(output, context);
+    return de_CreateCustomRoutingAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

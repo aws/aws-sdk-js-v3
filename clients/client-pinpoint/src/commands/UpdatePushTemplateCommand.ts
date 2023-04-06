@@ -15,10 +15,7 @@ import {
 
 import { UpdatePushTemplateRequest, UpdatePushTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdatePushTemplateCommand,
-  serializeAws_restJson1UpdatePushTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePushTemplateCommand, se_UpdatePushTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -200,14 +197,14 @@ export class UpdatePushTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePushTemplateCommand(input, context);
+    return se_UpdatePushTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePushTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdatePushTemplateCommand(output, context);
+    return de_UpdatePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

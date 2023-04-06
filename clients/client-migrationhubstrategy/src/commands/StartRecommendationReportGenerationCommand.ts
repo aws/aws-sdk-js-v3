@@ -23,8 +23,8 @@ import {
   StartRecommendationReportGenerationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartRecommendationReportGenerationCommand,
-  serializeAws_restJson1StartRecommendationReportGenerationCommand,
+  de_StartRecommendationReportGenerationCommand,
+  se_StartRecommendationReportGenerationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     input: StartRecommendationReportGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRecommendationReportGenerationCommand(input, context);
+    return se_StartRecommendationReportGenerationCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartRecommendationReportGenerationCommandOutput> {
-    return deserializeAws_restJson1StartRecommendationReportGenerationCommand(output, context);
+    return de_StartRecommendationReportGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

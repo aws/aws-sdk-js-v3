@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateBrokerStorageRequest, UpdateBrokerStorageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrokerStorageCommand,
-  serializeAws_restJson1UpdateBrokerStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBrokerStorageCommand, se_UpdateBrokerStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateBrokerStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBrokerStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerStorageCommand(input, context);
+    return se_UpdateBrokerStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerStorageCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerStorageCommand(output, context);
+    return de_UpdateBrokerStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

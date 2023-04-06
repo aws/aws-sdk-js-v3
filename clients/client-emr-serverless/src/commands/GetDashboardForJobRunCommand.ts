@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { GetDashboardForJobRunRequest, GetDashboardForJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDashboardForJobRunCommand,
-  serializeAws_restJson1GetDashboardForJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDashboardForJobRunCommand, se_GetDashboardForJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetDashboardForJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDashboardForJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDashboardForJobRunCommand(input, context);
+    return se_GetDashboardForJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardForJobRunCommandOutput> {
-    return deserializeAws_restJson1GetDashboardForJobRunCommand(output, context);
+    return de_GetDashboardForJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

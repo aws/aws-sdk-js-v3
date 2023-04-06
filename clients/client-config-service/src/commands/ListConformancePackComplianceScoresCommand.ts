@@ -19,8 +19,8 @@ import {
   ListConformancePackComplianceScoresResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListConformancePackComplianceScoresCommand,
-  serializeAws_json1_1ListConformancePackComplianceScoresCommand,
+  de_ListConformancePackComplianceScoresCommand,
+  se_ListConformancePackComplianceScoresCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     input: ListConformancePackComplianceScoresCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConformancePackComplianceScoresCommand(input, context);
+    return se_ListConformancePackComplianceScoresCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConformancePackComplianceScoresCommandOutput> {
-    return deserializeAws_json1_1ListConformancePackComplianceScoresCommand(output, context);
+    return de_ListConformancePackComplianceScoresCommand(output, context);
   }
 
   // Start section: command_body_extra

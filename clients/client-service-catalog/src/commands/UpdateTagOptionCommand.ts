@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTagOptionInput, UpdateTagOptionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTagOptionCommand,
-  serializeAws_json1_1UpdateTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTagOptionCommand, se_UpdateTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -136,14 +133,14 @@ export class UpdateTagOptionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTagOptionCommand(input, context);
+    return se_UpdateTagOptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagOptionCommandOutput> {
-    return deserializeAws_json1_1UpdateTagOptionCommand(output, context);
+    return de_UpdateTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

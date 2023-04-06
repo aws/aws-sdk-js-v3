@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTextTranslationJobsCommand,
-  serializeAws_json1_1ListTextTranslationJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTextTranslationJobsCommand, se_ListTextTranslationJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListTextTranslationJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTextTranslationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTextTranslationJobsCommand(input, context);
+    return se_ListTextTranslationJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTextTranslationJobsCommandOutput> {
-    return deserializeAws_json1_1ListTextTranslationJobsCommand(output, context);
+    return de_ListTextTranslationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

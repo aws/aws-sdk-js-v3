@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartContactStreamingCommand,
-  serializeAws_restJson1StartContactStreamingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartContactStreamingCommand, se_StartContactStreamingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class StartContactStreamingCommand extends $Command<
    * @internal
    */
   private serialize(input: StartContactStreamingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartContactStreamingCommand(input, context);
+    return se_StartContactStreamingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContactStreamingCommandOutput> {
-    return deserializeAws_restJson1StartContactStreamingCommand(output, context);
+    return de_StartContactStreamingCommand(output, context);
   }
 
   // Start section: command_body_extra

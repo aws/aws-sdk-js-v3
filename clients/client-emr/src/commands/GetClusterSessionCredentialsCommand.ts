@@ -20,8 +20,8 @@ import {
   GetClusterSessionCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetClusterSessionCredentialsCommand,
-  serializeAws_json1_1GetClusterSessionCredentialsCommand,
+  de_GetClusterSessionCredentialsCommand,
+  se_GetClusterSessionCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -135,7 +135,7 @@ export class GetClusterSessionCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClusterSessionCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetClusterSessionCredentialsCommand(input, context);
+    return se_GetClusterSessionCredentialsCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class GetClusterSessionCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClusterSessionCredentialsCommandOutput> {
-    return deserializeAws_json1_1GetClusterSessionCredentialsCommand(output, context);
+    return de_GetClusterSessionCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

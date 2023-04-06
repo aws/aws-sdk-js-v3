@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopSentimentDetectionJobCommand,
-  serializeAws_json1_1StopSentimentDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopSentimentDetectionJobCommand, se_StopSentimentDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class StopSentimentDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSentimentDetectionJobCommand(input, context);
+    return se_StopSentimentDetectionJobCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class StopSentimentDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopSentimentDetectionJobCommand(output, context);
+    return de_StopSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

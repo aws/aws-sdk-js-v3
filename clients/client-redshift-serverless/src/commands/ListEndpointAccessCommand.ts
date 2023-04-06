@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListEndpointAccessRequest, ListEndpointAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEndpointAccessCommand,
-  serializeAws_json1_1ListEndpointAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEndpointAccessCommand, se_ListEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class ListEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEndpointAccessCommand(input, context);
+    return se_ListEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointAccessCommandOutput> {
-    return deserializeAws_json1_1ListEndpointAccessCommand(output, context);
+    return de_ListEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

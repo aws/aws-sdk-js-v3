@@ -19,10 +19,7 @@ import {
   StartAppAssessmentResponse,
   StartAppAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAppAssessmentCommand,
-  serializeAws_restJson1StartAppAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAppAssessmentCommand, se_StartAppAssessmentCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -159,14 +156,14 @@ export class StartAppAssessmentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAppAssessmentCommand(input, context);
+    return se_StartAppAssessmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppAssessmentCommandOutput> {
-    return deserializeAws_restJson1StartAppAssessmentCommand(output, context);
+    return de_StartAppAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

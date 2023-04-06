@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { GetDirectoryRequest, GetDirectoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDirectoryCommand,
-  serializeAws_restJson1GetDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDirectoryCommand, se_GetDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDirectoryCommand(input, context);
+    return se_GetDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDirectoryCommandOutput> {
-    return deserializeAws_restJson1GetDirectoryCommand(output, context);
+    return de_GetDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

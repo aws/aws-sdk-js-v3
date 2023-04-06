@@ -20,10 +20,7 @@ import {
   PrepareQueryResponse,
   PrepareQueryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0PrepareQueryCommand,
-  serializeAws_json1_0PrepareQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PrepareQueryCommand, se_PrepareQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -147,14 +144,14 @@ export class PrepareQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: PrepareQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PrepareQueryCommand(input, context);
+    return se_PrepareQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PrepareQueryCommandOutput> {
-    return deserializeAws_json1_0PrepareQueryCommand(output, context);
+    return de_PrepareQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

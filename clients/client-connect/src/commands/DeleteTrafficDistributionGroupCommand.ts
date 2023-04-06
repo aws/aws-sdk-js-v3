@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteTrafficDistributionGroupRequest, DeleteTrafficDistributionGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteTrafficDistributionGroupCommand,
-  serializeAws_restJson1DeleteTrafficDistributionGroupCommand,
+  de_DeleteTrafficDistributionGroupCommand,
+  se_DeleteTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     input: DeleteTrafficDistributionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrafficDistributionGroupCommand(input, context);
+    return se_DeleteTrafficDistributionGroupCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficDistributionGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteTrafficDistributionGroupCommand(output, context);
+    return de_DeleteTrafficDistributionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

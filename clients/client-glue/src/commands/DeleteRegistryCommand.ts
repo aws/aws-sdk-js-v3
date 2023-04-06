@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteRegistryInput, DeleteRegistryResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteRegistryCommand,
-  serializeAws_json1_1DeleteRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRegistryCommand, se_DeleteRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRegistryCommand(input, context);
+    return se_DeleteRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
-    return deserializeAws_json1_1DeleteRegistryCommand(output, context);
+    return de_DeleteRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

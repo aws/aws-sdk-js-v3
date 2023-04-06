@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ClearQuerySuggestionsRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1ClearQuerySuggestionsCommand,
-  serializeAws_json1_1ClearQuerySuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ClearQuerySuggestionsCommand, se_ClearQuerySuggestionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class ClearQuerySuggestionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ClearQuerySuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ClearQuerySuggestionsCommand(input, context);
+    return se_ClearQuerySuggestionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClearQuerySuggestionsCommandOutput> {
-    return deserializeAws_json1_1ClearQuerySuggestionsCommand(output, context);
+    return de_ClearQuerySuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

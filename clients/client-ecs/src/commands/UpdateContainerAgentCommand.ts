@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContainerAgentCommand,
-  serializeAws_json1_1UpdateContainerAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateContainerAgentCommand, se_UpdateContainerAgentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class UpdateContainerAgentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateContainerAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerAgentCommand(input, context);
+    return se_UpdateContainerAgentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContainerAgentCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerAgentCommand(output, context);
+    return de_UpdateContainerAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

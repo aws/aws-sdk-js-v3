@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWorkgroupRequest, GetWorkgroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetWorkgroupCommand,
-  serializeAws_json1_1GetWorkgroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetWorkgroupCommand, se_GetWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -131,14 +128,14 @@ export class GetWorkgroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetWorkgroupCommand(input, context);
+    return se_GetWorkgroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkgroupCommandOutput> {
-    return deserializeAws_json1_1GetWorkgroupCommand(output, context);
+    return de_GetWorkgroupCommand(output, context);
   }
 
   // Start section: command_body_extra

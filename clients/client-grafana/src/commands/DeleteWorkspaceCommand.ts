@@ -19,10 +19,7 @@ import {
   DeleteWorkspaceResponse,
   DeleteWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkspaceCommand,
-  serializeAws_restJson1DeleteWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteWorkspaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceCommand(input, context);
+    return se_DeleteWorkspaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceCommand(output, context);
+    return de_DeleteWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

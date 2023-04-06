@@ -19,10 +19,7 @@ import {
   ListUserProfilesResult,
   ListUserProfilesResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUserProfilesCommand,
-  serializeAws_json1_1ListUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUserProfilesCommand, se_ListUserProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListUserProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserProfilesCommand(input, context);
+    return se_ListUserProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserProfilesCommandOutput> {
-    return deserializeAws_json1_1ListUserProfilesCommand(output, context);
+    return de_ListUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

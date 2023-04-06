@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLifecyclePolicyCommand,
-  serializeAws_json1_1DeleteLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteLifecyclePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLifecyclePolicyCommand(input, context);
+    return se_DeleteLifecyclePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteLifecyclePolicyCommand(output, context);
+    return de_DeleteLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

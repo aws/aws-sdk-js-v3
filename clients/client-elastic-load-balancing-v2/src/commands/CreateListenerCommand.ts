@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { CreateListenerInput, CreateListenerOutput } from "../models/models_0";
-import {
-  deserializeAws_queryCreateListenerCommand,
-  serializeAws_queryCreateListenerCommand,
-} from "../protocols/Aws_query";
+import { de_CreateListenerCommand, se_CreateListenerCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -369,14 +366,14 @@ export class CreateListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateListenerCommand(input, context);
+    return se_CreateListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
-    return deserializeAws_queryCreateListenerCommand(output, context);
+    return de_CreateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

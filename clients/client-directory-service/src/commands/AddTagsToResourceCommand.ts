@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToResourceCommand,
-  serializeAws_json1_1AddTagsToResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddTagsToResourceCommand, se_AddTagsToResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class AddTagsToResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToResourceCommand(input, context);
+    return se_AddTagsToResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
-    return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
+    return de_AddTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

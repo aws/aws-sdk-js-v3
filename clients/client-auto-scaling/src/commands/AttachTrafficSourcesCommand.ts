@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { AttachTrafficSourcesResultType, AttachTrafficSourcesType } from "../models/models_0";
-import {
-  deserializeAws_queryAttachTrafficSourcesCommand,
-  serializeAws_queryAttachTrafficSourcesCommand,
-} from "../protocols/Aws_query";
+import { de_AttachTrafficSourcesCommand, se_AttachTrafficSourcesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class AttachTrafficSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachTrafficSourcesCommand(input, context);
+    return se_AttachTrafficSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTrafficSourcesCommandOutput> {
-    return deserializeAws_queryAttachTrafficSourcesCommand(output, context);
+    return de_AttachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

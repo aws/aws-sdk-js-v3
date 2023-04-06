@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateFirewallRuleGroupRequest, AssociateFirewallRuleGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateFirewallRuleGroupCommand,
-  serializeAws_json1_1AssociateFirewallRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateFirewallRuleGroupCommand, se_AssociateFirewallRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -155,7 +152,7 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateFirewallRuleGroupCommand(input, context);
+    return se_AssociateFirewallRuleGroupCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateFirewallRuleGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateFirewallRuleGroupCommand(output, context);
+    return de_AssociateFirewallRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateConnectionAliasRequest, AssociateConnectionAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateConnectionAliasCommand,
-  serializeAws_json1_1AssociateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateConnectionAliasCommand, se_AssociateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -146,14 +143,14 @@ export class AssociateConnectionAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateConnectionAliasCommand(input, context);
+    return se_AssociateConnectionAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1AssociateConnectionAliasCommand(output, context);
+    return de_AssociateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

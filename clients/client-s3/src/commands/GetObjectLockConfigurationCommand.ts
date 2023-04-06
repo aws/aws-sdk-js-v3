@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectLockConfigurationCommand,
-  serializeAws_restXmlGetObjectLockConfigurationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectLockConfigurationCommand, se_GetObjectLockConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -137,7 +134,7 @@ export class GetObjectLockConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectLockConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectLockConfigurationCommand(input, context);
+    return se_GetObjectLockConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class GetObjectLockConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetObjectLockConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetObjectLockConfigurationCommand(output, context);
+    return de_GetObjectLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

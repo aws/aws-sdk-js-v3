@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/models_0";
 import {
-  deserializeAws_queryCreateLBCookieStickinessPolicyCommand,
-  serializeAws_queryCreateLBCookieStickinessPolicyCommand,
+  de_CreateLBCookieStickinessPolicyCommand,
+  se_CreateLBCookieStickinessPolicyCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -162,7 +162,7 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     input: CreateLBCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLBCookieStickinessPolicyCommand(input, context);
+    return se_CreateLBCookieStickinessPolicyCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLBCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateLBCookieStickinessPolicyCommand(output, context);
+    return de_CreateLBCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProgressUpdateStreamCommand,
-  serializeAws_json1_1DeleteProgressUpdateStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProgressUpdateStreamCommand, se_DeleteProgressUpdateStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -185,7 +182,7 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProgressUpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProgressUpdateStreamCommand(input, context);
+    return se_DeleteProgressUpdateStreamCommand(input, context);
   }
 
   /**
@@ -195,7 +192,7 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProgressUpdateStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteProgressUpdateStreamCommand(output, context);
+    return de_DeleteProgressUpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

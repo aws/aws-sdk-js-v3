@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateClusterConfigurationRequest, UpdateClusterConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterConfigurationCommand,
-  serializeAws_restJson1UpdateClusterConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateClusterConfigurationCommand, se_UpdateClusterConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class UpdateClusterConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClusterConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterConfigurationCommand(input, context);
+    return se_UpdateClusterConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class UpdateClusterConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClusterConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterConfigurationCommand(output, context);
+    return de_UpdateClusterConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopInferenceExperimentRequest, StopInferenceExperimentResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopInferenceExperimentCommand,
-  serializeAws_json1_1StopInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopInferenceExperimentCommand, se_StopInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -145,14 +142,14 @@ export class StopInferenceExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: StopInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInferenceExperimentCommand(input, context);
+    return se_StopInferenceExperimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1StopInferenceExperimentCommand(output, context);
+    return de_StopInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

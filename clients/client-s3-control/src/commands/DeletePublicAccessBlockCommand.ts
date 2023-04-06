@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePublicAccessBlockRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeletePublicAccessBlockCommand,
-  serializeAws_restXmlDeletePublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeletePublicAccessBlockCommand, se_DeletePublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -140,14 +137,14 @@ export class DeletePublicAccessBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeletePublicAccessBlockCommand(input, context);
+    return se_DeletePublicAccessBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlDeletePublicAccessBlockCommand(output, context);
+    return de_DeletePublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

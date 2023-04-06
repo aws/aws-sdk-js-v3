@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFlowEntitlementCommand,
-  serializeAws_restJson1UpdateFlowEntitlementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFlowEntitlementCommand, se_UpdateFlowEntitlementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateFlowEntitlementCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFlowEntitlementCommand(input, context);
+    return se_UpdateFlowEntitlementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1UpdateFlowEntitlementCommand(output, context);
+    return de_UpdateFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

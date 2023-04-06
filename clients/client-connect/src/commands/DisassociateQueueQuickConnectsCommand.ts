@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateQueueQuickConnectsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateQueueQuickConnectsCommand,
-  serializeAws_restJson1DisassociateQueueQuickConnectsCommand,
+  de_DisassociateQueueQuickConnectsCommand,
+  se_DisassociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
     input: DisassociateQueueQuickConnectsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateQueueQuickConnectsCommand(input, context);
+    return se_DisassociateQueueQuickConnectsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQueueQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1DisassociateQueueQuickConnectsCommand(output, context);
+    return de_DisassociateQueueQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

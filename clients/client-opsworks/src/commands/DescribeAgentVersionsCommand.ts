@@ -15,10 +15,7 @@ import {
 
 import { DescribeAgentVersionsRequest, DescribeAgentVersionsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeAgentVersionsCommand,
-  serializeAws_json1_1DescribeAgentVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAgentVersionsCommand, se_DescribeAgentVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeAgentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAgentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgentVersionsCommand(input, context);
+    return se_DescribeAgentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAgentVersionsCommand(output, context);
+    return de_DescribeAgentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

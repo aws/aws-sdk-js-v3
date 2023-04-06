@@ -15,10 +15,7 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGroupCommand,
-  serializeAws_json1_1UpdateGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGroupCommand(input, context);
+    return se_UpdateGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateGroupCommand(output, context);
+    return de_UpdateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

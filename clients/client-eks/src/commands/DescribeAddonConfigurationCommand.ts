@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeAddonConfigurationRequest, DescribeAddonConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAddonConfigurationCommand,
-  serializeAws_restJson1DescribeAddonConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAddonConfigurationCommand, se_DescribeAddonConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class DescribeAddonConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAddonConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAddonConfigurationCommand(input, context);
+    return se_DescribeAddonConfigurationCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DescribeAddonConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAddonConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeAddonConfigurationCommand(output, context);
+    return de_DescribeAddonConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

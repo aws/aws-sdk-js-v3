@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAttributeGroupRequest, UpdateAttributeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAttributeGroupCommand,
-  serializeAws_restJson1UpdateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAttributeGroupCommand, se_UpdateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -140,14 +137,14 @@ export class UpdateAttributeGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAttributeGroupCommand(input, context);
+    return se_UpdateAttributeGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateAttributeGroupCommand(output, context);
+    return de_UpdateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

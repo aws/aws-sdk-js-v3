@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { ListClusterOperationsRequest, ListClusterOperationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClusterOperationsCommand,
-  serializeAws_restJson1ListClusterOperationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListClusterOperationsCommand, se_ListClusterOperationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListClusterOperationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListClusterOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClusterOperationsCommand(input, context);
+    return se_ListClusterOperationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterOperationsCommandOutput> {
-    return deserializeAws_restJson1ListClusterOperationsCommand(output, context);
+    return de_ListClusterOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuthorizeDataShareMessage, DataShare } from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeDataShareCommand,
-  serializeAws_queryAuthorizeDataShareCommand,
-} from "../protocols/Aws_query";
+import { de_AuthorizeDataShareCommand, se_AuthorizeDataShareCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -126,14 +123,14 @@ export class AuthorizeDataShareCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDataShareCommand(input, context);
+    return se_AuthorizeDataShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeDataShareCommandOutput> {
-    return deserializeAws_queryAuthorizeDataShareCommand(output, context);
+    return de_AuthorizeDataShareCommand(output, context);
   }
 
   // Start section: command_body_extra

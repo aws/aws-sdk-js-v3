@@ -15,10 +15,7 @@ import {
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateS3ResourcesCommand,
-  serializeAws_json1_1AssociateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateS3ResourcesCommand, se_AssociateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class AssociateS3ResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateS3ResourcesCommand(input, context);
+    return se_AssociateS3ResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1AssociateS3ResourcesCommand(output, context);
+    return de_AssociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

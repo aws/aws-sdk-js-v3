@@ -15,10 +15,7 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGroupMembershipCommand,
-  serializeAws_json1_1DeleteGroupMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGroupMembershipCommand, se_DeleteGroupMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteGroupMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGroupMembershipCommand(input, context);
+    return se_DeleteGroupMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_json1_1DeleteGroupMembershipCommand(output, context);
+    return de_DeleteGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

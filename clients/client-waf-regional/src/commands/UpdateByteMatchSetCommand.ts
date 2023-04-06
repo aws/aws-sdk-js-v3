@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateByteMatchSetCommand,
-  serializeAws_json1_1UpdateByteMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateByteMatchSetCommand, se_UpdateByteMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -310,14 +307,14 @@ export class UpdateByteMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateByteMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateByteMatchSetCommand(input, context);
+    return se_UpdateByteMatchSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateByteMatchSetCommandOutput> {
-    return deserializeAws_json1_1UpdateByteMatchSetCommand(output, context);
+    return de_UpdateByteMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

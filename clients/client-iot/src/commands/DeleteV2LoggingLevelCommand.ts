@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteV2LoggingLevelRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteV2LoggingLevelCommand,
-  serializeAws_restJson1DeleteV2LoggingLevelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteV2LoggingLevelCommand, se_DeleteV2LoggingLevelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteV2LoggingLevelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteV2LoggingLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteV2LoggingLevelCommand(input, context);
+    return se_DeleteV2LoggingLevelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteV2LoggingLevelCommandOutput> {
-    return deserializeAws_restJson1DeleteV2LoggingLevelCommand(output, context);
+    return de_DeleteV2LoggingLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

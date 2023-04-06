@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedIntegerInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedIntegerCommand,
-  serializeAws_restJson1MalformedIntegerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedIntegerCommand, se_MalformedIntegerCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedIntegerCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedIntegerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedIntegerCommand(input, context);
+    return se_MalformedIntegerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedIntegerCommandOutput> {
-    return deserializeAws_restJson1MalformedIntegerCommand(output, context);
+    return de_MalformedIntegerCommand(output, context);
   }
 
   // Start section: command_body_extra

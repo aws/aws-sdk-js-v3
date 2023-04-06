@@ -19,10 +19,7 @@ import {
   UpdateFileSystemRequestFilterSensitiveLog,
   UpdateFileSystemResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFileSystemCommand,
-  serializeAws_json1_1UpdateFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -415,14 +412,14 @@ export class UpdateFileSystemCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFileSystemCommand(input, context);
+    return se_UpdateFileSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
-    return deserializeAws_json1_1UpdateFileSystemCommand(output, context);
+    return de_UpdateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

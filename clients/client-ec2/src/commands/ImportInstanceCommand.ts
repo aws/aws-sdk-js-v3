@@ -19,7 +19,7 @@ import {
   ImportInstanceRequestFilterSensitiveLog,
   ImportInstanceResult,
 } from "../models/models_5";
-import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
+import { de_ImportInstanceCommand, se_ImportInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -171,14 +171,14 @@ export class ImportInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ImportInstanceCommand(input, context);
+    return se_ImportInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportInstanceCommandOutput> {
-    return deserializeAws_ec2ImportInstanceCommand(output, context);
+    return de_ImportInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

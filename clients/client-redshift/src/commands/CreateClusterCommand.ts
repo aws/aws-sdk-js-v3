@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateClusterMessage, CreateClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterCommand,
-  serializeAws_queryCreateClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -249,14 +246,14 @@ export class CreateClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_queryCreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

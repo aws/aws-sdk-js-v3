@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNetworkInterfaceRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkInterfaceCommand,
-  serializeAws_ec2DeleteNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteNetworkInterfaceCommand, se_DeleteNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteNetworkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInterfaceCommand(input, context);
+    return se_DeleteNetworkInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInterfaceCommand(output, context);
+    return de_DeleteNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

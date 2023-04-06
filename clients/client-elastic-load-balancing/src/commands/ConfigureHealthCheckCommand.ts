@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/models_0";
-import {
-  deserializeAws_queryConfigureHealthCheckCommand,
-  serializeAws_queryConfigureHealthCheckCommand,
-} from "../protocols/Aws_query";
+import { de_ConfigureHealthCheckCommand, se_ConfigureHealthCheckCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class ConfigureHealthCheckCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfigureHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryConfigureHealthCheckCommand(input, context);
+    return se_ConfigureHealthCheckCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureHealthCheckCommandOutput> {
-    return deserializeAws_queryConfigureHealthCheckCommand(output, context);
+    return de_ConfigureHealthCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

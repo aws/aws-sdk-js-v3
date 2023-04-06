@@ -15,10 +15,7 @@ import {
 
 import { GetSolutionMetricsRequest, GetSolutionMetricsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1GetSolutionMetricsCommand,
-  serializeAws_json1_1GetSolutionMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSolutionMetricsCommand, se_GetSolutionMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetSolutionMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSolutionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSolutionMetricsCommand(input, context);
+    return se_GetSolutionMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolutionMetricsCommandOutput> {
-    return deserializeAws_json1_1GetSolutionMetricsCommand(output, context);
+    return de_GetSolutionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

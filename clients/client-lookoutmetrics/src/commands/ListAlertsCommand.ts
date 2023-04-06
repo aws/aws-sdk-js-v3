@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { ListAlertsRequest, ListAlertsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlertsCommand,
-  serializeAws_restJson1ListAlertsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAlertsCommand, se_ListAlertsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListAlertsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAlertsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlertsCommand(input, context);
+    return se_ListAlertsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlertsCommandOutput> {
-    return deserializeAws_restJson1ListAlertsCommand(output, context);
+    return de_ListAlertsCommand(output, context);
   }
 
   // Start section: command_body_extra

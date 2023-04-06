@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { UpdateFlowMediaStreamRequest, UpdateFlowMediaStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFlowMediaStreamCommand,
-  serializeAws_restJson1UpdateFlowMediaStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFlowMediaStreamCommand, se_UpdateFlowMediaStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateFlowMediaStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFlowMediaStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFlowMediaStreamCommand(input, context);
+    return se_UpdateFlowMediaStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowMediaStreamCommandOutput> {
-    return deserializeAws_restJson1UpdateFlowMediaStreamCommand(output, context);
+    return de_UpdateFlowMediaStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

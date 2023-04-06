@@ -15,8 +15,8 @@ import {
 
 import { RejectEnvironmentAccountConnectionInput, RejectEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0RejectEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0RejectEnvironmentAccountConnectionCommand,
+  de_RejectEnvironmentAccountConnectionCommand,
+  se_RejectEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -148,7 +148,7 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     input: RejectEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RejectEnvironmentAccountConnectionCommand(input, context);
+    return se_RejectEnvironmentAccountConnectionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0RejectEnvironmentAccountConnectionCommand(output, context);
+    return de_RejectEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

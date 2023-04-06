@@ -15,10 +15,7 @@ import {
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelZonalShiftCommand,
-  serializeAws_restJson1CancelZonalShiftCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class CancelZonalShiftCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelZonalShiftCommand(input, context);
+    return se_CancelZonalShiftCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
-    return deserializeAws_restJson1CancelZonalShiftCommand(output, context);
+    return de_CancelZonalShiftCommand(output, context);
   }
 
   // Start section: command_body_extra

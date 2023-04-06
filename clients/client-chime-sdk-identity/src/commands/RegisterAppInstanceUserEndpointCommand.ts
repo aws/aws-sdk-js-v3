@@ -21,8 +21,8 @@ import {
   RegisterAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand,
-  serializeAws_restJson1RegisterAppInstanceUserEndpointCommand,
+  de_RegisterAppInstanceUserEndpointCommand,
+  se_RegisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     input: RegisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterAppInstanceUserEndpointCommand(input, context);
+    return se_RegisterAppInstanceUserEndpointCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand(output, context);
+    return de_RegisterAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

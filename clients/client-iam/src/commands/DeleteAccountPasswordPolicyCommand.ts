@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  deserializeAws_queryDeleteAccountPasswordPolicyCommand,
-  serializeAws_queryDeleteAccountPasswordPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAccountPasswordPolicyCommand, se_DeleteAccountPasswordPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class DeleteAccountPasswordPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAccountPasswordPolicyCommand(input, context);
+    return se_DeleteAccountPasswordPolicyCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class DeleteAccountPasswordPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryDeleteAccountPasswordPolicyCommand(output, context);
+    return de_DeleteAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

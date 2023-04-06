@@ -19,8 +19,8 @@ import {
   DeleteWirelessGatewayTaskDefinitionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand,
-  serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand,
+  de_DeleteWirelessGatewayTaskDefinitionCommand,
+  se_DeleteWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     input: DeleteWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand(input, context);
+    return se_DeleteWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteWirelessGatewayTaskDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand(output, context);
+    return de_DeleteWirelessGatewayTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

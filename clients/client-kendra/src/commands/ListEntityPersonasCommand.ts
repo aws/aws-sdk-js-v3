@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListEntityPersonasRequest, ListEntityPersonasResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntityPersonasCommand,
-  serializeAws_json1_1ListEntityPersonasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEntityPersonasCommand, se_ListEntityPersonasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListEntityPersonasCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntityPersonasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntityPersonasCommand(input, context);
+    return se_ListEntityPersonasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntityPersonasCommandOutput> {
-    return deserializeAws_json1_1ListEntityPersonasCommand(output, context);
+    return de_ListEntityPersonasCommand(output, context);
   }
 
   // Start section: command_body_extra

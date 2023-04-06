@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DeleteCustomRoutingListenerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomRoutingListenerCommand,
-  serializeAws_json1_1DeleteCustomRoutingListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCustomRoutingListenerCommand, se_DeleteCustomRoutingListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DeleteCustomRoutingListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomRoutingListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomRoutingListenerCommand(input, context);
+    return se_DeleteCustomRoutingListenerCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DeleteCustomRoutingListenerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomRoutingListenerCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomRoutingListenerCommand(output, context);
+    return de_DeleteCustomRoutingListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

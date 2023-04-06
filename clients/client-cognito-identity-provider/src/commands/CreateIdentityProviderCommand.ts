@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIdentityProviderCommand,
-  serializeAws_json1_1CreateIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIdentityProviderCommand, se_CreateIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIdentityProviderCommand(input, context);
+    return se_CreateIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1CreateIdentityProviderCommand(output, context);
+    return de_CreateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

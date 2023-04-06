@@ -15,10 +15,7 @@ import {
 
 import { DeleteReferenceRequest, DeleteReferenceResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteReferenceCommand,
-  serializeAws_restJson1DeleteReferenceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReferenceCommand, se_DeleteReferenceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteReferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReferenceCommand(input, context);
+    return se_DeleteReferenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReferenceCommandOutput> {
-    return deserializeAws_restJson1DeleteReferenceCommand(output, context);
+    return de_DeleteReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

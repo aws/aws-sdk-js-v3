@@ -15,10 +15,7 @@ import {
 
 import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryRestoreDBClusterFromSnapshotCommand,
-  serializeAws_queryRestoreDBClusterFromSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -217,7 +214,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
+    return se_RestoreDBClusterFromSnapshotCommand(input, context);
   }
 
   /**
@@ -227,7 +224,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterFromSnapshotCommand(output, context);
+    return de_RestoreDBClusterFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { StartResourceScanRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartResourceScanCommand,
-  serializeAws_restJson1StartResourceScanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartResourceScanCommand, se_StartResourceScanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class StartResourceScanCommand extends $Command<
    * @internal
    */
   private serialize(input: StartResourceScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartResourceScanCommand(input, context);
+    return se_StartResourceScanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceScanCommandOutput> {
-    return deserializeAws_restJson1StartResourceScanCommand(output, context);
+    return de_StartResourceScanCommand(output, context);
   }
 
   // Start section: command_body_extra

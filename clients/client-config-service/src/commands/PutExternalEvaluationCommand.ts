@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutExternalEvaluationRequest, PutExternalEvaluationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutExternalEvaluationCommand,
-  serializeAws_json1_1PutExternalEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutExternalEvaluationCommand, se_PutExternalEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class PutExternalEvaluationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutExternalEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutExternalEvaluationCommand(input, context);
+    return se_PutExternalEvaluationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutExternalEvaluationCommandOutput> {
-    return deserializeAws_json1_1PutExternalEvaluationCommand(output, context);
+    return de_PutExternalEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

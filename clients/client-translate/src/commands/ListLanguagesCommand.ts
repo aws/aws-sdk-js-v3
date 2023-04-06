@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLanguagesRequest, ListLanguagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLanguagesCommand,
-  serializeAws_json1_1ListLanguagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLanguagesCommand, se_ListLanguagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListLanguagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLanguagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLanguagesCommand(input, context);
+    return se_ListLanguagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLanguagesCommandOutput> {
-    return deserializeAws_json1_1ListLanguagesCommand(output, context);
+    return de_ListLanguagesCommand(output, context);
   }
 
   // Start section: command_body_extra

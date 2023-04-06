@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutGroupConfigurationInput, PutGroupConfigurationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutGroupConfigurationCommand,
-  serializeAws_restJson1PutGroupConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutGroupConfigurationCommand, se_PutGroupConfigurationCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -165,14 +162,14 @@ export class PutGroupConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutGroupConfigurationCommand(input, context);
+    return se_PutGroupConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGroupConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutGroupConfigurationCommand(output, context);
+    return de_PutGroupConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

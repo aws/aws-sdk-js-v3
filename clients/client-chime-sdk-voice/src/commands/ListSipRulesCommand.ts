@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { ListSipRulesRequest, ListSipRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSipRulesCommand,
-  serializeAws_restJson1ListSipRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSipRulesCommand, se_ListSipRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListSipRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSipRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSipRulesCommand(input, context);
+    return se_ListSipRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSipRulesCommandOutput> {
-    return deserializeAws_restJson1ListSipRulesCommand(output, context);
+    return de_ListSipRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

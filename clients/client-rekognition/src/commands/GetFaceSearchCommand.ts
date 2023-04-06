@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetFaceSearchRequest, GetFaceSearchResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFaceSearchCommand,
-  serializeAws_json1_1GetFaceSearchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFaceSearchCommand, se_GetFaceSearchCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -172,14 +169,14 @@ export class GetFaceSearchCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFaceSearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFaceSearchCommand(input, context);
+    return se_GetFaceSearchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceSearchCommandOutput> {
-    return deserializeAws_json1_1GetFaceSearchCommand(output, context);
+    return de_GetFaceSearchCommand(output, context);
   }
 
   // Start section: command_body_extra

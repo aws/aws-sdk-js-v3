@@ -19,8 +19,8 @@ import {
   NotifyResourceDeploymentStatusChangeOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand,
-  serializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand,
+  de_NotifyResourceDeploymentStatusChangeCommand,
+  se_NotifyResourceDeploymentStatusChangeCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -163,7 +163,7 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
     input: NotifyResourceDeploymentStatusChangeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand(input, context);
+    return se_NotifyResourceDeploymentStatusChangeCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyResourceDeploymentStatusChangeCommandOutput> {
-    return deserializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand(output, context);
+    return de_NotifyResourceDeploymentStatusChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

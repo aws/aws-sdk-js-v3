@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateResolverDnssecConfigRequest, UpdateResolverDnssecConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverDnssecConfigCommand,
-  serializeAws_json1_1UpdateResolverDnssecConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateResolverDnssecConfigCommand, se_UpdateResolverDnssecConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -139,7 +136,7 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResolverDnssecConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverDnssecConfigCommand(input, context);
+    return se_UpdateResolverDnssecConfigCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResolverDnssecConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverDnssecConfigCommand(output, context);
+    return de_UpdateResolverDnssecConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

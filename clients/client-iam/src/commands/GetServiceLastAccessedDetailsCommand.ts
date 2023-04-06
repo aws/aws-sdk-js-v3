@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse } from "../models/models_0";
 import {
-  deserializeAws_queryGetServiceLastAccessedDetailsCommand,
-  serializeAws_queryGetServiceLastAccessedDetailsCommand,
+  de_GetServiceLastAccessedDetailsCommand,
+  se_GetServiceLastAccessedDetailsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -216,7 +216,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceLastAccessedDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsCommand(input, context);
+    return se_GetServiceLastAccessedDetailsCommand(input, context);
   }
 
   /**
@@ -226,7 +226,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsCommand(output, context);
+    return de_GetServiceLastAccessedDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

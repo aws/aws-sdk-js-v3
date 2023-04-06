@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetObjectAclOutput, GetObjectAclRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectAclCommand,
-  serializeAws_restXmlGetObjectAclCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectAclCommand, se_GetObjectAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -226,14 +223,14 @@ export class GetObjectAclCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectAclCommand(input, context);
+    return se_GetObjectAclCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAclCommandOutput> {
-    return deserializeAws_restXmlGetObjectAclCommand(output, context);
+    return de_GetObjectAclCommand(output, context);
   }
 
   // Start section: command_body_extra

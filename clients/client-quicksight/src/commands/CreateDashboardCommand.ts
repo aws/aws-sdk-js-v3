@@ -18,10 +18,7 @@ import {
   CreateDashboardRequestFilterSensitiveLog,
   CreateDashboardResponse,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateDashboardCommand,
-  serializeAws_restJson1CreateDashboardCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDashboardCommand, se_CreateDashboardCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -4476,14 +4473,14 @@ export class CreateDashboardCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDashboardCommand(input, context);
+    return se_CreateDashboardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDashboardCommandOutput> {
-    return deserializeAws_restJson1CreateDashboardCommand(output, context);
+    return de_CreateDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

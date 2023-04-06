@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRuntimeManagementConfigCommand,
-  serializeAws_restJson1PutRuntimeManagementConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRuntimeManagementConfigCommand, se_PutRuntimeManagementConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class PutRuntimeManagementConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRuntimeManagementConfigCommand(input, context);
+    return se_PutRuntimeManagementConfigCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class PutRuntimeManagementConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRuntimeManagementConfigCommandOutput> {
-    return deserializeAws_restJson1PutRuntimeManagementConfigCommand(output, context);
+    return de_PutRuntimeManagementConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

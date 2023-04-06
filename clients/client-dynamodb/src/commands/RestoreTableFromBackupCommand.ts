@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0RestoreTableFromBackupCommand,
-  serializeAws_json1_0RestoreTableFromBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RestoreTableFromBackupCommand, se_RestoreTableFromBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -225,14 +222,14 @@ export class RestoreTableFromBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreTableFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RestoreTableFromBackupCommand(input, context);
+    return se_RestoreTableFromBackupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableFromBackupCommandOutput> {
-    return deserializeAws_json1_0RestoreTableFromBackupCommand(output, context);
+    return de_RestoreTableFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

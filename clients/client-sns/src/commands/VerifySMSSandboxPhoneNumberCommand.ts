@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { VerifySMSSandboxPhoneNumberInput, VerifySMSSandboxPhoneNumberResult } from "../models/models_0";
-import {
-  deserializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-  serializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { de_VerifySMSSandboxPhoneNumberCommand, se_VerifySMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -150,7 +147,7 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifySMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifySMSSandboxPhoneNumberCommand(input, context);
+    return se_VerifySMSSandboxPhoneNumberCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryVerifySMSSandboxPhoneNumberCommand(output, context);
+    return de_VerifySMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

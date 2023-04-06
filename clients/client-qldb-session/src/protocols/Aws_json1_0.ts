@@ -44,7 +44,10 @@ import {
 } from "../models/models_0";
 import { QLDBSessionServiceException as __BaseException } from "../models/QLDBSessionServiceException";
 
-export const serializeAws_json1_0SendCommandCommand = async (
+/**
+ * serializeAws_json1_0SendCommandCommand
+ */
+export const se_SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -53,20 +56,23 @@ export const serializeAws_json1_0SendCommandCommand = async (
     "x-amz-target": "QLDBSession.SendCommand",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendCommandRequest(input, context));
+  body = JSON.stringify(se_SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0SendCommandCommand = async (
+/**
+ * deserializeAws_json1_0SendCommandCommand
+ */
+export const de_SendCommandCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendCommandCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendCommandCommandError(output, context);
+    return de_SendCommandCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendCommandResult(data, context);
+  contents = de_SendCommandResult(data, context);
   const response: SendCommandCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -74,7 +80,10 @@ export const deserializeAws_json1_0SendCommandCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendCommandCommandError = async (
+/**
+ * deserializeAws_json1_0SendCommandCommandError
+ */
+const de_SendCommandCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendCommandCommandOutput> => {
@@ -86,22 +95,22 @@ const deserializeAws_json1_0SendCommandCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.qldbsession#BadRequestException":
-      throw await deserializeAws_json1_0BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "CapacityExceededException":
     case "com.amazonaws.qldbsession#CapacityExceededException":
-      throw await deserializeAws_json1_0CapacityExceededExceptionResponse(parsedOutput, context);
+      throw await de_CapacityExceededExceptionRes(parsedOutput, context);
     case "InvalidSessionException":
     case "com.amazonaws.qldbsession#InvalidSessionException":
-      throw await deserializeAws_json1_0InvalidSessionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSessionExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.qldbsession#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OccConflictException":
     case "com.amazonaws.qldbsession#OccConflictException":
-      throw await deserializeAws_json1_0OccConflictExceptionResponse(parsedOutput, context);
+      throw await de_OccConflictExceptionRes(parsedOutput, context);
     case "RateExceededException":
     case "com.amazonaws.qldbsession#RateExceededException":
-      throw await deserializeAws_json1_0RateExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -113,12 +122,12 @@ const deserializeAws_json1_0SendCommandCommandError = async (
   }
 };
 
-const deserializeAws_json1_0BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_json1_0BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0BadRequestException(body, context);
+  const deserialized: any = de_BadRequestException(body, context);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -126,12 +135,15 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0CapacityExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0CapacityExceededExceptionRes
+ */
+const de_CapacityExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CapacityExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0CapacityExceededException(body, context);
+  const deserialized: any = de_CapacityExceededException(body, context);
   const exception = new CapacityExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -139,12 +151,15 @@ const deserializeAws_json1_0CapacityExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidSessionExceptionRes
+ */
+const de_InvalidSessionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSessionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidSessionException(body, context);
+  const deserialized: any = de_InvalidSessionException(body, context);
   const exception = new InvalidSessionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -152,12 +167,15 @@ const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -165,12 +183,15 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0OccConflictExceptionResponse = async (
+/**
+ * deserializeAws_json1_0OccConflictExceptionRes
+ */
+const de_OccConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OccConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0OccConflictException(body, context);
+  const deserialized: any = de_OccConflictException(body, context);
   const exception = new OccConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -178,12 +199,15 @@ const deserializeAws_json1_0OccConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0RateExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0RateExceededExceptionRes
+ */
+const de_RateExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RateExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0RateExceededException(body, context);
+  const deserialized: any = de_RateExceededException(body, context);
   const exception = new RateExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -191,267 +215,316 @@ const deserializeAws_json1_0RateExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0AbortTransactionRequest = (input: AbortTransactionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0AbortTransactionRequest
+ */
+const se_AbortTransactionRequest = (input: AbortTransactionRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0CommitTransactionRequest = (
-  input: CommitTransactionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CommitTransactionRequest
+ */
+const se_CommitTransactionRequest = (input: CommitTransactionRequest, context: __SerdeContext): any => {
   return {
     ...(input.CommitDigest != null && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
 
-const serializeAws_json1_0EndSessionRequest = (input: EndSessionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0EndSessionRequest
+ */
+const se_EndSessionRequest = (input: EndSessionRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ExecuteStatementRequest
+ */
+const se_ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters != null && { Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context) }),
+    ...(input.Parameters != null && { Parameters: se_StatementParameters(input.Parameters, context) }),
     ...(input.Statement != null && { Statement: input.Statement }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
 
-const serializeAws_json1_0FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0FetchPageRequest
+ */
+const se_FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
   return {
     ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
 
-const serializeAws_json1_0SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendCommandRequest
+ */
+const se_SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
   return {
     ...(input.AbortTransaction != null && {
-      AbortTransaction: serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context),
+      AbortTransaction: se_AbortTransactionRequest(input.AbortTransaction, context),
     }),
     ...(input.CommitTransaction != null && {
-      CommitTransaction: serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context),
+      CommitTransaction: se_CommitTransactionRequest(input.CommitTransaction, context),
     }),
-    ...(input.EndSession != null && { EndSession: serializeAws_json1_0EndSessionRequest(input.EndSession, context) }),
+    ...(input.EndSession != null && { EndSession: se_EndSessionRequest(input.EndSession, context) }),
     ...(input.ExecuteStatement != null && {
-      ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
+      ExecuteStatement: se_ExecuteStatementRequest(input.ExecuteStatement, context),
     }),
-    ...(input.FetchPage != null && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
+    ...(input.FetchPage != null && { FetchPage: se_FetchPageRequest(input.FetchPage, context) }),
     ...(input.SessionToken != null && { SessionToken: input.SessionToken }),
-    ...(input.StartSession != null && {
-      StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
-    }),
+    ...(input.StartSession != null && { StartSession: se_StartSessionRequest(input.StartSession, context) }),
     ...(input.StartTransaction != null && {
-      StartTransaction: serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context),
+      StartTransaction: se_StartTransactionRequest(input.StartTransaction, context),
     }),
   };
 };
 
-const serializeAws_json1_0StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StartSessionRequest
+ */
+const se_StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
   return {
     ...(input.LedgerName != null && { LedgerName: input.LedgerName }),
   };
 };
 
-const serializeAws_json1_0StartTransactionRequest = (input: StartTransactionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StartTransactionRequest
+ */
+const se_StartTransactionRequest = (input: StartTransactionRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0StatementParameters = (input: ValueHolder[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StatementParameters
+ */
+const se_StatementParameters = (input: ValueHolder[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0ValueHolder(entry, context);
+      return se_ValueHolder(entry, context);
     });
 };
 
-const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ValueHolder
+ */
+const se_ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
     ...(input.IonBinary != null && { IonBinary: context.base64Encoder(input.IonBinary) }),
     ...(input.IonText != null && { IonText: input.IonText }),
   };
 };
 
-const deserializeAws_json1_0AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
+/**
+ * deserializeAws_json1_0AbortTransactionResult
+ */
+const de_AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
   return {
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
+/**
+ * deserializeAws_json1_0BadRequestException
+ */
+const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CapacityExceededException = (
-  output: any,
-  context: __SerdeContext
-): CapacityExceededException => {
+/**
+ * deserializeAws_json1_0CapacityExceededException
+ */
+const de_CapacityExceededException = (output: any, context: __SerdeContext): CapacityExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0CommitTransactionResult = (
-  output: any,
-  context: __SerdeContext
-): CommitTransactionResult => {
+/**
+ * deserializeAws_json1_0CommitTransactionResult
+ */
+const de_CommitTransactionResult = (output: any, context: __SerdeContext): CommitTransactionResult => {
   return {
     CommitDigest: output.CommitDigest != null ? context.base64Decoder(output.CommitDigest) : undefined,
-    ConsumedIOs: output.ConsumedIOs != null ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
+    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
     TransactionId: __expectString(output.TransactionId),
   } as any;
 };
 
-const deserializeAws_json1_0EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
+/**
+ * deserializeAws_json1_0EndSessionResult
+ */
+const de_EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
   return {
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
+/**
+ * deserializeAws_json1_0ExecuteStatementResult
+ */
+const de_ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
   return {
-    ConsumedIOs: output.ConsumedIOs != null ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
-    FirstPage: output.FirstPage != null ? deserializeAws_json1_0Page(output.FirstPage, context) : undefined,
+    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
+    FirstPage: output.FirstPage != null ? de_Page(output.FirstPage, context) : undefined,
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
+/**
+ * deserializeAws_json1_0FetchPageResult
+ */
+const de_FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
   return {
-    ConsumedIOs: output.ConsumedIOs != null ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
-    Page: output.Page != null ? deserializeAws_json1_0Page(output.Page, context) : undefined,
+    ConsumedIOs: output.ConsumedIOs != null ? de_IOUsage(output.ConsumedIOs, context) : undefined,
+    Page: output.Page != null ? de_Page(output.Page, context) : undefined,
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0InvalidSessionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSessionException => {
+/**
+ * deserializeAws_json1_0InvalidSessionException
+ */
+const de_InvalidSessionException = (output: any, context: __SerdeContext): InvalidSessionException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0IOUsage = (output: any, context: __SerdeContext): IOUsage => {
+/**
+ * deserializeAws_json1_0IOUsage
+ */
+const de_IOUsage = (output: any, context: __SerdeContext): IOUsage => {
   return {
     ReadIOs: __expectLong(output.ReadIOs),
     WriteIOs: __expectLong(output.WriteIOs),
   } as any;
 };
 
-const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_0LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0OccConflictException = (output: any, context: __SerdeContext): OccConflictException => {
+/**
+ * deserializeAws_json1_0OccConflictException
+ */
+const de_OccConflictException = (output: any, context: __SerdeContext): OccConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page => {
+/**
+ * deserializeAws_json1_0Page
+ */
+const de_Page = (output: any, context: __SerdeContext): Page => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Values: output.Values != null ? deserializeAws_json1_0ValueHolders(output.Values, context) : undefined,
+    Values: output.Values != null ? de_ValueHolders(output.Values, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0RateExceededException = (output: any, context: __SerdeContext): RateExceededException => {
+/**
+ * deserializeAws_json1_0RateExceededException
+ */
+const de_RateExceededException = (output: any, context: __SerdeContext): RateExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeContext): SendCommandResult => {
+/**
+ * deserializeAws_json1_0SendCommandResult
+ */
+const de_SendCommandResult = (output: any, context: __SerdeContext): SendCommandResult => {
   return {
     AbortTransaction:
-      output.AbortTransaction != null
-        ? deserializeAws_json1_0AbortTransactionResult(output.AbortTransaction, context)
-        : undefined,
+      output.AbortTransaction != null ? de_AbortTransactionResult(output.AbortTransaction, context) : undefined,
     CommitTransaction:
-      output.CommitTransaction != null
-        ? deserializeAws_json1_0CommitTransactionResult(output.CommitTransaction, context)
-        : undefined,
-    EndSession:
-      output.EndSession != null ? deserializeAws_json1_0EndSessionResult(output.EndSession, context) : undefined,
+      output.CommitTransaction != null ? de_CommitTransactionResult(output.CommitTransaction, context) : undefined,
+    EndSession: output.EndSession != null ? de_EndSessionResult(output.EndSession, context) : undefined,
     ExecuteStatement:
-      output.ExecuteStatement != null
-        ? deserializeAws_json1_0ExecuteStatementResult(output.ExecuteStatement, context)
-        : undefined,
-    FetchPage: output.FetchPage != null ? deserializeAws_json1_0FetchPageResult(output.FetchPage, context) : undefined,
-    StartSession:
-      output.StartSession != null ? deserializeAws_json1_0StartSessionResult(output.StartSession, context) : undefined,
+      output.ExecuteStatement != null ? de_ExecuteStatementResult(output.ExecuteStatement, context) : undefined,
+    FetchPage: output.FetchPage != null ? de_FetchPageResult(output.FetchPage, context) : undefined,
+    StartSession: output.StartSession != null ? de_StartSessionResult(output.StartSession, context) : undefined,
     StartTransaction:
-      output.StartTransaction != null
-        ? deserializeAws_json1_0StartTransactionResult(output.StartTransaction, context)
-        : undefined,
+      output.StartTransaction != null ? de_StartTransactionResult(output.StartTransaction, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
+/**
+ * deserializeAws_json1_0StartSessionResult
+ */
+const de_StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
   return {
     SessionToken: __expectString(output.SessionToken),
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
+/**
+ * deserializeAws_json1_0StartTransactionResult
+ */
+const de_StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
   return {
     TimingInformation:
-      output.TimingInformation != null
-        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
-        : undefined,
+      output.TimingInformation != null ? de_TimingInformation(output.TimingInformation, context) : undefined,
     TransactionId: __expectString(output.TransactionId),
   } as any;
 };
 
-const deserializeAws_json1_0TimingInformation = (output: any, context: __SerdeContext): TimingInformation => {
+/**
+ * deserializeAws_json1_0TimingInformation
+ */
+const de_TimingInformation = (output: any, context: __SerdeContext): TimingInformation => {
   return {
     ProcessingTimeMilliseconds: __expectLong(output.ProcessingTimeMilliseconds),
   } as any;
 };
 
-const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
+/**
+ * deserializeAws_json1_0ValueHolder
+ */
+const de_ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
   return {
     IonBinary: output.IonBinary != null ? context.base64Decoder(output.IonBinary) : undefined,
     IonText: __expectString(output.IonText),
   } as any;
 };
 
-const deserializeAws_json1_0ValueHolders = (output: any, context: __SerdeContext): ValueHolder[] => {
+/**
+ * deserializeAws_json1_0ValueHolders
+ */
+const de_ValueHolders = (output: any, context: __SerdeContext): ValueHolder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ValueHolder(entry, context);
+      return de_ValueHolder(entry, context);
     });
   return retVal;
 };

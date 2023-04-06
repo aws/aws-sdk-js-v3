@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput } from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoadBalancerListenersCommand,
-  serializeAws_queryCreateLoadBalancerListenersCommand,
-} from "../protocols/Aws_query";
+import { de_CreateLoadBalancerListenersCommand, se_CreateLoadBalancerListenersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -191,7 +188,7 @@ export class CreateLoadBalancerListenersCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLoadBalancerListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoadBalancerListenersCommand(input, context);
+    return se_CreateLoadBalancerListenersCommand(input, context);
   }
 
   /**
@@ -201,7 +198,7 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerListenersCommand(output, context);
+    return de_CreateLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

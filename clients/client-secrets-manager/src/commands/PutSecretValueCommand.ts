@@ -18,10 +18,7 @@ import {
   PutSecretValueRequestFilterSensitiveLog,
   PutSecretValueResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSecretValueCommand,
-  serializeAws_json1_1PutSecretValueCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -221,14 +218,14 @@ export class PutSecretValueCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSecretValueCommand(input, context);
+    return se_PutSecretValueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSecretValueCommandOutput> {
-    return deserializeAws_json1_1PutSecretValueCommand(output, context);
+    return de_PutSecretValueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { UpdateVolumeRequest, UpdateVolumeResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVolumeCommand,
-  serializeAws_json1_1UpdateVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateVolumeCommand, se_UpdateVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class UpdateVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVolumeCommand(input, context);
+    return se_UpdateVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVolumeCommandOutput> {
-    return deserializeAws_json1_1UpdateVolumeCommand(output, context);
+    return de_UpdateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

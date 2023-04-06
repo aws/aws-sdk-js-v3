@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListDocumentClassifierSummariesRequest, ListDocumentClassifierSummariesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListDocumentClassifierSummariesCommand,
-  serializeAws_json1_1ListDocumentClassifierSummariesCommand,
+  de_ListDocumentClassifierSummariesCommand,
+  se_ListDocumentClassifierSummariesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -135,7 +135,7 @@ export class ListDocumentClassifierSummariesCommand extends $Command<
     input: ListDocumentClassifierSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassifierSummariesCommand(input, context);
+    return se_ListDocumentClassifierSummariesCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class ListDocumentClassifierSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentClassifierSummariesCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassifierSummariesCommand(output, context);
+    return de_ListDocumentClassifierSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

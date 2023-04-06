@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { UpdateBackendConfigRequest, UpdateBackendConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackendConfigCommand,
-  serializeAws_restJson1UpdateBackendConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBackendConfigCommand, se_UpdateBackendConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateBackendConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackendConfigCommand(input, context);
+    return se_UpdateBackendConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateBackendConfigCommand(output, context);
+    return de_UpdateBackendConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

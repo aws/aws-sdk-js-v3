@@ -15,8 +15,8 @@ import {
 
 import { ListAppComponentRecommendationsRequest, ListAppComponentRecommendationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAppComponentRecommendationsCommand,
-  serializeAws_restJson1ListAppComponentRecommendationsCommand,
+  de_ListAppComponentRecommendationsCommand,
+  se_ListAppComponentRecommendationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -145,7 +145,7 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     input: ListAppComponentRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppComponentRecommendationsCommand(input, context);
+    return se_ListAppComponentRecommendationsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppComponentRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListAppComponentRecommendationsCommand(output, context);
+    return de_ListAppComponentRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

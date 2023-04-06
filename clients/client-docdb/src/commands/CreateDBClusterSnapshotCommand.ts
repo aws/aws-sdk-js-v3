@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterSnapshotCommand,
-  serializeAws_queryCreateDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBClusterSnapshotCommand, se_CreateDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterSnapshotCommand(input, context);
+    return se_CreateDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCreateDBClusterSnapshotCommand(output, context);
+    return de_CreateDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

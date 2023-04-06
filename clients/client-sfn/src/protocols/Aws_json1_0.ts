@@ -190,7 +190,10 @@ import {
 } from "../models/models_0";
 import { SFNServiceException as __BaseException } from "../models/SFNServiceException";
 
-export const serializeAws_json1_0CreateActivityCommand = async (
+/**
+ * serializeAws_json1_0CreateActivityCommand
+ */
+export const se_CreateActivityCommand = async (
   input: CreateActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -199,11 +202,14 @@ export const serializeAws_json1_0CreateActivityCommand = async (
     "x-amz-target": "AWSStepFunctions.CreateActivity",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateActivityInput(input, context));
+  body = JSON.stringify(se_CreateActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateStateMachineCommand = async (
+/**
+ * serializeAws_json1_0CreateStateMachineCommand
+ */
+export const se_CreateStateMachineCommand = async (
   input: CreateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -212,11 +218,14 @@ export const serializeAws_json1_0CreateStateMachineCommand = async (
     "x-amz-target": "AWSStepFunctions.CreateStateMachine",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateStateMachineInput(input, context));
+  body = JSON.stringify(se_CreateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteActivityCommand = async (
+/**
+ * serializeAws_json1_0DeleteActivityCommand
+ */
+export const se_DeleteActivityCommand = async (
   input: DeleteActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -225,11 +234,14 @@ export const serializeAws_json1_0DeleteActivityCommand = async (
     "x-amz-target": "AWSStepFunctions.DeleteActivity",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteActivityInput(input, context));
+  body = JSON.stringify(se_DeleteActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteStateMachineCommand = async (
+/**
+ * serializeAws_json1_0DeleteStateMachineCommand
+ */
+export const se_DeleteStateMachineCommand = async (
   input: DeleteStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -238,11 +250,14 @@ export const serializeAws_json1_0DeleteStateMachineCommand = async (
     "x-amz-target": "AWSStepFunctions.DeleteStateMachine",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteStateMachineInput(input, context));
+  body = JSON.stringify(se_DeleteStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeActivityCommand = async (
+/**
+ * serializeAws_json1_0DescribeActivityCommand
+ */
+export const se_DescribeActivityCommand = async (
   input: DescribeActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -251,11 +266,14 @@ export const serializeAws_json1_0DescribeActivityCommand = async (
     "x-amz-target": "AWSStepFunctions.DescribeActivity",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeActivityInput(input, context));
+  body = JSON.stringify(se_DescribeActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeExecutionCommand = async (
+/**
+ * serializeAws_json1_0DescribeExecutionCommand
+ */
+export const se_DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -264,11 +282,14 @@ export const serializeAws_json1_0DescribeExecutionCommand = async (
     "x-amz-target": "AWSStepFunctions.DescribeExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeExecutionInput(input, context));
+  body = JSON.stringify(se_DescribeExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeMapRunCommand = async (
+/**
+ * serializeAws_json1_0DescribeMapRunCommand
+ */
+export const se_DescribeMapRunCommand = async (
   input: DescribeMapRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -277,11 +298,14 @@ export const serializeAws_json1_0DescribeMapRunCommand = async (
     "x-amz-target": "AWSStepFunctions.DescribeMapRun",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeMapRunInput(input, context));
+  body = JSON.stringify(se_DescribeMapRunInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeStateMachineCommand = async (
+/**
+ * serializeAws_json1_0DescribeStateMachineCommand
+ */
+export const se_DescribeStateMachineCommand = async (
   input: DescribeStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -290,11 +314,14 @@ export const serializeAws_json1_0DescribeStateMachineCommand = async (
     "x-amz-target": "AWSStepFunctions.DescribeStateMachine",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeStateMachineInput(input, context));
+  body = JSON.stringify(se_DescribeStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeStateMachineForExecutionCommand = async (
+/**
+ * serializeAws_json1_0DescribeStateMachineForExecutionCommand
+ */
+export const se_DescribeStateMachineForExecutionCommand = async (
   input: DescribeStateMachineForExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -303,11 +330,14 @@ export const serializeAws_json1_0DescribeStateMachineForExecutionCommand = async
     "x-amz-target": "AWSStepFunctions.DescribeStateMachineForExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context));
+  body = JSON.stringify(se_DescribeStateMachineForExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetActivityTaskCommand = async (
+/**
+ * serializeAws_json1_0GetActivityTaskCommand
+ */
+export const se_GetActivityTaskCommand = async (
   input: GetActivityTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -316,11 +346,14 @@ export const serializeAws_json1_0GetActivityTaskCommand = async (
     "x-amz-target": "AWSStepFunctions.GetActivityTask",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetActivityTaskInput(input, context));
+  body = JSON.stringify(se_GetActivityTaskInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetExecutionHistoryCommand = async (
+/**
+ * serializeAws_json1_0GetExecutionHistoryCommand
+ */
+export const se_GetExecutionHistoryCommand = async (
   input: GetExecutionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -329,11 +362,14 @@ export const serializeAws_json1_0GetExecutionHistoryCommand = async (
     "x-amz-target": "AWSStepFunctions.GetExecutionHistory",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetExecutionHistoryInput(input, context));
+  body = JSON.stringify(se_GetExecutionHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListActivitiesCommand = async (
+/**
+ * serializeAws_json1_0ListActivitiesCommand
+ */
+export const se_ListActivitiesCommand = async (
   input: ListActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -342,11 +378,14 @@ export const serializeAws_json1_0ListActivitiesCommand = async (
     "x-amz-target": "AWSStepFunctions.ListActivities",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListActivitiesInput(input, context));
+  body = JSON.stringify(se_ListActivitiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListExecutionsCommand = async (
+/**
+ * serializeAws_json1_0ListExecutionsCommand
+ */
+export const se_ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -355,11 +394,14 @@ export const serializeAws_json1_0ListExecutionsCommand = async (
     "x-amz-target": "AWSStepFunctions.ListExecutions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListExecutionsInput(input, context));
+  body = JSON.stringify(se_ListExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListMapRunsCommand = async (
+/**
+ * serializeAws_json1_0ListMapRunsCommand
+ */
+export const se_ListMapRunsCommand = async (
   input: ListMapRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -368,11 +410,14 @@ export const serializeAws_json1_0ListMapRunsCommand = async (
     "x-amz-target": "AWSStepFunctions.ListMapRuns",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListMapRunsInput(input, context));
+  body = JSON.stringify(se_ListMapRunsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListStateMachinesCommand = async (
+/**
+ * serializeAws_json1_0ListStateMachinesCommand
+ */
+export const se_ListStateMachinesCommand = async (
   input: ListStateMachinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -381,11 +426,14 @@ export const serializeAws_json1_0ListStateMachinesCommand = async (
     "x-amz-target": "AWSStepFunctions.ListStateMachines",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListStateMachinesInput(input, context));
+  body = JSON.stringify(se_ListStateMachinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -394,11 +442,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "AWSStepFunctions.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceInput(input, context));
+  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SendTaskFailureCommand = async (
+/**
+ * serializeAws_json1_0SendTaskFailureCommand
+ */
+export const se_SendTaskFailureCommand = async (
   input: SendTaskFailureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -407,11 +458,14 @@ export const serializeAws_json1_0SendTaskFailureCommand = async (
     "x-amz-target": "AWSStepFunctions.SendTaskFailure",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendTaskFailureInput(input, context));
+  body = JSON.stringify(se_SendTaskFailureInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SendTaskHeartbeatCommand = async (
+/**
+ * serializeAws_json1_0SendTaskHeartbeatCommand
+ */
+export const se_SendTaskHeartbeatCommand = async (
   input: SendTaskHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -420,11 +474,14 @@ export const serializeAws_json1_0SendTaskHeartbeatCommand = async (
     "x-amz-target": "AWSStepFunctions.SendTaskHeartbeat",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendTaskHeartbeatInput(input, context));
+  body = JSON.stringify(se_SendTaskHeartbeatInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SendTaskSuccessCommand = async (
+/**
+ * serializeAws_json1_0SendTaskSuccessCommand
+ */
+export const se_SendTaskSuccessCommand = async (
   input: SendTaskSuccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -433,11 +490,14 @@ export const serializeAws_json1_0SendTaskSuccessCommand = async (
     "x-amz-target": "AWSStepFunctions.SendTaskSuccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SendTaskSuccessInput(input, context));
+  body = JSON.stringify(se_SendTaskSuccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartExecutionCommand = async (
+/**
+ * serializeAws_json1_0StartExecutionCommand
+ */
+export const se_StartExecutionCommand = async (
   input: StartExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -446,11 +506,14 @@ export const serializeAws_json1_0StartExecutionCommand = async (
     "x-amz-target": "AWSStepFunctions.StartExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartExecutionInput(input, context));
+  body = JSON.stringify(se_StartExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartSyncExecutionCommand = async (
+/**
+ * serializeAws_json1_0StartSyncExecutionCommand
+ */
+export const se_StartSyncExecutionCommand = async (
   input: StartSyncExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -459,7 +522,7 @@ export const serializeAws_json1_0StartSyncExecutionCommand = async (
     "x-amz-target": "AWSStepFunctions.StartSyncExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartSyncExecutionInput(input, context));
+  body = JSON.stringify(se_StartSyncExecutionInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "sync-" + resolvedHostname;
@@ -470,7 +533,10 @@ export const serializeAws_json1_0StartSyncExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
-export const serializeAws_json1_0StopExecutionCommand = async (
+/**
+ * serializeAws_json1_0StopExecutionCommand
+ */
+export const se_StopExecutionCommand = async (
   input: StopExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -479,11 +545,14 @@ export const serializeAws_json1_0StopExecutionCommand = async (
     "x-amz-target": "AWSStepFunctions.StopExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StopExecutionInput(input, context));
+  body = JSON.stringify(se_StopExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -492,11 +561,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "AWSStepFunctions.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
+  body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -505,11 +577,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "AWSStepFunctions.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
+  body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateMapRunCommand = async (
+/**
+ * serializeAws_json1_0UpdateMapRunCommand
+ */
+export const se_UpdateMapRunCommand = async (
   input: UpdateMapRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -518,11 +593,14 @@ export const serializeAws_json1_0UpdateMapRunCommand = async (
     "x-amz-target": "AWSStepFunctions.UpdateMapRun",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateMapRunInput(input, context));
+  body = JSON.stringify(se_UpdateMapRunInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateStateMachineCommand = async (
+/**
+ * serializeAws_json1_0UpdateStateMachineCommand
+ */
+export const se_UpdateStateMachineCommand = async (
   input: UpdateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -531,20 +609,23 @@ export const serializeAws_json1_0UpdateStateMachineCommand = async (
     "x-amz-target": "AWSStepFunctions.UpdateStateMachine",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateStateMachineInput(input, context));
+  body = JSON.stringify(se_UpdateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CreateActivityCommand = async (
+/**
+ * deserializeAws_json1_0CreateActivityCommand
+ */
+export const de_CreateActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateActivityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateActivityCommandError(output, context);
+    return de_CreateActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateActivityOutput(data, context);
+  contents = de_CreateActivityOutput(data, context);
   const response: CreateActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -552,7 +633,10 @@ export const deserializeAws_json1_0CreateActivityCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateActivityCommandError = async (
+/**
+ * deserializeAws_json1_0CreateActivityCommandError
+ */
+const de_CreateActivityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateActivityCommandOutput> => {
@@ -564,13 +648,13 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
   switch (errorCode) {
     case "ActivityLimitExceeded":
     case "com.amazonaws.sfn#ActivityLimitExceeded":
-      throw await deserializeAws_json1_0ActivityLimitExceededResponse(parsedOutput, context);
+      throw await de_ActivityLimitExceededRes(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      throw await de_InvalidNameRes(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      throw await de_TooManyTagsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -582,16 +666,19 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateStateMachineCommand = async (
+/**
+ * deserializeAws_json1_0CreateStateMachineCommand
+ */
+export const de_CreateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateStateMachineCommandError(output, context);
+    return de_CreateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateStateMachineOutput(data, context);
+  contents = de_CreateStateMachineOutput(data, context);
   const response: CreateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -599,7 +686,10 @@ export const deserializeAws_json1_0CreateStateMachineCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateStateMachineCommandError = async (
+/**
+ * deserializeAws_json1_0CreateStateMachineCommandError
+ */
+const de_CreateStateMachineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> => {
@@ -611,34 +701,34 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidDefinition":
     case "com.amazonaws.sfn#InvalidDefinition":
-      throw await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
+      throw await de_InvalidDefinitionRes(parsedOutput, context);
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
-      throw await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
+      throw await de_InvalidLoggingConfigurationRes(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      throw await de_InvalidNameRes(parsedOutput, context);
     case "InvalidTracingConfiguration":
     case "com.amazonaws.sfn#InvalidTracingConfiguration":
-      throw await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context);
+      throw await de_InvalidTracingConfigurationRes(parsedOutput, context);
     case "StateMachineAlreadyExists":
     case "com.amazonaws.sfn#StateMachineAlreadyExists":
-      throw await deserializeAws_json1_0StateMachineAlreadyExistsResponse(parsedOutput, context);
+      throw await de_StateMachineAlreadyExistsRes(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "StateMachineLimitExceeded":
     case "com.amazonaws.sfn#StateMachineLimitExceeded":
-      throw await deserializeAws_json1_0StateMachineLimitExceededResponse(parsedOutput, context);
+      throw await de_StateMachineLimitExceededRes(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+      throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      throw await de_TooManyTagsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -650,16 +740,19 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteActivityCommand = async (
+/**
+ * deserializeAws_json1_0DeleteActivityCommand
+ */
+export const de_DeleteActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteActivityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteActivityCommandError(output, context);
+    return de_DeleteActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteActivityOutput(data, context);
+  contents = de_DeleteActivityOutput(data, context);
   const response: DeleteActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -667,7 +760,10 @@ export const deserializeAws_json1_0DeleteActivityCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteActivityCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteActivityCommandError
+ */
+const de_DeleteActivityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteActivityCommandOutput> => {
@@ -679,7 +775,7 @@ const deserializeAws_json1_0DeleteActivityCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -691,16 +787,19 @@ const deserializeAws_json1_0DeleteActivityCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteStateMachineCommand = async (
+/**
+ * deserializeAws_json1_0DeleteStateMachineCommand
+ */
+export const de_DeleteStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteStateMachineCommandError(output, context);
+    return de_DeleteStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteStateMachineOutput(data, context);
+  contents = de_DeleteStateMachineOutput(data, context);
   const response: DeleteStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -708,7 +807,10 @@ export const deserializeAws_json1_0DeleteStateMachineCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteStateMachineCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteStateMachineCommandError
+ */
+const de_DeleteStateMachineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> => {
@@ -720,10 +822,10 @@ const deserializeAws_json1_0DeleteStateMachineCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -735,16 +837,19 @@ const deserializeAws_json1_0DeleteStateMachineCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeActivityCommand = async (
+/**
+ * deserializeAws_json1_0DescribeActivityCommand
+ */
+export const de_DescribeActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeActivityCommandError(output, context);
+    return de_DescribeActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeActivityOutput(data, context);
+  contents = de_DescribeActivityOutput(data, context);
   const response: DescribeActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -752,7 +857,10 @@ export const deserializeAws_json1_0DescribeActivityCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeActivityCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeActivityCommandError
+ */
+const de_DescribeActivityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivityCommandOutput> => {
@@ -764,10 +872,10 @@ const deserializeAws_json1_0DescribeActivityCommandError = async (
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.sfn#ActivityDoesNotExist":
-      throw await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
+      throw await de_ActivityDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -779,16 +887,19 @@ const deserializeAws_json1_0DescribeActivityCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeExecutionCommand = async (
+/**
+ * deserializeAws_json1_0DescribeExecutionCommand
+ */
+export const de_DescribeExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeExecutionCommandError(output, context);
+    return de_DescribeExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeExecutionOutput(data, context);
+  contents = de_DescribeExecutionOutput(data, context);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -796,7 +907,10 @@ export const deserializeAws_json1_0DescribeExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeExecutionCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeExecutionCommandError
+ */
+const de_DescribeExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
@@ -808,10 +922,10 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -823,16 +937,19 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeMapRunCommand = async (
+/**
+ * deserializeAws_json1_0DescribeMapRunCommand
+ */
+export const de_DescribeMapRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMapRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeMapRunCommandError(output, context);
+    return de_DescribeMapRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeMapRunOutput(data, context);
+  contents = de_DescribeMapRunOutput(data, context);
   const response: DescribeMapRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -840,7 +957,10 @@ export const deserializeAws_json1_0DescribeMapRunCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeMapRunCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeMapRunCommandError
+ */
+const de_DescribeMapRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMapRunCommandOutput> => {
@@ -852,10 +972,10 @@ const deserializeAws_json1_0DescribeMapRunCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -867,16 +987,19 @@ const deserializeAws_json1_0DescribeMapRunCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeStateMachineCommand = async (
+/**
+ * deserializeAws_json1_0DescribeStateMachineCommand
+ */
+export const de_DescribeStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeStateMachineCommandError(output, context);
+    return de_DescribeStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineOutput(data, context);
+  contents = de_DescribeStateMachineOutput(data, context);
   const response: DescribeStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -884,7 +1007,10 @@ export const deserializeAws_json1_0DescribeStateMachineCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeStateMachineCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeStateMachineCommandError
+ */
+const de_DescribeStateMachineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> => {
@@ -896,10 +1022,10 @@ const deserializeAws_json1_0DescribeStateMachineCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -911,16 +1037,19 @@ const deserializeAws_json1_0DescribeStateMachineCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeStateMachineForExecutionCommand = async (
+/**
+ * deserializeAws_json1_0DescribeStateMachineForExecutionCommand
+ */
+export const de_DescribeStateMachineForExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(output, context);
+    return de_DescribeStateMachineForExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(data, context);
+  contents = de_DescribeStateMachineForExecutionOutput(data, context);
   const response: DescribeStateMachineForExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -928,7 +1057,10 @@ export const deserializeAws_json1_0DescribeStateMachineForExecutionCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeStateMachineForExecutionCommandError
+ */
+const de_DescribeStateMachineForExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> => {
@@ -940,10 +1072,10 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -955,16 +1087,19 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async
   }
 };
 
-export const deserializeAws_json1_0GetActivityTaskCommand = async (
+/**
+ * deserializeAws_json1_0GetActivityTaskCommand
+ */
+export const de_GetActivityTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetActivityTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetActivityTaskCommandError(output, context);
+    return de_GetActivityTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetActivityTaskOutput(data, context);
+  contents = de_GetActivityTaskOutput(data, context);
   const response: GetActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -972,7 +1107,10 @@ export const deserializeAws_json1_0GetActivityTaskCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetActivityTaskCommandError = async (
+/**
+ * deserializeAws_json1_0GetActivityTaskCommandError
+ */
+const de_GetActivityTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetActivityTaskCommandOutput> => {
@@ -984,13 +1122,13 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.sfn#ActivityDoesNotExist":
-      throw await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
+      throw await de_ActivityDoesNotExistRes(parsedOutput, context);
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.sfn#ActivityWorkerLimitExceeded":
-      throw await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(parsedOutput, context);
+      throw await de_ActivityWorkerLimitExceededRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1002,16 +1140,19 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetExecutionHistoryCommand = async (
+/**
+ * deserializeAws_json1_0GetExecutionHistoryCommand
+ */
+export const de_GetExecutionHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetExecutionHistoryCommandError(output, context);
+    return de_GetExecutionHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetExecutionHistoryOutput(data, context);
+  contents = de_GetExecutionHistoryOutput(data, context);
   const response: GetExecutionHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1019,7 +1160,10 @@ export const deserializeAws_json1_0GetExecutionHistoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
+/**
+ * deserializeAws_json1_0GetExecutionHistoryCommandError
+ */
+const de_GetExecutionHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> => {
@@ -1031,13 +1175,13 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1049,16 +1193,19 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListActivitiesCommand = async (
+/**
+ * deserializeAws_json1_0ListActivitiesCommand
+ */
+export const de_ListActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActivitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListActivitiesCommandError(output, context);
+    return de_ListActivitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListActivitiesOutput(data, context);
+  contents = de_ListActivitiesOutput(data, context);
   const response: ListActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1066,7 +1213,10 @@ export const deserializeAws_json1_0ListActivitiesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListActivitiesCommandError = async (
+/**
+ * deserializeAws_json1_0ListActivitiesCommandError
+ */
+const de_ListActivitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActivitiesCommandOutput> => {
@@ -1078,7 +1228,7 @@ const deserializeAws_json1_0ListActivitiesCommandError = async (
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1090,16 +1240,19 @@ const deserializeAws_json1_0ListActivitiesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListExecutionsCommand = async (
+/**
+ * deserializeAws_json1_0ListExecutionsCommand
+ */
+export const de_ListExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListExecutionsCommandError(output, context);
+    return de_ListExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListExecutionsOutput(data, context);
+  contents = de_ListExecutionsOutput(data, context);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1107,7 +1260,10 @@ export const deserializeAws_json1_0ListExecutionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListExecutionsCommandError = async (
+/**
+ * deserializeAws_json1_0ListExecutionsCommandError
+ */
+const de_ListExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
@@ -1119,22 +1275,22 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+      throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1146,16 +1302,19 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListMapRunsCommand = async (
+/**
+ * deserializeAws_json1_0ListMapRunsCommand
+ */
+export const de_ListMapRunsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMapRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListMapRunsCommandError(output, context);
+    return de_ListMapRunsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListMapRunsOutput(data, context);
+  contents = de_ListMapRunsOutput(data, context);
   const response: ListMapRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1163,7 +1322,10 @@ export const deserializeAws_json1_0ListMapRunsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListMapRunsCommandError = async (
+/**
+ * deserializeAws_json1_0ListMapRunsCommandError
+ */
+const de_ListMapRunsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMapRunsCommandOutput> => {
@@ -1175,13 +1337,13 @@ const deserializeAws_json1_0ListMapRunsCommandError = async (
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1193,16 +1355,19 @@ const deserializeAws_json1_0ListMapRunsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListStateMachinesCommand = async (
+/**
+ * deserializeAws_json1_0ListStateMachinesCommand
+ */
+export const de_ListStateMachinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStateMachinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListStateMachinesCommandError(output, context);
+    return de_ListStateMachinesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStateMachinesOutput(data, context);
+  contents = de_ListStateMachinesOutput(data, context);
   const response: ListStateMachinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1210,7 +1375,10 @@ export const deserializeAws_json1_0ListStateMachinesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListStateMachinesCommandError = async (
+/**
+ * deserializeAws_json1_0ListStateMachinesCommandError
+ */
+const de_ListStateMachinesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStateMachinesCommandOutput> => {
@@ -1222,7 +1390,7 @@ const deserializeAws_json1_0ListStateMachinesCommandError = async (
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1234,16 +1402,19 @@ const deserializeAws_json1_0ListStateMachinesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
+  contents = de_ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1251,7 +1422,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1263,10 +1437,10 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1278,16 +1452,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SendTaskFailureCommand = async (
+/**
+ * deserializeAws_json1_0SendTaskFailureCommand
+ */
+export const de_SendTaskFailureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskFailureCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendTaskFailureCommandError(output, context);
+    return de_SendTaskFailureCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskFailureOutput(data, context);
+  contents = de_SendTaskFailureOutput(data, context);
   const response: SendTaskFailureCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1295,7 +1472,10 @@ export const deserializeAws_json1_0SendTaskFailureCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendTaskFailureCommandError = async (
+/**
+ * deserializeAws_json1_0SendTaskFailureCommandError
+ */
+const de_SendTaskFailureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskFailureCommandOutput> => {
@@ -1307,13 +1487,13 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      throw await de_TaskDoesNotExistRes(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      throw await de_TaskTimedOutRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1325,16 +1505,19 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SendTaskHeartbeatCommand = async (
+/**
+ * deserializeAws_json1_0SendTaskHeartbeatCommand
+ */
+export const de_SendTaskHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskHeartbeatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendTaskHeartbeatCommandError(output, context);
+    return de_SendTaskHeartbeatCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskHeartbeatOutput(data, context);
+  contents = de_SendTaskHeartbeatOutput(data, context);
   const response: SendTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1342,7 +1525,10 @@ export const deserializeAws_json1_0SendTaskHeartbeatCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
+/**
+ * deserializeAws_json1_0SendTaskHeartbeatCommandError
+ */
+const de_SendTaskHeartbeatCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskHeartbeatCommandOutput> => {
@@ -1354,13 +1540,13 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      throw await de_TaskDoesNotExistRes(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      throw await de_TaskTimedOutRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1372,16 +1558,19 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0SendTaskSuccessCommand = async (
+/**
+ * deserializeAws_json1_0SendTaskSuccessCommand
+ */
+export const de_SendTaskSuccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskSuccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SendTaskSuccessCommandError(output, context);
+    return de_SendTaskSuccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskSuccessOutput(data, context);
+  contents = de_SendTaskSuccessOutput(data, context);
   const response: SendTaskSuccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1389,7 +1578,10 @@ export const deserializeAws_json1_0SendTaskSuccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SendTaskSuccessCommandError = async (
+/**
+ * deserializeAws_json1_0SendTaskSuccessCommandError
+ */
+const de_SendTaskSuccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskSuccessCommandOutput> => {
@@ -1401,16 +1593,16 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
   switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.sfn#InvalidOutput":
-      throw await deserializeAws_json1_0InvalidOutputResponse(parsedOutput, context);
+      throw await de_InvalidOutputRes(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      throw await de_InvalidTokenRes(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      throw await de_TaskDoesNotExistRes(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      throw await de_TaskTimedOutRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1422,16 +1614,19 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StartExecutionCommand = async (
+/**
+ * deserializeAws_json1_0StartExecutionCommand
+ */
+export const de_StartExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartExecutionCommandError(output, context);
+    return de_StartExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartExecutionOutput(data, context);
+  contents = de_StartExecutionOutput(data, context);
   const response: StartExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1439,7 +1634,10 @@ export const deserializeAws_json1_0StartExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StartExecutionCommandError = async (
+/**
+ * deserializeAws_json1_0StartExecutionCommandError
+ */
+const de_StartExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExecutionCommandOutput> => {
@@ -1451,28 +1649,28 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
   switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.sfn#ExecutionAlreadyExists":
-      throw await deserializeAws_json1_0ExecutionAlreadyExistsResponse(parsedOutput, context);
+      throw await de_ExecutionAlreadyExistsRes(parsedOutput, context);
     case "ExecutionLimitExceeded":
     case "com.amazonaws.sfn#ExecutionLimitExceeded":
-      throw await deserializeAws_json1_0ExecutionLimitExceededResponse(parsedOutput, context);
+      throw await de_ExecutionLimitExceededRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidExecutionInput":
     case "com.amazonaws.sfn#InvalidExecutionInput":
-      throw await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context);
+      throw await de_InvalidExecutionInputRes(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      throw await de_InvalidNameRes(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1484,16 +1682,19 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StartSyncExecutionCommand = async (
+/**
+ * deserializeAws_json1_0StartSyncExecutionCommand
+ */
+export const de_StartSyncExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSyncExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartSyncExecutionCommandError(output, context);
+    return de_StartSyncExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartSyncExecutionOutput(data, context);
+  contents = de_StartSyncExecutionOutput(data, context);
   const response: StartSyncExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1501,7 +1702,10 @@ export const deserializeAws_json1_0StartSyncExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StartSyncExecutionCommandError = async (
+/**
+ * deserializeAws_json1_0StartSyncExecutionCommandError
+ */
+const de_StartSyncExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSyncExecutionCommandOutput> => {
@@ -1513,22 +1717,22 @@ const deserializeAws_json1_0StartSyncExecutionCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidExecutionInput":
     case "com.amazonaws.sfn#InvalidExecutionInput":
-      throw await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context);
+      throw await de_InvalidExecutionInputRes(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      throw await de_InvalidNameRes(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+      throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1540,16 +1744,19 @@ const deserializeAws_json1_0StartSyncExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StopExecutionCommand = async (
+/**
+ * deserializeAws_json1_0StopExecutionCommand
+ */
+export const de_StopExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StopExecutionCommandError(output, context);
+    return de_StopExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StopExecutionOutput(data, context);
+  contents = de_StopExecutionOutput(data, context);
   const response: StopExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1557,7 +1764,10 @@ export const deserializeAws_json1_0StopExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StopExecutionCommandError = async (
+/**
+ * deserializeAws_json1_0StopExecutionCommandError
+ */
+const de_StopExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopExecutionCommandOutput> => {
@@ -1569,13 +1779,13 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1587,16 +1797,19 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceOutput(data, context);
+  contents = de_TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1604,7 +1817,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1616,13 +1832,13 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      throw await de_TooManyTagsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1634,16 +1850,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceOutput(data, context);
+  contents = de_UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1651,7 +1870,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1663,10 +1885,10 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1678,16 +1900,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateMapRunCommand = async (
+/**
+ * deserializeAws_json1_0UpdateMapRunCommand
+ */
+export const de_UpdateMapRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMapRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateMapRunCommandError(output, context);
+    return de_UpdateMapRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateMapRunOutput(data, context);
+  contents = de_UpdateMapRunOutput(data, context);
   const response: UpdateMapRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1695,7 +1920,10 @@ export const deserializeAws_json1_0UpdateMapRunCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateMapRunCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateMapRunCommandError
+ */
+const de_UpdateMapRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMapRunCommandOutput> => {
@@ -1707,13 +1935,13 @@ const deserializeAws_json1_0UpdateMapRunCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1725,16 +1953,19 @@ const deserializeAws_json1_0UpdateMapRunCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateStateMachineCommand = async (
+/**
+ * deserializeAws_json1_0UpdateStateMachineCommand
+ */
+export const de_UpdateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateStateMachineCommandError(output, context);
+    return de_UpdateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateStateMachineOutput(data, context);
+  contents = de_UpdateStateMachineOutput(data, context);
   const response: UpdateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1742,7 +1973,10 @@ export const deserializeAws_json1_0UpdateStateMachineCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateStateMachineCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateStateMachineCommandError
+ */
+const de_UpdateStateMachineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> => {
@@ -1754,28 +1988,28 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidDefinition":
     case "com.amazonaws.sfn#InvalidDefinition":
-      throw await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
+      throw await de_InvalidDefinitionRes(parsedOutput, context);
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
-      throw await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
+      throw await de_InvalidLoggingConfigurationRes(parsedOutput, context);
     case "InvalidTracingConfiguration":
     case "com.amazonaws.sfn#InvalidTracingConfiguration":
-      throw await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context);
+      throw await de_InvalidTracingConfigurationRes(parsedOutput, context);
     case "MissingRequiredParameter":
     case "com.amazonaws.sfn#MissingRequiredParameter":
-      throw await deserializeAws_json1_0MissingRequiredParameterResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterRes(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1787,12 +2021,15 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
   }
 };
 
-const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
+/**
+ * deserializeAws_json1_0ActivityDoesNotExistRes
+ */
+const de_ActivityDoesNotExistRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ActivityDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(body, context);
+  const deserialized: any = de_ActivityDoesNotExist(body, context);
   const exception = new ActivityDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1800,12 +2037,15 @@ const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ActivityLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_0ActivityLimitExceededRes
+ */
+const de_ActivityLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ActivityLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(body, context);
+  const deserialized: any = de_ActivityLimitExceeded(body, context);
   const exception = new ActivityLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1813,12 +2053,15 @@ const deserializeAws_json1_0ActivityLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_0ActivityWorkerLimitExceededRes
+ */
+const de_ActivityWorkerLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ActivityWorkerLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(body, context);
+  const deserialized: any = de_ActivityWorkerLimitExceeded(body, context);
   const exception = new ActivityWorkerLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1826,12 +2069,15 @@ const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
+/**
+ * deserializeAws_json1_0ExecutionAlreadyExistsRes
+ */
+const de_ExecutionAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExecutionAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(body, context);
+  const deserialized: any = de_ExecutionAlreadyExists(body, context);
   const exception = new ExecutionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1839,12 +2085,15 @@ const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
+/**
+ * deserializeAws_json1_0ExecutionDoesNotExistRes
+ */
+const de_ExecutionDoesNotExistRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExecutionDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(body, context);
+  const deserialized: any = de_ExecutionDoesNotExist(body, context);
   const exception = new ExecutionDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1852,12 +2101,15 @@ const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_0ExecutionLimitExceededRes
+ */
+const de_ExecutionLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExecutionLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(body, context);
+  const deserialized: any = de_ExecutionLimitExceeded(body, context);
   const exception = new ExecutionLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1865,12 +2117,12 @@ const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidArnResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArn> => {
+/**
+ * deserializeAws_json1_0InvalidArnRes
+ */
+const de_InvalidArnRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArn> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidArn(body, context);
+  const deserialized: any = de_InvalidArn(body, context);
   const exception = new InvalidArn({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1878,12 +2130,12 @@ const deserializeAws_json1_0InvalidArnResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidDefinitionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidDefinition> => {
+/**
+ * deserializeAws_json1_0InvalidDefinitionRes
+ */
+const de_InvalidDefinitionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidDefinition> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidDefinition(body, context);
+  const deserialized: any = de_InvalidDefinition(body, context);
   const exception = new InvalidDefinition({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1891,12 +2143,15 @@ const deserializeAws_json1_0InvalidDefinitionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidExecutionInputResponse = async (
+/**
+ * deserializeAws_json1_0InvalidExecutionInputRes
+ */
+const de_InvalidExecutionInputRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidExecutionInput> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(body, context);
+  const deserialized: any = de_InvalidExecutionInput(body, context);
   const exception = new InvalidExecutionInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1904,12 +2159,15 @@ const deserializeAws_json1_0InvalidExecutionInputResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
+/**
+ * deserializeAws_json1_0InvalidLoggingConfigurationRes
+ */
+const de_InvalidLoggingConfigurationRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLoggingConfiguration> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(body, context);
+  const deserialized: any = de_InvalidLoggingConfiguration(body, context);
   const exception = new InvalidLoggingConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1917,12 +2175,12 @@ const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidNameResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidName> => {
+/**
+ * deserializeAws_json1_0InvalidNameRes
+ */
+const de_InvalidNameRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidName> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidName(body, context);
+  const deserialized: any = de_InvalidName(body, context);
   const exception = new InvalidName({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1930,12 +2188,12 @@ const deserializeAws_json1_0InvalidNameResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidOutputResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidOutput> => {
+/**
+ * deserializeAws_json1_0InvalidOutputRes
+ */
+const de_InvalidOutputRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidOutput> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidOutput(body, context);
+  const deserialized: any = de_InvalidOutput(body, context);
   const exception = new InvalidOutput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1943,12 +2201,12 @@ const deserializeAws_json1_0InvalidOutputResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidTokenResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidToken> => {
+/**
+ * deserializeAws_json1_0InvalidTokenRes
+ */
+const de_InvalidTokenRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidToken> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidToken(body, context);
+  const deserialized: any = de_InvalidToken(body, context);
   const exception = new InvalidToken({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1956,12 +2214,15 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
+/**
+ * deserializeAws_json1_0InvalidTracingConfigurationRes
+ */
+const de_InvalidTracingConfigurationRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTracingConfiguration> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidTracingConfiguration(body, context);
+  const deserialized: any = de_InvalidTracingConfiguration(body, context);
   const exception = new InvalidTracingConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1969,12 +2230,15 @@ const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0MissingRequiredParameterResponse = async (
+/**
+ * deserializeAws_json1_0MissingRequiredParameterRes
+ */
+const de_MissingRequiredParameterRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingRequiredParameter> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(body, context);
+  const deserialized: any = de_MissingRequiredParameter(body, context);
   const exception = new MissingRequiredParameter({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1982,12 +2246,12 @@ const deserializeAws_json1_0MissingRequiredParameterResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceNotFound> => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundRes
+ */
+const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFound(body, context);
+  const deserialized: any = de_ResourceNotFound(body, context);
   const exception = new ResourceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1995,12 +2259,15 @@ const deserializeAws_json1_0ResourceNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
+/**
+ * deserializeAws_json1_0StateMachineAlreadyExistsRes
+ */
+const de_StateMachineAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StateMachineAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(body, context);
+  const deserialized: any = de_StateMachineAlreadyExists(body, context);
   const exception = new StateMachineAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2008,12 +2275,15 @@ const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0StateMachineDeletingResponse = async (
+/**
+ * deserializeAws_json1_0StateMachineDeletingRes
+ */
+const de_StateMachineDeletingRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StateMachineDeleting> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineDeleting(body, context);
+  const deserialized: any = de_StateMachineDeleting(body, context);
   const exception = new StateMachineDeleting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2021,12 +2291,15 @@ const deserializeAws_json1_0StateMachineDeletingResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
+/**
+ * deserializeAws_json1_0StateMachineDoesNotExistRes
+ */
+const de_StateMachineDoesNotExistRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StateMachineDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(body, context);
+  const deserialized: any = de_StateMachineDoesNotExist(body, context);
   const exception = new StateMachineDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2034,12 +2307,15 @@ const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_0StateMachineLimitExceededRes
+ */
+const de_StateMachineLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StateMachineLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(body, context);
+  const deserialized: any = de_StateMachineLimitExceeded(body, context);
   const exception = new StateMachineLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2047,12 +2323,15 @@ const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
+/**
+ * deserializeAws_json1_0StateMachineTypeNotSupportedRes
+ */
+const de_StateMachineTypeNotSupportedRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StateMachineTypeNotSupported> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(body, context);
+  const deserialized: any = de_StateMachineTypeNotSupported(body, context);
   const exception = new StateMachineTypeNotSupported({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2060,12 +2339,12 @@ const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0TaskDoesNotExistResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TaskDoesNotExist> => {
+/**
+ * deserializeAws_json1_0TaskDoesNotExistRes
+ */
+const de_TaskDoesNotExistRes = async (parsedOutput: any, context: __SerdeContext): Promise<TaskDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(body, context);
+  const deserialized: any = de_TaskDoesNotExist(body, context);
   const exception = new TaskDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2073,12 +2352,12 @@ const deserializeAws_json1_0TaskDoesNotExistResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0TaskTimedOutResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TaskTimedOut> => {
+/**
+ * deserializeAws_json1_0TaskTimedOutRes
+ */
+const de_TaskTimedOutRes = async (parsedOutput: any, context: __SerdeContext): Promise<TaskTimedOut> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TaskTimedOut(body, context);
+  const deserialized: any = de_TaskTimedOut(body, context);
   const exception = new TaskTimedOut({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2086,12 +2365,12 @@ const deserializeAws_json1_0TaskTimedOutResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0TooManyTagsResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TooManyTags> => {
+/**
+ * deserializeAws_json1_0TooManyTagsRes
+ */
+const de_TooManyTagsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyTags> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TooManyTags(body, context);
+  const deserialized: any = de_TooManyTags(body, context);
   const exception = new TooManyTags({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2099,12 +2378,12 @@ const deserializeAws_json1_0TooManyTagsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2112,66 +2391,93 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0CloudWatchLogsLogGroup = (input: CloudWatchLogsLogGroup, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CloudWatchLogsLogGroup
+ */
+const se_CloudWatchLogsLogGroup = (input: CloudWatchLogsLogGroup, context: __SerdeContext): any => {
   return {
     ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
   };
 };
 
-const serializeAws_json1_0CreateActivityInput = (input: CreateActivityInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateActivityInput
+ */
+const se_CreateActivityInput = (input: CreateActivityInput, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateStateMachineInput = (input: CreateStateMachineInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateStateMachineInput
+ */
+const se_CreateStateMachineInput = (input: CreateStateMachineInput, context: __SerdeContext): any => {
   return {
     ...(input.definition != null && { definition: input.definition }),
     ...(input.loggingConfiguration != null && {
-      loggingConfiguration: serializeAws_json1_0LoggingConfiguration(input.loggingConfiguration, context),
+      loggingConfiguration: se_LoggingConfiguration(input.loggingConfiguration, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.tracingConfiguration != null && {
-      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+      tracingConfiguration: se_TracingConfiguration(input.tracingConfiguration, context),
     }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0DeleteActivityInput = (input: DeleteActivityInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteActivityInput
+ */
+const se_DeleteActivityInput = (input: DeleteActivityInput, context: __SerdeContext): any => {
   return {
     ...(input.activityArn != null && { activityArn: input.activityArn }),
   };
 };
 
-const serializeAws_json1_0DeleteStateMachineInput = (input: DeleteStateMachineInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteStateMachineInput
+ */
+const se_DeleteStateMachineInput = (input: DeleteStateMachineInput, context: __SerdeContext): any => {
   return {
     ...(input.stateMachineArn != null && { stateMachineArn: input.stateMachineArn }),
   };
 };
 
-const serializeAws_json1_0DescribeActivityInput = (input: DescribeActivityInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeActivityInput
+ */
+const se_DescribeActivityInput = (input: DescribeActivityInput, context: __SerdeContext): any => {
   return {
     ...(input.activityArn != null && { activityArn: input.activityArn }),
   };
 };
 
-const serializeAws_json1_0DescribeExecutionInput = (input: DescribeExecutionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeExecutionInput
+ */
+const se_DescribeExecutionInput = (input: DescribeExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.executionArn != null && { executionArn: input.executionArn }),
   };
 };
 
-const serializeAws_json1_0DescribeMapRunInput = (input: DescribeMapRunInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeMapRunInput
+ */
+const se_DescribeMapRunInput = (input: DescribeMapRunInput, context: __SerdeContext): any => {
   return {
     ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
   };
 };
 
-const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
+/**
+ * serializeAws_json1_0DescribeStateMachineForExecutionInput
+ */
+const se_DescribeStateMachineForExecutionInput = (
   input: DescribeStateMachineForExecutionInput,
   context: __SerdeContext
 ): any => {
@@ -2180,26 +2486,29 @@ const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
   };
 };
 
-const serializeAws_json1_0DescribeStateMachineInput = (
-  input: DescribeStateMachineInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeStateMachineInput
+ */
+const se_DescribeStateMachineInput = (input: DescribeStateMachineInput, context: __SerdeContext): any => {
   return {
     ...(input.stateMachineArn != null && { stateMachineArn: input.stateMachineArn }),
   };
 };
 
-const serializeAws_json1_0GetActivityTaskInput = (input: GetActivityTaskInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetActivityTaskInput
+ */
+const se_GetActivityTaskInput = (input: GetActivityTaskInput, context: __SerdeContext): any => {
   return {
     ...(input.activityArn != null && { activityArn: input.activityArn }),
     ...(input.workerName != null && { workerName: input.workerName }),
   };
 };
 
-const serializeAws_json1_0GetExecutionHistoryInput = (
-  input: GetExecutionHistoryInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetExecutionHistoryInput
+ */
+const se_GetExecutionHistoryInput = (input: GetExecutionHistoryInput, context: __SerdeContext): any => {
   return {
     ...(input.executionArn != null && { executionArn: input.executionArn }),
     ...(input.includeExecutionData != null && { includeExecutionData: input.includeExecutionData }),
@@ -2209,14 +2518,20 @@ const serializeAws_json1_0GetExecutionHistoryInput = (
   };
 };
 
-const serializeAws_json1_0ListActivitiesInput = (input: ListActivitiesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListActivitiesInput
+ */
+const se_ListActivitiesInput = (input: ListActivitiesInput, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_0ListExecutionsInput = (input: ListExecutionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListExecutionsInput
+ */
+const se_ListExecutionsInput = (input: ListExecutionsInput, context: __SerdeContext): any => {
   return {
     ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -2226,7 +2541,10 @@ const serializeAws_json1_0ListExecutionsInput = (input: ListExecutionsInput, con
   };
 };
 
-const serializeAws_json1_0ListMapRunsInput = (input: ListMapRunsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListMapRunsInput
+ */
+const se_ListMapRunsInput = (input: ListMapRunsInput, context: __SerdeContext): any => {
   return {
     ...(input.executionArn != null && { executionArn: input.executionArn }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -2234,49 +2552,62 @@ const serializeAws_json1_0ListMapRunsInput = (input: ListMapRunsInput, context: 
   };
 };
 
-const serializeAws_json1_0ListStateMachinesInput = (input: ListStateMachinesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListStateMachinesInput
+ */
+const se_ListStateMachinesInput = (input: ListStateMachinesInput, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceInput = (
-  input: ListTagsForResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceInput
+ */
+const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
-const serializeAws_json1_0LogDestination = (input: LogDestination, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0LogDestination
+ */
+const se_LogDestination = (input: LogDestination, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatchLogsLogGroup != null && {
-      cloudWatchLogsLogGroup: serializeAws_json1_0CloudWatchLogsLogGroup(input.cloudWatchLogsLogGroup, context),
+      cloudWatchLogsLogGroup: se_CloudWatchLogsLogGroup(input.cloudWatchLogsLogGroup, context),
     }),
   };
 };
 
-const serializeAws_json1_0LogDestinationList = (input: LogDestination[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0LogDestinationList
+ */
+const se_LogDestinationList = (input: LogDestination[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0LogDestination(entry, context);
+      return se_LogDestination(entry, context);
     });
 };
 
-const serializeAws_json1_0LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0LoggingConfiguration
+ */
+const se_LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.destinations != null && {
-      destinations: serializeAws_json1_0LogDestinationList(input.destinations, context),
-    }),
+    ...(input.destinations != null && { destinations: se_LogDestinationList(input.destinations, context) }),
     ...(input.includeExecutionData != null && { includeExecutionData: input.includeExecutionData }),
     ...(input.level != null && { level: input.level }),
   };
 };
 
-const serializeAws_json1_0SendTaskFailureInput = (input: SendTaskFailureInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendTaskFailureInput
+ */
+const se_SendTaskFailureInput = (input: SendTaskFailureInput, context: __SerdeContext): any => {
   return {
     ...(input.cause != null && { cause: input.cause }),
     ...(input.error != null && { error: input.error }),
@@ -2284,20 +2615,29 @@ const serializeAws_json1_0SendTaskFailureInput = (input: SendTaskFailureInput, c
   };
 };
 
-const serializeAws_json1_0SendTaskHeartbeatInput = (input: SendTaskHeartbeatInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendTaskHeartbeatInput
+ */
+const se_SendTaskHeartbeatInput = (input: SendTaskHeartbeatInput, context: __SerdeContext): any => {
   return {
     ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
-const serializeAws_json1_0SendTaskSuccessInput = (input: SendTaskSuccessInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SendTaskSuccessInput
+ */
+const se_SendTaskSuccessInput = (input: SendTaskSuccessInput, context: __SerdeContext): any => {
   return {
     ...(input.output != null && { output: input.output }),
     ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
-const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StartExecutionInput
+ */
+const se_StartExecutionInput = (input: StartExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.input != null && { input: input.input }),
     ...(input.name != null && { name: input.name }),
@@ -2306,7 +2646,10 @@ const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, con
   };
 };
 
-const serializeAws_json1_0StartSyncExecutionInput = (input: StartSyncExecutionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StartSyncExecutionInput
+ */
+const se_StartSyncExecutionInput = (input: StartSyncExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.input != null && { input: input.input }),
     ...(input.name != null && { name: input.name }),
@@ -2315,7 +2658,10 @@ const serializeAws_json1_0StartSyncExecutionInput = (input: StartSyncExecutionIn
   };
 };
 
-const serializeAws_json1_0StopExecutionInput = (input: StopExecutionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StopExecutionInput
+ */
+const se_StopExecutionInput = (input: StopExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.cause != null && { cause: input.cause }),
     ...(input.error != null && { error: input.error }),
@@ -2323,14 +2669,20 @@ const serializeAws_json1_0StopExecutionInput = (input: StopExecutionInput, conte
   };
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key != null && { key: input.key }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2338,35 +2690,50 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceInput
+ */
+const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0TracingConfiguration = (input: TracingConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TracingConfiguration
+ */
+const se_TracingConfiguration = (input: TracingConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.enabled != null && { enabled: input.enabled }),
   };
 };
 
-const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceInput
+ */
+const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context) }),
+    ...(input.tagKeys != null && { tagKeys: se_TagKeyList(input.tagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateMapRunInput
+ */
+const se_UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext): any => {
   return {
     ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
     ...(input.maxConcurrency != null && { maxConcurrency: input.maxConcurrency }),
@@ -2377,55 +2744,70 @@ const serializeAws_json1_0UpdateMapRunInput = (input: UpdateMapRunInput, context
   };
 };
 
-const serializeAws_json1_0UpdateStateMachineInput = (input: UpdateStateMachineInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateStateMachineInput
+ */
+const se_UpdateStateMachineInput = (input: UpdateStateMachineInput, context: __SerdeContext): any => {
   return {
     ...(input.definition != null && { definition: input.definition }),
     ...(input.loggingConfiguration != null && {
-      loggingConfiguration: serializeAws_json1_0LoggingConfiguration(input.loggingConfiguration, context),
+      loggingConfiguration: se_LoggingConfiguration(input.loggingConfiguration, context),
     }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.stateMachineArn != null && { stateMachineArn: input.stateMachineArn }),
     ...(input.tracingConfiguration != null && {
-      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+      tracingConfiguration: se_TracingConfiguration(input.tracingConfiguration, context),
     }),
   };
 };
 
-const deserializeAws_json1_0ActivityDoesNotExist = (output: any, context: __SerdeContext): ActivityDoesNotExist => {
+/**
+ * deserializeAws_json1_0ActivityDoesNotExist
+ */
+const de_ActivityDoesNotExist = (output: any, context: __SerdeContext): ActivityDoesNotExist => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ActivityFailedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ActivityFailedEventDetails => {
+/**
+ * deserializeAws_json1_0ActivityFailedEventDetails
+ */
+const de_ActivityFailedEventDetails = (output: any, context: __SerdeContext): ActivityFailedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0ActivityLimitExceeded = (output: any, context: __SerdeContext): ActivityLimitExceeded => {
+/**
+ * deserializeAws_json1_0ActivityLimitExceeded
+ */
+const de_ActivityLimitExceeded = (output: any, context: __SerdeContext): ActivityLimitExceeded => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ActivityList = (output: any, context: __SerdeContext): ActivityListItem[] => {
+/**
+ * deserializeAws_json1_0ActivityList
+ */
+const de_ActivityList = (output: any, context: __SerdeContext): ActivityListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ActivityListItem(entry, context);
+      return de_ActivityListItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ActivityListItem = (output: any, context: __SerdeContext): ActivityListItem => {
+/**
+ * deserializeAws_json1_0ActivityListItem
+ */
+const de_ActivityListItem = (output: any, context: __SerdeContext): ActivityListItem => {
   return {
     activityArn: __expectString(output.activityArn),
     creationDate:
@@ -2436,23 +2818,24 @@ const deserializeAws_json1_0ActivityListItem = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0ActivityScheduledEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ActivityScheduledEventDetails => {
+/**
+ * deserializeAws_json1_0ActivityScheduledEventDetails
+ */
+const de_ActivityScheduledEventDetails = (output: any, context: __SerdeContext): ActivityScheduledEventDetails => {
   return {
     heartbeatInSeconds: __expectLong(output.heartbeatInSeconds),
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_HistoryEventExecutionDataDetails(output.inputDetails, context) : undefined,
     resource: __expectString(output.resource),
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
+/**
+ * deserializeAws_json1_0ActivityScheduleFailedEventDetails
+ */
+const de_ActivityScheduleFailedEventDetails = (
   output: any,
   context: __SerdeContext
 ): ActivityScheduleFailedEventDetails => {
@@ -2462,55 +2845,59 @@ const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0ActivityStartedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ActivityStartedEventDetails => {
+/**
+ * deserializeAws_json1_0ActivityStartedEventDetails
+ */
+const de_ActivityStartedEventDetails = (output: any, context: __SerdeContext): ActivityStartedEventDetails => {
   return {
     workerName: __expectString(output.workerName),
   } as any;
 };
 
-const deserializeAws_json1_0ActivitySucceededEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ActivitySucceededEventDetails => {
+/**
+ * deserializeAws_json1_0ActivitySucceededEventDetails
+ */
+const de_ActivitySucceededEventDetails = (output: any, context: __SerdeContext): ActivitySucceededEventDetails => {
   return {
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ActivityTimedOutEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ActivityTimedOutEventDetails => {
+/**
+ * deserializeAws_json1_0ActivityTimedOutEventDetails
+ */
+const de_ActivityTimedOutEventDetails = (output: any, context: __SerdeContext): ActivityTimedOutEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): ActivityWorkerLimitExceeded => {
+/**
+ * deserializeAws_json1_0ActivityWorkerLimitExceeded
+ */
+const de_ActivityWorkerLimitExceeded = (output: any, context: __SerdeContext): ActivityWorkerLimitExceeded => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0BillingDetails = (output: any, context: __SerdeContext): BillingDetails => {
+/**
+ * deserializeAws_json1_0BillingDetails
+ */
+const de_BillingDetails = (output: any, context: __SerdeContext): BillingDetails => {
   return {
     billedDurationInMilliseconds: __expectLong(output.billedDurationInMilliseconds),
     billedMemoryUsedInMB: __expectLong(output.billedMemoryUsedInMB),
   } as any;
 };
 
-const deserializeAws_json1_0CloudWatchEventsExecutionDataDetails = (
+/**
+ * deserializeAws_json1_0CloudWatchEventsExecutionDataDetails
+ */
+const de_CloudWatchEventsExecutionDataDetails = (
   output: any,
   context: __SerdeContext
 ): CloudWatchEventsExecutionDataDetails => {
@@ -2519,13 +2906,19 @@ const deserializeAws_json1_0CloudWatchEventsExecutionDataDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0CloudWatchLogsLogGroup = (output: any, context: __SerdeContext): CloudWatchLogsLogGroup => {
+/**
+ * deserializeAws_json1_0CloudWatchLogsLogGroup
+ */
+const de_CloudWatchLogsLogGroup = (output: any, context: __SerdeContext): CloudWatchLogsLogGroup => {
   return {
     logGroupArn: __expectString(output.logGroupArn),
   } as any;
 };
 
-const deserializeAws_json1_0CreateActivityOutput = (output: any, context: __SerdeContext): CreateActivityOutput => {
+/**
+ * deserializeAws_json1_0CreateActivityOutput
+ */
+const de_CreateActivityOutput = (output: any, context: __SerdeContext): CreateActivityOutput => {
   return {
     activityArn: __expectString(output.activityArn),
     creationDate:
@@ -2535,10 +2928,10 @@ const deserializeAws_json1_0CreateActivityOutput = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0CreateStateMachineOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateStateMachineOutput => {
+/**
+ * deserializeAws_json1_0CreateStateMachineOutput
+ */
+const de_CreateStateMachineOutput = (output: any, context: __SerdeContext): CreateStateMachineOutput => {
   return {
     creationDate:
       output.creationDate != null
@@ -2548,18 +2941,24 @@ const deserializeAws_json1_0CreateStateMachineOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteActivityOutput = (output: any, context: __SerdeContext): DeleteActivityOutput => {
+/**
+ * deserializeAws_json1_0DeleteActivityOutput
+ */
+const de_DeleteActivityOutput = (output: any, context: __SerdeContext): DeleteActivityOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0DeleteStateMachineOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteStateMachineOutput => {
+/**
+ * deserializeAws_json1_0DeleteStateMachineOutput
+ */
+const de_DeleteStateMachineOutput = (output: any, context: __SerdeContext): DeleteStateMachineOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0DescribeActivityOutput = (output: any, context: __SerdeContext): DescribeActivityOutput => {
+/**
+ * deserializeAws_json1_0DescribeActivityOutput
+ */
+const de_DescribeActivityOutput = (output: any, context: __SerdeContext): DescribeActivityOutput => {
   return {
     activityArn: __expectString(output.activityArn),
     creationDate:
@@ -2570,26 +2969,22 @@ const deserializeAws_json1_0DescribeActivityOutput = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0DescribeExecutionOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeExecutionOutput => {
+/**
+ * deserializeAws_json1_0DescribeExecutionOutput
+ */
+const de_DescribeExecutionOutput = (output: any, context: __SerdeContext): DescribeExecutionOutput => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
     executionArn: __expectString(output.executionArn),
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_CloudWatchEventsExecutionDataDetails(output.inputDetails, context) : undefined,
     mapRunArn: __expectString(output.mapRunArn),
     name: __expectString(output.name),
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_CloudWatchEventsExecutionDataDetails(output.outputDetails, context) : undefined,
     startDate:
       output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
@@ -2600,15 +2995,15 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0DescribeMapRunOutput = (output: any, context: __SerdeContext): DescribeMapRunOutput => {
+/**
+ * deserializeAws_json1_0DescribeMapRunOutput
+ */
+const de_DescribeMapRunOutput = (output: any, context: __SerdeContext): DescribeMapRunOutput => {
   return {
     executionArn: __expectString(output.executionArn),
     executionCounts:
-      output.executionCounts != null
-        ? deserializeAws_json1_0MapRunExecutionCounts(output.executionCounts, context)
-        : undefined,
-    itemCounts:
-      output.itemCounts != null ? deserializeAws_json1_0MapRunItemCounts(output.itemCounts, context) : undefined,
+      output.executionCounts != null ? de_MapRunExecutionCounts(output.executionCounts, context) : undefined,
+    itemCounts: output.itemCounts != null ? de_MapRunItemCounts(output.itemCounts, context) : undefined,
     mapRunArn: __expectString(output.mapRunArn),
     maxConcurrency: __expectInt32(output.maxConcurrency),
     startDate:
@@ -2621,7 +3016,10 @@ const deserializeAws_json1_0DescribeMapRunOutput = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
+/**
+ * deserializeAws_json1_0DescribeStateMachineForExecutionOutput
+ */
+const de_DescribeStateMachineForExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeStateMachineForExecutionOutput => {
@@ -2629,26 +3027,22 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     definition: __expectString(output.definition),
     label: __expectString(output.label),
     loggingConfiguration:
-      output.loggingConfiguration != null
-        ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
-        : undefined,
+      output.loggingConfiguration != null ? de_LoggingConfiguration(output.loggingConfiguration, context) : undefined,
     mapRunArn: __expectString(output.mapRunArn),
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
     stateMachineArn: __expectString(output.stateMachineArn),
     tracingConfiguration:
-      output.tracingConfiguration != null
-        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
-        : undefined,
+      output.tracingConfiguration != null ? de_TracingConfiguration(output.tracingConfiguration, context) : undefined,
     updateDate:
       output.updateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDate))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeStateMachineOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeStateMachineOutput => {
+/**
+ * deserializeAws_json1_0DescribeStateMachineOutput
+ */
+const de_DescribeStateMachineOutput = (output: any, context: __SerdeContext): DescribeStateMachineOutput => {
   return {
     creationDate:
       output.creationDate != null
@@ -2657,72 +3051,83 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     definition: __expectString(output.definition),
     label: __expectString(output.label),
     loggingConfiguration:
-      output.loggingConfiguration != null
-        ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
-        : undefined,
+      output.loggingConfiguration != null ? de_LoggingConfiguration(output.loggingConfiguration, context) : undefined,
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
     stateMachineArn: __expectString(output.stateMachineArn),
     status: __expectString(output.status),
     tracingConfiguration:
-      output.tracingConfiguration != null
-        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
-        : undefined,
+      output.tracingConfiguration != null ? de_TracingConfiguration(output.tracingConfiguration, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionAbortedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ExecutionAbortedEventDetails => {
+/**
+ * deserializeAws_json1_0ExecutionAbortedEventDetails
+ */
+const de_ExecutionAbortedEventDetails = (output: any, context: __SerdeContext): ExecutionAbortedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionAlreadyExists = (output: any, context: __SerdeContext): ExecutionAlreadyExists => {
+/**
+ * deserializeAws_json1_0ExecutionAlreadyExists
+ */
+const de_ExecutionAlreadyExists = (output: any, context: __SerdeContext): ExecutionAlreadyExists => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionDoesNotExist = (output: any, context: __SerdeContext): ExecutionDoesNotExist => {
+/**
+ * deserializeAws_json1_0ExecutionDoesNotExist
+ */
+const de_ExecutionDoesNotExist = (output: any, context: __SerdeContext): ExecutionDoesNotExist => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionFailedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ExecutionFailedEventDetails => {
+/**
+ * deserializeAws_json1_0ExecutionFailedEventDetails
+ */
+const de_ExecutionFailedEventDetails = (output: any, context: __SerdeContext): ExecutionFailedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionLimitExceeded = (output: any, context: __SerdeContext): ExecutionLimitExceeded => {
+/**
+ * deserializeAws_json1_0ExecutionLimitExceeded
+ */
+const de_ExecutionLimitExceeded = (output: any, context: __SerdeContext): ExecutionLimitExceeded => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionList = (output: any, context: __SerdeContext): ExecutionListItem[] => {
+/**
+ * deserializeAws_json1_0ExecutionList
+ */
+const de_ExecutionList = (output: any, context: __SerdeContext): ExecutionListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ExecutionListItem(entry, context);
+      return de_ExecutionListItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ExecutionListItem = (output: any, context: __SerdeContext): ExecutionListItem => {
+/**
+ * deserializeAws_json1_0ExecutionListItem
+ */
+const de_ExecutionListItem = (output: any, context: __SerdeContext): ExecutionListItem => {
   return {
     executionArn: __expectString(output.executionArn),
     itemCount: __expectInt32(output.itemCount),
@@ -2737,205 +3142,201 @@ const deserializeAws_json1_0ExecutionListItem = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionStartedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ExecutionStartedEventDetails => {
+/**
+ * deserializeAws_json1_0ExecutionStartedEventDetails
+ */
+const de_ExecutionStartedEventDetails = (output: any, context: __SerdeContext): ExecutionStartedEventDetails => {
   return {
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_HistoryEventExecutionDataDetails(output.inputDetails, context) : undefined,
     roleArn: __expectString(output.roleArn),
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionSucceededEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ExecutionSucceededEventDetails => {
+/**
+ * deserializeAws_json1_0ExecutionSucceededEventDetails
+ */
+const de_ExecutionSucceededEventDetails = (output: any, context: __SerdeContext): ExecutionSucceededEventDetails => {
   return {
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ExecutionTimedOutEventDetails = (
-  output: any,
-  context: __SerdeContext
-): ExecutionTimedOutEventDetails => {
+/**
+ * deserializeAws_json1_0ExecutionTimedOutEventDetails
+ */
+const de_ExecutionTimedOutEventDetails = (output: any, context: __SerdeContext): ExecutionTimedOutEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0GetActivityTaskOutput = (output: any, context: __SerdeContext): GetActivityTaskOutput => {
+/**
+ * deserializeAws_json1_0GetActivityTaskOutput
+ */
+const de_GetActivityTaskOutput = (output: any, context: __SerdeContext): GetActivityTaskOutput => {
   return {
     input: __expectString(output.input),
     taskToken: __expectString(output.taskToken),
   } as any;
 };
 
-const deserializeAws_json1_0GetExecutionHistoryOutput = (
-  output: any,
-  context: __SerdeContext
-): GetExecutionHistoryOutput => {
+/**
+ * deserializeAws_json1_0GetExecutionHistoryOutput
+ */
+const de_GetExecutionHistoryOutput = (output: any, context: __SerdeContext): GetExecutionHistoryOutput => {
   return {
-    events: output.events != null ? deserializeAws_json1_0HistoryEventList(output.events, context) : undefined,
+    events: output.events != null ? de_HistoryEventList(output.events, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
+/**
+ * deserializeAws_json1_0HistoryEvent
+ */
+const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
   return {
     activityFailedEventDetails:
       output.activityFailedEventDetails != null
-        ? deserializeAws_json1_0ActivityFailedEventDetails(output.activityFailedEventDetails, context)
+        ? de_ActivityFailedEventDetails(output.activityFailedEventDetails, context)
         : undefined,
     activityScheduleFailedEventDetails:
       output.activityScheduleFailedEventDetails != null
-        ? deserializeAws_json1_0ActivityScheduleFailedEventDetails(output.activityScheduleFailedEventDetails, context)
+        ? de_ActivityScheduleFailedEventDetails(output.activityScheduleFailedEventDetails, context)
         : undefined,
     activityScheduledEventDetails:
       output.activityScheduledEventDetails != null
-        ? deserializeAws_json1_0ActivityScheduledEventDetails(output.activityScheduledEventDetails, context)
+        ? de_ActivityScheduledEventDetails(output.activityScheduledEventDetails, context)
         : undefined,
     activityStartedEventDetails:
       output.activityStartedEventDetails != null
-        ? deserializeAws_json1_0ActivityStartedEventDetails(output.activityStartedEventDetails, context)
+        ? de_ActivityStartedEventDetails(output.activityStartedEventDetails, context)
         : undefined,
     activitySucceededEventDetails:
       output.activitySucceededEventDetails != null
-        ? deserializeAws_json1_0ActivitySucceededEventDetails(output.activitySucceededEventDetails, context)
+        ? de_ActivitySucceededEventDetails(output.activitySucceededEventDetails, context)
         : undefined,
     activityTimedOutEventDetails:
       output.activityTimedOutEventDetails != null
-        ? deserializeAws_json1_0ActivityTimedOutEventDetails(output.activityTimedOutEventDetails, context)
+        ? de_ActivityTimedOutEventDetails(output.activityTimedOutEventDetails, context)
         : undefined,
     executionAbortedEventDetails:
       output.executionAbortedEventDetails != null
-        ? deserializeAws_json1_0ExecutionAbortedEventDetails(output.executionAbortedEventDetails, context)
+        ? de_ExecutionAbortedEventDetails(output.executionAbortedEventDetails, context)
         : undefined,
     executionFailedEventDetails:
       output.executionFailedEventDetails != null
-        ? deserializeAws_json1_0ExecutionFailedEventDetails(output.executionFailedEventDetails, context)
+        ? de_ExecutionFailedEventDetails(output.executionFailedEventDetails, context)
         : undefined,
     executionStartedEventDetails:
       output.executionStartedEventDetails != null
-        ? deserializeAws_json1_0ExecutionStartedEventDetails(output.executionStartedEventDetails, context)
+        ? de_ExecutionStartedEventDetails(output.executionStartedEventDetails, context)
         : undefined,
     executionSucceededEventDetails:
       output.executionSucceededEventDetails != null
-        ? deserializeAws_json1_0ExecutionSucceededEventDetails(output.executionSucceededEventDetails, context)
+        ? de_ExecutionSucceededEventDetails(output.executionSucceededEventDetails, context)
         : undefined,
     executionTimedOutEventDetails:
       output.executionTimedOutEventDetails != null
-        ? deserializeAws_json1_0ExecutionTimedOutEventDetails(output.executionTimedOutEventDetails, context)
+        ? de_ExecutionTimedOutEventDetails(output.executionTimedOutEventDetails, context)
         : undefined,
     id: __expectLong(output.id),
     lambdaFunctionFailedEventDetails:
       output.lambdaFunctionFailedEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionFailedEventDetails(output.lambdaFunctionFailedEventDetails, context)
+        ? de_LambdaFunctionFailedEventDetails(output.lambdaFunctionFailedEventDetails, context)
         : undefined,
     lambdaFunctionScheduleFailedEventDetails:
       output.lambdaFunctionScheduleFailedEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails(
-            output.lambdaFunctionScheduleFailedEventDetails,
-            context
-          )
+        ? de_LambdaFunctionScheduleFailedEventDetails(output.lambdaFunctionScheduleFailedEventDetails, context)
         : undefined,
     lambdaFunctionScheduledEventDetails:
       output.lambdaFunctionScheduledEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionScheduledEventDetails(output.lambdaFunctionScheduledEventDetails, context)
+        ? de_LambdaFunctionScheduledEventDetails(output.lambdaFunctionScheduledEventDetails, context)
         : undefined,
     lambdaFunctionStartFailedEventDetails:
       output.lambdaFunctionStartFailedEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionStartFailedEventDetails(
-            output.lambdaFunctionStartFailedEventDetails,
-            context
-          )
+        ? de_LambdaFunctionStartFailedEventDetails(output.lambdaFunctionStartFailedEventDetails, context)
         : undefined,
     lambdaFunctionSucceededEventDetails:
       output.lambdaFunctionSucceededEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionSucceededEventDetails(output.lambdaFunctionSucceededEventDetails, context)
+        ? de_LambdaFunctionSucceededEventDetails(output.lambdaFunctionSucceededEventDetails, context)
         : undefined,
     lambdaFunctionTimedOutEventDetails:
       output.lambdaFunctionTimedOutEventDetails != null
-        ? deserializeAws_json1_0LambdaFunctionTimedOutEventDetails(output.lambdaFunctionTimedOutEventDetails, context)
+        ? de_LambdaFunctionTimedOutEventDetails(output.lambdaFunctionTimedOutEventDetails, context)
         : undefined,
     mapIterationAbortedEventDetails:
       output.mapIterationAbortedEventDetails != null
-        ? deserializeAws_json1_0MapIterationEventDetails(output.mapIterationAbortedEventDetails, context)
+        ? de_MapIterationEventDetails(output.mapIterationAbortedEventDetails, context)
         : undefined,
     mapIterationFailedEventDetails:
       output.mapIterationFailedEventDetails != null
-        ? deserializeAws_json1_0MapIterationEventDetails(output.mapIterationFailedEventDetails, context)
+        ? de_MapIterationEventDetails(output.mapIterationFailedEventDetails, context)
         : undefined,
     mapIterationStartedEventDetails:
       output.mapIterationStartedEventDetails != null
-        ? deserializeAws_json1_0MapIterationEventDetails(output.mapIterationStartedEventDetails, context)
+        ? de_MapIterationEventDetails(output.mapIterationStartedEventDetails, context)
         : undefined,
     mapIterationSucceededEventDetails:
       output.mapIterationSucceededEventDetails != null
-        ? deserializeAws_json1_0MapIterationEventDetails(output.mapIterationSucceededEventDetails, context)
+        ? de_MapIterationEventDetails(output.mapIterationSucceededEventDetails, context)
         : undefined,
     mapRunFailedEventDetails:
       output.mapRunFailedEventDetails != null
-        ? deserializeAws_json1_0MapRunFailedEventDetails(output.mapRunFailedEventDetails, context)
+        ? de_MapRunFailedEventDetails(output.mapRunFailedEventDetails, context)
         : undefined,
     mapRunStartedEventDetails:
       output.mapRunStartedEventDetails != null
-        ? deserializeAws_json1_0MapRunStartedEventDetails(output.mapRunStartedEventDetails, context)
+        ? de_MapRunStartedEventDetails(output.mapRunStartedEventDetails, context)
         : undefined,
     mapStateStartedEventDetails:
       output.mapStateStartedEventDetails != null
-        ? deserializeAws_json1_0MapStateStartedEventDetails(output.mapStateStartedEventDetails, context)
+        ? de_MapStateStartedEventDetails(output.mapStateStartedEventDetails, context)
         : undefined,
     previousEventId: __expectLong(output.previousEventId),
     stateEnteredEventDetails:
       output.stateEnteredEventDetails != null
-        ? deserializeAws_json1_0StateEnteredEventDetails(output.stateEnteredEventDetails, context)
+        ? de_StateEnteredEventDetails(output.stateEnteredEventDetails, context)
         : undefined,
     stateExitedEventDetails:
       output.stateExitedEventDetails != null
-        ? deserializeAws_json1_0StateExitedEventDetails(output.stateExitedEventDetails, context)
+        ? de_StateExitedEventDetails(output.stateExitedEventDetails, context)
         : undefined,
     taskFailedEventDetails:
       output.taskFailedEventDetails != null
-        ? deserializeAws_json1_0TaskFailedEventDetails(output.taskFailedEventDetails, context)
+        ? de_TaskFailedEventDetails(output.taskFailedEventDetails, context)
         : undefined,
     taskScheduledEventDetails:
       output.taskScheduledEventDetails != null
-        ? deserializeAws_json1_0TaskScheduledEventDetails(output.taskScheduledEventDetails, context)
+        ? de_TaskScheduledEventDetails(output.taskScheduledEventDetails, context)
         : undefined,
     taskStartFailedEventDetails:
       output.taskStartFailedEventDetails != null
-        ? deserializeAws_json1_0TaskStartFailedEventDetails(output.taskStartFailedEventDetails, context)
+        ? de_TaskStartFailedEventDetails(output.taskStartFailedEventDetails, context)
         : undefined,
     taskStartedEventDetails:
       output.taskStartedEventDetails != null
-        ? deserializeAws_json1_0TaskStartedEventDetails(output.taskStartedEventDetails, context)
+        ? de_TaskStartedEventDetails(output.taskStartedEventDetails, context)
         : undefined,
     taskSubmitFailedEventDetails:
       output.taskSubmitFailedEventDetails != null
-        ? deserializeAws_json1_0TaskSubmitFailedEventDetails(output.taskSubmitFailedEventDetails, context)
+        ? de_TaskSubmitFailedEventDetails(output.taskSubmitFailedEventDetails, context)
         : undefined,
     taskSubmittedEventDetails:
       output.taskSubmittedEventDetails != null
-        ? deserializeAws_json1_0TaskSubmittedEventDetails(output.taskSubmittedEventDetails, context)
+        ? de_TaskSubmittedEventDetails(output.taskSubmittedEventDetails, context)
         : undefined,
     taskSucceededEventDetails:
       output.taskSucceededEventDetails != null
-        ? deserializeAws_json1_0TaskSucceededEventDetails(output.taskSucceededEventDetails, context)
+        ? de_TaskSucceededEventDetails(output.taskSucceededEventDetails, context)
         : undefined,
     taskTimedOutEventDetails:
       output.taskTimedOutEventDetails != null
-        ? deserializeAws_json1_0TaskTimedOutEventDetails(output.taskTimedOutEventDetails, context)
+        ? de_TaskTimedOutEventDetails(output.taskTimedOutEventDetails, context)
         : undefined,
     timestamp:
       output.timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp))) : undefined,
@@ -2943,7 +3344,10 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0HistoryEventExecutionDataDetails = (
+/**
+ * deserializeAws_json1_0HistoryEventExecutionDataDetails
+ */
+const de_HistoryEventExecutionDataDetails = (
   output: any,
   context: __SerdeContext
 ): HistoryEventExecutionDataDetails => {
@@ -2952,73 +3356,97 @@ const deserializeAws_json1_0HistoryEventExecutionDataDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
+/**
+ * deserializeAws_json1_0HistoryEventList
+ */
+const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0HistoryEvent(entry, context);
+      return de_HistoryEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0InvalidArn = (output: any, context: __SerdeContext): InvalidArn => {
+/**
+ * deserializeAws_json1_0InvalidArn
+ */
+const de_InvalidArn = (output: any, context: __SerdeContext): InvalidArn => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidDefinition = (output: any, context: __SerdeContext): InvalidDefinition => {
+/**
+ * deserializeAws_json1_0InvalidDefinition
+ */
+const de_InvalidDefinition = (output: any, context: __SerdeContext): InvalidDefinition => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidExecutionInput = (output: any, context: __SerdeContext): InvalidExecutionInput => {
+/**
+ * deserializeAws_json1_0InvalidExecutionInput
+ */
+const de_InvalidExecutionInput = (output: any, context: __SerdeContext): InvalidExecutionInput => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidLoggingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InvalidLoggingConfiguration => {
+/**
+ * deserializeAws_json1_0InvalidLoggingConfiguration
+ */
+const de_InvalidLoggingConfiguration = (output: any, context: __SerdeContext): InvalidLoggingConfiguration => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidName = (output: any, context: __SerdeContext): InvalidName => {
+/**
+ * deserializeAws_json1_0InvalidName
+ */
+const de_InvalidName = (output: any, context: __SerdeContext): InvalidName => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidOutput = (output: any, context: __SerdeContext): InvalidOutput => {
+/**
+ * deserializeAws_json1_0InvalidOutput
+ */
+const de_InvalidOutput = (output: any, context: __SerdeContext): InvalidOutput => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidToken = (output: any, context: __SerdeContext): InvalidToken => {
+/**
+ * deserializeAws_json1_0InvalidToken
+ */
+const de_InvalidToken = (output: any, context: __SerdeContext): InvalidToken => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidTracingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InvalidTracingConfiguration => {
+/**
+ * deserializeAws_json1_0InvalidTracingConfiguration
+ */
+const de_InvalidTracingConfiguration = (output: any, context: __SerdeContext): InvalidTracingConfiguration => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionFailedEventDetails
+ */
+const de_LambdaFunctionFailedEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionFailedEventDetails => {
@@ -3028,26 +3456,27 @@ const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionScheduledEventDetails
+ */
+const de_LambdaFunctionScheduledEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionScheduledEventDetails => {
   return {
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_HistoryEventExecutionDataDetails(output.inputDetails, context) : undefined,
     resource: __expectString(output.resource),
-    taskCredentials:
-      output.taskCredentials != null
-        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
-        : undefined,
+    taskCredentials: output.taskCredentials != null ? de_TaskCredentials(output.taskCredentials, context) : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails
+ */
+const de_LambdaFunctionScheduleFailedEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionScheduleFailedEventDetails => {
@@ -3057,7 +3486,10 @@ const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionStartFailedEventDetails
+ */
+const de_LambdaFunctionStartFailedEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionStartFailedEventDetails => {
@@ -3067,20 +3499,24 @@ const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionSucceededEventDetails
+ */
+const de_LambdaFunctionSucceededEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionSucceededEventDetails => {
   return {
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
+/**
+ * deserializeAws_json1_0LambdaFunctionTimedOutEventDetails
+ */
+const de_LambdaFunctionTimedOutEventDetails = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionTimedOutEventDetails => {
@@ -3090,88 +3526,107 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0ListActivitiesOutput = (output: any, context: __SerdeContext): ListActivitiesOutput => {
+/**
+ * deserializeAws_json1_0ListActivitiesOutput
+ */
+const de_ListActivitiesOutput = (output: any, context: __SerdeContext): ListActivitiesOutput => {
   return {
-    activities: output.activities != null ? deserializeAws_json1_0ActivityList(output.activities, context) : undefined,
+    activities: output.activities != null ? de_ActivityList(output.activities, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListExecutionsOutput = (output: any, context: __SerdeContext): ListExecutionsOutput => {
+/**
+ * deserializeAws_json1_0ListExecutionsOutput
+ */
+const de_ListExecutionsOutput = (output: any, context: __SerdeContext): ListExecutionsOutput => {
   return {
-    executions: output.executions != null ? deserializeAws_json1_0ExecutionList(output.executions, context) : undefined,
+    executions: output.executions != null ? de_ExecutionList(output.executions, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListMapRunsOutput = (output: any, context: __SerdeContext): ListMapRunsOutput => {
+/**
+ * deserializeAws_json1_0ListMapRunsOutput
+ */
+const de_ListMapRunsOutput = (output: any, context: __SerdeContext): ListMapRunsOutput => {
   return {
-    mapRuns: output.mapRuns != null ? deserializeAws_json1_0MapRunList(output.mapRuns, context) : undefined,
+    mapRuns: output.mapRuns != null ? de_MapRunList(output.mapRuns, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListStateMachinesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListStateMachinesOutput => {
+/**
+ * deserializeAws_json1_0ListStateMachinesOutput
+ */
+const de_ListStateMachinesOutput = (output: any, context: __SerdeContext): ListStateMachinesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    stateMachines:
-      output.stateMachines != null ? deserializeAws_json1_0StateMachineList(output.stateMachines, context) : undefined,
+    stateMachines: output.stateMachines != null ? de_StateMachineList(output.stateMachines, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceOutput => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceOutput
+ */
+const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   return {
-    tags: output.tags != null ? deserializeAws_json1_0TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0LogDestination = (output: any, context: __SerdeContext): LogDestination => {
+/**
+ * deserializeAws_json1_0LogDestination
+ */
+const de_LogDestination = (output: any, context: __SerdeContext): LogDestination => {
   return {
     cloudWatchLogsLogGroup:
       output.cloudWatchLogsLogGroup != null
-        ? deserializeAws_json1_0CloudWatchLogsLogGroup(output.cloudWatchLogsLogGroup, context)
+        ? de_CloudWatchLogsLogGroup(output.cloudWatchLogsLogGroup, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0LogDestinationList = (output: any, context: __SerdeContext): LogDestination[] => {
+/**
+ * deserializeAws_json1_0LogDestinationList
+ */
+const de_LogDestinationList = (output: any, context: __SerdeContext): LogDestination[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0LogDestination(entry, context);
+      return de_LogDestination(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
+/**
+ * deserializeAws_json1_0LoggingConfiguration
+ */
+const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
-    destinations:
-      output.destinations != null ? deserializeAws_json1_0LogDestinationList(output.destinations, context) : undefined,
+    destinations: output.destinations != null ? de_LogDestinationList(output.destinations, context) : undefined,
     includeExecutionData: __expectBoolean(output.includeExecutionData),
     level: __expectString(output.level),
   } as any;
 };
 
-const deserializeAws_json1_0MapIterationEventDetails = (
-  output: any,
-  context: __SerdeContext
-): MapIterationEventDetails => {
+/**
+ * deserializeAws_json1_0MapIterationEventDetails
+ */
+const de_MapIterationEventDetails = (output: any, context: __SerdeContext): MapIterationEventDetails => {
   return {
     index: __expectInt32(output.index),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0MapRunExecutionCounts = (output: any, context: __SerdeContext): MapRunExecutionCounts => {
+/**
+ * deserializeAws_json1_0MapRunExecutionCounts
+ */
+const de_MapRunExecutionCounts = (output: any, context: __SerdeContext): MapRunExecutionCounts => {
   return {
     aborted: __expectLong(output.aborted),
     failed: __expectLong(output.failed),
@@ -3184,17 +3639,20 @@ const deserializeAws_json1_0MapRunExecutionCounts = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0MapRunFailedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): MapRunFailedEventDetails => {
+/**
+ * deserializeAws_json1_0MapRunFailedEventDetails
+ */
+const de_MapRunFailedEventDetails = (output: any, context: __SerdeContext): MapRunFailedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
   } as any;
 };
 
-const deserializeAws_json1_0MapRunItemCounts = (output: any, context: __SerdeContext): MapRunItemCounts => {
+/**
+ * deserializeAws_json1_0MapRunItemCounts
+ */
+const de_MapRunItemCounts = (output: any, context: __SerdeContext): MapRunItemCounts => {
   return {
     aborted: __expectLong(output.aborted),
     failed: __expectLong(output.failed),
@@ -3207,19 +3665,25 @@ const deserializeAws_json1_0MapRunItemCounts = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0MapRunList = (output: any, context: __SerdeContext): MapRunListItem[] => {
+/**
+ * deserializeAws_json1_0MapRunList
+ */
+const de_MapRunList = (output: any, context: __SerdeContext): MapRunListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0MapRunListItem(entry, context);
+      return de_MapRunListItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0MapRunListItem = (output: any, context: __SerdeContext): MapRunListItem => {
+/**
+ * deserializeAws_json1_0MapRunListItem
+ */
+const de_MapRunListItem = (output: any, context: __SerdeContext): MapRunListItem => {
   return {
     executionArn: __expectString(output.executionArn),
     mapRunArn: __expectString(output.mapRunArn),
@@ -3231,56 +3695,68 @@ const deserializeAws_json1_0MapRunListItem = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_0MapRunStartedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): MapRunStartedEventDetails => {
+/**
+ * deserializeAws_json1_0MapRunStartedEventDetails
+ */
+const de_MapRunStartedEventDetails = (output: any, context: __SerdeContext): MapRunStartedEventDetails => {
   return {
     mapRunArn: __expectString(output.mapRunArn),
   } as any;
 };
 
-const deserializeAws_json1_0MapStateStartedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): MapStateStartedEventDetails => {
+/**
+ * deserializeAws_json1_0MapStateStartedEventDetails
+ */
+const de_MapStateStartedEventDetails = (output: any, context: __SerdeContext): MapStateStartedEventDetails => {
   return {
     length: __expectInt32(output.length),
   } as any;
 };
 
-const deserializeAws_json1_0MissingRequiredParameter = (
-  output: any,
-  context: __SerdeContext
-): MissingRequiredParameter => {
+/**
+ * deserializeAws_json1_0MissingRequiredParameter
+ */
+const de_MissingRequiredParameter = (output: any, context: __SerdeContext): MissingRequiredParameter => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
+/**
+ * deserializeAws_json1_0ResourceNotFound
+ */
+const de_ResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
   return {
     message: __expectString(output.message),
     resourceName: __expectString(output.resourceName),
   } as any;
 };
 
-const deserializeAws_json1_0SendTaskFailureOutput = (output: any, context: __SerdeContext): SendTaskFailureOutput => {
+/**
+ * deserializeAws_json1_0SendTaskFailureOutput
+ */
+const de_SendTaskFailureOutput = (output: any, context: __SerdeContext): SendTaskFailureOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0SendTaskHeartbeatOutput = (
-  output: any,
-  context: __SerdeContext
-): SendTaskHeartbeatOutput => {
+/**
+ * deserializeAws_json1_0SendTaskHeartbeatOutput
+ */
+const de_SendTaskHeartbeatOutput = (output: any, context: __SerdeContext): SendTaskHeartbeatOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0SendTaskSuccessOutput = (output: any, context: __SerdeContext): SendTaskSuccessOutput => {
+/**
+ * deserializeAws_json1_0SendTaskSuccessOutput
+ */
+const de_SendTaskSuccessOutput = (output: any, context: __SerdeContext): SendTaskSuccessOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0StartExecutionOutput = (output: any, context: __SerdeContext): StartExecutionOutput => {
+/**
+ * deserializeAws_json1_0StartExecutionOutput
+ */
+const de_StartExecutionOutput = (output: any, context: __SerdeContext): StartExecutionOutput => {
   return {
     executionArn: __expectString(output.executionArn),
     startDate:
@@ -3288,27 +3764,22 @@ const deserializeAws_json1_0StartExecutionOutput = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0StartSyncExecutionOutput = (
-  output: any,
-  context: __SerdeContext
-): StartSyncExecutionOutput => {
+/**
+ * deserializeAws_json1_0StartSyncExecutionOutput
+ */
+const de_StartSyncExecutionOutput = (output: any, context: __SerdeContext): StartSyncExecutionOutput => {
   return {
-    billingDetails:
-      output.billingDetails != null ? deserializeAws_json1_0BillingDetails(output.billingDetails, context) : undefined,
+    billingDetails: output.billingDetails != null ? de_BillingDetails(output.billingDetails, context) : undefined,
     cause: __expectString(output.cause),
     error: __expectString(output.error),
     executionArn: __expectString(output.executionArn),
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_CloudWatchEventsExecutionDataDetails(output.inputDetails, context) : undefined,
     name: __expectString(output.name),
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_CloudWatchEventsExecutionDataDetails(output.outputDetails, context) : undefined,
     startDate:
       output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
@@ -3319,80 +3790,85 @@ const deserializeAws_json1_0StartSyncExecutionOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0StateEnteredEventDetails = (
-  output: any,
-  context: __SerdeContext
-): StateEnteredEventDetails => {
+/**
+ * deserializeAws_json1_0StateEnteredEventDetails
+ */
+const de_StateEnteredEventDetails = (output: any, context: __SerdeContext): StateEnteredEventDetails => {
   return {
     input: __expectString(output.input),
     inputDetails:
-      output.inputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
-        : undefined,
+      output.inputDetails != null ? de_HistoryEventExecutionDataDetails(output.inputDetails, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0StateExitedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): StateExitedEventDetails => {
+/**
+ * deserializeAws_json1_0StateExitedEventDetails
+ */
+const de_StateExitedEventDetails = (output: any, context: __SerdeContext): StateExitedEventDetails => {
   return {
     name: __expectString(output.name),
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineAlreadyExists = (
-  output: any,
-  context: __SerdeContext
-): StateMachineAlreadyExists => {
+/**
+ * deserializeAws_json1_0StateMachineAlreadyExists
+ */
+const de_StateMachineAlreadyExists = (output: any, context: __SerdeContext): StateMachineAlreadyExists => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineDeleting = (output: any, context: __SerdeContext): StateMachineDeleting => {
+/**
+ * deserializeAws_json1_0StateMachineDeleting
+ */
+const de_StateMachineDeleting = (output: any, context: __SerdeContext): StateMachineDeleting => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineDoesNotExist = (
-  output: any,
-  context: __SerdeContext
-): StateMachineDoesNotExist => {
+/**
+ * deserializeAws_json1_0StateMachineDoesNotExist
+ */
+const de_StateMachineDoesNotExist = (output: any, context: __SerdeContext): StateMachineDoesNotExist => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): StateMachineLimitExceeded => {
+/**
+ * deserializeAws_json1_0StateMachineLimitExceeded
+ */
+const de_StateMachineLimitExceeded = (output: any, context: __SerdeContext): StateMachineLimitExceeded => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineList = (output: any, context: __SerdeContext): StateMachineListItem[] => {
+/**
+ * deserializeAws_json1_0StateMachineList
+ */
+const de_StateMachineList = (output: any, context: __SerdeContext): StateMachineListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0StateMachineListItem(entry, context);
+      return de_StateMachineListItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0StateMachineListItem = (output: any, context: __SerdeContext): StateMachineListItem => {
+/**
+ * deserializeAws_json1_0StateMachineListItem
+ */
+const de_StateMachineListItem = (output: any, context: __SerdeContext): StateMachineListItem => {
   return {
     creationDate:
       output.creationDate != null
@@ -3404,58 +3880,79 @@ const deserializeAws_json1_0StateMachineListItem = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0StateMachineTypeNotSupported = (
-  output: any,
-  context: __SerdeContext
-): StateMachineTypeNotSupported => {
+/**
+ * deserializeAws_json1_0StateMachineTypeNotSupported
+ */
+const de_StateMachineTypeNotSupported = (output: any, context: __SerdeContext): StateMachineTypeNotSupported => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0StopExecutionOutput = (output: any, context: __SerdeContext): StopExecutionOutput => {
+/**
+ * deserializeAws_json1_0StopExecutionOutput
+ */
+const de_StopExecutionOutput = (output: any, context: __SerdeContext): StopExecutionOutput => {
   return {
     stopDate:
       output.stopDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     key: __expectString(output.key),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
+/**
+ * deserializeAws_json1_0TagResourceOutput
+ */
+const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0TaskCredentials = (output: any, context: __SerdeContext): TaskCredentials => {
+/**
+ * deserializeAws_json1_0TaskCredentials
+ */
+const de_TaskCredentials = (output: any, context: __SerdeContext): TaskCredentials => {
   return {
     roleArn: __expectString(output.roleArn),
   } as any;
 };
 
-const deserializeAws_json1_0TaskDoesNotExist = (output: any, context: __SerdeContext): TaskDoesNotExist => {
+/**
+ * deserializeAws_json1_0TaskDoesNotExist
+ */
+const de_TaskDoesNotExist = (output: any, context: __SerdeContext): TaskDoesNotExist => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0TaskFailedEventDetails = (output: any, context: __SerdeContext): TaskFailedEventDetails => {
+/**
+ * deserializeAws_json1_0TaskFailedEventDetails
+ */
+const de_TaskFailedEventDetails = (output: any, context: __SerdeContext): TaskFailedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
@@ -3464,50 +3961,35 @@ const deserializeAws_json1_0TaskFailedEventDetails = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0TaskScheduledEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskScheduledEventDetails => {
+/**
+ * deserializeAws_json1_0TaskScheduledEventDetails
+ */
+const de_TaskScheduledEventDetails = (output: any, context: __SerdeContext): TaskScheduledEventDetails => {
   return {
     heartbeatInSeconds: __expectLong(output.heartbeatInSeconds),
     parameters: __expectString(output.parameters),
     region: __expectString(output.region),
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
-    taskCredentials:
-      output.taskCredentials != null
-        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
-        : undefined,
+    taskCredentials: output.taskCredentials != null ? de_TaskCredentials(output.taskCredentials, context) : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_0TaskStartedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskStartedEventDetails => {
+/**
+ * deserializeAws_json1_0TaskStartedEventDetails
+ */
+const de_TaskStartedEventDetails = (output: any, context: __SerdeContext): TaskStartedEventDetails => {
   return {
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
   } as any;
 };
 
-const deserializeAws_json1_0TaskStartFailedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskStartFailedEventDetails => {
-  return {
-    cause: __expectString(output.cause),
-    error: __expectString(output.error),
-    resource: __expectString(output.resource),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
-
-const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskSubmitFailedEventDetails => {
+/**
+ * deserializeAws_json1_0TaskStartFailedEventDetails
+ */
+const de_TaskStartFailedEventDetails = (output: any, context: __SerdeContext): TaskStartFailedEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
@@ -3516,46 +3998,57 @@ const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0TaskSubmittedEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskSubmittedEventDetails => {
+/**
+ * deserializeAws_json1_0TaskSubmitFailedEventDetails
+ */
+const de_TaskSubmitFailedEventDetails = (output: any, context: __SerdeContext): TaskSubmitFailedEventDetails => {
   return {
-    output: __expectString(output.output),
-    outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+    cause: __expectString(output.cause),
+    error: __expectString(output.error),
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
   } as any;
 };
 
-const deserializeAws_json1_0TaskSucceededEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskSucceededEventDetails => {
+/**
+ * deserializeAws_json1_0TaskSubmittedEventDetails
+ */
+const de_TaskSubmittedEventDetails = (output: any, context: __SerdeContext): TaskSubmittedEventDetails => {
   return {
     output: __expectString(output.output),
     outputDetails:
-      output.outputDetails != null
-        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
-        : undefined,
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
   } as any;
 };
 
-const deserializeAws_json1_0TaskTimedOut = (output: any, context: __SerdeContext): TaskTimedOut => {
+/**
+ * deserializeAws_json1_0TaskSucceededEventDetails
+ */
+const de_TaskSucceededEventDetails = (output: any, context: __SerdeContext): TaskSucceededEventDetails => {
+  return {
+    output: __expectString(output.output),
+    outputDetails:
+      output.outputDetails != null ? de_HistoryEventExecutionDataDetails(output.outputDetails, context) : undefined,
+    resource: __expectString(output.resource),
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_0TaskTimedOut
+ */
+const de_TaskTimedOut = (output: any, context: __SerdeContext): TaskTimedOut => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0TaskTimedOutEventDetails = (
-  output: any,
-  context: __SerdeContext
-): TaskTimedOutEventDetails => {
+/**
+ * deserializeAws_json1_0TaskTimedOutEventDetails
+ */
+const de_TaskTimedOutEventDetails = (output: any, context: __SerdeContext): TaskTimedOutEventDetails => {
   return {
     cause: __expectString(output.cause),
     error: __expectString(output.error),
@@ -3564,38 +4057,53 @@ const deserializeAws_json1_0TaskTimedOutEventDetails = (
   } as any;
 };
 
-const deserializeAws_json1_0TooManyTags = (output: any, context: __SerdeContext): TooManyTags => {
+/**
+ * deserializeAws_json1_0TooManyTags
+ */
+const de_TooManyTags = (output: any, context: __SerdeContext): TooManyTags => {
   return {
     message: __expectString(output.message),
     resourceName: __expectString(output.resourceName),
   } as any;
 };
 
-const deserializeAws_json1_0TracingConfiguration = (output: any, context: __SerdeContext): TracingConfiguration => {
+/**
+ * deserializeAws_json1_0TracingConfiguration
+ */
+const de_TracingConfiguration = (output: any, context: __SerdeContext): TracingConfiguration => {
   return {
     enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
+/**
+ * deserializeAws_json1_0UntagResourceOutput
+ */
+const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateMapRunOutput = (output: any, context: __SerdeContext): UpdateMapRunOutput => {
+/**
+ * deserializeAws_json1_0UpdateMapRunOutput
+ */
+const de_UpdateMapRunOutput = (output: any, context: __SerdeContext): UpdateMapRunOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateStateMachineOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateStateMachineOutput => {
+/**
+ * deserializeAws_json1_0UpdateStateMachineOutput
+ */
+const de_UpdateStateMachineOutput = (output: any, context: __SerdeContext): UpdateStateMachineOutput => {
   return {
     updateDate:
       output.updateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDate))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     message: __expectString(output.message),
     reason: __expectString(output.reason),

@@ -15,7 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetFileInput, GetFileOutput } from "../models/models_0";
-import { deserializeAws_json1_1GetFileCommand, serializeAws_json1_1GetFileCommand } from "../protocols/Aws_json1_1";
+import { de_GetFileCommand, se_GetFileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +167,14 @@ export class GetFileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileCommand(input, context);
+    return se_GetFileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileCommandOutput> {
-    return deserializeAws_json1_1GetFileCommand(output, context);
+    return de_GetFileCommand(output, context);
   }
 
   // Start section: command_body_extra

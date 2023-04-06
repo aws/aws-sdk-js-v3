@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteJobTemplateRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobTemplateCommand,
-  serializeAws_restJson1DeleteJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteJobTemplateCommand, se_DeleteJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteJobTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
+    return se_DeleteJobTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
+    return de_DeleteJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

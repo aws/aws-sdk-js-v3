@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListSAMLProviderTagsCommand,
-  serializeAws_queryListSAMLProviderTagsCommand,
-} from "../protocols/Aws_query";
+import { de_ListSAMLProviderTagsCommand, se_ListSAMLProviderTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListSAMLProviderTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSAMLProviderTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSAMLProviderTagsCommand(input, context);
+    return se_ListSAMLProviderTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProviderTagsCommandOutput> {
-    return deserializeAws_queryListSAMLProviderTagsCommand(output, context);
+    return de_ListSAMLProviderTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointGroupCommand,
-  serializeAws_json1_1DescribeEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEndpointGroupCommand, se_DescribeEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeEndpointGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointGroupCommand(input, context);
+    return se_DescribeEndpointGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointGroupCommand(output, context);
+    return de_DescribeEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChangeSetsCommand,
-  serializeAws_restJson1ListChangeSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class ListChangeSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChangeSetsCommand(input, context);
+    return se_ListChangeSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_restJson1ListChangeSetsCommand(output, context);
+    return de_ListChangeSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

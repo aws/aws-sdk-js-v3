@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ClaimDevicesByClaimCodeCommand,
-  serializeAws_restJson1ClaimDevicesByClaimCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ClaimDevicesByClaimCodeCommand, se_ClaimDevicesByClaimCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: ClaimDevicesByClaimCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClaimDevicesByClaimCodeCommand(input, context);
+    return se_ClaimDevicesByClaimCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDevicesByClaimCodeCommandOutput> {
-    return deserializeAws_restJson1ClaimDevicesByClaimCodeCommand(output, context);
+    return de_ClaimDevicesByClaimCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

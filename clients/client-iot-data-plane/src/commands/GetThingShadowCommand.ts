@@ -15,10 +15,7 @@ import {
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { GetThingShadowRequest, GetThingShadowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetThingShadowCommand,
-  serializeAws_restJson1GetThingShadowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetThingShadowCommand, se_GetThingShadowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetThingShadowCommand extends $Command<
    * @internal
    */
   private serialize(input: GetThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThingShadowCommand(input, context);
+    return se_GetThingShadowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThingShadowCommandOutput> {
-    return deserializeAws_restJson1GetThingShadowCommand(output, context);
+    return de_GetThingShadowCommand(output, context);
   }
 
   // Start section: command_body_extra

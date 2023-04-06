@@ -25,10 +25,7 @@ import {
   DescribeRiskConfigurationResponse,
   DescribeRiskConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRiskConfigurationCommand,
-  serializeAws_json1_1DescribeRiskConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRiskConfigurationCommand, se_DescribeRiskConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class DescribeRiskConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRiskConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRiskConfigurationCommand(input, context);
+    return se_DescribeRiskConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class DescribeRiskConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRiskConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRiskConfigurationCommand(output, context);
+    return de_DescribeRiskConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

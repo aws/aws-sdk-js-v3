@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { StartFuotaTaskRequest, StartFuotaTaskResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartFuotaTaskCommand,
-  serializeAws_restJson1StartFuotaTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartFuotaTaskCommand, se_StartFuotaTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class StartFuotaTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StartFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFuotaTaskCommand(input, context);
+    return se_StartFuotaTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1StartFuotaTaskCommand(output, context);
+    return de_StartFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

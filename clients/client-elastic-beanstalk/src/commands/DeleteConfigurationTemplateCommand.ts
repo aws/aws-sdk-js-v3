@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteConfigurationTemplateMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteConfigurationTemplateCommand,
-  serializeAws_queryDeleteConfigurationTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteConfigurationTemplateCommand, se_DeleteConfigurationTemplateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class DeleteConfigurationTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationTemplateCommand(input, context);
+    return se_DeleteConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationTemplateCommand(output, context);
+    return de_DeleteConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutClusterCapacityProvidersCommand,
-  serializeAws_json1_1PutClusterCapacityProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutClusterCapacityProvidersCommand, se_PutClusterCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,7 +167,7 @@ export class PutClusterCapacityProvidersCommand extends $Command<
    * @internal
    */
   private serialize(input: PutClusterCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutClusterCapacityProvidersCommand(input, context);
+    return se_PutClusterCapacityProvidersCommand(input, context);
   }
 
   /**
@@ -180,7 +177,7 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutClusterCapacityProvidersCommandOutput> {
-    return deserializeAws_json1_1PutClusterCapacityProvidersCommand(output, context);
+    return de_PutClusterCapacityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

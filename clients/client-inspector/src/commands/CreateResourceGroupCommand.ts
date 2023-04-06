@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { CreateResourceGroupRequest, CreateResourceGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResourceGroupCommand,
-  serializeAws_json1_1CreateResourceGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateResourceGroupCommand, se_CreateResourceGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class CreateResourceGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResourceGroupCommand(input, context);
+    return se_CreateResourceGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceGroupCommandOutput> {
-    return deserializeAws_json1_1CreateResourceGroupCommand(output, context);
+    return de_CreateResourceGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

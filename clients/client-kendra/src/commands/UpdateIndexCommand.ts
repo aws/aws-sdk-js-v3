@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateIndexRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateIndexCommand,
-  serializeAws_json1_1UpdateIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateIndexCommand, se_UpdateIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class UpdateIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIndexCommand(input, context);
+    return se_UpdateIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexCommandOutput> {
-    return deserializeAws_json1_1UpdateIndexCommand(output, context);
+    return de_UpdateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

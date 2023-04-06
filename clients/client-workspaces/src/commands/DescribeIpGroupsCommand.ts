@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIpGroupsCommand,
-  serializeAws_json1_1DescribeIpGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeIpGroupsCommand, se_DescribeIpGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -130,14 +127,14 @@ export class DescribeIpGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIpGroupsCommand(input, context);
+    return se_DescribeIpGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeIpGroupsCommand(output, context);
+    return de_DescribeIpGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

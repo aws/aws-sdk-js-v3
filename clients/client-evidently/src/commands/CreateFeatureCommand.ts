@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { CreateFeatureRequest, CreateFeatureResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFeatureCommand,
-  serializeAws_restJson1CreateFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFeatureCommand, se_CreateFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class CreateFeatureCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFeatureCommand(input, context);
+    return se_CreateFeatureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureCommandOutput> {
-    return deserializeAws_restJson1CreateFeatureCommand(output, context);
+    return de_CreateFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

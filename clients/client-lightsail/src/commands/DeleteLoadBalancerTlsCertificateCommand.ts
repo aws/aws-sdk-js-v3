@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteLoadBalancerTlsCertificateRequest, DeleteLoadBalancerTlsCertificateResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
-  serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
+  de_DeleteLoadBalancerTlsCertificateCommand,
+  se_DeleteLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -160,7 +160,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     input: DeleteLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(input, context);
+    return se_DeleteLoadBalancerTlsCertificateCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(output, context);
+    return de_DeleteLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

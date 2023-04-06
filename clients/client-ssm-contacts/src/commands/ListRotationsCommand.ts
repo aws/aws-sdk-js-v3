@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRotationsRequest, ListRotationsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRotationsCommand,
-  serializeAws_json1_1ListRotationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRotationsCommand, se_ListRotationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -136,14 +133,14 @@ export class ListRotationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRotationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRotationsCommand(input, context);
+    return se_ListRotationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRotationsCommandOutput> {
-    return deserializeAws_json1_1ListRotationsCommand(output, context);
+    return de_ListRotationsCommand(output, context);
   }
 
   // Start section: command_body_extra

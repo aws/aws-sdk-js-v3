@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DescribeTasksRequest, DescribeTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTasksCommand,
-  serializeAws_json1_1DescribeTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTasksCommand, se_DescribeTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class DescribeTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTasksCommand(input, context);
+    return se_DescribeTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeTasksCommand(output, context);
+    return de_DescribeTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

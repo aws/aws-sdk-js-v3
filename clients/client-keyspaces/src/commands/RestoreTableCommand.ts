@@ -15,10 +15,7 @@ import {
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { RestoreTableRequest, RestoreTableResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0RestoreTableCommand,
-  serializeAws_json1_0RestoreTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RestoreTableCommand, se_RestoreTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -207,14 +204,14 @@ export class RestoreTableCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RestoreTableCommand(input, context);
+    return se_RestoreTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableCommandOutput> {
-    return deserializeAws_json1_0RestoreTableCommand(output, context);
+    return de_RestoreTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRetentionPolicyRequest, DeleteRetentionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRetentionPolicyCommand,
-  serializeAws_json1_1DeleteRetentionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRetentionPolicyCommand, se_DeleteRetentionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteRetentionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRetentionPolicyCommand(input, context);
+    return se_DeleteRetentionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRetentionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteRetentionPolicyCommand(output, context);
+    return de_DeleteRetentionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

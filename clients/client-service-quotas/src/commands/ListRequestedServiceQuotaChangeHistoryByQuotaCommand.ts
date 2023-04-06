@@ -18,8 +18,8 @@ import {
   ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
-  serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
+  de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
+  se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -158,7 +158,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
+    return se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(output, context);
+    return de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

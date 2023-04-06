@@ -154,7 +154,10 @@ import {
   UnauthorizedClientException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateAppInstanceCommand = async (
+/**
+ * serializeAws_restJson1CreateAppInstanceCommand
+ */
+export const se_CreateAppInstanceCommand = async (
   input: CreateAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -168,7 +171,7 @@ export const serializeAws_restJson1CreateAppInstanceCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -181,7 +184,10 @@ export const serializeAws_restJson1CreateAppInstanceCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAppInstanceAdminCommand = async (
+/**
+ * serializeAws_restJson1CreateAppInstanceAdminCommand
+ */
+export const se_CreateAppInstanceAdminCommand = async (
   input: CreateAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,7 +220,10 @@ export const serializeAws_restJson1CreateAppInstanceAdminCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAppInstanceBotCommand = async (
+/**
+ * serializeAws_restJson1CreateAppInstanceBotCommand
+ */
+export const se_CreateAppInstanceBotCommand = async (
   input: CreateAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -227,12 +236,10 @@ export const serializeAws_restJson1CreateAppInstanceBotCommand = async (
   body = JSON.stringify({
     ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Configuration != null && {
-      Configuration: serializeAws_restJson1Configuration(input.Configuration, context),
-    }),
+    ...(input.Configuration != null && { Configuration: se_Configuration(input.Configuration, context) }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -245,7 +252,10 @@ export const serializeAws_restJson1CreateAppInstanceBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1CreateAppInstanceUserCommand
+ */
+export const se_CreateAppInstanceUserCommand = async (
   input: CreateAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -260,11 +270,11 @@ export const serializeAws_restJson1CreateAppInstanceUserCommand = async (
     ...(input.AppInstanceUserId != null && { AppInstanceUserId: input.AppInstanceUserId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.ExpirationSettings != null && {
-      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
+      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
     }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -277,7 +287,10 @@ export const serializeAws_restJson1CreateAppInstanceUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppInstanceCommand = async (
+/**
+ * serializeAws_restJson1DeleteAppInstanceCommand
+ */
+export const se_DeleteAppInstanceCommand = async (
   input: DeleteAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,7 +318,10 @@ export const serializeAws_restJson1DeleteAppInstanceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppInstanceAdminCommand = async (
+/**
+ * serializeAws_restJson1DeleteAppInstanceAdminCommand
+ */
+export const se_DeleteAppInstanceAdminCommand = async (
   input: DeleteAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -342,7 +358,10 @@ export const serializeAws_restJson1DeleteAppInstanceAdminCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppInstanceBotCommand = async (
+/**
+ * serializeAws_restJson1DeleteAppInstanceBotCommand
+ */
+export const se_DeleteAppInstanceBotCommand = async (
   input: DeleteAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -370,7 +389,10 @@ export const serializeAws_restJson1DeleteAppInstanceBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1DeleteAppInstanceUserCommand
+ */
+export const se_DeleteAppInstanceUserCommand = async (
   input: DeleteAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -398,7 +420,10 @@ export const serializeAws_restJson1DeleteAppInstanceUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand = async (
+/**
+ * serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand
+ */
+export const se_DeregisterAppInstanceUserEndpointCommand = async (
   input: DeregisterAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -428,7 +453,10 @@ export const serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand = as
   });
 };
 
-export const serializeAws_restJson1DescribeAppInstanceCommand = async (
+/**
+ * serializeAws_restJson1DescribeAppInstanceCommand
+ */
+export const se_DescribeAppInstanceCommand = async (
   input: DescribeAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -456,7 +484,10 @@ export const serializeAws_restJson1DescribeAppInstanceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAppInstanceAdminCommand = async (
+/**
+ * serializeAws_restJson1DescribeAppInstanceAdminCommand
+ */
+export const se_DescribeAppInstanceAdminCommand = async (
   input: DescribeAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -493,7 +524,10 @@ export const serializeAws_restJson1DescribeAppInstanceAdminCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAppInstanceBotCommand = async (
+/**
+ * serializeAws_restJson1DescribeAppInstanceBotCommand
+ */
+export const se_DescribeAppInstanceBotCommand = async (
   input: DescribeAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,7 +555,10 @@ export const serializeAws_restJson1DescribeAppInstanceBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1DescribeAppInstanceUserCommand
+ */
+export const se_DescribeAppInstanceUserCommand = async (
   input: DescribeAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -549,7 +586,10 @@ export const serializeAws_restJson1DescribeAppInstanceUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAppInstanceUserEndpointCommand = async (
+/**
+ * serializeAws_restJson1DescribeAppInstanceUserEndpointCommand
+ */
+export const se_DescribeAppInstanceUserEndpointCommand = async (
   input: DescribeAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -579,7 +619,10 @@ export const serializeAws_restJson1DescribeAppInstanceUserEndpointCommand = asyn
   });
 };
 
-export const serializeAws_restJson1GetAppInstanceRetentionSettingsCommand = async (
+/**
+ * serializeAws_restJson1GetAppInstanceRetentionSettingsCommand
+ */
+export const se_GetAppInstanceRetentionSettingsCommand = async (
   input: GetAppInstanceRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -608,7 +651,10 @@ export const serializeAws_restJson1GetAppInstanceRetentionSettingsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListAppInstanceAdminsCommand = async (
+/**
+ * serializeAws_restJson1ListAppInstanceAdminsCommand
+ */
+export const se_ListAppInstanceAdminsCommand = async (
   input: ListAppInstanceAdminsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -641,7 +687,10 @@ export const serializeAws_restJson1ListAppInstanceAdminsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppInstanceBotsCommand = async (
+/**
+ * serializeAws_restJson1ListAppInstanceBotsCommand
+ */
+export const se_ListAppInstanceBotsCommand = async (
   input: ListAppInstanceBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -666,7 +715,10 @@ export const serializeAws_restJson1ListAppInstanceBotsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppInstancesCommand = async (
+/**
+ * serializeAws_restJson1ListAppInstancesCommand
+ */
+export const se_ListAppInstancesCommand = async (
   input: ListAppInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -690,7 +742,10 @@ export const serializeAws_restJson1ListAppInstancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppInstanceUserEndpointsCommand = async (
+/**
+ * serializeAws_restJson1ListAppInstanceUserEndpointsCommand
+ */
+export const se_ListAppInstanceUserEndpointsCommand = async (
   input: ListAppInstanceUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -724,7 +779,10 @@ export const serializeAws_restJson1ListAppInstanceUserEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppInstanceUsersCommand = async (
+/**
+ * serializeAws_restJson1ListAppInstanceUsersCommand
+ */
+export const se_ListAppInstanceUsersCommand = async (
   input: ListAppInstanceUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -749,7 +807,10 @@ export const serializeAws_restJson1ListAppInstanceUsersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -772,7 +833,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutAppInstanceRetentionSettingsCommand = async (
+/**
+ * serializeAws_restJson1PutAppInstanceRetentionSettingsCommand
+ */
+export const se_PutAppInstanceRetentionSettingsCommand = async (
   input: PutAppInstanceRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -794,10 +858,7 @@ export const serializeAws_restJson1PutAppInstanceRetentionSettingsCommand = asyn
   let body: any;
   body = JSON.stringify({
     ...(input.AppInstanceRetentionSettings != null && {
-      AppInstanceRetentionSettings: serializeAws_restJson1AppInstanceRetentionSettings(
-        input.AppInstanceRetentionSettings,
-        context
-      ),
+      AppInstanceRetentionSettings: se_AppInstanceRetentionSettings(input.AppInstanceRetentionSettings, context),
     }),
   });
   return new __HttpRequest({
@@ -811,7 +872,10 @@ export const serializeAws_restJson1PutAppInstanceRetentionSettingsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand = async (
+/**
+ * serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand
+ */
+export const se_PutAppInstanceUserExpirationSettingsCommand = async (
   input: PutAppInstanceUserExpirationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -833,7 +897,7 @@ export const serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand =
   let body: any;
   body = JSON.stringify({
     ...(input.ExpirationSettings != null && {
-      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
+      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
     }),
   });
   return new __HttpRequest({
@@ -847,7 +911,10 @@ export const serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand =
   });
 };
 
-export const serializeAws_restJson1RegisterAppInstanceUserEndpointCommand = async (
+/**
+ * serializeAws_restJson1RegisterAppInstanceUserEndpointCommand
+ */
+export const se_RegisterAppInstanceUserEndpointCommand = async (
   input: RegisterAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -871,7 +938,7 @@ export const serializeAws_restJson1RegisterAppInstanceUserEndpointCommand = asyn
     ...(input.AllowMessages != null && { AllowMessages: input.AllowMessages }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.EndpointAttributes != null && {
-      EndpointAttributes: serializeAws_restJson1EndpointAttributes(input.EndpointAttributes, context),
+      EndpointAttributes: se_EndpointAttributes(input.EndpointAttributes, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
@@ -888,7 +955,10 @@ export const serializeAws_restJson1RegisterAppInstanceUserEndpointCommand = asyn
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -903,7 +973,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -917,7 +987,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -932,7 +1005,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -946,7 +1019,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAppInstanceCommand = async (
+/**
+ * serializeAws_restJson1UpdateAppInstanceCommand
+ */
+export const se_UpdateAppInstanceCommand = async (
   input: UpdateAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -980,7 +1056,10 @@ export const serializeAws_restJson1UpdateAppInstanceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAppInstanceBotCommand = async (
+/**
+ * serializeAws_restJson1UpdateAppInstanceBotCommand
+ */
+export const se_UpdateAppInstanceBotCommand = async (
   input: UpdateAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1014,7 +1093,10 @@ export const serializeAws_restJson1UpdateAppInstanceBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAppInstanceUserCommand = async (
+/**
+ * serializeAws_restJson1UpdateAppInstanceUserCommand
+ */
+export const se_UpdateAppInstanceUserCommand = async (
   input: UpdateAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1048,7 +1130,10 @@ export const serializeAws_restJson1UpdateAppInstanceUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAppInstanceUserEndpointCommand = async (
+/**
+ * serializeAws_restJson1UpdateAppInstanceUserEndpointCommand
+ */
+export const se_UpdateAppInstanceUserEndpointCommand = async (
   input: UpdateAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1084,12 +1169,15 @@ export const serializeAws_restJson1UpdateAppInstanceUserEndpointCommand = async 
   });
 };
 
-export const deserializeAws_restJson1CreateAppInstanceCommand = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceCommand
+ */
+export const de_CreateAppInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppInstanceCommandError(output, context);
+    return de_CreateAppInstanceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1101,7 +1189,10 @@ export const deserializeAws_restJson1CreateAppInstanceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAppInstanceCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceCommandError
+ */
+const de_CreateAppInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceCommandOutput> => {
@@ -1113,28 +1204,28 @@ const deserializeAws_restJson1CreateAppInstanceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1146,19 +1237,22 @@ const deserializeAws_restJson1CreateAppInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAppInstanceAdminCommand = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceAdminCommand
+ */
+export const de_CreateAppInstanceAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceAdminCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppInstanceAdminCommandError(output, context);
+    return de_CreateAppInstanceAdminCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = deserializeAws_restJson1Identity(data.AppInstanceAdmin, context);
+    contents.AppInstanceAdmin = de_Identity(data.AppInstanceAdmin, context);
   }
   if (data.AppInstanceArn != null) {
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
@@ -1166,7 +1260,10 @@ export const deserializeAws_restJson1CreateAppInstanceAdminCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAppInstanceAdminCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceAdminCommandError
+ */
+const de_CreateAppInstanceAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceAdminCommandOutput> => {
@@ -1178,28 +1275,28 @@ const deserializeAws_restJson1CreateAppInstanceAdminCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1211,12 +1308,15 @@ const deserializeAws_restJson1CreateAppInstanceAdminCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAppInstanceBotCommand = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceBotCommand
+ */
+export const de_CreateAppInstanceBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceBotCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppInstanceBotCommandError(output, context);
+    return de_CreateAppInstanceBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1228,7 +1328,10 @@ export const deserializeAws_restJson1CreateAppInstanceBotCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAppInstanceBotCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceBotCommandError
+ */
+const de_CreateAppInstanceBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceBotCommandOutput> => {
@@ -1240,28 +1343,28 @@ const deserializeAws_restJson1CreateAppInstanceBotCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1273,12 +1376,15 @@ const deserializeAws_restJson1CreateAppInstanceBotCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceUserCommand
+ */
+export const de_CreateAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppInstanceUserCommandError(output, context);
+    return de_CreateAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1290,7 +1396,10 @@ export const deserializeAws_restJson1CreateAppInstanceUserCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAppInstanceUserCommandError
+ */
+const de_CreateAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppInstanceUserCommandOutput> => {
@@ -1302,28 +1411,28 @@ const deserializeAws_restJson1CreateAppInstanceUserCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1335,12 +1444,15 @@ const deserializeAws_restJson1CreateAppInstanceUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAppInstanceCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceCommand
+ */
+export const de_DeleteAppInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppInstanceCommandError(output, context);
+    return de_DeleteAppInstanceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1349,7 +1461,10 @@ export const deserializeAws_restJson1DeleteAppInstanceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAppInstanceCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceCommandError
+ */
+const de_DeleteAppInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceCommandOutput> => {
@@ -1361,25 +1476,25 @@ const deserializeAws_restJson1DeleteAppInstanceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1391,12 +1506,15 @@ const deserializeAws_restJson1DeleteAppInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAppInstanceAdminCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceAdminCommand
+ */
+export const de_DeleteAppInstanceAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceAdminCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppInstanceAdminCommandError(output, context);
+    return de_DeleteAppInstanceAdminCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1405,7 +1523,10 @@ export const deserializeAws_restJson1DeleteAppInstanceAdminCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAppInstanceAdminCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceAdminCommandError
+ */
+const de_DeleteAppInstanceAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceAdminCommandOutput> => {
@@ -1417,28 +1538,28 @@ const deserializeAws_restJson1DeleteAppInstanceAdminCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1450,12 +1571,15 @@ const deserializeAws_restJson1DeleteAppInstanceAdminCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAppInstanceBotCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceBotCommand
+ */
+export const de_DeleteAppInstanceBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceBotCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppInstanceBotCommandError(output, context);
+    return de_DeleteAppInstanceBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1464,7 +1588,10 @@ export const deserializeAws_restJson1DeleteAppInstanceBotCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAppInstanceBotCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceBotCommandError
+ */
+const de_DeleteAppInstanceBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceBotCommandOutput> => {
@@ -1476,28 +1603,28 @@ const deserializeAws_restJson1DeleteAppInstanceBotCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1509,12 +1636,15 @@ const deserializeAws_restJson1DeleteAppInstanceBotCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceUserCommand
+ */
+export const de_DeleteAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppInstanceUserCommandError(output, context);
+    return de_DeleteAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1523,7 +1653,10 @@ export const deserializeAws_restJson1DeleteAppInstanceUserCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppInstanceUserCommandError
+ */
+const de_DeleteAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppInstanceUserCommandOutput> => {
@@ -1535,28 +1668,28 @@ const deserializeAws_restJson1DeleteAppInstanceUserCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1568,12 +1701,15 @@ const deserializeAws_restJson1DeleteAppInstanceUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand
+ */
+export const de_DeregisterAppInstanceUserEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterAppInstanceUserEndpointCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommandError(output, context);
+    return de_DeregisterAppInstanceUserEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1582,7 +1718,10 @@ export const deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand = 
   return contents;
 };
 
-const deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommandError
+ */
+const de_DeregisterAppInstanceUserEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterAppInstanceUserEndpointCommandOutput> => {
@@ -1594,22 +1733,22 @@ const deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommandError = as
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1621,24 +1760,30 @@ const deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommandError = as
   }
 };
 
-export const deserializeAws_restJson1DescribeAppInstanceCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceCommand
+ */
+export const de_DescribeAppInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAppInstanceCommandError(output, context);
+    return de_DescribeAppInstanceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstance != null) {
-    contents.AppInstance = deserializeAws_restJson1AppInstance(data.AppInstance, context);
+    contents.AppInstance = de_AppInstance(data.AppInstance, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAppInstanceCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceCommandError
+ */
+const de_DescribeAppInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceCommandOutput> => {
@@ -1650,22 +1795,22 @@ const deserializeAws_restJson1DescribeAppInstanceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1677,24 +1822,30 @@ const deserializeAws_restJson1DescribeAppInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAppInstanceAdminCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceAdminCommand
+ */
+export const de_DescribeAppInstanceAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceAdminCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAppInstanceAdminCommandError(output, context);
+    return de_DescribeAppInstanceAdminCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = deserializeAws_restJson1AppInstanceAdmin(data.AppInstanceAdmin, context);
+    contents.AppInstanceAdmin = de_AppInstanceAdmin(data.AppInstanceAdmin, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAppInstanceAdminCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceAdminCommandError
+ */
+const de_DescribeAppInstanceAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceAdminCommandOutput> => {
@@ -1706,22 +1857,22 @@ const deserializeAws_restJson1DescribeAppInstanceAdminCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1733,24 +1884,30 @@ const deserializeAws_restJson1DescribeAppInstanceAdminCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAppInstanceBotCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceBotCommand
+ */
+export const de_DescribeAppInstanceBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAppInstanceBotCommandError(output, context);
+    return de_DescribeAppInstanceBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceBot != null) {
-    contents.AppInstanceBot = deserializeAws_restJson1AppInstanceBot(data.AppInstanceBot, context);
+    contents.AppInstanceBot = de_AppInstanceBot(data.AppInstanceBot, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAppInstanceBotCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceBotCommandError
+ */
+const de_DescribeAppInstanceBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceBotCommandOutput> => {
@@ -1762,25 +1919,25 @@ const deserializeAws_restJson1DescribeAppInstanceBotCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkidentity#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1792,24 +1949,30 @@ const deserializeAws_restJson1DescribeAppInstanceBotCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceUserCommand
+ */
+export const de_DescribeAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAppInstanceUserCommandError(output, context);
+    return de_DescribeAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUser != null) {
-    contents.AppInstanceUser = deserializeAws_restJson1AppInstanceUser(data.AppInstanceUser, context);
+    contents.AppInstanceUser = de_AppInstanceUser(data.AppInstanceUser, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceUserCommandError
+ */
+const de_DescribeAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceUserCommandOutput> => {
@@ -1821,22 +1984,22 @@ const deserializeAws_restJson1DescribeAppInstanceUserCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1848,27 +2011,30 @@ const deserializeAws_restJson1DescribeAppInstanceUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand
+ */
+export const de_DescribeAppInstanceUserEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceUserEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAppInstanceUserEndpointCommandError(output, context);
+    return de_DescribeAppInstanceUserEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUserEndpoint != null) {
-    contents.AppInstanceUserEndpoint = deserializeAws_restJson1AppInstanceUserEndpoint(
-      data.AppInstanceUserEndpoint,
-      context
-    );
+    contents.AppInstanceUserEndpoint = de_AppInstanceUserEndpoint(data.AppInstanceUserEndpoint, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAppInstanceUserEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAppInstanceUserEndpointCommandError
+ */
+const de_DescribeAppInstanceUserEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppInstanceUserEndpointCommandOutput> => {
@@ -1880,22 +2046,22 @@ const deserializeAws_restJson1DescribeAppInstanceUserEndpointCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1907,22 +2073,22 @@ const deserializeAws_restJson1DescribeAppInstanceUserEndpointCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand = async (
+/**
+ * deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand
+ */
+export const de_GetAppInstanceRetentionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppInstanceRetentionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppInstanceRetentionSettingsCommandError(output, context);
+    return de_GetAppInstanceRetentionSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = deserializeAws_restJson1AppInstanceRetentionSettings(
-      data.AppInstanceRetentionSettings,
-      context
-    );
+    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
   }
   if (data.InitiateDeletionTimestamp != null) {
     contents.InitiateDeletionTimestamp = __expectNonNull(
@@ -1932,7 +2098,10 @@ export const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1GetAppInstanceRetentionSettingsCommandError
+ */
+const de_GetAppInstanceRetentionSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppInstanceRetentionSettingsCommandOutput> => {
@@ -1944,22 +2113,22 @@ const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1971,19 +2140,22 @@ const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1ListAppInstanceAdminsCommand = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceAdminsCommand
+ */
+export const de_ListAppInstanceAdminsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceAdminsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppInstanceAdminsCommandError(output, context);
+    return de_ListAppInstanceAdminsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmins != null) {
-    contents.AppInstanceAdmins = deserializeAws_restJson1AppInstanceAdminList(data.AppInstanceAdmins, context);
+    contents.AppInstanceAdmins = de_AppInstanceAdminList(data.AppInstanceAdmins, context);
   }
   if (data.AppInstanceArn != null) {
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
@@ -1994,7 +2166,10 @@ export const deserializeAws_restJson1ListAppInstanceAdminsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAppInstanceAdminsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceAdminsCommandError
+ */
+const de_ListAppInstanceAdminsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceAdminsCommandOutput> => {
@@ -2006,25 +2181,25 @@ const deserializeAws_restJson1ListAppInstanceAdminsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2036,12 +2211,15 @@ const deserializeAws_restJson1ListAppInstanceAdminsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAppInstanceBotsCommand = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceBotsCommand
+ */
+export const de_ListAppInstanceBotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceBotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppInstanceBotsCommandError(output, context);
+    return de_ListAppInstanceBotsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2051,7 +2229,7 @@ export const deserializeAws_restJson1ListAppInstanceBotsCommand = async (
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
   }
   if (data.AppInstanceBots != null) {
-    contents.AppInstanceBots = deserializeAws_restJson1AppInstanceBotList(data.AppInstanceBots, context);
+    contents.AppInstanceBots = de_AppInstanceBotList(data.AppInstanceBots, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2059,7 +2237,10 @@ export const deserializeAws_restJson1ListAppInstanceBotsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAppInstanceBotsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceBotsCommandError
+ */
+const de_ListAppInstanceBotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceBotsCommandOutput> => {
@@ -2071,25 +2252,25 @@ const deserializeAws_restJson1ListAppInstanceBotsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2101,19 +2282,22 @@ const deserializeAws_restJson1ListAppInstanceBotsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAppInstancesCommand = async (
+/**
+ * deserializeAws_restJson1ListAppInstancesCommand
+ */
+export const de_ListAppInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppInstancesCommandError(output, context);
+    return de_ListAppInstancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstances != null) {
-    contents.AppInstances = deserializeAws_restJson1AppInstanceList(data.AppInstances, context);
+    contents.AppInstances = de_AppInstanceList(data.AppInstances, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2121,7 +2305,10 @@ export const deserializeAws_restJson1ListAppInstancesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAppInstancesCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppInstancesCommandError
+ */
+const de_ListAppInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstancesCommandOutput> => {
@@ -2133,22 +2320,22 @@ const deserializeAws_restJson1ListAppInstancesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2160,22 +2347,22 @@ const deserializeAws_restJson1ListAppInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAppInstanceUserEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceUserEndpointsCommand
+ */
+export const de_ListAppInstanceUserEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceUserEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppInstanceUserEndpointsCommandError(output, context);
+    return de_ListAppInstanceUserEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUserEndpoints != null) {
-    contents.AppInstanceUserEndpoints = deserializeAws_restJson1AppInstanceUserEndpointSummaryList(
-      data.AppInstanceUserEndpoints,
-      context
-    );
+    contents.AppInstanceUserEndpoints = de_AppInstanceUserEndpointSummaryList(data.AppInstanceUserEndpoints, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2183,7 +2370,10 @@ export const deserializeAws_restJson1ListAppInstanceUserEndpointsCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1ListAppInstanceUserEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceUserEndpointsCommandError
+ */
+const de_ListAppInstanceUserEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceUserEndpointsCommandOutput> => {
@@ -2195,22 +2385,22 @@ const deserializeAws_restJson1ListAppInstanceUserEndpointsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2222,12 +2412,15 @@ const deserializeAws_restJson1ListAppInstanceUserEndpointsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAppInstanceUsersCommand = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceUsersCommand
+ */
+export const de_ListAppInstanceUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceUsersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppInstanceUsersCommandError(output, context);
+    return de_ListAppInstanceUsersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2237,7 +2430,7 @@ export const deserializeAws_restJson1ListAppInstanceUsersCommand = async (
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
   }
   if (data.AppInstanceUsers != null) {
-    contents.AppInstanceUsers = deserializeAws_restJson1AppInstanceUserList(data.AppInstanceUsers, context);
+    contents.AppInstanceUsers = de_AppInstanceUserList(data.AppInstanceUsers, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2245,7 +2438,10 @@ export const deserializeAws_restJson1ListAppInstanceUsersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAppInstanceUsersCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppInstanceUsersCommandError
+ */
+const de_ListAppInstanceUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppInstanceUsersCommandOutput> => {
@@ -2257,22 +2453,22 @@ const deserializeAws_restJson1ListAppInstanceUsersCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2284,24 +2480,30 @@ const deserializeAws_restJson1ListAppInstanceUsersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+    contents.Tags = de_TagList(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2313,22 +2515,22 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2340,22 +2542,22 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand = async (
+/**
+ * deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand
+ */
+export const de_PutAppInstanceRetentionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppInstanceRetentionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAppInstanceRetentionSettingsCommandError(output, context);
+    return de_PutAppInstanceRetentionSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = deserializeAws_restJson1AppInstanceRetentionSettings(
-      data.AppInstanceRetentionSettings,
-      context
-    );
+    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
   }
   if (data.InitiateDeletionTimestamp != null) {
     contents.InitiateDeletionTimestamp = __expectNonNull(
@@ -2365,7 +2567,10 @@ export const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1PutAppInstanceRetentionSettingsCommandError
+ */
+const de_PutAppInstanceRetentionSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppInstanceRetentionSettingsCommandOutput> => {
@@ -2377,22 +2582,22 @@ const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2404,12 +2609,15 @@ const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand = async (
+/**
+ * deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand
+ */
+export const de_PutAppInstanceUserExpirationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommandError(output, context);
+    return de_PutAppInstanceUserExpirationSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2419,12 +2627,15 @@ export const deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand
     contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
   }
   if (data.ExpirationSettings != null) {
-    contents.ExpirationSettings = deserializeAws_restJson1ExpirationSettings(data.ExpirationSettings, context);
+    contents.ExpirationSettings = de_ExpirationSettings(data.ExpirationSettings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommandError
+ */
+const de_PutAppInstanceUserExpirationSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput> => {
@@ -2436,25 +2647,25 @@ const deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommandError =
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2466,12 +2677,15 @@ const deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommandError =
   }
 };
 
-export const deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand = async (
+/**
+ * deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand
+ */
+export const de_RegisterAppInstanceUserEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAppInstanceUserEndpointCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RegisterAppInstanceUserEndpointCommandError(output, context);
+    return de_RegisterAppInstanceUserEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2486,7 +2700,10 @@ export const deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1RegisterAppInstanceUserEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1RegisterAppInstanceUserEndpointCommandError
+ */
+const de_RegisterAppInstanceUserEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAppInstanceUserEndpointCommandOutput> => {
@@ -2498,28 +2715,28 @@ const deserializeAws_restJson1RegisterAppInstanceUserEndpointCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2531,12 +2748,15 @@ const deserializeAws_restJson1RegisterAppInstanceUserEndpointCommandError = asyn
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2545,7 +2765,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2557,25 +2780,25 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2587,12 +2810,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2601,7 +2827,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2613,22 +2842,22 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2640,12 +2869,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAppInstanceCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceCommand
+ */
+export const de_UpdateAppInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAppInstanceCommandError(output, context);
+    return de_UpdateAppInstanceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2657,7 +2889,10 @@ export const deserializeAws_restJson1UpdateAppInstanceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAppInstanceCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceCommandError
+ */
+const de_UpdateAppInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceCommandOutput> => {
@@ -2669,25 +2904,25 @@ const deserializeAws_restJson1UpdateAppInstanceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2699,12 +2934,15 @@ const deserializeAws_restJson1UpdateAppInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAppInstanceBotCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceBotCommand
+ */
+export const de_UpdateAppInstanceBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAppInstanceBotCommandError(output, context);
+    return de_UpdateAppInstanceBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2716,7 +2954,10 @@ export const deserializeAws_restJson1UpdateAppInstanceBotCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAppInstanceBotCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceBotCommandError
+ */
+const de_UpdateAppInstanceBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceBotCommandOutput> => {
@@ -2728,28 +2969,28 @@ const deserializeAws_restJson1UpdateAppInstanceBotCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2761,12 +3002,15 @@ const deserializeAws_restJson1UpdateAppInstanceBotCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAppInstanceUserCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceUserCommand
+ */
+export const de_UpdateAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAppInstanceUserCommandError(output, context);
+    return de_UpdateAppInstanceUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2778,7 +3022,10 @@ export const deserializeAws_restJson1UpdateAppInstanceUserCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAppInstanceUserCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceUserCommandError
+ */
+const de_UpdateAppInstanceUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceUserCommandOutput> => {
@@ -2790,28 +3037,28 @@ const deserializeAws_restJson1UpdateAppInstanceUserCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkidentity#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2823,12 +3070,15 @@ const deserializeAws_restJson1UpdateAppInstanceUserCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAppInstanceUserEndpointCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceUserEndpointCommand
+ */
+export const de_UpdateAppInstanceUserEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceUserEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAppInstanceUserEndpointCommandError(output, context);
+    return de_UpdateAppInstanceUserEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2843,7 +3093,10 @@ export const deserializeAws_restJson1UpdateAppInstanceUserEndpointCommand = asyn
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAppInstanceUserEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAppInstanceUserEndpointCommandError
+ */
+const de_UpdateAppInstanceUserEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppInstanceUserEndpointCommandOutput> => {
@@ -2855,25 +3108,25 @@ const deserializeAws_restJson1UpdateAppInstanceUserEndpointCommandError = async 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkidentity#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkidentity#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkidentity#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkidentity#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkidentity#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkidentity#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkidentity#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2886,10 +3139,10 @@ const deserializeAws_restJson1UpdateAppInstanceUserEndpointCommandError = async 
 };
 
 const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -2905,10 +3158,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -2924,10 +3177,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -2943,10 +3196,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Code != null) {
@@ -2962,7 +3215,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceLimitExceededExceptionRes
+ */
+const de_ResourceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
@@ -2981,7 +3237,10 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceFailureExceptionRes
+ */
+const de_ServiceFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
@@ -3000,7 +3259,10 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -3019,7 +3281,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ThrottledClientExceptionRes
+ */
+const de_ThrottledClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottledClientException> => {
@@ -3038,7 +3303,10 @@ const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedClientExceptionRes
+ */
+const de_UnauthorizedClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
@@ -3057,47 +3325,59 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AppInstanceRetentionSettings = (
-  input: AppInstanceRetentionSettings,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AppInstanceRetentionSettings
+ */
+const se_AppInstanceRetentionSettings = (input: AppInstanceRetentionSettings, context: __SerdeContext): any => {
   return {
     ...(input.ChannelRetentionSettings != null && {
-      ChannelRetentionSettings: serializeAws_restJson1ChannelRetentionSettings(input.ChannelRetentionSettings, context),
+      ChannelRetentionSettings: se_ChannelRetentionSettings(input.ChannelRetentionSettings, context),
     }),
   };
 };
 
-const serializeAws_restJson1ChannelRetentionSettings = (
-  input: ChannelRetentionSettings,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ChannelRetentionSettings
+ */
+const se_ChannelRetentionSettings = (input: ChannelRetentionSettings, context: __SerdeContext): any => {
   return {
     ...(input.RetentionDays != null && { RetentionDays: input.RetentionDays }),
   };
 };
 
-const serializeAws_restJson1Configuration = (input: Configuration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Configuration
+ */
+const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.Lex != null && { Lex: serializeAws_restJson1LexConfiguration(input.Lex, context) }),
+    ...(input.Lex != null && { Lex: se_LexConfiguration(input.Lex, context) }),
   };
 };
 
-const serializeAws_restJson1EndpointAttributes = (input: EndpointAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EndpointAttributes
+ */
+const se_EndpointAttributes = (input: EndpointAttributes, context: __SerdeContext): any => {
   return {
     ...(input.DeviceToken != null && { DeviceToken: input.DeviceToken }),
     ...(input.VoipDeviceToken != null && { VoipDeviceToken: input.VoipDeviceToken }),
   };
 };
 
-const serializeAws_restJson1ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ExpirationSettings
+ */
+const se_ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
   return {
     ...(input.ExpirationCriterion != null && { ExpirationCriterion: input.ExpirationCriterion }),
     ...(input.ExpirationDays != null && { ExpirationDays: input.ExpirationDays }),
   };
 };
 
-const serializeAws_restJson1LexConfiguration = (input: LexConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LexConfiguration
+ */
+const se_LexConfiguration = (input: LexConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.LexBotAliasArn != null && { LexBotAliasArn: input.LexBotAliasArn }),
     ...(input.LocaleId != null && { LocaleId: input.LocaleId }),
@@ -3106,14 +3386,20 @@ const serializeAws_restJson1LexConfiguration = (input: LexConfiguration, context
   };
 };
 
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3121,15 +3407,21 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const deserializeAws_restJson1AppInstance = (output: any, context: __SerdeContext): AppInstance => {
+/**
+ * deserializeAws_restJson1AppInstance
+ */
+const de_AppInstance = (output: any, context: __SerdeContext): AppInstance => {
   return {
     AppInstanceArn: __expectString(output.AppInstanceArn),
     CreatedTimestamp:
@@ -3145,9 +3437,12 @@ const deserializeAws_restJson1AppInstance = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceAdmin = (output: any, context: __SerdeContext): AppInstanceAdmin => {
+/**
+ * deserializeAws_restJson1AppInstanceAdmin
+ */
+const de_AppInstanceAdmin = (output: any, context: __SerdeContext): AppInstanceAdmin => {
   return {
-    Admin: output.Admin != null ? deserializeAws_restJson1Identity(output.Admin, context) : undefined,
+    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
     AppInstanceArn: __expectString(output.AppInstanceArn),
     CreatedTimestamp:
       output.CreatedTimestamp != null
@@ -3156,35 +3451,37 @@ const deserializeAws_restJson1AppInstanceAdmin = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceAdminList = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceAdminSummary[] => {
+/**
+ * deserializeAws_restJson1AppInstanceAdminList
+ */
+const de_AppInstanceAdminList = (output: any, context: __SerdeContext): AppInstanceAdminSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AppInstanceAdminSummary(entry, context);
+      return de_AppInstanceAdminSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AppInstanceAdminSummary = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceAdminSummary => {
+/**
+ * deserializeAws_restJson1AppInstanceAdminSummary
+ */
+const de_AppInstanceAdminSummary = (output: any, context: __SerdeContext): AppInstanceAdminSummary => {
   return {
-    Admin: output.Admin != null ? deserializeAws_restJson1Identity(output.Admin, context) : undefined,
+    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceBot = (output: any, context: __SerdeContext): AppInstanceBot => {
+/**
+ * deserializeAws_restJson1AppInstanceBot
+ */
+const de_AppInstanceBot = (output: any, context: __SerdeContext): AppInstanceBot => {
   return {
     AppInstanceBotArn: __expectString(output.AppInstanceBotArn),
-    Configuration:
-      output.Configuration != null ? deserializeAws_restJson1Configuration(output.Configuration, context) : undefined,
+    Configuration: output.Configuration != null ? de_Configuration(output.Configuration, context) : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
@@ -3198,19 +3495,25 @@ const deserializeAws_restJson1AppInstanceBot = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceBotList = (output: any, context: __SerdeContext): AppInstanceBotSummary[] => {
+/**
+ * deserializeAws_restJson1AppInstanceBotList
+ */
+const de_AppInstanceBotList = (output: any, context: __SerdeContext): AppInstanceBotSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AppInstanceBotSummary(entry, context);
+      return de_AppInstanceBotSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AppInstanceBotSummary = (output: any, context: __SerdeContext): AppInstanceBotSummary => {
+/**
+ * deserializeAws_restJson1AppInstanceBotSummary
+ */
+const de_AppInstanceBotSummary = (output: any, context: __SerdeContext): AppInstanceBotSummary => {
   return {
     AppInstanceBotArn: __expectString(output.AppInstanceBotArn),
     Metadata: __expectString(output.Metadata),
@@ -3218,31 +3521,37 @@ const deserializeAws_restJson1AppInstanceBotSummary = (output: any, context: __S
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
+/**
+ * deserializeAws_restJson1AppInstanceList
+ */
+const de_AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AppInstanceSummary(entry, context);
+      return de_AppInstanceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AppInstanceRetentionSettings = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceRetentionSettings => {
+/**
+ * deserializeAws_restJson1AppInstanceRetentionSettings
+ */
+const de_AppInstanceRetentionSettings = (output: any, context: __SerdeContext): AppInstanceRetentionSettings => {
   return {
     ChannelRetentionSettings:
       output.ChannelRetentionSettings != null
-        ? deserializeAws_restJson1ChannelRetentionSettings(output.ChannelRetentionSettings, context)
+        ? de_ChannelRetentionSettings(output.ChannelRetentionSettings, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
+/**
+ * deserializeAws_restJson1AppInstanceSummary
+ */
+const de_AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
   return {
     AppInstanceArn: __expectString(output.AppInstanceArn),
     Metadata: __expectString(output.Metadata),
@@ -3250,7 +3559,10 @@ const deserializeAws_restJson1AppInstanceSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceUser = (output: any, context: __SerdeContext): AppInstanceUser => {
+/**
+ * deserializeAws_restJson1AppInstanceUser
+ */
+const de_AppInstanceUser = (output: any, context: __SerdeContext): AppInstanceUser => {
   return {
     AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
     CreatedTimestamp:
@@ -3258,9 +3570,7 @@ const deserializeAws_restJson1AppInstanceUser = (output: any, context: __SerdeCo
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     ExpirationSettings:
-      output.ExpirationSettings != null
-        ? deserializeAws_restJson1ExpirationSettings(output.ExpirationSettings, context)
-        : undefined,
+      output.ExpirationSettings != null ? de_ExpirationSettings(output.ExpirationSettings, context) : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
@@ -3270,10 +3580,10 @@ const deserializeAws_restJson1AppInstanceUser = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceUserEndpoint = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceUserEndpoint => {
+/**
+ * deserializeAws_restJson1AppInstanceUserEndpoint
+ */
+const de_AppInstanceUserEndpoint = (output: any, context: __SerdeContext): AppInstanceUserEndpoint => {
   return {
     AllowMessages: __expectString(output.AllowMessages),
     AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
@@ -3282,12 +3592,9 @@ const deserializeAws_restJson1AppInstanceUserEndpoint = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EndpointAttributes:
-      output.EndpointAttributes != null
-        ? deserializeAws_restJson1EndpointAttributes(output.EndpointAttributes, context)
-        : undefined,
+      output.EndpointAttributes != null ? de_EndpointAttributes(output.EndpointAttributes, context) : undefined,
     EndpointId: __expectString(output.EndpointId),
-    EndpointState:
-      output.EndpointState != null ? deserializeAws_restJson1EndpointState(output.EndpointState, context) : undefined,
+    EndpointState: output.EndpointState != null ? de_EndpointState(output.EndpointState, context) : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
@@ -3298,22 +3605,24 @@ const deserializeAws_restJson1AppInstanceUserEndpoint = (
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceUserEndpointSummary = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceUserEndpointSummary => {
+/**
+ * deserializeAws_restJson1AppInstanceUserEndpointSummary
+ */
+const de_AppInstanceUserEndpointSummary = (output: any, context: __SerdeContext): AppInstanceUserEndpointSummary => {
   return {
     AllowMessages: __expectString(output.AllowMessages),
     AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
     EndpointId: __expectString(output.EndpointId),
-    EndpointState:
-      output.EndpointState != null ? deserializeAws_restJson1EndpointState(output.EndpointState, context) : undefined,
+    EndpointState: output.EndpointState != null ? de_EndpointState(output.EndpointState, context) : undefined,
     Name: __expectString(output.Name),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1AppInstanceUserEndpointSummaryList = (
+/**
+ * deserializeAws_restJson1AppInstanceUserEndpointSummaryList
+ */
+const de_AppInstanceUserEndpointSummaryList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserEndpointSummary[] => {
@@ -3323,30 +3632,30 @@ const deserializeAws_restJson1AppInstanceUserEndpointSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AppInstanceUserEndpointSummary(entry, context);
+      return de_AppInstanceUserEndpointSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AppInstanceUserList = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceUserSummary[] => {
+/**
+ * deserializeAws_restJson1AppInstanceUserList
+ */
+const de_AppInstanceUserList = (output: any, context: __SerdeContext): AppInstanceUserSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AppInstanceUserSummary(entry, context);
+      return de_AppInstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AppInstanceUserSummary = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceUserSummary => {
+/**
+ * deserializeAws_restJson1AppInstanceUserSummary
+ */
+const de_AppInstanceUserSummary = (output: any, context: __SerdeContext): AppInstanceUserSummary => {
   return {
     AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
     Metadata: __expectString(output.Metadata),
@@ -3354,50 +3663,68 @@ const deserializeAws_restJson1AppInstanceUserSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1ChannelRetentionSettings = (
-  output: any,
-  context: __SerdeContext
-): ChannelRetentionSettings => {
+/**
+ * deserializeAws_restJson1ChannelRetentionSettings
+ */
+const de_ChannelRetentionSettings = (output: any, context: __SerdeContext): ChannelRetentionSettings => {
   return {
     RetentionDays: __expectInt32(output.RetentionDays),
   } as any;
 };
 
-const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
+/**
+ * deserializeAws_restJson1Configuration
+ */
+const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    Lex: output.Lex != null ? deserializeAws_restJson1LexConfiguration(output.Lex, context) : undefined,
+    Lex: output.Lex != null ? de_LexConfiguration(output.Lex, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1EndpointAttributes = (output: any, context: __SerdeContext): EndpointAttributes => {
+/**
+ * deserializeAws_restJson1EndpointAttributes
+ */
+const de_EndpointAttributes = (output: any, context: __SerdeContext): EndpointAttributes => {
   return {
     DeviceToken: __expectString(output.DeviceToken),
     VoipDeviceToken: __expectString(output.VoipDeviceToken),
   } as any;
 };
 
-const deserializeAws_restJson1EndpointState = (output: any, context: __SerdeContext): EndpointState => {
+/**
+ * deserializeAws_restJson1EndpointState
+ */
+const de_EndpointState = (output: any, context: __SerdeContext): EndpointState => {
   return {
     Status: __expectString(output.Status),
     StatusReason: __expectString(output.StatusReason),
   } as any;
 };
 
-const deserializeAws_restJson1ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
+/**
+ * deserializeAws_restJson1ExpirationSettings
+ */
+const de_ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
   return {
     ExpirationCriterion: __expectString(output.ExpirationCriterion),
     ExpirationDays: __expectInt32(output.ExpirationDays),
   } as any;
 };
 
-const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
+/**
+ * deserializeAws_restJson1Identity
+ */
+const de_Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     Arn: __expectString(output.Arn),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_restJson1LexConfiguration = (output: any, context: __SerdeContext): LexConfiguration => {
+/**
+ * deserializeAws_restJson1LexConfiguration
+ */
+const de_LexConfiguration = (output: any, context: __SerdeContext): LexConfiguration => {
   return {
     LexBotAliasArn: __expectString(output.LexBotAliasArn),
     LocaleId: __expectString(output.LocaleId),
@@ -3406,21 +3733,27 @@ const deserializeAws_restJson1LexConfiguration = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_restJson1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_restJson1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };

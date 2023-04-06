@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DeleteDecoderManifestRequest, DeleteDecoderManifestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteDecoderManifestCommand,
-  serializeAws_json1_0DeleteDecoderManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteDecoderManifestCommand, se_DeleteDecoderManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteDecoderManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteDecoderManifestCommand(input, context);
+    return se_DeleteDecoderManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDecoderManifestCommandOutput> {
-    return deserializeAws_json1_0DeleteDecoderManifestCommand(output, context);
+    return de_DeleteDecoderManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

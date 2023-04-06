@@ -18,8 +18,8 @@ import {
   CreateNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,
+  de_CreateNotebookInstanceLifecycleConfigCommand,
+  se_CreateNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -155,7 +155,7 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     input: CreateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_CreateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_CreateNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

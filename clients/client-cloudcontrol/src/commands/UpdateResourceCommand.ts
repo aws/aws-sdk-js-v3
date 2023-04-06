@@ -20,10 +20,7 @@ import {
   UpdateResourceOutput,
   UpdateResourceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateResourceCommand,
-  serializeAws_json1_0UpdateResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class UpdateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateResourceCommand(input, context);
+    return se_UpdateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
-    return deserializeAws_json1_0UpdateResourceCommand(output, context);
+    return de_UpdateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

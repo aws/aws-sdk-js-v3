@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { AssociateSkillGroupWithRoomRequest, AssociateSkillGroupWithRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateSkillGroupWithRoomCommand,
-  serializeAws_json1_1AssociateSkillGroupWithRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateSkillGroupWithRoomCommand, se_AssociateSkillGroupWithRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSkillGroupWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillGroupWithRoomCommand(input, context);
+    return se_AssociateSkillGroupWithRoomCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillGroupWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(output, context);
+    return de_AssociateSkillGroupWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

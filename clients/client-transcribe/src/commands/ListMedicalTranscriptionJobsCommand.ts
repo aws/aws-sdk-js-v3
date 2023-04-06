@@ -15,8 +15,8 @@ import {
 
 import { ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListMedicalTranscriptionJobsCommand,
-  serializeAws_json1_1ListMedicalTranscriptionJobsCommand,
+  de_ListMedicalTranscriptionJobsCommand,
+  se_ListMedicalTranscriptionJobsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
@@ -141,7 +141,7 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMedicalTranscriptionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMedicalTranscriptionJobsCommand(input, context);
+    return se_ListMedicalTranscriptionJobsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMedicalTranscriptionJobsCommandOutput> {
-    return deserializeAws_json1_1ListMedicalTranscriptionJobsCommand(output, context);
+    return de_ListMedicalTranscriptionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

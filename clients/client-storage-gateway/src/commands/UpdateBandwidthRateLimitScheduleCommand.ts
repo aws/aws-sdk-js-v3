@@ -15,8 +15,8 @@ import {
 
 import { UpdateBandwidthRateLimitScheduleInput, UpdateBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand,
+  de_UpdateBandwidthRateLimitScheduleCommand,
+  se_UpdateBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -150,7 +150,7 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     input: UpdateBandwidthRateLimitScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand(input, context);
+    return se_UpdateBandwidthRateLimitScheduleCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand(output, context);
+    return de_UpdateBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

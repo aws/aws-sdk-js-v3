@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { GetLoggingOptionsRequest, GetLoggingOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetLoggingOptionsCommand,
-  serializeAws_json1_0GetLoggingOptionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetLoggingOptionsCommand, se_GetLoggingOptionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetLoggingOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetLoggingOptionsCommand(input, context);
+    return se_GetLoggingOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingOptionsCommandOutput> {
-    return deserializeAws_json1_0GetLoggingOptionsCommand(output, context);
+    return de_GetLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

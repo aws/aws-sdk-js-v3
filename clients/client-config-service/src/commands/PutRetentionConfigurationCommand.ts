@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRetentionConfigurationCommand,
-  serializeAws_json1_1PutRetentionConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRetentionConfigurationCommand, se_PutRetentionConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class PutRetentionConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRetentionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRetentionConfigurationCommand(input, context);
+    return se_PutRetentionConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class PutRetentionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRetentionConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutRetentionConfigurationCommand(output, context);
+    return de_PutRetentionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

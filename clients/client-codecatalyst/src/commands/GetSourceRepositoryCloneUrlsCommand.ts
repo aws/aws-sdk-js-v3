@@ -16,8 +16,8 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
-  serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
+  de_GetSourceRepositoryCloneUrlsCommand,
+  se_GetSourceRepositoryCloneUrlsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSourceRepositoryCloneUrlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand(input, context);
+    return se_GetSourceRepositoryCloneUrlsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSourceRepositoryCloneUrlsCommandOutput> {
-    return deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand(output, context);
+    return de_GetSourceRepositoryCloneUrlsCommand(output, context);
   }
 
   // Start section: command_body_extra

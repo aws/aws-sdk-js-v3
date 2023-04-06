@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeConnectionsMessage, DescribeConnectionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionsCommand,
-  serializeAws_json1_1DescribeConnectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConnectionsCommand, se_DescribeConnectionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class DescribeConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionsCommand(input, context);
+    return se_DescribeConnectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionsCommand(output, context);
+    return de_DescribeConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

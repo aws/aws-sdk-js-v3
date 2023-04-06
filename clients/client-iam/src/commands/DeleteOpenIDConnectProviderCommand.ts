@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteOpenIDConnectProviderRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteOpenIDConnectProviderCommand,
-  serializeAws_queryDeleteOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteOpenIDConnectProviderCommand, se_DeleteOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteOpenIDConnectProviderCommand(input, context);
+    return se_DeleteOpenIDConnectProviderCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryDeleteOpenIDConnectProviderCommand(output, context);
+    return de_DeleteOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTemplateCommand,
-  serializeAws_restJson1CreateTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CreateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTemplateCommand(input, context);
+    return se_CreateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateTemplateCommand(output, context);
+    return de_CreateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateJobFromSourceControlRequest, UpdateJobFromSourceControlResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateJobFromSourceControlCommand,
-  serializeAws_json1_1UpdateJobFromSourceControlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateJobFromSourceControlCommand, se_UpdateJobFromSourceControlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,7 +147,7 @@ export class UpdateJobFromSourceControlCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJobFromSourceControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateJobFromSourceControlCommand(input, context);
+    return se_UpdateJobFromSourceControlCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class UpdateJobFromSourceControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateJobFromSourceControlCommandOutput> {
-    return deserializeAws_json1_1UpdateJobFromSourceControlCommand(output, context);
+    return de_UpdateJobFromSourceControlCommand(output, context);
   }
 
   // Start section: command_body_extra

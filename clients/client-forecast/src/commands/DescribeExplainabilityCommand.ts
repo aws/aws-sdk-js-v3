@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeExplainabilityRequest, DescribeExplainabilityResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExplainabilityCommand,
-  serializeAws_json1_1DescribeExplainabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeExplainabilityCommand, se_DescribeExplainabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeExplainabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExplainabilityCommand(input, context);
+    return se_DescribeExplainabilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExplainabilityCommandOutput> {
-    return deserializeAws_json1_1DescribeExplainabilityCommand(output, context);
+    return de_DescribeExplainabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSnapshotsCommand,
-  serializeAws_queryDescribeSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class DescribeSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

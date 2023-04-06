@@ -16,8 +16,8 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetSensitiveDataOccurrencesRequest, GetSensitiveDataOccurrencesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSensitiveDataOccurrencesCommand,
-  serializeAws_restJson1GetSensitiveDataOccurrencesCommand,
+  de_GetSensitiveDataOccurrencesCommand,
+  se_GetSensitiveDataOccurrencesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSensitiveDataOccurrencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSensitiveDataOccurrencesCommand(input, context);
+    return se_GetSensitiveDataOccurrencesCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSensitiveDataOccurrencesCommandOutput> {
-    return deserializeAws_restJson1GetSensitiveDataOccurrencesCommand(output, context);
+    return de_GetSensitiveDataOccurrencesCommand(output, context);
   }
 
   // Start section: command_body_extra

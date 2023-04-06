@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeConfigurationSetsCommand,
-  serializeAws_json1_0DescribeConfigurationSetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeConfigurationSetsCommand, se_DescribeConfigurationSetsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -160,7 +157,7 @@ export class DescribeConfigurationSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeConfigurationSetsCommand(input, context);
+    return se_DescribeConfigurationSetsCommand(input, context);
   }
 
   /**
@@ -170,7 +167,7 @@ export class DescribeConfigurationSetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSetsCommandOutput> {
-    return deserializeAws_json1_0DescribeConfigurationSetsCommand(output, context);
+    return de_DescribeConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

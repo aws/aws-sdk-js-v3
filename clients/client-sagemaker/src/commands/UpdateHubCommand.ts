@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateHubRequest, UpdateHubResponse } from "../models/models_4";
-import { deserializeAws_json1_1UpdateHubCommand, serializeAws_json1_1UpdateHubCommand } from "../protocols/Aws_json1_1";
+import { de_UpdateHubCommand, se_UpdateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,14 +126,14 @@ export class UpdateHubCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHubCommand(input, context);
+    return se_UpdateHubCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHubCommandOutput> {
-    return deserializeAws_json1_1UpdateHubCommand(output, context);
+    return de_UpdateHubCommand(output, context);
   }
 
   // Start section: command_body_extra

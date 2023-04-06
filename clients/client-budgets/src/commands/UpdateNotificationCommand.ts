@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { UpdateNotificationRequest, UpdateNotificationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNotificationCommand,
-  serializeAws_json1_1UpdateNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNotificationCommand, se_UpdateNotificationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateNotificationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotificationCommand(input, context);
+    return se_UpdateNotificationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationCommandOutput> {
-    return deserializeAws_json1_1UpdateNotificationCommand(output, context);
+    return de_UpdateNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

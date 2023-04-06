@@ -15,8 +15,8 @@ import {
 
 import { DeleteSlackWorkspaceConfigurationRequest, DeleteSlackWorkspaceConfigurationResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand,
-  serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand,
+  de_DeleteSlackWorkspaceConfigurationCommand,
+  se_DeleteSlackWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
@@ -168,7 +168,7 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     input: DeleteSlackWorkspaceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand(input, context);
+    return se_DeleteSlackWorkspaceConfigurationCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlackWorkspaceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand(output, context);
+    return de_DeleteSlackWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

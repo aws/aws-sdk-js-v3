@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
+  de_PutConfigurationSetReputationOptionsCommand,
+  se_PutConfigurationSetReputationOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -139,7 +139,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     input: PutConfigurationSetReputationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetReputationOptionsCommand(input, context);
+    return se_PutConfigurationSetReputationOptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand(output, context);
+    return de_PutConfigurationSetReputationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

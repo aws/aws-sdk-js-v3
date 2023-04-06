@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntegrationCommand,
-  serializeAws_restJson1GetIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIntegrationCommand, se_GetIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntegrationCommand(input, context);
+    return se_GetIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntegrationCommandOutput> {
-    return deserializeAws_restJson1GetIntegrationCommand(output, context);
+    return de_GetIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

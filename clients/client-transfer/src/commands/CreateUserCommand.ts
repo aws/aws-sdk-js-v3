@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUserCommand,
-  serializeAws_json1_1CreateUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -165,14 +162,14 @@ export class CreateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_json1_1CreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

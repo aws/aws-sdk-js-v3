@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterUsageCommand,
-  serializeAws_json1_1RegisterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class RegisterUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterUsageCommand(input, context);
+    return se_RegisterUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput> {
-    return deserializeAws_json1_1RegisterUsageCommand(output, context);
+    return de_RegisterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

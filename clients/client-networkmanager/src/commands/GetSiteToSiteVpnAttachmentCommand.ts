@@ -15,10 +15,7 @@ import {
 
 import { GetSiteToSiteVpnAttachmentRequest, GetSiteToSiteVpnAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommand,
-  serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSiteToSiteVpnAttachmentCommand, se_GetSiteToSiteVpnAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSiteToSiteVpnAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand(input, context);
+    return se_GetSiteToSiteVpnAttachmentCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSiteToSiteVpnAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommand(output, context);
+    return de_GetSiteToSiteVpnAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

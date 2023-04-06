@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDocumentsRequest, ListDocumentsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentsCommand,
-  serializeAws_json1_1ListDocumentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDocumentsCommand, se_ListDocumentsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -143,14 +140,14 @@ export class ListDocumentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentsCommand(input, context);
+    return se_ListDocumentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentsCommand(output, context);
+    return de_ListDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

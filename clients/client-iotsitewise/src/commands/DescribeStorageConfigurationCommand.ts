@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeStorageConfigurationRequest, DescribeStorageConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeStorageConfigurationCommand,
-  serializeAws_restJson1DescribeStorageConfigurationCommand,
+  de_DescribeStorageConfigurationCommand,
+  se_DescribeStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeStorageConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStorageConfigurationCommand(input, context);
+    return se_DescribeStorageConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeStorageConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeStorageConfigurationCommand(output, context);
+    return de_DescribeStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

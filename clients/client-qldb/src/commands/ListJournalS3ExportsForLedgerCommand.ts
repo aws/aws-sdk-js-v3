@@ -15,8 +15,8 @@ import {
 
 import { ListJournalS3ExportsForLedgerRequest, ListJournalS3ExportsForLedgerResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand,
-  serializeAws_restJson1ListJournalS3ExportsForLedgerCommand,
+  de_ListJournalS3ExportsForLedgerCommand,
+  se_ListJournalS3ExportsForLedgerCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
@@ -129,7 +129,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
    * @internal
    */
   private serialize(input: ListJournalS3ExportsForLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalS3ExportsForLedgerCommand(input, context);
+    return se_ListJournalS3ExportsForLedgerCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-    return deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand(output, context);
+    return de_ListJournalS3ExportsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

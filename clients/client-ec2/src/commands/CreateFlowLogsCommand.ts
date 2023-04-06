@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/models_1";
-import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
+import { de_CreateFlowLogsCommand, se_CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -156,14 +156,14 @@ export class CreateFlowLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateFlowLogsCommand(input, context);
+    return se_CreateFlowLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowLogsCommandOutput> {
-    return deserializeAws_ec2CreateFlowLogsCommand(output, context);
+    return de_CreateFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

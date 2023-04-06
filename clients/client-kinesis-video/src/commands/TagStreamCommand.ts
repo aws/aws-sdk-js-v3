@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { TagStreamInput, TagStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1TagStreamCommand,
-  serializeAws_restJson1TagStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagStreamCommand, se_TagStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class TagStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: TagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagStreamCommand(input, context);
+    return se_TagStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagStreamCommandOutput> {
-    return deserializeAws_restJson1TagStreamCommand(output, context);
+    return de_TagStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

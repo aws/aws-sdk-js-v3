@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCertificatesRequest, ListCertificatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCertificatesCommand,
-  serializeAws_json1_1ListCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificatesCommand(input, context);
+    return se_ListCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
-    return deserializeAws_json1_1ListCertificatesCommand(output, context);
+    return de_ListCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

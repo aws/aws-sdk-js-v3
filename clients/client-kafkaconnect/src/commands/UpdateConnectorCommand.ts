@@ -15,10 +15,7 @@ import {
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectorCommand,
-  serializeAws_restJson1UpdateConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class UpdateConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorCommand(input, context);
+    return se_UpdateConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorCommand(output, context);
+    return de_UpdateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

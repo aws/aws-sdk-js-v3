@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_1";
-import {
-  deserializeAws_queryStartActivityStreamCommand,
-  serializeAws_queryStartActivityStreamCommand,
-} from "../protocols/Aws_query";
+import { de_StartActivityStreamCommand, se_StartActivityStreamCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -87,6 +84,29 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  *  <p>The specified resource ID was not found.</p>
  *
  *
+ * @example To start a database activity stream
+ * ```javascript
+ * // The following example starts an asynchronous activity stream to monitor an Aurora cluster named my-pg-cluster.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   "Mode": "async",
+ *   "ResourceArn": "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
+ * };
+ * const command = new StartActivityStreamCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplyImmediately": true,
+ *   "KinesisStreamName": "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   "Mode": "async",
+ *   "Status": "starting"
+ * }
+ * *\/
+ * // example id: to-start-a-database-activity-stream-1680035656463
+ * ```
+ *
  */
 export class StartActivityStreamCommand extends $Command<
   StartActivityStreamCommandInput,
@@ -151,14 +171,14 @@ export class StartActivityStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: StartActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartActivityStreamCommand(input, context);
+    return se_StartActivityStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartActivityStreamCommandOutput> {
-    return deserializeAws_queryStartActivityStreamCommand(output, context);
+    return de_StartActivityStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

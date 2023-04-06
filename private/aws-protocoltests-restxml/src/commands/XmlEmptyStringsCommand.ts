@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlEmptyStringsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyStringsCommand,
-  serializeAws_restXmlXmlEmptyStringsCommand,
-} from "../protocols/Aws_restXml";
+import { de_XmlEmptyStringsCommand, se_XmlEmptyStringsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class XmlEmptyStringsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEmptyStringsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyStringsCommand(input, context);
+    return se_XmlEmptyStringsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyStringsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyStringsCommand(output, context);
+    return de_XmlEmptyStringsCommand(output, context);
   }
 
   // Start section: command_body_extra

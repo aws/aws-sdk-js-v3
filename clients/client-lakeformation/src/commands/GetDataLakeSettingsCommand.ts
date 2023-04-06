@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataLakeSettingsCommand,
-  serializeAws_restJson1GetDataLakeSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataLakeSettingsCommand, se_GetDataLakeSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetDataLakeSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataLakeSettingsCommand(input, context);
+    return se_GetDataLakeSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataLakeSettingsCommandOutput> {
-    return deserializeAws_restJson1GetDataLakeSettingsCommand(output, context);
+    return de_GetDataLakeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { UpdateInstanceCustomHealthStatusRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,
-  serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,
+  de_UpdateInstanceCustomHealthStatusCommand,
+  se_UpdateInstanceCustomHealthStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
@@ -160,7 +160,7 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     input: UpdateInstanceCustomHealthStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand(input, context);
+    return se_UpdateInstanceCustomHealthStatusCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand(output, context);
+    return de_UpdateInstanceCustomHealthStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

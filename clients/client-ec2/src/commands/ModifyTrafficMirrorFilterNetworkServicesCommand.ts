@@ -19,8 +19,8 @@ import {
   ModifyTrafficMirrorFilterNetworkServicesResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
-  serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
+  de_ModifyTrafficMirrorFilterNetworkServicesCommand,
+  se_ModifyTrafficMirrorFilterNetworkServicesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     input: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(input, context);
+    return se_ModifyTrafficMirrorFilterNetworkServicesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> {
-    return deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(output, context);
+    return de_ModifyTrafficMirrorFilterNetworkServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteEventsConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventsConfigurationCommand,
-  serializeAws_restJson1DeleteEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventsConfigurationCommand, se_DeleteEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class DeleteEventsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventsConfigurationCommand(input, context);
+    return se_DeleteEventsConfigurationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class DeleteEventsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteEventsConfigurationCommand(output, context);
+    return de_DeleteEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

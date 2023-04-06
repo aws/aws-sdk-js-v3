@@ -18,8 +18,8 @@ import {
   GetReservedNodeExchangeOfferingsOutputMessage,
 } from "../models/models_1";
 import {
-  deserializeAws_queryGetReservedNodeExchangeOfferingsCommand,
-  serializeAws_queryGetReservedNodeExchangeOfferingsCommand,
+  de_GetReservedNodeExchangeOfferingsCommand,
+  se_GetReservedNodeExchangeOfferingsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -150,7 +150,7 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     input: GetReservedNodeExchangeOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(input, context);
+    return se_GetReservedNodeExchangeOfferingsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> {
-    return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(output, context);
+    return de_GetReservedNodeExchangeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

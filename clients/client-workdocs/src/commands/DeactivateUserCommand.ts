@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeactivateUserRequest, DeactivateUserRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeactivateUserCommand,
-  serializeAws_restJson1DeactivateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeactivateUserCommand, se_DeactivateUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeactivateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeactivateUserCommand(input, context);
+    return se_DeactivateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateUserCommandOutput> {
-    return deserializeAws_restJson1DeactivateUserCommand(output, context);
+    return de_DeactivateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

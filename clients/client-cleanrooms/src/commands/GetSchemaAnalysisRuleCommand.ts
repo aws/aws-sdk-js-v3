@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { GetSchemaAnalysisRuleInput, GetSchemaAnalysisRuleOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaAnalysisRuleCommand,
-  serializeAws_restJson1GetSchemaAnalysisRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSchemaAnalysisRuleCommand, se_GetSchemaAnalysisRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSchemaAnalysisRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaAnalysisRuleCommand(input, context);
+    return se_GetSchemaAnalysisRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1GetSchemaAnalysisRuleCommand(output, context);
+    return de_GetSchemaAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConditionalForwardersCommand,
-  serializeAws_json1_1DescribeConditionalForwardersCommand,
+  de_DescribeConditionalForwardersCommand,
+  se_DescribeConditionalForwardersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeConditionalForwardersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConditionalForwardersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConditionalForwardersCommand(input, context);
+    return se_DescribeConditionalForwardersCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeConditionalForwardersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConditionalForwardersCommandOutput> {
-    return deserializeAws_json1_1DescribeConditionalForwardersCommand(output, context);
+    return de_DescribeConditionalForwardersCommand(output, context);
   }
 
   // Start section: command_body_extra

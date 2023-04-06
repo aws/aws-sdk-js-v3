@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { GetPlayerConnectionStatusRequest, GetPlayerConnectionStatusResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlayerConnectionStatusCommand,
-  serializeAws_restJson1GetPlayerConnectionStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPlayerConnectionStatusCommand, se_GetPlayerConnectionStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class GetPlayerConnectionStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPlayerConnectionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPlayerConnectionStatusCommand(input, context);
+    return se_GetPlayerConnectionStatusCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class GetPlayerConnectionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPlayerConnectionStatusCommandOutput> {
-    return deserializeAws_restJson1GetPlayerConnectionStatusCommand(output, context);
+    return de_GetPlayerConnectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

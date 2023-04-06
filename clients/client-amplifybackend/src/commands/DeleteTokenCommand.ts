@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { DeleteTokenRequest, DeleteTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTokenCommand,
-  serializeAws_restJson1DeleteTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTokenCommand, se_DeleteTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTokenCommand(input, context);
+    return se_DeleteTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTokenCommandOutput> {
-    return deserializeAws_restJson1DeleteTokenCommand(output, context);
+    return de_DeleteTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

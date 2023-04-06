@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetStatementRequest, GetStatementResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetStatementCommand,
-  serializeAws_json1_1GetStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetStatementCommand, se_GetStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStatementCommand(input, context);
+    return se_GetStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementCommandOutput> {
-    return deserializeAws_json1_1GetStatementCommand(output, context);
+    return de_GetStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

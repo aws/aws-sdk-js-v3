@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePlatformApplicationInput } from "../models/models_0";
-import {
-  deserializeAws_queryDeletePlatformApplicationCommand,
-  serializeAws_queryDeletePlatformApplicationCommand,
-} from "../protocols/Aws_query";
+import { de_DeletePlatformApplicationCommand, se_DeletePlatformApplicationCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -133,7 +130,7 @@ export class DeletePlatformApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePlatformApplicationCommand(input, context);
+    return se_DeletePlatformApplicationCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DeletePlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlatformApplicationCommandOutput> {
-    return deserializeAws_queryDeletePlatformApplicationCommand(output, context);
+    return de_DeletePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

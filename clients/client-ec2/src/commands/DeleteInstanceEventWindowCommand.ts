@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteInstanceEventWindowCommand,
-  serializeAws_ec2DeleteInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteInstanceEventWindowCommand, se_DeleteInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class DeleteInstanceEventWindowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteInstanceEventWindowCommand(input, context);
+    return se_DeleteInstanceEventWindowCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class DeleteInstanceEventWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2DeleteInstanceEventWindowCommand(output, context);
+    return de_DeleteInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

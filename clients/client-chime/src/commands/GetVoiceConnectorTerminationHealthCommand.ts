@@ -19,8 +19,8 @@ import {
   GetVoiceConnectorTerminationHealthResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,
-  serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,
+  de_GetVoiceConnectorTerminationHealthCommand,
+  se_GetVoiceConnectorTerminationHealthCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     input: GetVoiceConnectorTerminationHealthCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(input, context);
+    return se_GetVoiceConnectorTerminationHealthCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(output, context);
+    return de_GetVoiceConnectorTerminationHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

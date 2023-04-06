@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateThirdPartyFirewallCommand,
-  serializeAws_json1_1AssociateThirdPartyFirewallCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateThirdPartyFirewallCommand, se_AssociateThirdPartyFirewallCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class AssociateThirdPartyFirewallCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateThirdPartyFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateThirdPartyFirewallCommand(input, context);
+    return se_AssociateThirdPartyFirewallCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class AssociateThirdPartyFirewallCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateThirdPartyFirewallCommandOutput> {
-    return deserializeAws_json1_1AssociateThirdPartyFirewallCommand(output, context);
+    return de_AssociateThirdPartyFirewallCommand(output, context);
   }
 
   // Start section: command_body_extra

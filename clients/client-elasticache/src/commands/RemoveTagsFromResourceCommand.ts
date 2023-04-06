@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { RemoveTagsFromResourceMessage, TagListMessage } from "../models/models_0";
-import {
-  deserializeAws_queryRemoveTagsFromResourceCommand,
-  serializeAws_queryRemoveTagsFromResourceCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -204,14 +201,14 @@ export class RemoveTagsFromResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveTagsFromResourceCommand(input, context);
+    return se_RemoveTagsFromResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromResourceCommandOutput> {
-    return deserializeAws_queryRemoveTagsFromResourceCommand(output, context);
+    return de_RemoveTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

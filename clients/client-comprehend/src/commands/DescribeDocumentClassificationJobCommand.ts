@@ -19,8 +19,8 @@ import {
   DescribeDocumentClassificationJobResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDocumentClassificationJobCommand,
-  serializeAws_json1_1DescribeDocumentClassificationJobCommand,
+  de_DescribeDocumentClassificationJobCommand,
+  se_DescribeDocumentClassificationJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     input: DescribeDocumentClassificationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentClassificationJobCommand(input, context);
+    return se_DescribeDocumentClassificationJobCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentClassificationJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentClassificationJobCommand(output, context);
+    return de_DescribeDocumentClassificationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

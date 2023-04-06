@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEventSubscriptionCommand,
-  serializeAws_json1_1CreateEventSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class CreateEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventSubscriptionCommand(input, context);
+    return se_CreateEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateEventSubscriptionCommand(output, context);
+    return de_CreateEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

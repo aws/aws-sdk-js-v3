@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorkingStorageInput, DescribeWorkingStorageOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkingStorageCommand,
-  serializeAws_json1_1DescribeWorkingStorageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkingStorageCommand, se_DescribeWorkingStorageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -160,14 +157,14 @@ export class DescribeWorkingStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkingStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkingStorageCommand(input, context);
+    return se_DescribeWorkingStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkingStorageCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkingStorageCommand(output, context);
+    return de_DescribeWorkingStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

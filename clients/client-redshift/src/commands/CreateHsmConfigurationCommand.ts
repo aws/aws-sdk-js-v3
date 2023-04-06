@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateHsmConfigurationCommand,
-  serializeAws_queryCreateHsmConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_CreateHsmConfigurationCommand, se_CreateHsmConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateHsmConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateHsmConfigurationCommand(input, context);
+    return se_CreateHsmConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHsmConfigurationCommandOutput> {
-    return deserializeAws_queryCreateHsmConfigurationCommand(output, context);
+    return de_CreateHsmConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

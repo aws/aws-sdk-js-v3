@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListGroupResourcesRequest, ListGroupResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGroupResourcesCommand,
-  serializeAws_restJson1ListGroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGroupResourcesCommand, se_ListGroupResourcesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListGroupResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupResourcesCommand(input, context);
+    return se_ListGroupResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupResourcesCommandOutput> {
-    return deserializeAws_restJson1ListGroupResourcesCommand(output, context);
+    return de_ListGroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

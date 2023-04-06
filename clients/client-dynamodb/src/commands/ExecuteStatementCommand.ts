@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ExecuteStatementInput, ExecuteStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ExecuteStatementCommand,
-  serializeAws_json1_0ExecuteStatementCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class ExecuteStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExecuteStatementCommand(input, context);
+    return se_ExecuteStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
-    return deserializeAws_json1_0ExecuteStatementCommand(output, context);
+    return de_ExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

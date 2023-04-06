@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { DescribeOfferingRequest, DescribeOfferingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeOfferingCommand,
-  serializeAws_restJson1DescribeOfferingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeOfferingCommand, se_DescribeOfferingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeOfferingCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOfferingCommand(input, context);
+    return se_DescribeOfferingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOfferingCommandOutput> {
-    return deserializeAws_restJson1DescribeOfferingCommand(output, context);
+    return de_DescribeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

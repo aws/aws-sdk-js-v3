@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RecursiveXmlShapesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRecursiveXmlShapesCommand,
-  serializeAws_queryRecursiveXmlShapesCommand,
-} from "../protocols/Aws_query";
+import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -105,14 +102,14 @@ export class RecursiveXmlShapesCommand extends $Command<
    * @internal
    */
   private serialize(input: RecursiveXmlShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRecursiveXmlShapesCommand(input, context);
+    return se_RecursiveXmlShapesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveXmlShapesCommandOutput> {
-    return deserializeAws_queryRecursiveXmlShapesCommand(output, context);
+    return de_RecursiveXmlShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

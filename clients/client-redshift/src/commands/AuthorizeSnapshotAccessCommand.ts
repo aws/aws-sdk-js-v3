@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeSnapshotAccessCommand,
-  serializeAws_queryAuthorizeSnapshotAccessCommand,
-} from "../protocols/Aws_query";
+import { de_AuthorizeSnapshotAccessCommand, se_AuthorizeSnapshotAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -152,14 +149,14 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeSnapshotAccessCommand(input, context);
+    return se_AuthorizeSnapshotAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeSnapshotAccessCommandOutput> {
-    return deserializeAws_queryAuthorizeSnapshotAccessCommand(output, context);
+    return de_AuthorizeSnapshotAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

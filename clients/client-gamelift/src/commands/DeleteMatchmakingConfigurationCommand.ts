@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteMatchmakingConfigurationInput, DeleteMatchmakingConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteMatchmakingConfigurationCommand,
-  serializeAws_json1_1DeleteMatchmakingConfigurationCommand,
+  de_DeleteMatchmakingConfigurationCommand,
+  se_DeleteMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     input: DeleteMatchmakingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMatchmakingConfigurationCommand(input, context);
+    return se_DeleteMatchmakingConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommand(output, context);
+    return de_DeleteMatchmakingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

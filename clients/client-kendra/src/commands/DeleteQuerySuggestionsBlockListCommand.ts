@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteQuerySuggestionsBlockListRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
+  de_DeleteQuerySuggestionsBlockListCommand,
+  se_DeleteQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     input: DeleteQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand(input, context);
+    return se_DeleteQuerySuggestionsBlockListCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand(output, context);
+    return de_DeleteQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

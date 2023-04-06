@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelCapacityReservationFleetsRequest, CancelCapacityReservationFleetsResult } from "../models/models_0";
 import {
-  deserializeAws_ec2CancelCapacityReservationFleetsCommand,
-  serializeAws_ec2CancelCapacityReservationFleetsCommand,
+  de_CancelCapacityReservationFleetsCommand,
+  se_CancelCapacityReservationFleetsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     input: CancelCapacityReservationFleetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelCapacityReservationFleetsCommand(input, context);
+    return se_CancelCapacityReservationFleetsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCapacityReservationFleetsCommandOutput> {
-    return deserializeAws_ec2CancelCapacityReservationFleetsCommand(output, context);
+    return de_CancelCapacityReservationFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

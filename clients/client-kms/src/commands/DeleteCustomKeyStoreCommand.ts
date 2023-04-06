@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomKeyStoreCommand,
-  serializeAws_json1_1DeleteCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCustomKeyStoreCommand, se_DeleteCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -239,14 +236,14 @@ export class DeleteCustomKeyStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomKeyStoreCommand(input, context);
+    return se_DeleteCustomKeyStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomKeyStoreCommand(output, context);
+    return de_DeleteCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

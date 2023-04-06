@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMembersRequest, ListMembersResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+    return se_ListMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+    return de_ListMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

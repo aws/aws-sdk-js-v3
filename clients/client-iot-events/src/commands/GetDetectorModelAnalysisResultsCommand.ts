@@ -16,8 +16,8 @@ import {
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { GetDetectorModelAnalysisResultsRequest, GetDetectorModelAnalysisResultsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetDetectorModelAnalysisResultsCommand,
-  serializeAws_restJson1GetDetectorModelAnalysisResultsCommand,
+  de_GetDetectorModelAnalysisResultsCommand,
+  se_GetDetectorModelAnalysisResultsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command<
     input: GetDetectorModelAnalysisResultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDetectorModelAnalysisResultsCommand(input, context);
+    return se_GetDetectorModelAnalysisResultsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDetectorModelAnalysisResultsCommandOutput> {
-    return deserializeAws_restJson1GetDetectorModelAnalysisResultsCommand(output, context);
+    return de_GetDetectorModelAnalysisResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

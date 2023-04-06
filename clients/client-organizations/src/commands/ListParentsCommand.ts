@@ -15,10 +15,7 @@ import {
 
 import { ListParentsRequest, ListParentsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListParentsCommand,
-  serializeAws_json1_1ListParentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListParentsCommand, se_ListParentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -286,14 +283,14 @@ export class ListParentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListParentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListParentsCommand(input, context);
+    return se_ListParentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListParentsCommandOutput> {
-    return deserializeAws_json1_1ListParentsCommand(output, context);
+    return de_ListParentsCommand(output, context);
   }
 
   // Start section: command_body_extra

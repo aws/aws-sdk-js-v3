@@ -15,8 +15,8 @@ import {
 
 import { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_1";
 import {
-  deserializeAws_queryModifyDBClusterParameterGroupCommand,
-  serializeAws_queryModifyDBClusterParameterGroupCommand,
+  de_ModifyDBClusterParameterGroupCommand,
+  se_ModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -110,22 +110,32 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *             this state.</p>
  *
  *
- * @example To change DB cluster parameter group settings
+ * @example To modify parameters in a DB cluster parameter group
  * ```javascript
- * // This example immediately changes the specified setting for the specified DB cluster parameter group.
+ * // The following example modifies the values of parameters in a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DBClusterParameterGroupName": "mydbclusterpg",
  *   "Parameters": [
  *     {
  *       "ApplyMethod": "immediate",
- *       "ParameterName": "time_zone",
- *       "ParameterValue": "America/Phoenix"
+ *       "ParameterName": "server_audit_logging",
+ *       "ParameterValue": "1"
+ *     },
+ *     {
+ *       "ApplyMethod": "immediate",
+ *       "ParameterName": "server_audit_logs_upload",
+ *       "ParameterValue": "1"
  *     }
  *   ]
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: modify-db-cluster-parameter-group-f9156bc9-082a-442e-8d12-239542c1a113
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroupName": "mydbclusterpg"
+ * }
+ * *\/
+ * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
  * ```
  *
  */
@@ -192,7 +202,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
+    return se_ModifyDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -202,7 +212,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
+    return de_ModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

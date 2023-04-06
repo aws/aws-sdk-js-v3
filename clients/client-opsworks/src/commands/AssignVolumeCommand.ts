@@ -15,10 +15,7 @@ import {
 
 import { AssignVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AssignVolumeCommand,
-  serializeAws_json1_1AssignVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssignVolumeCommand, se_AssignVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class AssignVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: AssignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssignVolumeCommand(input, context);
+    return se_AssignVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignVolumeCommandOutput> {
-    return deserializeAws_json1_1AssignVolumeCommand(output, context);
+    return de_AssignVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

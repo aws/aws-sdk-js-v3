@@ -15,10 +15,7 @@ import {
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import { ListChunksInput, ListChunksOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChunksCommand,
-  serializeAws_restJson1ListChunksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChunksCommand, se_ListChunksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListChunksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChunksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChunksCommand(input, context);
+    return se_ListChunksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChunksCommandOutput> {
-    return deserializeAws_restJson1ListChunksCommand(output, context);
+    return de_ListChunksCommand(output, context);
   }
 
   // Start section: command_body_extra

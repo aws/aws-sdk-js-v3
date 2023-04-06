@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateDefaultSubnetCommand,
-  serializeAws_ec2CreateDefaultSubnetCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateDefaultSubnetCommand, se_CreateDefaultSubnetCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class CreateDefaultSubnetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDefaultSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateDefaultSubnetCommand(input, context);
+    return se_CreateDefaultSubnetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultSubnetCommandOutput> {
-    return deserializeAws_ec2CreateDefaultSubnetCommand(output, context);
+    return de_CreateDefaultSubnetCommand(output, context);
   }
 
   // Start section: command_body_extra

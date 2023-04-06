@@ -19,8 +19,8 @@ import {
   DescribeTransitGatewayMulticastDomainsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
-  serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
+  de_DescribeTransitGatewayMulticastDomainsCommand,
+  se_DescribeTransitGatewayMulticastDomainsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     input: DescribeTransitGatewayMulticastDomainsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(input, context);
+    return se_DescribeTransitGatewayMulticastDomainsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(output, context);
+    return de_DescribeTransitGatewayMulticastDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

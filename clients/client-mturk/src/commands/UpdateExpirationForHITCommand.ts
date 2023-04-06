@@ -15,10 +15,7 @@ import {
 
 import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateExpirationForHITCommand,
-  serializeAws_json1_1UpdateExpirationForHITCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateExpirationForHITCommand, se_UpdateExpirationForHITCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class UpdateExpirationForHITCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateExpirationForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateExpirationForHITCommand(input, context);
+    return se_UpdateExpirationForHITCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExpirationForHITCommandOutput> {
-    return deserializeAws_json1_1UpdateExpirationForHITCommand(output, context);
+    return de_UpdateExpirationForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { DeregisterDelegatedAdministratorRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1DeregisterDelegatedAdministratorCommand,
-  serializeAws_json1_1DeregisterDelegatedAdministratorCommand,
+  de_DeregisterDelegatedAdministratorCommand,
+  se_DeregisterDelegatedAdministratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -475,7 +475,7 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     input: DeregisterDelegatedAdministratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterDelegatedAdministratorCommand(input, context);
+    return se_DeregisterDelegatedAdministratorCommand(input, context);
   }
 
   /**
@@ -485,7 +485,7 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterDelegatedAdministratorCommandOutput> {
-    return deserializeAws_json1_1DeregisterDelegatedAdministratorCommand(output, context);
+    return de_DeregisterDelegatedAdministratorCommand(output, context);
   }
 
   // Start section: command_body_extra

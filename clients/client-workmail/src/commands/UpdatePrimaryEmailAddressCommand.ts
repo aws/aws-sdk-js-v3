@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrimaryEmailAddressCommand,
-  serializeAws_json1_1UpdatePrimaryEmailAddressCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePrimaryEmailAddressCommand, se_UpdatePrimaryEmailAddressCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -163,7 +160,7 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePrimaryEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrimaryEmailAddressCommand(input, context);
+    return se_UpdatePrimaryEmailAddressCommand(input, context);
   }
 
   /**
@@ -173,7 +170,7 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePrimaryEmailAddressCommandOutput> {
-    return deserializeAws_json1_1UpdatePrimaryEmailAddressCommand(output, context);
+    return de_UpdatePrimaryEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

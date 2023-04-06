@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateListenerCommand,
-  serializeAws_restJson1CreateListenerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateListenerCommand, se_CreateListenerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -166,14 +163,14 @@ export class CreateListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateListenerCommand(input, context);
+    return se_CreateListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
-    return deserializeAws_restJson1CreateListenerCommand(output, context);
+    return de_CreateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

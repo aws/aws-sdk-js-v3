@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterParameterGroupCommand,
-  serializeAws_queryCopyDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBClusterParameterGroupCommand, se_CopyDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -88,7 +85,12 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterParameterGroup": {}
+ *   "DBClusterParameterGroup": {
+ *     "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup-copy",
+ *     "DBClusterParameterGroupName": "mydbclusterparametergroup-copy",
+ *     "DBParameterGroupFamily": "aurora-mysql5.7",
+ *     "Description": "My DB cluster parameter group copy"
+ *   }
  * }
  * *\/
  * // example id: copy-db-cluster-parameter-group-6fefaffe-cde9-4dba-9f0b-d3f593572fe4
@@ -158,7 +160,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterParameterGroupCommand(input, context);
+    return se_CopyDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -168,7 +170,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CopyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBClusterParameterGroupCommand(output, context);
+    return de_CopyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteCollectionCommand,
-  serializeAws_json1_0DeleteCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteCollectionCommand, se_DeleteCollectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteCollectionCommand(input, context);
+    return se_DeleteCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollectionCommandOutput> {
-    return deserializeAws_json1_0DeleteCollectionCommand(output, context);
+    return de_DeleteCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

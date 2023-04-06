@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteIAMPolicyAssignmentRequest, DeleteIAMPolicyAssignmentResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
-  serializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIAMPolicyAssignmentCommand, se_DeleteIAMPolicyAssignmentCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,7 +144,7 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIAMPolicyAssignmentCommand(input, context);
+    return se_DeleteIAMPolicyAssignmentCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand(output, context);
+    return de_DeleteIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

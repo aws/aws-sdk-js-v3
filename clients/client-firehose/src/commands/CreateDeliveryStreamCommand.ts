@@ -19,10 +19,7 @@ import {
   CreateDeliveryStreamInputFilterSensitiveLog,
   CreateDeliveryStreamOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDeliveryStreamCommand,
-  serializeAws_json1_1CreateDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDeliveryStreamCommand, se_CreateDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -608,14 +605,14 @@ export class CreateDeliveryStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDeliveryStreamCommand(input, context);
+    return se_CreateDeliveryStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1CreateDeliveryStreamCommand(output, context);
+    return de_CreateDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

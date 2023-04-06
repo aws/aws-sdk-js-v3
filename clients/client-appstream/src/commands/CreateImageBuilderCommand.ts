@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CreateImageBuilderRequest, CreateImageBuilderResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateImageBuilderCommand,
-  serializeAws_json1_1CreateImageBuilderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateImageBuilderCommand, se_CreateImageBuilderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class CreateImageBuilderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateImageBuilderCommand(input, context);
+    return se_CreateImageBuilderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageBuilderCommandOutput> {
-    return deserializeAws_json1_1CreateImageBuilderCommand(output, context);
+    return de_CreateImageBuilderCommand(output, context);
   }
 
   // Start section: command_body_extra

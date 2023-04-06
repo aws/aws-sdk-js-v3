@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { GetImagesInput, GetImagesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImagesCommand,
-  serializeAws_restJson1GetImagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImagesCommand, se_GetImagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class GetImagesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImagesCommand(input, context);
+    return se_GetImagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagesCommandOutput> {
-    return deserializeAws_restJson1GetImagesCommand(output, context);
+    return de_GetImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

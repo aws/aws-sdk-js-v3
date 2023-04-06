@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { UpdateCampaignNameRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCampaignNameCommand,
-  serializeAws_restJson1UpdateCampaignNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCampaignNameCommand, se_UpdateCampaignNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UpdateCampaignNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCampaignNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignNameCommand(input, context);
+    return se_UpdateCampaignNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignNameCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignNameCommand(output, context);
+    return de_UpdateCampaignNameCommand(output, context);
   }
 
   // Start section: command_body_extra

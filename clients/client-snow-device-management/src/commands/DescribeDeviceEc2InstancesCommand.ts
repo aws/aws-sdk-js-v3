@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDeviceEc2Input, DescribeDeviceEc2Output } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeviceEc2InstancesCommand,
-  serializeAws_restJson1DescribeDeviceEc2InstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDeviceEc2InstancesCommand, se_DescribeDeviceEc2InstancesCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -144,7 +141,7 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDeviceEc2InstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceEc2InstancesCommand(input, context);
+    return se_DescribeDeviceEc2InstancesCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeviceEc2InstancesCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceEc2InstancesCommand(output, context);
+    return de_DescribeDeviceEc2InstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

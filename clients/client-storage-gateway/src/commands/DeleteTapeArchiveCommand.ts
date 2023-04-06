@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTapeArchiveInput, DeleteTapeArchiveOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTapeArchiveCommand,
-  serializeAws_json1_1DeleteTapeArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTapeArchiveCommand, se_DeleteTapeArchiveCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeleteTapeArchiveCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTapeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTapeArchiveCommand(input, context);
+    return se_DeleteTapeArchiveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapeArchiveCommandOutput> {
-    return deserializeAws_json1_1DeleteTapeArchiveCommand(output, context);
+    return de_DeleteTapeArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

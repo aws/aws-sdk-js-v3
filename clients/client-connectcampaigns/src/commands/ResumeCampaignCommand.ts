@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { ResumeCampaignRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResumeCampaignCommand,
-  serializeAws_restJson1ResumeCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResumeCampaignCommand, se_ResumeCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ResumeCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: ResumeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResumeCampaignCommand(input, context);
+    return se_ResumeCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeCampaignCommandOutput> {
-    return deserializeAws_restJson1ResumeCampaignCommand(output, context);
+    return de_ResumeCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ExportVectorEnrichmentJobInput, ExportVectorEnrichmentJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportVectorEnrichmentJobCommand,
-  serializeAws_restJson1ExportVectorEnrichmentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportVectorEnrichmentJobCommand, se_ExportVectorEnrichmentJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -153,7 +150,7 @@ export class ExportVectorEnrichmentJobCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportVectorEnrichmentJobCommand(input, context);
+    return se_ExportVectorEnrichmentJobCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class ExportVectorEnrichmentJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportVectorEnrichmentJobCommandOutput> {
-    return deserializeAws_restJson1ExportVectorEnrichmentJobCommand(output, context);
+    return de_ExportVectorEnrichmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

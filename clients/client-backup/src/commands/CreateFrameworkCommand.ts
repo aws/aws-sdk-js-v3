@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { CreateFrameworkInput, CreateFrameworkOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFrameworkCommand,
-  serializeAws_restJson1CreateFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFrameworkCommand, se_CreateFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreateFrameworkCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFrameworkCommand(input, context);
+    return se_CreateFrameworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFrameworkCommandOutput> {
-    return deserializeAws_restJson1CreateFrameworkCommand(output, context);
+    return de_CreateFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

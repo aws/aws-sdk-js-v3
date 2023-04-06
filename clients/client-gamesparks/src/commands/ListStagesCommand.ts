@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { ListStagesRequest, ListStagesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStagesCommand,
-  serializeAws_restJson1ListStagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStagesCommand, se_ListStagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListStagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStagesCommand(input, context);
+    return se_ListStagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStagesCommandOutput> {
-    return deserializeAws_restJson1ListStagesCommand(output, context);
+    return de_ListStagesCommand(output, context);
   }
 
   // Start section: command_body_extra

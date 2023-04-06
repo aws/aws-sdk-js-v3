@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateSecurityKeyRequest, AssociateSecurityKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateSecurityKeyCommand,
-  serializeAws_restJson1AssociateSecurityKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateSecurityKeyCommand, se_AssociateSecurityKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class AssociateSecurityKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSecurityKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateSecurityKeyCommand(input, context);
+    return se_AssociateSecurityKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSecurityKeyCommandOutput> {
-    return deserializeAws_restJson1AssociateSecurityKeyCommand(output, context);
+    return de_AssociateSecurityKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

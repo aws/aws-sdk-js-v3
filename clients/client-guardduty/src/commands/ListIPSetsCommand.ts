@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIPSetsCommand,
-  serializeAws_restJson1ListIPSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListIPSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIPSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIPSetsCommand(input, context);
+    return se_ListIPSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIPSetsCommandOutput> {
-    return deserializeAws_restJson1ListIPSetsCommand(output, context);
+    return de_ListIPSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

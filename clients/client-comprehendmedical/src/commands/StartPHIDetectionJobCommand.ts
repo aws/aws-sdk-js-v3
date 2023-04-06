@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { StartPHIDetectionJobRequest, StartPHIDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartPHIDetectionJobCommand,
-  serializeAws_json1_1StartPHIDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartPHIDetectionJobCommand, se_StartPHIDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class StartPHIDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartPHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartPHIDetectionJobCommand(input, context);
+    return se_StartPHIDetectionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPHIDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartPHIDetectionJobCommand(output, context);
+    return de_StartPHIDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

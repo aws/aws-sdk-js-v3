@@ -15,10 +15,7 @@ import {
 
 import { CloneStackRequest, CloneStackResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CloneStackCommand,
-  serializeAws_json1_1CloneStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloneStackCommand, se_CloneStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CloneStackCommand extends $Command<
    * @internal
    */
   private serialize(input: CloneStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloneStackCommand(input, context);
+    return se_CloneStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneStackCommandOutput> {
-    return deserializeAws_json1_1CloneStackCommand(output, context);
+    return de_CloneStackCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListLinksInput, ListLinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1ListLinksCommand,
-  serializeAws_restJson1ListLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLinksCommand, se_ListLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
    * @internal
    */
   private serialize(input: ListLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLinksCommand(input, context);
+    return se_ListLinksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinksCommandOutput> {
-    return deserializeAws_restJson1ListLinksCommand(output, context);
+    return de_ListLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

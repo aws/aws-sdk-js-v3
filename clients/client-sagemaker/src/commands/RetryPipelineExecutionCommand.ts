@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1RetryPipelineExecutionCommand,
-  serializeAws_json1_1RetryPipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetryPipelineExecutionCommand, se_RetryPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -135,14 +132,14 @@ export class RetryPipelineExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: RetryPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryPipelineExecutionCommand(input, context);
+    return se_RetryPipelineExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryPipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1RetryPipelineExecutionCommand(output, context);
+    return de_RetryPipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

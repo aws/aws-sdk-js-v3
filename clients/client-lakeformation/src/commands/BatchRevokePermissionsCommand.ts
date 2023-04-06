@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchRevokePermissionsCommand,
-  serializeAws_restJson1BatchRevokePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchRevokePermissionsCommand, se_BatchRevokePermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class BatchRevokePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchRevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchRevokePermissionsCommand(input, context);
+    return se_BatchRevokePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchRevokePermissionsCommandOutput> {
-    return deserializeAws_restJson1BatchRevokePermissionsCommand(output, context);
+    return de_BatchRevokePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

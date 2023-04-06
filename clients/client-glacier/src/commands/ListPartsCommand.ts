@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ListPartsInput, ListPartsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPartsCommand,
-  serializeAws_restJson1ListPartsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPartsCommand, se_ListPartsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class ListPartsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartsCommand(input, context);
+    return se_ListPartsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
-    return deserializeAws_restJson1ListPartsCommand(output, context);
+    return de_ListPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { DescribeHarvestJobRequest, DescribeHarvestJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeHarvestJobCommand,
-  serializeAws_restJson1DescribeHarvestJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeHarvestJobCommand, se_DescribeHarvestJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeHarvestJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeHarvestJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeHarvestJobCommand(input, context);
+    return se_DescribeHarvestJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHarvestJobCommandOutput> {
-    return deserializeAws_restJson1DescribeHarvestJobCommand(output, context);
+    return de_DescribeHarvestJobCommand(output, context);
   }
 
   // Start section: command_body_extra

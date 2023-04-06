@@ -24,10 +24,7 @@ import {
   InitiateAuthResponse,
   InitiateAuthResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1InitiateAuthCommand,
-  serializeAws_json1_1InitiateAuthCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InitiateAuthCommand, se_InitiateAuthCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class InitiateAuthCommand extends $Command<
    * @internal
    */
   private serialize(input: InitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InitiateAuthCommand(input, context);
+    return se_InitiateAuthCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateAuthCommandOutput> {
-    return deserializeAws_json1_1InitiateAuthCommand(output, context);
+    return de_InitiateAuthCommand(output, context);
   }
 
   // Start section: command_body_extra

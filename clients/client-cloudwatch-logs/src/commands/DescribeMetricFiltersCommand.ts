@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeMetricFiltersRequest, DescribeMetricFiltersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMetricFiltersCommand,
-  serializeAws_json1_1DescribeMetricFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMetricFiltersCommand, se_DescribeMetricFiltersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeMetricFiltersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMetricFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMetricFiltersCommand(input, context);
+    return se_DescribeMetricFiltersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricFiltersCommandOutput> {
-    return deserializeAws_json1_1DescribeMetricFiltersCommand(output, context);
+    return de_DescribeMetricFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

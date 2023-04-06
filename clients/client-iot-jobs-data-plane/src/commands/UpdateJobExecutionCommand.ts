@@ -15,10 +15,7 @@ import {
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
 import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateJobExecutionCommand,
-  serializeAws_restJson1UpdateJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateJobExecutionCommand, se_UpdateJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateJobExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJobExecutionCommand(input, context);
+    return se_UpdateJobExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobExecutionCommandOutput> {
-    return deserializeAws_restJson1UpdateJobExecutionCommand(output, context);
+    return de_UpdateJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

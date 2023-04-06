@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourceShareCommand,
-  serializeAws_restJson1DeleteResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourceShareCommand, se_DeleteResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -152,14 +149,14 @@ export class DeleteResourceShareCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourceShareCommand(input, context);
+    return se_DeleteResourceShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceShareCommandOutput> {
-    return deserializeAws_restJson1DeleteResourceShareCommand(output, context);
+    return de_DeleteResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

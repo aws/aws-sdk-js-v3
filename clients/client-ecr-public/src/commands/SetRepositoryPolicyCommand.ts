@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetRepositoryPolicyCommand,
-  serializeAws_json1_1SetRepositoryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetRepositoryPolicyCommand, se_SetRepositoryPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class SetRepositoryPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: SetRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetRepositoryPolicyCommand(input, context);
+    return se_SetRepositoryPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRepositoryPolicyCommandOutput> {
-    return deserializeAws_json1_1SetRepositoryPolicyCommand(output, context);
+    return de_SetRepositoryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

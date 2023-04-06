@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AssociateHostedConnectionRequest, Connection } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateHostedConnectionCommand,
-  serializeAws_json1_1AssociateHostedConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateHostedConnectionCommand, se_AssociateHostedConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class AssociateHostedConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateHostedConnectionCommand(input, context);
+    return se_AssociateHostedConnectionCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class AssociateHostedConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AssociateHostedConnectionCommand(output, context);
+    return de_AssociateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

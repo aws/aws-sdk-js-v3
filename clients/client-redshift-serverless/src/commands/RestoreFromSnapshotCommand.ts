@@ -18,10 +18,7 @@ import {
   RestoreFromSnapshotResponse,
   RestoreFromSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreFromSnapshotCommand,
-  serializeAws_json1_1RestoreFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -147,14 +144,14 @@ export class RestoreFromSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
+    return se_RestoreFromSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
+    return de_RestoreFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

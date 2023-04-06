@@ -16,8 +16,8 @@ import {
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { GetBandwidthRateLimitScheduleInput, GetBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
+  de_GetBandwidthRateLimitScheduleCommand,
+  se_GetBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -138,7 +138,7 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBandwidthRateLimitScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetBandwidthRateLimitScheduleCommand(input, context);
+    return se_GetBandwidthRateLimitScheduleCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand(output, context);
+    return de_GetBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

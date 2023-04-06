@@ -254,7 +254,10 @@ import {
   ValidationExceptionField,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand = async (
+/**
+ * serializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand
+ */
+export const se_AssociateAssessmentReportEvidenceFolderCommand = async (
   input: AssociateAssessmentReportEvidenceFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -288,7 +291,10 @@ export const serializeAws_restJson1AssociateAssessmentReportEvidenceFolderComman
   });
 };
 
-export const serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand = async (
+/**
+ * serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand
+ */
+export const se_BatchAssociateAssessmentReportEvidenceCommand = async (
   input: BatchAssociateAssessmentReportEvidenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -310,7 +316,7 @@ export const serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand
   let body: any;
   body = JSON.stringify({
     ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds != null && { evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context) }),
+    ...(input.evidenceIds != null && { evidenceIds: se_EvidenceIds(input.evidenceIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -323,7 +329,10 @@ export const serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand
   });
 };
 
-export const serializeAws_restJson1BatchCreateDelegationByAssessmentCommand = async (
+/**
+ * serializeAws_restJson1BatchCreateDelegationByAssessmentCommand
+ */
+export const se_BatchCreateDelegationByAssessmentCommand = async (
   input: BatchCreateDelegationByAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -344,7 +353,7 @@ export const serializeAws_restJson1BatchCreateDelegationByAssessmentCommand = as
   let body: any;
   body = JSON.stringify({
     ...(input.createDelegationRequests != null && {
-      createDelegationRequests: serializeAws_restJson1CreateDelegationRequests(input.createDelegationRequests, context),
+      createDelegationRequests: se_CreateDelegationRequests(input.createDelegationRequests, context),
     }),
   });
   return new __HttpRequest({
@@ -358,7 +367,10 @@ export const serializeAws_restJson1BatchCreateDelegationByAssessmentCommand = as
   });
 };
 
-export const serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand = async (
+/**
+ * serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand
+ */
+export const se_BatchDeleteDelegationByAssessmentCommand = async (
   input: BatchDeleteDelegationByAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,9 +390,7 @@ export const serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand = as
   );
   let body: any;
   body = JSON.stringify({
-    ...(input.delegationIds != null && {
-      delegationIds: serializeAws_restJson1DelegationIds(input.delegationIds, context),
-    }),
+    ...(input.delegationIds != null && { delegationIds: se_DelegationIds(input.delegationIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -393,7 +403,10 @@ export const serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand = as
   });
 };
 
-export const serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand = async (
+/**
+ * serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand
+ */
+export const se_BatchDisassociateAssessmentReportEvidenceCommand = async (
   input: BatchDisassociateAssessmentReportEvidenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -415,7 +428,7 @@ export const serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceComm
   let body: any;
   body = JSON.stringify({
     ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds != null && { evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context) }),
+    ...(input.evidenceIds != null && { evidenceIds: se_EvidenceIds(input.evidenceIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -428,7 +441,10 @@ export const serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceComm
   });
 };
 
-export const serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand = async (
+/**
+ * serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand
+ */
+export const se_BatchImportEvidenceToAssessmentControlCommand = async (
   input: BatchImportEvidenceToAssessmentControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -458,9 +474,7 @@ export const serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand
   resolvedPath = __resolvedPath(resolvedPath, input, "controlId", () => input.controlId!, "{controlId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.manualEvidence != null && {
-      manualEvidence: serializeAws_restJson1ManualEvidenceList(input.manualEvidence, context),
-    }),
+    ...(input.manualEvidence != null && { manualEvidence: se_ManualEvidenceList(input.manualEvidence, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -473,7 +487,10 @@ export const serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand
   });
 };
 
-export const serializeAws_restJson1CreateAssessmentCommand = async (
+/**
+ * serializeAws_restJson1CreateAssessmentCommand
+ */
+export const se_CreateAssessmentCommand = async (
   input: CreateAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -485,17 +502,14 @@ export const serializeAws_restJson1CreateAssessmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.assessmentReportsDestination != null && {
-      assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
-        input.assessmentReportsDestination,
-        context
-      ),
+      assessmentReportsDestination: se_AssessmentReportsDestination(input.assessmentReportsDestination, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.frameworkId != null && { frameworkId: input.frameworkId }),
     ...(input.name != null && { name: input.name }),
-    ...(input.roles != null && { roles: serializeAws_restJson1Roles(input.roles, context) }),
-    ...(input.scope != null && { scope: serializeAws_restJson1Scope(input.scope, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.roles != null && { roles: se_Roles(input.roles, context) }),
+    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -508,7 +522,10 @@ export const serializeAws_restJson1CreateAssessmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAssessmentFrameworkCommand = async (
+/**
+ * serializeAws_restJson1CreateAssessmentFrameworkCommand
+ */
+export const se_CreateAssessmentFrameworkCommand = async (
   input: CreateAssessmentFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,11 +538,11 @@ export const serializeAws_restJson1CreateAssessmentFrameworkCommand = async (
   body = JSON.stringify({
     ...(input.complianceType != null && { complianceType: input.complianceType }),
     ...(input.controlSets != null && {
-      controlSets: serializeAws_restJson1CreateAssessmentFrameworkControlSets(input.controlSets, context),
+      controlSets: se_CreateAssessmentFrameworkControlSets(input.controlSets, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -538,7 +555,10 @@ export const serializeAws_restJson1CreateAssessmentFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAssessmentReportCommand = async (
+/**
+ * serializeAws_restJson1CreateAssessmentReportCommand
+ */
+export const se_CreateAssessmentReportCommand = async (
   input: CreateAssessmentReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -573,7 +593,10 @@ export const serializeAws_restJson1CreateAssessmentReportCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateControlCommand = async (
+/**
+ * serializeAws_restJson1CreateControlCommand
+ */
+export const se_CreateControlCommand = async (
   input: CreateControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -587,11 +610,11 @@ export const serializeAws_restJson1CreateControlCommand = async (
     ...(input.actionPlanInstructions != null && { actionPlanInstructions: input.actionPlanInstructions }),
     ...(input.actionPlanTitle != null && { actionPlanTitle: input.actionPlanTitle }),
     ...(input.controlMappingSources != null && {
-      controlMappingSources: serializeAws_restJson1CreateControlMappingSources(input.controlMappingSources, context),
+      controlMappingSources: se_CreateControlMappingSources(input.controlMappingSources, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
     ...(input.testingInformation != null && { testingInformation: input.testingInformation }),
   });
   return new __HttpRequest({
@@ -605,7 +628,10 @@ export const serializeAws_restJson1CreateControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAssessmentCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssessmentCommand
+ */
+export const se_DeleteAssessmentCommand = async (
   input: DeleteAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -633,7 +659,10 @@ export const serializeAws_restJson1DeleteAssessmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAssessmentFrameworkCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssessmentFrameworkCommand
+ */
+export const se_DeleteAssessmentFrameworkCommand = async (
   input: DeleteAssessmentFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -654,7 +683,10 @@ export const serializeAws_restJson1DeleteAssessmentFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssessmentFrameworkShareCommand
+ */
+export const se_DeleteAssessmentFrameworkShareCommand = async (
   input: DeleteAssessmentFrameworkShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -680,7 +712,10 @@ export const serializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async
   });
 };
 
-export const serializeAws_restJson1DeleteAssessmentReportCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssessmentReportCommand
+ */
+export const se_DeleteAssessmentReportCommand = async (
   input: DeleteAssessmentReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -717,7 +752,10 @@ export const serializeAws_restJson1DeleteAssessmentReportCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteControlCommand = async (
+/**
+ * serializeAws_restJson1DeleteControlCommand
+ */
+export const se_DeleteControlCommand = async (
   input: DeleteControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -737,7 +775,10 @@ export const serializeAws_restJson1DeleteControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeregisterAccountCommand = async (
+/**
+ * serializeAws_restJson1DeregisterAccountCommand
+ */
+export const se_DeregisterAccountCommand = async (
   input: DeregisterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -760,7 +801,10 @@ export const serializeAws_restJson1DeregisterAccountCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeregisterOrganizationAdminAccountCommand = async (
+/**
+ * serializeAws_restJson1DeregisterOrganizationAdminAccountCommand
+ */
+export const se_DeregisterOrganizationAdminAccountCommand = async (
   input: DeregisterOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -786,7 +830,10 @@ export const serializeAws_restJson1DeregisterOrganizationAdminAccountCommand = a
   });
 };
 
-export const serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand = async (
+/**
+ * serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand
+ */
+export const se_DisassociateAssessmentReportEvidenceFolderCommand = async (
   input: DisassociateAssessmentReportEvidenceFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -820,7 +867,10 @@ export const serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCom
   });
 };
 
-export const serializeAws_restJson1GetAccountStatusCommand = async (
+/**
+ * serializeAws_restJson1GetAccountStatusCommand
+ */
+export const se_GetAccountStatusCommand = async (
   input: GetAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -842,7 +892,10 @@ export const serializeAws_restJson1GetAccountStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAssessmentCommand = async (
+/**
+ * serializeAws_restJson1GetAssessmentCommand
+ */
+export const se_GetAssessmentCommand = async (
   input: GetAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -870,7 +923,10 @@ export const serializeAws_restJson1GetAssessmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAssessmentFrameworkCommand = async (
+/**
+ * serializeAws_restJson1GetAssessmentFrameworkCommand
+ */
+export const se_GetAssessmentFrameworkCommand = async (
   input: GetAssessmentFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -891,7 +947,10 @@ export const serializeAws_restJson1GetAssessmentFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAssessmentReportUrlCommand = async (
+/**
+ * serializeAws_restJson1GetAssessmentReportUrlCommand
+ */
+export const se_GetAssessmentReportUrlCommand = async (
   input: GetAssessmentReportUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -928,7 +987,10 @@ export const serializeAws_restJson1GetAssessmentReportUrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChangeLogsCommand = async (
+/**
+ * serializeAws_restJson1GetChangeLogsCommand
+ */
+export const se_GetChangeLogsCommand = async (
   input: GetChangeLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -963,7 +1025,10 @@ export const serializeAws_restJson1GetChangeLogsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetControlCommand = async (
+/**
+ * serializeAws_restJson1GetControlCommand
+ */
+export const se_GetControlCommand = async (
   input: GetControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -983,7 +1048,10 @@ export const serializeAws_restJson1GetControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDelegationsCommand = async (
+/**
+ * serializeAws_restJson1GetDelegationsCommand
+ */
+export const se_GetDelegationsCommand = async (
   input: GetDelegationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1007,7 +1075,10 @@ export const serializeAws_restJson1GetDelegationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEvidenceCommand = async (
+/**
+ * serializeAws_restJson1GetEvidenceCommand
+ */
+export const se_GetEvidenceCommand = async (
   input: GetEvidenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1053,7 +1124,10 @@ export const serializeAws_restJson1GetEvidenceCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEvidenceByEvidenceFolderCommand = async (
+/**
+ * serializeAws_restJson1GetEvidenceByEvidenceFolderCommand
+ */
+export const se_GetEvidenceByEvidenceFolderCommand = async (
   input: GetEvidenceByEvidenceFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1103,7 +1177,10 @@ export const serializeAws_restJson1GetEvidenceByEvidenceFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEvidenceFolderCommand = async (
+/**
+ * serializeAws_restJson1GetEvidenceFolderCommand
+ */
+export const se_GetEvidenceFolderCommand = async (
   input: GetEvidenceFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1148,7 +1225,10 @@ export const serializeAws_restJson1GetEvidenceFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEvidenceFoldersByAssessmentCommand = async (
+/**
+ * serializeAws_restJson1GetEvidenceFoldersByAssessmentCommand
+ */
+export const se_GetEvidenceFoldersByAssessmentCommand = async (
   input: GetEvidenceFoldersByAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1182,7 +1262,10 @@ export const serializeAws_restJson1GetEvidenceFoldersByAssessmentCommand = async
   });
 };
 
-export const serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand = async (
+/**
+ * serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand
+ */
+export const se_GetEvidenceFoldersByAssessmentControlCommand = async (
   input: GetEvidenceFoldersByAssessmentControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1225,7 +1308,10 @@ export const serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand 
   });
 };
 
-export const serializeAws_restJson1GetInsightsCommand = async (
+/**
+ * serializeAws_restJson1GetInsightsCommand
+ */
+export const se_GetInsightsCommand = async (
   input: GetInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1247,7 +1333,10 @@ export const serializeAws_restJson1GetInsightsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetInsightsByAssessmentCommand = async (
+/**
+ * serializeAws_restJson1GetInsightsByAssessmentCommand
+ */
+export const se_GetInsightsByAssessmentCommand = async (
   input: GetInsightsByAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1275,7 +1364,10 @@ export const serializeAws_restJson1GetInsightsByAssessmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetOrganizationAdminAccountCommand = async (
+/**
+ * serializeAws_restJson1GetOrganizationAdminAccountCommand
+ */
+export const se_GetOrganizationAdminAccountCommand = async (
   input: GetOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1298,7 +1390,10 @@ export const serializeAws_restJson1GetOrganizationAdminAccountCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetServicesInScopeCommand = async (
+/**
+ * serializeAws_restJson1GetServicesInScopeCommand
+ */
+export const se_GetServicesInScopeCommand = async (
   input: GetServicesInScopeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1320,7 +1415,10 @@ export const serializeAws_restJson1GetServicesInScopeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSettingsCommand = async (
+/**
+ * serializeAws_restJson1GetSettingsCommand
+ */
+export const se_GetSettingsCommand = async (
   input: GetSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1340,7 +1438,10 @@ export const serializeAws_restJson1GetSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand = async (
+/**
+ * serializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand
+ */
+export const se_ListAssessmentControlInsightsByControlDomainCommand = async (
   input: ListAssessmentControlInsightsByControlDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1367,7 +1468,10 @@ export const serializeAws_restJson1ListAssessmentControlInsightsByControlDomainC
   });
 };
 
-export const serializeAws_restJson1ListAssessmentFrameworksCommand = async (
+/**
+ * serializeAws_restJson1ListAssessmentFrameworksCommand
+ */
+export const se_ListAssessmentFrameworksCommand = async (
   input: ListAssessmentFrameworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1392,7 +1496,10 @@ export const serializeAws_restJson1ListAssessmentFrameworksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand = async (
+/**
+ * serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand
+ */
+export const se_ListAssessmentFrameworkShareRequestsCommand = async (
   input: ListAssessmentFrameworkShareRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1418,7 +1525,10 @@ export const serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand =
   });
 };
 
-export const serializeAws_restJson1ListAssessmentReportsCommand = async (
+/**
+ * serializeAws_restJson1ListAssessmentReportsCommand
+ */
+export const se_ListAssessmentReportsCommand = async (
   input: ListAssessmentReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1442,7 +1552,10 @@ export const serializeAws_restJson1ListAssessmentReportsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssessmentsCommand = async (
+/**
+ * serializeAws_restJson1ListAssessmentsCommand
+ */
+export const se_ListAssessmentsCommand = async (
   input: ListAssessmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1467,7 +1580,10 @@ export const serializeAws_restJson1ListAssessmentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListControlDomainInsightsCommand = async (
+/**
+ * serializeAws_restJson1ListControlDomainInsightsCommand
+ */
+export const se_ListControlDomainInsightsCommand = async (
   input: ListControlDomainInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1492,7 +1608,10 @@ export const serializeAws_restJson1ListControlDomainInsightsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand = async (
+/**
+ * serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand
+ */
+export const se_ListControlDomainInsightsByAssessmentCommand = async (
   input: ListControlDomainInsightsByAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1518,7 +1637,10 @@ export const serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand 
   });
 };
 
-export const serializeAws_restJson1ListControlInsightsByControlDomainCommand = async (
+/**
+ * serializeAws_restJson1ListControlInsightsByControlDomainCommand
+ */
+export const se_ListControlInsightsByControlDomainCommand = async (
   input: ListControlInsightsByControlDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1543,7 +1665,10 @@ export const serializeAws_restJson1ListControlInsightsByControlDomainCommand = a
   });
 };
 
-export const serializeAws_restJson1ListControlsCommand = async (
+/**
+ * serializeAws_restJson1ListControlsCommand
+ */
+export const se_ListControlsCommand = async (
   input: ListControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1568,7 +1693,10 @@ export const serializeAws_restJson1ListControlsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListKeywordsForDataSourceCommand = async (
+/**
+ * serializeAws_restJson1ListKeywordsForDataSourceCommand
+ */
+export const se_ListKeywordsForDataSourceCommand = async (
   input: ListKeywordsForDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1593,7 +1721,10 @@ export const serializeAws_restJson1ListKeywordsForDataSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListNotificationsCommand = async (
+/**
+ * serializeAws_restJson1ListNotificationsCommand
+ */
+export const se_ListNotificationsCommand = async (
   input: ListNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1617,7 +1748,10 @@ export const serializeAws_restJson1ListNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1637,7 +1771,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1RegisterAccountCommand = async (
+/**
+ * serializeAws_restJson1RegisterAccountCommand
+ */
+export const se_RegisterAccountCommand = async (
   input: RegisterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1663,7 +1800,10 @@ export const serializeAws_restJson1RegisterAccountCommand = async (
   });
 };
 
-export const serializeAws_restJson1RegisterOrganizationAdminAccountCommand = async (
+/**
+ * serializeAws_restJson1RegisterOrganizationAdminAccountCommand
+ */
+export const se_RegisterOrganizationAdminAccountCommand = async (
   input: RegisterOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1688,7 +1828,10 @@ export const serializeAws_restJson1RegisterOrganizationAdminAccountCommand = asy
   });
 };
 
-export const serializeAws_restJson1StartAssessmentFrameworkShareCommand = async (
+/**
+ * serializeAws_restJson1StartAssessmentFrameworkShareCommand
+ */
+export const se_StartAssessmentFrameworkShareCommand = async (
   input: StartAssessmentFrameworkShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1717,7 +1860,10 @@ export const serializeAws_restJson1StartAssessmentFrameworkShareCommand = async 
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1729,7 +1875,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1742,7 +1888,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1769,7 +1918,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentCommand
+ */
+export const se_UpdateAssessmentCommand = async (
   input: UpdateAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1792,13 +1944,10 @@ export const serializeAws_restJson1UpdateAssessmentCommand = async (
     ...(input.assessmentDescription != null && { assessmentDescription: input.assessmentDescription }),
     ...(input.assessmentName != null && { assessmentName: input.assessmentName }),
     ...(input.assessmentReportsDestination != null && {
-      assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
-        input.assessmentReportsDestination,
-        context
-      ),
+      assessmentReportsDestination: se_AssessmentReportsDestination(input.assessmentReportsDestination, context),
     }),
-    ...(input.roles != null && { roles: serializeAws_restJson1Roles(input.roles, context) }),
-    ...(input.scope != null && { scope: serializeAws_restJson1Scope(input.scope, context) }),
+    ...(input.roles != null && { roles: se_Roles(input.roles, context) }),
+    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1811,7 +1960,10 @@ export const serializeAws_restJson1UpdateAssessmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentControlCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentControlCommand
+ */
+export const se_UpdateAssessmentControlCommand = async (
   input: UpdateAssessmentControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1855,7 +2007,10 @@ export const serializeAws_restJson1UpdateAssessmentControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentControlSetStatusCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentControlSetStatusCommand
+ */
+export const se_UpdateAssessmentControlSetStatusCommand = async (
   input: UpdateAssessmentControlSetStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1898,7 +2053,10 @@ export const serializeAws_restJson1UpdateAssessmentControlSetStatusCommand = asy
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentFrameworkCommand
+ */
+export const se_UpdateAssessmentFrameworkCommand = async (
   input: UpdateAssessmentFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1913,7 +2071,7 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
   body = JSON.stringify({
     ...(input.complianceType != null && { complianceType: input.complianceType }),
     ...(input.controlSets != null && {
-      controlSets: serializeAws_restJson1UpdateAssessmentFrameworkControlSets(input.controlSets, context),
+      controlSets: se_UpdateAssessmentFrameworkControlSets(input.controlSets, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
@@ -1929,7 +2087,10 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentFrameworkShareCommand
+ */
+export const se_UpdateAssessmentFrameworkShareCommand = async (
   input: UpdateAssessmentFrameworkShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1957,7 +2118,10 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async
   });
 };
 
-export const serializeAws_restJson1UpdateAssessmentStatusCommand = async (
+/**
+ * serializeAws_restJson1UpdateAssessmentStatusCommand
+ */
+export const se_UpdateAssessmentStatusCommand = async (
   input: UpdateAssessmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1990,7 +2154,10 @@ export const serializeAws_restJson1UpdateAssessmentStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateControlCommand = async (
+/**
+ * serializeAws_restJson1UpdateControlCommand
+ */
+export const se_UpdateControlCommand = async (
   input: UpdateControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2005,7 +2172,7 @@ export const serializeAws_restJson1UpdateControlCommand = async (
     ...(input.actionPlanInstructions != null && { actionPlanInstructions: input.actionPlanInstructions }),
     ...(input.actionPlanTitle != null && { actionPlanTitle: input.actionPlanTitle }),
     ...(input.controlMappingSources != null && {
-      controlMappingSources: serializeAws_restJson1ControlMappingSources(input.controlMappingSources, context),
+      controlMappingSources: se_ControlMappingSources(input.controlMappingSources, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
@@ -2022,7 +2189,10 @@ export const serializeAws_restJson1UpdateControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateSettingsCommand
+ */
+export const se_UpdateSettingsCommand = async (
   input: UpdateSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2034,16 +2204,14 @@ export const serializeAws_restJson1UpdateSettingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.defaultAssessmentReportsDestination != null && {
-      defaultAssessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
+      defaultAssessmentReportsDestination: se_AssessmentReportsDestination(
         input.defaultAssessmentReportsDestination,
         context
       ),
     }),
-    ...(input.defaultProcessOwners != null && {
-      defaultProcessOwners: serializeAws_restJson1Roles(input.defaultProcessOwners, context),
-    }),
+    ...(input.defaultProcessOwners != null && { defaultProcessOwners: se_Roles(input.defaultProcessOwners, context) }),
     ...(input.deregistrationPolicy != null && {
-      deregistrationPolicy: serializeAws_restJson1DeregistrationPolicy(input.deregistrationPolicy, context),
+      deregistrationPolicy: se_DeregistrationPolicy(input.deregistrationPolicy, context),
     }),
     ...(input.evidenceFinderEnabled != null && { evidenceFinderEnabled: input.evidenceFinderEnabled }),
     ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
@@ -2060,7 +2228,10 @@ export const serializeAws_restJson1UpdateSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ValidateAssessmentReportIntegrityCommand = async (
+/**
+ * serializeAws_restJson1ValidateAssessmentReportIntegrityCommand
+ */
+export const se_ValidateAssessmentReportIntegrityCommand = async (
   input: ValidateAssessmentReportIntegrityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2085,12 +2256,15 @@ export const serializeAws_restJson1ValidateAssessmentReportIntegrityCommand = as
   });
 };
 
-export const deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand = async (
+/**
+ * deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand
+ */
+export const de_AssociateAssessmentReportEvidenceFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAssessmentReportEvidenceFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommandError(output, context);
+    return de_AssociateAssessmentReportEvidenceFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2099,7 +2273,10 @@ export const deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderComm
   return contents;
 };
 
-const deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommandError
+ */
+const de_AssociateAssessmentReportEvidenceFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAssessmentReportEvidenceFolderCommandOutput> => {
@@ -2111,16 +2288,16 @@ const deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2132,27 +2309,33 @@ const deserializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommandErro
   }
 };
 
-export const deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand = async (
+/**
+ * deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand
+ */
+export const de_BatchAssociateAssessmentReportEvidenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateAssessmentReportEvidenceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommandError(output, context);
+    return de_BatchAssociateAssessmentReportEvidenceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1AssessmentReportEvidenceErrors(data.errors, context);
+    contents.errors = de_AssessmentReportEvidenceErrors(data.errors, context);
   }
   if (data.evidenceIds != null) {
-    contents.evidenceIds = deserializeAws_restJson1EvidenceIds(data.evidenceIds, context);
+    contents.evidenceIds = de_EvidenceIds(data.evidenceIds, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommandError = async (
+/**
+ * deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommandError
+ */
+const de_BatchAssociateAssessmentReportEvidenceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateAssessmentReportEvidenceCommandOutput> => {
@@ -2164,16 +2347,16 @@ const deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2185,27 +2368,33 @@ const deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommandError
   }
 };
 
-export const deserializeAws_restJson1BatchCreateDelegationByAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1BatchCreateDelegationByAssessmentCommand
+ */
+export const de_BatchCreateDelegationByAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateDelegationByAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchCreateDelegationByAssessmentCommandError(output, context);
+    return de_BatchCreateDelegationByAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.delegations != null) {
-    contents.delegations = deserializeAws_restJson1Delegations(data.delegations, context);
+    contents.delegations = de_Delegations(data.delegations, context);
   }
   if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1BatchCreateDelegationByAssessmentErrors(data.errors, context);
+    contents.errors = de_BatchCreateDelegationByAssessmentErrors(data.errors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchCreateDelegationByAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateDelegationByAssessmentCommandError
+ */
+const de_BatchCreateDelegationByAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateDelegationByAssessmentCommandOutput> => {
@@ -2217,16 +2406,16 @@ const deserializeAws_restJson1BatchCreateDelegationByAssessmentCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2238,24 +2427,30 @@ const deserializeAws_restJson1BatchCreateDelegationByAssessmentCommandError = as
   }
 };
 
-export const deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand
+ */
+export const de_BatchDeleteDelegationByAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteDelegationByAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommandError(output, context);
+    return de_BatchDeleteDelegationByAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1BatchDeleteDelegationByAssessmentErrors(data.errors, context);
+    contents.errors = de_BatchDeleteDelegationByAssessmentErrors(data.errors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommandError
+ */
+const de_BatchDeleteDelegationByAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteDelegationByAssessmentCommandOutput> => {
@@ -2267,16 +2462,16 @@ const deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2288,27 +2483,33 @@ const deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommandError = as
   }
 };
 
-export const deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand = async (
+/**
+ * deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand
+ */
+export const de_BatchDisassociateAssessmentReportEvidenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommandError(output, context);
+    return de_BatchDisassociateAssessmentReportEvidenceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1AssessmentReportEvidenceErrors(data.errors, context);
+    contents.errors = de_AssessmentReportEvidenceErrors(data.errors, context);
   }
   if (data.evidenceIds != null) {
-    contents.evidenceIds = deserializeAws_restJson1EvidenceIds(data.evidenceIds, context);
+    contents.evidenceIds = de_EvidenceIds(data.evidenceIds, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommandError = async (
+/**
+ * deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommandError
+ */
+const de_BatchDisassociateAssessmentReportEvidenceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput> => {
@@ -2320,16 +2521,16 @@ const deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommandEr
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2341,24 +2542,30 @@ const deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommandEr
   }
 };
 
-export const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand = async (
+/**
+ * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand
+ */
+export const de_BatchImportEvidenceToAssessmentControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommandError(output, context);
+    return de_BatchImportEvidenceToAssessmentControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1BatchImportEvidenceToAssessmentControlErrors(data.errors, context);
+    contents.errors = de_BatchImportEvidenceToAssessmentControlErrors(data.errors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommandError = async (
+/**
+ * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommandError
+ */
+const de_BatchImportEvidenceToAssessmentControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput> => {
@@ -2370,16 +2577,16 @@ const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2391,24 +2598,30 @@ const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommandError
   }
 };
 
-export const deserializeAws_restJson1CreateAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentCommand
+ */
+export const de_CreateAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAssessmentCommandError(output, context);
+    return de_CreateAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessment != null) {
-    contents.assessment = deserializeAws_restJson1Assessment(data.assessment, context);
+    contents.assessment = de_Assessment(data.assessment, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentCommandError
+ */
+const de_CreateAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentCommandOutput> => {
@@ -2420,19 +2633,19 @@ const deserializeAws_restJson1CreateAssessmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2444,24 +2657,30 @@ const deserializeAws_restJson1CreateAssessmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAssessmentFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentFrameworkCommand
+ */
+export const de_CreateAssessmentFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAssessmentFrameworkCommandError(output, context);
+    return de_CreateAssessmentFrameworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.framework != null) {
-    contents.framework = deserializeAws_restJson1Framework(data.framework, context);
+    contents.framework = de_Framework(data.framework, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateAssessmentFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentFrameworkCommandError
+ */
+const de_CreateAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentFrameworkCommandOutput> => {
@@ -2473,19 +2692,19 @@ const deserializeAws_restJson1CreateAssessmentFrameworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2497,24 +2716,30 @@ const deserializeAws_restJson1CreateAssessmentFrameworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAssessmentReportCommand = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentReportCommand
+ */
+export const de_CreateAssessmentReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAssessmentReportCommandError(output, context);
+    return de_CreateAssessmentReportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentReport != null) {
-    contents.assessmentReport = deserializeAws_restJson1AssessmentReport(data.assessmentReport, context);
+    contents.assessmentReport = de_AssessmentReport(data.assessmentReport, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateAssessmentReportCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAssessmentReportCommandError
+ */
+const de_CreateAssessmentReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssessmentReportCommandOutput> => {
@@ -2526,16 +2751,16 @@ const deserializeAws_restJson1CreateAssessmentReportCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2547,24 +2772,30 @@ const deserializeAws_restJson1CreateAssessmentReportCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateControlCommand = async (
+/**
+ * deserializeAws_restJson1CreateControlCommand
+ */
+export const de_CreateControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateControlCommandError(output, context);
+    return de_CreateControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.control != null) {
-    contents.control = deserializeAws_restJson1Control(data.control, context);
+    contents.control = de_Control(data.control, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateControlCommandError = async (
+/**
+ * deserializeAws_restJson1CreateControlCommandError
+ */
+const de_CreateControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateControlCommandOutput> => {
@@ -2576,19 +2807,19 @@ const deserializeAws_restJson1CreateControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2600,12 +2831,15 @@ const deserializeAws_restJson1CreateControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentCommand
+ */
+export const de_DeleteAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssessmentCommandError(output, context);
+    return de_DeleteAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2614,7 +2848,10 @@ export const deserializeAws_restJson1DeleteAssessmentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentCommandError
+ */
+const de_DeleteAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentCommandOutput> => {
@@ -2626,16 +2863,16 @@ const deserializeAws_restJson1DeleteAssessmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2647,12 +2884,15 @@ const deserializeAws_restJson1DeleteAssessmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAssessmentFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentFrameworkCommand
+ */
+export const de_DeleteAssessmentFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssessmentFrameworkCommandError(output, context);
+    return de_DeleteAssessmentFrameworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2661,7 +2901,10 @@ export const deserializeAws_restJson1DeleteAssessmentFrameworkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssessmentFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentFrameworkCommandError
+ */
+const de_DeleteAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentFrameworkCommandOutput> => {
@@ -2673,16 +2916,16 @@ const deserializeAws_restJson1DeleteAssessmentFrameworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2694,12 +2937,15 @@ const deserializeAws_restJson1DeleteAssessmentFrameworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand
+ */
+export const de_DeleteAssessmentFrameworkShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentFrameworkShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError(output, context);
+    return de_DeleteAssessmentFrameworkShareCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2708,7 +2954,10 @@ export const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError
+ */
+const de_DeleteAssessmentFrameworkShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentFrameworkShareCommandOutput> => {
@@ -2720,16 +2969,16 @@ const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2741,12 +2990,15 @@ const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError = async
   }
 };
 
-export const deserializeAws_restJson1DeleteAssessmentReportCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentReportCommand
+ */
+export const de_DeleteAssessmentReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssessmentReportCommandError(output, context);
+    return de_DeleteAssessmentReportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2755,7 +3007,10 @@ export const deserializeAws_restJson1DeleteAssessmentReportCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssessmentReportCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssessmentReportCommandError
+ */
+const de_DeleteAssessmentReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentReportCommandOutput> => {
@@ -2767,16 +3022,16 @@ const deserializeAws_restJson1DeleteAssessmentReportCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2788,12 +3043,15 @@ const deserializeAws_restJson1DeleteAssessmentReportCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteControlCommand = async (
+/**
+ * deserializeAws_restJson1DeleteControlCommand
+ */
+export const de_DeleteControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteControlCommandError(output, context);
+    return de_DeleteControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2802,7 +3060,10 @@ export const deserializeAws_restJson1DeleteControlCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteControlCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteControlCommandError
+ */
+const de_DeleteControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteControlCommandOutput> => {
@@ -2814,16 +3075,16 @@ const deserializeAws_restJson1DeleteControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2835,12 +3096,15 @@ const deserializeAws_restJson1DeleteControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeregisterAccountCommand = async (
+/**
+ * deserializeAws_restJson1DeregisterAccountCommand
+ */
+export const de_DeregisterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeregisterAccountCommandError(output, context);
+    return de_DeregisterAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2852,7 +3116,10 @@ export const deserializeAws_restJson1DeregisterAccountCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeregisterAccountCommandError = async (
+/**
+ * deserializeAws_restJson1DeregisterAccountCommandError
+ */
+const de_DeregisterAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterAccountCommandOutput> => {
@@ -2864,16 +3131,16 @@ const deserializeAws_restJson1DeregisterAccountCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2885,12 +3152,15 @@ const deserializeAws_restJson1DeregisterAccountCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand = async (
+/**
+ * deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand
+ */
+export const de_DeregisterOrganizationAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeregisterOrganizationAdminAccountCommandError(output, context);
+    return de_DeregisterOrganizationAdminAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2899,7 +3169,10 @@ export const deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand =
   return contents;
 };
 
-const deserializeAws_restJson1DeregisterOrganizationAdminAccountCommandError = async (
+/**
+ * deserializeAws_restJson1DeregisterOrganizationAdminAccountCommandError
+ */
+const de_DeregisterOrganizationAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterOrganizationAdminAccountCommandOutput> => {
@@ -2911,16 +3184,16 @@ const deserializeAws_restJson1DeregisterOrganizationAdminAccountCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2932,12 +3205,15 @@ const deserializeAws_restJson1DeregisterOrganizationAdminAccountCommandError = a
   }
 };
 
-export const deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand
+ */
+export const de_DisassociateAssessmentReportEvidenceFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAssessmentReportEvidenceFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommandError(output, context);
+    return de_DisassociateAssessmentReportEvidenceFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2946,7 +3222,10 @@ export const deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderC
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommandError
+ */
+const de_DisassociateAssessmentReportEvidenceFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAssessmentReportEvidenceFolderCommandOutput> => {
@@ -2958,16 +3237,16 @@ const deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommandE
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2979,12 +3258,15 @@ const deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommandE
   }
 };
 
-export const deserializeAws_restJson1GetAccountStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetAccountStatusCommand
+ */
+export const de_GetAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAccountStatusCommandError(output, context);
+    return de_GetAccountStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2996,7 +3278,10 @@ export const deserializeAws_restJson1GetAccountStatusCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetAccountStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetAccountStatusCommandError
+ */
+const de_GetAccountStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountStatusCommandOutput> => {
@@ -3008,7 +3293,7 @@ const deserializeAws_restJson1GetAccountStatusCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3020,27 +3305,33 @@ const deserializeAws_restJson1GetAccountStatusCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1GetAssessmentCommand
+ */
+export const de_GetAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssessmentCommandError(output, context);
+    return de_GetAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessment != null) {
-    contents.assessment = deserializeAws_restJson1Assessment(data.assessment, context);
+    contents.assessment = de_Assessment(data.assessment, context);
   }
   if (data.userRole != null) {
-    contents.userRole = deserializeAws_restJson1Role(data.userRole, context);
+    contents.userRole = de_Role(data.userRole, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssessmentCommandError
+ */
+const de_GetAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentCommandOutput> => {
@@ -3052,16 +3343,16 @@ const deserializeAws_restJson1GetAssessmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3073,24 +3364,30 @@ const deserializeAws_restJson1GetAssessmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAssessmentFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1GetAssessmentFrameworkCommand
+ */
+export const de_GetAssessmentFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssessmentFrameworkCommandError(output, context);
+    return de_GetAssessmentFrameworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.framework != null) {
-    contents.framework = deserializeAws_restJson1Framework(data.framework, context);
+    contents.framework = de_Framework(data.framework, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetAssessmentFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssessmentFrameworkCommandError
+ */
+const de_GetAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentFrameworkCommandOutput> => {
@@ -3102,16 +3399,16 @@ const deserializeAws_restJson1GetAssessmentFrameworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3123,24 +3420,30 @@ const deserializeAws_restJson1GetAssessmentFrameworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAssessmentReportUrlCommand = async (
+/**
+ * deserializeAws_restJson1GetAssessmentReportUrlCommand
+ */
+export const de_GetAssessmentReportUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentReportUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssessmentReportUrlCommandError(output, context);
+    return de_GetAssessmentReportUrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.preSignedUrl != null) {
-    contents.preSignedUrl = deserializeAws_restJson1URL(data.preSignedUrl, context);
+    contents.preSignedUrl = de_URL(data.preSignedUrl, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetAssessmentReportUrlCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssessmentReportUrlCommandError
+ */
+const de_GetAssessmentReportUrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssessmentReportUrlCommandOutput> => {
@@ -3152,16 +3455,16 @@ const deserializeAws_restJson1GetAssessmentReportUrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3173,19 +3476,22 @@ const deserializeAws_restJson1GetAssessmentReportUrlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetChangeLogsCommand = async (
+/**
+ * deserializeAws_restJson1GetChangeLogsCommand
+ */
+export const de_GetChangeLogsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChangeLogsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChangeLogsCommandError(output, context);
+    return de_GetChangeLogsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.changeLogs != null) {
-    contents.changeLogs = deserializeAws_restJson1ChangeLogs(data.changeLogs, context);
+    contents.changeLogs = de_ChangeLogs(data.changeLogs, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3193,7 +3499,10 @@ export const deserializeAws_restJson1GetChangeLogsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetChangeLogsCommandError = async (
+/**
+ * deserializeAws_restJson1GetChangeLogsCommandError
+ */
+const de_GetChangeLogsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChangeLogsCommandOutput> => {
@@ -3205,16 +3514,16 @@ const deserializeAws_restJson1GetChangeLogsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3226,24 +3535,30 @@ const deserializeAws_restJson1GetChangeLogsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetControlCommand = async (
+/**
+ * deserializeAws_restJson1GetControlCommand
+ */
+export const de_GetControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetControlCommandError(output, context);
+    return de_GetControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.control != null) {
-    contents.control = deserializeAws_restJson1Control(data.control, context);
+    contents.control = de_Control(data.control, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetControlCommandError = async (
+/**
+ * deserializeAws_restJson1GetControlCommandError
+ */
+const de_GetControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetControlCommandOutput> => {
@@ -3255,16 +3570,16 @@ const deserializeAws_restJson1GetControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3276,19 +3591,22 @@ const deserializeAws_restJson1GetControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDelegationsCommand = async (
+/**
+ * deserializeAws_restJson1GetDelegationsCommand
+ */
+export const de_GetDelegationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDelegationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDelegationsCommandError(output, context);
+    return de_GetDelegationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.delegations != null) {
-    contents.delegations = deserializeAws_restJson1DelegationMetadataList(data.delegations, context);
+    contents.delegations = de_DelegationMetadataList(data.delegations, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3296,7 +3614,10 @@ export const deserializeAws_restJson1GetDelegationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDelegationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDelegationsCommandError
+ */
+const de_GetDelegationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDelegationsCommandOutput> => {
@@ -3308,13 +3629,13 @@ const deserializeAws_restJson1GetDelegationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3326,24 +3647,30 @@ const deserializeAws_restJson1GetDelegationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEvidenceCommand = async (
+/**
+ * deserializeAws_restJson1GetEvidenceCommand
+ */
+export const de_GetEvidenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEvidenceCommandError(output, context);
+    return de_GetEvidenceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.evidence != null) {
-    contents.evidence = deserializeAws_restJson1Evidence(data.evidence, context);
+    contents.evidence = de_Evidence(data.evidence, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetEvidenceCommandError = async (
+/**
+ * deserializeAws_restJson1GetEvidenceCommandError
+ */
+const de_GetEvidenceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceCommandOutput> => {
@@ -3355,16 +3682,16 @@ const deserializeAws_restJson1GetEvidenceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3376,19 +3703,22 @@ const deserializeAws_restJson1GetEvidenceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand = async (
+/**
+ * deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand
+ */
+export const de_GetEvidenceByEvidenceFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceByEvidenceFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEvidenceByEvidenceFolderCommandError(output, context);
+    return de_GetEvidenceByEvidenceFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.evidence != null) {
-    contents.evidence = deserializeAws_restJson1EvidenceList(data.evidence, context);
+    contents.evidence = de_EvidenceList(data.evidence, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3396,7 +3726,10 @@ export const deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1GetEvidenceByEvidenceFolderCommandError = async (
+/**
+ * deserializeAws_restJson1GetEvidenceByEvidenceFolderCommandError
+ */
+const de_GetEvidenceByEvidenceFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceByEvidenceFolderCommandOutput> => {
@@ -3408,16 +3741,16 @@ const deserializeAws_restJson1GetEvidenceByEvidenceFolderCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3429,24 +3762,30 @@ const deserializeAws_restJson1GetEvidenceByEvidenceFolderCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEvidenceFolderCommand = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFolderCommand
+ */
+export const de_GetEvidenceFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEvidenceFolderCommandError(output, context);
+    return de_GetEvidenceFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.evidenceFolder != null) {
-    contents.evidenceFolder = deserializeAws_restJson1AssessmentEvidenceFolder(data.evidenceFolder, context);
+    contents.evidenceFolder = de_AssessmentEvidenceFolder(data.evidenceFolder, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetEvidenceFolderCommandError = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFolderCommandError
+ */
+const de_GetEvidenceFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFolderCommandOutput> => {
@@ -3458,16 +3797,16 @@ const deserializeAws_restJson1GetEvidenceFolderCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3479,19 +3818,22 @@ const deserializeAws_restJson1GetEvidenceFolderCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommand
+ */
+export const de_GetEvidenceFoldersByAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFoldersByAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommandError(output, context);
+    return de_GetEvidenceFoldersByAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.evidenceFolders != null) {
-    contents.evidenceFolders = deserializeAws_restJson1AssessmentEvidenceFolders(data.evidenceFolders, context);
+    contents.evidenceFolders = de_AssessmentEvidenceFolders(data.evidenceFolders, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3499,7 +3841,10 @@ export const deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommandError
+ */
+const de_GetEvidenceFoldersByAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFoldersByAssessmentCommandOutput> => {
@@ -3511,16 +3856,16 @@ const deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3532,19 +3877,22 @@ const deserializeAws_restJson1GetEvidenceFoldersByAssessmentCommandError = async
   }
 };
 
-export const deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand
+ */
+export const de_GetEvidenceFoldersByAssessmentControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFoldersByAssessmentControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommandError(output, context);
+    return de_GetEvidenceFoldersByAssessmentControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.evidenceFolders != null) {
-    contents.evidenceFolders = deserializeAws_restJson1AssessmentEvidenceFolders(data.evidenceFolders, context);
+    contents.evidenceFolders = de_AssessmentEvidenceFolders(data.evidenceFolders, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3552,7 +3900,10 @@ export const deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlComman
   return contents;
 };
 
-const deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommandError = async (
+/**
+ * deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommandError
+ */
+const de_GetEvidenceFoldersByAssessmentControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEvidenceFoldersByAssessmentControlCommandOutput> => {
@@ -3564,16 +3915,16 @@ const deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommandError 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3585,24 +3936,30 @@ const deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommandError 
   }
 };
 
-export const deserializeAws_restJson1GetInsightsCommand = async (
+/**
+ * deserializeAws_restJson1GetInsightsCommand
+ */
+export const de_GetInsightsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetInsightsCommandError(output, context);
+    return de_GetInsightsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.insights != null) {
-    contents.insights = deserializeAws_restJson1Insights(data.insights, context);
+    contents.insights = de_Insights(data.insights, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetInsightsCommandError = async (
+/**
+ * deserializeAws_restJson1GetInsightsCommandError
+ */
+const de_GetInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightsCommandOutput> => {
@@ -3614,10 +3971,10 @@ const deserializeAws_restJson1GetInsightsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3629,24 +3986,30 @@ const deserializeAws_restJson1GetInsightsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetInsightsByAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1GetInsightsByAssessmentCommand
+ */
+export const de_GetInsightsByAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightsByAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetInsightsByAssessmentCommandError(output, context);
+    return de_GetInsightsByAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.insights != null) {
-    contents.insights = deserializeAws_restJson1InsightsByAssessment(data.insights, context);
+    contents.insights = de_InsightsByAssessment(data.insights, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetInsightsByAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetInsightsByAssessmentCommandError
+ */
+const de_GetInsightsByAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightsByAssessmentCommandOutput> => {
@@ -3658,16 +4021,16 @@ const deserializeAws_restJson1GetInsightsByAssessmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3679,12 +4042,15 @@ const deserializeAws_restJson1GetInsightsByAssessmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetOrganizationAdminAccountCommand = async (
+/**
+ * deserializeAws_restJson1GetOrganizationAdminAccountCommand
+ */
+export const de_GetOrganizationAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetOrganizationAdminAccountCommandError(output, context);
+    return de_GetOrganizationAdminAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3699,7 +4065,10 @@ export const deserializeAws_restJson1GetOrganizationAdminAccountCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1GetOrganizationAdminAccountCommandError = async (
+/**
+ * deserializeAws_restJson1GetOrganizationAdminAccountCommandError
+ */
+const de_GetOrganizationAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOrganizationAdminAccountCommandOutput> => {
@@ -3711,16 +4080,16 @@ const deserializeAws_restJson1GetOrganizationAdminAccountCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3732,24 +4101,30 @@ const deserializeAws_restJson1GetOrganizationAdminAccountCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetServicesInScopeCommand = async (
+/**
+ * deserializeAws_restJson1GetServicesInScopeCommand
+ */
+export const de_GetServicesInScopeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServicesInScopeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetServicesInScopeCommandError(output, context);
+    return de_GetServicesInScopeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.serviceMetadata != null) {
-    contents.serviceMetadata = deserializeAws_restJson1ServiceMetadataList(data.serviceMetadata, context);
+    contents.serviceMetadata = de_ServiceMetadataList(data.serviceMetadata, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetServicesInScopeCommandError = async (
+/**
+ * deserializeAws_restJson1GetServicesInScopeCommandError
+ */
+const de_GetServicesInScopeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServicesInScopeCommandOutput> => {
@@ -3761,13 +4136,13 @@ const deserializeAws_restJson1GetServicesInScopeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3779,24 +4154,30 @@ const deserializeAws_restJson1GetServicesInScopeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSettingsCommand = async (
+/**
+ * deserializeAws_restJson1GetSettingsCommand
+ */
+export const de_GetSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSettingsCommandError(output, context);
+    return de_GetSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.settings != null) {
-    contents.settings = deserializeAws_restJson1Settings(data.settings, context);
+    contents.settings = de_Settings(data.settings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSettingsCommandError
+ */
+const de_GetSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSettingsCommandOutput> => {
@@ -3808,10 +4189,10 @@ const deserializeAws_restJson1GetSettingsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3823,19 +4204,22 @@ const deserializeAws_restJson1GetSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand = async (
+/**
+ * deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand
+ */
+export const de_ListAssessmentControlInsightsByControlDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommandError(output, context);
+    return de_ListAssessmentControlInsightsByControlDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlInsightsByAssessment != null) {
-    contents.controlInsightsByAssessment = deserializeAws_restJson1ControlInsightsMetadataByAssessment(
+    contents.controlInsightsByAssessment = de_ControlInsightsMetadataByAssessment(
       data.controlInsightsByAssessment,
       context
     );
@@ -3846,7 +4230,10 @@ export const deserializeAws_restJson1ListAssessmentControlInsightsByControlDomai
   return contents;
 };
 
-const deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommandError
+ */
+const de_ListAssessmentControlInsightsByControlDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput> => {
@@ -3858,16 +4245,16 @@ const deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainComman
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3879,19 +4266,22 @@ const deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainComman
   }
 };
 
-export const deserializeAws_restJson1ListAssessmentFrameworksCommand = async (
+/**
+ * deserializeAws_restJson1ListAssessmentFrameworksCommand
+ */
+export const de_ListAssessmentFrameworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentFrameworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssessmentFrameworksCommandError(output, context);
+    return de_ListAssessmentFrameworksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.frameworkMetadataList != null) {
-    contents.frameworkMetadataList = deserializeAws_restJson1FrameworkMetadataList(data.frameworkMetadataList, context);
+    contents.frameworkMetadataList = de_FrameworkMetadataList(data.frameworkMetadataList, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3899,7 +4289,10 @@ export const deserializeAws_restJson1ListAssessmentFrameworksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAssessmentFrameworksCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssessmentFrameworksCommandError
+ */
+const de_ListAssessmentFrameworksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentFrameworksCommandOutput> => {
@@ -3911,13 +4304,13 @@ const deserializeAws_restJson1ListAssessmentFrameworksCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3929,19 +4322,22 @@ const deserializeAws_restJson1ListAssessmentFrameworksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand = async (
+/**
+ * deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand
+ */
+export const de_ListAssessmentFrameworkShareRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError(output, context);
+    return de_ListAssessmentFrameworkShareRequestsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentFrameworkShareRequests != null) {
-    contents.assessmentFrameworkShareRequests = deserializeAws_restJson1AssessmentFrameworkShareRequestList(
+    contents.assessmentFrameworkShareRequests = de_AssessmentFrameworkShareRequestList(
       data.assessmentFrameworkShareRequests,
       context
     );
@@ -3952,7 +4348,10 @@ export const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand
   return contents;
 };
 
-const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError
+ */
+const de_ListAssessmentFrameworkShareRequestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> => {
@@ -3964,13 +4363,13 @@ const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3982,19 +4381,22 @@ const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError =
   }
 };
 
-export const deserializeAws_restJson1ListAssessmentReportsCommand = async (
+/**
+ * deserializeAws_restJson1ListAssessmentReportsCommand
+ */
+export const de_ListAssessmentReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssessmentReportsCommandError(output, context);
+    return de_ListAssessmentReportsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentReports != null) {
-    contents.assessmentReports = deserializeAws_restJson1AssessmentReportsMetadata(data.assessmentReports, context);
+    contents.assessmentReports = de_AssessmentReportsMetadata(data.assessmentReports, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4002,7 +4404,10 @@ export const deserializeAws_restJson1ListAssessmentReportsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAssessmentReportsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssessmentReportsCommandError
+ */
+const de_ListAssessmentReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentReportsCommandOutput> => {
@@ -4014,13 +4419,13 @@ const deserializeAws_restJson1ListAssessmentReportsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4032,19 +4437,22 @@ const deserializeAws_restJson1ListAssessmentReportsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAssessmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListAssessmentsCommand
+ */
+export const de_ListAssessmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssessmentsCommandError(output, context);
+    return de_ListAssessmentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentMetadata != null) {
-    contents.assessmentMetadata = deserializeAws_restJson1ListAssessmentMetadata(data.assessmentMetadata, context);
+    contents.assessmentMetadata = de_ListAssessmentMetadata(data.assessmentMetadata, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4052,7 +4460,10 @@ export const deserializeAws_restJson1ListAssessmentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAssessmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssessmentsCommandError
+ */
+const de_ListAssessmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssessmentsCommandOutput> => {
@@ -4064,13 +4475,13 @@ const deserializeAws_restJson1ListAssessmentsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4082,22 +4493,22 @@ const deserializeAws_restJson1ListAssessmentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListControlDomainInsightsCommand = async (
+/**
+ * deserializeAws_restJson1ListControlDomainInsightsCommand
+ */
+export const de_ListControlDomainInsightsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlDomainInsightsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListControlDomainInsightsCommandError(output, context);
+    return de_ListControlDomainInsightsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlDomainInsights != null) {
-    contents.controlDomainInsights = deserializeAws_restJson1ControlDomainInsightsList(
-      data.controlDomainInsights,
-      context
-    );
+    contents.controlDomainInsights = de_ControlDomainInsightsList(data.controlDomainInsights, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4105,7 +4516,10 @@ export const deserializeAws_restJson1ListControlDomainInsightsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListControlDomainInsightsCommandError = async (
+/**
+ * deserializeAws_restJson1ListControlDomainInsightsCommandError
+ */
+const de_ListControlDomainInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlDomainInsightsCommandOutput> => {
@@ -4117,16 +4531,16 @@ const deserializeAws_restJson1ListControlDomainInsightsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4138,22 +4552,22 @@ const deserializeAws_restJson1ListControlDomainInsightsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommand
+ */
+export const de_ListControlDomainInsightsByAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlDomainInsightsByAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommandError(output, context);
+    return de_ListControlDomainInsightsByAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlDomainInsights != null) {
-    contents.controlDomainInsights = deserializeAws_restJson1ControlDomainInsightsList(
-      data.controlDomainInsights,
-      context
-    );
+    contents.controlDomainInsights = de_ControlDomainInsightsList(data.controlDomainInsights, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4161,7 +4575,10 @@ export const deserializeAws_restJson1ListControlDomainInsightsByAssessmentComman
   return contents;
 };
 
-const deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommandError
+ */
+const de_ListControlDomainInsightsByAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlDomainInsightsByAssessmentCommandOutput> => {
@@ -4173,16 +4590,16 @@ const deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommandError 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4194,22 +4611,22 @@ const deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommandError 
   }
 };
 
-export const deserializeAws_restJson1ListControlInsightsByControlDomainCommand = async (
+/**
+ * deserializeAws_restJson1ListControlInsightsByControlDomainCommand
+ */
+export const de_ListControlInsightsByControlDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlInsightsByControlDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListControlInsightsByControlDomainCommandError(output, context);
+    return de_ListControlInsightsByControlDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlInsightsMetadata != null) {
-    contents.controlInsightsMetadata = deserializeAws_restJson1ControlInsightsMetadata(
-      data.controlInsightsMetadata,
-      context
-    );
+    contents.controlInsightsMetadata = de_ControlInsightsMetadata(data.controlInsightsMetadata, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4217,7 +4634,10 @@ export const deserializeAws_restJson1ListControlInsightsByControlDomainCommand =
   return contents;
 };
 
-const deserializeAws_restJson1ListControlInsightsByControlDomainCommandError = async (
+/**
+ * deserializeAws_restJson1ListControlInsightsByControlDomainCommandError
+ */
+const de_ListControlInsightsByControlDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlInsightsByControlDomainCommandOutput> => {
@@ -4229,16 +4649,16 @@ const deserializeAws_restJson1ListControlInsightsByControlDomainCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4250,19 +4670,22 @@ const deserializeAws_restJson1ListControlInsightsByControlDomainCommandError = a
   }
 };
 
-export const deserializeAws_restJson1ListControlsCommand = async (
+/**
+ * deserializeAws_restJson1ListControlsCommand
+ */
+export const de_ListControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListControlsCommandError(output, context);
+    return de_ListControlsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlMetadataList != null) {
-    contents.controlMetadataList = deserializeAws_restJson1ControlMetadataList(data.controlMetadataList, context);
+    contents.controlMetadataList = de_ControlMetadataList(data.controlMetadataList, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4270,7 +4693,10 @@ export const deserializeAws_restJson1ListControlsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListControlsCommandError = async (
+/**
+ * deserializeAws_restJson1ListControlsCommandError
+ */
+const de_ListControlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlsCommandOutput> => {
@@ -4282,13 +4708,13 @@ const deserializeAws_restJson1ListControlsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4300,19 +4726,22 @@ const deserializeAws_restJson1ListControlsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListKeywordsForDataSourceCommand = async (
+/**
+ * deserializeAws_restJson1ListKeywordsForDataSourceCommand
+ */
+export const de_ListKeywordsForDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeywordsForDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListKeywordsForDataSourceCommandError(output, context);
+    return de_ListKeywordsForDataSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.keywords != null) {
-    contents.keywords = deserializeAws_restJson1Keywords(data.keywords, context);
+    contents.keywords = de_Keywords(data.keywords, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -4320,7 +4749,10 @@ export const deserializeAws_restJson1ListKeywordsForDataSourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListKeywordsForDataSourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListKeywordsForDataSourceCommandError
+ */
+const de_ListKeywordsForDataSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeywordsForDataSourceCommandOutput> => {
@@ -4332,13 +4764,13 @@ const deserializeAws_restJson1ListKeywordsForDataSourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4350,12 +4782,15 @@ const deserializeAws_restJson1ListKeywordsForDataSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1ListNotificationsCommand
+ */
+export const de_ListNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListNotificationsCommandError(output, context);
+    return de_ListNotificationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4365,12 +4800,15 @@ export const deserializeAws_restJson1ListNotificationsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.notifications != null) {
-    contents.notifications = deserializeAws_restJson1Notifications(data.notifications, context);
+    contents.notifications = de_Notifications(data.notifications, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListNotificationsCommandError
+ */
+const de_ListNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotificationsCommandOutput> => {
@@ -4382,13 +4820,13 @@ const deserializeAws_restJson1ListNotificationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4400,24 +4838,30 @@ const deserializeAws_restJson1ListNotificationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -4429,13 +4873,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4447,12 +4891,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RegisterAccountCommand = async (
+/**
+ * deserializeAws_restJson1RegisterAccountCommand
+ */
+export const de_RegisterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RegisterAccountCommandError(output, context);
+    return de_RegisterAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4464,7 +4911,10 @@ export const deserializeAws_restJson1RegisterAccountCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RegisterAccountCommandError = async (
+/**
+ * deserializeAws_restJson1RegisterAccountCommandError
+ */
+const de_RegisterAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAccountCommandOutput> => {
@@ -4476,19 +4926,19 @@ const deserializeAws_restJson1RegisterAccountCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.auditmanager#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4500,12 +4950,15 @@ const deserializeAws_restJson1RegisterAccountCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RegisterOrganizationAdminAccountCommand = async (
+/**
+ * deserializeAws_restJson1RegisterOrganizationAdminAccountCommand
+ */
+export const de_RegisterOrganizationAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError(output, context);
+    return de_RegisterOrganizationAdminAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4520,7 +4973,10 @@ export const deserializeAws_restJson1RegisterOrganizationAdminAccountCommand = a
   return contents;
 };
 
-const deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError = async (
+/**
+ * deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError
+ */
+const de_RegisterOrganizationAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterOrganizationAdminAccountCommandOutput> => {
@@ -4532,16 +4988,16 @@ const deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4553,19 +5009,22 @@ const deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError = asy
   }
 };
 
-export const deserializeAws_restJson1StartAssessmentFrameworkShareCommand = async (
+/**
+ * deserializeAws_restJson1StartAssessmentFrameworkShareCommand
+ */
+export const de_StartAssessmentFrameworkShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAssessmentFrameworkShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartAssessmentFrameworkShareCommandError(output, context);
+    return de_StartAssessmentFrameworkShareCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentFrameworkShareRequest != null) {
-    contents.assessmentFrameworkShareRequest = deserializeAws_restJson1AssessmentFrameworkShareRequest(
+    contents.assessmentFrameworkShareRequest = de_AssessmentFrameworkShareRequest(
       data.assessmentFrameworkShareRequest,
       context
     );
@@ -4573,7 +5032,10 @@ export const deserializeAws_restJson1StartAssessmentFrameworkShareCommand = asyn
   return contents;
 };
 
-const deserializeAws_restJson1StartAssessmentFrameworkShareCommandError = async (
+/**
+ * deserializeAws_restJson1StartAssessmentFrameworkShareCommandError
+ */
+const de_StartAssessmentFrameworkShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAssessmentFrameworkShareCommandOutput> => {
@@ -4585,16 +5047,16 @@ const deserializeAws_restJson1StartAssessmentFrameworkShareCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4606,12 +5068,15 @@ const deserializeAws_restJson1StartAssessmentFrameworkShareCommandError = async 
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4620,7 +5085,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -4632,13 +5100,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4650,12 +5118,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4664,7 +5135,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -4676,13 +5150,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4694,24 +5168,30 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentCommand
+ */
+export const de_UpdateAssessmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentCommandError(output, context);
+    return de_UpdateAssessmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessment != null) {
-    contents.assessment = deserializeAws_restJson1Assessment(data.assessment, context);
+    contents.assessment = de_Assessment(data.assessment, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentCommandError
+ */
+const de_UpdateAssessmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentCommandOutput> => {
@@ -4723,16 +5203,16 @@ const deserializeAws_restJson1UpdateAssessmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4744,24 +5224,30 @@ const deserializeAws_restJson1UpdateAssessmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentControlCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentControlCommand
+ */
+export const de_UpdateAssessmentControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentControlCommandError(output, context);
+    return de_UpdateAssessmentControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.control != null) {
-    contents.control = deserializeAws_restJson1AssessmentControl(data.control, context);
+    contents.control = de_AssessmentControl(data.control, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentControlCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentControlCommandError
+ */
+const de_UpdateAssessmentControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentControlCommandOutput> => {
@@ -4773,16 +5259,16 @@ const deserializeAws_restJson1UpdateAssessmentControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4794,24 +5280,30 @@ const deserializeAws_restJson1UpdateAssessmentControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentControlSetStatusCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentControlSetStatusCommand
+ */
+export const de_UpdateAssessmentControlSetStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentControlSetStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentControlSetStatusCommandError(output, context);
+    return de_UpdateAssessmentControlSetStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlSet != null) {
-    contents.controlSet = deserializeAws_restJson1AssessmentControlSet(data.controlSet, context);
+    contents.controlSet = de_AssessmentControlSet(data.controlSet, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentControlSetStatusCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentControlSetStatusCommandError
+ */
+const de_UpdateAssessmentControlSetStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentControlSetStatusCommandOutput> => {
@@ -4823,16 +5315,16 @@ const deserializeAws_restJson1UpdateAssessmentControlSetStatusCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4844,24 +5336,30 @@ const deserializeAws_restJson1UpdateAssessmentControlSetStatusCommandError = asy
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentFrameworkCommand
+ */
+export const de_UpdateAssessmentFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentFrameworkCommandError(output, context);
+    return de_UpdateAssessmentFrameworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.framework != null) {
-    contents.framework = deserializeAws_restJson1Framework(data.framework, context);
+    contents.framework = de_Framework(data.framework, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentFrameworkCommandError
+ */
+const de_UpdateAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentFrameworkCommandOutput> => {
@@ -4873,16 +5371,16 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4894,19 +5392,22 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand
+ */
+export const de_UpdateAssessmentFrameworkShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentFrameworkShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError(output, context);
+    return de_UpdateAssessmentFrameworkShareCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessmentFrameworkShareRequest != null) {
-    contents.assessmentFrameworkShareRequest = deserializeAws_restJson1AssessmentFrameworkShareRequest(
+    contents.assessmentFrameworkShareRequest = de_AssessmentFrameworkShareRequest(
       data.assessmentFrameworkShareRequest,
       context
     );
@@ -4914,7 +5415,10 @@ export const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError
+ */
+const de_UpdateAssessmentFrameworkShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentFrameworkShareCommandOutput> => {
@@ -4926,19 +5430,19 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4950,24 +5454,30 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError = async
   }
 };
 
-export const deserializeAws_restJson1UpdateAssessmentStatusCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentStatusCommand
+ */
+export const de_UpdateAssessmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAssessmentStatusCommandError(output, context);
+    return de_UpdateAssessmentStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assessment != null) {
-    contents.assessment = deserializeAws_restJson1Assessment(data.assessment, context);
+    contents.assessment = de_Assessment(data.assessment, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAssessmentStatusCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAssessmentStatusCommandError
+ */
+const de_UpdateAssessmentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentStatusCommandOutput> => {
@@ -4979,19 +5489,19 @@ const deserializeAws_restJson1UpdateAssessmentStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5003,24 +5513,30 @@ const deserializeAws_restJson1UpdateAssessmentStatusCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateControlCommand = async (
+/**
+ * deserializeAws_restJson1UpdateControlCommand
+ */
+export const de_UpdateControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateControlCommandError(output, context);
+    return de_UpdateControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.control != null) {
-    contents.control = deserializeAws_restJson1Control(data.control, context);
+    contents.control = de_Control(data.control, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateControlCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateControlCommandError
+ */
+const de_UpdateControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateControlCommandOutput> => {
@@ -5032,16 +5548,16 @@ const deserializeAws_restJson1UpdateControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5053,24 +5569,30 @@ const deserializeAws_restJson1UpdateControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSettingsCommand
+ */
+export const de_UpdateSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSettingsCommandError(output, context);
+    return de_UpdateSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.settings != null) {
-    contents.settings = deserializeAws_restJson1Settings(data.settings, context);
+    contents.settings = de_Settings(data.settings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSettingsCommandError
+ */
+const de_UpdateSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSettingsCommandOutput> => {
@@ -5082,13 +5604,13 @@ const deserializeAws_restJson1UpdateSettingsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5100,12 +5622,15 @@ const deserializeAws_restJson1UpdateSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand = async (
+/**
+ * deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand
+ */
+export const de_ValidateAssessmentReportIntegrityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateAssessmentReportIntegrityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ValidateAssessmentReportIntegrityCommandError(output, context);
+    return de_ValidateAssessmentReportIntegrityCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5124,12 +5649,15 @@ export const deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand = 
     contents.signatureValid = __expectBoolean(data.signatureValid);
   }
   if (data.validationErrors != null) {
-    contents.validationErrors = deserializeAws_restJson1ValidationErrors(data.validationErrors, context);
+    contents.validationErrors = de_ValidationErrors(data.validationErrors, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ValidateAssessmentReportIntegrityCommandError = async (
+/**
+ * deserializeAws_restJson1ValidateAssessmentReportIntegrityCommandError
+ */
+const de_ValidateAssessmentReportIntegrityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateAssessmentReportIntegrityCommandOutput> => {
@@ -5141,16 +5669,16 @@ const deserializeAws_restJson1ValidateAssessmentReportIntegrityCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.auditmanager#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5163,7 +5691,10 @@ const deserializeAws_restJson1ValidateAssessmentReportIntegrityCommandError = as
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -5179,7 +5710,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -5195,7 +5729,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -5217,7 +5754,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -5233,10 +5773,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -5249,14 +5789,14 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.fields != null) {
-    contents.fields = deserializeAws_restJson1ValidationExceptionFieldList(data.fields, context);
+    contents.fields = de_ValidationExceptionFieldList(data.fields, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -5271,17 +5811,20 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AssessmentReportsDestination = (
-  input: AssessmentReportsDestination,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AssessmentReportsDestination
+ */
+const se_AssessmentReportsDestination = (input: AssessmentReportsDestination, context: __SerdeContext): any => {
   return {
     ...(input.destination != null && { destination: input.destination }),
     ...(input.destinationType != null && { destinationType: input.destinationType }),
   };
 };
 
-const serializeAws_restJson1AWSAccount = (input: AWSAccount, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AWSAccount
+ */
+const se_AWSAccount = (input: AWSAccount, context: __SerdeContext): any => {
   return {
     ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
     ...(input.id != null && { id: input.id }),
@@ -5289,36 +5832,46 @@ const serializeAws_restJson1AWSAccount = (input: AWSAccount, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1AWSAccounts = (input: AWSAccount[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AWSAccounts
+ */
+const se_AWSAccounts = (input: AWSAccount[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AWSAccount(entry, context);
+      return se_AWSAccount(entry, context);
     });
 };
 
-const serializeAws_restJson1AWSService = (input: AWSService, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AWSService
+ */
+const se_AWSService = (input: AWSService, context: __SerdeContext): any => {
   return {
     ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
-const serializeAws_restJson1AWSServices = (input: AWSService[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AWSServices
+ */
+const se_AWSServices = (input: AWSService[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AWSService(entry, context);
+      return se_AWSService(entry, context);
     });
 };
 
-const serializeAws_restJson1ControlMappingSource = (input: ControlMappingSource, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ControlMappingSource
+ */
+const se_ControlMappingSource = (input: ControlMappingSource, context: __SerdeContext): any => {
   return {
     ...(input.sourceDescription != null && { sourceDescription: input.sourceDescription }),
     ...(input.sourceFrequency != null && { sourceFrequency: input.sourceFrequency }),
     ...(input.sourceId != null && { sourceId: input.sourceId }),
-    ...(input.sourceKeyword != null && {
-      sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
-    }),
+    ...(input.sourceKeyword != null && { sourceKeyword: se_SourceKeyword(input.sourceKeyword, context) }),
     ...(input.sourceName != null && { sourceName: input.sourceName }),
     ...(input.sourceSetUpOption != null && { sourceSetUpOption: input.sourceSetUpOption }),
     ...(input.sourceType != null && { sourceType: input.sourceType }),
@@ -5326,67 +5879,75 @@ const serializeAws_restJson1ControlMappingSource = (input: ControlMappingSource,
   };
 };
 
-const serializeAws_restJson1ControlMappingSources = (input: ControlMappingSource[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ControlMappingSources
+ */
+const se_ControlMappingSources = (input: ControlMappingSource[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ControlMappingSource(entry, context);
+      return se_ControlMappingSource(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateAssessmentFrameworkControl = (
-  input: CreateAssessmentFrameworkControl,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateAssessmentFrameworkControl
+ */
+const se_CreateAssessmentFrameworkControl = (input: CreateAssessmentFrameworkControl, context: __SerdeContext): any => {
   return {
     ...(input.id != null && { id: input.id }),
   };
 };
 
-const serializeAws_restJson1CreateAssessmentFrameworkControls = (
+/**
+ * serializeAws_restJson1CreateAssessmentFrameworkControls
+ */
+const se_CreateAssessmentFrameworkControls = (
   input: CreateAssessmentFrameworkControl[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateAssessmentFrameworkControl(entry, context);
+      return se_CreateAssessmentFrameworkControl(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateAssessmentFrameworkControlSet = (
+/**
+ * serializeAws_restJson1CreateAssessmentFrameworkControlSet
+ */
+const se_CreateAssessmentFrameworkControlSet = (
   input: CreateAssessmentFrameworkControlSet,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.controls != null && {
-      controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
-    }),
+    ...(input.controls != null && { controls: se_CreateAssessmentFrameworkControls(input.controls, context) }),
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_restJson1CreateAssessmentFrameworkControlSets = (
+/**
+ * serializeAws_restJson1CreateAssessmentFrameworkControlSets
+ */
+const se_CreateAssessmentFrameworkControlSets = (
   input: CreateAssessmentFrameworkControlSet[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateAssessmentFrameworkControlSet(entry, context);
+      return se_CreateAssessmentFrameworkControlSet(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateControlMappingSource = (
-  input: CreateControlMappingSource,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateControlMappingSource
+ */
+const se_CreateControlMappingSource = (input: CreateControlMappingSource, context: __SerdeContext): any => {
   return {
     ...(input.sourceDescription != null && { sourceDescription: input.sourceDescription }),
     ...(input.sourceFrequency != null && { sourceFrequency: input.sourceFrequency }),
-    ...(input.sourceKeyword != null && {
-      sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
-    }),
+    ...(input.sourceKeyword != null && { sourceKeyword: se_SourceKeyword(input.sourceKeyword, context) }),
     ...(input.sourceName != null && { sourceName: input.sourceName }),
     ...(input.sourceSetUpOption != null && { sourceSetUpOption: input.sourceSetUpOption }),
     ...(input.sourceType != null && { sourceType: input.sourceType }),
@@ -5394,21 +5955,21 @@ const serializeAws_restJson1CreateControlMappingSource = (
   };
 };
 
-const serializeAws_restJson1CreateControlMappingSources = (
-  input: CreateControlMappingSource[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateControlMappingSources
+ */
+const se_CreateControlMappingSources = (input: CreateControlMappingSource[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateControlMappingSource(entry, context);
+      return se_CreateControlMappingSource(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateDelegationRequest = (
-  input: CreateDelegationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateDelegationRequest
+ */
+const se_CreateDelegationRequest = (input: CreateDelegationRequest, context: __SerdeContext): any => {
   return {
     ...(input.comment != null && { comment: input.comment }),
     ...(input.controlSetId != null && { controlSetId: input.controlSetId }),
@@ -5417,18 +5978,21 @@ const serializeAws_restJson1CreateDelegationRequest = (
   };
 };
 
-const serializeAws_restJson1CreateDelegationRequests = (
-  input: CreateDelegationRequest[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateDelegationRequests
+ */
+const se_CreateDelegationRequests = (input: CreateDelegationRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateDelegationRequest(entry, context);
+      return se_CreateDelegationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1DelegationIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DelegationIds
+ */
+const se_DelegationIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5436,13 +6000,19 @@ const serializeAws_restJson1DelegationIds = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1DeregistrationPolicy = (input: DeregistrationPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeregistrationPolicy
+ */
+const se_DeregistrationPolicy = (input: DeregistrationPolicy, context: __SerdeContext): any => {
   return {
     ...(input.deleteResources != null && { deleteResources: input.deleteResources }),
   };
 };
 
-const serializeAws_restJson1EvidenceIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EvidenceIds
+ */
+const se_EvidenceIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5450,50 +6020,71 @@ const serializeAws_restJson1EvidenceIds = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_restJson1ManualEvidence = (input: ManualEvidence, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ManualEvidence
+ */
+const se_ManualEvidence = (input: ManualEvidence, context: __SerdeContext): any => {
   return {
     ...(input.s3ResourcePath != null && { s3ResourcePath: input.s3ResourcePath }),
   };
 };
 
-const serializeAws_restJson1ManualEvidenceList = (input: ManualEvidence[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ManualEvidenceList
+ */
+const se_ManualEvidenceList = (input: ManualEvidence[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ManualEvidence(entry, context);
+      return se_ManualEvidence(entry, context);
     });
 };
 
-const serializeAws_restJson1Role = (input: Role, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Role
+ */
+const se_Role = (input: Role, context: __SerdeContext): any => {
   return {
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.roleType != null && { roleType: input.roleType }),
   };
 };
 
-const serializeAws_restJson1Roles = (input: Role[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Roles
+ */
+const se_Roles = (input: Role[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Role(entry, context);
+      return se_Role(entry, context);
     });
 };
 
-const serializeAws_restJson1Scope = (input: Scope, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Scope
+ */
+const se_Scope = (input: Scope, context: __SerdeContext): any => {
   return {
-    ...(input.awsAccounts != null && { awsAccounts: serializeAws_restJson1AWSAccounts(input.awsAccounts, context) }),
-    ...(input.awsServices != null && { awsServices: serializeAws_restJson1AWSServices(input.awsServices, context) }),
+    ...(input.awsAccounts != null && { awsAccounts: se_AWSAccounts(input.awsAccounts, context) }),
+    ...(input.awsServices != null && { awsServices: se_AWSServices(input.awsServices, context) }),
   };
 };
 
-const serializeAws_restJson1SourceKeyword = (input: SourceKeyword, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourceKeyword
+ */
+const se_SourceKeyword = (input: SourceKeyword, context: __SerdeContext): any => {
   return {
     ...(input.keywordInputType != null && { keywordInputType: input.keywordInputType }),
     ...(input.keywordValue != null && { keywordValue: input.keywordValue }),
   };
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5503,52 +6094,57 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1UpdateAssessmentFrameworkControlSet = (
+/**
+ * serializeAws_restJson1UpdateAssessmentFrameworkControlSet
+ */
+const se_UpdateAssessmentFrameworkControlSet = (
   input: UpdateAssessmentFrameworkControlSet,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.controls != null && {
-      controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
-    }),
+    ...(input.controls != null && { controls: se_CreateAssessmentFrameworkControls(input.controls, context) }),
     ...(input.id != null && { id: input.id }),
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_restJson1UpdateAssessmentFrameworkControlSets = (
+/**
+ * serializeAws_restJson1UpdateAssessmentFrameworkControlSets
+ */
+const se_UpdateAssessmentFrameworkControlSets = (
   input: UpdateAssessmentFrameworkControlSet[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1UpdateAssessmentFrameworkControlSet(entry, context);
+      return se_UpdateAssessmentFrameworkControlSet(entry, context);
     });
 };
 
-const deserializeAws_restJson1Assessment = (output: any, context: __SerdeContext): Assessment => {
+/**
+ * deserializeAws_restJson1Assessment
+ */
+const de_Assessment = (output: any, context: __SerdeContext): Assessment => {
   return {
     arn: __expectString(output.arn),
-    awsAccount: output.awsAccount != null ? deserializeAws_restJson1AWSAccount(output.awsAccount, context) : undefined,
-    framework:
-      output.framework != null ? deserializeAws_restJson1AssessmentFramework(output.framework, context) : undefined,
-    metadata:
-      output.metadata != null ? deserializeAws_restJson1AssessmentMetadata(output.metadata, context) : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    awsAccount: output.awsAccount != null ? de_AWSAccount(output.awsAccount, context) : undefined,
+    framework: output.framework != null ? de_AssessmentFramework(output.framework, context) : undefined,
+    metadata: output.metadata != null ? de_AssessmentMetadata(output.metadata, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentControl = (output: any, context: __SerdeContext): AssessmentControl => {
+/**
+ * deserializeAws_restJson1AssessmentControl
+ */
+const de_AssessmentControl = (output: any, context: __SerdeContext): AssessmentControl => {
   return {
     assessmentReportEvidenceCount: __expectInt32(output.assessmentReportEvidenceCount),
-    comments: output.comments != null ? deserializeAws_restJson1ControlComments(output.comments, context) : undefined,
+    comments: output.comments != null ? de_ControlComments(output.comments, context) : undefined,
     description: __expectString(output.description),
     evidenceCount: __expectInt32(output.evidenceCount),
-    evidenceSources:
-      output.evidenceSources != null
-        ? deserializeAws_restJson1EvidenceSources(output.evidenceSources, context)
-        : undefined,
+    evidenceSources: output.evidenceSources != null ? de_EvidenceSources(output.evidenceSources, context) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     response: __expectString(output.response),
@@ -5556,52 +6152,56 @@ const deserializeAws_restJson1AssessmentControl = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentControls = (output: any, context: __SerdeContext): AssessmentControl[] => {
+/**
+ * deserializeAws_restJson1AssessmentControls
+ */
+const de_AssessmentControls = (output: any, context: __SerdeContext): AssessmentControl[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentControl(entry, context);
+      return de_AssessmentControl(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssessmentControlSet = (output: any, context: __SerdeContext): AssessmentControlSet => {
+/**
+ * deserializeAws_restJson1AssessmentControlSet
+ */
+const de_AssessmentControlSet = (output: any, context: __SerdeContext): AssessmentControlSet => {
   return {
-    controls:
-      output.controls != null ? deserializeAws_restJson1AssessmentControls(output.controls, context) : undefined,
-    delegations:
-      output.delegations != null ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
+    controls: output.controls != null ? de_AssessmentControls(output.controls, context) : undefined,
+    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     manualEvidenceCount: __expectInt32(output.manualEvidenceCount),
-    roles: output.roles != null ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
+    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
     status: __expectString(output.status),
     systemEvidenceCount: __expectInt32(output.systemEvidenceCount),
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentControlSets = (
-  output: any,
-  context: __SerdeContext
-): AssessmentControlSet[] => {
+/**
+ * deserializeAws_restJson1AssessmentControlSets
+ */
+const de_AssessmentControlSets = (output: any, context: __SerdeContext): AssessmentControlSet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentControlSet(entry, context);
+      return de_AssessmentControlSet(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssessmentEvidenceFolder = (
-  output: any,
-  context: __SerdeContext
-): AssessmentEvidenceFolder => {
+/**
+ * deserializeAws_restJson1AssessmentEvidenceFolder
+ */
+const de_AssessmentEvidenceFolder = (output: any, context: __SerdeContext): AssessmentEvidenceFolder => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentReportSelectionCount: __expectInt32(output.assessmentReportSelectionCount),
@@ -5624,37 +6224,37 @@ const deserializeAws_restJson1AssessmentEvidenceFolder = (
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentEvidenceFolders = (
-  output: any,
-  context: __SerdeContext
-): AssessmentEvidenceFolder[] => {
+/**
+ * deserializeAws_restJson1AssessmentEvidenceFolders
+ */
+const de_AssessmentEvidenceFolders = (output: any, context: __SerdeContext): AssessmentEvidenceFolder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentEvidenceFolder(entry, context);
+      return de_AssessmentEvidenceFolder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssessmentFramework = (output: any, context: __SerdeContext): AssessmentFramework => {
+/**
+ * deserializeAws_restJson1AssessmentFramework
+ */
+const de_AssessmentFramework = (output: any, context: __SerdeContext): AssessmentFramework => {
   return {
     arn: __expectString(output.arn),
-    controlSets:
-      output.controlSets != null
-        ? deserializeAws_restJson1AssessmentControlSets(output.controlSets, context)
-        : undefined,
+    controlSets: output.controlSets != null ? de_AssessmentControlSets(output.controlSets, context) : undefined,
     id: __expectString(output.id),
-    metadata: output.metadata != null ? deserializeAws_restJson1FrameworkMetadata(output.metadata, context) : undefined,
+    metadata: output.metadata != null ? de_FrameworkMetadata(output.metadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentFrameworkMetadata = (
-  output: any,
-  context: __SerdeContext
-): AssessmentFrameworkMetadata => {
+/**
+ * deserializeAws_restJson1AssessmentFrameworkMetadata
+ */
+const de_AssessmentFrameworkMetadata = (output: any, context: __SerdeContext): AssessmentFrameworkMetadata => {
   return {
     arn: __expectString(output.arn),
     complianceType: __expectString(output.complianceType),
@@ -5674,10 +6274,10 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentFrameworkShareRequest = (
-  output: any,
-  context: __SerdeContext
-): AssessmentFrameworkShareRequest => {
+/**
+ * deserializeAws_restJson1AssessmentFrameworkShareRequest
+ */
+const de_AssessmentFrameworkShareRequest = (output: any, context: __SerdeContext): AssessmentFrameworkShareRequest => {
   return {
     comment: __expectString(output.comment),
     complianceType: __expectString(output.complianceType),
@@ -5706,7 +6306,10 @@ const deserializeAws_restJson1AssessmentFrameworkShareRequest = (
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentFrameworkShareRequestList = (
+/**
+ * deserializeAws_restJson1AssessmentFrameworkShareRequestList
+ */
+const de_AssessmentFrameworkShareRequestList = (
   output: any,
   context: __SerdeContext
 ): AssessmentFrameworkShareRequest[] => {
@@ -5716,24 +6319,26 @@ const deserializeAws_restJson1AssessmentFrameworkShareRequestList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentFrameworkShareRequest(entry, context);
+      return de_AssessmentFrameworkShareRequest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadata => {
+/**
+ * deserializeAws_restJson1AssessmentMetadata
+ */
+const de_AssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadata => {
   return {
     assessmentReportsDestination:
       output.assessmentReportsDestination != null
-        ? deserializeAws_restJson1AssessmentReportsDestination(output.assessmentReportsDestination, context)
+        ? de_AssessmentReportsDestination(output.assessmentReportsDestination, context)
         : undefined,
     complianceType: __expectString(output.complianceType),
     creationTime:
       output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
-    delegations:
-      output.delegations != null ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
+    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdated:
@@ -5741,36 +6346,38 @@ const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __Serd
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
-    roles: output.roles != null ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
-    scope: output.scope != null ? deserializeAws_restJson1Scope(output.scope, context) : undefined,
+    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
+    scope: output.scope != null ? de_Scope(output.scope, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentMetadataItem = (
-  output: any,
-  context: __SerdeContext
-): AssessmentMetadataItem => {
+/**
+ * deserializeAws_restJson1AssessmentMetadataItem
+ */
+const de_AssessmentMetadataItem = (output: any, context: __SerdeContext): AssessmentMetadataItem => {
   return {
     complianceType: __expectString(output.complianceType),
     creationTime:
       output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
-    delegations:
-      output.delegations != null ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
+    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
-    roles: output.roles != null ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
+    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentReport = (output: any, context: __SerdeContext): AssessmentReport => {
+/**
+ * deserializeAws_restJson1AssessmentReport
+ */
+const de_AssessmentReport = (output: any, context: __SerdeContext): AssessmentReport => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentName: __expectString(output.assessmentName),
@@ -5787,10 +6394,10 @@ const deserializeAws_restJson1AssessmentReport = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentReportEvidenceError = (
-  output: any,
-  context: __SerdeContext
-): AssessmentReportEvidenceError => {
+/**
+ * deserializeAws_restJson1AssessmentReportEvidenceError
+ */
+const de_AssessmentReportEvidenceError = (output: any, context: __SerdeContext): AssessmentReportEvidenceError => {
   return {
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
@@ -5798,25 +6405,25 @@ const deserializeAws_restJson1AssessmentReportEvidenceError = (
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentReportEvidenceErrors = (
-  output: any,
-  context: __SerdeContext
-): AssessmentReportEvidenceError[] => {
+/**
+ * deserializeAws_restJson1AssessmentReportEvidenceErrors
+ */
+const de_AssessmentReportEvidenceErrors = (output: any, context: __SerdeContext): AssessmentReportEvidenceError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentReportEvidenceError(entry, context);
+      return de_AssessmentReportEvidenceError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssessmentReportMetadata = (
-  output: any,
-  context: __SerdeContext
-): AssessmentReportMetadata => {
+/**
+ * deserializeAws_restJson1AssessmentReportMetadata
+ */
+const de_AssessmentReportMetadata = (output: any, context: __SerdeContext): AssessmentReportMetadata => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentName: __expectString(output.assessmentName),
@@ -5832,32 +6439,35 @@ const deserializeAws_restJson1AssessmentReportMetadata = (
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentReportsDestination = (
-  output: any,
-  context: __SerdeContext
-): AssessmentReportsDestination => {
+/**
+ * deserializeAws_restJson1AssessmentReportsDestination
+ */
+const de_AssessmentReportsDestination = (output: any, context: __SerdeContext): AssessmentReportsDestination => {
   return {
     destination: __expectString(output.destination),
     destinationType: __expectString(output.destinationType),
   } as any;
 };
 
-const deserializeAws_restJson1AssessmentReportsMetadata = (
-  output: any,
-  context: __SerdeContext
-): AssessmentReportMetadata[] => {
+/**
+ * deserializeAws_restJson1AssessmentReportsMetadata
+ */
+const de_AssessmentReportsMetadata = (output: any, context: __SerdeContext): AssessmentReportMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentReportMetadata(entry, context);
+      return de_AssessmentReportMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AWSAccount = (output: any, context: __SerdeContext): AWSAccount => {
+/**
+ * deserializeAws_restJson1AWSAccount
+ */
+const de_AWSAccount = (output: any, context: __SerdeContext): AWSAccount => {
   return {
     emailAddress: __expectString(output.emailAddress),
     id: __expectString(output.id),
@@ -5865,51 +6475,66 @@ const deserializeAws_restJson1AWSAccount = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1AWSAccounts = (output: any, context: __SerdeContext): AWSAccount[] => {
+/**
+ * deserializeAws_restJson1AWSAccounts
+ */
+const de_AWSAccounts = (output: any, context: __SerdeContext): AWSAccount[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AWSAccount(entry, context);
+      return de_AWSAccount(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AWSService = (output: any, context: __SerdeContext): AWSService => {
+/**
+ * deserializeAws_restJson1AWSService
+ */
+const de_AWSService = (output: any, context: __SerdeContext): AWSService => {
   return {
     serviceName: __expectString(output.serviceName),
   } as any;
 };
 
-const deserializeAws_restJson1AWSServices = (output: any, context: __SerdeContext): AWSService[] => {
+/**
+ * deserializeAws_restJson1AWSServices
+ */
+const de_AWSServices = (output: any, context: __SerdeContext): AWSService[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AWSService(entry, context);
+      return de_AWSService(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchCreateDelegationByAssessmentError = (
+/**
+ * deserializeAws_restJson1BatchCreateDelegationByAssessmentError
+ */
+const de_BatchCreateDelegationByAssessmentError = (
   output: any,
   context: __SerdeContext
 ): BatchCreateDelegationByAssessmentError => {
   return {
     createDelegationRequest:
       output.createDelegationRequest != null
-        ? deserializeAws_restJson1CreateDelegationRequest(output.createDelegationRequest, context)
+        ? de_CreateDelegationRequest(output.createDelegationRequest, context)
         : undefined,
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
-const deserializeAws_restJson1BatchCreateDelegationByAssessmentErrors = (
+/**
+ * deserializeAws_restJson1BatchCreateDelegationByAssessmentErrors
+ */
+const de_BatchCreateDelegationByAssessmentErrors = (
   output: any,
   context: __SerdeContext
 ): BatchCreateDelegationByAssessmentError[] => {
@@ -5919,12 +6544,15 @@ const deserializeAws_restJson1BatchCreateDelegationByAssessmentErrors = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchCreateDelegationByAssessmentError(entry, context);
+      return de_BatchCreateDelegationByAssessmentError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchDeleteDelegationByAssessmentError = (
+/**
+ * deserializeAws_restJson1BatchDeleteDelegationByAssessmentError
+ */
+const de_BatchDeleteDelegationByAssessmentError = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteDelegationByAssessmentError => {
@@ -5935,7 +6563,10 @@ const deserializeAws_restJson1BatchDeleteDelegationByAssessmentError = (
   } as any;
 };
 
-const deserializeAws_restJson1BatchDeleteDelegationByAssessmentErrors = (
+/**
+ * deserializeAws_restJson1BatchDeleteDelegationByAssessmentErrors
+ */
+const de_BatchDeleteDelegationByAssessmentErrors = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteDelegationByAssessmentError[] => {
@@ -5945,26 +6576,29 @@ const deserializeAws_restJson1BatchDeleteDelegationByAssessmentErrors = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchDeleteDelegationByAssessmentError(entry, context);
+      return de_BatchDeleteDelegationByAssessmentError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlError = (
+/**
+ * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlError
+ */
+const de_BatchImportEvidenceToAssessmentControlError = (
   output: any,
   context: __SerdeContext
 ): BatchImportEvidenceToAssessmentControlError => {
   return {
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
-    manualEvidence:
-      output.manualEvidence != null
-        ? deserializeAws_restJson1ManualEvidence(output.manualEvidence, context)
-        : undefined,
+    manualEvidence: output.manualEvidence != null ? de_ManualEvidence(output.manualEvidence, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlErrors = (
+/**
+ * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlErrors
+ */
+const de_BatchImportEvidenceToAssessmentControlErrors = (
   output: any,
   context: __SerdeContext
 ): BatchImportEvidenceToAssessmentControlError[] => {
@@ -5974,12 +6608,15 @@ const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlErrors = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchImportEvidenceToAssessmentControlError(entry, context);
+      return de_BatchImportEvidenceToAssessmentControlError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChangeLog = (output: any, context: __SerdeContext): ChangeLog => {
+/**
+ * deserializeAws_restJson1ChangeLog
+ */
+const de_ChangeLog = (output: any, context: __SerdeContext): ChangeLog => {
   return {
     action: __expectString(output.action),
     createdAt:
@@ -5990,26 +6627,32 @@ const deserializeAws_restJson1ChangeLog = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1ChangeLogs = (output: any, context: __SerdeContext): ChangeLog[] => {
+/**
+ * deserializeAws_restJson1ChangeLogs
+ */
+const de_ChangeLogs = (output: any, context: __SerdeContext): ChangeLog[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ChangeLog(entry, context);
+      return de_ChangeLog(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Control = (output: any, context: __SerdeContext): Control => {
+/**
+ * deserializeAws_restJson1Control
+ */
+const de_Control = (output: any, context: __SerdeContext): Control => {
   return {
     actionPlanInstructions: __expectString(output.actionPlanInstructions),
     actionPlanTitle: __expectString(output.actionPlanTitle),
     arn: __expectString(output.arn),
     controlMappingSources:
       output.controlMappingSources != null
-        ? deserializeAws_restJson1ControlMappingSources(output.controlMappingSources, context)
+        ? de_ControlMappingSources(output.controlMappingSources, context)
         : undefined,
     controlSources: __expectString(output.controlSources),
     createdAt:
@@ -6023,13 +6666,16 @@ const deserializeAws_restJson1Control = (output: any, context: __SerdeContext): 
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     name: __expectString(output.name),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
     testingInformation: __expectString(output.testingInformation),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1ControlComment = (output: any, context: __SerdeContext): ControlComment => {
+/**
+ * deserializeAws_restJson1ControlComment
+ */
+const de_ControlComment = (output: any, context: __SerdeContext): ControlComment => {
   return {
     authorName: __expectString(output.authorName),
     commentBody: __expectString(output.commentBody),
@@ -6038,25 +6684,29 @@ const deserializeAws_restJson1ControlComment = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1ControlComments = (output: any, context: __SerdeContext): ControlComment[] => {
+/**
+ * deserializeAws_restJson1ControlComments
+ */
+const de_ControlComments = (output: any, context: __SerdeContext): ControlComment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlComment(entry, context);
+      return de_ControlComment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlDomainInsights = (output: any, context: __SerdeContext): ControlDomainInsights => {
+/**
+ * deserializeAws_restJson1ControlDomainInsights
+ */
+const de_ControlDomainInsights = (output: any, context: __SerdeContext): ControlDomainInsights => {
   return {
     controlsCountByNoncompliantEvidence: __expectInt32(output.controlsCountByNoncompliantEvidence),
     evidenceInsights:
-      output.evidenceInsights != null
-        ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
-        : undefined,
+      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated != null
@@ -6067,37 +6717,40 @@ const deserializeAws_restJson1ControlDomainInsights = (output: any, context: __S
   } as any;
 };
 
-const deserializeAws_restJson1ControlDomainInsightsList = (
-  output: any,
-  context: __SerdeContext
-): ControlDomainInsights[] => {
+/**
+ * deserializeAws_restJson1ControlDomainInsightsList
+ */
+const de_ControlDomainInsightsList = (output: any, context: __SerdeContext): ControlDomainInsights[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlDomainInsights(entry, context);
+      return de_ControlDomainInsights(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlInsightsMetadata = (
-  output: any,
-  context: __SerdeContext
-): ControlInsightsMetadataItem[] => {
+/**
+ * deserializeAws_restJson1ControlInsightsMetadata
+ */
+const de_ControlInsightsMetadata = (output: any, context: __SerdeContext): ControlInsightsMetadataItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlInsightsMetadataItem(entry, context);
+      return de_ControlInsightsMetadataItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlInsightsMetadataByAssessment = (
+/**
+ * deserializeAws_restJson1ControlInsightsMetadataByAssessment
+ */
+const de_ControlInsightsMetadataByAssessment = (
   output: any,
   context: __SerdeContext
 ): ControlInsightsMetadataByAssessmentItem[] => {
@@ -6107,21 +6760,22 @@ const deserializeAws_restJson1ControlInsightsMetadataByAssessment = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlInsightsMetadataByAssessmentItem(entry, context);
+      return de_ControlInsightsMetadataByAssessmentItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlInsightsMetadataByAssessmentItem = (
+/**
+ * deserializeAws_restJson1ControlInsightsMetadataByAssessmentItem
+ */
+const de_ControlInsightsMetadataByAssessmentItem = (
   output: any,
   context: __SerdeContext
 ): ControlInsightsMetadataByAssessmentItem => {
   return {
     controlSetName: __expectString(output.controlSetName),
     evidenceInsights:
-      output.evidenceInsights != null
-        ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
-        : undefined,
+      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated != null
@@ -6131,15 +6785,13 @@ const deserializeAws_restJson1ControlInsightsMetadataByAssessmentItem = (
   } as any;
 };
 
-const deserializeAws_restJson1ControlInsightsMetadataItem = (
-  output: any,
-  context: __SerdeContext
-): ControlInsightsMetadataItem => {
+/**
+ * deserializeAws_restJson1ControlInsightsMetadataItem
+ */
+const de_ControlInsightsMetadataItem = (output: any, context: __SerdeContext): ControlInsightsMetadataItem => {
   return {
     evidenceInsights:
-      output.evidenceInsights != null
-        ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
-        : undefined,
+      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated != null
@@ -6149,13 +6801,15 @@ const deserializeAws_restJson1ControlInsightsMetadataItem = (
   } as any;
 };
 
-const deserializeAws_restJson1ControlMappingSource = (output: any, context: __SerdeContext): ControlMappingSource => {
+/**
+ * deserializeAws_restJson1ControlMappingSource
+ */
+const de_ControlMappingSource = (output: any, context: __SerdeContext): ControlMappingSource => {
   return {
     sourceDescription: __expectString(output.sourceDescription),
     sourceFrequency: __expectString(output.sourceFrequency),
     sourceId: __expectString(output.sourceId),
-    sourceKeyword:
-      output.sourceKeyword != null ? deserializeAws_restJson1SourceKeyword(output.sourceKeyword, context) : undefined,
+    sourceKeyword: output.sourceKeyword != null ? de_SourceKeyword(output.sourceKeyword, context) : undefined,
     sourceName: __expectString(output.sourceName),
     sourceSetUpOption: __expectString(output.sourceSetUpOption),
     sourceType: __expectString(output.sourceType),
@@ -6163,22 +6817,25 @@ const deserializeAws_restJson1ControlMappingSource = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1ControlMappingSources = (
-  output: any,
-  context: __SerdeContext
-): ControlMappingSource[] => {
+/**
+ * deserializeAws_restJson1ControlMappingSources
+ */
+const de_ControlMappingSources = (output: any, context: __SerdeContext): ControlMappingSource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlMappingSource(entry, context);
+      return de_ControlMappingSource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlMetadata = (output: any, context: __SerdeContext): ControlMetadata => {
+/**
+ * deserializeAws_restJson1ControlMetadata
+ */
+const de_ControlMetadata = (output: any, context: __SerdeContext): ControlMetadata => {
   return {
     arn: __expectString(output.arn),
     controlSources: __expectString(output.controlSources),
@@ -6193,54 +6850,66 @@ const deserializeAws_restJson1ControlMetadata = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1ControlMetadataList = (output: any, context: __SerdeContext): ControlMetadata[] => {
+/**
+ * deserializeAws_restJson1ControlMetadataList
+ */
+const de_ControlMetadataList = (output: any, context: __SerdeContext): ControlMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlMetadata(entry, context);
+      return de_ControlMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Controls = (output: any, context: __SerdeContext): Control[] => {
+/**
+ * deserializeAws_restJson1Controls
+ */
+const de_Controls = (output: any, context: __SerdeContext): Control[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Control(entry, context);
+      return de_Control(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ControlSet = (output: any, context: __SerdeContext): ControlSet => {
+/**
+ * deserializeAws_restJson1ControlSet
+ */
+const de_ControlSet = (output: any, context: __SerdeContext): ControlSet => {
   return {
-    controls: output.controls != null ? deserializeAws_restJson1Controls(output.controls, context) : undefined,
+    controls: output.controls != null ? de_Controls(output.controls, context) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ControlSets = (output: any, context: __SerdeContext): ControlSet[] => {
+/**
+ * deserializeAws_restJson1ControlSets
+ */
+const de_ControlSets = (output: any, context: __SerdeContext): ControlSet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ControlSet(entry, context);
+      return de_ControlSet(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CreateDelegationRequest = (
-  output: any,
-  context: __SerdeContext
-): CreateDelegationRequest => {
+/**
+ * deserializeAws_restJson1CreateDelegationRequest
+ */
+const de_CreateDelegationRequest = (output: any, context: __SerdeContext): CreateDelegationRequest => {
   return {
     comment: __expectString(output.comment),
     controlSetId: __expectString(output.controlSetId),
@@ -6249,7 +6918,10 @@ const deserializeAws_restJson1CreateDelegationRequest = (
   } as any;
 };
 
-const deserializeAws_restJson1Delegation = (output: any, context: __SerdeContext): Delegation => {
+/**
+ * deserializeAws_restJson1Delegation
+ */
+const de_Delegation = (output: any, context: __SerdeContext): Delegation => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentName: __expectString(output.assessmentName),
@@ -6271,7 +6943,10 @@ const deserializeAws_restJson1Delegation = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1DelegationMetadata = (output: any, context: __SerdeContext): DelegationMetadata => {
+/**
+ * deserializeAws_restJson1DelegationMetadata
+ */
+const de_DelegationMetadata = (output: any, context: __SerdeContext): DelegationMetadata => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentName: __expectString(output.assessmentName),
@@ -6286,41 +6961,52 @@ const deserializeAws_restJson1DelegationMetadata = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1DelegationMetadataList = (output: any, context: __SerdeContext): DelegationMetadata[] => {
+/**
+ * deserializeAws_restJson1DelegationMetadataList
+ */
+const de_DelegationMetadataList = (output: any, context: __SerdeContext): DelegationMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DelegationMetadata(entry, context);
+      return de_DelegationMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Delegations = (output: any, context: __SerdeContext): Delegation[] => {
+/**
+ * deserializeAws_restJson1Delegations
+ */
+const de_Delegations = (output: any, context: __SerdeContext): Delegation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Delegation(entry, context);
+      return de_Delegation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DeregistrationPolicy = (output: any, context: __SerdeContext): DeregistrationPolicy => {
+/**
+ * deserializeAws_restJson1DeregistrationPolicy
+ */
+const de_DeregistrationPolicy = (output: any, context: __SerdeContext): DeregistrationPolicy => {
   return {
     deleteResources: __expectString(output.deleteResources),
   } as any;
 };
 
-const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext): Evidence => {
+/**
+ * deserializeAws_restJson1Evidence
+ */
+const de_Evidence = (output: any, context: __SerdeContext): Evidence => {
   return {
     assessmentReportSelection: __expectString(output.assessmentReportSelection),
-    attributes:
-      output.attributes != null ? deserializeAws_restJson1EvidenceAttributes(output.attributes, context) : undefined,
+    attributes: output.attributes != null ? de_EvidenceAttributes(output.attributes, context) : undefined,
     awsAccountId: __expectString(output.awsAccountId),
     awsOrganization: __expectString(output.awsOrganization),
     complianceCheck: __expectString(output.complianceCheck),
@@ -6332,15 +7018,15 @@ const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext):
     evidenceFolderId: __expectString(output.evidenceFolderId),
     iamId: __expectString(output.iamId),
     id: __expectString(output.id),
-    resourcesIncluded:
-      output.resourcesIncluded != null
-        ? deserializeAws_restJson1Resources(output.resourcesIncluded, context)
-        : undefined,
+    resourcesIncluded: output.resourcesIncluded != null ? de_Resources(output.resourcesIncluded, context) : undefined,
     time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1EvidenceAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1EvidenceAttributes
+ */
+const de_EvidenceAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6350,10 +7036,10 @@ const deserializeAws_restJson1EvidenceAttributes = (output: any, context: __Serd
   }, {});
 };
 
-const deserializeAws_restJson1EvidenceFinderEnablement = (
-  output: any,
-  context: __SerdeContext
-): EvidenceFinderEnablement => {
+/**
+ * deserializeAws_restJson1EvidenceFinderEnablement
+ */
+const de_EvidenceFinderEnablement = (output: any, context: __SerdeContext): EvidenceFinderEnablement => {
   return {
     backfillStatus: __expectString(output.backfillStatus),
     enablementStatus: __expectString(output.enablementStatus),
@@ -6362,7 +7048,10 @@ const deserializeAws_restJson1EvidenceFinderEnablement = (
   } as any;
 };
 
-const deserializeAws_restJson1EvidenceIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1EvidenceIds
+ */
+const de_EvidenceIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6374,7 +7063,10 @@ const deserializeAws_restJson1EvidenceIds = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1EvidenceInsights = (output: any, context: __SerdeContext): EvidenceInsights => {
+/**
+ * deserializeAws_restJson1EvidenceInsights
+ */
+const de_EvidenceInsights = (output: any, context: __SerdeContext): EvidenceInsights => {
   return {
     compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
     inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
@@ -6382,19 +7074,25 @@ const deserializeAws_restJson1EvidenceInsights = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1EvidenceList = (output: any, context: __SerdeContext): Evidence[] => {
+/**
+ * deserializeAws_restJson1EvidenceList
+ */
+const de_EvidenceList = (output: any, context: __SerdeContext): Evidence[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Evidence(entry, context);
+      return de_Evidence(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EvidenceSources = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1EvidenceSources
+ */
+const de_EvidenceSources = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6406,12 +7104,14 @@ const deserializeAws_restJson1EvidenceSources = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext): Framework => {
+/**
+ * deserializeAws_restJson1Framework
+ */
+const de_Framework = (output: any, context: __SerdeContext): Framework => {
   return {
     arn: __expectString(output.arn),
     complianceType: __expectString(output.complianceType),
-    controlSets:
-      output.controlSets != null ? deserializeAws_restJson1ControlSets(output.controlSets, context) : undefined,
+    controlSets: output.controlSets != null ? de_ControlSets(output.controlSets, context) : undefined,
     controlSources: __expectString(output.controlSources),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -6425,12 +7125,15 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     logo: __expectString(output.logo),
     name: __expectString(output.name),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1FrameworkMetadata = (output: any, context: __SerdeContext): FrameworkMetadata => {
+/**
+ * deserializeAws_restJson1FrameworkMetadata
+ */
+const de_FrameworkMetadata = (output: any, context: __SerdeContext): FrameworkMetadata => {
   return {
     complianceType: __expectString(output.complianceType),
     description: __expectString(output.description),
@@ -6439,22 +7142,25 @@ const deserializeAws_restJson1FrameworkMetadata = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1FrameworkMetadataList = (
-  output: any,
-  context: __SerdeContext
-): AssessmentFrameworkMetadata[] => {
+/**
+ * deserializeAws_restJson1FrameworkMetadataList
+ */
+const de_FrameworkMetadataList = (output: any, context: __SerdeContext): AssessmentFrameworkMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentFrameworkMetadata(entry, context);
+      return de_AssessmentFrameworkMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Insights = (output: any, context: __SerdeContext): Insights => {
+/**
+ * deserializeAws_restJson1Insights
+ */
+const de_Insights = (output: any, context: __SerdeContext): Insights => {
   return {
     activeAssessmentsCount: __expectInt32(output.activeAssessmentsCount),
     assessmentControlsCountByNoncompliantEvidence: __expectInt32(output.assessmentControlsCountByNoncompliantEvidence),
@@ -6469,7 +7175,10 @@ const deserializeAws_restJson1Insights = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1InsightsByAssessment = (output: any, context: __SerdeContext): InsightsByAssessment => {
+/**
+ * deserializeAws_restJson1InsightsByAssessment
+ */
+const de_InsightsByAssessment = (output: any, context: __SerdeContext): InsightsByAssessment => {
   return {
     assessmentControlsCountByNoncompliantEvidence: __expectInt32(output.assessmentControlsCountByNoncompliantEvidence),
     compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
@@ -6483,7 +7192,10 @@ const deserializeAws_restJson1InsightsByAssessment = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1Keywords = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1Keywords
+ */
+const de_Keywords = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6495,28 +7207,34 @@ const deserializeAws_restJson1Keywords = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1ListAssessmentMetadata = (
-  output: any,
-  context: __SerdeContext
-): AssessmentMetadataItem[] => {
+/**
+ * deserializeAws_restJson1ListAssessmentMetadata
+ */
+const de_ListAssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadataItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AssessmentMetadataItem(entry, context);
+      return de_AssessmentMetadataItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ManualEvidence = (output: any, context: __SerdeContext): ManualEvidence => {
+/**
+ * deserializeAws_restJson1ManualEvidence
+ */
+const de_ManualEvidence = (output: any, context: __SerdeContext): ManualEvidence => {
   return {
     s3ResourcePath: __expectString(output.s3ResourcePath),
   } as any;
 };
 
-const deserializeAws_restJson1Notification = (output: any, context: __SerdeContext): Notification => {
+/**
+ * deserializeAws_restJson1Notification
+ */
+const de_Notification = (output: any, context: __SerdeContext): Notification => {
   return {
     assessmentId: __expectString(output.assessmentId),
     assessmentName: __expectString(output.assessmentName),
@@ -6530,19 +7248,25 @@ const deserializeAws_restJson1Notification = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1Notifications = (output: any, context: __SerdeContext): Notification[] => {
+/**
+ * deserializeAws_restJson1Notifications
+ */
+const de_Notifications = (output: any, context: __SerdeContext): Notification[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Notification(entry, context);
+      return de_Notification(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
+/**
+ * deserializeAws_restJson1Resource
+ */
+const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     arn: __expectString(output.arn),
     complianceCheck: __expectString(output.complianceCheck),
@@ -6550,47 +7274,60 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): Resource[] => {
+/**
+ * deserializeAws_restJson1Resources
+ */
+const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Resource(entry, context);
+      return de_Resource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Role = (output: any, context: __SerdeContext): Role => {
+/**
+ * deserializeAws_restJson1Role
+ */
+const de_Role = (output: any, context: __SerdeContext): Role => {
   return {
     roleArn: __expectString(output.roleArn),
     roleType: __expectString(output.roleType),
   } as any;
 };
 
-const deserializeAws_restJson1Roles = (output: any, context: __SerdeContext): Role[] => {
+/**
+ * deserializeAws_restJson1Roles
+ */
+const de_Roles = (output: any, context: __SerdeContext): Role[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Role(entry, context);
+      return de_Role(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Scope = (output: any, context: __SerdeContext): Scope => {
+/**
+ * deserializeAws_restJson1Scope
+ */
+const de_Scope = (output: any, context: __SerdeContext): Scope => {
   return {
-    awsAccounts:
-      output.awsAccounts != null ? deserializeAws_restJson1AWSAccounts(output.awsAccounts, context) : undefined,
-    awsServices:
-      output.awsServices != null ? deserializeAws_restJson1AWSServices(output.awsServices, context) : undefined,
+    awsAccounts: output.awsAccounts != null ? de_AWSAccounts(output.awsAccounts, context) : undefined,
+    awsServices: output.awsServices != null ? de_AWSServices(output.awsServices, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
+/**
+ * deserializeAws_restJson1ServiceMetadata
+ */
+const de_ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
   return {
     category: __expectString(output.category),
     description: __expectString(output.description),
@@ -6599,35 +7336,37 @@ const deserializeAws_restJson1ServiceMetadata = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1ServiceMetadataList = (output: any, context: __SerdeContext): ServiceMetadata[] => {
+/**
+ * deserializeAws_restJson1ServiceMetadataList
+ */
+const de_ServiceMetadataList = (output: any, context: __SerdeContext): ServiceMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ServiceMetadata(entry, context);
+      return de_ServiceMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext): Settings => {
+/**
+ * deserializeAws_restJson1Settings
+ */
+const de_Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     defaultAssessmentReportsDestination:
       output.defaultAssessmentReportsDestination != null
-        ? deserializeAws_restJson1AssessmentReportsDestination(output.defaultAssessmentReportsDestination, context)
+        ? de_AssessmentReportsDestination(output.defaultAssessmentReportsDestination, context)
         : undefined,
     defaultProcessOwners:
-      output.defaultProcessOwners != null
-        ? deserializeAws_restJson1Roles(output.defaultProcessOwners, context)
-        : undefined,
+      output.defaultProcessOwners != null ? de_Roles(output.defaultProcessOwners, context) : undefined,
     deregistrationPolicy:
-      output.deregistrationPolicy != null
-        ? deserializeAws_restJson1DeregistrationPolicy(output.deregistrationPolicy, context)
-        : undefined,
+      output.deregistrationPolicy != null ? de_DeregistrationPolicy(output.deregistrationPolicy, context) : undefined,
     evidenceFinderEnablement:
       output.evidenceFinderEnablement != null
-        ? deserializeAws_restJson1EvidenceFinderEnablement(output.evidenceFinderEnablement, context)
+        ? de_EvidenceFinderEnablement(output.evidenceFinderEnablement, context)
         : undefined,
     isAwsOrgEnabled: __expectBoolean(output.isAwsOrgEnabled),
     kmsKey: __expectString(output.kmsKey),
@@ -6635,14 +7374,20 @@ const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1SourceKeyword = (output: any, context: __SerdeContext): SourceKeyword => {
+/**
+ * deserializeAws_restJson1SourceKeyword
+ */
+const de_SourceKeyword = (output: any, context: __SerdeContext): SourceKeyword => {
   return {
     keywordInputType: __expectString(output.keywordInputType),
     keywordValue: __expectString(output.keywordValue),
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6652,14 +7397,20 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1URL = (output: any, context: __SerdeContext): URL => {
+/**
+ * deserializeAws_restJson1URL
+ */
+const de_URL = (output: any, context: __SerdeContext): URL => {
   return {
     hyperlinkName: __expectString(output.hyperlinkName),
     link: __expectString(output.link),
   } as any;
 };
 
-const deserializeAws_restJson1ValidationErrors = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ValidationErrors
+ */
+const de_ValidationErrors = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6671,27 +7422,27 @@ const deserializeAws_restJson1ValidationErrors = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
+/**
+ * deserializeAws_restJson1ValidationExceptionField
+ */
+const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
   return {
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
+/**
+ * deserializeAws_restJson1ValidationExceptionFieldList
+ */
+const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ValidationExceptionField(entry, context);
+      return de_ValidationExceptionField(entry, context);
     });
   return retVal;
 };

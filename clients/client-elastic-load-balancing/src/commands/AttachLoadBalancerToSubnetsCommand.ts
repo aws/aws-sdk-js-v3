@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryAttachLoadBalancerToSubnetsCommand,
-  serializeAws_queryAttachLoadBalancerToSubnetsCommand,
-} from "../protocols/Aws_query";
+import { de_AttachLoadBalancerToSubnetsCommand, se_AttachLoadBalancerToSubnetsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -164,7 +161,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachLoadBalancerToSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachLoadBalancerToSubnetsCommand(input, context);
+    return se_AttachLoadBalancerToSubnetsCommand(input, context);
   }
 
   /**
@@ -174,7 +171,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerToSubnetsCommandOutput> {
-    return deserializeAws_queryAttachLoadBalancerToSubnetsCommand(output, context);
+    return de_AttachLoadBalancerToSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

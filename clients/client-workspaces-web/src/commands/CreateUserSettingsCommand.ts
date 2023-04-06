@@ -18,10 +18,7 @@ import {
   CreateUserSettingsRequestFilterSensitiveLog,
   CreateUserSettingsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserSettingsCommand,
-  serializeAws_restJson1CreateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateUserSettingsCommand, se_CreateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserSettingsCommand(input, context);
+    return se_CreateUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateUserSettingsCommand(output, context);
+    return de_CreateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

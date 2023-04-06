@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { UpdateRadiusRequest, UpdateRadiusRequestFilterSensitiveLog, UpdateRadiusResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRadiusCommand,
-  serializeAws_json1_1UpdateRadiusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRadiusCommand, se_UpdateRadiusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateRadiusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRadiusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRadiusCommand(input, context);
+    return se_UpdateRadiusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRadiusCommandOutput> {
-    return deserializeAws_json1_1UpdateRadiusCommand(output, context);
+    return de_UpdateRadiusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListThemesRequest, ListThemesResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListThemesCommand,
-  serializeAws_restJson1ListThemesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListThemesCommand, se_ListThemesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -148,14 +145,14 @@ export class ListThemesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListThemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThemesCommand(input, context);
+    return se_ListThemesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemesCommandOutput> {
-    return deserializeAws_restJson1ListThemesCommand(output, context);
+    return de_ListThemesCommand(output, context);
   }
 
   // Start section: command_body_extra

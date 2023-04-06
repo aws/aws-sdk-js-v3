@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeStoreImageTasksRequest, DescribeStoreImageTasksResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeStoreImageTasksCommand,
-  serializeAws_ec2DescribeStoreImageTasksCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeStoreImageTasksCommand, se_DescribeStoreImageTasksCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeStoreImageTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStoreImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeStoreImageTasksCommand(input, context);
+    return se_DescribeStoreImageTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStoreImageTasksCommandOutput> {
-    return deserializeAws_ec2DescribeStoreImageTasksCommand(output, context);
+    return de_DescribeStoreImageTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDRTRoleCommand,
-  serializeAws_json1_1DisassociateDRTRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateDRTRoleCommand, se_DisassociateDRTRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -131,14 +128,14 @@ export class DisassociateDRTRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateDRTRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDRTRoleCommand(input, context);
+    return se_DisassociateDRTRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTRoleCommandOutput> {
-    return deserializeAws_json1_1DisassociateDRTRoleCommand(output, context);
+    return de_DisassociateDRTRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

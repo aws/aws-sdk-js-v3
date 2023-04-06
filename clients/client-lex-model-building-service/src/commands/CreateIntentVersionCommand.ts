@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntentVersionCommand,
-  serializeAws_restJson1CreateIntentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIntentVersionCommand, se_CreateIntentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CreateIntentVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIntentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntentVersionCommand(input, context);
+    return se_CreateIntentVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIntentVersionCommandOutput> {
-    return deserializeAws_restJson1CreateIntentVersionCommand(output, context);
+    return de_CreateIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

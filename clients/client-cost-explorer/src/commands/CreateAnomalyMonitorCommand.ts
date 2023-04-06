@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { CreateAnomalyMonitorRequest, CreateAnomalyMonitorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAnomalyMonitorCommand,
-  serializeAws_json1_1CreateAnomalyMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAnomalyMonitorCommand, se_CreateAnomalyMonitorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -206,14 +203,14 @@ export class CreateAnomalyMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAnomalyMonitorCommand(input, context);
+    return se_CreateAnomalyMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnomalyMonitorCommandOutput> {
-    return deserializeAws_json1_1CreateAnomalyMonitorCommand(output, context);
+    return de_CreateAnomalyMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

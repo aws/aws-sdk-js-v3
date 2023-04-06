@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetTestRequest, GetTestResult } from "../models/models_0";
-import { deserializeAws_json1_1GetTestCommand, serializeAws_json1_1GetTestCommand } from "../protocols/Aws_json1_1";
+import { de_GetTestCommand, se_GetTestCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +143,14 @@ export class GetTestCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTestCommand(input, context);
+    return se_GetTestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestCommandOutput> {
-    return deserializeAws_json1_1GetTestCommand(output, context);
+    return de_GetTestCommand(output, context);
   }
 
   // Start section: command_body_extra

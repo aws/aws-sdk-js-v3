@@ -23,8 +23,8 @@ import {
   DeleteReplicationTaskAssessmentRunResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
-  serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
+  de_DeleteReplicationTaskAssessmentRunCommand,
+  se_DeleteReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     input: DeleteReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand(input, context);
+    return se_DeleteReplicationTaskAssessmentRunCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand(output, context);
+    return de_DeleteReplicationTaskAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

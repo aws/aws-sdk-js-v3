@@ -16,8 +16,8 @@ import {
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { UpdateConnectorRegistrationRequest, UpdateConnectorRegistrationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateConnectorRegistrationCommand,
-  serializeAws_restJson1UpdateConnectorRegistrationCommand,
+  de_UpdateConnectorRegistrationCommand,
+  se_UpdateConnectorRegistrationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -169,7 +169,7 @@ export class UpdateConnectorRegistrationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectorRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorRegistrationCommand(input, context);
+    return se_UpdateConnectorRegistrationCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class UpdateConnectorRegistrationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectorRegistrationCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorRegistrationCommand(output, context);
+    return de_UpdateConnectorRegistrationCommand(output, context);
   }
 
   // Start section: command_body_extra

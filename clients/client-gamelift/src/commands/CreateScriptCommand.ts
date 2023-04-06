@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateScriptInput, CreateScriptOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateScriptCommand,
-  serializeAws_json1_1CreateScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateScriptCommand, se_CreateScriptCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -193,14 +190,14 @@ export class CreateScriptCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateScriptCommand(input, context);
+    return se_CreateScriptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
-    return deserializeAws_json1_1CreateScriptCommand(output, context);
+    return de_CreateScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

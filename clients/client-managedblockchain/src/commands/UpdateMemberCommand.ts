@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { UpdateMemberInput, UpdateMemberOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMemberCommand,
-  serializeAws_restJson1UpdateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMemberCommand, se_UpdateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMemberCommand(input, context);
+    return se_UpdateMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMemberCommandOutput> {
-    return deserializeAws_restJson1UpdateMemberCommand(output, context);
+    return de_UpdateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { PutSourceServerActionRequest, SourceServerActionDocument } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSourceServerActionCommand,
-  serializeAws_restJson1PutSourceServerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSourceServerActionCommand, se_PutSourceServerActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class PutSourceServerActionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSourceServerActionCommand(input, context);
+    return se_PutSourceServerActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSourceServerActionCommandOutput> {
-    return deserializeAws_restJson1PutSourceServerActionCommand(output, context);
+    return de_PutSourceServerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

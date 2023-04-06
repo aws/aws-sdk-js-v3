@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateVpcPeeringConnectionInput, CreateVpcPeeringConnectionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVpcPeeringConnectionCommand,
-  serializeAws_json1_1CreateVpcPeeringConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateVpcPeeringConnectionCommand, se_CreateVpcPeeringConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVpcPeeringConnectionCommand(input, context);
+    return se_CreateVpcPeeringConnectionCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_json1_1CreateVpcPeeringConnectionCommand(output, context);
+    return de_CreateVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

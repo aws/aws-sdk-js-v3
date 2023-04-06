@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateMappingTemplateCommand,
-  serializeAws_restJson1EvaluateMappingTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EvaluateMappingTemplateCommand, se_EvaluateMappingTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class EvaluateMappingTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: EvaluateMappingTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateMappingTemplateCommand(input, context);
+    return se_EvaluateMappingTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateMappingTemplateCommandOutput> {
-    return deserializeAws_restJson1EvaluateMappingTemplateCommand(output, context);
+    return de_EvaluateMappingTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

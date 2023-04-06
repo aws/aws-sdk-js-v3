@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabasesRequest, GetRelationalDatabasesResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabasesCommand,
-  serializeAws_json1_1GetRelationalDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRelationalDatabasesCommand, se_GetRelationalDatabasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetRelationalDatabasesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRelationalDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabasesCommand(input, context);
+    return se_GetRelationalDatabasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRelationalDatabasesCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabasesCommand(output, context);
+    return de_GetRelationalDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

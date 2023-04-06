@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateInstanceEventWindowRequest, AssociateInstanceEventWindowResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateInstanceEventWindowCommand,
-  serializeAws_ec2AssociateInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateInstanceEventWindowCommand, se_AssociateInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class AssociateInstanceEventWindowCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateInstanceEventWindowCommand(input, context);
+    return se_AssociateInstanceEventWindowCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class AssociateInstanceEventWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2AssociateInstanceEventWindowCommand(output, context);
+    return de_AssociateInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

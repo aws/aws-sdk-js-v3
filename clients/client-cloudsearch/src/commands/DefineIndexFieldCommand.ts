@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DefineIndexFieldRequest, DefineIndexFieldResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDefineIndexFieldCommand,
-  serializeAws_queryDefineIndexFieldCommand,
-} from "../protocols/Aws_query";
+import { de_DefineIndexFieldCommand, se_DefineIndexFieldCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -226,14 +223,14 @@ export class DefineIndexFieldCommand extends $Command<
    * @internal
    */
   private serialize(input: DefineIndexFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDefineIndexFieldCommand(input, context);
+    return se_DefineIndexFieldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineIndexFieldCommandOutput> {
-    return deserializeAws_queryDefineIndexFieldCommand(output, context);
+    return de_DefineIndexFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

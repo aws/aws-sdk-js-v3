@@ -16,8 +16,8 @@ import {
 import { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1DeleteRecommenderConfigurationCommand,
-  serializeAws_restJson1DeleteRecommenderConfigurationCommand,
+  de_DeleteRecommenderConfigurationCommand,
+  se_DeleteRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     input: DeleteRecommenderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecommenderConfigurationCommand(input, context);
+    return se_DeleteRecommenderConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteRecommenderConfigurationCommand(output, context);
+    return de_DeleteRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

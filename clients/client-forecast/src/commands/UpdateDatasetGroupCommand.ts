@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDatasetGroupCommand,
-  serializeAws_json1_1UpdateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDatasetGroupCommand, se_UpdateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateDatasetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDatasetGroupCommand(input, context);
+    return se_UpdateDatasetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateDatasetGroupCommand(output, context);
+    return de_UpdateDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

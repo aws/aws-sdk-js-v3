@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { ListSegmentsRequest, ListSegmentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSegmentsCommand,
-  serializeAws_restJson1ListSegmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSegmentsCommand, se_ListSegmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListSegmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSegmentsCommand(input, context);
+    return se_ListSegmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentsCommandOutput> {
-    return deserializeAws_restJson1ListSegmentsCommand(output, context);
+    return de_ListSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

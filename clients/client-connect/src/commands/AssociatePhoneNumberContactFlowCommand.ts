@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
-  serializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
+  de_AssociatePhoneNumberContactFlowCommand,
+  se_AssociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     input: AssociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumberContactFlowCommand(input, context);
+    return se_AssociatePhoneNumberContactFlowCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumberContactFlowCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand(output, context);
+    return de_AssociatePhoneNumberContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

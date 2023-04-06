@@ -19,8 +19,8 @@ import {
   DisassociateWirelessDeviceFromFuotaTaskResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand,
-  serializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand,
+  de_DisassociateWirelessDeviceFromFuotaTaskCommand,
+  se_DisassociateWirelessDeviceFromFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
     input: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand(input, context);
+    return se_DisassociateWirelessDeviceFromFuotaTaskCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand(output, context);
+    return de_DisassociateWirelessDeviceFromFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

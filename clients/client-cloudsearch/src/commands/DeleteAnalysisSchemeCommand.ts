@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAnalysisSchemeCommand,
-  serializeAws_queryDeleteAnalysisSchemeCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAnalysisSchemeCommand, se_DeleteAnalysisSchemeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteAnalysisSchemeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnalysisSchemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAnalysisSchemeCommand(input, context);
+    return se_DeleteAnalysisSchemeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisSchemeCommandOutput> {
-    return deserializeAws_queryDeleteAnalysisSchemeCommand(output, context);
+    return de_DeleteAnalysisSchemeCommand(output, context);
   }
 
   // Start section: command_body_extra

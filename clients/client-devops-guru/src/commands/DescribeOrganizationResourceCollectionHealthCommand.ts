@@ -19,8 +19,8 @@ import {
   DescribeOrganizationResourceCollectionHealthResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand,
-  serializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand,
+  de_DescribeOrganizationResourceCollectionHealthCommand,
+  se_DescribeOrganizationResourceCollectionHealthCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +161,7 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     input: DescribeOrganizationResourceCollectionHealthCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand(input, context);
+    return se_DescribeOrganizationResourceCollectionHealthCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand(output, context);
+    return de_DescribeOrganizationResourceCollectionHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

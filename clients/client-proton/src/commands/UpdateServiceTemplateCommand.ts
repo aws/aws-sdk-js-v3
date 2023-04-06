@@ -19,10 +19,7 @@ import {
   UpdateServiceTemplateOutput,
   UpdateServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceTemplateCommand,
-  serializeAws_json1_0UpdateServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceTemplateCommand, se_UpdateServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -145,14 +142,14 @@ export class UpdateServiceTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceTemplateCommand(input, context);
+    return se_UpdateServiceTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceTemplateCommand(output, context);
+    return de_UpdateServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

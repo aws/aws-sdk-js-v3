@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlTimestampsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlTimestampsCommand,
-  serializeAws_restXmlXmlTimestampsCommand,
-} from "../protocols/Aws_restXml";
+import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class XmlTimestampsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlTimestampsCommand(input, context);
+    return se_XmlTimestampsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlTimestampsCommandOutput> {
-    return deserializeAws_restXmlXmlTimestampsCommand(output, context);
+    return de_XmlTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

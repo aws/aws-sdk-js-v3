@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteRequestValidatorRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRequestValidatorCommand,
-  serializeAws_restJson1DeleteRequestValidatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRequestValidatorCommand, se_DeleteRequestValidatorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteRequestValidatorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRequestValidatorCommand(input, context);
+    return se_DeleteRequestValidatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1DeleteRequestValidatorCommand(output, context);
+    return de_DeleteRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

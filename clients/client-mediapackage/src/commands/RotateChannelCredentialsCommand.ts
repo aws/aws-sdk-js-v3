@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RotateChannelCredentialsCommand,
-  serializeAws_restJson1RotateChannelCredentialsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RotateChannelCredentialsCommand, se_RotateChannelCredentialsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class RotateChannelCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: RotateChannelCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RotateChannelCredentialsCommand(input, context);
+    return se_RotateChannelCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateChannelCredentialsCommandOutput> {
-    return deserializeAws_restJson1RotateChannelCredentialsCommand(output, context);
+    return de_RotateChannelCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

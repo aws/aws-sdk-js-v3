@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeAuditTaskRequest, DescribeAuditTaskResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeAuditTaskCommand,
-  serializeAws_restJson1DescribeAuditTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAuditTaskCommand, se_DescribeAuditTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeAuditTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditTaskCommand(input, context);
+    return se_DescribeAuditTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditTaskCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditTaskCommand(output, context);
+    return de_DescribeAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

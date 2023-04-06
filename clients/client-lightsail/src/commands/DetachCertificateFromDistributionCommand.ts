@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachCertificateFromDistributionCommand,
-  serializeAws_json1_1DetachCertificateFromDistributionCommand,
+  de_DetachCertificateFromDistributionCommand,
+  se_DetachCertificateFromDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     input: DetachCertificateFromDistributionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachCertificateFromDistributionCommand(input, context);
+    return se_DetachCertificateFromDistributionCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachCertificateFromDistributionCommandOutput> {
-    return deserializeAws_json1_1DetachCertificateFromDistributionCommand(output, context);
+    return de_DetachCertificateFromDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

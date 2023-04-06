@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSecurityPolicyRequest, DescribeSecurityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSecurityPolicyCommand,
-  serializeAws_json1_1DescribeSecurityPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSecurityPolicyCommand, se_DescribeSecurityPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -136,14 +133,14 @@ export class DescribeSecurityPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecurityPolicyCommand(input, context);
+    return se_DescribeSecurityPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_1DescribeSecurityPolicyCommand(output, context);
+    return de_DescribeSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

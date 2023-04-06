@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { DescribeApplicationVersionRequest, DescribeApplicationVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationVersionCommand,
-  serializeAws_json1_1DescribeApplicationVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeApplicationVersionCommand, se_DescribeApplicationVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class DescribeApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationVersionCommand(input, context);
+    return se_DescribeApplicationVersionCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class DescribeApplicationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationVersionCommand(output, context);
+    return de_DescribeApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DeleteImportedKeyMaterialRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
-  serializeAws_json1_1DeleteImportedKeyMaterialCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteImportedKeyMaterialCommand, se_DeleteImportedKeyMaterialCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,7 +194,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteImportedKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImportedKeyMaterialCommand(input, context);
+    return se_DeleteImportedKeyMaterialCommand(input, context);
   }
 
   /**
@@ -207,7 +204,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImportedKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(output, context);
+    return de_DeleteImportedKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

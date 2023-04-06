@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBParameterGroupCommand,
-  serializeAws_queryCreateDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBParameterGroupCommand, se_CreateDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -90,22 +87,27 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *             groups.</p>
  *
  *
- * @example To create a DB parameter group.
+ * @example To create a DB parameter group
  * ```javascript
- * // This example creates a DB parameter group.
+ * // The following example creates a DB parameter group.
  * const input = {
- *   "DBParameterGroupFamily": "mysql5.6",
- *   "DBParameterGroupName": "mymysqlparametergroup",
- *   "Description": "My MySQL parameter group"
+ *   "DBParameterGroupFamily": "MySQL8.0",
+ *   "DBParameterGroupName": "mydbparametergroup",
+ *   "Description": "My new parameter group"
  * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBParameterGroup": {}
+ *   "DBParameterGroup": {
+ *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:mydbparametergroup",
+ *     "DBParameterGroupFamily": "mysql8.0",
+ *     "DBParameterGroupName": "mydbparametergroup",
+ *     "Description": "My new parameter group"
+ *   }
  * }
  * *\/
- * // example id: create-db-parameter-group-42afcc37-12e9-4b6a-a55c-b8a141246e87
+ * // example id: to-create-a-db-parameter-group-1679939227970
  * ```
  *
  */
@@ -172,14 +174,14 @@ export class CreateDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBParameterGroupCommand(input, context);
+    return se_CreateDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBParameterGroupCommand(output, context);
+    return de_CreateDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

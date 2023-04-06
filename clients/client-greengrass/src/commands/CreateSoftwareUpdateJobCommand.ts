@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSoftwareUpdateJobCommand,
-  serializeAws_restJson1CreateSoftwareUpdateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSoftwareUpdateJobCommand, se_CreateSoftwareUpdateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSoftwareUpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSoftwareUpdateJobCommand(input, context);
+    return se_CreateSoftwareUpdateJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSoftwareUpdateJobCommandOutput> {
-    return deserializeAws_restJson1CreateSoftwareUpdateJobCommand(output, context);
+    return de_CreateSoftwareUpdateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

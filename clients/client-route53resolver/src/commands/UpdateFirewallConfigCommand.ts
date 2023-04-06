@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFirewallConfigRequest, UpdateFirewallConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFirewallConfigCommand,
-  serializeAws_json1_1UpdateFirewallConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFirewallConfigCommand, se_UpdateFirewallConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -138,14 +135,14 @@ export class UpdateFirewallConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFirewallConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFirewallConfigCommand(input, context);
+    return se_UpdateFirewallConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateFirewallConfigCommand(output, context);
+    return de_UpdateFirewallConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import { DescribeWorkspaceAuthenticationRequest, DescribeWorkspaceAuthenticationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
-  serializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
+  de_DescribeWorkspaceAuthenticationCommand,
+  se_DescribeWorkspaceAuthenticationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     input: DescribeWorkspaceAuthenticationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceAuthenticationCommand(input, context);
+    return se_DescribeWorkspaceAuthenticationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceAuthenticationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand(output, context);
+    return de_DescribeWorkspaceAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

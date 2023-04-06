@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFraudsterRequest, DeleteFraudsterRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteFraudsterCommand,
-  serializeAws_json1_0DeleteFraudsterCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteFraudsterCommand, se_DeleteFraudsterCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeleteFraudsterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFraudsterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFraudsterCommand(input, context);
+    return se_DeleteFraudsterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFraudsterCommandOutput> {
-    return deserializeAws_json1_0DeleteFraudsterCommand(output, context);
+    return de_DeleteFraudsterCommand(output, context);
   }
 
   // Start section: command_body_extra

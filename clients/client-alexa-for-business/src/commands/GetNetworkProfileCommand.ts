@@ -19,10 +19,7 @@ import {
   GetNetworkProfileResponse,
   GetNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNetworkProfileCommand,
-  serializeAws_json1_1GetNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetNetworkProfileCommand, se_GetNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetNetworkProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNetworkProfileCommand(input, context);
+    return se_GetNetworkProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1GetNetworkProfileCommand(output, context);
+    return de_GetNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

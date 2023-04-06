@@ -71,7 +71,10 @@ import {
 } from "../models/models_0";
 import { SnowDeviceManagementServiceException as __BaseException } from "../models/SnowDeviceManagementServiceException";
 
-export const serializeAws_restJson1CancelTaskCommand = async (
+/**
+ * serializeAws_restJson1CancelTaskCommand
+ */
+export const se_CancelTaskCommand = async (
   input: CancelTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -91,7 +94,10 @@ export const serializeAws_restJson1CancelTaskCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateTaskCommand = async (
+/**
+ * serializeAws_restJson1CreateTaskCommand
+ */
+export const se_CreateTaskCommand = async (
   input: CreateTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -103,10 +109,10 @@ export const serializeAws_restJson1CreateTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.command != null && { command: serializeAws_restJson1Command(input.command, context) }),
+    ...(input.command != null && { command: se_Command(input.command, context) }),
     ...(input.description != null && { description: input.description }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.targets != null && { targets: serializeAws_restJson1TargetList(input.targets, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
+    ...(input.targets != null && { targets: se_TargetList(input.targets, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -119,7 +125,10 @@ export const serializeAws_restJson1CreateTaskCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDeviceCommand = async (
+/**
+ * serializeAws_restJson1DescribeDeviceCommand
+ */
+export const se_DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,7 +157,10 @@ export const serializeAws_restJson1DescribeDeviceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDeviceEc2InstancesCommand = async (
+/**
+ * serializeAws_restJson1DescribeDeviceEc2InstancesCommand
+ */
+export const se_DescribeDeviceEc2InstancesCommand = async (
   input: DescribeDeviceEc2InstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,9 +181,7 @@ export const serializeAws_restJson1DescribeDeviceEc2InstancesCommand = async (
   );
   let body: any;
   body = JSON.stringify({
-    ...(input.instanceIds != null && {
-      instanceIds: serializeAws_restJson1InstanceIdsList(input.instanceIds, context),
-    }),
+    ...(input.instanceIds != null && { instanceIds: se_InstanceIdsList(input.instanceIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -184,7 +194,10 @@ export const serializeAws_restJson1DescribeDeviceEc2InstancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeExecutionCommand = async (
+/**
+ * serializeAws_restJson1DescribeExecutionCommand
+ */
+export const se_DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,7 +227,10 @@ export const serializeAws_restJson1DescribeExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeTaskCommand = async (
+/**
+ * serializeAws_restJson1DescribeTaskCommand
+ */
+export const se_DescribeTaskCommand = async (
   input: DescribeTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -234,7 +250,10 @@ export const serializeAws_restJson1DescribeTaskCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeviceResourcesCommand = async (
+/**
+ * serializeAws_restJson1ListDeviceResourcesCommand
+ */
+export const se_ListDeviceResourcesCommand = async (
   input: ListDeviceResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -269,7 +288,10 @@ export const serializeAws_restJson1ListDeviceResourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDevicesCommand = async (
+/**
+ * serializeAws_restJson1ListDevicesCommand
+ */
+export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -294,7 +316,10 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListExecutionsCommand = async (
+/**
+ * serializeAws_restJson1ListExecutionsCommand
+ */
+export const se_ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -320,7 +345,10 @@ export const serializeAws_restJson1ListExecutionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -340,7 +368,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTasksCommand = async (
+/**
+ * serializeAws_restJson1ListTasksCommand
+ */
+export const se_ListTasksCommand = async (
   input: ListTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -365,7 +396,10 @@ export const serializeAws_restJson1ListTasksCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -377,7 +411,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -390,7 +424,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -417,12 +454,15 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelTaskCommand = async (
+/**
+ * deserializeAws_restJson1CancelTaskCommand
+ */
+export const de_CancelTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelTaskCommandError(output, context);
+    return de_CancelTaskCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -434,7 +474,10 @@ export const deserializeAws_restJson1CancelTaskCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CancelTaskCommandError = async (
+/**
+ * deserializeAws_restJson1CancelTaskCommandError
+ */
+const de_CancelTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelTaskCommandOutput> => {
@@ -446,19 +489,19 @@ const deserializeAws_restJson1CancelTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -470,12 +513,15 @@ const deserializeAws_restJson1CancelTaskCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateTaskCommand = async (
+/**
+ * deserializeAws_restJson1CreateTaskCommand
+ */
+export const de_CreateTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateTaskCommandError(output, context);
+    return de_CreateTaskCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -490,7 +536,10 @@ export const deserializeAws_restJson1CreateTaskCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateTaskCommandError = async (
+/**
+ * deserializeAws_restJson1CreateTaskCommandError
+ */
+const de_CreateTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTaskCommandOutput> => {
@@ -502,22 +551,22 @@ const deserializeAws_restJson1CreateTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.snowdevicemanagement#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -529,12 +578,15 @@ const deserializeAws_restJson1CreateTaskCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeDeviceCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDeviceCommand
+ */
+export const de_DescribeDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDeviceCommandError(output, context);
+    return de_DescribeDeviceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -544,7 +596,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     contents.associatedWithJob = __expectString(data.associatedWithJob);
   }
   if (data.deviceCapacities != null) {
-    contents.deviceCapacities = deserializeAws_restJson1CapacityList(data.deviceCapacities, context);
+    contents.deviceCapacities = de_CapacityList(data.deviceCapacities, context);
   }
   if (data.deviceState != null) {
     contents.deviceState = __expectString(data.deviceState);
@@ -565,21 +617,21 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     contents.managedDeviceId = __expectString(data.managedDeviceId);
   }
   if (data.physicalNetworkInterfaces != null) {
-    contents.physicalNetworkInterfaces = deserializeAws_restJson1PhysicalNetworkInterfaceList(
-      data.physicalNetworkInterfaces,
-      context
-    );
+    contents.physicalNetworkInterfaces = de_PhysicalNetworkInterfaceList(data.physicalNetworkInterfaces, context);
   }
   if (data.software != null) {
-    contents.software = deserializeAws_restJson1SoftwareInformation(data.software, context);
+    contents.software = de_SoftwareInformation(data.software, context);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDeviceCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDeviceCommandError
+ */
+const de_DescribeDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
@@ -591,19 +643,19 @@ const deserializeAws_restJson1DescribeDeviceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -615,24 +667,30 @@ const deserializeAws_restJson1DescribeDeviceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeDeviceEc2InstancesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDeviceEc2InstancesCommand
+ */
+export const de_DescribeDeviceEc2InstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceEc2InstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDeviceEc2InstancesCommandError(output, context);
+    return de_DescribeDeviceEc2InstancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.instances != null) {
-    contents.instances = deserializeAws_restJson1InstanceSummaryList(data.instances, context);
+    contents.instances = de_InstanceSummaryList(data.instances, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDeviceEc2InstancesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDeviceEc2InstancesCommandError
+ */
+const de_DescribeDeviceEc2InstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceEc2InstancesCommandOutput> => {
@@ -644,19 +702,19 @@ const deserializeAws_restJson1DescribeDeviceEc2InstancesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -668,12 +726,15 @@ const deserializeAws_restJson1DescribeDeviceEc2InstancesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeExecutionCommand = async (
+/**
+ * deserializeAws_restJson1DescribeExecutionCommand
+ */
+export const de_DescribeExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeExecutionCommandError(output, context);
+    return de_DescribeExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -700,7 +761,10 @@ export const deserializeAws_restJson1DescribeExecutionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeExecutionCommandError
+ */
+const de_DescribeExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
@@ -712,19 +776,19 @@ const deserializeAws_restJson1DescribeExecutionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -736,12 +800,15 @@ const deserializeAws_restJson1DescribeExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeTaskCommand = async (
+/**
+ * deserializeAws_restJson1DescribeTaskCommand
+ */
+export const de_DescribeTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeTaskCommandError(output, context);
+    return de_DescribeTaskCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -763,10 +830,10 @@ export const deserializeAws_restJson1DescribeTaskCommand = async (
     contents.state = __expectString(data.state);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   if (data.targets != null) {
-    contents.targets = deserializeAws_restJson1TargetList(data.targets, context);
+    contents.targets = de_TargetList(data.targets, context);
   }
   if (data.taskArn != null) {
     contents.taskArn = __expectString(data.taskArn);
@@ -777,7 +844,10 @@ export const deserializeAws_restJson1DescribeTaskCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeTaskCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeTaskCommandError
+ */
+const de_DescribeTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTaskCommandOutput> => {
@@ -789,19 +859,19 @@ const deserializeAws_restJson1DescribeTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -813,12 +883,15 @@ const deserializeAws_restJson1DescribeTaskCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDeviceResourcesCommand = async (
+/**
+ * deserializeAws_restJson1ListDeviceResourcesCommand
+ */
+export const de_ListDeviceResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeviceResourcesCommandError(output, context);
+    return de_ListDeviceResourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -828,12 +901,15 @@ export const deserializeAws_restJson1ListDeviceResourcesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resources != null) {
-    contents.resources = deserializeAws_restJson1ResourceSummaryList(data.resources, context);
+    contents.resources = de_ResourceSummaryList(data.resources, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListDeviceResourcesCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeviceResourcesCommandError
+ */
+const de_ListDeviceResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceResourcesCommandOutput> => {
@@ -845,19 +921,19 @@ const deserializeAws_restJson1ListDeviceResourcesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -869,19 +945,22 @@ const deserializeAws_restJson1ListDeviceResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDevicesCommand = async (
+/**
+ * deserializeAws_restJson1ListDevicesCommand
+ */
+export const de_ListDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDevicesCommandError(output, context);
+    return de_ListDevicesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.devices != null) {
-    contents.devices = deserializeAws_restJson1DeviceSummaryList(data.devices, context);
+    contents.devices = de_DeviceSummaryList(data.devices, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -889,7 +968,10 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListDevicesCommandError = async (
+/**
+ * deserializeAws_restJson1ListDevicesCommandError
+ */
+const de_ListDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
@@ -901,16 +983,16 @@ const deserializeAws_restJson1ListDevicesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -922,19 +1004,22 @@ const deserializeAws_restJson1ListDevicesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListExecutionsCommand = async (
+/**
+ * deserializeAws_restJson1ListExecutionsCommand
+ */
+export const de_ListExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListExecutionsCommandError(output, context);
+    return de_ListExecutionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.executions != null) {
-    contents.executions = deserializeAws_restJson1ExecutionSummaryList(data.executions, context);
+    contents.executions = de_ExecutionSummaryList(data.executions, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -942,7 +1027,10 @@ export const deserializeAws_restJson1ListExecutionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListExecutionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListExecutionsCommandError
+ */
+const de_ListExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
@@ -954,19 +1042,19 @@ const deserializeAws_restJson1ListExecutionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -978,24 +1066,30 @@ const deserializeAws_restJson1ListExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1007,13 +1101,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1025,12 +1119,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTasksCommand = async (
+/**
+ * deserializeAws_restJson1ListTasksCommand
+ */
+export const de_ListTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTasksCommandError(output, context);
+    return de_ListTasksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1040,12 +1137,15 @@ export const deserializeAws_restJson1ListTasksCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.tasks != null) {
-    contents.tasks = deserializeAws_restJson1TaskSummaryList(data.tasks, context);
+    contents.tasks = de_TaskSummaryList(data.tasks, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTasksCommandError = async (
+/**
+ * deserializeAws_restJson1ListTasksCommandError
+ */
+const de_ListTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTasksCommandOutput> => {
@@ -1057,16 +1157,16 @@ const deserializeAws_restJson1ListTasksCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.snowdevicemanagement#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.snowdevicemanagement#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1078,12 +1178,15 @@ const deserializeAws_restJson1ListTasksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1092,7 +1195,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1104,13 +1210,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1122,12 +1228,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1136,7 +1245,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1148,13 +1260,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.snowdevicemanagement#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.snowdevicemanagement#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.snowdevicemanagement#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1167,7 +1279,10 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -1183,7 +1298,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1199,7 +1317,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1215,7 +1336,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1231,10 +1355,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1247,10 +1371,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1263,15 +1387,21 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Command = (input: Command, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Command
+ */
+const se_Command = (input: Command, context: __SerdeContext): any => {
   return Command.visit(input, {
-    reboot: (value) => ({ reboot: serializeAws_restJson1Reboot(value, context) }),
-    unlock: (value) => ({ unlock: serializeAws_restJson1Unlock(value, context) }),
+    reboot: (value) => ({ reboot: se_Reboot(value, context) }),
+    unlock: (value) => ({ unlock: se_Unlock(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1InstanceIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InstanceIdsList
+ */
+const se_InstanceIdsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1279,11 +1409,17 @@ const serializeAws_restJson1InstanceIdsList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1Reboot = (input: Reboot, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Reboot
+ */
+const se_Reboot = (input: Reboot, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1293,7 +1429,10 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1TargetList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TargetList
+ */
+const se_TargetList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1301,11 +1440,17 @@ const serializeAws_restJson1TargetList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1Unlock = (input: Unlock, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Unlock
+ */
+const se_Unlock = (input: Unlock, context: __SerdeContext): any => {
   return {};
 };
 
-const deserializeAws_restJson1Capacity = (output: any, context: __SerdeContext): Capacity => {
+/**
+ * deserializeAws_restJson1Capacity
+ */
+const de_Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
     available: __expectLong(output.available),
     name: __expectString(output.name),
@@ -1315,50 +1460,62 @@ const deserializeAws_restJson1Capacity = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1CapacityList = (output: any, context: __SerdeContext): Capacity[] => {
+/**
+ * deserializeAws_restJson1CapacityList
+ */
+const de_CapacityList = (output: any, context: __SerdeContext): Capacity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Capacity(entry, context);
+      return de_Capacity(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
+/**
+ * deserializeAws_restJson1CpuOptions
+ */
+const de_CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   return {
     coreCount: __expectInt32(output.coreCount),
     threadsPerCore: __expectInt32(output.threadsPerCore),
   } as any;
 };
 
-const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
+/**
+ * deserializeAws_restJson1DeviceSummary
+ */
+const de_DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
     associatedWithJob: __expectString(output.associatedWithJob),
     managedDeviceArn: __expectString(output.managedDeviceArn),
     managedDeviceId: __expectString(output.managedDeviceId),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __SerdeContext): DeviceSummary[] => {
+/**
+ * deserializeAws_restJson1DeviceSummaryList
+ */
+const de_DeviceSummaryList = (output: any, context: __SerdeContext): DeviceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DeviceSummary(entry, context);
+      return de_DeviceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EbsInstanceBlockDevice = (
-  output: any,
-  context: __SerdeContext
-): EbsInstanceBlockDevice => {
+/**
+ * deserializeAws_restJson1EbsInstanceBlockDevice
+ */
+const de_EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsInstanceBlockDevice => {
   return {
     attachTime:
       output.attachTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.attachTime))) : undefined,
@@ -1368,7 +1525,10 @@ const deserializeAws_restJson1EbsInstanceBlockDevice = (
   } as any;
 };
 
-const deserializeAws_restJson1ExecutionSummary = (output: any, context: __SerdeContext): ExecutionSummary => {
+/**
+ * deserializeAws_restJson1ExecutionSummary
+ */
+const de_ExecutionSummary = (output: any, context: __SerdeContext): ExecutionSummary => {
   return {
     executionId: __expectString(output.executionId),
     managedDeviceId: __expectString(output.managedDeviceId),
@@ -1377,26 +1537,32 @@ const deserializeAws_restJson1ExecutionSummary = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1ExecutionSummaryList = (output: any, context: __SerdeContext): ExecutionSummary[] => {
+/**
+ * deserializeAws_restJson1ExecutionSummaryList
+ */
+const de_ExecutionSummaryList = (output: any, context: __SerdeContext): ExecutionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ExecutionSummary(entry, context);
+      return de_ExecutionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext): Instance => {
+/**
+ * deserializeAws_restJson1Instance
+ */
+const de_Instance = (output: any, context: __SerdeContext): Instance => {
   return {
     amiLaunchIndex: __expectInt32(output.amiLaunchIndex),
     blockDeviceMappings:
       output.blockDeviceMappings != null
-        ? deserializeAws_restJson1InstanceBlockDeviceMappingList(output.blockDeviceMappings, context)
+        ? de_InstanceBlockDeviceMappingList(output.blockDeviceMappings, context)
         : undefined,
-    cpuOptions: output.cpuOptions != null ? deserializeAws_restJson1CpuOptions(output.cpuOptions, context) : undefined,
+    cpuOptions: output.cpuOptions != null ? de_CpuOptions(output.cpuOptions, context) : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     imageId: __expectString(output.imageId),
@@ -1406,50 +1572,54 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
     publicIpAddress: __expectString(output.publicIpAddress),
     rootDeviceName: __expectString(output.rootDeviceName),
     securityGroups:
-      output.securityGroups != null
-        ? deserializeAws_restJson1SecurityGroupIdentifierList(output.securityGroups, context)
-        : undefined,
-    state: output.state != null ? deserializeAws_restJson1InstanceState(output.state, context) : undefined,
+      output.securityGroups != null ? de_SecurityGroupIdentifierList(output.securityGroups, context) : undefined,
+    state: output.state != null ? de_InstanceState(output.state, context) : undefined,
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1InstanceBlockDeviceMapping = (
-  output: any,
-  context: __SerdeContext
-): InstanceBlockDeviceMapping => {
+/**
+ * deserializeAws_restJson1InstanceBlockDeviceMapping
+ */
+const de_InstanceBlockDeviceMapping = (output: any, context: __SerdeContext): InstanceBlockDeviceMapping => {
   return {
     deviceName: __expectString(output.deviceName),
-    ebs: output.ebs != null ? deserializeAws_restJson1EbsInstanceBlockDevice(output.ebs, context) : undefined,
+    ebs: output.ebs != null ? de_EbsInstanceBlockDevice(output.ebs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1InstanceBlockDeviceMappingList = (
-  output: any,
-  context: __SerdeContext
-): InstanceBlockDeviceMapping[] => {
+/**
+ * deserializeAws_restJson1InstanceBlockDeviceMappingList
+ */
+const de_InstanceBlockDeviceMappingList = (output: any, context: __SerdeContext): InstanceBlockDeviceMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InstanceBlockDeviceMapping(entry, context);
+      return de_InstanceBlockDeviceMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
+/**
+ * deserializeAws_restJson1InstanceState
+ */
+const de_InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
     code: __expectInt32(output.code),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
+/**
+ * deserializeAws_restJson1InstanceSummary
+ */
+const de_InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
   return {
-    instance: output.instance != null ? deserializeAws_restJson1Instance(output.instance, context) : undefined,
+    instance: output.instance != null ? de_Instance(output.instance, context) : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
@@ -1457,22 +1627,25 @@ const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
+/**
+ * deserializeAws_restJson1InstanceSummaryList
+ */
+const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InstanceSummary(entry, context);
+      return de_InstanceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PhysicalNetworkInterface = (
-  output: any,
-  context: __SerdeContext
-): PhysicalNetworkInterface => {
+/**
+ * deserializeAws_restJson1PhysicalNetworkInterface
+ */
+const de_PhysicalNetworkInterface = (output: any, context: __SerdeContext): PhysicalNetworkInterface => {
   return {
     defaultGateway: __expectString(output.defaultGateway),
     ipAddress: __expectString(output.ipAddress),
@@ -1484,22 +1657,25 @@ const deserializeAws_restJson1PhysicalNetworkInterface = (
   } as any;
 };
 
-const deserializeAws_restJson1PhysicalNetworkInterfaceList = (
-  output: any,
-  context: __SerdeContext
-): PhysicalNetworkInterface[] => {
+/**
+ * deserializeAws_restJson1PhysicalNetworkInterfaceList
+ */
+const de_PhysicalNetworkInterfaceList = (output: any, context: __SerdeContext): PhysicalNetworkInterface[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PhysicalNetworkInterface(entry, context);
+      return de_PhysicalNetworkInterface(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceSummary = (output: any, context: __SerdeContext): ResourceSummary => {
+/**
+ * deserializeAws_restJson1ResourceSummary
+ */
+const de_ResourceSummary = (output: any, context: __SerdeContext): ResourceSummary => {
   return {
     arn: __expectString(output.arn),
     id: __expectString(output.id),
@@ -1507,44 +1683,50 @@ const deserializeAws_restJson1ResourceSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1ResourceSummaryList = (output: any, context: __SerdeContext): ResourceSummary[] => {
+/**
+ * deserializeAws_restJson1ResourceSummaryList
+ */
+const de_ResourceSummaryList = (output: any, context: __SerdeContext): ResourceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ResourceSummary(entry, context);
+      return de_ResourceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SecurityGroupIdentifier = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupIdentifier => {
+/**
+ * deserializeAws_restJson1SecurityGroupIdentifier
+ */
+const de_SecurityGroupIdentifier = (output: any, context: __SerdeContext): SecurityGroupIdentifier => {
   return {
     groupId: __expectString(output.groupId),
     groupName: __expectString(output.groupName),
   } as any;
 };
 
-const deserializeAws_restJson1SecurityGroupIdentifierList = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupIdentifier[] => {
+/**
+ * deserializeAws_restJson1SecurityGroupIdentifierList
+ */
+const de_SecurityGroupIdentifierList = (output: any, context: __SerdeContext): SecurityGroupIdentifier[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SecurityGroupIdentifier(entry, context);
+      return de_SecurityGroupIdentifier(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SoftwareInformation = (output: any, context: __SerdeContext): SoftwareInformation => {
+/**
+ * deserializeAws_restJson1SoftwareInformation
+ */
+const de_SoftwareInformation = (output: any, context: __SerdeContext): SoftwareInformation => {
   return {
     installState: __expectString(output.installState),
     installedVersion: __expectString(output.installedVersion),
@@ -1552,7 +1734,10 @@ const deserializeAws_restJson1SoftwareInformation = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1562,7 +1747,10 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1TargetList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1TargetList
+ */
+const de_TargetList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1574,23 +1762,29 @@ const deserializeAws_restJson1TargetList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1TaskSummary = (output: any, context: __SerdeContext): TaskSummary => {
+/**
+ * deserializeAws_restJson1TaskSummary
+ */
+const de_TaskSummary = (output: any, context: __SerdeContext): TaskSummary => {
   return {
     state: __expectString(output.state),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
     taskArn: __expectString(output.taskArn),
     taskId: __expectString(output.taskId),
   } as any;
 };
 
-const deserializeAws_restJson1TaskSummaryList = (output: any, context: __SerdeContext): TaskSummary[] => {
+/**
+ * deserializeAws_restJson1TaskSummaryList
+ */
+const de_TaskSummaryList = (output: any, context: __SerdeContext): TaskSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TaskSummary(entry, context);
+      return de_TaskSummary(entry, context);
     });
   return retVal;
 };

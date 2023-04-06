@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePipelineCommand,
-  serializeAws_restJson1DeletePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeletePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePipelineCommand(input, context);
+    return se_DeletePipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_restJson1DeletePipelineCommand(output, context);
+    return de_DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

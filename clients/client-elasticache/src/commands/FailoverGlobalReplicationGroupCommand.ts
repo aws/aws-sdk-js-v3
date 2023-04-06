@@ -16,8 +16,8 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
 import {
-  deserializeAws_queryFailoverGlobalReplicationGroupCommand,
-  serializeAws_queryFailoverGlobalReplicationGroupCommand,
+  de_FailoverGlobalReplicationGroupCommand,
+  se_FailoverGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -139,7 +139,7 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     input: FailoverGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverGlobalReplicationGroupCommand(input, context);
+    return se_FailoverGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FailoverGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryFailoverGlobalReplicationGroupCommand(output, context);
+    return de_FailoverGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

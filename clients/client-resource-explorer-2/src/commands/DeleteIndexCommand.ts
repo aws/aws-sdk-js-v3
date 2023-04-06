@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteIndexInput, DeleteIndexOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIndexCommand,
-  serializeAws_restJson1DeleteIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIndexCommand, se_DeleteIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -153,14 +150,14 @@ export class DeleteIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIndexCommand(input, context);
+    return se_DeleteIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexCommandOutput> {
-    return deserializeAws_restJson1DeleteIndexCommand(output, context);
+    return de_DeleteIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

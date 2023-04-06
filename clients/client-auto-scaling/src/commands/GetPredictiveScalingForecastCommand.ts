@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { GetPredictiveScalingForecastAnswer, GetPredictiveScalingForecastType } from "../models/models_0";
-import {
-  deserializeAws_queryGetPredictiveScalingForecastCommand,
-  serializeAws_queryGetPredictiveScalingForecastCommand,
-} from "../protocols/Aws_query";
+import { de_GetPredictiveScalingForecastCommand, se_GetPredictiveScalingForecastCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class GetPredictiveScalingForecastCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPredictiveScalingForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetPredictiveScalingForecastCommand(input, context);
+    return se_GetPredictiveScalingForecastCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class GetPredictiveScalingForecastCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPredictiveScalingForecastCommandOutput> {
-    return deserializeAws_queryGetPredictiveScalingForecastCommand(output, context);
+    return de_GetPredictiveScalingForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

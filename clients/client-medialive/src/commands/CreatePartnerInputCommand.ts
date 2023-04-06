@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreatePartnerInputCommand,
-  serializeAws_restJson1CreatePartnerInputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePartnerInputCommand, se_CreatePartnerInputCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreatePartnerInputCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePartnerInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePartnerInputCommand(input, context);
+    return se_CreatePartnerInputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerInputCommandOutput> {
-    return deserializeAws_restJson1CreatePartnerInputCommand(output, context);
+    return de_CreatePartnerInputCommand(output, context);
   }
 
   // Start section: command_body_extra

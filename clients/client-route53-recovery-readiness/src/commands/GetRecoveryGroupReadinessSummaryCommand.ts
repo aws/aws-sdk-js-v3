@@ -15,8 +15,8 @@ import {
 
 import { GetRecoveryGroupReadinessSummaryRequest, GetRecoveryGroupReadinessSummaryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
-  serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
+  de_GetRecoveryGroupReadinessSummaryCommand,
+  se_GetRecoveryGroupReadinessSummaryCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -146,7 +146,7 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     input: GetRecoveryGroupReadinessSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(input, context);
+    return se_GetRecoveryGroupReadinessSummaryCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecoveryGroupReadinessSummaryCommandOutput> {
-    return deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(output, context);
+    return de_GetRecoveryGroupReadinessSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

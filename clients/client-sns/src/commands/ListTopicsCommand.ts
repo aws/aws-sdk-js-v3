@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTopicsInput, ListTopicsResponse } from "../models/models_0";
-import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsCommand } from "../protocols/Aws_query";
+import { de_ListTopicsCommand, se_ListTopicsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -129,14 +129,14 @@ export class ListTopicsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTopicsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTopicsCommand(input, context);
+    return se_ListTopicsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTopicsCommandOutput> {
-    return deserializeAws_queryListTopicsCommand(output, context);
+    return de_ListTopicsCommand(output, context);
   }
 
   // Start section: command_body_extra

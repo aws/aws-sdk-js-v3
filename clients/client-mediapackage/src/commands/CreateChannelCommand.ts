@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelCommand,
-  serializeAws_restJson1CreateChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelCommand(input, context);
+    return se_CreateChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
-    return deserializeAws_restJson1CreateChannelCommand(output, context);
+    return de_CreateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

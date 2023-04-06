@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateTemplateCommand,
-  serializeAws_queryUpdateTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateTemplateCommand, se_UpdateTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -136,14 +133,14 @@ export class UpdateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateTemplateCommand(input, context);
+    return se_UpdateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
-    return deserializeAws_queryUpdateTemplateCommand(output, context);
+    return de_UpdateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

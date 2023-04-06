@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListComponentsInput, ListComponentsOutput, ListComponentsOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListComponentsCommand,
-  serializeAws_json1_0ListComponentsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListComponentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_json1_0ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePartnersInputMessage, DescribePartnersOutputMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribePartnersCommand,
-  serializeAws_queryDescribePartnersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribePartnersCommand, se_DescribePartnersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -130,14 +127,14 @@ export class DescribePartnersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePartnersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePartnersCommand(input, context);
+    return se_DescribePartnersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePartnersCommandOutput> {
-    return deserializeAws_queryDescribePartnersCommand(output, context);
+    return de_DescribePartnersCommand(output, context);
   }
 
   // Start section: command_body_extra

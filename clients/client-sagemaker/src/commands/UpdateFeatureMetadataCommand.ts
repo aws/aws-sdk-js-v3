@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFeatureMetadataRequest } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateFeatureMetadataCommand,
-  serializeAws_json1_1UpdateFeatureMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFeatureMetadataCommand, se_UpdateFeatureMetadataCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -134,14 +131,14 @@ export class UpdateFeatureMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFeatureMetadataCommand(input, context);
+    return se_UpdateFeatureMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateFeatureMetadataCommand(output, context);
+    return de_UpdateFeatureMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

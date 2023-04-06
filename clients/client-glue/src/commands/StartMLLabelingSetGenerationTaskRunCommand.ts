@@ -19,8 +19,8 @@ import {
   StartMLLabelingSetGenerationTaskRunResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
-  serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
+  de_StartMLLabelingSetGenerationTaskRunCommand,
+  se_StartMLLabelingSetGenerationTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     input: StartMLLabelingSetGenerationTaskRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(input, context);
+    return se_StartMLLabelingSetGenerationTaskRunCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(output, context);
+    return de_StartMLLabelingSetGenerationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

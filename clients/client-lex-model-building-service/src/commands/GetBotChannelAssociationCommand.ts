@@ -23,10 +23,7 @@ import {
   GetBotChannelAssociationResponse,
   GetBotChannelAssociationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotChannelAssociationCommand,
-  serializeAws_restJson1GetBotChannelAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBotChannelAssociationCommand, se_GetBotChannelAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetBotChannelAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotChannelAssociationCommand(input, context);
+    return se_GetBotChannelAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotChannelAssociationCommandOutput> {
-    return deserializeAws_restJson1GetBotChannelAssociationCommand(output, context);
+    return de_GetBotChannelAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

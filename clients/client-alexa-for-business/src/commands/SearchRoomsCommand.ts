@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { SearchRoomsRequest, SearchRoomsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchRoomsCommand,
-  serializeAws_json1_1SearchRoomsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchRoomsCommand, se_SearchRoomsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class SearchRoomsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchRoomsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchRoomsCommand(input, context);
+    return se_SearchRoomsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRoomsCommandOutput> {
-    return deserializeAws_json1_1SearchRoomsCommand(output, context);
+    return de_SearchRoomsCommand(output, context);
   }
 
   // Start section: command_body_extra

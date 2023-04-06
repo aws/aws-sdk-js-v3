@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetIndexOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIndexCommand,
-  serializeAws_restJson1GetIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIndexCommand, se_GetIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -141,14 +138,14 @@ export class GetIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIndexCommand(input, context);
+    return se_GetIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexCommandOutput> {
-    return deserializeAws_restJson1GetIndexCommand(output, context);
+    return de_GetIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

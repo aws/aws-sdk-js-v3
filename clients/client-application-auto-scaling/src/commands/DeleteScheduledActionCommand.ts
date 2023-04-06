@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
 import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScheduledActionCommand,
-  serializeAws_json1_1DeleteScheduledActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class DeleteScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScheduledActionCommand(input, context);
+    return se_DeleteScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
-    return deserializeAws_json1_1DeleteScheduledActionCommand(output, context);
+    return de_DeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

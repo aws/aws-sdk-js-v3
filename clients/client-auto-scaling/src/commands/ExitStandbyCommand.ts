@@ -15,7 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ExitStandbyAnswer, ExitStandbyQuery } from "../models/models_0";
-import { deserializeAws_queryExitStandbyCommand, serializeAws_queryExitStandbyCommand } from "../protocols/Aws_query";
+import { de_ExitStandbyCommand, se_ExitStandbyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +157,14 @@ export class ExitStandbyCommand extends $Command<
    * @internal
    */
   private serialize(input: ExitStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryExitStandbyCommand(input, context);
+    return se_ExitStandbyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExitStandbyCommandOutput> {
-    return deserializeAws_queryExitStandbyCommand(output, context);
+    return de_ExitStandbyCommand(output, context);
   }
 
   // Start section: command_body_extra

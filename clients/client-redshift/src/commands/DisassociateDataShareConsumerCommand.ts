@@ -16,8 +16,8 @@ import {
 import { DataShare } from "../models/models_0";
 import { DisassociateDataShareConsumerMessage } from "../models/models_1";
 import {
-  deserializeAws_queryDisassociateDataShareConsumerCommand,
-  serializeAws_queryDisassociateDataShareConsumerCommand,
+  de_DisassociateDataShareConsumerCommand,
+  se_DisassociateDataShareConsumerCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -131,7 +131,7 @@ export class DisassociateDataShareConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateDataShareConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDisassociateDataShareConsumerCommand(input, context);
+    return se_DisassociateDataShareConsumerCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class DisassociateDataShareConsumerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDataShareConsumerCommandOutput> {
-    return deserializeAws_queryDisassociateDataShareConsumerCommand(output, context);
+    return de_DisassociateDataShareConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

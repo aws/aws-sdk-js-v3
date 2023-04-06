@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { ImportDecoderManifestRequest, ImportDecoderManifestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ImportDecoderManifestCommand,
-  serializeAws_json1_0ImportDecoderManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ImportDecoderManifestCommand, se_ImportDecoderManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class ImportDecoderManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ImportDecoderManifestCommand(input, context);
+    return se_ImportDecoderManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportDecoderManifestCommandOutput> {
-    return deserializeAws_json1_0ImportDecoderManifestCommand(output, context);
+    return de_ImportDecoderManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

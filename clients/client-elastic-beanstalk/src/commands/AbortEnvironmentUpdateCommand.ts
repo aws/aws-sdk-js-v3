@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { AbortEnvironmentUpdateMessage } from "../models/models_0";
-import {
-  deserializeAws_queryAbortEnvironmentUpdateCommand,
-  serializeAws_queryAbortEnvironmentUpdateCommand,
-} from "../protocols/Aws_query";
+import { de_AbortEnvironmentUpdateCommand, se_AbortEnvironmentUpdateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class AbortEnvironmentUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: AbortEnvironmentUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAbortEnvironmentUpdateCommand(input, context);
+    return se_AbortEnvironmentUpdateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortEnvironmentUpdateCommandOutput> {
-    return deserializeAws_queryAbortEnvironmentUpdateCommand(output, context);
+    return de_AbortEnvironmentUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

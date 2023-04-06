@@ -16,8 +16,8 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
 import {
-  deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
-  serializeAws_queryRestoreDBClusterToPointInTimeCommand,
+  de_RestoreDBClusterToPointInTimeCommand,
+  se_RestoreDBClusterToPointInTimeCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -198,7 +198,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
+    return se_RestoreDBClusterToPointInTimeCommand(input, context);
   }
 
   /**
@@ -208,7 +208,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(output, context);
+    return de_RestoreDBClusterToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

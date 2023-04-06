@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/models_0";
 import {
-  deserializeAws_ec2CancelReservedInstancesListingCommand,
-  serializeAws_ec2CancelReservedInstancesListingCommand,
+  de_CancelReservedInstancesListingCommand,
+  se_CancelReservedInstancesListingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +128,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
     input: CancelReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelReservedInstancesListingCommand(input, context);
+    return se_CancelReservedInstancesListingCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CancelReservedInstancesListingCommand(output, context);
+    return de_CancelReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetColumnStatisticsForPartitionCommand,
-  serializeAws_json1_1GetColumnStatisticsForPartitionCommand,
+  de_GetColumnStatisticsForPartitionCommand,
+  se_GetColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     input: GetColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetColumnStatisticsForPartitionCommand(input, context);
+    return se_GetColumnStatisticsForPartitionCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetColumnStatisticsForPartitionCommandOutput> {
-    return deserializeAws_json1_1GetColumnStatisticsForPartitionCommand(output, context);
+    return de_GetColumnStatisticsForPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

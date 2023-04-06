@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
-  serializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAWSDefaultServiceQuotaCommand, se_GetAWSDefaultServiceQuotaCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -138,7 +135,7 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAWSDefaultServiceQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(input, context);
+    return se_GetAWSDefaultServiceQuotaCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
-    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(output, context);
+    return de_GetAWSDefaultServiceQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

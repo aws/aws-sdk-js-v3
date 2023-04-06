@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { DeleteReportGroupInput, DeleteReportGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReportGroupCommand,
-  serializeAws_json1_1DeleteReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteReportGroupCommand, se_DeleteReportGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DeleteReportGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReportGroupCommand(input, context);
+    return se_DeleteReportGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteReportGroupCommand(output, context);
+    return de_DeleteReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

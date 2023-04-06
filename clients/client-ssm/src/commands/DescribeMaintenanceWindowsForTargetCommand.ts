@@ -18,8 +18,8 @@ import {
   DescribeMaintenanceWindowsForTargetResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
+  de_DescribeMaintenanceWindowsForTargetCommand,
+  se_DescribeMaintenanceWindowsForTargetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -142,7 +142,7 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     input: DescribeMaintenanceWindowsForTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(input, context);
+    return se_DescribeMaintenanceWindowsForTargetCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(output, context);
+    return de_DescribeMaintenanceWindowsForTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

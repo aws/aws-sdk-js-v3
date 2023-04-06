@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchAssociatedTranscriptsCommand,
-  serializeAws_restJson1SearchAssociatedTranscriptsCommand,
+  de_SearchAssociatedTranscriptsCommand,
+  se_SearchAssociatedTranscriptsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchAssociatedTranscriptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAssociatedTranscriptsCommand(input, context);
+    return se_SearchAssociatedTranscriptsCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAssociatedTranscriptsCommandOutput> {
-    return deserializeAws_restJson1SearchAssociatedTranscriptsCommand(output, context);
+    return de_SearchAssociatedTranscriptsCommand(output, context);
   }
 
   // Start section: command_body_extra

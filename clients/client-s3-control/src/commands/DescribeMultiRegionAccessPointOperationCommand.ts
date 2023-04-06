@@ -20,8 +20,8 @@ import {
   DescribeMultiRegionAccessPointOperationResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand,
-  serializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand,
+  de_DescribeMultiRegionAccessPointOperationCommand,
+  se_DescribeMultiRegionAccessPointOperationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -168,7 +168,7 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     input: DescribeMultiRegionAccessPointOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand(input, context);
+    return se_DescribeMultiRegionAccessPointOperationCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMultiRegionAccessPointOperationCommandOutput> {
-    return deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand(output, context);
+    return de_DescribeMultiRegionAccessPointOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

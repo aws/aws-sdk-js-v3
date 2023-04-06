@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstancesHealthStatusCommand,
-  serializeAws_json1_1GetInstancesHealthStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstancesHealthStatusCommand, se_GetInstancesHealthStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -162,14 +159,14 @@ export class GetInstancesHealthStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstancesHealthStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstancesHealthStatusCommand(input, context);
+    return se_GetInstancesHealthStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancesHealthStatusCommandOutput> {
-    return deserializeAws_json1_1GetInstancesHealthStatusCommand(output, context);
+    return de_GetInstancesHealthStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

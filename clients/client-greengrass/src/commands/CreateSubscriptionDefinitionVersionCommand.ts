@@ -19,8 +19,8 @@ import {
   CreateSubscriptionDefinitionVersionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
-  serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
+  de_CreateSubscriptionDefinitionVersionCommand,
+  se_CreateSubscriptionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     input: CreateSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand(input, context);
+    return se_CreateSubscriptionDefinitionVersionCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand(output, context);
+    return de_CreateSubscriptionDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

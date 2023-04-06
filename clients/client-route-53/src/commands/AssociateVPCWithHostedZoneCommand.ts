@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlAssociateVPCWithHostedZoneCommand,
-  serializeAws_restXmlAssociateVPCWithHostedZoneCommand,
-} from "../protocols/Aws_restXml";
+import { de_AssociateVPCWithHostedZoneCommand, se_AssociateVPCWithHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -243,7 +240,7 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateVPCWithHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAssociateVPCWithHostedZoneCommand(input, context);
+    return se_AssociateVPCWithHostedZoneCommand(input, context);
   }
 
   /**
@@ -253,7 +250,7 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> {
-    return deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(output, context);
+    return de_AssociateVPCWithHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

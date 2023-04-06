@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOfferingStatusCommand,
-  serializeAws_json1_1GetOfferingStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOfferingStatusCommand, se_GetOfferingStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class GetOfferingStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOfferingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOfferingStatusCommand(input, context);
+    return se_GetOfferingStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOfferingStatusCommandOutput> {
-    return deserializeAws_json1_1GetOfferingStatusCommand(output, context);
+    return de_GetOfferingStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

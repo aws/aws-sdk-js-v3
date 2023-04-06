@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DescribeVaultInput, DescribeVaultOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVaultCommand,
-  serializeAws_restJson1DescribeVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVaultCommand, se_DescribeVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class DescribeVaultCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVaultCommand(input, context);
+    return se_DescribeVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVaultCommandOutput> {
-    return deserializeAws_restJson1DescribeVaultCommand(output, context);
+    return de_DescribeVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

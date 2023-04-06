@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DescribeSentimentDetectionJobRequest, DescribeSentimentDetectionJobResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSentimentDetectionJobCommand,
-  serializeAws_json1_1DescribeSentimentDetectionJobCommand,
+  de_DescribeSentimentDetectionJobCommand,
+  se_DescribeSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -135,7 +135,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSentimentDetectionJobCommand(input, context);
+    return se_DescribeSentimentDetectionJobCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeSentimentDetectionJobCommand(output, context);
+    return de_DescribeSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

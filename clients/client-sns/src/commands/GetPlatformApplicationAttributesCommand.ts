@@ -15,8 +15,8 @@ import {
 
 import { GetPlatformApplicationAttributesInput, GetPlatformApplicationAttributesResponse } from "../models/models_0";
 import {
-  deserializeAws_queryGetPlatformApplicationAttributesCommand,
-  serializeAws_queryGetPlatformApplicationAttributesCommand,
+  de_GetPlatformApplicationAttributesCommand,
+  se_GetPlatformApplicationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -140,7 +140,7 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     input: GetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetPlatformApplicationAttributesCommand(input, context);
+    return se_GetPlatformApplicationAttributesCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPlatformApplicationAttributesCommandOutput> {
-    return deserializeAws_queryGetPlatformApplicationAttributesCommand(output, context);
+    return de_GetPlatformApplicationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

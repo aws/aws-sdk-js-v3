@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { CreateSourceLocationRequest, CreateSourceLocationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSourceLocationCommand,
-  serializeAws_restJson1CreateSourceLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSourceLocationCommand, se_CreateSourceLocationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateSourceLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSourceLocationCommand(input, context);
+    return se_CreateSourceLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSourceLocationCommandOutput> {
-    return deserializeAws_restJson1CreateSourceLocationCommand(output, context);
+    return de_CreateSourceLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

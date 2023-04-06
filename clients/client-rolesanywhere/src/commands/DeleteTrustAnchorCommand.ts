@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTrustAnchorCommand,
-  serializeAws_restJson1DeleteTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTrustAnchorCommand, se_DeleteTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -130,14 +127,14 @@ export class DeleteTrustAnchorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrustAnchorCommand(input, context);
+    return se_DeleteTrustAnchorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1DeleteTrustAnchorCommand(output, context);
+    return de_DeleteTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

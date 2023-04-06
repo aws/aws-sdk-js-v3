@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DisassociateFleetRequest, DisassociateFleetResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateFleetCommand,
-  serializeAws_json1_1DisassociateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateFleetCommand, se_DisassociateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DisassociateFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFleetCommand(input, context);
+    return se_DisassociateFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFleetCommandOutput> {
-    return deserializeAws_json1_1DisassociateFleetCommand(output, context);
+    return de_DisassociateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

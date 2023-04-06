@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDirectoryLimitsCommand,
-  serializeAws_json1_1GetDirectoryLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDirectoryLimitsCommand, se_GetDirectoryLimitsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetDirectoryLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDirectoryLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDirectoryLimitsCommand(input, context);
+    return se_GetDirectoryLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDirectoryLimitsCommandOutput> {
-    return deserializeAws_json1_1GetDirectoryLimitsCommand(output, context);
+    return de_GetDirectoryLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableDomainAutoRenewCommand,
-  serializeAws_json1_1EnableDomainAutoRenewCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableDomainAutoRenewCommand, se_EnableDomainAutoRenewCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -139,14 +136,14 @@ export class EnableDomainAutoRenewCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableDomainAutoRenewCommand(input, context);
+    return se_EnableDomainAutoRenewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainAutoRenewCommandOutput> {
-    return deserializeAws_json1_1EnableDomainAutoRenewCommand(output, context);
+    return de_EnableDomainAutoRenewCommand(output, context);
   }
 
   // Start section: command_body_extra

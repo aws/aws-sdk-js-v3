@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemediationExceptionsCommand,
-  serializeAws_json1_1DeleteRemediationExceptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRemediationExceptionsCommand, se_DeleteRemediationExceptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DeleteRemediationExceptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationExceptionsCommand(input, context);
+    return se_DeleteRemediationExceptionsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(output, context);
+    return de_DeleteRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

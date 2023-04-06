@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLogSourcesRequest, ListLogSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLogSourcesCommand,
-  serializeAws_restJson1ListLogSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLogSourcesCommand, se_ListLogSourcesCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -160,14 +157,14 @@ export class ListLogSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLogSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLogSourcesCommand(input, context);
+    return se_ListLogSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSourcesCommandOutput> {
-    return deserializeAws_restJson1ListLogSourcesCommand(output, context);
+    return de_ListLogSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

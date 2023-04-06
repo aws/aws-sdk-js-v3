@@ -45,7 +45,10 @@ import {
 } from "../models/models_0";
 import { PricingServiceException as __BaseException } from "../models/PricingServiceException";
 
-export const serializeAws_json1_1DescribeServicesCommand = async (
+/**
+ * serializeAws_json1_1DescribeServicesCommand
+ */
+export const se_DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -54,11 +57,14 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
     "x-amz-target": "AWSPriceListService.DescribeServices",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeServicesRequest(input, context));
+  body = JSON.stringify(se_DescribeServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAttributeValuesCommand = async (
+/**
+ * serializeAws_json1_1GetAttributeValuesCommand
+ */
+export const se_GetAttributeValuesCommand = async (
   input: GetAttributeValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -67,11 +73,14 @@ export const serializeAws_json1_1GetAttributeValuesCommand = async (
     "x-amz-target": "AWSPriceListService.GetAttributeValues",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAttributeValuesRequest(input, context));
+  body = JSON.stringify(se_GetAttributeValuesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPriceListFileUrlCommand = async (
+/**
+ * serializeAws_json1_1GetPriceListFileUrlCommand
+ */
+export const se_GetPriceListFileUrlCommand = async (
   input: GetPriceListFileUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -80,11 +89,14 @@ export const serializeAws_json1_1GetPriceListFileUrlCommand = async (
     "x-amz-target": "AWSPriceListService.GetPriceListFileUrl",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPriceListFileUrlRequest(input, context));
+  body = JSON.stringify(se_GetPriceListFileUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetProductsCommand = async (
+/**
+ * serializeAws_json1_1GetProductsCommand
+ */
+export const se_GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -93,11 +105,14 @@ export const serializeAws_json1_1GetProductsCommand = async (
     "x-amz-target": "AWSPriceListService.GetProducts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
+  body = JSON.stringify(se_GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPriceListsCommand = async (
+/**
+ * serializeAws_json1_1ListPriceListsCommand
+ */
+export const se_ListPriceListsCommand = async (
   input: ListPriceListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -106,20 +121,23 @@ export const serializeAws_json1_1ListPriceListsCommand = async (
     "x-amz-target": "AWSPriceListService.ListPriceLists",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPriceListsRequest(input, context));
+  body = JSON.stringify(se_ListPriceListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1DescribeServicesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeServicesCommand
+ */
+export const de_DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeServicesCommandError(output, context);
+    return de_DescribeServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServicesResponse(data, context);
+  contents = de_DescribeServicesResponse(data, context);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -127,7 +145,10 @@ export const deserializeAws_json1_1DescribeServicesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeServicesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeServicesCommandError
+ */
+const de_DescribeServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
@@ -139,19 +160,19 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.pricing#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.pricing#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -163,16 +184,19 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAttributeValuesCommand = async (
+/**
+ * deserializeAws_json1_1GetAttributeValuesCommand
+ */
+export const de_GetAttributeValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttributeValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAttributeValuesCommandError(output, context);
+    return de_GetAttributeValuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAttributeValuesResponse(data, context);
+  contents = de_GetAttributeValuesResponse(data, context);
   const response: GetAttributeValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -180,7 +204,10 @@ export const deserializeAws_json1_1GetAttributeValuesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAttributeValuesCommandError = async (
+/**
+ * deserializeAws_json1_1GetAttributeValuesCommandError
+ */
+const de_GetAttributeValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttributeValuesCommandOutput> => {
@@ -192,19 +219,19 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.pricing#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.pricing#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -216,16 +243,19 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetPriceListFileUrlCommand = async (
+/**
+ * deserializeAws_json1_1GetPriceListFileUrlCommand
+ */
+export const de_GetPriceListFileUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPriceListFileUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPriceListFileUrlCommandError(output, context);
+    return de_GetPriceListFileUrlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPriceListFileUrlResponse(data, context);
+  contents = de_GetPriceListFileUrlResponse(data, context);
   const response: GetPriceListFileUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -233,7 +263,10 @@ export const deserializeAws_json1_1GetPriceListFileUrlCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetPriceListFileUrlCommandError = async (
+/**
+ * deserializeAws_json1_1GetPriceListFileUrlCommandError
+ */
+const de_GetPriceListFileUrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPriceListFileUrlCommandOutput> => {
@@ -245,16 +278,16 @@ const deserializeAws_json1_1GetPriceListFileUrlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pricing#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.pricing#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.pricing#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -266,16 +299,19 @@ const deserializeAws_json1_1GetPriceListFileUrlCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetProductsCommand = async (
+/**
+ * deserializeAws_json1_1GetProductsCommand
+ */
+export const de_GetProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetProductsCommandError(output, context);
+    return de_GetProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProductsResponse(data, context);
+  contents = de_GetProductsResponse(data, context);
   const response: GetProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -283,7 +319,10 @@ export const deserializeAws_json1_1GetProductsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetProductsCommandError = async (
+/**
+ * deserializeAws_json1_1GetProductsCommandError
+ */
+const de_GetProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProductsCommandOutput> => {
@@ -295,19 +334,19 @@ const deserializeAws_json1_1GetProductsCommandError = async (
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.pricing#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.pricing#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -319,16 +358,19 @@ const deserializeAws_json1_1GetProductsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPriceListsCommand = async (
+/**
+ * deserializeAws_json1_1ListPriceListsCommand
+ */
+export const de_ListPriceListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPriceListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPriceListsCommandError(output, context);
+    return de_ListPriceListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPriceListsResponse(data, context);
+  contents = de_ListPriceListsResponse(data, context);
   const response: ListPriceListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -336,7 +378,10 @@ export const deserializeAws_json1_1ListPriceListsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPriceListsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPriceListsCommandError
+ */
+const de_ListPriceListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPriceListsCommandOutput> => {
@@ -348,22 +393,22 @@ const deserializeAws_json1_1ListPriceListsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.pricing#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ExpiredNextTokenException":
     case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.pricing#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.pricing#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -375,12 +420,15 @@ const deserializeAws_json1_1ListPriceListsCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -388,12 +436,15 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ExpiredNextTokenExceptionRes
+ */
+const de_ExpiredNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExpiredNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ExpiredNextTokenException(body, context);
+  const deserialized: any = de_ExpiredNextTokenException(body, context);
   const exception = new ExpiredNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -401,12 +452,15 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalErrorExceptionRes
+ */
+const de_InternalErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(body, context);
+  const deserialized: any = de_InternalErrorException(body, context);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -414,12 +468,15 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = de_InvalidNextTokenException(body, context);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -427,12 +484,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -440,12 +500,12 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_json1_1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
+  const deserialized: any = de_NotFoundException(body, context);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -453,7 +513,10 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeServicesRequest
+ */
+const se_DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -462,7 +525,10 @@ const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequ
   };
 };
 
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Field != null && { Field: input.Field }),
     ...(input.Type != null && { Type: input.Type }),
@@ -470,18 +536,21 @@ const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any
   };
 };
 
-const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filters
+ */
+const se_Filters = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1GetAttributeValuesRequest = (
-  input: GetAttributeValuesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetAttributeValuesRequest
+ */
+const se_GetAttributeValuesRequest = (input: GetAttributeValuesRequest, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -490,19 +559,22 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   };
 };
 
-const serializeAws_json1_1GetPriceListFileUrlRequest = (
-  input: GetPriceListFileUrlRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetPriceListFileUrlRequest
+ */
+const se_GetPriceListFileUrlRequest = (input: GetPriceListFileUrlRequest, context: __SerdeContext): any => {
   return {
     ...(input.FileFormat != null && { FileFormat: input.FileFormat }),
     ...(input.PriceListArn != null && { PriceListArn: input.PriceListArn }),
   };
 };
 
-const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetProductsRequest
+ */
+const se_GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -510,7 +582,10 @@ const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, conte
   };
 };
 
-const serializeAws_json1_1ListPriceListsRequest = (input: ListPriceListsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListPriceListsRequest
+ */
+const se_ListPriceListsRequest = (input: ListPriceListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.CurrencyCode != null && { CurrencyCode: input.CurrencyCode }),
     ...(input.EffectiveDate != null && { EffectiveDate: Math.round(input.EffectiveDate.getTime() / 1000) }),
@@ -521,13 +596,19 @@ const serializeAws_json1_1ListPriceListsRequest = (input: ListPriceListsRequest,
   };
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AttributeNameList
+ */
+const de_AttributeNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -539,45 +620,54 @@ const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
+/**
+ * deserializeAws_json1_1AttributeValue
+ */
+const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1AttributeValueList = (output: any, context: __SerdeContext): AttributeValue[] => {
+/**
+ * deserializeAws_json1_1AttributeValueList
+ */
+const de_AttributeValueList = (output: any, context: __SerdeContext): AttributeValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AttributeValue(entry, context);
+      return de_AttributeValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeServicesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeServicesResponse => {
+/**
+ * deserializeAws_json1_1DescribeServicesResponse
+ */
+const de_DescribeServicesResponse = (output: any, context: __SerdeContext): DescribeServicesResponse => {
   return {
     FormatVersion: __expectString(output.FormatVersion),
     NextToken: __expectString(output.NextToken),
-    Services: output.Services != null ? deserializeAws_json1_1ServiceList(output.Services, context) : undefined,
+    Services: output.Services != null ? de_ServiceList(output.Services, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExpiredNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): ExpiredNextTokenException => {
+/**
+ * deserializeAws_json1_1ExpiredNextTokenException
+ */
+const de_ExpiredNextTokenException = (output: any, context: __SerdeContext): ExpiredNextTokenException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1FileFormats = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1FileFormats
+ */
+const de_FileFormats = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -589,88 +679,99 @@ const deserializeAws_json1_1FileFormats = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1GetAttributeValuesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAttributeValuesResponse => {
+/**
+ * deserializeAws_json1_1GetAttributeValuesResponse
+ */
+const de_GetAttributeValuesResponse = (output: any, context: __SerdeContext): GetAttributeValuesResponse => {
   return {
     AttributeValues:
-      output.AttributeValues != null
-        ? deserializeAws_json1_1AttributeValueList(output.AttributeValues, context)
-        : undefined,
+      output.AttributeValues != null ? de_AttributeValueList(output.AttributeValues, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1GetPriceListFileUrlResponse = (
-  output: any,
-  context: __SerdeContext
-): GetPriceListFileUrlResponse => {
+/**
+ * deserializeAws_json1_1GetPriceListFileUrlResponse
+ */
+const de_GetPriceListFileUrlResponse = (output: any, context: __SerdeContext): GetPriceListFileUrlResponse => {
   return {
     Url: __expectString(output.Url),
   } as any;
 };
 
-const deserializeAws_json1_1GetProductsResponse = (output: any, context: __SerdeContext): GetProductsResponse => {
+/**
+ * deserializeAws_json1_1GetProductsResponse
+ */
+const de_GetProductsResponse = (output: any, context: __SerdeContext): GetProductsResponse => {
   return {
     FormatVersion: __expectString(output.FormatVersion),
     NextToken: __expectString(output.NextToken),
-    PriceList:
-      output.PriceList != null ? deserializeAws_json1_1PriceListJsonItems(output.PriceList, context) : undefined,
+    PriceList: output.PriceList != null ? de_PriceListJsonItems(output.PriceList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
+/**
+ * deserializeAws_json1_1InternalErrorException
+ */
+const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
+/**
+ * deserializeAws_json1_1InvalidNextTokenException
+ */
+const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListPriceListsResponse = (output: any, context: __SerdeContext): ListPriceListsResponse => {
+/**
+ * deserializeAws_json1_1ListPriceListsResponse
+ */
+const de_ListPriceListsResponse = (output: any, context: __SerdeContext): ListPriceListsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    PriceLists: output.PriceLists != null ? deserializeAws_json1_1PriceLists(output.PriceLists, context) : undefined,
+    PriceLists: output.PriceLists != null ? de_PriceLists(output.PriceLists, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
+/**
+ * deserializeAws_json1_1NotFoundException
+ */
+const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): PriceList => {
+/**
+ * deserializeAws_json1_1PriceList
+ */
+const de_PriceList = (output: any, context: __SerdeContext): PriceList => {
   return {
     CurrencyCode: __expectString(output.CurrencyCode),
-    FileFormats:
-      output.FileFormats != null ? deserializeAws_json1_1FileFormats(output.FileFormats, context) : undefined,
+    FileFormats: output.FileFormats != null ? de_FileFormats(output.FileFormats, context) : undefined,
     PriceListArn: __expectString(output.PriceListArn),
     RegionCode: __expectString(output.RegionCode),
   } as any;
 };
 
-const deserializeAws_json1_1PriceListJsonItems = (
-  output: any,
-  context: __SerdeContext
-): (__LazyJsonString | string)[] => {
+/**
+ * deserializeAws_json1_1PriceListJsonItems
+ */
+const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__LazyJsonString | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -682,36 +783,42 @@ const deserializeAws_json1_1PriceListJsonItems = (
   return retVal;
 };
 
-const deserializeAws_json1_1PriceLists = (output: any, context: __SerdeContext): PriceList[] => {
+/**
+ * deserializeAws_json1_1PriceLists
+ */
+const de_PriceLists = (output: any, context: __SerdeContext): PriceList[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PriceList(entry, context);
+      return de_PriceList(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
+/**
+ * deserializeAws_json1_1Service
+ */
+const de_Service = (output: any, context: __SerdeContext): Service => {
   return {
-    AttributeNames:
-      output.AttributeNames != null
-        ? deserializeAws_json1_1AttributeNameList(output.AttributeNames, context)
-        : undefined,
+    AttributeNames: output.AttributeNames != null ? de_AttributeNameList(output.AttributeNames, context) : undefined,
     ServiceCode: __expectString(output.ServiceCode),
   } as any;
 };
 
-const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): Service[] => {
+/**
+ * deserializeAws_json1_1ServiceList
+ */
+const de_ServiceList = (output: any, context: __SerdeContext): Service[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Service(entry, context);
+      return de_Service(entry, context);
     });
   return retVal;
 };

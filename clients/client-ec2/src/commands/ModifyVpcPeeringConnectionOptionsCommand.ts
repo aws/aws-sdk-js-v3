@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVpcPeeringConnectionOptionsRequest, ModifyVpcPeeringConnectionOptionsResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
-  serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
+  de_ModifyVpcPeeringConnectionOptionsCommand,
+  se_ModifyVpcPeeringConnectionOptionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -161,7 +161,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(input, context);
+    return se_ModifyVpcPeeringConnectionOptionsCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(output, context);
+    return de_ModifyVpcPeeringConnectionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

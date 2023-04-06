@@ -15,10 +15,7 @@ import {
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { DeleteClusterSnapshotInput, DeleteClusterSnapshotOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteClusterSnapshotCommand,
-  serializeAws_restJson1DeleteClusterSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteClusterSnapshotCommand, se_DeleteClusterSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteClusterSnapshotCommand(input, context);
+    return se_DeleteClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSnapshotCommandOutput> {
-    return deserializeAws_restJson1DeleteClusterSnapshotCommand(output, context);
+    return de_DeleteClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

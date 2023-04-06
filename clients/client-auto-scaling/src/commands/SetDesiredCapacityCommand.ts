@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { SetDesiredCapacityType } from "../models/models_0";
-import {
-  deserializeAws_querySetDesiredCapacityCommand,
-  serializeAws_querySetDesiredCapacityCommand,
-} from "../protocols/Aws_query";
+import { de_SetDesiredCapacityCommand, se_SetDesiredCapacityCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class SetDesiredCapacityCommand extends $Command<
    * @internal
    */
   private serialize(input: SetDesiredCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetDesiredCapacityCommand(input, context);
+    return se_SetDesiredCapacityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDesiredCapacityCommandOutput> {
-    return deserializeAws_querySetDesiredCapacityCommand(output, context);
+    return de_SetDesiredCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

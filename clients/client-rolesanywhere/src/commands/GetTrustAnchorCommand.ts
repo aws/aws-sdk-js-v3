@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustAnchorCommand,
-  serializeAws_restJson1GetTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTrustAnchorCommand, se_GetTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetTrustAnchorCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustAnchorCommand(input, context);
+    return se_GetTrustAnchorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1GetTrustAnchorCommand(output, context);
+    return de_GetTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

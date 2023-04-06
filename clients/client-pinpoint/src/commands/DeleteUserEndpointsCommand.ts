@@ -15,10 +15,7 @@ import {
 
 import { DeleteUserEndpointsRequest, DeleteUserEndpointsResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteUserEndpointsCommand,
-  serializeAws_restJson1DeleteUserEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUserEndpointsCommand, se_DeleteUserEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteUserEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserEndpointsCommand(input, context);
+    return se_DeleteUserEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1DeleteUserEndpointsCommand(output, context);
+    return de_DeleteUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

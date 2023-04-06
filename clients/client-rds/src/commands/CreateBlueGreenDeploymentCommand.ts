@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateBlueGreenDeploymentRequest, CreateBlueGreenDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateBlueGreenDeploymentCommand,
-  serializeAws_queryCreateBlueGreenDeploymentCommand,
-} from "../protocols/Aws_query";
+import { de_CreateBlueGreenDeploymentCommand, se_CreateBlueGreenDeploymentCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -121,6 +118,133 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *  <p>The source DB instance isn't supported for a blue/green deployment.</p>
  *
  *
+ * @example To create a blue/green deployment for an RDS for MySQL DB instance
+ * ```javascript
+ * // The following example creates a blue/green deployment for a MySQL DB instance.
+ * const input = {
+ *   "BlueGreenDeploymentName": "bgd-test-instance",
+ *   "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *   "TargetDBParameterGroupName": "mysql-80-group",
+ *   "TargetEngineVersion": "8.0"
+ * };
+ * const command = new CreateBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-v53303651eexfake",
+ *     "BlueGreenDeploymentName": "bgd-cli-test-instance",
+ *     "CreateTime": "2022-02-25T21:18:51.183000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *     "Status": "PROVISIONING",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3"
+ *       }
+ *     ],
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "CONFIGURE_BACKUPS",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "CREATING_TOPOLOGY_OF_SOURCE",
+ *         "Status": "PENDING"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-bluegreen-deployment-for-an-rds-for-mysql-db-instance-1679688377231
+ * ```
+ *
+ * @example To create a blue/green deployment for an Aurora MySQL DB cluster
+ * ```javascript
+ * // The following example creates a blue/green deployment for an Aurora MySQL DB cluster.
+ * const input = {
+ *   "BlueGreenDeploymentName": "my-blue-green-deployment",
+ *   "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *   "TargetDBClusterParameterGroupName": "mysql-80-cluster-group",
+ *   "TargetDBParameterGroupName": "ams-80-binlog-enabled",
+ *   "TargetEngineVersion": "8.0"
+ * };
+ * const command = new CreateBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *     "BlueGreenDeploymentName": "my-blue-green-deployment",
+ *     "CreateTime": "2022-02-25T21:12:00.288000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *     "Status": "PROVISIONING",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *         "Status": "PROVISIONING"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
+ *         "Status": "PROVISIONING"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
+ *         "Status": "PROVISIONING"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
+ *         "Status": "PROVISIONING"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
+ *         "Status": "PROVISIONING"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
+ *         "Status": "PROVISIONING"
+ *       }
+ *     ],
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *         "Status": "PENDING"
+ *       },
+ *       {
+ *         "Name": "CREATE_CUSTOM_ENDPOINTS",
+ *         "Status": "PENDING"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-bluegreen-deployment-for-an-aurora-mysql-db-cluster-1679703605487
+ * ```
+ *
  */
 export class CreateBlueGreenDeploymentCommand extends $Command<
   CreateBlueGreenDeploymentCommandInput,
@@ -185,7 +309,7 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateBlueGreenDeploymentCommand(input, context);
+    return se_CreateBlueGreenDeploymentCommand(input, context);
   }
 
   /**
@@ -195,7 +319,7 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBlueGreenDeploymentCommandOutput> {
-    return deserializeAws_queryCreateBlueGreenDeploymentCommand(output, context);
+    return de_CreateBlueGreenDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

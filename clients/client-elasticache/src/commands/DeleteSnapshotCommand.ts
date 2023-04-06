@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotCommand,
-  serializeAws_queryDeleteSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class DeleteSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotCommand(input, context);
+    return se_DeleteSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotCommand(output, context);
+    return de_DeleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

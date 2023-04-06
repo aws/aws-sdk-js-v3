@@ -20,10 +20,7 @@ import {
   UpdateBudgetActionResponse,
   UpdateBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBudgetActionCommand,
-  serializeAws_json1_1UpdateBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateBudgetActionCommand, se_UpdateBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class UpdateBudgetActionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBudgetActionCommand(input, context);
+    return se_UpdateBudgetActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBudgetActionCommandOutput> {
-    return deserializeAws_json1_1UpdateBudgetActionCommand(output, context);
+    return de_UpdateBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRotationRequest, DeleteRotationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRotationCommand,
-  serializeAws_json1_1DeleteRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRotationCommand, se_DeleteRotationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -140,14 +137,14 @@ export class DeleteRotationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRotationCommand(input, context);
+    return se_DeleteRotationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRotationCommandOutput> {
-    return deserializeAws_json1_1DeleteRotationCommand(output, context);
+    return de_DeleteRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

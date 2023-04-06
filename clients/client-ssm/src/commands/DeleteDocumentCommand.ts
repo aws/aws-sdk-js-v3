@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDocumentCommand,
-  serializeAws_json1_1DeleteDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDocumentCommand, se_DeleteDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeleteDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDocumentCommand(input, context);
+    return se_DeleteDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentCommandOutput> {
-    return deserializeAws_json1_1DeleteDocumentCommand(output, context);
+    return de_DeleteDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

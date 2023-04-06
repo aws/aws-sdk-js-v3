@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateJobStatusCommand, se_UpdateJobStatusCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -168,14 +165,14 @@ export class UpdateJobStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobStatusCommand(input, context);
+    return se_UpdateJobStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
-    return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
+    return de_UpdateJobStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

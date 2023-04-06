@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { SetDefaultPolicyVersionRequest } from "../models/models_2";
-import {
-  deserializeAws_restJson1SetDefaultPolicyVersionCommand,
-  serializeAws_restJson1SetDefaultPolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SetDefaultPolicyVersionCommand, se_SetDefaultPolicyVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class SetDefaultPolicyVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetDefaultPolicyVersionCommand(input, context);
+    return se_SetDefaultPolicyVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1SetDefaultPolicyVersionCommand(output, context);
+    return de_SetDefaultPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

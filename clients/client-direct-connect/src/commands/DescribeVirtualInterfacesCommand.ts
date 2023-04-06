@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeVirtualInterfacesRequest, VirtualInterfaces } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVirtualInterfacesCommand,
-  serializeAws_json1_1DescribeVirtualInterfacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeVirtualInterfacesCommand, se_DescribeVirtualInterfacesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class DescribeVirtualInterfacesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVirtualInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVirtualInterfacesCommand(input, context);
+    return se_DescribeVirtualInterfacesCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualInterfacesCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualInterfacesCommand(output, context);
+    return de_DescribeVirtualInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

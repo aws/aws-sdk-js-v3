@@ -20,10 +20,7 @@ import {
   CreatePhoneNumberOrderResponse,
   CreatePhoneNumberOrderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePhoneNumberOrderCommand,
-  serializeAws_restJson1CreatePhoneNumberOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePhoneNumberOrderCommand, se_CreatePhoneNumberOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreatePhoneNumberOrderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePhoneNumberOrderCommand(input, context);
+    return se_CreatePhoneNumberOrderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePhoneNumberOrderCommandOutput> {
-    return deserializeAws_restJson1CreatePhoneNumberOrderCommand(output, context);
+    return de_CreatePhoneNumberOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

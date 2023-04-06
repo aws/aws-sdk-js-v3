@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateCustomerGatewayCommand,
-  serializeAws_ec2CreateCustomerGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateCustomerGatewayCommand, se_CreateCustomerGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class CreateCustomerGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateCustomerGatewayCommand(input, context);
+    return se_CreateCustomerGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomerGatewayCommandOutput> {
-    return deserializeAws_ec2CreateCustomerGatewayCommand(output, context);
+    return de_CreateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

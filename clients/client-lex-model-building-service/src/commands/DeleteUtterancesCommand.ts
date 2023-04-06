@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteUtterancesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUtterancesCommand,
-  serializeAws_restJson1DeleteUtterancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUtterancesCommand, se_DeleteUtterancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteUtterancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUtterancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUtterancesCommand(input, context);
+    return se_DeleteUtterancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUtterancesCommandOutput> {
-    return deserializeAws_restJson1DeleteUtterancesCommand(output, context);
+    return de_DeleteUtterancesCommand(output, context);
   }
 
   // Start section: command_body_extra

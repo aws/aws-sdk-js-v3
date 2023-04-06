@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { GetAgentConfigurationRequest, GetAgentConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAgentConfigurationCommand,
-  serializeAws_restJson1GetAgentConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAgentConfigurationCommand, se_GetAgentConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetAgentConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAgentConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAgentConfigurationCommand(input, context);
+    return se_GetAgentConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAgentConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetAgentConfigurationCommand(output, context);
+    return de_GetAgentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

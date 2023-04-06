@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMetricDataCommand,
-  serializeAws_restJson1GetMetricDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class GetMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMetricDataCommand(input, context);
+    return se_GetMetricDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
-    return deserializeAws_restJson1GetMetricDataCommand(output, context);
+    return de_GetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

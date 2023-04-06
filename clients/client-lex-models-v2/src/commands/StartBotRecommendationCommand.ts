@@ -20,10 +20,7 @@ import {
   StartBotRecommendationResponse,
   StartBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBotRecommendationCommand,
-  serializeAws_restJson1StartBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartBotRecommendationCommand, se_StartBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class StartBotRecommendationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBotRecommendationCommand(input, context);
+    return se_StartBotRecommendationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1StartBotRecommendationCommand(output, context);
+    return de_StartBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

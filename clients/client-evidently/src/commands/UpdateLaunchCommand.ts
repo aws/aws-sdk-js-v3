@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { UpdateLaunchRequest, UpdateLaunchResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLaunchCommand,
-  serializeAws_restJson1UpdateLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchCommand, se_UpdateLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class UpdateLaunchCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchCommand(input, context);
+    return se_UpdateLaunchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchCommand(output, context);
+    return de_UpdateLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

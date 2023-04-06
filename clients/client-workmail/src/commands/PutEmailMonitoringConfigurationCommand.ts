@@ -15,8 +15,8 @@ import {
 
 import { PutEmailMonitoringConfigurationRequest, PutEmailMonitoringConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1PutEmailMonitoringConfigurationCommand,
+  de_PutEmailMonitoringConfigurationCommand,
+  se_PutEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -141,7 +141,7 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     input: PutEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEmailMonitoringConfigurationCommand(input, context);
+    return se_PutEmailMonitoringConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutEmailMonitoringConfigurationCommand(output, context);
+    return de_PutEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

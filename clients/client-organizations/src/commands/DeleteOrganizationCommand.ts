@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeleteOrganizationCommand,
-  serializeAws_json1_1DeleteOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteOrganizationCommand, se_DeleteOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -252,14 +249,14 @@ export class DeleteOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationCommand(input, context);
+    return se_DeleteOrganizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOrganizationCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationCommand(output, context);
+    return de_DeleteOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

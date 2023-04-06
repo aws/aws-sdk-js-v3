@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetKeyGroupConfigCommand,
-  serializeAws_restXmlGetKeyGroupConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetKeyGroupConfigCommand, se_GetKeyGroupConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetKeyGroupConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetKeyGroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetKeyGroupConfigCommand(input, context);
+    return se_GetKeyGroupConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyGroupConfigCommandOutput> {
-    return deserializeAws_restXmlGetKeyGroupConfigCommand(output, context);
+    return de_GetKeyGroupConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

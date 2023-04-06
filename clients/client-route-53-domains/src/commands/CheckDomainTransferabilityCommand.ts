@@ -18,10 +18,7 @@ import {
   CheckDomainTransferabilityRequestFilterSensitiveLog,
   CheckDomainTransferabilityResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckDomainTransferabilityCommand,
-  serializeAws_json1_1CheckDomainTransferabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CheckDomainTransferabilityCommand, se_CheckDomainTransferabilityCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -134,7 +131,7 @@ export class CheckDomainTransferabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: CheckDomainTransferabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckDomainTransferabilityCommand(input, context);
+    return se_CheckDomainTransferabilityCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class CheckDomainTransferabilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckDomainTransferabilityCommandOutput> {
-    return deserializeAws_json1_1CheckDomainTransferabilityCommand(output, context);
+    return de_CheckDomainTransferabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

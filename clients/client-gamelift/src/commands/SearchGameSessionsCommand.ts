@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { SearchGameSessionsInput, SearchGameSessionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchGameSessionsCommand,
-  serializeAws_json1_1SearchGameSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchGameSessionsCommand, se_SearchGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -235,14 +232,14 @@ export class SearchGameSessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchGameSessionsCommand(input, context);
+    return se_SearchGameSessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGameSessionsCommandOutput> {
-    return deserializeAws_json1_1SearchGameSessionsCommand(output, context);
+    return de_SearchGameSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { CreateEntityRequest, CreateEntityResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEntityCommand,
-  serializeAws_restJson1CreateEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEntityCommand, se_CreateEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -228,14 +225,14 @@ export class CreateEntityCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEntityCommand(input, context);
+    return se_CreateEntityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntityCommandOutput> {
-    return deserializeAws_restJson1CreateEntityCommand(output, context);
+    return de_CreateEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

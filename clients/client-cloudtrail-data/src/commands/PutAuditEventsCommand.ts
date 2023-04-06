@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailDataClient";
 import { PutAuditEventsRequest, PutAuditEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAuditEventsCommand,
-  serializeAws_restJson1PutAuditEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAuditEventsCommand, se_PutAuditEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class PutAuditEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAuditEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAuditEventsCommand(input, context);
+    return se_PutAuditEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAuditEventsCommandOutput> {
-    return deserializeAws_restJson1PutAuditEventsCommand(output, context);
+    return de_PutAuditEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DeregisterInstanceEventNotificationAttributesResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
-  serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
+  de_DeregisterInstanceEventNotificationAttributesCommand,
+  se_DeregisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     input: DeregisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand(input, context);
+    return se_DeregisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> {
-    return deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand(output, context);
+    return de_DeregisterInstanceEventNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

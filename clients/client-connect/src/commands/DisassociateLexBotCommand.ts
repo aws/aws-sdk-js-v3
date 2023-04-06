@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateLexBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLexBotCommand,
-  serializeAws_restJson1DisassociateLexBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateLexBotCommand, se_DisassociateLexBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DisassociateLexBotCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLexBotCommand(input, context);
+    return se_DisassociateLexBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLexBotCommandOutput> {
-    return deserializeAws_restJson1DisassociateLexBotCommand(output, context);
+    return de_DisassociateLexBotCommand(output, context);
   }
 
   // Start section: command_body_extra

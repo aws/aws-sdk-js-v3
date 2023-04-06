@@ -18,10 +18,7 @@ import {
   CreateNetworkSettingsRequestFilterSensitiveLog,
   CreateNetworkSettingsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNetworkSettingsCommand,
-  serializeAws_restJson1CreateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNetworkSettingsCommand, se_CreateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkSettingsCommand(input, context);
+    return se_CreateNetworkSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkSettingsCommand(output, context);
+    return de_CreateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

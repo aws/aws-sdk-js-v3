@@ -15,8 +15,8 @@ import {
 
 import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_4";
 import {
-  deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
-  serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
+  de_UpdateEndpointWeightsAndCapacitiesCommand,
+  se_UpdateEndpointWeightsAndCapacitiesCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -140,7 +140,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     input: UpdateEndpointWeightsAndCapacitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand(input, context);
+    return se_UpdateEndpointWeightsAndCapacitiesCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand(output, context);
+    return de_UpdateEndpointWeightsAndCapacitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

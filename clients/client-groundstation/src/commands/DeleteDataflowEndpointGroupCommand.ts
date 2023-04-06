@@ -16,8 +16,8 @@ import {
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { DataflowEndpointGroupIdResponse, DeleteDataflowEndpointGroupRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDataflowEndpointGroupCommand,
-  serializeAws_restJson1DeleteDataflowEndpointGroupCommand,
+  de_DeleteDataflowEndpointGroupCommand,
+  se_DeleteDataflowEndpointGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -129,7 +129,7 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataflowEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataflowEndpointGroupCommand(input, context);
+    return se_DeleteDataflowEndpointGroupCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteDataflowEndpointGroupCommand(output, context);
+    return de_DeleteDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAddressesAttributeCommand,
-  serializeAws_ec2DescribeAddressesAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeAddressesAttributeCommand, se_DescribeAddressesAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DescribeAddressesAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAddressesAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAddressesAttributeCommand(input, context);
+    return se_DescribeAddressesAttributeCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DescribeAddressesAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAddressesAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeAddressesAttributeCommand(output, context);
+    return de_DescribeAddressesAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

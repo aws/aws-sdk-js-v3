@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { VerifyEmailAddressRequest } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyEmailAddressCommand,
-  serializeAws_queryVerifyEmailAddressCommand,
-} from "../protocols/Aws_query";
+import { de_VerifyEmailAddressCommand, se_VerifyEmailAddressCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -132,14 +129,14 @@ export class VerifyEmailAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyEmailAddressCommand(input, context);
+    return se_VerifyEmailAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailAddressCommandOutput> {
-    return deserializeAws_queryVerifyEmailAddressCommand(output, context);
+    return de_VerifyEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

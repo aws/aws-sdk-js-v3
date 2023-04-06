@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListConfigurationSetsCommand,
-  serializeAws_queryListConfigurationSetsCommand,
-} from "../protocols/Aws_query";
+import { de_ListConfigurationSetsCommand, se_ListConfigurationSetsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -130,14 +127,14 @@ export class ListConfigurationSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListConfigurationSetsCommand(input, context);
+    return se_ListConfigurationSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_queryListConfigurationSetsCommand(output, context);
+    return de_ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

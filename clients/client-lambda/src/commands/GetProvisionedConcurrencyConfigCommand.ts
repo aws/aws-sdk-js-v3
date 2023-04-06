@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
-  serializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
+  de_GetProvisionedConcurrencyConfigCommand,
+  se_GetProvisionedConcurrencyConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     input: GetProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProvisionedConcurrencyConfigCommand(input, context);
+    return se_GetProvisionedConcurrencyConfigCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProvisionedConcurrencyConfigCommandOutput> {
-    return deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand(output, context);
+    return de_GetProvisionedConcurrencyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

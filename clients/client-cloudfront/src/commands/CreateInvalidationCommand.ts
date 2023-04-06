@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateInvalidationCommand,
-  serializeAws_restXmlCreateInvalidationCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateInvalidationCommand, se_CreateInvalidationCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateInvalidationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateInvalidationCommand(input, context);
+    return se_CreateInvalidationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvalidationCommandOutput> {
-    return deserializeAws_restXmlCreateInvalidationCommand(output, context);
+    return de_CreateInvalidationCommand(output, context);
   }
 
   // Start section: command_body_extra

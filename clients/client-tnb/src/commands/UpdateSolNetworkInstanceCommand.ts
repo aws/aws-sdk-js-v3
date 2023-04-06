@@ -19,10 +19,7 @@ import {
   UpdateSolNetworkInstanceOutput,
   UpdateSolNetworkInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSolNetworkInstanceCommand,
-  serializeAws_restJson1UpdateSolNetworkInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSolNetworkInstanceCommand, se_UpdateSolNetworkInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -152,14 +149,14 @@ export class UpdateSolNetworkInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSolNetworkInstanceCommand(input, context);
+    return se_UpdateSolNetworkInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1UpdateSolNetworkInstanceCommand(output, context);
+    return de_UpdateSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

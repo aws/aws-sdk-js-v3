@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetComplianceSummaryByConfigRuleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
-  serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
+  de_GetComplianceSummaryByConfigRuleCommand,
+  se_GetComplianceSummaryByConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -124,7 +124,7 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     input: GetComplianceSummaryByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(input, context);
+    return se_GetComplianceSummaryByConfigRuleCommand(input, context);
   }
 
   /**
@@ -134,7 +134,7 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(output, context);
+    return de_GetComplianceSummaryByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

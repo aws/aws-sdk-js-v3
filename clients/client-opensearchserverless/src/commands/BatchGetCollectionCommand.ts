@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0BatchGetCollectionCommand,
-  serializeAws_json1_0BatchGetCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_BatchGetCollectionCommand, se_BatchGetCollectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class BatchGetCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchGetCollectionCommand(input, context);
+    return se_BatchGetCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCollectionCommandOutput> {
-    return deserializeAws_json1_0BatchGetCollectionCommand(output, context);
+    return de_BatchGetCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

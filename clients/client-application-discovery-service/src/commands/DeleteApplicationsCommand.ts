@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationsCommand,
-  serializeAws_json1_1DeleteApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteApplicationsCommand, se_DeleteApplicationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationsCommand(input, context);
+    return se_DeleteApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationsCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationsCommand(output, context);
+    return de_DeleteApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

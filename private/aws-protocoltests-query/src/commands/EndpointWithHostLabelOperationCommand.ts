@@ -14,8 +14,8 @@ import {
 
 import { HostLabelInput } from "../models/models_0";
 import {
-  deserializeAws_queryEndpointWithHostLabelOperationCommand,
-  serializeAws_queryEndpointWithHostLabelOperationCommand,
+  de_EndpointWithHostLabelOperationCommand,
+  se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
@@ -86,7 +86,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryEndpointWithHostLabelOperationCommand(input, context);
+    return se_EndpointWithHostLabelOperationCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_queryEndpointWithHostLabelOperationCommand(output, context);
+    return de_EndpointWithHostLabelOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

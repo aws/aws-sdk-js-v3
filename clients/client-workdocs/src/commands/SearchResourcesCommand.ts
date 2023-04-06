@@ -19,10 +19,7 @@ import {
   SearchResourcesResponse,
   SearchResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchResourcesCommand,
-  serializeAws_restJson1SearchResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchResourcesCommand, se_SearchResourcesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -193,14 +190,14 @@ export class SearchResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchResourcesCommand(input, context);
+    return se_SearchResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchResourcesCommandOutput> {
-    return deserializeAws_restJson1SearchResourcesCommand(output, context);
+    return de_SearchResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

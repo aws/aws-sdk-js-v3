@@ -15,10 +15,7 @@ import {
 
 import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterEcsClusterCommand,
-  serializeAws_json1_1RegisterEcsClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterEcsClusterCommand, se_RegisterEcsClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class RegisterEcsClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterEcsClusterCommand(input, context);
+    return se_RegisterEcsClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEcsClusterCommandOutput> {
-    return deserializeAws_json1_1RegisterEcsClusterCommand(output, context);
+    return de_RegisterEcsClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

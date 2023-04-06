@@ -16,8 +16,8 @@ import {
 import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
-  serializeAws_queryModifyDBClusterSnapshotAttributeCommand,
+  de_ModifyDBClusterSnapshotAttributeCommand,
+  se_ModifyDBClusterSnapshotAttributeCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -156,7 +156,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
+    return se_ModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(output, context);
+    return de_ModifyDBClusterSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

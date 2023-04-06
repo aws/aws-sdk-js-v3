@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeUserProfileRequest, DescribeUserProfileResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeUserProfileCommand,
-  serializeAws_json1_1DescribeUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserProfileCommand, se_DescribeUserProfileCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -124,14 +121,14 @@ export class DescribeUserProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfileCommand(input, context);
+    return se_DescribeUserProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfileCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfileCommand(output, context);
+    return de_DescribeUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

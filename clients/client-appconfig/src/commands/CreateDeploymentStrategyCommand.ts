@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentStrategyCommand,
-  serializeAws_restJson1CreateDeploymentStrategyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDeploymentStrategyCommand, se_CreateDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateDeploymentStrategyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentStrategyCommand(input, context);
+    return se_CreateDeploymentStrategyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentStrategyCommand(output, context);
+    return de_CreateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

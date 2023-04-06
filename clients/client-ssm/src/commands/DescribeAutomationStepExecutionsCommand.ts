@@ -15,8 +15,8 @@ import {
 
 import { DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAutomationStepExecutionsCommand,
-  serializeAws_json1_1DescribeAutomationStepExecutionsCommand,
+  de_DescribeAutomationStepExecutionsCommand,
+  se_DescribeAutomationStepExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -153,7 +153,7 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     input: DescribeAutomationStepExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(input, context);
+    return se_DescribeAutomationStepExecutionsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(output, context);
+    return de_DescribeAutomationStepExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

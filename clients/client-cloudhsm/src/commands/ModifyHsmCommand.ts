@@ -15,7 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { ModifyHsmRequest, ModifyHsmResponse } from "../models/models_0";
-import { deserializeAws_json1_1ModifyHsmCommand, serializeAws_json1_1ModifyHsmCommand } from "../protocols/Aws_json1_1";
+import { de_ModifyHsmCommand, se_ModifyHsmCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +145,14 @@ export class ModifyHsmCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyHsmCommand(input, context);
+    return se_ModifyHsmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHsmCommandOutput> {
-    return deserializeAws_json1_1ModifyHsmCommand(output, context);
+    return de_ModifyHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DeleteLicenseManagerReportGeneratorResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
+  de_DeleteLicenseManagerReportGeneratorCommand,
+  se_DeleteLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     input: DeleteLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand(input, context);
+    return se_DeleteLicenseManagerReportGeneratorCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand(output, context);
+    return de_DeleteLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

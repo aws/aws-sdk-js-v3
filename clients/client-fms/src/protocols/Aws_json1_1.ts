@@ -263,7 +263,10 @@ import {
   ViolationDetail,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AssociateAdminAccountCommand = async (
+/**
+ * serializeAws_json1_1AssociateAdminAccountCommand
+ */
+export const se_AssociateAdminAccountCommand = async (
   input: AssociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -272,11 +275,14 @@ export const serializeAws_json1_1AssociateAdminAccountCommand = async (
     "x-amz-target": "AWSFMS_20180101.AssociateAdminAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateAdminAccountRequest(input, context));
+  body = JSON.stringify(se_AssociateAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
+/**
+ * serializeAws_json1_1AssociateThirdPartyFirewallCommand
+ */
+export const se_AssociateThirdPartyFirewallCommand = async (
   input: AssociateThirdPartyFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -285,11 +291,14 @@ export const serializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
     "x-amz-target": "AWSFMS_20180101.AssociateThirdPartyFirewall",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateThirdPartyFirewallRequest(input, context));
+  body = JSON.stringify(se_AssociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchAssociateResourceCommand = async (
+/**
+ * serializeAws_json1_1BatchAssociateResourceCommand
+ */
+export const se_BatchAssociateResourceCommand = async (
   input: BatchAssociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -298,11 +307,14 @@ export const serializeAws_json1_1BatchAssociateResourceCommand = async (
     "x-amz-target": "AWSFMS_20180101.BatchAssociateResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchAssociateResourceRequest(input, context));
+  body = JSON.stringify(se_BatchAssociateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDisassociateResourceCommand = async (
+/**
+ * serializeAws_json1_1BatchDisassociateResourceCommand
+ */
+export const se_BatchDisassociateResourceCommand = async (
   input: BatchDisassociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -311,11 +323,14 @@ export const serializeAws_json1_1BatchDisassociateResourceCommand = async (
     "x-amz-target": "AWSFMS_20180101.BatchDisassociateResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDisassociateResourceRequest(input, context));
+  body = JSON.stringify(se_BatchDisassociateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAppsListCommand = async (
+/**
+ * serializeAws_json1_1DeleteAppsListCommand
+ */
+export const se_DeleteAppsListCommand = async (
   input: DeleteAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -324,11 +339,14 @@ export const serializeAws_json1_1DeleteAppsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.DeleteAppsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAppsListRequest(input, context));
+  body = JSON.stringify(se_DeleteAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteNotificationChannelCommand = async (
+/**
+ * serializeAws_json1_1DeleteNotificationChannelCommand
+ */
+export const se_DeleteNotificationChannelCommand = async (
   input: DeleteNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -337,11 +355,14 @@ export const serializeAws_json1_1DeleteNotificationChannelCommand = async (
     "x-amz-target": "AWSFMS_20180101.DeleteNotificationChannel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteNotificationChannelRequest(input, context));
+  body = JSON.stringify(se_DeleteNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeletePolicyCommand
+ */
+export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -350,11 +371,14 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
     "x-amz-target": "AWSFMS_20180101.DeletePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePolicyRequest(input, context));
+  body = JSON.stringify(se_DeletePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProtocolsListCommand = async (
+/**
+ * serializeAws_json1_1DeleteProtocolsListCommand
+ */
+export const se_DeleteProtocolsListCommand = async (
   input: DeleteProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -363,11 +387,14 @@ export const serializeAws_json1_1DeleteProtocolsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.DeleteProtocolsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProtocolsListRequest(input, context));
+  body = JSON.stringify(se_DeleteProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourceSetCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourceSetCommand
+ */
+export const se_DeleteResourceSetCommand = async (
   input: DeleteResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -376,11 +403,14 @@ export const serializeAws_json1_1DeleteResourceSetCommand = async (
     "x-amz-target": "AWSFMS_20180101.DeleteResourceSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourceSetRequest(input, context));
+  body = JSON.stringify(se_DeleteResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateAdminAccountCommand = async (
+/**
+ * serializeAws_json1_1DisassociateAdminAccountCommand
+ */
+export const se_DisassociateAdminAccountCommand = async (
   input: DisassociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -389,11 +419,14 @@ export const serializeAws_json1_1DisassociateAdminAccountCommand = async (
     "x-amz-target": "AWSFMS_20180101.DisassociateAdminAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateAdminAccountRequest(input, context));
+  body = JSON.stringify(se_DisassociateAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateThirdPartyFirewallCommand = async (
+/**
+ * serializeAws_json1_1DisassociateThirdPartyFirewallCommand
+ */
+export const se_DisassociateThirdPartyFirewallCommand = async (
   input: DisassociateThirdPartyFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -402,11 +435,14 @@ export const serializeAws_json1_1DisassociateThirdPartyFirewallCommand = async (
     "x-amz-target": "AWSFMS_20180101.DisassociateThirdPartyFirewall",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateThirdPartyFirewallRequest(input, context));
+  body = JSON.stringify(se_DisassociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAdminAccountCommand = async (
+/**
+ * serializeAws_json1_1GetAdminAccountCommand
+ */
+export const se_GetAdminAccountCommand = async (
   input: GetAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -415,11 +451,14 @@ export const serializeAws_json1_1GetAdminAccountCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetAdminAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAdminAccountRequest(input, context));
+  body = JSON.stringify(se_GetAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAppsListCommand = async (
+/**
+ * serializeAws_json1_1GetAppsListCommand
+ */
+export const se_GetAppsListCommand = async (
   input: GetAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -428,11 +467,14 @@ export const serializeAws_json1_1GetAppsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetAppsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAppsListRequest(input, context));
+  body = JSON.stringify(se_GetAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetComplianceDetailCommand = async (
+/**
+ * serializeAws_json1_1GetComplianceDetailCommand
+ */
+export const se_GetComplianceDetailCommand = async (
   input: GetComplianceDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -441,11 +483,14 @@ export const serializeAws_json1_1GetComplianceDetailCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetComplianceDetail",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetComplianceDetailRequest(input, context));
+  body = JSON.stringify(se_GetComplianceDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetNotificationChannelCommand = async (
+/**
+ * serializeAws_json1_1GetNotificationChannelCommand
+ */
+export const se_GetNotificationChannelCommand = async (
   input: GetNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -454,11 +499,14 @@ export const serializeAws_json1_1GetNotificationChannelCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetNotificationChannel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetNotificationChannelRequest(input, context));
+  body = JSON.stringify(se_GetNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetPolicyCommand
+ */
+export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -467,11 +515,14 @@ export const serializeAws_json1_1GetPolicyCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
+  body = JSON.stringify(se_GetPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetProtectionStatusCommand = async (
+/**
+ * serializeAws_json1_1GetProtectionStatusCommand
+ */
+export const se_GetProtectionStatusCommand = async (
   input: GetProtectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -480,11 +531,14 @@ export const serializeAws_json1_1GetProtectionStatusCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetProtectionStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetProtectionStatusRequest(input, context));
+  body = JSON.stringify(se_GetProtectionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetProtocolsListCommand = async (
+/**
+ * serializeAws_json1_1GetProtocolsListCommand
+ */
+export const se_GetProtocolsListCommand = async (
   input: GetProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -493,11 +547,14 @@ export const serializeAws_json1_1GetProtocolsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetProtocolsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetProtocolsListRequest(input, context));
+  body = JSON.stringify(se_GetProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResourceSetCommand = async (
+/**
+ * serializeAws_json1_1GetResourceSetCommand
+ */
+export const se_GetResourceSetCommand = async (
   input: GetResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -506,11 +563,14 @@ export const serializeAws_json1_1GetResourceSetCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetResourceSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResourceSetRequest(input, context));
+  body = JSON.stringify(se_GetResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
+/**
+ * serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand
+ */
+export const se_GetThirdPartyFirewallAssociationStatusCommand = async (
   input: GetThirdPartyFirewallAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -519,11 +579,14 @@ export const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand =
     "x-amz-target": "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest(input, context));
+  body = JSON.stringify(se_GetThirdPartyFirewallAssociationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetViolationDetailsCommand = async (
+/**
+ * serializeAws_json1_1GetViolationDetailsCommand
+ */
+export const se_GetViolationDetailsCommand = async (
   input: GetViolationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -532,11 +595,14 @@ export const serializeAws_json1_1GetViolationDetailsCommand = async (
     "x-amz-target": "AWSFMS_20180101.GetViolationDetails",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetViolationDetailsRequest(input, context));
+  body = JSON.stringify(se_GetViolationDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAppsListsCommand = async (
+/**
+ * serializeAws_json1_1ListAppsListsCommand
+ */
+export const se_ListAppsListsCommand = async (
   input: ListAppsListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -545,11 +611,14 @@ export const serializeAws_json1_1ListAppsListsCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListAppsLists",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAppsListsRequest(input, context));
+  body = JSON.stringify(se_ListAppsListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListComplianceStatusCommand = async (
+/**
+ * serializeAws_json1_1ListComplianceStatusCommand
+ */
+export const se_ListComplianceStatusCommand = async (
   input: ListComplianceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -558,11 +627,14 @@ export const serializeAws_json1_1ListComplianceStatusCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListComplianceStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListComplianceStatusRequest(input, context));
+  body = JSON.stringify(se_ListComplianceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
+/**
+ * serializeAws_json1_1ListDiscoveredResourcesCommand
+ */
+export const se_ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -571,11 +643,14 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListDiscoveredResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDiscoveredResourcesRequest(input, context));
+  body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMemberAccountsCommand = async (
+/**
+ * serializeAws_json1_1ListMemberAccountsCommand
+ */
+export const se_ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -584,11 +659,14 @@ export const serializeAws_json1_1ListMemberAccountsCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListMemberAccounts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMemberAccountsRequest(input, context));
+  body = JSON.stringify(se_ListMemberAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListPoliciesCommand
+ */
+export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -597,11 +675,14 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProtocolsListsCommand = async (
+/**
+ * serializeAws_json1_1ListProtocolsListsCommand
+ */
+export const se_ListProtocolsListsCommand = async (
   input: ListProtocolsListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -610,11 +691,14 @@ export const serializeAws_json1_1ListProtocolsListsCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListProtocolsLists",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProtocolsListsRequest(input, context));
+  body = JSON.stringify(se_ListProtocolsListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceSetResourcesCommand = async (
+/**
+ * serializeAws_json1_1ListResourceSetResourcesCommand
+ */
+export const se_ListResourceSetResourcesCommand = async (
   input: ListResourceSetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -623,11 +707,14 @@ export const serializeAws_json1_1ListResourceSetResourcesCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListResourceSetResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceSetResourcesRequest(input, context));
+  body = JSON.stringify(se_ListResourceSetResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceSetsCommand = async (
+/**
+ * serializeAws_json1_1ListResourceSetsCommand
+ */
+export const se_ListResourceSetsCommand = async (
   input: ListResourceSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -636,11 +723,14 @@ export const serializeAws_json1_1ListResourceSetsCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListResourceSets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceSetsRequest(input, context));
+  body = JSON.stringify(se_ListResourceSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -649,11 +739,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "AWSFMS_20180101.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand
+ */
+export const se_ListThirdPartyFirewallFirewallPoliciesCommand = async (
   input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -662,11 +755,14 @@ export const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand =
     "x-amz-target": "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListThirdPartyFirewallFirewallPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutAppsListCommand = async (
+/**
+ * serializeAws_json1_1PutAppsListCommand
+ */
+export const se_PutAppsListCommand = async (
   input: PutAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -675,11 +771,14 @@ export const serializeAws_json1_1PutAppsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.PutAppsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAppsListRequest(input, context));
+  body = JSON.stringify(se_PutAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutNotificationChannelCommand = async (
+/**
+ * serializeAws_json1_1PutNotificationChannelCommand
+ */
+export const se_PutNotificationChannelCommand = async (
   input: PutNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -688,11 +787,14 @@ export const serializeAws_json1_1PutNotificationChannelCommand = async (
     "x-amz-target": "AWSFMS_20180101.PutNotificationChannel",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutNotificationChannelRequest(input, context));
+  body = JSON.stringify(se_PutNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutPolicyCommand
+ */
+export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -701,11 +803,14 @@ export const serializeAws_json1_1PutPolicyCommand = async (
     "x-amz-target": "AWSFMS_20180101.PutPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
+  body = JSON.stringify(se_PutPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutProtocolsListCommand = async (
+/**
+ * serializeAws_json1_1PutProtocolsListCommand
+ */
+export const se_PutProtocolsListCommand = async (
   input: PutProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -714,11 +819,14 @@ export const serializeAws_json1_1PutProtocolsListCommand = async (
     "x-amz-target": "AWSFMS_20180101.PutProtocolsList",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutProtocolsListRequest(input, context));
+  body = JSON.stringify(se_PutProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResourceSetCommand = async (
+/**
+ * serializeAws_json1_1PutResourceSetCommand
+ */
+export const se_PutResourceSetCommand = async (
   input: PutResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -727,11 +835,14 @@ export const serializeAws_json1_1PutResourceSetCommand = async (
     "x-amz-target": "AWSFMS_20180101.PutResourceSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResourceSetRequest(input, context));
+  body = JSON.stringify(se_PutResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -740,11 +851,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "AWSFMS_20180101.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -753,16 +867,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "AWSFMS_20180101.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateAdminAccountCommand = async (
+/**
+ * deserializeAws_json1_1AssociateAdminAccountCommand
+ */
+export const de_AssociateAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateAdminAccountCommandError(output, context);
+    return de_AssociateAdminAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateAdminAccountCommandOutput = {
@@ -771,7 +888,10 @@ export const deserializeAws_json1_1AssociateAdminAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateAdminAccountCommandError
+ */
+const de_AssociateAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> => {
@@ -783,19 +903,19 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -807,16 +927,19 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
+/**
+ * deserializeAws_json1_1AssociateThirdPartyFirewallCommand
+ */
+export const de_AssociateThirdPartyFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateThirdPartyFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateThirdPartyFirewallCommandError(output, context);
+    return de_AssociateThirdPartyFirewallCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateThirdPartyFirewallResponse(data, context);
+  contents = de_AssociateThirdPartyFirewallResponse(data, context);
   const response: AssociateThirdPartyFirewallCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -824,7 +947,10 @@ export const deserializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateThirdPartyFirewallCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateThirdPartyFirewallCommandError
+ */
+const de_AssociateThirdPartyFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateThirdPartyFirewallCommandOutput> => {
@@ -836,16 +962,16 @@ const deserializeAws_json1_1AssociateThirdPartyFirewallCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -857,16 +983,19 @@ const deserializeAws_json1_1AssociateThirdPartyFirewallCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchAssociateResourceCommand = async (
+/**
+ * deserializeAws_json1_1BatchAssociateResourceCommand
+ */
+export const de_BatchAssociateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchAssociateResourceCommandError(output, context);
+    return de_BatchAssociateResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchAssociateResourceResponse(data, context);
+  contents = de_BatchAssociateResourceResponse(data, context);
   const response: BatchAssociateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -874,7 +1003,10 @@ export const deserializeAws_json1_1BatchAssociateResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchAssociateResourceCommandError = async (
+/**
+ * deserializeAws_json1_1BatchAssociateResourceCommandError
+ */
+const de_BatchAssociateResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateResourceCommandOutput> => {
@@ -886,19 +1018,19 @@ const deserializeAws_json1_1BatchAssociateResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -910,16 +1042,19 @@ const deserializeAws_json1_1BatchAssociateResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchDisassociateResourceCommand = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateResourceCommand
+ */
+export const de_BatchDisassociateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDisassociateResourceCommandError(output, context);
+    return de_BatchDisassociateResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateResourceResponse(data, context);
+  contents = de_BatchDisassociateResourceResponse(data, context);
   const response: BatchDisassociateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -927,7 +1062,10 @@ export const deserializeAws_json1_1BatchDisassociateResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchDisassociateResourceCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateResourceCommandError
+ */
+const de_BatchDisassociateResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateResourceCommandOutput> => {
@@ -939,16 +1077,16 @@ const deserializeAws_json1_1BatchDisassociateResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -960,12 +1098,15 @@ const deserializeAws_json1_1BatchDisassociateResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAppsListCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAppsListCommand
+ */
+export const de_DeleteAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAppsListCommandError(output, context);
+    return de_DeleteAppsListCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAppsListCommandOutput = {
@@ -974,7 +1115,10 @@ export const deserializeAws_json1_1DeleteAppsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAppsListCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAppsListCommandError
+ */
+const de_DeleteAppsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppsListCommandOutput> => {
@@ -986,13 +1130,13 @@ const deserializeAws_json1_1DeleteAppsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1004,12 +1148,15 @@ const deserializeAws_json1_1DeleteAppsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteNotificationChannelCommand = async (
+/**
+ * deserializeAws_json1_1DeleteNotificationChannelCommand
+ */
+export const de_DeleteNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteNotificationChannelCommandError(output, context);
+    return de_DeleteNotificationChannelCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotificationChannelCommandOutput = {
@@ -1018,7 +1165,10 @@ export const deserializeAws_json1_1DeleteNotificationChannelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteNotificationChannelCommandError
+ */
+const de_DeleteNotificationChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> => {
@@ -1030,13 +1180,13 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1048,12 +1198,15 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommand
+ */
+export const de_DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePolicyCommandError(output, context);
+    return de_DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
@@ -1062,7 +1215,10 @@ export const deserializeAws_json1_1DeletePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeletePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommandError
+ */
+const de_DeletePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
@@ -1074,19 +1230,19 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1098,12 +1254,15 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteProtocolsListCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProtocolsListCommand
+ */
+export const de_DeleteProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProtocolsListCommandError(output, context);
+    return de_DeleteProtocolsListCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteProtocolsListCommandOutput = {
@@ -1112,7 +1271,10 @@ export const deserializeAws_json1_1DeleteProtocolsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteProtocolsListCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProtocolsListCommandError
+ */
+const de_DeleteProtocolsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProtocolsListCommandOutput> => {
@@ -1124,13 +1286,13 @@ const deserializeAws_json1_1DeleteProtocolsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1142,12 +1304,15 @@ const deserializeAws_json1_1DeleteProtocolsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourceSetCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourceSetCommand
+ */
+export const de_DeleteResourceSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourceSetCommandError(output, context);
+    return de_DeleteResourceSetCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceSetCommandOutput = {
@@ -1156,7 +1321,10 @@ export const deserializeAws_json1_1DeleteResourceSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourceSetCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourceSetCommandError
+ */
+const de_DeleteResourceSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceSetCommandOutput> => {
@@ -1168,16 +1336,16 @@ const deserializeAws_json1_1DeleteResourceSetCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1189,12 +1357,15 @@ const deserializeAws_json1_1DeleteResourceSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateAdminAccountCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateAdminAccountCommand
+ */
+export const de_DisassociateAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateAdminAccountCommandError(output, context);
+    return de_DisassociateAdminAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateAdminAccountCommandOutput = {
@@ -1203,7 +1374,10 @@ export const deserializeAws_json1_1DisassociateAdminAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateAdminAccountCommandError
+ */
+const de_DisassociateAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> => {
@@ -1215,13 +1389,13 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1233,16 +1407,19 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateThirdPartyFirewallCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateThirdPartyFirewallCommand
+ */
+export const de_DisassociateThirdPartyFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError(output, context);
+    return de_DisassociateThirdPartyFirewallCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateThirdPartyFirewallResponse(data, context);
+  contents = de_DisassociateThirdPartyFirewallResponse(data, context);
   const response: DisassociateThirdPartyFirewallCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1250,7 +1427,10 @@ export const deserializeAws_json1_1DisassociateThirdPartyFirewallCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError
+ */
+const de_DisassociateThirdPartyFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
@@ -1262,16 +1442,16 @@ const deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1283,16 +1463,19 @@ const deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAdminAccountCommand = async (
+/**
+ * deserializeAws_json1_1GetAdminAccountCommand
+ */
+export const de_GetAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAdminAccountCommandError(output, context);
+    return de_GetAdminAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAdminAccountResponse(data, context);
+  contents = de_GetAdminAccountResponse(data, context);
   const response: GetAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1300,7 +1483,10 @@ export const deserializeAws_json1_1GetAdminAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAdminAccountCommandError = async (
+/**
+ * deserializeAws_json1_1GetAdminAccountCommandError
+ */
+const de_GetAdminAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdminAccountCommandOutput> => {
@@ -1312,13 +1498,13 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1330,16 +1516,19 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAppsListCommand = async (
+/**
+ * deserializeAws_json1_1GetAppsListCommand
+ */
+export const de_GetAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAppsListCommandError(output, context);
+    return de_GetAppsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAppsListResponse(data, context);
+  contents = de_GetAppsListResponse(data, context);
   const response: GetAppsListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1347,7 +1536,10 @@ export const deserializeAws_json1_1GetAppsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAppsListCommandError = async (
+/**
+ * deserializeAws_json1_1GetAppsListCommandError
+ */
+const de_GetAppsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsListCommandOutput> => {
@@ -1359,13 +1551,13 @@ const deserializeAws_json1_1GetAppsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1377,16 +1569,19 @@ const deserializeAws_json1_1GetAppsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetComplianceDetailCommand = async (
+/**
+ * deserializeAws_json1_1GetComplianceDetailCommand
+ */
+export const de_GetComplianceDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetComplianceDetailCommandError(output, context);
+    return de_GetComplianceDetailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetComplianceDetailResponse(data, context);
+  contents = de_GetComplianceDetailResponse(data, context);
   const response: GetComplianceDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1394,7 +1589,10 @@ export const deserializeAws_json1_1GetComplianceDetailCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetComplianceDetailCommandError = async (
+/**
+ * deserializeAws_json1_1GetComplianceDetailCommandError
+ */
+const de_GetComplianceDetailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> => {
@@ -1406,16 +1604,16 @@ const deserializeAws_json1_1GetComplianceDetailCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1427,16 +1625,19 @@ const deserializeAws_json1_1GetComplianceDetailCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetNotificationChannelCommand = async (
+/**
+ * deserializeAws_json1_1GetNotificationChannelCommand
+ */
+export const de_GetNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetNotificationChannelCommandError(output, context);
+    return de_GetNotificationChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNotificationChannelResponse(data, context);
+  contents = de_GetNotificationChannelResponse(data, context);
   const response: GetNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1444,7 +1645,10 @@ export const deserializeAws_json1_1GetNotificationChannelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetNotificationChannelCommandError = async (
+/**
+ * deserializeAws_json1_1GetNotificationChannelCommandError
+ */
+const de_GetNotificationChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> => {
@@ -1456,13 +1660,13 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1474,16 +1678,19 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetPolicyCommand
+ */
+export const de_GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPolicyCommandError(output, context);
+    return de_GetPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPolicyResponse(data, context);
+  contents = de_GetPolicyResponse(data, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1491,7 +1698,10 @@ export const deserializeAws_json1_1GetPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetPolicyCommandError
+ */
+const de_GetPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
@@ -1503,16 +1713,16 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.fms#InvalidTypeException":
-      throw await deserializeAws_json1_1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1524,16 +1734,19 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetProtectionStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetProtectionStatusCommand
+ */
+export const de_GetProtectionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetProtectionStatusCommandError(output, context);
+    return de_GetProtectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProtectionStatusResponse(data, context);
+  contents = de_GetProtectionStatusResponse(data, context);
   const response: GetProtectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1541,7 +1754,10 @@ export const deserializeAws_json1_1GetProtectionStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetProtectionStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetProtectionStatusCommandError
+ */
+const de_GetProtectionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> => {
@@ -1553,13 +1769,13 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1571,16 +1787,19 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetProtocolsListCommand = async (
+/**
+ * deserializeAws_json1_1GetProtocolsListCommand
+ */
+export const de_GetProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetProtocolsListCommandError(output, context);
+    return de_GetProtocolsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProtocolsListResponse(data, context);
+  contents = de_GetProtocolsListResponse(data, context);
   const response: GetProtocolsListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1588,7 +1807,10 @@ export const deserializeAws_json1_1GetProtocolsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetProtocolsListCommandError = async (
+/**
+ * deserializeAws_json1_1GetProtocolsListCommandError
+ */
+const de_GetProtocolsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtocolsListCommandOutput> => {
@@ -1600,13 +1822,13 @@ const deserializeAws_json1_1GetProtocolsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1618,16 +1840,19 @@ const deserializeAws_json1_1GetProtocolsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResourceSetCommand = async (
+/**
+ * deserializeAws_json1_1GetResourceSetCommand
+ */
+export const de_GetResourceSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResourceSetCommandError(output, context);
+    return de_GetResourceSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourceSetResponse(data, context);
+  contents = de_GetResourceSetResponse(data, context);
   const response: GetResourceSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1635,7 +1860,10 @@ export const deserializeAws_json1_1GetResourceSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResourceSetCommandError = async (
+/**
+ * deserializeAws_json1_1GetResourceSetCommandError
+ */
+const de_GetResourceSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceSetCommandOutput> => {
@@ -1647,16 +1875,16 @@ const deserializeAws_json1_1GetResourceSetCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1668,16 +1896,19 @@ const deserializeAws_json1_1GetResourceSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand
+ */
+export const de_GetThirdPartyFirewallAssociationStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError(output, context);
+    return de_GetThirdPartyFirewallAssociationStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse(data, context);
+  contents = de_GetThirdPartyFirewallAssociationStatusResponse(data, context);
   const response: GetThirdPartyFirewallAssociationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1685,7 +1916,10 @@ export const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError
+ */
+const de_GetThirdPartyFirewallAssociationStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
@@ -1697,16 +1931,16 @@ const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError =
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1718,16 +1952,19 @@ const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError =
   }
 };
 
-export const deserializeAws_json1_1GetViolationDetailsCommand = async (
+/**
+ * deserializeAws_json1_1GetViolationDetailsCommand
+ */
+export const de_GetViolationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetViolationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetViolationDetailsCommandError(output, context);
+    return de_GetViolationDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetViolationDetailsResponse(data, context);
+  contents = de_GetViolationDetailsResponse(data, context);
   const response: GetViolationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1735,7 +1972,10 @@ export const deserializeAws_json1_1GetViolationDetailsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetViolationDetailsCommandError = async (
+/**
+ * deserializeAws_json1_1GetViolationDetailsCommandError
+ */
+const de_GetViolationDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetViolationDetailsCommandOutput> => {
@@ -1747,13 +1987,13 @@ const deserializeAws_json1_1GetViolationDetailsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1765,16 +2005,19 @@ const deserializeAws_json1_1GetViolationDetailsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAppsListsCommand = async (
+/**
+ * deserializeAws_json1_1ListAppsListsCommand
+ */
+export const de_ListAppsListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAppsListsCommandError(output, context);
+    return de_ListAppsListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAppsListsResponse(data, context);
+  contents = de_ListAppsListsResponse(data, context);
   const response: ListAppsListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1782,7 +2025,10 @@ export const deserializeAws_json1_1ListAppsListsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAppsListsCommandError = async (
+/**
+ * deserializeAws_json1_1ListAppsListsCommandError
+ */
+const de_ListAppsListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsListsCommandOutput> => {
@@ -1794,16 +2040,16 @@ const deserializeAws_json1_1ListAppsListsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1815,16 +2061,19 @@ const deserializeAws_json1_1ListAppsListsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListComplianceStatusCommand = async (
+/**
+ * deserializeAws_json1_1ListComplianceStatusCommand
+ */
+export const de_ListComplianceStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListComplianceStatusCommandError(output, context);
+    return de_ListComplianceStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListComplianceStatusResponse(data, context);
+  contents = de_ListComplianceStatusResponse(data, context);
   const response: ListComplianceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1832,7 +2081,10 @@ export const deserializeAws_json1_1ListComplianceStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListComplianceStatusCommandError = async (
+/**
+ * deserializeAws_json1_1ListComplianceStatusCommandError
+ */
+const de_ListComplianceStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> => {
@@ -1844,10 +2096,10 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1859,16 +2111,19 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
+/**
+ * deserializeAws_json1_1ListDiscoveredResourcesCommand
+ */
+export const de_ListDiscoveredResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommandError(output, context);
+    return de_ListDiscoveredResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(data, context);
+  contents = de_ListDiscoveredResourcesResponse(data, context);
   const response: ListDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1876,7 +2131,10 @@ export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1ListDiscoveredResourcesCommandError
+ */
+const de_ListDiscoveredResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
@@ -1888,13 +2146,13 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1906,16 +2164,19 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListMemberAccountsCommand = async (
+/**
+ * deserializeAws_json1_1ListMemberAccountsCommand
+ */
+export const de_ListMemberAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMemberAccountsCommandError(output, context);
+    return de_ListMemberAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMemberAccountsResponse(data, context);
+  contents = de_ListMemberAccountsResponse(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1923,7 +2184,10 @@ export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMemberAccountsCommandError = async (
+/**
+ * deserializeAws_json1_1ListMemberAccountsCommandError
+ */
+const de_ListMemberAccountsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> => {
@@ -1935,10 +2199,10 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1950,16 +2214,19 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListPoliciesCommand
+ */
+export const de_ListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPoliciesCommandError(output, context);
+    return de_ListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
+  contents = de_ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1967,7 +2234,10 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListPoliciesCommandError
+ */
+const de_ListPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
@@ -1979,16 +2249,16 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2000,16 +2270,19 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListProtocolsListsCommand = async (
+/**
+ * deserializeAws_json1_1ListProtocolsListsCommand
+ */
+export const de_ListProtocolsListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtocolsListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProtocolsListsCommandError(output, context);
+    return de_ListProtocolsListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProtocolsListsResponse(data, context);
+  contents = de_ListProtocolsListsResponse(data, context);
   const response: ListProtocolsListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2017,7 +2290,10 @@ export const deserializeAws_json1_1ListProtocolsListsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListProtocolsListsCommandError = async (
+/**
+ * deserializeAws_json1_1ListProtocolsListsCommandError
+ */
+const de_ListProtocolsListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtocolsListsCommandOutput> => {
@@ -2029,13 +2305,13 @@ const deserializeAws_json1_1ListProtocolsListsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2047,16 +2323,19 @@ const deserializeAws_json1_1ListProtocolsListsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourceSetResourcesCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceSetResourcesCommand
+ */
+export const de_ListResourceSetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSetResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceSetResourcesCommandError(output, context);
+    return de_ListResourceSetResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceSetResourcesResponse(data, context);
+  contents = de_ListResourceSetResourcesResponse(data, context);
   const response: ListResourceSetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2064,7 +2343,10 @@ export const deserializeAws_json1_1ListResourceSetResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourceSetResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceSetResourcesCommandError
+ */
+const de_ListResourceSetResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSetResourcesCommandOutput> => {
@@ -2076,16 +2358,16 @@ const deserializeAws_json1_1ListResourceSetResourcesCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2097,16 +2379,19 @@ const deserializeAws_json1_1ListResourceSetResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourceSetsCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceSetsCommand
+ */
+export const de_ListResourceSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceSetsCommandError(output, context);
+    return de_ListResourceSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceSetsResponse(data, context);
+  contents = de_ListResourceSetsResponse(data, context);
   const response: ListResourceSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2114,7 +2399,10 @@ export const deserializeAws_json1_1ListResourceSetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourceSetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceSetsCommandError
+ */
+const de_ListResourceSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSetsCommandOutput> => {
@@ -2126,13 +2414,13 @@ const deserializeAws_json1_1ListResourceSetsCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2144,16 +2432,19 @@ const deserializeAws_json1_1ListResourceSetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2161,7 +2452,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2173,16 +2467,16 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2194,16 +2488,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand
+ */
+export const de_ListThirdPartyFirewallFirewallPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError(output, context);
+    return de_ListThirdPartyFirewallFirewallPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse(data, context);
+  contents = de_ListThirdPartyFirewallFirewallPoliciesResponse(data, context);
   const response: ListThirdPartyFirewallFirewallPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2211,7 +2508,10 @@ export const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError
+ */
+const de_ListThirdPartyFirewallFirewallPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
@@ -2223,16 +2523,16 @@ const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError =
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2244,16 +2544,19 @@ const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError =
   }
 };
 
-export const deserializeAws_json1_1PutAppsListCommand = async (
+/**
+ * deserializeAws_json1_1PutAppsListCommand
+ */
+export const de_PutAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAppsListCommandError(output, context);
+    return de_PutAppsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAppsListResponse(data, context);
+  contents = de_PutAppsListResponse(data, context);
   const response: PutAppsListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2261,7 +2564,10 @@ export const deserializeAws_json1_1PutAppsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutAppsListCommandError = async (
+/**
+ * deserializeAws_json1_1PutAppsListCommandError
+ */
+const de_PutAppsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppsListCommandOutput> => {
@@ -2273,19 +2579,19 @@ const deserializeAws_json1_1PutAppsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2297,12 +2603,15 @@ const deserializeAws_json1_1PutAppsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutNotificationChannelCommand = async (
+/**
+ * deserializeAws_json1_1PutNotificationChannelCommand
+ */
+export const de_PutNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutNotificationChannelCommandError(output, context);
+    return de_PutNotificationChannelCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutNotificationChannelCommandOutput = {
@@ -2311,7 +2620,10 @@ export const deserializeAws_json1_1PutNotificationChannelCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutNotificationChannelCommandError = async (
+/**
+ * deserializeAws_json1_1PutNotificationChannelCommandError
+ */
+const de_PutNotificationChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> => {
@@ -2323,13 +2635,13 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2341,16 +2653,19 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutPolicyCommand
+ */
+export const de_PutPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutPolicyCommandError(output, context);
+    return de_PutPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutPolicyResponse(data, context);
+  contents = de_PutPolicyResponse(data, context);
   const response: PutPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2358,7 +2673,10 @@ export const deserializeAws_json1_1PutPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutPolicyCommandError
+ */
+const de_PutPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
@@ -2370,22 +2688,22 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.fms#InvalidTypeException":
-      throw await deserializeAws_json1_1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2397,16 +2715,19 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutProtocolsListCommand = async (
+/**
+ * deserializeAws_json1_1PutProtocolsListCommand
+ */
+export const de_PutProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutProtocolsListCommandError(output, context);
+    return de_PutProtocolsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutProtocolsListResponse(data, context);
+  contents = de_PutProtocolsListResponse(data, context);
   const response: PutProtocolsListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2414,7 +2735,10 @@ export const deserializeAws_json1_1PutProtocolsListCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutProtocolsListCommandError = async (
+/**
+ * deserializeAws_json1_1PutProtocolsListCommandError
+ */
+const de_PutProtocolsListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProtocolsListCommandOutput> => {
@@ -2426,19 +2750,19 @@ const deserializeAws_json1_1PutProtocolsListCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2450,16 +2774,19 @@ const deserializeAws_json1_1PutProtocolsListCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutResourceSetCommand = async (
+/**
+ * deserializeAws_json1_1PutResourceSetCommand
+ */
+export const de_PutResourceSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResourceSetCommandError(output, context);
+    return de_PutResourceSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourceSetResponse(data, context);
+  contents = de_PutResourceSetResponse(data, context);
   const response: PutResourceSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2467,7 +2794,10 @@ export const deserializeAws_json1_1PutResourceSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutResourceSetCommandError = async (
+/**
+ * deserializeAws_json1_1PutResourceSetCommandError
+ */
+const de_PutResourceSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourceSetCommandOutput> => {
@@ -2479,16 +2809,16 @@ const deserializeAws_json1_1PutResourceSetCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2500,16 +2830,19 @@ const deserializeAws_json1_1PutResourceSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2517,7 +2850,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2529,19 +2865,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2553,16 +2889,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2570,7 +2909,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2582,16 +2924,16 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
-      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.fms#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2603,12 +2945,15 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-const deserializeAws_json1_1InternalErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalErrorExceptionRes
+ */
+const de_InternalErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(body, context);
+  const deserialized: any = de_InternalErrorException(body, context);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2616,12 +2961,15 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = de_InvalidInputException(body, context);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2629,12 +2977,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOperationExceptionRes
+ */
+const de_InvalidOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOperationException(body, context);
+  const deserialized: any = de_InvalidOperationException(body, context);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2642,12 +2993,15 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTypeExceptionRes
+ */
+const de_InvalidTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTypeException(body, context);
+  const deserialized: any = de_InvalidTypeException(body, context);
   const exception = new InvalidTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2655,12 +3009,15 @@ const deserializeAws_json1_1InvalidTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2668,12 +3025,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2681,7 +3041,10 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1App = (input: App, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1App
+ */
+const se_App = (input: App, context: __SerdeContext): any => {
   return {
     ...(input.AppName != null && { AppName: input.AppName }),
     ...(input.Port != null && { Port: input.Port }),
@@ -2689,38 +3052,45 @@ const serializeAws_json1_1App = (input: App, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1AppsList = (input: App[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AppsList
+ */
+const se_AppsList = (input: App[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1App(entry, context);
+      return se_App(entry, context);
     });
 };
 
-const serializeAws_json1_1AppsListData = (input: AppsListData, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AppsListData
+ */
+const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
   return {
-    ...(input.AppsList != null && { AppsList: serializeAws_json1_1AppsList(input.AppsList, context) }),
+    ...(input.AppsList != null && { AppsList: se_AppsList(input.AppsList, context) }),
     ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
     ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
     ...(input.ListId != null && { ListId: input.ListId }),
     ...(input.ListName != null && { ListName: input.ListName }),
     ...(input.ListUpdateToken != null && { ListUpdateToken: input.ListUpdateToken }),
-    ...(input.PreviousAppsList != null && {
-      PreviousAppsList: serializeAws_json1_1PreviousAppsList(input.PreviousAppsList, context),
-    }),
+    ...(input.PreviousAppsList != null && { PreviousAppsList: se_PreviousAppsList(input.PreviousAppsList, context) }),
   };
 };
 
-const serializeAws_json1_1AssociateAdminAccountRequest = (
-  input: AssociateAdminAccountRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateAdminAccountRequest
+ */
+const se_AssociateAdminAccountRequest = (input: AssociateAdminAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AdminAccount != null && { AdminAccount: input.AdminAccount }),
   };
 };
 
-const serializeAws_json1_1AssociateThirdPartyFirewallRequest = (
+/**
+ * serializeAws_json1_1AssociateThirdPartyFirewallRequest
+ */
+const se_AssociateThirdPartyFirewallRequest = (
   input: AssociateThirdPartyFirewallRequest,
   context: __SerdeContext
 ): any => {
@@ -2729,7 +3099,10 @@ const serializeAws_json1_1AssociateThirdPartyFirewallRequest = (
   };
 };
 
-const serializeAws_json1_1AWSAccountIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AWSAccountIdList
+ */
+const se_AWSAccountIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2737,27 +3110,30 @@ const serializeAws_json1_1AWSAccountIdList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1BatchAssociateResourceRequest = (
-  input: BatchAssociateResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchAssociateResourceRequest
+ */
+const se_BatchAssociateResourceRequest = (input: BatchAssociateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Items != null && { Items: serializeAws_json1_1IdentifierList(input.Items, context) }),
+    ...(input.Items != null && { Items: se_IdentifierList(input.Items, context) }),
     ...(input.ResourceSetIdentifier != null && { ResourceSetIdentifier: input.ResourceSetIdentifier }),
   };
 };
 
-const serializeAws_json1_1BatchDisassociateResourceRequest = (
-  input: BatchDisassociateResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchDisassociateResourceRequest
+ */
+const se_BatchDisassociateResourceRequest = (input: BatchDisassociateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Items != null && { Items: serializeAws_json1_1IdentifierList(input.Items, context) }),
+    ...(input.Items != null && { Items: se_IdentifierList(input.Items, context) }),
     ...(input.ResourceSetIdentifier != null && { ResourceSetIdentifier: input.ResourceSetIdentifier }),
   };
 };
 
-const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomerPolicyScopeIdList
+ */
+const se_CustomerPolicyScopeIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2765,65 +3141,77 @@ const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context:
     });
 };
 
-const serializeAws_json1_1CustomerPolicyScopeMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomerPolicyScopeMap
+ */
+const se_CustomerPolicyScopeMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = serializeAws_json1_1CustomerPolicyScopeIdList(value, context);
+      acc[key] = se_CustomerPolicyScopeIdList(value, context);
       return acc;
     },
     {}
   );
 };
 
-const serializeAws_json1_1DeleteAppsListRequest = (input: DeleteAppsListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteAppsListRequest
+ */
+const se_DeleteAppsListRequest = (input: DeleteAppsListRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListId != null && { ListId: input.ListId }),
   };
 };
 
-const serializeAws_json1_1DeleteNotificationChannelRequest = (
-  input: DeleteNotificationChannelRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteNotificationChannelRequest
+ */
+const se_DeleteNotificationChannelRequest = (input: DeleteNotificationChannelRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeletePolicyRequest
+ */
+const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeleteAllPolicyResources != null && { DeleteAllPolicyResources: input.DeleteAllPolicyResources }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
-const serializeAws_json1_1DeleteProtocolsListRequest = (
-  input: DeleteProtocolsListRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteProtocolsListRequest
+ */
+const se_DeleteProtocolsListRequest = (input: DeleteProtocolsListRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListId != null && { ListId: input.ListId }),
   };
 };
 
-const serializeAws_json1_1DeleteResourceSetRequest = (
-  input: DeleteResourceSetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResourceSetRequest
+ */
+const se_DeleteResourceSetRequest = (input: DeleteResourceSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
   };
 };
 
-const serializeAws_json1_1DisassociateAdminAccountRequest = (
-  input: DisassociateAdminAccountRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DisassociateAdminAccountRequest
+ */
+const se_DisassociateAdminAccountRequest = (input: DisassociateAdminAccountRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1DisassociateThirdPartyFirewallRequest = (
+/**
+ * serializeAws_json1_1DisassociateThirdPartyFirewallRequest
+ */
+const se_DisassociateThirdPartyFirewallRequest = (
   input: DisassociateThirdPartyFirewallRequest,
   context: __SerdeContext
 ): any => {
@@ -2832,44 +3220,53 @@ const serializeAws_json1_1DisassociateThirdPartyFirewallRequest = (
   };
 };
 
-const serializeAws_json1_1GetAdminAccountRequest = (input: GetAdminAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetAdminAccountRequest
+ */
+const se_GetAdminAccountRequest = (input: GetAdminAccountRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1GetAppsListRequest = (input: GetAppsListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetAppsListRequest
+ */
+const se_GetAppsListRequest = (input: GetAppsListRequest, context: __SerdeContext): any => {
   return {
     ...(input.DefaultList != null && { DefaultList: input.DefaultList }),
     ...(input.ListId != null && { ListId: input.ListId }),
   };
 };
 
-const serializeAws_json1_1GetComplianceDetailRequest = (
-  input: GetComplianceDetailRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetComplianceDetailRequest
+ */
+const se_GetComplianceDetailRequest = (input: GetComplianceDetailRequest, context: __SerdeContext): any => {
   return {
     ...(input.MemberAccount != null && { MemberAccount: input.MemberAccount }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
-const serializeAws_json1_1GetNotificationChannelRequest = (
-  input: GetNotificationChannelRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetNotificationChannelRequest
+ */
+const se_GetNotificationChannelRequest = (input: GetNotificationChannelRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetPolicyRequest
+ */
+const se_GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
-const serializeAws_json1_1GetProtectionStatusRequest = (
-  input: GetProtectionStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetProtectionStatusRequest
+ */
+const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2880,20 +3277,29 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
   };
 };
 
-const serializeAws_json1_1GetProtocolsListRequest = (input: GetProtocolsListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetProtocolsListRequest
+ */
+const se_GetProtocolsListRequest = (input: GetProtocolsListRequest, context: __SerdeContext): any => {
   return {
     ...(input.DefaultList != null && { DefaultList: input.DefaultList }),
     ...(input.ListId != null && { ListId: input.ListId }),
   };
 };
 
-const serializeAws_json1_1GetResourceSetRequest = (input: GetResourceSetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetResourceSetRequest
+ */
+const se_GetResourceSetRequest = (input: GetResourceSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
   };
 };
 
-const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest = (
+/**
+ * serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest
+ */
+const se_GetThirdPartyFirewallAssociationStatusRequest = (
   input: GetThirdPartyFirewallAssociationStatusRequest,
   context: __SerdeContext
 ): any => {
@@ -2902,10 +3308,10 @@ const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest = (
   };
 };
 
-const serializeAws_json1_1GetViolationDetailsRequest = (
-  input: GetViolationDetailsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetViolationDetailsRequest
+ */
+const se_GetViolationDetailsRequest = (input: GetViolationDetailsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MemberAccount != null && { MemberAccount: input.MemberAccount }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
@@ -2914,7 +3320,10 @@ const serializeAws_json1_1GetViolationDetailsRequest = (
   };
 };
 
-const serializeAws_json1_1IdentifierList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IdentifierList
+ */
+const se_IdentifierList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2922,7 +3331,10 @@ const serializeAws_json1_1IdentifierList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1ListAppsListsRequest = (input: ListAppsListsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListAppsListsRequest
+ */
+const se_ListAppsListsRequest = (input: ListAppsListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DefaultLists != null && { DefaultLists: input.DefaultLists }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2930,10 +3342,10 @@ const serializeAws_json1_1ListAppsListsRequest = (input: ListAppsListsRequest, c
   };
 };
 
-const serializeAws_json1_1ListComplianceStatusRequest = (
-  input: ListComplianceStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListComplianceStatusRequest
+ */
+const se_ListComplianceStatusRequest = (input: ListComplianceStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -2941,41 +3353,42 @@ const serializeAws_json1_1ListComplianceStatusRequest = (
   };
 };
 
-const serializeAws_json1_1ListDiscoveredResourcesRequest = (
-  input: ListDiscoveredResourcesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDiscoveredResourcesRequest
+ */
+const se_ListDiscoveredResourcesRequest = (input: ListDiscoveredResourcesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MemberAccountIds != null && {
-      MemberAccountIds: serializeAws_json1_1AWSAccountIdList(input.MemberAccountIds, context),
-    }),
+    ...(input.MemberAccountIds != null && { MemberAccountIds: se_AWSAccountIdList(input.MemberAccountIds, context) }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
-const serializeAws_json1_1ListMemberAccountsRequest = (
-  input: ListMemberAccountsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListMemberAccountsRequest
+ */
+const se_ListMemberAccountsRequest = (input: ListMemberAccountsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListPoliciesRequest
+ */
+const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListProtocolsListsRequest = (
-  input: ListProtocolsListsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListProtocolsListsRequest
+ */
+const se_ListProtocolsListsRequest = (input: ListProtocolsListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DefaultLists != null && { DefaultLists: input.DefaultLists }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2983,10 +3396,10 @@ const serializeAws_json1_1ListProtocolsListsRequest = (
   };
 };
 
-const serializeAws_json1_1ListResourceSetResourcesRequest = (
-  input: ListResourceSetResourcesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResourceSetResourcesRequest
+ */
+const se_ListResourceSetResourcesRequest = (input: ListResourceSetResourcesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2994,23 +3407,29 @@ const serializeAws_json1_1ListResourceSetResourcesRequest = (
   };
 };
 
-const serializeAws_json1_1ListResourceSetsRequest = (input: ListResourceSetsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListResourceSetsRequest
+ */
+const se_ListResourceSetsRequest = (input: ListResourceSetsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest = (
+/**
+ * serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest
+ */
+const se_ListThirdPartyFirewallFirewallPoliciesRequest = (
   input: ListThirdPartyFirewallFirewallPoliciesRequest,
   context: __SerdeContext
 ): any => {
@@ -3021,78 +3440,85 @@ const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest = (
   };
 };
 
-const serializeAws_json1_1NetworkFirewallPolicy = (input: NetworkFirewallPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NetworkFirewallPolicy
+ */
+const se_NetworkFirewallPolicy = (input: NetworkFirewallPolicy, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDeploymentModel != null && { FirewallDeploymentModel: input.FirewallDeploymentModel }),
   };
 };
 
-const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Policy
+ */
+const se_Policy = (input: Policy, context: __SerdeContext): any => {
   return {
     ...(input.DeleteUnusedFMManagedResources != null && {
       DeleteUnusedFMManagedResources: input.DeleteUnusedFMManagedResources,
     }),
-    ...(input.ExcludeMap != null && {
-      ExcludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context),
-    }),
+    ...(input.ExcludeMap != null && { ExcludeMap: se_CustomerPolicyScopeMap(input.ExcludeMap, context) }),
     ...(input.ExcludeResourceTags != null && { ExcludeResourceTags: input.ExcludeResourceTags }),
-    ...(input.IncludeMap != null && {
-      IncludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context),
-    }),
+    ...(input.IncludeMap != null && { IncludeMap: se_CustomerPolicyScopeMap(input.IncludeMap, context) }),
     ...(input.PolicyDescription != null && { PolicyDescription: input.PolicyDescription }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
     ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
     ...(input.PolicyUpdateToken != null && { PolicyUpdateToken: input.PolicyUpdateToken }),
     ...(input.RemediationEnabled != null && { RemediationEnabled: input.RemediationEnabled }),
-    ...(input.ResourceSetIds != null && {
-      ResourceSetIds: serializeAws_json1_1ResourceSetIds(input.ResourceSetIds, context),
-    }),
-    ...(input.ResourceTags != null && { ResourceTags: serializeAws_json1_1ResourceTags(input.ResourceTags, context) }),
+    ...(input.ResourceSetIds != null && { ResourceSetIds: se_ResourceSetIds(input.ResourceSetIds, context) }),
+    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTags(input.ResourceTags, context) }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.ResourceTypeList != null && {
-      ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
-    }),
+    ...(input.ResourceTypeList != null && { ResourceTypeList: se_ResourceTypeList(input.ResourceTypeList, context) }),
     ...(input.SecurityServicePolicyData != null && {
-      SecurityServicePolicyData: serializeAws_json1_1SecurityServicePolicyData(
-        input.SecurityServicePolicyData,
-        context
-      ),
+      SecurityServicePolicyData: se_SecurityServicePolicyData(input.SecurityServicePolicyData, context),
     }),
   };
 };
 
-const serializeAws_json1_1PolicyOption = (input: PolicyOption, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PolicyOption
+ */
+const se_PolicyOption = (input: PolicyOption, context: __SerdeContext): any => {
   return {
     ...(input.NetworkFirewallPolicy != null && {
-      NetworkFirewallPolicy: serializeAws_json1_1NetworkFirewallPolicy(input.NetworkFirewallPolicy, context),
+      NetworkFirewallPolicy: se_NetworkFirewallPolicy(input.NetworkFirewallPolicy, context),
     }),
     ...(input.ThirdPartyFirewallPolicy != null && {
-      ThirdPartyFirewallPolicy: serializeAws_json1_1ThirdPartyFirewallPolicy(input.ThirdPartyFirewallPolicy, context),
+      ThirdPartyFirewallPolicy: se_ThirdPartyFirewallPolicy(input.ThirdPartyFirewallPolicy, context),
     }),
   };
 };
 
-const serializeAws_json1_1PreviousAppsList = (input: Record<string, App[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PreviousAppsList
+ */
+const se_PreviousAppsList = (input: Record<string, App[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_json1_1AppsList(value, context);
+    acc[key] = se_AppsList(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_json1_1PreviousProtocolsList = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PreviousProtocolsList
+ */
+const se_PreviousProtocolsList = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_json1_1ProtocolsList(value, context);
+    acc[key] = se_ProtocolsList(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_json1_1ProtocolsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProtocolsList
+ */
+const se_ProtocolsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3100,7 +3526,10 @@ const serializeAws_json1_1ProtocolsList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProtocolsListData
+ */
+const se_ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext): any => {
   return {
     ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
     ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
@@ -3108,68 +3537,80 @@ const serializeAws_json1_1ProtocolsListData = (input: ProtocolsListData, context
     ...(input.ListName != null && { ListName: input.ListName }),
     ...(input.ListUpdateToken != null && { ListUpdateToken: input.ListUpdateToken }),
     ...(input.PreviousProtocolsList != null && {
-      PreviousProtocolsList: serializeAws_json1_1PreviousProtocolsList(input.PreviousProtocolsList, context),
+      PreviousProtocolsList: se_PreviousProtocolsList(input.PreviousProtocolsList, context),
     }),
-    ...(input.ProtocolsList != null && {
-      ProtocolsList: serializeAws_json1_1ProtocolsList(input.ProtocolsList, context),
-    }),
+    ...(input.ProtocolsList != null && { ProtocolsList: se_ProtocolsList(input.ProtocolsList, context) }),
   };
 };
 
-const serializeAws_json1_1PutAppsListRequest = (input: PutAppsListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutAppsListRequest
+ */
+const se_PutAppsListRequest = (input: PutAppsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AppsList != null && { AppsList: serializeAws_json1_1AppsListData(input.AppsList, context) }),
-    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.AppsList != null && { AppsList: se_AppsListData(input.AppsList, context) }),
+    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
   };
 };
 
-const serializeAws_json1_1PutNotificationChannelRequest = (
-  input: PutNotificationChannelRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutNotificationChannelRequest
+ */
+const se_PutNotificationChannelRequest = (input: PutNotificationChannelRequest, context: __SerdeContext): any => {
   return {
     ...(input.SnsRoleName != null && { SnsRoleName: input.SnsRoleName }),
     ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
-const serializeAws_json1_1PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutPolicyRequest
+ */
+const se_PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Policy != null && { Policy: serializeAws_json1_1Policy(input.Policy, context) }),
-    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.Policy != null && { Policy: se_Policy(input.Policy, context) }),
+    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
   };
 };
 
-const serializeAws_json1_1PutProtocolsListRequest = (input: PutProtocolsListRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutProtocolsListRequest
+ */
+const se_PutProtocolsListRequest = (input: PutProtocolsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProtocolsList != null && {
-      ProtocolsList: serializeAws_json1_1ProtocolsListData(input.ProtocolsList, context),
-    }),
-    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ProtocolsList != null && { ProtocolsList: se_ProtocolsListData(input.ProtocolsList, context) }),
+    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
   };
 };
 
-const serializeAws_json1_1PutResourceSetRequest = (input: PutResourceSetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutResourceSetRequest
+ */
+const se_PutResourceSetRequest = (input: PutResourceSetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceSet != null && { ResourceSet: serializeAws_json1_1ResourceSet(input.ResourceSet, context) }),
-    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ResourceSet != null && { ResourceSet: se_ResourceSet(input.ResourceSet, context) }),
+    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
   };
 };
 
-const serializeAws_json1_1ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceSet
+ */
+const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.ResourceTypeList != null && {
-      ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
-    }),
+    ...(input.ResourceTypeList != null && { ResourceTypeList: se_ResourceTypeList(input.ResourceTypeList, context) }),
     ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
   };
 };
 
-const serializeAws_json1_1ResourceSetIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceSetIds
+ */
+const se_ResourceSetIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3177,22 +3618,31 @@ const serializeAws_json1_1ResourceSetIds = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceTag
+ */
+const se_ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1ResourceTags = (input: ResourceTag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceTags
+ */
+const se_ResourceTags = (input: ResourceTag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ResourceTag(entry, context);
+      return se_ResourceTag(entry, context);
     });
 };
 
-const serializeAws_json1_1ResourceTypeList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceTypeList
+ */
+const se_ResourceTypeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3200,25 +3650,31 @@ const serializeAws_json1_1ResourceTypeList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1SecurityServicePolicyData = (
-  input: SecurityServicePolicyData,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SecurityServicePolicyData
+ */
+const se_SecurityServicePolicyData = (input: SecurityServicePolicyData, context: __SerdeContext): any => {
   return {
     ...(input.ManagedServiceData != null && { ManagedServiceData: input.ManagedServiceData }),
-    ...(input.PolicyOption != null && { PolicyOption: serializeAws_json1_1PolicyOption(input.PolicyOption, context) }),
+    ...(input.PolicyOption != null && { PolicyOption: se_PolicyOption(input.PolicyOption, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3226,45 +3682,60 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
   };
 };
 
-const serializeAws_json1_1ThirdPartyFirewallPolicy = (
-  input: ThirdPartyFirewallPolicy,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ThirdPartyFirewallPolicy
+ */
+const se_ThirdPartyFirewallPolicy = (input: ThirdPartyFirewallPolicy, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDeploymentModel != null && { FirewallDeploymentModel: input.FirewallDeploymentModel }),
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const deserializeAws_json1_1ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
+/**
+ * deserializeAws_json1_1ActionTarget
+ */
+const de_ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
   return {
     Description: __expectString(output.Description),
     ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
-const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App => {
+/**
+ * deserializeAws_json1_1App
+ */
+const de_App = (output: any, context: __SerdeContext): App => {
   return {
     AppName: __expectString(output.AppName),
     Port: __expectLong(output.Port),
@@ -3272,21 +3743,27 @@ const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App =>
   } as any;
 };
 
-const deserializeAws_json1_1AppsList = (output: any, context: __SerdeContext): App[] => {
+/**
+ * deserializeAws_json1_1AppsList
+ */
+const de_AppsList = (output: any, context: __SerdeContext): App[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1App(entry, context);
+      return de_App(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext): AppsListData => {
+/**
+ * deserializeAws_json1_1AppsListData
+ */
+const de_AppsListData = (output: any, context: __SerdeContext): AppsListData => {
   return {
-    AppsList: output.AppsList != null ? deserializeAws_json1_1AppsList(output.AppsList, context) : undefined,
+    AppsList: output.AppsList != null ? de_AppsList(output.AppsList, context) : undefined,
     CreateTime:
       output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
     LastUpdateTime:
@@ -3297,34 +3774,41 @@ const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext
     ListName: __expectString(output.ListName),
     ListUpdateToken: __expectString(output.ListUpdateToken),
     PreviousAppsList:
-      output.PreviousAppsList != null
-        ? deserializeAws_json1_1PreviousAppsList(output.PreviousAppsList, context)
-        : undefined,
+      output.PreviousAppsList != null ? de_PreviousAppsList(output.PreviousAppsList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AppsListDataSummary = (output: any, context: __SerdeContext): AppsListDataSummary => {
+/**
+ * deserializeAws_json1_1AppsListDataSummary
+ */
+const de_AppsListDataSummary = (output: any, context: __SerdeContext): AppsListDataSummary => {
   return {
-    AppsList: output.AppsList != null ? deserializeAws_json1_1AppsList(output.AppsList, context) : undefined,
+    AppsList: output.AppsList != null ? de_AppsList(output.AppsList, context) : undefined,
     ListArn: __expectString(output.ListArn),
     ListId: __expectString(output.ListId),
     ListName: __expectString(output.ListName),
   } as any;
 };
 
-const deserializeAws_json1_1AppsListsData = (output: any, context: __SerdeContext): AppsListDataSummary[] => {
+/**
+ * deserializeAws_json1_1AppsListsData
+ */
+const de_AppsListsData = (output: any, context: __SerdeContext): AppsListDataSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AppsListDataSummary(entry, context);
+      return de_AppsListDataSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AssociateThirdPartyFirewallResponse = (
+/**
+ * deserializeAws_json1_1AssociateThirdPartyFirewallResponse
+ */
+const de_AssociateThirdPartyFirewallResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateThirdPartyFirewallResponse => {
@@ -3333,33 +3817,34 @@ const deserializeAws_json1_1AssociateThirdPartyFirewallResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1AwsEc2InstanceViolation = (
-  output: any,
-  context: __SerdeContext
-): AwsEc2InstanceViolation => {
+/**
+ * deserializeAws_json1_1AwsEc2InstanceViolation
+ */
+const de_AwsEc2InstanceViolation = (output: any, context: __SerdeContext): AwsEc2InstanceViolation => {
   return {
     AwsEc2NetworkInterfaceViolations:
       output.AwsEc2NetworkInterfaceViolations != null
-        ? deserializeAws_json1_1AwsEc2NetworkInterfaceViolations(output.AwsEc2NetworkInterfaceViolations, context)
+        ? de_AwsEc2NetworkInterfaceViolations(output.AwsEc2NetworkInterfaceViolations, context)
         : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
   } as any;
 };
 
-const deserializeAws_json1_1AwsEc2NetworkInterfaceViolation = (
-  output: any,
-  context: __SerdeContext
-): AwsEc2NetworkInterfaceViolation => {
+/**
+ * deserializeAws_json1_1AwsEc2NetworkInterfaceViolation
+ */
+const de_AwsEc2NetworkInterfaceViolation = (output: any, context: __SerdeContext): AwsEc2NetworkInterfaceViolation => {
   return {
     ViolatingSecurityGroups:
-      output.ViolatingSecurityGroups != null
-        ? deserializeAws_json1_1ResourceIdList(output.ViolatingSecurityGroups, context)
-        : undefined,
+      output.ViolatingSecurityGroups != null ? de_ResourceIdList(output.ViolatingSecurityGroups, context) : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
   } as any;
 };
 
-const deserializeAws_json1_1AwsEc2NetworkInterfaceViolations = (
+/**
+ * deserializeAws_json1_1AwsEc2NetworkInterfaceViolations
+ */
+const de_AwsEc2NetworkInterfaceViolations = (
   output: any,
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceViolation[] => {
@@ -3369,63 +3854,65 @@ const deserializeAws_json1_1AwsEc2NetworkInterfaceViolations = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AwsEc2NetworkInterfaceViolation(entry, context);
+      return de_AwsEc2NetworkInterfaceViolation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
-  output: any,
-  context: __SerdeContext
-): AwsVPCSecurityGroupViolation => {
+/**
+ * deserializeAws_json1_1AwsVPCSecurityGroupViolation
+ */
+const de_AwsVPCSecurityGroupViolation = (output: any, context: __SerdeContext): AwsVPCSecurityGroupViolation => {
   return {
-    PartialMatches:
-      output.PartialMatches != null ? deserializeAws_json1_1PartialMatches(output.PartialMatches, context) : undefined,
+    PartialMatches: output.PartialMatches != null ? de_PartialMatches(output.PartialMatches, context) : undefined,
     PossibleSecurityGroupRemediationActions:
       output.PossibleSecurityGroupRemediationActions != null
-        ? deserializeAws_json1_1SecurityGroupRemediationActions(output.PossibleSecurityGroupRemediationActions, context)
+        ? de_SecurityGroupRemediationActions(output.PossibleSecurityGroupRemediationActions, context)
         : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
     ViolationTargetDescription: __expectString(output.ViolationTargetDescription),
   } as any;
 };
 
-const deserializeAws_json1_1BatchAssociateResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateResourceResponse => {
+/**
+ * deserializeAws_json1_1BatchAssociateResourceResponse
+ */
+const de_BatchAssociateResourceResponse = (output: any, context: __SerdeContext): BatchAssociateResourceResponse => {
   return {
-    FailedItems:
-      output.FailedItems != null ? deserializeAws_json1_1FailedItemList(output.FailedItems, context) : undefined,
+    FailedItems: output.FailedItems != null ? de_FailedItemList(output.FailedItems, context) : undefined,
     ResourceSetIdentifier: __expectString(output.ResourceSetIdentifier),
   } as any;
 };
 
-const deserializeAws_json1_1BatchDisassociateResourceResponse = (
+/**
+ * deserializeAws_json1_1BatchDisassociateResourceResponse
+ */
+const de_BatchDisassociateResourceResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDisassociateResourceResponse => {
   return {
-    FailedItems:
-      output.FailedItems != null ? deserializeAws_json1_1FailedItemList(output.FailedItems, context) : undefined,
+    FailedItems: output.FailedItems != null ? de_FailedItemList(output.FailedItems, context) : undefined,
     ResourceSetIdentifier: __expectString(output.ResourceSetIdentifier),
   } as any;
 };
 
-const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeContext): ComplianceViolator => {
+/**
+ * deserializeAws_json1_1ComplianceViolator
+ */
+const de_ComplianceViolator = (output: any, context: __SerdeContext): ComplianceViolator => {
   return {
-    Metadata:
-      output.Metadata != null ? deserializeAws_json1_1ComplianceViolatorMetadata(output.Metadata, context) : undefined,
+    Metadata: output.Metadata != null ? de_ComplianceViolatorMetadata(output.Metadata, context) : undefined,
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
     ViolationReason: __expectString(output.ViolationReason),
   } as any;
 };
 
-const deserializeAws_json1_1ComplianceViolatorMetadata = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ComplianceViolatorMetadata
+ */
+const de_ComplianceViolatorMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3435,19 +3922,25 @@ const deserializeAws_json1_1ComplianceViolatorMetadata = (
   }, {});
 };
 
-const deserializeAws_json1_1ComplianceViolators = (output: any, context: __SerdeContext): ComplianceViolator[] => {
+/**
+ * deserializeAws_json1_1ComplianceViolators
+ */
+const de_ComplianceViolators = (output: any, context: __SerdeContext): ComplianceViolator[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ComplianceViolator(entry, context);
+      return de_ComplianceViolator(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CustomerPolicyScopeIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1CustomerPolicyScopeIdList
+ */
+const de_CustomerPolicyScopeIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3459,23 +3952,26 @@ const deserializeAws_json1_1CustomerPolicyScopeIdList = (output: any, context: _
   return retVal;
 };
 
-const deserializeAws_json1_1CustomerPolicyScopeMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string[]> => {
+/**
+ * deserializeAws_json1_1CustomerPolicyScopeMap
+ */
+const de_CustomerPolicyScopeMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce(
     (acc: Record<string, string[]>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(value, context);
+      acc[key] = de_CustomerPolicyScopeIdList(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_json1_1DisassociateThirdPartyFirewallResponse = (
+/**
+ * deserializeAws_json1_1DisassociateThirdPartyFirewallResponse
+ */
+const de_DisassociateThirdPartyFirewallResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateThirdPartyFirewallResponse => {
@@ -3484,7 +3980,10 @@ const deserializeAws_json1_1DisassociateThirdPartyFirewallResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeContext): DiscoveredResource => {
+/**
+ * deserializeAws_json1_1DiscoveredResource
+ */
+const de_DiscoveredResource = (output: any, context: __SerdeContext): DiscoveredResource => {
   return {
     AccountId: __expectString(output.AccountId),
     Name: __expectString(output.Name),
@@ -3493,29 +3992,35 @@ const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
+/**
+ * deserializeAws_json1_1DiscoveredResourceList
+ */
+const de_DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DiscoveredResource(entry, context);
+      return de_DiscoveredResource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DnsDuplicateRuleGroupViolation = (
-  output: any,
-  context: __SerdeContext
-): DnsDuplicateRuleGroupViolation => {
+/**
+ * deserializeAws_json1_1DnsDuplicateRuleGroupViolation
+ */
+const de_DnsDuplicateRuleGroupViolation = (output: any, context: __SerdeContext): DnsDuplicateRuleGroupViolation => {
   return {
     ViolationTarget: __expectString(output.ViolationTarget),
     ViolationTargetDescription: __expectString(output.ViolationTargetDescription),
   } as any;
 };
 
-const deserializeAws_json1_1DnsRuleGroupLimitExceededViolation = (
+/**
+ * deserializeAws_json1_1DnsRuleGroupLimitExceededViolation
+ */
+const de_DnsRuleGroupLimitExceededViolation = (
   output: any,
   context: __SerdeContext
 ): DnsRuleGroupLimitExceededViolation => {
@@ -3526,7 +4031,10 @@ const deserializeAws_json1_1DnsRuleGroupLimitExceededViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1DnsRuleGroupPriorities = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_json1_1DnsRuleGroupPriorities
+ */
+const de_DnsRuleGroupPriorities = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3538,7 +4046,10 @@ const deserializeAws_json1_1DnsRuleGroupPriorities = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation = (
+/**
+ * deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation
+ */
+const de_DnsRuleGroupPriorityConflictViolation = (
   output: any,
   context: __SerdeContext
 ): DnsRuleGroupPriorityConflictViolation => {
@@ -3547,99 +4058,106 @@ const deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation = (
     ConflictingPriority: __expectInt32(output.ConflictingPriority),
     UnavailablePriorities:
       output.UnavailablePriorities != null
-        ? deserializeAws_json1_1DnsRuleGroupPriorities(output.UnavailablePriorities, context)
+        ? de_DnsRuleGroupPriorities(output.UnavailablePriorities, context)
         : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
     ViolationTargetDescription: __expectString(output.ViolationTargetDescription),
   } as any;
 };
 
-const deserializeAws_json1_1EC2AssociateRouteTableAction = (
-  output: any,
-  context: __SerdeContext
-): EC2AssociateRouteTableAction => {
+/**
+ * deserializeAws_json1_1EC2AssociateRouteTableAction
+ */
+const de_EC2AssociateRouteTableAction = (output: any, context: __SerdeContext): EC2AssociateRouteTableAction => {
   return {
     Description: __expectString(output.Description),
-    GatewayId: output.GatewayId != null ? deserializeAws_json1_1ActionTarget(output.GatewayId, context) : undefined,
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
-    SubnetId: output.SubnetId != null ? deserializeAws_json1_1ActionTarget(output.SubnetId, context) : undefined,
+    GatewayId: output.GatewayId != null ? de_ActionTarget(output.GatewayId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
+    SubnetId: output.SubnetId != null ? de_ActionTarget(output.SubnetId, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EC2CopyRouteTableAction = (
-  output: any,
-  context: __SerdeContext
-): EC2CopyRouteTableAction => {
+/**
+ * deserializeAws_json1_1EC2CopyRouteTableAction
+ */
+const de_EC2CopyRouteTableAction = (output: any, context: __SerdeContext): EC2CopyRouteTableAction => {
   return {
     Description: __expectString(output.Description),
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
-    VpcId: output.VpcId != null ? deserializeAws_json1_1ActionTarget(output.VpcId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
+    VpcId: output.VpcId != null ? de_ActionTarget(output.VpcId, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EC2CreateRouteAction = (output: any, context: __SerdeContext): EC2CreateRouteAction => {
-  return {
-    Description: __expectString(output.Description),
-    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
-    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
-    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
-    GatewayId: output.GatewayId != null ? deserializeAws_json1_1ActionTarget(output.GatewayId, context) : undefined,
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
-    VpcEndpointId:
-      output.VpcEndpointId != null ? deserializeAws_json1_1ActionTarget(output.VpcEndpointId, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EC2CreateRouteTableAction = (
-  output: any,
-  context: __SerdeContext
-): EC2CreateRouteTableAction => {
-  return {
-    Description: __expectString(output.Description),
-    VpcId: output.VpcId != null ? deserializeAws_json1_1ActionTarget(output.VpcId, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EC2DeleteRouteAction = (output: any, context: __SerdeContext): EC2DeleteRouteAction => {
+/**
+ * deserializeAws_json1_1EC2CreateRouteAction
+ */
+const de_EC2CreateRouteAction = (output: any, context: __SerdeContext): EC2CreateRouteAction => {
   return {
     Description: __expectString(output.Description),
     DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
     DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
     DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
+    GatewayId: output.GatewayId != null ? de_ActionTarget(output.GatewayId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
+    VpcEndpointId: output.VpcEndpointId != null ? de_ActionTarget(output.VpcEndpointId, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EC2ReplaceRouteAction = (output: any, context: __SerdeContext): EC2ReplaceRouteAction => {
+/**
+ * deserializeAws_json1_1EC2CreateRouteTableAction
+ */
+const de_EC2CreateRouteTableAction = (output: any, context: __SerdeContext): EC2CreateRouteTableAction => {
+  return {
+    Description: __expectString(output.Description),
+    VpcId: output.VpcId != null ? de_ActionTarget(output.VpcId, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1EC2DeleteRouteAction
+ */
+const de_EC2DeleteRouteAction = (output: any, context: __SerdeContext): EC2DeleteRouteAction => {
   return {
     Description: __expectString(output.Description),
     DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
     DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
     DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
-    GatewayId: output.GatewayId != null ? deserializeAws_json1_1ActionTarget(output.GatewayId, context) : undefined,
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EC2ReplaceRouteTableAssociationAction = (
+/**
+ * deserializeAws_json1_1EC2ReplaceRouteAction
+ */
+const de_EC2ReplaceRouteAction = (output: any, context: __SerdeContext): EC2ReplaceRouteAction => {
+  return {
+    Description: __expectString(output.Description),
+    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
+    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
+    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
+    GatewayId: output.GatewayId != null ? de_ActionTarget(output.GatewayId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1EC2ReplaceRouteTableAssociationAction
+ */
+const de_EC2ReplaceRouteTableAssociationAction = (
   output: any,
   context: __SerdeContext
 ): EC2ReplaceRouteTableAssociationAction => {
   return {
-    AssociationId:
-      output.AssociationId != null ? deserializeAws_json1_1ActionTarget(output.AssociationId, context) : undefined,
+    AssociationId: output.AssociationId != null ? de_ActionTarget(output.AssociationId, context) : undefined,
     Description: __expectString(output.Description),
-    RouteTableId:
-      output.RouteTableId != null ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context) : undefined,
+    RouteTableId: output.RouteTableId != null ? de_ActionTarget(output.RouteTableId, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
+/**
+ * deserializeAws_json1_1EvaluationResult
+ */
+const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
     ComplianceStatus: __expectString(output.ComplianceStatus),
     EvaluationLimitExceeded: __expectBoolean(output.EvaluationLimitExceeded),
@@ -3647,28 +4165,30 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1EvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
+/**
+ * deserializeAws_json1_1EvaluationResults
+ */
+const de_EvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EvaluationResult(entry, context);
+      return de_EvaluationResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExpectedRoute = (output: any, context: __SerdeContext): ExpectedRoute => {
+/**
+ * deserializeAws_json1_1ExpectedRoute
+ */
+const de_ExpectedRoute = (output: any, context: __SerdeContext): ExpectedRoute => {
   return {
     AllowedTargets:
-      output.AllowedTargets != null
-        ? deserializeAws_json1_1LengthBoundedStringList(output.AllowedTargets, context)
-        : undefined,
+      output.AllowedTargets != null ? de_LengthBoundedStringList(output.AllowedTargets, context) : undefined,
     ContributingSubnets:
-      output.ContributingSubnets != null
-        ? deserializeAws_json1_1ResourceIdList(output.ContributingSubnets, context)
-        : undefined,
+      output.ContributingSubnets != null ? de_ResourceIdList(output.ContributingSubnets, context) : undefined,
     IpV4Cidr: __expectString(output.IpV4Cidr),
     IpV6Cidr: __expectString(output.IpV6Cidr),
     PrefixListId: __expectString(output.PrefixListId),
@@ -3676,38 +4196,50 @@ const deserializeAws_json1_1ExpectedRoute = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1ExpectedRoutes = (output: any, context: __SerdeContext): ExpectedRoute[] => {
+/**
+ * deserializeAws_json1_1ExpectedRoutes
+ */
+const de_ExpectedRoutes = (output: any, context: __SerdeContext): ExpectedRoute[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExpectedRoute(entry, context);
+      return de_ExpectedRoute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FailedItem = (output: any, context: __SerdeContext): FailedItem => {
+/**
+ * deserializeAws_json1_1FailedItem
+ */
+const de_FailedItem = (output: any, context: __SerdeContext): FailedItem => {
   return {
     Reason: __expectString(output.Reason),
     URI: __expectString(output.URI),
   } as any;
 };
 
-const deserializeAws_json1_1FailedItemList = (output: any, context: __SerdeContext): FailedItem[] => {
+/**
+ * deserializeAws_json1_1FailedItemList
+ */
+const de_FailedItemList = (output: any, context: __SerdeContext): FailedItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FailedItem(entry, context);
+      return de_FailedItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation = (
+/**
+ * deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation
+ */
+const de_FirewallSubnetIsOutOfScopeViolation = (
   output: any,
   context: __SerdeContext
 ): FirewallSubnetIsOutOfScopeViolation => {
@@ -3720,7 +4252,10 @@ const deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation = (
+/**
+ * deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation
+ */
+const de_FirewallSubnetMissingVPCEndpointViolation = (
   output: any,
   context: __SerdeContext
 ): FirewallSubnetMissingVPCEndpointViolation => {
@@ -3732,7 +4267,10 @@ const deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction = (
+/**
+ * deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction
+ */
+const de_FMSPolicyUpdateFirewallCreationConfigAction = (
   output: any,
   context: __SerdeContext
 ): FMSPolicyUpdateFirewallCreationConfigAction => {
@@ -3742,56 +4280,62 @@ const deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction = (
   } as any;
 };
 
-const deserializeAws_json1_1GetAdminAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAdminAccountResponse => {
+/**
+ * deserializeAws_json1_1GetAdminAccountResponse
+ */
+const de_GetAdminAccountResponse = (output: any, context: __SerdeContext): GetAdminAccountResponse => {
   return {
     AdminAccount: __expectString(output.AdminAccount),
     RoleStatus: __expectString(output.RoleStatus),
   } as any;
 };
 
-const deserializeAws_json1_1GetAppsListResponse = (output: any, context: __SerdeContext): GetAppsListResponse => {
+/**
+ * deserializeAws_json1_1GetAppsListResponse
+ */
+const de_GetAppsListResponse = (output: any, context: __SerdeContext): GetAppsListResponse => {
   return {
-    AppsList: output.AppsList != null ? deserializeAws_json1_1AppsListData(output.AppsList, context) : undefined,
+    AppsList: output.AppsList != null ? de_AppsListData(output.AppsList, context) : undefined,
     AppsListArn: __expectString(output.AppsListArn),
   } as any;
 };
 
-const deserializeAws_json1_1GetComplianceDetailResponse = (
-  output: any,
-  context: __SerdeContext
-): GetComplianceDetailResponse => {
+/**
+ * deserializeAws_json1_1GetComplianceDetailResponse
+ */
+const de_GetComplianceDetailResponse = (output: any, context: __SerdeContext): GetComplianceDetailResponse => {
   return {
     PolicyComplianceDetail:
       output.PolicyComplianceDetail != null
-        ? deserializeAws_json1_1PolicyComplianceDetail(output.PolicyComplianceDetail, context)
+        ? de_PolicyComplianceDetail(output.PolicyComplianceDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetNotificationChannelResponse = (
-  output: any,
-  context: __SerdeContext
-): GetNotificationChannelResponse => {
+/**
+ * deserializeAws_json1_1GetNotificationChannelResponse
+ */
+const de_GetNotificationChannelResponse = (output: any, context: __SerdeContext): GetNotificationChannelResponse => {
   return {
     SnsRoleName: __expectString(output.SnsRoleName),
     SnsTopicArn: __expectString(output.SnsTopicArn),
   } as any;
 };
 
-const deserializeAws_json1_1GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
+/**
+ * deserializeAws_json1_1GetPolicyResponse
+ */
+const de_GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
   return {
-    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
     PolicyArn: __expectString(output.PolicyArn),
   } as any;
 };
 
-const deserializeAws_json1_1GetProtectionStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetProtectionStatusResponse => {
+/**
+ * deserializeAws_json1_1GetProtectionStatusResponse
+ */
+const de_GetProtectionStatusResponse = (output: any, context: __SerdeContext): GetProtectionStatusResponse => {
   return {
     AdminAccountId: __expectString(output.AdminAccountId),
     Data: __expectString(output.Data),
@@ -3800,26 +4344,30 @@ const deserializeAws_json1_1GetProtectionStatusResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetProtocolsListResponse = (
-  output: any,
-  context: __SerdeContext
-): GetProtocolsListResponse => {
+/**
+ * deserializeAws_json1_1GetProtocolsListResponse
+ */
+const de_GetProtocolsListResponse = (output: any, context: __SerdeContext): GetProtocolsListResponse => {
   return {
-    ProtocolsList:
-      output.ProtocolsList != null ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context) : undefined,
+    ProtocolsList: output.ProtocolsList != null ? de_ProtocolsListData(output.ProtocolsList, context) : undefined,
     ProtocolsListArn: __expectString(output.ProtocolsListArn),
   } as any;
 };
 
-const deserializeAws_json1_1GetResourceSetResponse = (output: any, context: __SerdeContext): GetResourceSetResponse => {
+/**
+ * deserializeAws_json1_1GetResourceSetResponse
+ */
+const de_GetResourceSetResponse = (output: any, context: __SerdeContext): GetResourceSetResponse => {
   return {
-    ResourceSet:
-      output.ResourceSet != null ? deserializeAws_json1_1ResourceSet(output.ResourceSet, context) : undefined,
+    ResourceSet: output.ResourceSet != null ? de_ResourceSet(output.ResourceSet, context) : undefined,
     ResourceSetArn: __expectString(output.ResourceSetArn),
   } as any;
 };
 
-const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse = (
+/**
+ * deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse
+ */
+const de_GetThirdPartyFirewallAssociationStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetThirdPartyFirewallAssociationStatusResponse => {
@@ -3829,46 +4377,55 @@ const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetViolationDetailsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetViolationDetailsResponse => {
+/**
+ * deserializeAws_json1_1GetViolationDetailsResponse
+ */
+const de_GetViolationDetailsResponse = (output: any, context: __SerdeContext): GetViolationDetailsResponse => {
   return {
-    ViolationDetail:
-      output.ViolationDetail != null
-        ? deserializeAws_json1_1ViolationDetail(output.ViolationDetail, context)
-        : undefined,
+    ViolationDetail: output.ViolationDetail != null ? de_ViolationDetail(output.ViolationDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
+/**
+ * deserializeAws_json1_1InternalErrorException
+ */
+const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOperationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidOperationException => {
+/**
+ * deserializeAws_json1_1InvalidInputException
+ */
+const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
+/**
+ * deserializeAws_json1_1InvalidOperationException
+ */
+const de_InvalidOperationException = (output: any, context: __SerdeContext): InvalidOperationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_1InvalidTypeException
+ */
+const de_InvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1IssueInfoMap
+ */
+const de_IssueInfoMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
     (acc: Record<string, string>, [key, value]: [DependentServiceName | string, any]) => {
       if (value === null) {
@@ -3881,7 +4438,10 @@ const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext
   );
 };
 
-const deserializeAws_json1_1LengthBoundedStringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1LengthBoundedStringList
+ */
+const de_LengthBoundedStringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3893,107 +4453,114 @@ const deserializeAws_json1_1LengthBoundedStringList = (output: any, context: __S
   return retVal;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListAppsListsResponse = (output: any, context: __SerdeContext): ListAppsListsResponse => {
+/**
+ * deserializeAws_json1_1ListAppsListsResponse
+ */
+const de_ListAppsListsResponse = (output: any, context: __SerdeContext): ListAppsListsResponse => {
   return {
-    AppsLists: output.AppsLists != null ? deserializeAws_json1_1AppsListsData(output.AppsLists, context) : undefined,
+    AppsLists: output.AppsLists != null ? de_AppsListsData(output.AppsLists, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListComplianceStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): ListComplianceStatusResponse => {
+/**
+ * deserializeAws_json1_1ListComplianceStatusResponse
+ */
+const de_ListComplianceStatusResponse = (output: any, context: __SerdeContext): ListComplianceStatusResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     PolicyComplianceStatusList:
       output.PolicyComplianceStatusList != null
-        ? deserializeAws_json1_1PolicyComplianceStatusList(output.PolicyComplianceStatusList, context)
+        ? de_PolicyComplianceStatusList(output.PolicyComplianceStatusList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDiscoveredResourcesResponse => {
+/**
+ * deserializeAws_json1_1ListDiscoveredResourcesResponse
+ */
+const de_ListDiscoveredResourcesResponse = (output: any, context: __SerdeContext): ListDiscoveredResourcesResponse => {
   return {
-    Items: output.Items != null ? deserializeAws_json1_1DiscoveredResourceList(output.Items, context) : undefined,
+    Items: output.Items != null ? de_DiscoveredResourceList(output.Items, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListMemberAccountsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMemberAccountsResponse => {
+/**
+ * deserializeAws_json1_1ListMemberAccountsResponse
+ */
+const de_ListMemberAccountsResponse = (output: any, context: __SerdeContext): ListMemberAccountsResponse => {
   return {
-    MemberAccounts:
-      output.MemberAccounts != null ? deserializeAws_json1_1MemberAccounts(output.MemberAccounts, context) : undefined,
+    MemberAccounts: output.MemberAccounts != null ? de_MemberAccounts(output.MemberAccounts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
+/**
+ * deserializeAws_json1_1ListPoliciesResponse
+ */
+const de_ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    PolicyList:
-      output.PolicyList != null ? deserializeAws_json1_1PolicySummaryList(output.PolicyList, context) : undefined,
+    PolicyList: output.PolicyList != null ? de_PolicySummaryList(output.PolicyList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListProtocolsListsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListProtocolsListsResponse => {
+/**
+ * deserializeAws_json1_1ListProtocolsListsResponse
+ */
+const de_ListProtocolsListsResponse = (output: any, context: __SerdeContext): ListProtocolsListsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    ProtocolsLists:
-      output.ProtocolsLists != null
-        ? deserializeAws_json1_1ProtocolsListsData(output.ProtocolsLists, context)
-        : undefined,
+    ProtocolsLists: output.ProtocolsLists != null ? de_ProtocolsListsData(output.ProtocolsLists, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResourceSetResourcesResponse = (
+/**
+ * deserializeAws_json1_1ListResourceSetResourcesResponse
+ */
+const de_ListResourceSetResourcesResponse = (
   output: any,
   context: __SerdeContext
 ): ListResourceSetResourcesResponse => {
   return {
-    Items: output.Items != null ? deserializeAws_json1_1ResourceList(output.Items, context) : undefined,
+    Items: output.Items != null ? de_ResourceList(output.Items, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListResourceSetsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResourceSetsResponse => {
+/**
+ * deserializeAws_json1_1ListResourceSetsResponse
+ */
+const de_ListResourceSetsResponse = (output: any, context: __SerdeContext): ListResourceSetsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    ResourceSets:
-      output.ResourceSets != null
-        ? deserializeAws_json1_1ResourceSetSummaryList(output.ResourceSets, context)
-        : undefined,
+    ResourceSets: output.ResourceSets != null ? de_ResourceSetSummaryList(output.ResourceSets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    TagList: output.TagList != null ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
+    TagList: output.TagList != null ? de_TagList(output.TagList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse = (
+/**
+ * deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse
+ */
+const de_ListThirdPartyFirewallFirewallPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListThirdPartyFirewallFirewallPoliciesResponse => {
@@ -4001,12 +4568,15 @@ const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse = (
     NextToken: __expectString(output.NextToken),
     ThirdPartyFirewallFirewallPolicies:
       output.ThirdPartyFirewallFirewallPolicies != null
-        ? deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies(output.ThirdPartyFirewallFirewallPolicies, context)
+        ? de_ThirdPartyFirewallFirewallPolicies(output.ThirdPartyFirewallFirewallPolicies, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1MemberAccounts
+ */
+const de_MemberAccounts = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4018,7 +4588,10 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1NetworkFirewallActionList
+ */
+const de_NetworkFirewallActionList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4030,42 +4603,43 @@ const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: _
   return retVal;
 };
 
-const deserializeAws_json1_1NetworkFirewallBlackHoleRouteDetectedViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallBlackHoleRouteDetectedViolation
+ */
+const de_NetworkFirewallBlackHoleRouteDetectedViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallBlackHoleRouteDetectedViolation => {
   return {
     RouteTableId: __expectString(output.RouteTableId),
-    ViolatingRoutes:
-      output.ViolatingRoutes != null ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context) : undefined,
+    ViolatingRoutes: output.ViolatingRoutes != null ? de_Routes(output.ViolatingRoutes, context) : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation
+ */
+const de_NetworkFirewallInternetTrafficNotInspectedViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallInternetTrafficNotInspectedViolation => {
   return {
     ActualFirewallSubnetRoutes:
-      output.ActualFirewallSubnetRoutes != null
-        ? deserializeAws_json1_1Routes(output.ActualFirewallSubnetRoutes, context)
-        : undefined,
+      output.ActualFirewallSubnetRoutes != null ? de_Routes(output.ActualFirewallSubnetRoutes, context) : undefined,
     ActualInternetGatewayRoutes:
-      output.ActualInternetGatewayRoutes != null
-        ? deserializeAws_json1_1Routes(output.ActualInternetGatewayRoutes, context)
-        : undefined,
+      output.ActualInternetGatewayRoutes != null ? de_Routes(output.ActualInternetGatewayRoutes, context) : undefined,
     CurrentFirewallSubnetRouteTable: __expectString(output.CurrentFirewallSubnetRouteTable),
     CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
     ExpectedFirewallEndpoint: __expectString(output.ExpectedFirewallEndpoint),
     ExpectedFirewallSubnetRoutes:
       output.ExpectedFirewallSubnetRoutes != null
-        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
+        ? de_ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
         : undefined,
     ExpectedInternetGatewayRoutes:
       output.ExpectedInternetGatewayRoutes != null
-        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
+        ? de_ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
         : undefined,
     FirewallSubnetId: __expectString(output.FirewallSubnetId),
     InternetGatewayId: __expectString(output.InternetGatewayId),
@@ -4073,13 +4647,15 @@ const deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation 
     RouteTableId: __expectString(output.RouteTableId),
     SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
     SubnetId: __expectString(output.SubnetId),
-    ViolatingRoutes:
-      output.ViolatingRoutes != null ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context) : undefined,
+    ViolatingRoutes: output.ViolatingRoutes != null ? de_Routes(output.ViolatingRoutes, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation
+ */
+const de_NetworkFirewallInvalidRouteConfigurationViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallInvalidRouteConfigurationViolation => {
@@ -4087,51 +4663,48 @@ const deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation = 
     ActualFirewallEndpoint: __expectString(output.ActualFirewallEndpoint),
     ActualFirewallSubnetId: __expectString(output.ActualFirewallSubnetId),
     ActualFirewallSubnetRoutes:
-      output.ActualFirewallSubnetRoutes != null
-        ? deserializeAws_json1_1Routes(output.ActualFirewallSubnetRoutes, context)
-        : undefined,
+      output.ActualFirewallSubnetRoutes != null ? de_Routes(output.ActualFirewallSubnetRoutes, context) : undefined,
     ActualInternetGatewayRoutes:
-      output.ActualInternetGatewayRoutes != null
-        ? deserializeAws_json1_1Routes(output.ActualInternetGatewayRoutes, context)
-        : undefined,
-    AffectedSubnets:
-      output.AffectedSubnets != null
-        ? deserializeAws_json1_1ResourceIdList(output.AffectedSubnets, context)
-        : undefined,
+      output.ActualInternetGatewayRoutes != null ? de_Routes(output.ActualInternetGatewayRoutes, context) : undefined,
+    AffectedSubnets: output.AffectedSubnets != null ? de_ResourceIdList(output.AffectedSubnets, context) : undefined,
     CurrentFirewallSubnetRouteTable: __expectString(output.CurrentFirewallSubnetRouteTable),
     CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
     ExpectedFirewallEndpoint: __expectString(output.ExpectedFirewallEndpoint),
     ExpectedFirewallSubnetId: __expectString(output.ExpectedFirewallSubnetId),
     ExpectedFirewallSubnetRoutes:
       output.ExpectedFirewallSubnetRoutes != null
-        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
+        ? de_ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
         : undefined,
     ExpectedInternetGatewayRoutes:
       output.ExpectedInternetGatewayRoutes != null
-        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
+        ? de_ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
         : undefined,
     InternetGatewayId: __expectString(output.InternetGatewayId),
     IsRouteTableUsedInDifferentAZ: __expectBoolean(output.IsRouteTableUsedInDifferentAZ),
     RouteTableId: __expectString(output.RouteTableId),
-    ViolatingRoute:
-      output.ViolatingRoute != null ? deserializeAws_json1_1Route(output.ViolatingRoute, context) : undefined,
+    ViolatingRoute: output.ViolatingRoute != null ? de_Route(output.ViolatingRoute, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallMissingExpectedRoutesViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallMissingExpectedRoutesViolation
+ */
+const de_NetworkFirewallMissingExpectedRoutesViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallMissingExpectedRoutesViolation => {
   return {
-    ExpectedRoutes:
-      output.ExpectedRoutes != null ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedRoutes, context) : undefined,
+    ExpectedRoutes: output.ExpectedRoutes != null ? de_ExpectedRoutes(output.ExpectedRoutes, context) : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation
+ */
+const de_NetworkFirewallMissingExpectedRTViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallMissingExpectedRTViolation => {
@@ -4144,7 +4717,10 @@ const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallMissingFirewallViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallMissingFirewallViolation
+ */
+const de_NetworkFirewallMissingFirewallViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallMissingFirewallViolation => {
@@ -4156,7 +4732,10 @@ const deserializeAws_json1_1NetworkFirewallMissingFirewallViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallMissingSubnetViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallMissingSubnetViolation
+ */
+const de_NetworkFirewallMissingSubnetViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallMissingSubnetViolation => {
@@ -4168,66 +4747,74 @@ const deserializeAws_json1_1NetworkFirewallMissingSubnetViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallPolicy = (output: any, context: __SerdeContext): NetworkFirewallPolicy => {
+/**
+ * deserializeAws_json1_1NetworkFirewallPolicy
+ */
+const de_NetworkFirewallPolicy = (output: any, context: __SerdeContext): NetworkFirewallPolicy => {
   return {
     FirewallDeploymentModel: __expectString(output.FirewallDeploymentModel),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallPolicyDescription = (
+/**
+ * deserializeAws_json1_1NetworkFirewallPolicyDescription
+ */
+const de_NetworkFirewallPolicyDescription = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallPolicyDescription => {
   return {
     StatefulDefaultActions:
       output.StatefulDefaultActions != null
-        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatefulDefaultActions, context)
+        ? de_NetworkFirewallActionList(output.StatefulDefaultActions, context)
         : undefined,
     StatefulEngineOptions:
       output.StatefulEngineOptions != null
-        ? deserializeAws_json1_1StatefulEngineOptions(output.StatefulEngineOptions, context)
+        ? de_StatefulEngineOptions(output.StatefulEngineOptions, context)
         : undefined,
     StatefulRuleGroups:
-      output.StatefulRuleGroups != null
-        ? deserializeAws_json1_1StatefulRuleGroupList(output.StatefulRuleGroups, context)
-        : undefined,
+      output.StatefulRuleGroups != null ? de_StatefulRuleGroupList(output.StatefulRuleGroups, context) : undefined,
     StatelessCustomActions:
       output.StatelessCustomActions != null
-        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessCustomActions, context)
+        ? de_NetworkFirewallActionList(output.StatelessCustomActions, context)
         : undefined,
     StatelessDefaultActions:
       output.StatelessDefaultActions != null
-        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessDefaultActions, context)
+        ? de_NetworkFirewallActionList(output.StatelessDefaultActions, context)
         : undefined,
     StatelessFragmentDefaultActions:
       output.StatelessFragmentDefaultActions != null
-        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessFragmentDefaultActions, context)
+        ? de_NetworkFirewallActionList(output.StatelessFragmentDefaultActions, context)
         : undefined,
     StatelessRuleGroups:
-      output.StatelessRuleGroups != null
-        ? deserializeAws_json1_1StatelessRuleGroupList(output.StatelessRuleGroups, context)
-        : undefined,
+      output.StatelessRuleGroups != null ? de_StatelessRuleGroupList(output.StatelessRuleGroups, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation
+ */
+const de_NetworkFirewallPolicyModifiedViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallPolicyModifiedViolation => {
   return {
     CurrentPolicyDescription:
       output.CurrentPolicyDescription != null
-        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.CurrentPolicyDescription, context)
+        ? de_NetworkFirewallPolicyDescription(output.CurrentPolicyDescription, context)
         : undefined,
     ExpectedPolicyDescription:
       output.ExpectedPolicyDescription != null
-        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.ExpectedPolicyDescription, context)
+        ? de_NetworkFirewallPolicyDescription(output.ExpectedPolicyDescription, context)
         : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride = (
+/**
+ * deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride
+ */
+const de_NetworkFirewallStatefulRuleGroupOverride = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallStatefulRuleGroupOverride => {
@@ -4236,7 +4823,10 @@ const deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride = (
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation
+ */
+const de_NetworkFirewallUnexpectedFirewallRoutesViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallUnexpectedFirewallRoutesViolation => {
@@ -4244,114 +4834,119 @@ const deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation = (
     FirewallEndpoint: __expectString(output.FirewallEndpoint),
     FirewallSubnetId: __expectString(output.FirewallSubnetId),
     RouteTableId: __expectString(output.RouteTableId),
-    ViolatingRoutes:
-      output.ViolatingRoutes != null ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context) : undefined,
+    ViolatingRoutes: output.ViolatingRoutes != null ? de_Routes(output.ViolatingRoutes, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1NetworkFirewallUnexpectedGatewayRoutesViolation = (
+/**
+ * deserializeAws_json1_1NetworkFirewallUnexpectedGatewayRoutesViolation
+ */
+const de_NetworkFirewallUnexpectedGatewayRoutesViolation = (
   output: any,
   context: __SerdeContext
 ): NetworkFirewallUnexpectedGatewayRoutesViolation => {
   return {
     GatewayId: __expectString(output.GatewayId),
     RouteTableId: __expectString(output.RouteTableId),
-    ViolatingRoutes:
-      output.ViolatingRoutes != null ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context) : undefined,
+    ViolatingRoutes: output.ViolatingRoutes != null ? de_Routes(output.ViolatingRoutes, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1OrderedRemediationActions = (
-  output: any,
-  context: __SerdeContext
-): RemediationActionWithOrder[] => {
+/**
+ * deserializeAws_json1_1OrderedRemediationActions
+ */
+const de_OrderedRemediationActions = (output: any, context: __SerdeContext): RemediationActionWithOrder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RemediationActionWithOrder(entry, context);
+      return de_RemediationActionWithOrder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
+/**
+ * deserializeAws_json1_1PartialMatch
+ */
+const de_PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
   return {
     Reference: __expectString(output.Reference),
     TargetViolationReasons:
       output.TargetViolationReasons != null
-        ? deserializeAws_json1_1TargetViolationReasons(output.TargetViolationReasons, context)
+        ? de_TargetViolationReasons(output.TargetViolationReasons, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PartialMatches = (output: any, context: __SerdeContext): PartialMatch[] => {
+/**
+ * deserializeAws_json1_1PartialMatches
+ */
+const de_PartialMatches = (output: any, context: __SerdeContext): PartialMatch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PartialMatch(entry, context);
+      return de_PartialMatch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
+/**
+ * deserializeAws_json1_1Policy
+ */
+const de_Policy = (output: any, context: __SerdeContext): Policy => {
   return {
     DeleteUnusedFMManagedResources: __expectBoolean(output.DeleteUnusedFMManagedResources),
-    ExcludeMap:
-      output.ExcludeMap != null ? deserializeAws_json1_1CustomerPolicyScopeMap(output.ExcludeMap, context) : undefined,
+    ExcludeMap: output.ExcludeMap != null ? de_CustomerPolicyScopeMap(output.ExcludeMap, context) : undefined,
     ExcludeResourceTags: __expectBoolean(output.ExcludeResourceTags),
-    IncludeMap:
-      output.IncludeMap != null ? deserializeAws_json1_1CustomerPolicyScopeMap(output.IncludeMap, context) : undefined,
+    IncludeMap: output.IncludeMap != null ? de_CustomerPolicyScopeMap(output.IncludeMap, context) : undefined,
     PolicyDescription: __expectString(output.PolicyDescription),
     PolicyId: __expectString(output.PolicyId),
     PolicyName: __expectString(output.PolicyName),
     PolicyUpdateToken: __expectString(output.PolicyUpdateToken),
     RemediationEnabled: __expectBoolean(output.RemediationEnabled),
-    ResourceSetIds:
-      output.ResourceSetIds != null ? deserializeAws_json1_1ResourceSetIds(output.ResourceSetIds, context) : undefined,
-    ResourceTags:
-      output.ResourceTags != null ? deserializeAws_json1_1ResourceTags(output.ResourceTags, context) : undefined,
+    ResourceSetIds: output.ResourceSetIds != null ? de_ResourceSetIds(output.ResourceSetIds, context) : undefined,
+    ResourceTags: output.ResourceTags != null ? de_ResourceTags(output.ResourceTags, context) : undefined,
     ResourceType: __expectString(output.ResourceType),
     ResourceTypeList:
-      output.ResourceTypeList != null
-        ? deserializeAws_json1_1ResourceTypeList(output.ResourceTypeList, context)
-        : undefined,
+      output.ResourceTypeList != null ? de_ResourceTypeList(output.ResourceTypeList, context) : undefined,
     SecurityServicePolicyData:
       output.SecurityServicePolicyData != null
-        ? deserializeAws_json1_1SecurityServicePolicyData(output.SecurityServicePolicyData, context)
+        ? de_SecurityServicePolicyData(output.SecurityServicePolicyData, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PolicyComplianceDetail = (output: any, context: __SerdeContext): PolicyComplianceDetail => {
+/**
+ * deserializeAws_json1_1PolicyComplianceDetail
+ */
+const de_PolicyComplianceDetail = (output: any, context: __SerdeContext): PolicyComplianceDetail => {
   return {
     EvaluationLimitExceeded: __expectBoolean(output.EvaluationLimitExceeded),
     ExpiredAt:
       output.ExpiredAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiredAt))) : undefined,
-    IssueInfoMap:
-      output.IssueInfoMap != null ? deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context) : undefined,
+    IssueInfoMap: output.IssueInfoMap != null ? de_IssueInfoMap(output.IssueInfoMap, context) : undefined,
     MemberAccount: __expectString(output.MemberAccount),
     PolicyId: __expectString(output.PolicyId),
     PolicyOwner: __expectString(output.PolicyOwner),
-    Violators:
-      output.Violators != null ? deserializeAws_json1_1ComplianceViolators(output.Violators, context) : undefined,
+    Violators: output.Violators != null ? de_ComplianceViolators(output.Violators, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PolicyComplianceStatus = (output: any, context: __SerdeContext): PolicyComplianceStatus => {
+/**
+ * deserializeAws_json1_1PolicyComplianceStatus
+ */
+const de_PolicyComplianceStatus = (output: any, context: __SerdeContext): PolicyComplianceStatus => {
   return {
     EvaluationResults:
-      output.EvaluationResults != null
-        ? deserializeAws_json1_1EvaluationResults(output.EvaluationResults, context)
-        : undefined,
-    IssueInfoMap:
-      output.IssueInfoMap != null ? deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context) : undefined,
+      output.EvaluationResults != null ? de_EvaluationResults(output.EvaluationResults, context) : undefined,
+    IssueInfoMap: output.IssueInfoMap != null ? de_IssueInfoMap(output.IssueInfoMap, context) : undefined,
     LastUpdated:
       output.LastUpdated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
@@ -4363,35 +4958,41 @@ const deserializeAws_json1_1PolicyComplianceStatus = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1PolicyComplianceStatusList = (
-  output: any,
-  context: __SerdeContext
-): PolicyComplianceStatus[] => {
+/**
+ * deserializeAws_json1_1PolicyComplianceStatusList
+ */
+const de_PolicyComplianceStatusList = (output: any, context: __SerdeContext): PolicyComplianceStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PolicyComplianceStatus(entry, context);
+      return de_PolicyComplianceStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PolicyOption = (output: any, context: __SerdeContext): PolicyOption => {
+/**
+ * deserializeAws_json1_1PolicyOption
+ */
+const de_PolicyOption = (output: any, context: __SerdeContext): PolicyOption => {
   return {
     NetworkFirewallPolicy:
       output.NetworkFirewallPolicy != null
-        ? deserializeAws_json1_1NetworkFirewallPolicy(output.NetworkFirewallPolicy, context)
+        ? de_NetworkFirewallPolicy(output.NetworkFirewallPolicy, context)
         : undefined,
     ThirdPartyFirewallPolicy:
       output.ThirdPartyFirewallPolicy != null
-        ? deserializeAws_json1_1ThirdPartyFirewallPolicy(output.ThirdPartyFirewallPolicy, context)
+        ? de_ThirdPartyFirewallPolicy(output.ThirdPartyFirewallPolicy, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
+/**
+ * deserializeAws_json1_1PolicySummary
+ */
+const de_PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
     DeleteUnusedFMManagedResources: __expectBoolean(output.DeleteUnusedFMManagedResources),
     PolicyArn: __expectString(output.PolicyArn),
@@ -4403,82 +5004,90 @@ const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1PolicySummaryList = (output: any, context: __SerdeContext): PolicySummary[] => {
+/**
+ * deserializeAws_json1_1PolicySummaryList
+ */
+const de_PolicySummaryList = (output: any, context: __SerdeContext): PolicySummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PolicySummary(entry, context);
+      return de_PolicySummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PossibleRemediationAction = (
-  output: any,
-  context: __SerdeContext
-): PossibleRemediationAction => {
+/**
+ * deserializeAws_json1_1PossibleRemediationAction
+ */
+const de_PossibleRemediationAction = (output: any, context: __SerdeContext): PossibleRemediationAction => {
   return {
     Description: __expectString(output.Description),
     IsDefaultAction: __expectBoolean(output.IsDefaultAction),
     OrderedRemediationActions:
       output.OrderedRemediationActions != null
-        ? deserializeAws_json1_1OrderedRemediationActions(output.OrderedRemediationActions, context)
+        ? de_OrderedRemediationActions(output.OrderedRemediationActions, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PossibleRemediationActionList = (
-  output: any,
-  context: __SerdeContext
-): PossibleRemediationAction[] => {
+/**
+ * deserializeAws_json1_1PossibleRemediationActionList
+ */
+const de_PossibleRemediationActionList = (output: any, context: __SerdeContext): PossibleRemediationAction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PossibleRemediationAction(entry, context);
+      return de_PossibleRemediationAction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PossibleRemediationActions = (
-  output: any,
-  context: __SerdeContext
-): PossibleRemediationActions => {
+/**
+ * deserializeAws_json1_1PossibleRemediationActions
+ */
+const de_PossibleRemediationActions = (output: any, context: __SerdeContext): PossibleRemediationActions => {
   return {
-    Actions:
-      output.Actions != null ? deserializeAws_json1_1PossibleRemediationActionList(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? de_PossibleRemediationActionList(output.Actions, context) : undefined,
     Description: __expectString(output.Description),
   } as any;
 };
 
-const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeContext): Record<string, App[]> => {
+/**
+ * deserializeAws_json1_1PreviousAppsList
+ */
+const de_PreviousAppsList = (output: any, context: __SerdeContext): Record<string, App[]> => {
   return Object.entries(output).reduce((acc: Record<string, App[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_1AppsList(value, context);
+    acc[key] = de_AppsList(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_1PreviousProtocolsList = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string[]> => {
+/**
+ * deserializeAws_json1_1PreviousProtocolsList
+ */
+const de_PreviousProtocolsList = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_1ProtocolsList(value, context);
+    acc[key] = de_ProtocolsList(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_1ProtocolsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ProtocolsList
+ */
+const de_ProtocolsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4490,7 +5099,10 @@ const deserializeAws_json1_1ProtocolsList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1ProtocolsListData = (output: any, context: __SerdeContext): ProtocolsListData => {
+/**
+ * deserializeAws_json1_1ProtocolsListData
+ */
+const de_ProtocolsListData = (output: any, context: __SerdeContext): ProtocolsListData => {
   return {
     CreateTime:
       output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
@@ -4503,136 +5115,141 @@ const deserializeAws_json1_1ProtocolsListData = (output: any, context: __SerdeCo
     ListUpdateToken: __expectString(output.ListUpdateToken),
     PreviousProtocolsList:
       output.PreviousProtocolsList != null
-        ? deserializeAws_json1_1PreviousProtocolsList(output.PreviousProtocolsList, context)
+        ? de_PreviousProtocolsList(output.PreviousProtocolsList, context)
         : undefined,
-    ProtocolsList:
-      output.ProtocolsList != null ? deserializeAws_json1_1ProtocolsList(output.ProtocolsList, context) : undefined,
+    ProtocolsList: output.ProtocolsList != null ? de_ProtocolsList(output.ProtocolsList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProtocolsListDataSummary = (
-  output: any,
-  context: __SerdeContext
-): ProtocolsListDataSummary => {
+/**
+ * deserializeAws_json1_1ProtocolsListDataSummary
+ */
+const de_ProtocolsListDataSummary = (output: any, context: __SerdeContext): ProtocolsListDataSummary => {
   return {
     ListArn: __expectString(output.ListArn),
     ListId: __expectString(output.ListId),
     ListName: __expectString(output.ListName),
-    ProtocolsList:
-      output.ProtocolsList != null ? deserializeAws_json1_1ProtocolsList(output.ProtocolsList, context) : undefined,
+    ProtocolsList: output.ProtocolsList != null ? de_ProtocolsList(output.ProtocolsList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProtocolsListsData = (output: any, context: __SerdeContext): ProtocolsListDataSummary[] => {
+/**
+ * deserializeAws_json1_1ProtocolsListsData
+ */
+const de_ProtocolsListsData = (output: any, context: __SerdeContext): ProtocolsListDataSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProtocolsListDataSummary(entry, context);
+      return de_ProtocolsListDataSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PutAppsListResponse = (output: any, context: __SerdeContext): PutAppsListResponse => {
+/**
+ * deserializeAws_json1_1PutAppsListResponse
+ */
+const de_PutAppsListResponse = (output: any, context: __SerdeContext): PutAppsListResponse => {
   return {
-    AppsList: output.AppsList != null ? deserializeAws_json1_1AppsListData(output.AppsList, context) : undefined,
+    AppsList: output.AppsList != null ? de_AppsListData(output.AppsList, context) : undefined,
     AppsListArn: __expectString(output.AppsListArn),
   } as any;
 };
 
-const deserializeAws_json1_1PutPolicyResponse = (output: any, context: __SerdeContext): PutPolicyResponse => {
+/**
+ * deserializeAws_json1_1PutPolicyResponse
+ */
+const de_PutPolicyResponse = (output: any, context: __SerdeContext): PutPolicyResponse => {
   return {
-    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
     PolicyArn: __expectString(output.PolicyArn),
   } as any;
 };
 
-const deserializeAws_json1_1PutProtocolsListResponse = (
-  output: any,
-  context: __SerdeContext
-): PutProtocolsListResponse => {
+/**
+ * deserializeAws_json1_1PutProtocolsListResponse
+ */
+const de_PutProtocolsListResponse = (output: any, context: __SerdeContext): PutProtocolsListResponse => {
   return {
-    ProtocolsList:
-      output.ProtocolsList != null ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context) : undefined,
+    ProtocolsList: output.ProtocolsList != null ? de_ProtocolsListData(output.ProtocolsList, context) : undefined,
     ProtocolsListArn: __expectString(output.ProtocolsListArn),
   } as any;
 };
 
-const deserializeAws_json1_1PutResourceSetResponse = (output: any, context: __SerdeContext): PutResourceSetResponse => {
+/**
+ * deserializeAws_json1_1PutResourceSetResponse
+ */
+const de_PutResourceSetResponse = (output: any, context: __SerdeContext): PutResourceSetResponse => {
   return {
-    ResourceSet:
-      output.ResourceSet != null ? deserializeAws_json1_1ResourceSet(output.ResourceSet, context) : undefined,
+    ResourceSet: output.ResourceSet != null ? de_ResourceSet(output.ResourceSet, context) : undefined,
     ResourceSetArn: __expectString(output.ResourceSetArn),
   } as any;
 };
 
-const deserializeAws_json1_1RemediationAction = (output: any, context: __SerdeContext): RemediationAction => {
+/**
+ * deserializeAws_json1_1RemediationAction
+ */
+const de_RemediationAction = (output: any, context: __SerdeContext): RemediationAction => {
   return {
     Description: __expectString(output.Description),
     EC2AssociateRouteTableAction:
       output.EC2AssociateRouteTableAction != null
-        ? deserializeAws_json1_1EC2AssociateRouteTableAction(output.EC2AssociateRouteTableAction, context)
+        ? de_EC2AssociateRouteTableAction(output.EC2AssociateRouteTableAction, context)
         : undefined,
     EC2CopyRouteTableAction:
       output.EC2CopyRouteTableAction != null
-        ? deserializeAws_json1_1EC2CopyRouteTableAction(output.EC2CopyRouteTableAction, context)
+        ? de_EC2CopyRouteTableAction(output.EC2CopyRouteTableAction, context)
         : undefined,
     EC2CreateRouteAction:
-      output.EC2CreateRouteAction != null
-        ? deserializeAws_json1_1EC2CreateRouteAction(output.EC2CreateRouteAction, context)
-        : undefined,
+      output.EC2CreateRouteAction != null ? de_EC2CreateRouteAction(output.EC2CreateRouteAction, context) : undefined,
     EC2CreateRouteTableAction:
       output.EC2CreateRouteTableAction != null
-        ? deserializeAws_json1_1EC2CreateRouteTableAction(output.EC2CreateRouteTableAction, context)
+        ? de_EC2CreateRouteTableAction(output.EC2CreateRouteTableAction, context)
         : undefined,
     EC2DeleteRouteAction:
-      output.EC2DeleteRouteAction != null
-        ? deserializeAws_json1_1EC2DeleteRouteAction(output.EC2DeleteRouteAction, context)
-        : undefined,
+      output.EC2DeleteRouteAction != null ? de_EC2DeleteRouteAction(output.EC2DeleteRouteAction, context) : undefined,
     EC2ReplaceRouteAction:
       output.EC2ReplaceRouteAction != null
-        ? deserializeAws_json1_1EC2ReplaceRouteAction(output.EC2ReplaceRouteAction, context)
+        ? de_EC2ReplaceRouteAction(output.EC2ReplaceRouteAction, context)
         : undefined,
     EC2ReplaceRouteTableAssociationAction:
       output.EC2ReplaceRouteTableAssociationAction != null
-        ? deserializeAws_json1_1EC2ReplaceRouteTableAssociationAction(
-            output.EC2ReplaceRouteTableAssociationAction,
-            context
-          )
+        ? de_EC2ReplaceRouteTableAssociationAction(output.EC2ReplaceRouteTableAssociationAction, context)
         : undefined,
     FMSPolicyUpdateFirewallCreationConfigAction:
       output.FMSPolicyUpdateFirewallCreationConfigAction != null
-        ? deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction(
-            output.FMSPolicyUpdateFirewallCreationConfigAction,
-            context
-          )
+        ? de_FMSPolicyUpdateFirewallCreationConfigAction(output.FMSPolicyUpdateFirewallCreationConfigAction, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RemediationActionWithOrder = (
-  output: any,
-  context: __SerdeContext
-): RemediationActionWithOrder => {
+/**
+ * deserializeAws_json1_1RemediationActionWithOrder
+ */
+const de_RemediationActionWithOrder = (output: any, context: __SerdeContext): RemediationActionWithOrder => {
   return {
     Order: __expectInt32(output.Order),
     RemediationAction:
-      output.RemediationAction != null
-        ? deserializeAws_json1_1RemediationAction(output.RemediationAction, context)
-        : undefined,
+      output.RemediationAction != null ? de_RemediationAction(output.RemediationAction, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
+/**
+ * deserializeAws_json1_1Resource
+ */
+const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     AccountId: __expectString(output.AccountId),
     URI: __expectString(output.URI),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ResourceIdList
+ */
+const de_ResourceIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4644,28 +5261,34 @@ const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
+/**
+ * deserializeAws_json1_1ResourceList
+ */
+const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Resource(entry, context);
+      return de_Resource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceSet = (output: any, context: __SerdeContext): ResourceSet => {
+/**
+ * deserializeAws_json1_1ResourceSet
+ */
+const de_ResourceSet = (output: any, context: __SerdeContext): ResourceSet => {
   return {
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
@@ -4675,14 +5298,15 @@ const deserializeAws_json1_1ResourceSet = (output: any, context: __SerdeContext)
         : undefined,
     Name: __expectString(output.Name),
     ResourceTypeList:
-      output.ResourceTypeList != null
-        ? deserializeAws_json1_1ResourceTypeList(output.ResourceTypeList, context)
-        : undefined,
+      output.ResourceTypeList != null ? de_ResourceTypeList(output.ResourceTypeList, context) : undefined,
     UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceSetIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ResourceSetIds
+ */
+const de_ResourceSetIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4694,7 +5318,10 @@ const deserializeAws_json1_1ResourceSetIds = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceSetSummary = (output: any, context: __SerdeContext): ResourceSetSummary => {
+/**
+ * deserializeAws_json1_1ResourceSetSummary
+ */
+const de_ResourceSetSummary = (output: any, context: __SerdeContext): ResourceSetSummary => {
   return {
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
@@ -4706,38 +5333,50 @@ const deserializeAws_json1_1ResourceSetSummary = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1ResourceSetSummaryList = (output: any, context: __SerdeContext): ResourceSetSummary[] => {
+/**
+ * deserializeAws_json1_1ResourceSetSummaryList
+ */
+const de_ResourceSetSummaryList = (output: any, context: __SerdeContext): ResourceSetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceSetSummary(entry, context);
+      return de_ResourceSetSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
+/**
+ * deserializeAws_json1_1ResourceTag
+ */
+const de_ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceTags = (output: any, context: __SerdeContext): ResourceTag[] => {
+/**
+ * deserializeAws_json1_1ResourceTags
+ */
+const de_ResourceTags = (output: any, context: __SerdeContext): ResourceTag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceTag(entry, context);
+      return de_ResourceTag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceTypeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ResourceTypeList
+ */
+const de_ResourceTypeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4749,161 +5388,146 @@ const deserializeAws_json1_1ResourceTypeList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeContext): ResourceViolation => {
+/**
+ * deserializeAws_json1_1ResourceViolation
+ */
+const de_ResourceViolation = (output: any, context: __SerdeContext): ResourceViolation => {
   return {
     AwsEc2InstanceViolation:
       output.AwsEc2InstanceViolation != null
-        ? deserializeAws_json1_1AwsEc2InstanceViolation(output.AwsEc2InstanceViolation, context)
+        ? de_AwsEc2InstanceViolation(output.AwsEc2InstanceViolation, context)
         : undefined,
     AwsEc2NetworkInterfaceViolation:
       output.AwsEc2NetworkInterfaceViolation != null
-        ? deserializeAws_json1_1AwsEc2NetworkInterfaceViolation(output.AwsEc2NetworkInterfaceViolation, context)
+        ? de_AwsEc2NetworkInterfaceViolation(output.AwsEc2NetworkInterfaceViolation, context)
         : undefined,
     AwsVPCSecurityGroupViolation:
       output.AwsVPCSecurityGroupViolation != null
-        ? deserializeAws_json1_1AwsVPCSecurityGroupViolation(output.AwsVPCSecurityGroupViolation, context)
+        ? de_AwsVPCSecurityGroupViolation(output.AwsVPCSecurityGroupViolation, context)
         : undefined,
     DnsDuplicateRuleGroupViolation:
       output.DnsDuplicateRuleGroupViolation != null
-        ? deserializeAws_json1_1DnsDuplicateRuleGroupViolation(output.DnsDuplicateRuleGroupViolation, context)
+        ? de_DnsDuplicateRuleGroupViolation(output.DnsDuplicateRuleGroupViolation, context)
         : undefined,
     DnsRuleGroupLimitExceededViolation:
       output.DnsRuleGroupLimitExceededViolation != null
-        ? deserializeAws_json1_1DnsRuleGroupLimitExceededViolation(output.DnsRuleGroupLimitExceededViolation, context)
+        ? de_DnsRuleGroupLimitExceededViolation(output.DnsRuleGroupLimitExceededViolation, context)
         : undefined,
     DnsRuleGroupPriorityConflictViolation:
       output.DnsRuleGroupPriorityConflictViolation != null
-        ? deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation(
-            output.DnsRuleGroupPriorityConflictViolation,
-            context
-          )
+        ? de_DnsRuleGroupPriorityConflictViolation(output.DnsRuleGroupPriorityConflictViolation, context)
         : undefined,
     FirewallSubnetIsOutOfScopeViolation:
       output.FirewallSubnetIsOutOfScopeViolation != null
-        ? deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation(output.FirewallSubnetIsOutOfScopeViolation, context)
+        ? de_FirewallSubnetIsOutOfScopeViolation(output.FirewallSubnetIsOutOfScopeViolation, context)
         : undefined,
     FirewallSubnetMissingVPCEndpointViolation:
       output.FirewallSubnetMissingVPCEndpointViolation != null
-        ? deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation(
-            output.FirewallSubnetMissingVPCEndpointViolation,
-            context
-          )
+        ? de_FirewallSubnetMissingVPCEndpointViolation(output.FirewallSubnetMissingVPCEndpointViolation, context)
         : undefined,
     NetworkFirewallBlackHoleRouteDetectedViolation:
       output.NetworkFirewallBlackHoleRouteDetectedViolation != null
-        ? deserializeAws_json1_1NetworkFirewallBlackHoleRouteDetectedViolation(
+        ? de_NetworkFirewallBlackHoleRouteDetectedViolation(
             output.NetworkFirewallBlackHoleRouteDetectedViolation,
             context
           )
         : undefined,
     NetworkFirewallInternetTrafficNotInspectedViolation:
       output.NetworkFirewallInternetTrafficNotInspectedViolation != null
-        ? deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation(
+        ? de_NetworkFirewallInternetTrafficNotInspectedViolation(
             output.NetworkFirewallInternetTrafficNotInspectedViolation,
             context
           )
         : undefined,
     NetworkFirewallInvalidRouteConfigurationViolation:
       output.NetworkFirewallInvalidRouteConfigurationViolation != null
-        ? deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation(
+        ? de_NetworkFirewallInvalidRouteConfigurationViolation(
             output.NetworkFirewallInvalidRouteConfigurationViolation,
             context
           )
         : undefined,
     NetworkFirewallMissingExpectedRTViolation:
       output.NetworkFirewallMissingExpectedRTViolation != null
-        ? deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation(
-            output.NetworkFirewallMissingExpectedRTViolation,
-            context
-          )
+        ? de_NetworkFirewallMissingExpectedRTViolation(output.NetworkFirewallMissingExpectedRTViolation, context)
         : undefined,
     NetworkFirewallMissingExpectedRoutesViolation:
       output.NetworkFirewallMissingExpectedRoutesViolation != null
-        ? deserializeAws_json1_1NetworkFirewallMissingExpectedRoutesViolation(
+        ? de_NetworkFirewallMissingExpectedRoutesViolation(
             output.NetworkFirewallMissingExpectedRoutesViolation,
             context
           )
         : undefined,
     NetworkFirewallMissingFirewallViolation:
       output.NetworkFirewallMissingFirewallViolation != null
-        ? deserializeAws_json1_1NetworkFirewallMissingFirewallViolation(
-            output.NetworkFirewallMissingFirewallViolation,
-            context
-          )
+        ? de_NetworkFirewallMissingFirewallViolation(output.NetworkFirewallMissingFirewallViolation, context)
         : undefined,
     NetworkFirewallMissingSubnetViolation:
       output.NetworkFirewallMissingSubnetViolation != null
-        ? deserializeAws_json1_1NetworkFirewallMissingSubnetViolation(
-            output.NetworkFirewallMissingSubnetViolation,
-            context
-          )
+        ? de_NetworkFirewallMissingSubnetViolation(output.NetworkFirewallMissingSubnetViolation, context)
         : undefined,
     NetworkFirewallPolicyModifiedViolation:
       output.NetworkFirewallPolicyModifiedViolation != null
-        ? deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation(
-            output.NetworkFirewallPolicyModifiedViolation,
-            context
-          )
+        ? de_NetworkFirewallPolicyModifiedViolation(output.NetworkFirewallPolicyModifiedViolation, context)
         : undefined,
     NetworkFirewallUnexpectedFirewallRoutesViolation:
       output.NetworkFirewallUnexpectedFirewallRoutesViolation != null
-        ? deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation(
+        ? de_NetworkFirewallUnexpectedFirewallRoutesViolation(
             output.NetworkFirewallUnexpectedFirewallRoutesViolation,
             context
           )
         : undefined,
     NetworkFirewallUnexpectedGatewayRoutesViolation:
       output.NetworkFirewallUnexpectedGatewayRoutesViolation != null
-        ? deserializeAws_json1_1NetworkFirewallUnexpectedGatewayRoutesViolation(
+        ? de_NetworkFirewallUnexpectedGatewayRoutesViolation(
             output.NetworkFirewallUnexpectedGatewayRoutesViolation,
             context
           )
         : undefined,
     PossibleRemediationActions:
       output.PossibleRemediationActions != null
-        ? deserializeAws_json1_1PossibleRemediationActions(output.PossibleRemediationActions, context)
+        ? de_PossibleRemediationActions(output.PossibleRemediationActions, context)
         : undefined,
     RouteHasOutOfScopeEndpointViolation:
       output.RouteHasOutOfScopeEndpointViolation != null
-        ? deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation(output.RouteHasOutOfScopeEndpointViolation, context)
+        ? de_RouteHasOutOfScopeEndpointViolation(output.RouteHasOutOfScopeEndpointViolation, context)
         : undefined,
     ThirdPartyFirewallMissingExpectedRouteTableViolation:
       output.ThirdPartyFirewallMissingExpectedRouteTableViolation != null
-        ? deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation(
+        ? de_ThirdPartyFirewallMissingExpectedRouteTableViolation(
             output.ThirdPartyFirewallMissingExpectedRouteTableViolation,
             context
           )
         : undefined,
     ThirdPartyFirewallMissingFirewallViolation:
       output.ThirdPartyFirewallMissingFirewallViolation != null
-        ? deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation(
-            output.ThirdPartyFirewallMissingFirewallViolation,
-            context
-          )
+        ? de_ThirdPartyFirewallMissingFirewallViolation(output.ThirdPartyFirewallMissingFirewallViolation, context)
         : undefined,
     ThirdPartyFirewallMissingSubnetViolation:
       output.ThirdPartyFirewallMissingSubnetViolation != null
-        ? deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation(
-            output.ThirdPartyFirewallMissingSubnetViolation,
-            context
-          )
+        ? de_ThirdPartyFirewallMissingSubnetViolation(output.ThirdPartyFirewallMissingSubnetViolation, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceViolations = (output: any, context: __SerdeContext): ResourceViolation[] => {
+/**
+ * deserializeAws_json1_1ResourceViolations
+ */
+const de_ResourceViolations = (output: any, context: __SerdeContext): ResourceViolation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceViolation(entry, context);
+      return de_ResourceViolation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Route = (output: any, context: __SerdeContext): Route => {
+/**
+ * deserializeAws_json1_1Route
+ */
+const de_Route = (output: any, context: __SerdeContext): Route => {
   return {
     Destination: __expectString(output.Destination),
     DestinationType: __expectString(output.DestinationType),
@@ -4912,7 +5536,10 @@ const deserializeAws_json1_1Route = (output: any, context: __SerdeContext): Rout
   } as any;
 };
 
-const deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation = (
+/**
+ * deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation
+ */
+const de_RouteHasOutOfScopeEndpointViolation = (
   output: any,
   context: __SerdeContext
 ): RouteHasOutOfScopeEndpointViolation => {
@@ -4921,70 +5548,66 @@ const deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation = (
     CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
     FirewallSubnetId: __expectString(output.FirewallSubnetId),
     FirewallSubnetRoutes:
-      output.FirewallSubnetRoutes != null
-        ? deserializeAws_json1_1Routes(output.FirewallSubnetRoutes, context)
-        : undefined,
+      output.FirewallSubnetRoutes != null ? de_Routes(output.FirewallSubnetRoutes, context) : undefined,
     InternetGatewayId: __expectString(output.InternetGatewayId),
     InternetGatewayRoutes:
-      output.InternetGatewayRoutes != null
-        ? deserializeAws_json1_1Routes(output.InternetGatewayRoutes, context)
-        : undefined,
+      output.InternetGatewayRoutes != null ? de_Routes(output.InternetGatewayRoutes, context) : undefined,
     RouteTableId: __expectString(output.RouteTableId),
     SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
     SubnetAvailabilityZoneId: __expectString(output.SubnetAvailabilityZoneId),
     SubnetId: __expectString(output.SubnetId),
-    ViolatingRoutes:
-      output.ViolatingRoutes != null ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context) : undefined,
+    ViolatingRoutes: output.ViolatingRoutes != null ? de_Routes(output.ViolatingRoutes, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1Routes = (output: any, context: __SerdeContext): Route[] => {
+/**
+ * deserializeAws_json1_1Routes
+ */
+const de_Routes = (output: any, context: __SerdeContext): Route[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Route(entry, context);
+      return de_Route(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityGroupRemediationAction = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupRemediationAction => {
+/**
+ * deserializeAws_json1_1SecurityGroupRemediationAction
+ */
+const de_SecurityGroupRemediationAction = (output: any, context: __SerdeContext): SecurityGroupRemediationAction => {
   return {
     Description: __expectString(output.Description),
     IsDefaultAction: __expectBoolean(output.IsDefaultAction),
     RemediationActionType: __expectString(output.RemediationActionType),
     RemediationResult:
-      output.RemediationResult != null
-        ? deserializeAws_json1_1SecurityGroupRuleDescription(output.RemediationResult, context)
-        : undefined,
+      output.RemediationResult != null ? de_SecurityGroupRuleDescription(output.RemediationResult, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SecurityGroupRemediationActions = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupRemediationAction[] => {
+/**
+ * deserializeAws_json1_1SecurityGroupRemediationActions
+ */
+const de_SecurityGroupRemediationActions = (output: any, context: __SerdeContext): SecurityGroupRemediationAction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SecurityGroupRemediationAction(entry, context);
+      return de_SecurityGroupRemediationAction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityGroupRuleDescription = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupRuleDescription => {
+/**
+ * deserializeAws_json1_1SecurityGroupRuleDescription
+ */
+const de_SecurityGroupRuleDescription = (output: any, context: __SerdeContext): SecurityGroupRuleDescription => {
   return {
     FromPort: __expectLong(output.FromPort),
     IPV4Range: __expectString(output.IPV4Range),
@@ -4995,49 +5618,58 @@ const deserializeAws_json1_1SecurityGroupRuleDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1SecurityServicePolicyData = (
-  output: any,
-  context: __SerdeContext
-): SecurityServicePolicyData => {
+/**
+ * deserializeAws_json1_1SecurityServicePolicyData
+ */
+const de_SecurityServicePolicyData = (output: any, context: __SerdeContext): SecurityServicePolicyData => {
   return {
     ManagedServiceData: __expectString(output.ManagedServiceData),
-    PolicyOption:
-      output.PolicyOption != null ? deserializeAws_json1_1PolicyOption(output.PolicyOption, context) : undefined,
+    PolicyOption: output.PolicyOption != null ? de_PolicyOption(output.PolicyOption, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
+/**
+ * deserializeAws_json1_1StatefulEngineOptions
+ */
+const de_StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
   return {
     RuleOrder: __expectString(output.RuleOrder),
   } as any;
 };
 
-const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
+/**
+ * deserializeAws_json1_1StatefulRuleGroup
+ */
+const de_StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
   return {
     Override:
-      output.Override != null
-        ? deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride(output.Override, context)
-        : undefined,
+      output.Override != null ? de_NetworkFirewallStatefulRuleGroupOverride(output.Override, context) : undefined,
     Priority: __expectInt32(output.Priority),
     ResourceId: __expectString(output.ResourceId),
     RuleGroupName: __expectString(output.RuleGroupName),
   } as any;
 };
 
-const deserializeAws_json1_1StatefulRuleGroupList = (output: any, context: __SerdeContext): StatefulRuleGroup[] => {
+/**
+ * deserializeAws_json1_1StatefulRuleGroupList
+ */
+const de_StatefulRuleGroupList = (output: any, context: __SerdeContext): StatefulRuleGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StatefulRuleGroup(entry, context);
+      return de_StatefulRuleGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
+/**
+ * deserializeAws_json1_1StatelessRuleGroup
+ */
+const de_StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
   return {
     Priority: __expectInt32(output.Priority),
     ResourceId: __expectString(output.ResourceId),
@@ -5045,42 +5677,57 @@ const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1StatelessRuleGroupList = (output: any, context: __SerdeContext): StatelessRuleGroup[] => {
+/**
+ * deserializeAws_json1_1StatelessRuleGroupList
+ */
+const de_StatelessRuleGroupList = (output: any, context: __SerdeContext): StatelessRuleGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StatelessRuleGroup(entry, context);
+      return de_StatelessRuleGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TargetViolationReasons
+ */
+const de_TargetViolationReasons = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5092,7 +5739,10 @@ const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies = (
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies
+ */
+const de_ThirdPartyFirewallFirewallPolicies = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyFirewallFirewallPolicy[] => {
@@ -5102,12 +5752,15 @@ const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy(entry, context);
+      return de_ThirdPartyFirewallFirewallPolicy(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy = (
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy
+ */
+const de_ThirdPartyFirewallFirewallPolicy = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyFirewallFirewallPolicy => {
@@ -5117,7 +5770,10 @@ const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy = (
   } as any;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation = (
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation
+ */
+const de_ThirdPartyFirewallMissingExpectedRouteTableViolation = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyFirewallMissingExpectedRouteTableViolation => {
@@ -5130,7 +5786,10 @@ const deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation
   } as any;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation = (
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation
+ */
+const de_ThirdPartyFirewallMissingFirewallViolation = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyFirewallMissingFirewallViolation => {
@@ -5142,7 +5801,10 @@ const deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation = (
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation
+ */
+const de_ThirdPartyFirewallMissingSubnetViolation = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyFirewallMissingSubnetViolation => {
@@ -5154,31 +5816,35 @@ const deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation = (
   } as any;
 };
 
-const deserializeAws_json1_1ThirdPartyFirewallPolicy = (
-  output: any,
-  context: __SerdeContext
-): ThirdPartyFirewallPolicy => {
+/**
+ * deserializeAws_json1_1ThirdPartyFirewallPolicy
+ */
+const de_ThirdPartyFirewallPolicy = (output: any, context: __SerdeContext): ThirdPartyFirewallPolicy => {
   return {
     FirewallDeploymentModel: __expectString(output.FirewallDeploymentModel),
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ViolationDetail = (output: any, context: __SerdeContext): ViolationDetail => {
+/**
+ * deserializeAws_json1_1ViolationDetail
+ */
+const de_ViolationDetail = (output: any, context: __SerdeContext): ViolationDetail => {
   return {
     MemberAccount: __expectString(output.MemberAccount),
     PolicyId: __expectString(output.PolicyId),
     ResourceDescription: __expectString(output.ResourceDescription),
     ResourceId: __expectString(output.ResourceId),
-    ResourceTags: output.ResourceTags != null ? deserializeAws_json1_1TagList(output.ResourceTags, context) : undefined,
+    ResourceTags: output.ResourceTags != null ? de_TagList(output.ResourceTags, context) : undefined,
     ResourceType: __expectString(output.ResourceType),
     ResourceViolations:
-      output.ResourceViolations != null
-        ? deserializeAws_json1_1ResourceViolations(output.ResourceViolations, context)
-        : undefined,
+      output.ResourceViolations != null ? de_ResourceViolations(output.ResourceViolations, context) : undefined,
   } as any;
 };
 

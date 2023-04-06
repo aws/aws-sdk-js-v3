@@ -15,8 +15,8 @@ import {
 
 import { RevokeClusterSecurityGroupIngressMessage, RevokeClusterSecurityGroupIngressResult } from "../models/models_1";
 import {
-  deserializeAws_queryRevokeClusterSecurityGroupIngressCommand,
-  serializeAws_queryRevokeClusterSecurityGroupIngressCommand,
+  de_RevokeClusterSecurityGroupIngressCommand,
+  se_RevokeClusterSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -143,7 +143,7 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     input: RevokeClusterSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeClusterSecurityGroupIngressCommand(input, context);
+    return se_RevokeClusterSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeClusterSecurityGroupIngressCommand(output, context);
+    return de_RevokeClusterSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

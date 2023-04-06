@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteDataProtectionPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataProtectionPolicyCommand,
-  serializeAws_json1_1DeleteDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDataProtectionPolicyCommand, se_DeleteDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataProtectionPolicyCommand(input, context);
+    return se_DeleteDataProtectionPolicyCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteDataProtectionPolicyCommand(output, context);
+    return de_DeleteDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

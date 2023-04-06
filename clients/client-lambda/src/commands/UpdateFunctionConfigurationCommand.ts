@@ -21,8 +21,8 @@ import {
   UpdateFunctionConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateFunctionConfigurationCommand,
-  serializeAws_restJson1UpdateFunctionConfigurationCommand,
+  de_UpdateFunctionConfigurationCommand,
+  se_UpdateFunctionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -217,7 +217,7 @@ export class UpdateFunctionConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFunctionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionConfigurationCommand(input, context);
+    return se_UpdateFunctionConfigurationCommand(input, context);
   }
 
   /**
@@ -227,7 +227,7 @@ export class UpdateFunctionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionConfigurationCommand(output, context);
+    return de_UpdateFunctionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

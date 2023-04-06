@@ -18,10 +18,7 @@ import {
 
 import { GetReferenceRequest, GetReferenceResponse, GetReferenceResponseFilterSensitiveLog } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReferenceCommand,
-  serializeAws_restJson1GetReferenceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReferenceCommand, se_GetReferenceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class GetReferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReferenceCommand(input, context);
+    return se_GetReferenceCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class GetReferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetReferenceCommandOutput> {
-    return deserializeAws_restJson1GetReferenceCommand(output, context);
+    return de_GetReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

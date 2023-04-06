@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddAssociationRequest, AddAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAssociationCommand,
-  serializeAws_json1_1AddAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddAssociationCommand, se_AddAssociationCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -133,14 +130,14 @@ export class AddAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: AddAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAssociationCommand(input, context);
+    return se_AddAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAssociationCommandOutput> {
-    return deserializeAws_json1_1AddAssociationCommand(output, context);
+    return de_AddAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

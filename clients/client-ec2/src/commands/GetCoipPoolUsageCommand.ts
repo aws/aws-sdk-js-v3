@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetCoipPoolUsageCommand,
-  serializeAws_ec2GetCoipPoolUsageCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetCoipPoolUsageCommand, se_GetCoipPoolUsageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetCoipPoolUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCoipPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetCoipPoolUsageCommand(input, context);
+    return se_GetCoipPoolUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoipPoolUsageCommandOutput> {
-    return deserializeAws_ec2GetCoipPoolUsageCommand(output, context);
+    return de_GetCoipPoolUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateCACertificateRequest } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateCACertificateCommand,
-  serializeAws_restJson1UpdateCACertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCACertificateCommand, se_UpdateCACertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateCACertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCACertificateCommand(input, context);
+    return se_UpdateCACertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCACertificateCommandOutput> {
-    return deserializeAws_restJson1UpdateCACertificateCommand(output, context);
+    return de_UpdateCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

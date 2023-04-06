@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RevokeIpRulesRequest, RevokeIpRulesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeIpRulesCommand,
-  serializeAws_json1_1RevokeIpRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RevokeIpRulesCommand, se_RevokeIpRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -133,14 +130,14 @@ export class RevokeIpRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeIpRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeIpRulesCommand(input, context);
+    return se_RevokeIpRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeIpRulesCommandOutput> {
-    return deserializeAws_json1_1RevokeIpRulesCommand(output, context);
+    return de_RevokeIpRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

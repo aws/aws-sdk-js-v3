@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetRouteRequest, GetRouteResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRouteCommand,
-  serializeAws_restJson1GetRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRouteCommand, se_GetRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class GetRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteCommand(input, context);
+    return se_GetRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteCommandOutput> {
-    return deserializeAws_restJson1GetRouteCommand(output, context);
+    return de_GetRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

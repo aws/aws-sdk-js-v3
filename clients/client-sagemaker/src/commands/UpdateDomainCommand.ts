@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateDomainCommand,
-  serializeAws_json1_1UpdateDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -254,14 +251,14 @@ export class UpdateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainCommand(input, context);
+    return se_UpdateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainCommand(output, context);
+    return de_UpdateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

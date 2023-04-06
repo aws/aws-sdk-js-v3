@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { ResolveComponentCandidatesRequest, ResolveComponentCandidatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResolveComponentCandidatesCommand,
-  serializeAws_restJson1ResolveComponentCandidatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResolveComponentCandidatesCommand, se_ResolveComponentCandidatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,7 +166,7 @@ export class ResolveComponentCandidatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ResolveComponentCandidatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResolveComponentCandidatesCommand(input, context);
+    return se_ResolveComponentCandidatesCommand(input, context);
   }
 
   /**
@@ -179,7 +176,7 @@ export class ResolveComponentCandidatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResolveComponentCandidatesCommandOutput> {
-    return deserializeAws_restJson1ResolveComponentCandidatesCommand(output, context);
+    return de_ResolveComponentCandidatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetAttributeValuesCommand,
-  serializeAws_json1_1GetAttributeValuesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAttributeValuesCommand, se_GetAttributeValuesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class GetAttributeValuesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAttributeValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAttributeValuesCommand(input, context);
+    return se_GetAttributeValuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput> {
-    return deserializeAws_json1_1GetAttributeValuesCommand(output, context);
+    return de_GetAttributeValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

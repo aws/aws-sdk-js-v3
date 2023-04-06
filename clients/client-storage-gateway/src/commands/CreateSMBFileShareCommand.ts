@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSMBFileShareCommand,
-  serializeAws_json1_1CreateSMBFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSMBFileShareCommand, se_CreateSMBFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -182,14 +179,14 @@ export class CreateSMBFileShareCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSMBFileShareCommand(input, context);
+    return se_CreateSMBFileShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSMBFileShareCommandOutput> {
-    return deserializeAws_json1_1CreateSMBFileShareCommand(output, context);
+    return de_CreateSMBFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

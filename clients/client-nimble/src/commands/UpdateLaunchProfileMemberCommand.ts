@@ -15,10 +15,7 @@ import {
 
 import { UpdateLaunchProfileMemberRequest, UpdateLaunchProfileMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateLaunchProfileMemberCommand,
-  serializeAws_restJson1UpdateLaunchProfileMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchProfileMemberCommand, se_UpdateLaunchProfileMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class UpdateLaunchProfileMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLaunchProfileMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchProfileMemberCommand(input, context);
+    return se_UpdateLaunchProfileMemberCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class UpdateLaunchProfileMemberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLaunchProfileMemberCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchProfileMemberCommand(output, context);
+    return de_UpdateLaunchProfileMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

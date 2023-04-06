@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DeleteAgentRequest, DeleteAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAgentCommand,
-  serializeAws_json1_1DeleteAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAgentCommand, se_DeleteAgentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteAgentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAgentCommand(input, context);
+    return se_DeleteAgentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAgentCommandOutput> {
-    return deserializeAws_json1_1DeleteAgentCommand(output, context);
+    return de_DeleteAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

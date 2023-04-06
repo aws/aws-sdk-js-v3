@@ -15,10 +15,7 @@ import {
 
 import { DeleteStudioMemberRequest, DeleteStudioMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStudioMemberCommand,
-  serializeAws_restJson1DeleteStudioMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStudioMemberCommand, se_DeleteStudioMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteStudioMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStudioMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStudioMemberCommand(input, context);
+    return se_DeleteStudioMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteStudioMemberCommand(output, context);
+    return de_DeleteStudioMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

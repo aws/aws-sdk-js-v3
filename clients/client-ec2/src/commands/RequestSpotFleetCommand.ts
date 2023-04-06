@@ -19,10 +19,7 @@ import {
   RequestSpotFleetRequestFilterSensitiveLog,
   RequestSpotFleetResponse,
 } from "../models/models_6";
-import {
-  deserializeAws_ec2RequestSpotFleetCommand,
-  serializeAws_ec2RequestSpotFleetCommand,
-} from "../protocols/Aws_ec2";
+import { de_RequestSpotFleetCommand, se_RequestSpotFleetCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -617,14 +614,14 @@ export class RequestSpotFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: RequestSpotFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RequestSpotFleetCommand(input, context);
+    return se_RequestSpotFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestSpotFleetCommandOutput> {
-    return deserializeAws_ec2RequestSpotFleetCommand(output, context);
+    return de_RequestSpotFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

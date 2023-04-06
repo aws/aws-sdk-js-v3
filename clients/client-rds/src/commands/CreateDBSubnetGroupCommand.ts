@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSubnetGroupCommand,
-  serializeAws_queryCreateDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBSubnetGroupCommand, se_CreateDBSubnetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -84,25 +81,55 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  *
- * @example To create a DB subnet group.
+ * @example To create a DB subnet group
  * ```javascript
- * // This example creates a DB subnet group.
+ * // The following example creates a DB subnet group called mysubnetgroup using existing subnets.
  * const input = {
- *   "DBSubnetGroupDescription": "My DB subnet group",
- *   "DBSubnetGroupName": "mydbsubnetgroup",
+ *   "DBSubnetGroupDescription": "test DB subnet group",
+ *   "DBSubnetGroupName": "mysubnetgroup",
  *   "SubnetIds": [
- *     "subnet-1fab8a69",
- *     "subnet-d43a468c"
+ *     "subnet-0a1dc4e1a6f123456",
+ *     "subnet-070dd7ecb3aaaaaaa",
+ *     "subnet-00f5b198bc0abcdef"
  *   ]
  * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSubnetGroup": {}
+ *   "DBSubnetGroup": {
+ *     "DBSubnetGroupArn": "arn:aws:rds:us-west-2:0123456789012:subgrp:mysubnetgroup",
+ *     "DBSubnetGroupDescription": "test DB subnet group",
+ *     "DBSubnetGroupName": "mysubnetgroup",
+ *     "SubnetGroupStatus": "Complete",
+ *     "Subnets": [
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-070dd7ecb3aaaaaaa",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2d"
+ *         },
+ *         "SubnetIdentifier": "subnet-00f5b198bc0abcdef",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-0a1dc4e1a6f123456",
+ *         "SubnetStatus": "Active"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-0f08e7610a1b2c3d4"
+ *   }
  * }
  * *\/
- * // example id: create-db-subnet-group-c3d162c2-0ec4-4955-ba89-18967615fdb8
+ * // example id: to-create-a-db-subnet-group-1679942682822
  * ```
  *
  */
@@ -169,14 +196,14 @@ export class CreateDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSubnetGroupCommand(input, context);
+    return se_CreateDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryCreateDBSubnetGroupCommand(output, context);
+    return de_CreateDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ChangePasswordRequest, ChangePasswordRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryChangePasswordCommand,
-  serializeAws_queryChangePasswordCommand,
-} from "../protocols/Aws_query";
+import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class ChangePasswordCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryChangePasswordCommand(input, context);
+    return se_ChangePasswordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
-    return deserializeAws_queryChangePasswordCommand(output, context);
+    return de_ChangePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

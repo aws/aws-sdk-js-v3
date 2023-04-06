@@ -24,10 +24,7 @@ import {
   RespondToAuthChallengeResponse,
   RespondToAuthChallengeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RespondToAuthChallengeCommand,
-  serializeAws_json1_1RespondToAuthChallengeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RespondToAuthChallengeCommand, se_RespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -241,14 +238,14 @@ export class RespondToAuthChallengeCommand extends $Command<
    * @internal
    */
   private serialize(input: RespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RespondToAuthChallengeCommand(input, context);
+    return se_RespondToAuthChallengeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1RespondToAuthChallengeCommand(output, context);
+    return de_RespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

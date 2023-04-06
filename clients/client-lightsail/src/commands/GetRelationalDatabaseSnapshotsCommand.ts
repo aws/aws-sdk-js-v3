@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseSnapshotsRequest, GetRelationalDatabaseSnapshotsResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand,
-  serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand,
+  de_GetRelationalDatabaseSnapshotsCommand,
+  se_GetRelationalDatabaseSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     input: GetRelationalDatabaseSnapshotsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(input, context);
+    return se_GetRelationalDatabaseSnapshotsCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(output, context);
+    return de_GetRelationalDatabaseSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

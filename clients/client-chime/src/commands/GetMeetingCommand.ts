@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetMeetingRequest, GetMeetingResponse, GetMeetingResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMeetingCommand,
-  serializeAws_restJson1GetMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMeetingCommand, se_GetMeetingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetMeetingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMeetingCommand(input, context);
+    return se_GetMeetingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMeetingCommandOutput> {
-    return deserializeAws_restJson1GetMeetingCommand(output, context);
+    return de_GetMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

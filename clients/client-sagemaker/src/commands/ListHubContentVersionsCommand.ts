@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListHubContentVersionsCommand,
-  serializeAws_json1_1ListHubContentVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListHubContentVersionsCommand, se_ListHubContentVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -136,14 +133,14 @@ export class ListHubContentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHubContentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHubContentVersionsCommand(input, context);
+    return se_ListHubContentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHubContentVersionsCommandOutput> {
-    return deserializeAws_json1_1ListHubContentVersionsCommand(output, context);
+    return de_ListHubContentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

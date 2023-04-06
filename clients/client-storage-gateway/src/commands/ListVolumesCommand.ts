@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListVolumesInput, ListVolumesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVolumesCommand,
-  serializeAws_json1_1ListVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListVolumesCommand, se_ListVolumesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -174,14 +171,14 @@ export class ListVolumesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVolumesCommand(input, context);
+    return se_ListVolumesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumesCommandOutput> {
-    return deserializeAws_json1_1ListVolumesCommand(output, context);
+    return de_ListVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

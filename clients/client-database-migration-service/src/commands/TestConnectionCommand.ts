@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { TestConnectionMessage, TestConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1TestConnectionCommand,
-  serializeAws_json1_1TestConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class TestConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: TestConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestConnectionCommand(input, context);
+    return se_TestConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestConnectionCommandOutput> {
-    return deserializeAws_json1_1TestConnectionCommand(output, context);
+    return de_TestConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCoreDefinitionCommand,
-  serializeAws_restJson1DeleteCoreDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCoreDefinitionCommand, se_DeleteCoreDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class DeleteCoreDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCoreDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreDefinitionCommand(input, context);
+    return se_DeleteCoreDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoreDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreDefinitionCommand(output, context);
+    return de_DeleteCoreDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

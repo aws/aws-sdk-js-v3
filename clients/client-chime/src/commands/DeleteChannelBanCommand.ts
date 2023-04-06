@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteChannelBanRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelBanCommand,
-  serializeAws_restJson1DeleteChannelBanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteChannelBanCommand, se_DeleteChannelBanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteChannelBanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelBanCommand(input, context);
+    return se_DeleteChannelBanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelBanCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelBanCommand(output, context);
+    return de_DeleteChannelBanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   CreateOutboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand,
-  serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand,
+  de_CreateOutboundCrossClusterSearchConnectionCommand,
+  se_CreateOutboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +161,7 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
     input: CreateOutboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand(input, context);
+    return se_CreateOutboundCrossClusterSearchConnectionCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand(output, context);
+    return de_CreateOutboundCrossClusterSearchConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

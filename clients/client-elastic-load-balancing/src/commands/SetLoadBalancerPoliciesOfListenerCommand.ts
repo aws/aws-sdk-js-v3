@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { SetLoadBalancerPoliciesOfListenerInput, SetLoadBalancerPoliciesOfListenerOutput } from "../models/models_0";
 import {
-  deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand,
-  serializeAws_querySetLoadBalancerPoliciesOfListenerCommand,
+  de_SetLoadBalancerPoliciesOfListenerCommand,
+  se_SetLoadBalancerPoliciesOfListenerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -166,7 +166,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
     input: SetLoadBalancerPoliciesOfListenerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerPoliciesOfListenerCommand(input, context);
+    return se_SetLoadBalancerPoliciesOfListenerCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> {
-    return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand(output, context);
+    return de_SetLoadBalancerPoliciesOfListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeMovingAddressesCommand,
-  serializeAws_ec2DescribeMovingAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeMovingAddressesCommand, se_DescribeMovingAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DescribeMovingAddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMovingAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeMovingAddressesCommand(input, context);
+    return se_DescribeMovingAddressesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMovingAddressesCommandOutput> {
-    return deserializeAws_ec2DescribeMovingAddressesCommand(output, context);
+    return de_DescribeMovingAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateAppInstanceUserRequestFilterSensitiveLog,
   UpdateAppInstanceUserResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateAppInstanceUserCommand,
-  serializeAws_restJson1UpdateAppInstanceUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAppInstanceUserCommand, se_UpdateAppInstanceUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateAppInstanceUserCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppInstanceUserCommand(input, context);
+    return se_UpdateAppInstanceUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1UpdateAppInstanceUserCommand(output, context);
+    return de_UpdateAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

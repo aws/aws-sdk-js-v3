@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1ListTargetsForPolicyCommand,
-  serializeAws_restJson1ListTargetsForPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTargetsForPolicyCommand, se_ListTargetsForPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListTargetsForPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTargetsForPolicyCommand(input, context);
+    return se_ListTargetsForPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
-    return deserializeAws_restJson1ListTargetsForPolicyCommand(output, context);
+    return de_ListTargetsForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

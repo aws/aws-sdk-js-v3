@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteImageCommand,
-  serializeAws_json1_1BatchDeleteImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteImageCommand, se_BatchDeleteImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class BatchDeleteImageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteImageCommand(input, context);
+    return se_BatchDeleteImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImageCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteImageCommand(output, context);
+    return de_BatchDeleteImageCommand(output, context);
   }
 
   // Start section: command_body_extra

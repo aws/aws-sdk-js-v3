@@ -19,10 +19,7 @@ import {
   ListManagedEndpointsResponse,
   ListManagedEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListManagedEndpointsCommand,
-  serializeAws_restJson1ListManagedEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListManagedEndpointsCommand, se_ListManagedEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListManagedEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListManagedEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListManagedEndpointsCommand(input, context);
+    return se_ListManagedEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListManagedEndpointsCommand(output, context);
+    return de_ListManagedEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

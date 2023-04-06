@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { BatchGetAggregateResourceConfigRequest, BatchGetAggregateResourceConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchGetAggregateResourceConfigCommand,
-  serializeAws_json1_1BatchGetAggregateResourceConfigCommand,
+  de_BatchGetAggregateResourceConfigCommand,
+  se_BatchGetAggregateResourceConfigCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     input: BatchGetAggregateResourceConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetAggregateResourceConfigCommand(input, context);
+    return se_BatchGetAggregateResourceConfigCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAggregateResourceConfigCommandOutput> {
-    return deserializeAws_json1_1BatchGetAggregateResourceConfigCommand(output, context);
+    return de_BatchGetAggregateResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

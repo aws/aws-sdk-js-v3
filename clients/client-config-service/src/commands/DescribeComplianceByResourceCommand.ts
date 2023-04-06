@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeComplianceByResourceCommand,
-  serializeAws_json1_1DescribeComplianceByResourceCommand,
+  de_DescribeComplianceByResourceCommand,
+  se_DescribeComplianceByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -169,7 +169,7 @@ export class DescribeComplianceByResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeComplianceByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
+    return se_DescribeComplianceByResourceCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class DescribeComplianceByResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByResourceCommand(output, context);
+    return de_DescribeComplianceByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeForecastExportJobRequest, DescribeForecastExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeForecastExportJobCommand,
-  serializeAws_json1_1DescribeForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeForecastExportJobCommand, se_DescribeForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class DescribeForecastExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeForecastExportJobCommand(input, context);
+    return se_DescribeForecastExportJobCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class DescribeForecastExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeForecastExportJobCommand(output, context);
+    return de_DescribeForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateVariableRequest, UpdateVariableResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVariableCommand,
-  serializeAws_json1_1UpdateVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateVariableCommand, se_UpdateVariableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateVariableCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVariableCommand(input, context);
+    return se_UpdateVariableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVariableCommandOutput> {
-    return deserializeAws_json1_1UpdateVariableCommand(output, context);
+    return de_UpdateVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

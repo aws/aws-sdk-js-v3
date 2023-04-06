@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DomainNames, GetDomainNamesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainNamesCommand,
-  serializeAws_restJson1GetDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDomainNamesCommand, se_GetDomainNamesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetDomainNamesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainNamesCommand(input, context);
+    return se_GetDomainNamesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNamesCommandOutput> {
-    return deserializeAws_restJson1GetDomainNamesCommand(output, context);
+    return de_GetDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

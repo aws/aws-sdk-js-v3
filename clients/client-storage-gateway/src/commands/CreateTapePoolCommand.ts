@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTapePoolInput, CreateTapePoolOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTapePoolCommand,
-  serializeAws_json1_1CreateTapePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTapePoolCommand, se_CreateTapePoolCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -138,14 +135,14 @@ export class CreateTapePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTapePoolCommand(input, context);
+    return se_CreateTapePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTapePoolCommandOutput> {
-    return deserializeAws_json1_1CreateTapePoolCommand(output, context);
+    return de_CreateTapePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

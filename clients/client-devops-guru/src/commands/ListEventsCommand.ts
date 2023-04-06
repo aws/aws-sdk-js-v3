@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { ListEventsRequest, ListEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventsCommand,
-  serializeAws_restJson1ListEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEventsCommand, se_ListEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class ListEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventsCommand(input, context);
+    return se_ListEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventsCommandOutput> {
-    return deserializeAws_restJson1ListEventsCommand(output, context);
+    return de_ListEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

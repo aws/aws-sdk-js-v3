@@ -15,10 +15,7 @@ import {
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { DeleteRescoreExecutionPlanRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteRescoreExecutionPlanCommand,
-  serializeAws_json1_0DeleteRescoreExecutionPlanCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteRescoreExecutionPlanCommand, se_DeleteRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteRescoreExecutionPlanCommand(input, context);
+    return se_DeleteRescoreExecutionPlanCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRescoreExecutionPlanCommandOutput> {
-    return deserializeAws_json1_0DeleteRescoreExecutionPlanCommand(output, context);
+    return de_DeleteRescoreExecutionPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { ActivatePipelineInput, ActivatePipelineOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivatePipelineCommand,
-  serializeAws_json1_1ActivatePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ActivatePipelineCommand, se_ActivatePipelineCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class ActivatePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivatePipelineCommand(input, context);
+    return se_ActivatePipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivatePipelineCommandOutput> {
-    return deserializeAws_json1_1ActivatePipelineCommand(output, context);
+    return de_ActivatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

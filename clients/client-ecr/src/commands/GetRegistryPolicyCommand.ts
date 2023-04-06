@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { GetRegistryPolicyRequest, GetRegistryPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRegistryPolicyCommand,
-  serializeAws_json1_1GetRegistryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRegistryPolicyCommand, se_GetRegistryPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetRegistryPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryPolicyCommand(input, context);
+    return se_GetRegistryPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryPolicyCommandOutput> {
-    return deserializeAws_json1_1GetRegistryPolicyCommand(output, context);
+    return de_GetRegistryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

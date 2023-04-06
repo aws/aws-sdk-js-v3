@@ -15,7 +15,7 @@ import {
 
 import { ListRootsRequest, ListRootsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { deserializeAws_json1_1ListRootsCommand, serializeAws_json1_1ListRootsCommand } from "../protocols/Aws_json1_1";
+import { de_ListRootsCommand, se_ListRootsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -285,14 +285,14 @@ export class ListRootsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRootsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRootsCommand(input, context);
+    return se_ListRootsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRootsCommandOutput> {
-    return deserializeAws_json1_1ListRootsCommand(output, context);
+    return de_ListRootsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteRoleAliasCommand,
-  serializeAws_restJson1DeleteRoleAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRoleAliasCommand, se_DeleteRoleAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteRoleAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRoleAliasCommand(input, context);
+    return se_DeleteRoleAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoleAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteRoleAliasCommand(output, context);
+    return de_DeleteRoleAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

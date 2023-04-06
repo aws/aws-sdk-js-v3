@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetContactPolicyRequest, GetContactPolicyResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContactPolicyCommand,
-  serializeAws_json1_1GetContactPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetContactPolicyCommand, se_GetContactPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetContactPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContactPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContactPolicyCommand(input, context);
+    return se_GetContactPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactPolicyCommandOutput> {
-    return deserializeAws_json1_1GetContactPolicyCommand(output, context);
+    return de_GetContactPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceDataSyncCommand,
-  serializeAws_json1_1DeleteResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResourceDataSyncCommand, se_DeleteResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteResourceDataSyncCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceDataSyncCommand(input, context);
+    return se_DeleteResourceDataSyncCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceDataSyncCommand(output, context);
+    return de_DeleteResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

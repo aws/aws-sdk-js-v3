@@ -15,7 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CopyImageRequest, CopyImageResponse } from "../models/models_0";
-import { deserializeAws_json1_1CopyImageCommand, serializeAws_json1_1CopyImageCommand } from "../protocols/Aws_json1_1";
+import { de_CopyImageCommand, se_CopyImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +136,14 @@ export class CopyImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyImageCommand(input, context);
+    return se_CopyImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyImageCommandOutput> {
-    return deserializeAws_json1_1CopyImageCommand(output, context);
+    return de_CopyImageCommand(output, context);
   }
 
   // Start section: command_body_extra

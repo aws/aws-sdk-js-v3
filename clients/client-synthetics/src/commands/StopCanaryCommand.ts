@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopCanaryRequest, StopCanaryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopCanaryCommand,
-  serializeAws_restJson1StopCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopCanaryCommand, se_StopCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -134,14 +131,14 @@ export class StopCanaryCommand extends $Command<
    * @internal
    */
   private serialize(input: StopCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopCanaryCommand(input, context);
+    return se_StopCanaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCanaryCommandOutput> {
-    return deserializeAws_restJson1StopCanaryCommand(output, context);
+    return de_StopCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RebuildWorkspacesCommand,
-  serializeAws_json1_1RebuildWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebuildWorkspacesCommand, se_RebuildWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -135,14 +132,14 @@ export class RebuildWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: RebuildWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebuildWorkspacesCommand(input, context);
+    return se_RebuildWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildWorkspacesCommandOutput> {
-    return deserializeAws_json1_1RebuildWorkspacesCommand(output, context);
+    return de_RebuildWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

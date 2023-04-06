@@ -19,8 +19,8 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
-  serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
+  de_RegisterTransitGatewayMulticastGroupSourcesCommand,
+  se_RegisterTransitGatewayMulticastGroupSourcesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     input: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(input, context);
+    return se_RegisterTransitGatewayMulticastGroupSourcesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> {
-    return deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(output, context);
+    return de_RegisterTransitGatewayMulticastGroupSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

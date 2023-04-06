@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ExecuteScheduledQueryRequest, ExecuteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0ExecuteScheduledQueryCommand,
-  serializeAws_json1_0ExecuteScheduledQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ExecuteScheduledQueryCommand, se_ExecuteScheduledQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -146,14 +143,14 @@ export class ExecuteScheduledQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExecuteScheduledQueryCommand(input, context);
+    return se_ExecuteScheduledQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteScheduledQueryCommandOutput> {
-    return deserializeAws_json1_0ExecuteScheduledQueryCommand(output, context);
+    return de_ExecuteScheduledQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

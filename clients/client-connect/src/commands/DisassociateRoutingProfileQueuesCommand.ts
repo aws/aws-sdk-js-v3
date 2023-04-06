@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateRoutingProfileQueuesRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
-  serializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
+  de_DisassociateRoutingProfileQueuesCommand,
+  se_DisassociateRoutingProfileQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     input: DisassociateRoutingProfileQueuesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRoutingProfileQueuesCommand(input, context);
+    return se_DisassociateRoutingProfileQueuesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRoutingProfileQueuesCommandOutput> {
-    return deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand(output, context);
+    return de_DisassociateRoutingProfileQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

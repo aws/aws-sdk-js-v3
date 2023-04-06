@@ -15,10 +15,7 @@ import {
 
 import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateConnectionCommand,
-  serializeAws_restJson1CreateConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConnectionCommand(input, context);
+    return se_CreateConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateConnectionCommand(output, context);
+    return de_CreateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

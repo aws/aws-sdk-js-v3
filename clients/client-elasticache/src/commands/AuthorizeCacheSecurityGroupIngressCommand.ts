@@ -19,8 +19,8 @@ import {
   AuthorizeCacheSecurityGroupIngressResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
-  serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
+  de_AuthorizeCacheSecurityGroupIngressCommand,
+  se_AuthorizeCacheSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -164,7 +164,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     input: AuthorizeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(input, context);
+    return se_AuthorizeCacheSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(output, context);
+    return de_AuthorizeCacheSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

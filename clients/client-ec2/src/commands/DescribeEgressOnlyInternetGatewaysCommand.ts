@@ -19,8 +19,8 @@ import {
   DescribeEgressOnlyInternetGatewaysResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
-  serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
+  de_DescribeEgressOnlyInternetGatewaysCommand,
+  se_DescribeEgressOnlyInternetGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     input: DescribeEgressOnlyInternetGatewaysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(input, context);
+    return se_DescribeEgressOnlyInternetGatewaysCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(output, context);
+    return de_DescribeEgressOnlyInternetGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

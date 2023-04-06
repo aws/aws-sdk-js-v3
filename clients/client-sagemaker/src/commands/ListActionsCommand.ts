@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListActionsRequest, ListActionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListActionsCommand,
-  serializeAws_json1_1ListActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListActionsCommand, se_ListActionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class ListActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActionsCommand(input, context);
+    return se_ListActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
-    return deserializeAws_json1_1ListActionsCommand(output, context);
+    return de_ListActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

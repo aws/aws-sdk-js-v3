@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListConflictingAliasesRequest, ListConflictingAliasesResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListConflictingAliasesCommand,
-  serializeAws_restXmlListConflictingAliasesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListConflictingAliasesCommand, se_ListConflictingAliasesCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ListConflictingAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConflictingAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListConflictingAliasesCommand(input, context);
+    return se_ListConflictingAliasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConflictingAliasesCommandOutput> {
-    return deserializeAws_restXmlListConflictingAliasesCommand(output, context);
+    return de_ListConflictingAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

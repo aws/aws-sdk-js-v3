@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { ResetParameterGroupRequest, ResetParameterGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetParameterGroupCommand,
-  serializeAws_json1_1ResetParameterGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetParameterGroupCommand, se_ResetParameterGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ResetParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetParameterGroupCommand(input, context);
+    return se_ResetParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetParameterGroupCommandOutput> {
-    return deserializeAws_json1_1ResetParameterGroupCommand(output, context);
+    return de_ResetParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

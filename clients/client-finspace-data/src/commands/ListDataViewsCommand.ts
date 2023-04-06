@@ -15,10 +15,7 @@ import {
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { ListDataViewsRequest, ListDataViewsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataViewsCommand,
-  serializeAws_restJson1ListDataViewsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataViewsCommand, se_ListDataViewsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListDataViewsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataViewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataViewsCommand(input, context);
+    return se_ListDataViewsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataViewsCommandOutput> {
-    return deserializeAws_restJson1ListDataViewsCommand(output, context);
+    return de_ListDataViewsCommand(output, context);
   }
 
   // Start section: command_body_extra

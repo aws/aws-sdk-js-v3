@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCodeBindingSourceCommand,
-  serializeAws_restJson1GetCodeBindingSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCodeBindingSourceCommand, se_GetCodeBindingSourceCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetCodeBindingSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCodeBindingSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCodeBindingSourceCommand(input, context);
+    return se_GetCodeBindingSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCodeBindingSourceCommandOutput> {
-    return deserializeAws_restJson1GetCodeBindingSourceCommand(output, context);
+    return de_GetCodeBindingSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

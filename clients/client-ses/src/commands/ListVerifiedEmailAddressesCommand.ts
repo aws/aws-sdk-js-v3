@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListVerifiedEmailAddressesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListVerifiedEmailAddressesCommand,
-  serializeAws_queryListVerifiedEmailAddressesCommand,
-} from "../protocols/Aws_query";
+import { de_ListVerifiedEmailAddressesCommand, se_ListVerifiedEmailAddressesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -136,7 +133,7 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVerifiedEmailAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListVerifiedEmailAddressesCommand(input, context);
+    return se_ListVerifiedEmailAddressesCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVerifiedEmailAddressesCommandOutput> {
-    return deserializeAws_queryListVerifiedEmailAddressesCommand(output, context);
+    return de_ListVerifiedEmailAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

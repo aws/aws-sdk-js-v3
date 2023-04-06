@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSamplingRuleCommand,
-  serializeAws_restJson1DeleteSamplingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSamplingRuleCommand, se_DeleteSamplingRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeleteSamplingRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSamplingRuleCommand(input, context);
+    return se_DeleteSamplingRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSamplingRuleCommand(output, context);
+    return de_DeleteSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

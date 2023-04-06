@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetIdentityPoliciesRequest, GetIdentityPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetIdentityPoliciesCommand,
-  serializeAws_queryGetIdentityPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_GetIdentityPoliciesCommand, se_GetIdentityPoliciesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -155,14 +152,14 @@ export class GetIdentityPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityPoliciesCommand(input, context);
+    return se_GetIdentityPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoliciesCommandOutput> {
-    return deserializeAws_queryGetIdentityPoliciesCommand(output, context);
+    return de_GetIdentityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

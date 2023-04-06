@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryRebootCacheClusterCommand,
-  serializeAws_queryRebootCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RebootCacheClusterCommand, se_RebootCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class RebootCacheClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootCacheClusterCommand(input, context);
+    return se_RebootCacheClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootCacheClusterCommandOutput> {
-    return deserializeAws_queryRebootCacheClusterCommand(output, context);
+    return de_RebootCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

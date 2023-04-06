@@ -16,8 +16,8 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UpdateNotificationConfigurationInput, UpdateNotificationConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateNotificationConfigurationCommand,
-  serializeAws_restJson1UpdateNotificationConfigurationCommand,
+  de_UpdateNotificationConfigurationCommand,
+  se_UpdateNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -168,7 +168,7 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     input: UpdateNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNotificationConfigurationCommand(input, context);
+    return se_UpdateNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateNotificationConfigurationCommand(output, context);
+    return de_UpdateNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { Extensions, ListExtensionsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionsCommand,
-  serializeAws_restJson1ListExtensionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListExtensionsCommand, se_ListExtensionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListExtensionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionsCommand(input, context);
+    return se_ListExtensionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionsCommand(output, context);
+    return de_ListExtensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

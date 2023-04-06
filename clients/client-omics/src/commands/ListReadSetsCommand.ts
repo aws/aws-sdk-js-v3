@@ -15,10 +15,7 @@ import {
 
 import { ListReadSetsRequest, ListReadSetsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReadSetsCommand,
-  serializeAws_restJson1ListReadSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReadSetsCommand, se_ListReadSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListReadSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReadSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReadSetsCommand(input, context);
+    return se_ListReadSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReadSetsCommandOutput> {
-    return deserializeAws_restJson1ListReadSetsCommand(output, context);
+    return de_ListReadSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

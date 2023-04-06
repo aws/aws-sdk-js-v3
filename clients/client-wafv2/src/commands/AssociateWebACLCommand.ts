@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateWebACLCommand,
-  serializeAws_json1_1AssociateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateWebACLCommand, se_AssociateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -167,14 +164,14 @@ export class AssociateWebACLCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateWebACLCommand(input, context);
+    return se_AssociateWebACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateWebACLCommandOutput> {
-    return deserializeAws_json1_1AssociateWebACLCommand(output, context);
+    return de_AssociateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

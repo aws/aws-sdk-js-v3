@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBandwidthRateLimitCommand,
-  serializeAws_json1_1DescribeBandwidthRateLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBandwidthRateLimitCommand, se_DescribeBandwidthRateLimitCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -154,7 +151,7 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBandwidthRateLimitCommand(input, context);
+    return se_DescribeBandwidthRateLimitCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommand(output, context);
+    return de_DescribeBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

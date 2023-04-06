@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetMessagingSessionEndpointCommand,
-  serializeAws_restJson1GetMessagingSessionEndpointCommand,
+  de_GetMessagingSessionEndpointCommand,
+  se_GetMessagingSessionEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class GetMessagingSessionEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMessagingSessionEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMessagingSessionEndpointCommand(input, context);
+    return se_GetMessagingSessionEndpointCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMessagingSessionEndpointCommandOutput> {
-    return deserializeAws_restJson1GetMessagingSessionEndpointCommand(output, context);
+    return de_GetMessagingSessionEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

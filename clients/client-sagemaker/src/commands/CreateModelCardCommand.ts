@@ -18,10 +18,7 @@ import {
   CreateModelCardRequestFilterSensitiveLog,
   CreateModelCardResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateModelCardCommand,
-  serializeAws_json1_1CreateModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateModelCardCommand, se_CreateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -144,14 +141,14 @@ export class CreateModelCardCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelCardCommand(input, context);
+    return se_CreateModelCardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCardCommandOutput> {
-    return deserializeAws_json1_1CreateModelCardCommand(output, context);
+    return de_CreateModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

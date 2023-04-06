@@ -19,8 +19,8 @@ import {
   DescribeIpamResourceDiscoveryAssociationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand,
-  serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand,
+  de_DescribeIpamResourceDiscoveryAssociationsCommand,
+  se_DescribeIpamResourceDiscoveryAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
     input: DescribeIpamResourceDiscoveryAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand(input, context);
+    return se_DescribeIpamResourceDiscoveryAssociationsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand(output, context);
+    return de_DescribeIpamResourceDiscoveryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

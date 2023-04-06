@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlDescribeJobCommand,
-  serializeAws_restXmlDescribeJobCommand,
-} from "../protocols/Aws_restXml";
+import { de_DescribeJobCommand, se_DescribeJobCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -161,14 +158,14 @@ export class DescribeJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDescribeJobCommand(input, context);
+    return se_DescribeJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
-    return deserializeAws_restXmlDescribeJobCommand(output, context);
+    return de_DescribeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

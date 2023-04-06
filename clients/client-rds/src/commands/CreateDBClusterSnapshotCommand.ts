@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterSnapshotCommand,
-  serializeAws_queryCreateDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBClusterSnapshotCommand, se_CreateDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -87,19 +84,43 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  *
  * @example To create a DB cluster snapshot
  * ```javascript
- * // This example creates a DB cluster snapshot.
+ * // The following example creates a DB cluster snapshot.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ *   "DBClusterIdentifier": "mydbclustersnapshot",
+ *   "DBClusterSnapshotIdentifier": "mydbcluster"
  * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshot": {}
+ *   "DBClusterSnapshot": {
+ *     "AllocatedStorage": 1,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
+ *     "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "aurora-mysql",
+ *     "MasterUsername": "myadmin",
+ *     "PercentProgress": 0,
+ *     "Port": 0,
+ *     "SnapshotCreateTime": "2019-06-18T21:21:00.469Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "creating",
+ *     "StorageEncrypted": true,
+ *     "VpcId": "vpc-6594f31c"
+ *   }
  * }
  * *\/
- * // example id: create-db-cluster-snapshot-
+ * // example id: to-create-a-db-cluster-snapshot-1679703154423
  * ```
  *
  */
@@ -166,14 +187,14 @@ export class CreateDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterSnapshotCommand(input, context);
+    return se_CreateDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCreateDBClusterSnapshotCommand(output, context);
+    return de_CreateDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

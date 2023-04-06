@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetVoiceConnectorOriginationRequest, GetVoiceConnectorOriginationResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetVoiceConnectorOriginationCommand,
-  serializeAws_restJson1GetVoiceConnectorOriginationCommand,
+  de_GetVoiceConnectorOriginationCommand,
+  se_GetVoiceConnectorOriginationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceConnectorOriginationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorOriginationCommand(input, context);
+    return se_GetVoiceConnectorOriginationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorOriginationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorOriginationCommand(output, context);
+    return de_GetVoiceConnectorOriginationCommand(output, context);
   }
 
   // Start section: command_body_extra

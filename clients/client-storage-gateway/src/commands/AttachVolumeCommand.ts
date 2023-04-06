@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AttachVolumeInput, AttachVolumeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachVolumeCommand,
-  serializeAws_json1_1AttachVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -133,14 +130,14 @@ export class AttachVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachVolumeCommand(input, context);
+    return se_AttachVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
-    return deserializeAws_json1_1AttachVolumeCommand(output, context);
+    return de_AttachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

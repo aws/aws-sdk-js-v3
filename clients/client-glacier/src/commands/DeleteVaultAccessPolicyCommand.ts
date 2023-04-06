@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DeleteVaultAccessPolicyInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVaultAccessPolicyCommand,
-  serializeAws_restJson1DeleteVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVaultAccessPolicyCommand, se_DeleteVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVaultAccessPolicyCommand(input, context);
+    return se_DeleteVaultAccessPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteVaultAccessPolicyCommand(output, context);
+    return de_DeleteVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

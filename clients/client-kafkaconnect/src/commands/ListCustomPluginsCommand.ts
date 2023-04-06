@@ -15,10 +15,7 @@ import {
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { ListCustomPluginsRequest, ListCustomPluginsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomPluginsCommand,
-  serializeAws_restJson1ListCustomPluginsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCustomPluginsCommand, se_ListCustomPluginsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListCustomPluginsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomPluginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomPluginsCommand(input, context);
+    return se_ListCustomPluginsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomPluginsCommandOutput> {
-    return deserializeAws_restJson1ListCustomPluginsCommand(output, context);
+    return de_ListCustomPluginsCommand(output, context);
   }
 
   // Start section: command_body_extra

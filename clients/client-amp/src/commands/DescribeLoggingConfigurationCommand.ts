@@ -16,8 +16,8 @@ import {
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeLoggingConfigurationCommand,
-  serializeAws_restJson1DescribeLoggingConfigurationCommand,
+  de_DescribeLoggingConfigurationCommand,
+  se_DescribeLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -134,7 +134,7 @@ export class DescribeLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLoggingConfigurationCommand(input, context);
+    return se_DescribeLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeLoggingConfigurationCommand(output, context);
+    return de_DescribeLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

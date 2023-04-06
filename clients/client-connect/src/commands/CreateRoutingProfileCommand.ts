@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateRoutingProfileRequest, CreateRoutingProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoutingProfileCommand,
-  serializeAws_restJson1CreateRoutingProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRoutingProfileCommand, se_CreateRoutingProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateRoutingProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoutingProfileCommand(input, context);
+    return se_CreateRoutingProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1CreateRoutingProfileCommand(output, context);
+    return de_CreateRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
 import { DescribeBundleRequest, DescribeBundleResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBundleCommand,
-  serializeAws_restJson1DescribeBundleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBundleCommand, se_DescribeBundleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class DescribeBundleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBundleCommand(input, context);
+    return se_DescribeBundleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleCommandOutput> {
-    return deserializeAws_restJson1DescribeBundleCommand(output, context);
+    return de_DescribeBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

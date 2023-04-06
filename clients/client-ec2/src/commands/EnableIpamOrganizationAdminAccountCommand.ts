@@ -19,8 +19,8 @@ import {
   EnableIpamOrganizationAdminAccountResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
-  serializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
+  de_EnableIpamOrganizationAdminAccountCommand,
+  se_EnableIpamOrganizationAdminAccountCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     input: EnableIpamOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableIpamOrganizationAdminAccountCommand(input, context);
+    return se_EnableIpamOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand(output, context);
+    return de_EnableIpamOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

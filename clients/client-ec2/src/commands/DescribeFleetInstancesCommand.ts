@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFleetInstancesCommand,
-  serializeAws_ec2DescribeFleetInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeFleetInstancesCommand, se_DescribeFleetInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeFleetInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFleetInstancesCommand(input, context);
+    return se_DescribeFleetInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeFleetInstancesCommand(output, context);
+    return de_DescribeFleetInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

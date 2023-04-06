@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLoggingConfigurationCommand,
-  serializeAws_json1_1DeleteLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -159,7 +156,7 @@ export class DeleteLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoggingConfigurationCommand(input, context);
+    return se_DeleteLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLoggingConfigurationCommand(output, context);
+    return de_DeleteLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

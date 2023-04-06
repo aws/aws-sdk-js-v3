@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { DeleteVcenterClientRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVcenterClientCommand,
-  serializeAws_restJson1DeleteVcenterClientCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVcenterClientCommand, se_DeleteVcenterClientCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteVcenterClientCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVcenterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVcenterClientCommand(input, context);
+    return se_DeleteVcenterClientCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVcenterClientCommandOutput> {
-    return deserializeAws_restJson1DeleteVcenterClientCommand(output, context);
+    return de_DeleteVcenterClientCommand(output, context);
   }
 
   // Start section: command_body_extra

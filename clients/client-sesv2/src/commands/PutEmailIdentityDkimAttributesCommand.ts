@@ -15,8 +15,8 @@ import {
 
 import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
+  de_PutEmailIdentityDkimAttributesCommand,
+  se_PutEmailIdentityDkimAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -135,7 +135,7 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     input: PutEmailIdentityDkimAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityDkimAttributesCommand(input, context);
+    return se_PutEmailIdentityDkimAttributesCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand(output, context);
+    return de_PutEmailIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

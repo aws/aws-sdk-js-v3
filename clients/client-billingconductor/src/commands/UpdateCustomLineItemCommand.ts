@@ -20,10 +20,7 @@ import {
   UpdateCustomLineItemOutput,
   UpdateCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCustomLineItemCommand,
-  serializeAws_restJson1UpdateCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCustomLineItemCommand, se_UpdateCustomLineItemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateCustomLineItemCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCustomLineItemCommand(input, context);
+    return se_UpdateCustomLineItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1UpdateCustomLineItemCommand(output, context);
+    return de_UpdateCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

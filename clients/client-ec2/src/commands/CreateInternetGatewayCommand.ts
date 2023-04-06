@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateInternetGatewayCommand,
-  serializeAws_ec2CreateInternetGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateInternetGatewayCommand, se_CreateInternetGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateInternetGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateInternetGatewayCommand(input, context);
+    return se_CreateInternetGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInternetGatewayCommandOutput> {
-    return deserializeAws_ec2CreateInternetGatewayCommand(output, context);
+    return de_CreateInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

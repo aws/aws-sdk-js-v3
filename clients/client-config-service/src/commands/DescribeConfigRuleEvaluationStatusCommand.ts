@@ -19,8 +19,8 @@ import {
   DescribeConfigRuleEvaluationStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
-  serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
+  de_DescribeConfigRuleEvaluationStatusCommand,
+  se_DescribeConfigRuleEvaluationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     input: DescribeConfigRuleEvaluationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(input, context);
+    return se_DescribeConfigRuleEvaluationStatusCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(output, context);
+    return de_DescribeConfigRuleEvaluationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DescribeRecommendationLimitationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRecommendationLimitationsCommand,
-  serializeAws_json1_1DescribeRecommendationLimitationsCommand,
+  de_DescribeRecommendationLimitationsCommand,
+  se_DescribeRecommendationLimitationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     input: DescribeRecommendationLimitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommendationLimitationsCommand(input, context);
+    return se_DescribeRecommendationLimitationsCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecommendationLimitationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommendationLimitationsCommand(output, context);
+    return de_DescribeRecommendationLimitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

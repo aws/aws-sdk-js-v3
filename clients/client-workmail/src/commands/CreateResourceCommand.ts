@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateResourceRequest, CreateResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResourceCommand,
-  serializeAws_json1_1CreateResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateResourceCommand, se_CreateResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -145,14 +142,14 @@ export class CreateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResourceCommand(input, context);
+    return se_CreateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceCommandOutput> {
-    return deserializeAws_json1_1CreateResourceCommand(output, context);
+    return de_CreateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

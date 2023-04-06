@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { XmlTimestampsOutput } from "../models/models_0";
-import { deserializeAws_ec2XmlTimestampsCommand, serializeAws_ec2XmlTimestampsCommand } from "../protocols/Aws_ec2";
+import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -104,14 +104,14 @@ export class XmlTimestampsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlTimestampsCommand(input, context);
+    return se_XmlTimestampsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlTimestampsCommandOutput> {
-    return deserializeAws_ec2XmlTimestampsCommand(output, context);
+    return de_XmlTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

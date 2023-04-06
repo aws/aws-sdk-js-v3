@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { EnableAddressTransferRequest, EnableAddressTransferResult } from "../models/models_5";
-import {
-  deserializeAws_ec2EnableAddressTransferCommand,
-  serializeAws_ec2EnableAddressTransferCommand,
-} from "../protocols/Aws_ec2";
+import { de_EnableAddressTransferCommand, se_EnableAddressTransferCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class EnableAddressTransferCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableAddressTransferCommand(input, context);
+    return se_EnableAddressTransferCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAddressTransferCommandOutput> {
-    return deserializeAws_ec2EnableAddressTransferCommand(output, context);
+    return de_EnableAddressTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

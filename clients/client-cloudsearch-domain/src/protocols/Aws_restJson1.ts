@@ -36,10 +36,10 @@ import {
   SuggestStatus,
 } from "../models/models_0";
 
-export const serializeAws_restJson1SearchCommand = async (
-  input: SearchCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1SearchCommand
+ */
+export const se_SearchCommand = async (input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
@@ -74,7 +74,10 @@ export const serializeAws_restJson1SearchCommand = async (
   });
 };
 
-export const serializeAws_restJson1SuggestCommand = async (
+/**
+ * serializeAws_restJson1SuggestCommand
+ */
+export const se_SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -101,7 +104,10 @@ export const serializeAws_restJson1SuggestCommand = async (
   });
 };
 
-export const serializeAws_restJson1UploadDocumentsCommand = async (
+/**
+ * serializeAws_restJson1UploadDocumentsCommand
+ */
+export const se_UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -130,36 +136,39 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1SearchCommand = async (
+/**
+ * deserializeAws_restJson1SearchCommand
+ */
+export const de_SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchCommandError(output, context);
+    return de_SearchCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.facets != null) {
-    contents.facets = deserializeAws_restJson1Facets(data.facets, context);
+    contents.facets = de_Facets(data.facets, context);
   }
   if (data.hits != null) {
-    contents.hits = deserializeAws_restJson1Hits(data.hits, context);
+    contents.hits = de_Hits(data.hits, context);
   }
   if (data.stats != null) {
-    contents.stats = deserializeAws_restJson1Stats(data.stats, context);
+    contents.stats = de_Stats(data.stats, context);
   }
   if (data.status != null) {
-    contents.status = deserializeAws_restJson1SearchStatus(data.status, context);
+    contents.status = de_SearchStatus(data.status, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1SearchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchCommandOutput> => {
+/**
+ * deserializeAws_restJson1SearchCommandError
+ */
+const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -168,7 +177,7 @@ const deserializeAws_restJson1SearchCommandError = async (
   switch (errorCode) {
     case "SearchException":
     case "com.amazonaws.cloudsearchdomain#SearchException":
-      throw await deserializeAws_restJson1SearchExceptionResponse(parsedOutput, context);
+      throw await de_SearchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -180,27 +189,33 @@ const deserializeAws_restJson1SearchCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SuggestCommand = async (
+/**
+ * deserializeAws_restJson1SuggestCommand
+ */
+export const de_SuggestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuggestCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SuggestCommandError(output, context);
+    return de_SuggestCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status != null) {
-    contents.status = deserializeAws_restJson1SuggestStatus(data.status, context);
+    contents.status = de_SuggestStatus(data.status, context);
   }
   if (data.suggest != null) {
-    contents.suggest = deserializeAws_restJson1SuggestModel(data.suggest, context);
+    contents.suggest = de_SuggestModel(data.suggest, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1SuggestCommandError = async (
+/**
+ * deserializeAws_restJson1SuggestCommandError
+ */
+const de_SuggestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuggestCommandOutput> => {
@@ -212,7 +227,7 @@ const deserializeAws_restJson1SuggestCommandError = async (
   switch (errorCode) {
     case "SearchException":
     case "com.amazonaws.cloudsearchdomain#SearchException":
-      throw await deserializeAws_restJson1SearchExceptionResponse(parsedOutput, context);
+      throw await de_SearchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -224,12 +239,15 @@ const deserializeAws_restJson1SuggestCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UploadDocumentsCommand = async (
+/**
+ * deserializeAws_restJson1UploadDocumentsCommand
+ */
+export const de_UploadDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UploadDocumentsCommandError(output, context);
+    return de_UploadDocumentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -245,12 +263,15 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
     contents.status = __expectString(data.status);
   }
   if (data.warnings != null) {
-    contents.warnings = deserializeAws_restJson1DocumentServiceWarnings(data.warnings, context);
+    contents.warnings = de_DocumentServiceWarnings(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UploadDocumentsCommandError = async (
+/**
+ * deserializeAws_restJson1UploadDocumentsCommandError
+ */
+const de_UploadDocumentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> => {
@@ -262,7 +283,7 @@ const deserializeAws_restJson1UploadDocumentsCommandError = async (
   switch (errorCode) {
     case "DocumentServiceException":
     case "com.amazonaws.cloudsearchdomain#DocumentServiceException":
-      throw await deserializeAws_restJson1DocumentServiceExceptionResponse(parsedOutput, context);
+      throw await de_DocumentServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -275,7 +296,10 @@ const deserializeAws_restJson1UploadDocumentsCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1DocumentServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DocumentServiceExceptionRes
+ */
+const de_DocumentServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentServiceException> => {
@@ -294,10 +318,10 @@ const deserializeAws_restJson1DocumentServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SearchExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SearchException> => {
+/**
+ * deserializeAws_restJson1SearchExceptionRes
+ */
+const de_SearchExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<SearchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -310,56 +334,68 @@ const deserializeAws_restJson1SearchExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): Bucket => {
+/**
+ * deserializeAws_restJson1Bucket
+ */
+const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
   return {
     count: __expectLong(output.count),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1BucketInfo = (output: any, context: __SerdeContext): BucketInfo => {
+/**
+ * deserializeAws_restJson1BucketInfo
+ */
+const de_BucketInfo = (output: any, context: __SerdeContext): BucketInfo => {
   return {
-    buckets: output.buckets != null ? deserializeAws_restJson1BucketList(output.buckets, context) : undefined,
+    buckets: output.buckets != null ? de_BucketList(output.buckets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BucketList = (output: any, context: __SerdeContext): Bucket[] => {
+/**
+ * deserializeAws_restJson1BucketList
+ */
+const de_BucketList = (output: any, context: __SerdeContext): Bucket[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Bucket(entry, context);
+      return de_Bucket(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DocumentServiceWarning = (
-  output: any,
-  context: __SerdeContext
-): DocumentServiceWarning => {
+/**
+ * deserializeAws_restJson1DocumentServiceWarning
+ */
+const de_DocumentServiceWarning = (output: any, context: __SerdeContext): DocumentServiceWarning => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_restJson1DocumentServiceWarnings = (
-  output: any,
-  context: __SerdeContext
-): DocumentServiceWarning[] => {
+/**
+ * deserializeAws_restJson1DocumentServiceWarnings
+ */
+const de_DocumentServiceWarnings = (output: any, context: __SerdeContext): DocumentServiceWarning[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DocumentServiceWarning(entry, context);
+      return de_DocumentServiceWarning(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1Exprs
+ */
+const de_Exprs = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -369,27 +405,36 @@ const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): Re
   }, {});
 };
 
-const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): Record<string, BucketInfo> => {
+/**
+ * deserializeAws_restJson1Facets
+ */
+const de_Facets = (output: any, context: __SerdeContext): Record<string, BucketInfo> => {
   return Object.entries(output).reduce((acc: Record<string, BucketInfo>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1BucketInfo(value, context);
+    acc[key] = de_BucketInfo(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): Record<string, string[]> => {
+/**
+ * deserializeAws_restJson1Fields
+ */
+const de_Fields = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1FieldValue(value, context);
+    acc[key] = de_FieldValue(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext): FieldStats => {
+/**
+ * deserializeAws_restJson1FieldStats
+ */
+const de_FieldStats = (output: any, context: __SerdeContext): FieldStats => {
   return {
     count: __expectLong(output.count),
     max: __expectString(output.max),
@@ -402,7 +447,10 @@ const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1FieldValue
+ */
+const de_FieldValue = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -414,7 +462,10 @@ const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1Highlights
+ */
+const de_Highlights = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -424,54 +475,72 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
   }, {});
 };
 
-const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit => {
+/**
+ * deserializeAws_restJson1Hit
+ */
+const de_Hit = (output: any, context: __SerdeContext): Hit => {
   return {
-    exprs: output.exprs != null ? deserializeAws_restJson1Exprs(output.exprs, context) : undefined,
-    fields: output.fields != null ? deserializeAws_restJson1Fields(output.fields, context) : undefined,
-    highlights: output.highlights != null ? deserializeAws_restJson1Highlights(output.highlights, context) : undefined,
+    exprs: output.exprs != null ? de_Exprs(output.exprs, context) : undefined,
+    fields: output.fields != null ? de_Fields(output.fields, context) : undefined,
+    highlights: output.highlights != null ? de_Highlights(output.highlights, context) : undefined,
     id: __expectString(output.id),
   } as any;
 };
 
-const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): Hit[] => {
+/**
+ * deserializeAws_restJson1HitList
+ */
+const de_HitList = (output: any, context: __SerdeContext): Hit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Hit(entry, context);
+      return de_Hit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
+/**
+ * deserializeAws_restJson1Hits
+ */
+const de_Hits = (output: any, context: __SerdeContext): Hits => {
   return {
     cursor: __expectString(output.cursor),
     found: __expectLong(output.found),
-    hit: output.hit != null ? deserializeAws_restJson1HitList(output.hit, context) : undefined,
+    hit: output.hit != null ? de_HitList(output.hit, context) : undefined,
     start: __expectLong(output.start),
   } as any;
 };
 
-const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
+/**
+ * deserializeAws_restJson1SearchStatus
+ */
+const de_SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
   return {
     rid: __expectString(output.rid),
     timems: __expectLong(output.timems),
   } as any;
 };
 
-const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): Record<string, FieldStats> => {
+/**
+ * deserializeAws_restJson1Stats
+ */
+const de_Stats = (output: any, context: __SerdeContext): Record<string, FieldStats> => {
   return Object.entries(output).reduce((acc: Record<string, FieldStats>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1FieldStats(value, context);
+    acc[key] = de_FieldStats(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
+/**
+ * deserializeAws_restJson1SuggestionMatch
+ */
+const de_SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
   return {
     id: __expectString(output.id),
     score: __expectLong(output.score),
@@ -479,28 +548,36 @@ const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContext): SuggestionMatch[] => {
+/**
+ * deserializeAws_restJson1Suggestions
+ */
+const de_Suggestions = (output: any, context: __SerdeContext): SuggestionMatch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SuggestionMatch(entry, context);
+      return de_SuggestionMatch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
+/**
+ * deserializeAws_restJson1SuggestModel
+ */
+const de_SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
   return {
     found: __expectLong(output.found),
     query: __expectString(output.query),
-    suggestions:
-      output.suggestions != null ? deserializeAws_restJson1Suggestions(output.suggestions, context) : undefined,
+    suggestions: output.suggestions != null ? de_Suggestions(output.suggestions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
+/**
+ * deserializeAws_restJson1SuggestStatus
+ */
+const de_SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
   return {
     rid: __expectString(output.rid),
     timems: __expectLong(output.timems),

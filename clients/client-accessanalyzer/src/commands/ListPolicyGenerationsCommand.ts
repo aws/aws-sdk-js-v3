@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { ListPolicyGenerationsRequest, ListPolicyGenerationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPolicyGenerationsCommand,
-  serializeAws_restJson1ListPolicyGenerationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPolicyGenerationsCommand, se_ListPolicyGenerationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListPolicyGenerationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPolicyGenerationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPolicyGenerationsCommand(input, context);
+    return se_ListPolicyGenerationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyGenerationsCommandOutput> {
-    return deserializeAws_restJson1ListPolicyGenerationsCommand(output, context);
+    return de_ListPolicyGenerationsCommand(output, context);
   }
 
   // Start section: command_body_extra

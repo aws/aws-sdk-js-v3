@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { Connections, DescribeConnectionsOnInterconnectRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
-  serializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
+  de_DescribeConnectionsOnInterconnectCommand,
+  se_DescribeConnectionsOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -135,7 +135,7 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     input: DescribeConnectionsOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(input, context);
+    return se_DescribeConnectionsOnInterconnectCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand(output, context);
+    return de_DescribeConnectionsOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

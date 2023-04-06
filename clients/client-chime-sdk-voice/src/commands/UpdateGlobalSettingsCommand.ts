@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { UpdateGlobalSettingsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGlobalSettingsCommand,
-  serializeAws_restJson1UpdateGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateGlobalSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
+    return se_UpdateGlobalSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
+    return de_UpdateGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

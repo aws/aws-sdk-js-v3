@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { BatchGetApplicationsInput, BatchGetApplicationsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetApplicationsCommand,
-  serializeAws_json1_1BatchGetApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetApplicationsCommand, se_BatchGetApplicationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class BatchGetApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetApplicationsCommand(input, context);
+    return se_BatchGetApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetApplicationsCommandOutput> {
-    return deserializeAws_json1_1BatchGetApplicationsCommand(output, context);
+    return de_BatchGetApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

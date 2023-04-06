@@ -19,8 +19,8 @@ import {
   UpdateLicenseManagerReportGeneratorResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand,
+  de_UpdateLicenseManagerReportGeneratorCommand,
+  se_UpdateLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -169,7 +169,7 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
     input: UpdateLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand(input, context);
+    return se_UpdateLicenseManagerReportGeneratorCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand(output, context);
+    return de_UpdateLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

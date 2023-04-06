@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateParameterGroupCommand,
-  serializeAws_json1_1UpdateParameterGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateParameterGroupCommand, se_UpdateParameterGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateParameterGroupCommand(input, context);
+    return se_UpdateParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateParameterGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateParameterGroupCommand(output, context);
+    return de_UpdateParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccessControlEffectRequest, GetAccessControlEffectResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccessControlEffectCommand,
-  serializeAws_json1_1GetAccessControlEffectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccessControlEffectCommand, se_GetAccessControlEffectCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -143,14 +140,14 @@ export class GetAccessControlEffectCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessControlEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccessControlEffectCommand(input, context);
+    return se_GetAccessControlEffectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessControlEffectCommandOutput> {
-    return deserializeAws_json1_1GetAccessControlEffectCommand(output, context);
+    return de_GetAccessControlEffectCommand(output, context);
   }
 
   // Start section: command_body_extra

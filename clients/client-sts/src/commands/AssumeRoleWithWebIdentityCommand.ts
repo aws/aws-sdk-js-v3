@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryAssumeRoleWithWebIdentityCommand,
-  serializeAws_queryAssumeRoleWithWebIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_AssumeRoleWithWebIdentityCommand, se_AssumeRoleWithWebIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -340,7 +337,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: AssumeRoleWithWebIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithWebIdentityCommand(input, context);
+    return se_AssumeRoleWithWebIdentityCommand(input, context);
   }
 
   /**
@@ -350,7 +347,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(output, context);
+    return de_AssumeRoleWithWebIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

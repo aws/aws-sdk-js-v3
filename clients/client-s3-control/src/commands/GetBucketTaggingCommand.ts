@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketTaggingRequest, GetBucketTaggingResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketTaggingCommand,
-  serializeAws_restXmlGetBucketTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketTaggingCommand, se_GetBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -163,14 +160,14 @@ export class GetBucketTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketTaggingCommand(input, context);
+    return se_GetBucketTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketTaggingCommandOutput> {
-    return deserializeAws_restXmlGetBucketTaggingCommand(output, context);
+    return de_GetBucketTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

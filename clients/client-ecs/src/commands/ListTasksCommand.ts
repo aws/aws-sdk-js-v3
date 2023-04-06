@@ -15,7 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { ListTasksRequest, ListTasksResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
+import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -180,14 +180,14 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
    * @internal
    */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTasksCommand(input, context);
+    return se_ListTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
-    return deserializeAws_json1_1ListTasksCommand(output, context);
+    return de_ListTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

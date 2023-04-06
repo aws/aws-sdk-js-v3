@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateStreamingDistributionCommand,
-  serializeAws_restXmlUpdateStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateStreamingDistributionCommand, se_UpdateStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -194,7 +191,7 @@ export class UpdateStreamingDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateStreamingDistributionCommand(input, context);
+    return se_UpdateStreamingDistributionCommand(input, context);
   }
 
   /**
@@ -204,7 +201,7 @@ export class UpdateStreamingDistributionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlUpdateStreamingDistributionCommand(output, context);
+    return de_UpdateStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

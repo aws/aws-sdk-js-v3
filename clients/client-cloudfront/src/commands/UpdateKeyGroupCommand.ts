@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateKeyGroupRequest, UpdateKeyGroupResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateKeyGroupCommand,
-  serializeAws_restXmlUpdateKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateKeyGroupCommand, se_UpdateKeyGroupCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class UpdateKeyGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateKeyGroupCommand(input, context);
+    return se_UpdateKeyGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyGroupCommandOutput> {
-    return deserializeAws_restXmlUpdateKeyGroupCommand(output, context);
+    return de_UpdateKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

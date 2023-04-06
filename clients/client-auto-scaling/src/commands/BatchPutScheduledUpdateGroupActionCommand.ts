@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { BatchPutScheduledUpdateGroupActionAnswer, BatchPutScheduledUpdateGroupActionType } from "../models/models_0";
 import {
-  deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
+  de_BatchPutScheduledUpdateGroupActionCommand,
+  se_BatchPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -150,7 +150,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     input: BatchPutScheduledUpdateGroupActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(input, context);
+    return se_BatchPutScheduledUpdateGroupActionCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(output, context);
+    return de_BatchPutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

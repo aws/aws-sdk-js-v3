@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { ListEventSubscriptionsRequest, ListEventSubscriptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventSubscriptionsCommand,
-  serializeAws_json1_1ListEventSubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEventSubscriptionsCommand, se_ListEventSubscriptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class ListEventSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventSubscriptionsCommand(input, context);
+    return se_ListEventSubscriptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1ListEventSubscriptionsCommand(output, context);
+    return de_ListEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

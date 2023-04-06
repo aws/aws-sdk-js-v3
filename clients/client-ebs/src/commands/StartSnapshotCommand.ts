@@ -20,10 +20,7 @@ import {
   StartSnapshotResponse,
   StartSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSnapshotCommand,
-  serializeAws_restJson1StartSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSnapshotCommand, se_StartSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class StartSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSnapshotCommand(input, context);
+    return se_StartSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSnapshotCommandOutput> {
-    return deserializeAws_restJson1StartSnapshotCommand(output, context);
+    return de_StartSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

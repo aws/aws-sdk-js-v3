@@ -19,8 +19,8 @@ import {
   AssociateWirelessGatewayWithCertificateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand,
-  serializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand,
+  de_AssociateWirelessGatewayWithCertificateCommand,
+  se_AssociateWirelessGatewayWithCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
     input: AssociateWirelessGatewayWithCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand(input, context);
+    return se_AssociateWirelessGatewayWithCertificateCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessGatewayWithCertificateCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand(output, context);
+    return de_AssociateWirelessGatewayWithCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

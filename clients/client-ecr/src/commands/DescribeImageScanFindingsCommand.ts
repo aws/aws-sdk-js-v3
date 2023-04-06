@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageScanFindingsCommand,
-  serializeAws_json1_1DescribeImageScanFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImageScanFindingsCommand, se_DescribeImageScanFindingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class DescribeImageScanFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImageScanFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageScanFindingsCommand(input, context);
+    return se_DescribeImageScanFindingsCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class DescribeImageScanFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageScanFindingsCommandOutput> {
-    return deserializeAws_json1_1DescribeImageScanFindingsCommand(output, context);
+    return de_DescribeImageScanFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

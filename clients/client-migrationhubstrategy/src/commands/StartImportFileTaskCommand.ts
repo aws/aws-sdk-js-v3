@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { StartImportFileTaskRequest, StartImportFileTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportFileTaskCommand,
-  serializeAws_restJson1StartImportFileTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartImportFileTaskCommand, se_StartImportFileTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class StartImportFileTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImportFileTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportFileTaskCommand(input, context);
+    return se_StartImportFileTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportFileTaskCommandOutput> {
-    return deserializeAws_restJson1StartImportFileTaskCommand(output, context);
+    return de_StartImportFileTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

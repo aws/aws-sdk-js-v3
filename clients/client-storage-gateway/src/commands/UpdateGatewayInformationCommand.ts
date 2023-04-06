@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewayInformationCommand,
-  serializeAws_json1_1UpdateGatewayInformationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateGatewayInformationCommand, se_UpdateGatewayInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -159,14 +156,14 @@ export class UpdateGatewayInformationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewayInformationCommand(input, context);
+    return se_UpdateGatewayInformationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayInformationCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewayInformationCommand(output, context);
+    return de_UpdateGatewayInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

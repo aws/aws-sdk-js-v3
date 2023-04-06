@@ -15,10 +15,7 @@ import {
 
 import { ListStudioMembersRequest, ListStudioMembersResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListStudioMembersCommand,
-  serializeAws_restJson1ListStudioMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStudioMembersCommand, se_ListStudioMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ListStudioMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStudioMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStudioMembersCommand(input, context);
+    return se_ListStudioMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudioMembersCommandOutput> {
-    return deserializeAws_restJson1ListStudioMembersCommand(output, context);
+    return de_ListStudioMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

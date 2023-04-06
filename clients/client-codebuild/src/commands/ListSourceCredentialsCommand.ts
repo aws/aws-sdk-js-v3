@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSourceCredentialsCommand,
-  serializeAws_json1_1ListSourceCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSourceCredentialsCommand, se_ListSourceCredentialsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class ListSourceCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSourceCredentialsCommand(input, context);
+    return se_ListSourceCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1ListSourceCredentialsCommand(output, context);
+    return de_ListSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

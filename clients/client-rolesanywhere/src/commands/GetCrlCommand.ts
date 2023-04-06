@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
-import { deserializeAws_restJson1GetCrlCommand, serializeAws_restJson1GetCrlCommand } from "../protocols/Aws_restJson1";
+import { de_GetCrlCommand, se_GetCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -122,14 +122,14 @@ export class GetCrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCrlCommand(input, context);
+    return se_GetCrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrlCommandOutput> {
-    return deserializeAws_restJson1GetCrlCommand(output, context);
+    return de_GetCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlChangeResourceRecordSetsCommand,
-  serializeAws_restXmlChangeResourceRecordSetsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ChangeResourceRecordSetsCommand, se_ChangeResourceRecordSetsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -868,14 +865,14 @@ export class ChangeResourceRecordSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangeResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlChangeResourceRecordSetsCommand(input, context);
+    return se_ChangeResourceRecordSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeResourceRecordSetsCommandOutput> {
-    return deserializeAws_restXmlChangeResourceRecordSetsCommand(output, context);
+    return de_ChangeResourceRecordSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivityTypeDetail, DescribeActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityTypeCommand,
-  serializeAws_json1_0DescribeActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeActivityTypeCommand, se_DescribeActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -168,14 +165,14 @@ export class DescribeActivityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityTypeCommand(input, context);
+    return se_DescribeActivityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityTypeCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityTypeCommand(output, context);
+    return de_DescribeActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

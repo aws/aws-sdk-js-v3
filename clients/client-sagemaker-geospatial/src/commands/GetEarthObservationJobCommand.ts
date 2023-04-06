@@ -18,10 +18,7 @@ import {
   GetEarthObservationJobOutput,
   GetEarthObservationJobOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEarthObservationJobCommand,
-  serializeAws_restJson1GetEarthObservationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEarthObservationJobCommand, se_GetEarthObservationJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -143,14 +140,14 @@ export class GetEarthObservationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEarthObservationJobCommand(input, context);
+    return se_GetEarthObservationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEarthObservationJobCommandOutput> {
-    return deserializeAws_restJson1GetEarthObservationJobCommand(output, context);
+    return de_GetEarthObservationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

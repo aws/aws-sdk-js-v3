@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
 import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SendSSHPublicKeyCommand,
-  serializeAws_json1_1SendSSHPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendSSHPublicKeyCommand, se_SendSSHPublicKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class SendSSHPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: SendSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendSSHPublicKeyCommand(input, context);
+    return se_SendSSHPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendSSHPublicKeyCommandOutput> {
-    return deserializeAws_json1_1SendSSHPublicKeyCommand(output, context);
+    return de_SendSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

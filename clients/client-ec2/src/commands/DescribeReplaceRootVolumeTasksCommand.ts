@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeReplaceRootVolumeTasksCommand,
-  serializeAws_ec2DescribeReplaceRootVolumeTasksCommand,
+  de_DescribeReplaceRootVolumeTasksCommand,
+  se_DescribeReplaceRootVolumeTasksCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     input: DescribeReplaceRootVolumeTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReplaceRootVolumeTasksCommand(input, context);
+    return se_DescribeReplaceRootVolumeTasksCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplaceRootVolumeTasksCommandOutput> {
-    return deserializeAws_ec2DescribeReplaceRootVolumeTasksCommand(output, context);
+    return de_DescribeReplaceRootVolumeTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

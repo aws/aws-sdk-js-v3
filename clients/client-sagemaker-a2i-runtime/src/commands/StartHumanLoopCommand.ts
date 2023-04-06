@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartHumanLoopCommand,
-  serializeAws_restJson1StartHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartHumanLoopCommand, se_StartHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -158,14 +155,14 @@ export class StartHumanLoopCommand extends $Command<
    * @internal
    */
   private serialize(input: StartHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartHumanLoopCommand(input, context);
+    return se_StartHumanLoopCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartHumanLoopCommandOutput> {
-    return deserializeAws_restJson1StartHumanLoopCommand(output, context);
+    return de_StartHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

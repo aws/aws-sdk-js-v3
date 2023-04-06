@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UnpeerVpcRequest, UnpeerVpcResult } from "../models/models_1";
-import { deserializeAws_json1_1UnpeerVpcCommand, serializeAws_json1_1UnpeerVpcCommand } from "../protocols/Aws_json1_1";
+import { de_UnpeerVpcCommand, se_UnpeerVpcCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +143,14 @@ export class UnpeerVpcCommand extends $Command<
    * @internal
    */
   private serialize(input: UnpeerVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnpeerVpcCommand(input, context);
+    return se_UnpeerVpcCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnpeerVpcCommandOutput> {
-    return deserializeAws_json1_1UnpeerVpcCommand(output, context);
+    return de_UnpeerVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

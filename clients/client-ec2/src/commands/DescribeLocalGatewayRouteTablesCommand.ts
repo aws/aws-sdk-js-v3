@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
+  de_DescribeLocalGatewayRouteTablesCommand,
+  se_DescribeLocalGatewayRouteTablesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     input: DescribeLocalGatewayRouteTablesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(input, context);
+    return se_DescribeLocalGatewayRouteTablesCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(output, context);
+    return de_DescribeLocalGatewayRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

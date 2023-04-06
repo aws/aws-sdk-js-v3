@@ -14,8 +14,8 @@ import {
 
 import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
-  deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommand,
-  serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand,
+  de_QueryIdempotencyTokenAutoFillCommand,
+  se_QueryIdempotencyTokenAutoFillCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -107,7 +107,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryIdempotencyTokenAutoFillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand(input, context);
+    return se_QueryIdempotencyTokenAutoFillCommand(input, context);
   }
 
   /**
@@ -117,7 +117,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommand(output, context);
+    return de_QueryIdempotencyTokenAutoFillCommand(output, context);
   }
 
   // Start section: command_body_extra

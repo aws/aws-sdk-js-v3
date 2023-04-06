@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
-  serializeAws_json1_1DisconnectCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -226,14 +223,14 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisconnectCustomKeyStoreCommand(input, context);
+    return se_DisconnectCustomKeyStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(output, context);
+    return de_DisconnectCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

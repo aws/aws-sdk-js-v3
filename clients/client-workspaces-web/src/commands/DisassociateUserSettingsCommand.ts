@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateUserSettingsRequest, DisassociateUserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateUserSettingsCommand,
-  serializeAws_restJson1DisassociateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateUserSettingsCommand, se_DisassociateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class DisassociateUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserSettingsCommand(input, context);
+    return se_DisassociateUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserSettingsCommand(output, context);
+    return de_DisassociateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

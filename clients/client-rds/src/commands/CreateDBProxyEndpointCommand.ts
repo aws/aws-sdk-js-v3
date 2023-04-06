@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBProxyEndpointRequest, CreateDBProxyEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBProxyEndpointCommand,
-  serializeAws_queryCreateDBProxyEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBProxyEndpointCommand, se_CreateDBProxyEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -151,14 +148,14 @@ export class CreateDBProxyEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBProxyEndpointCommand(input, context);
+    return se_CreateDBProxyEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBProxyEndpointCommandOutput> {
-    return deserializeAws_queryCreateDBProxyEndpointCommand(output, context);
+    return de_CreateDBProxyEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

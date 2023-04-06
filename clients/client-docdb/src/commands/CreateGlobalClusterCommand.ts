@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateGlobalClusterCommand,
-  serializeAws_queryCreateGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateGlobalClusterCommand, se_CreateGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalClusterCommand(input, context);
+    return se_CreateGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
-    return deserializeAws_queryCreateGlobalClusterCommand(output, context);
+    return de_CreateGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

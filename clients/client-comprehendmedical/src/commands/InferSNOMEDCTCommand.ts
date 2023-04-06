@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { InferSNOMEDCTRequest, InferSNOMEDCTResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1InferSNOMEDCTCommand,
-  serializeAws_json1_1InferSNOMEDCTCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InferSNOMEDCTCommand, se_InferSNOMEDCTCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class InferSNOMEDCTCommand extends $Command<
    * @internal
    */
   private serialize(input: InferSNOMEDCTCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InferSNOMEDCTCommand(input, context);
+    return se_InferSNOMEDCTCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferSNOMEDCTCommandOutput> {
-    return deserializeAws_json1_1InferSNOMEDCTCommand(output, context);
+    return de_InferSNOMEDCTCommand(output, context);
   }
 
   // Start section: command_body_extra

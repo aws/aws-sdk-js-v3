@@ -20,8 +20,8 @@ import {
   CreateGUISessionAccessDetailsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateGUISessionAccessDetailsCommand,
-  serializeAws_json1_1CreateGUISessionAccessDetailsCommand,
+  de_CreateGUISessionAccessDetailsCommand,
+  se_CreateGUISessionAccessDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -151,7 +151,7 @@ export class CreateGUISessionAccessDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGUISessionAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGUISessionAccessDetailsCommand(input, context);
+    return se_CreateGUISessionAccessDetailsCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class CreateGUISessionAccessDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGUISessionAccessDetailsCommandOutput> {
-    return deserializeAws_json1_1CreateGUISessionAccessDetailsCommand(output, context);
+    return de_CreateGUISessionAccessDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

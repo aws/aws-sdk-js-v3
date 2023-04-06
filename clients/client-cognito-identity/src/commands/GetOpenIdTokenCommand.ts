@@ -15,10 +15,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOpenIdTokenCommand,
-  serializeAws_json1_1GetOpenIdTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOpenIdTokenCommand, se_GetOpenIdTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class GetOpenIdTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOpenIdTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpenIdTokenCommand(input, context);
+    return se_GetOpenIdTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpenIdTokenCommandOutput> {
-    return deserializeAws_json1_1GetOpenIdTokenCommand(output, context);
+    return de_GetOpenIdTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

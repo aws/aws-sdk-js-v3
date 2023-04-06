@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectTextRequest, DetectTextResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectTextCommand,
-  serializeAws_json1_1DetectTextCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectTextCommand, se_DetectTextCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -199,14 +196,14 @@ export class DetectTextCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectTextCommand(input, context);
+    return se_DetectTextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTextCommandOutput> {
-    return deserializeAws_json1_1DetectTextCommand(output, context);
+    return de_DetectTextCommand(output, context);
   }
 
   // Start section: command_body_extra

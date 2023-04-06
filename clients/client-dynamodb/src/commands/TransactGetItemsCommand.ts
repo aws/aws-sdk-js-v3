@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0TransactGetItemsCommand,
-  serializeAws_json1_0TransactGetItemsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TransactGetItemsCommand, se_TransactGetItemsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -455,14 +452,14 @@ export class TransactGetItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: TransactGetItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TransactGetItemsCommand(input, context);
+    return se_TransactGetItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
-    return deserializeAws_json1_0TransactGetItemsCommand(output, context);
+    return de_TransactGetItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

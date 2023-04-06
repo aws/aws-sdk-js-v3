@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileShareCommand,
-  serializeAws_json1_1DeleteFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFileShareCommand, se_DeleteFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -130,14 +127,14 @@ export class DeleteFileShareCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileShareCommand(input, context);
+    return se_DeleteFileShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileShareCommandOutput> {
-    return deserializeAws_json1_1DeleteFileShareCommand(output, context);
+    return de_DeleteFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

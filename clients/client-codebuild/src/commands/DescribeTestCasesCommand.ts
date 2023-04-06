@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTestCasesCommand,
-  serializeAws_json1_1DescribeTestCasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTestCasesCommand, se_DescribeTestCasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeTestCasesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTestCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTestCasesCommand(input, context);
+    return se_DescribeTestCasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTestCasesCommandOutput> {
-    return deserializeAws_json1_1DescribeTestCasesCommand(output, context);
+    return de_DescribeTestCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

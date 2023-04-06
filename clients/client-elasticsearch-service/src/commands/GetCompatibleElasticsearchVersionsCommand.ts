@@ -23,8 +23,8 @@ import {
   GetCompatibleElasticsearchVersionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
-  serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
+  de_GetCompatibleElasticsearchVersionsCommand,
+  se_GetCompatibleElasticsearchVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     input: GetCompatibleElasticsearchVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(input, context);
+    return se_GetCompatibleElasticsearchVersionsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(output, context);
+    return de_GetCompatibleElasticsearchVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryListAllowedNodeTypeModificationsCommand,
-  serializeAws_queryListAllowedNodeTypeModificationsCommand,
+  de_ListAllowedNodeTypeModificationsCommand,
+  se_ListAllowedNodeTypeModificationsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -167,7 +167,7 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     input: ListAllowedNodeTypeModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListAllowedNodeTypeModificationsCommand(input, context);
+    return se_ListAllowedNodeTypeModificationsCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
-    return deserializeAws_queryListAllowedNodeTypeModificationsCommand(output, context);
+    return de_ListAllowedNodeTypeModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

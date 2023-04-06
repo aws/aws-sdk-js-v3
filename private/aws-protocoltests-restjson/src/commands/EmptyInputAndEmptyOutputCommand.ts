@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1EmptyInputAndEmptyOutputCommand,
-  serializeAws_restJson1EmptyInputAndEmptyOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -108,14 +105,14 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: EmptyInputAndEmptyOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EmptyInputAndEmptyOutputCommand(input, context);
+    return se_EmptyInputAndEmptyOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_restJson1EmptyInputAndEmptyOutputCommand(output, context);
+    return de_EmptyInputAndEmptyOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

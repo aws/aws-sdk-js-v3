@@ -19,8 +19,8 @@ import {
   ListDetectMitigationActionsExecutionsResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommand,
-  serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand,
+  de_ListDetectMitigationActionsExecutionsCommand,
+  se_ListDetectMitigationActionsExecutionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command<
     input: ListDetectMitigationActionsExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand(input, context);
+    return se_ListDetectMitigationActionsExecutionsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectMitigationActionsExecutionsCommandOutput> {
-    return deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommand(output, context);
+    return de_ListDetectMitigationActionsExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

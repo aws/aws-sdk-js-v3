@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1PurchaseOfferingCommand,
-  serializeAws_json1_1PurchaseOfferingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PurchaseOfferingCommand, se_PurchaseOfferingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class PurchaseOfferingCommand extends $Command<
    * @internal
    */
   private serialize(input: PurchaseOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PurchaseOfferingCommand(input, context);
+    return se_PurchaseOfferingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseOfferingCommandOutput> {
-    return deserializeAws_json1_1PurchaseOfferingCommand(output, context);
+    return de_PurchaseOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

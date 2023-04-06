@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { RegisterClusterRequest, RegisterClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterClusterCommand,
-  serializeAws_restJson1RegisterClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterClusterCommand, se_RegisterClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class RegisterClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterClusterCommand(input, context);
+    return se_RegisterClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClusterCommandOutput> {
-    return deserializeAws_restJson1RegisterClusterCommand(output, context);
+    return de_RegisterClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

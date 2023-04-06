@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCommandInvocationCommand,
-  serializeAws_json1_1GetCommandInvocationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCommandInvocationCommand, se_GetCommandInvocationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -159,14 +156,14 @@ export class GetCommandInvocationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCommandInvocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommandInvocationCommand(input, context);
+    return se_GetCommandInvocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommandInvocationCommandOutput> {
-    return deserializeAws_json1_1GetCommandInvocationCommand(output, context);
+    return de_GetCommandInvocationCommand(output, context);
   }
 
   // Start section: command_body_extra

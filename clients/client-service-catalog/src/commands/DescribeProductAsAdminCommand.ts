@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProductAsAdminCommand,
-  serializeAws_json1_1DescribeProductAsAdminCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProductAsAdminCommand, se_DescribeProductAsAdminCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -129,14 +126,14 @@ export class DescribeProductAsAdminCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProductAsAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProductAsAdminCommand(input, context);
+    return se_DescribeProductAsAdminCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductAsAdminCommandOutput> {
-    return deserializeAws_json1_1DescribeProductAsAdminCommand(output, context);
+    return de_DescribeProductAsAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

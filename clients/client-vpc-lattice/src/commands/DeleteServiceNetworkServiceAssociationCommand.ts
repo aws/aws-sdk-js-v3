@@ -18,8 +18,8 @@ import {
   DeleteServiceNetworkServiceAssociationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteServiceNetworkServiceAssociationCommand,
-  serializeAws_restJson1DeleteServiceNetworkServiceAssociationCommand,
+  de_DeleteServiceNetworkServiceAssociationCommand,
+  se_DeleteServiceNetworkServiceAssociationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -150,7 +150,7 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command<
     input: DeleteServiceNetworkServiceAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteServiceNetworkServiceAssociationCommand(input, context);
+    return se_DeleteServiceNetworkServiceAssociationCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceNetworkServiceAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteServiceNetworkServiceAssociationCommand(output, context);
+    return de_DeleteServiceNetworkServiceAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

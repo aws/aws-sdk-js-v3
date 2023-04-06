@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBLocalGroupsCommand,
-  serializeAws_json1_1UpdateSMBLocalGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSMBLocalGroupsCommand, se_UpdateSMBLocalGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -134,14 +131,14 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSMBLocalGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBLocalGroupsCommand(input, context);
+    return se_UpdateSMBLocalGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBLocalGroupsCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBLocalGroupsCommand(output, context);
+    return de_UpdateSMBLocalGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

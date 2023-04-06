@@ -19,8 +19,8 @@ import {
   AssociateSigninDelegateGroupsWithAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand,
-  serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand,
+  de_AssociateSigninDelegateGroupsWithAccountCommand,
+  se_AssociateSigninDelegateGroupsWithAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +161,7 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     input: AssociateSigninDelegateGroupsWithAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand(input, context);
+    return se_AssociateSigninDelegateGroupsWithAccountCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> {
-    return deserializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand(output, context);
+    return de_AssociateSigninDelegateGroupsWithAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

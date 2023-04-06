@@ -19,8 +19,8 @@ import {
   StartVpcEndpointServicePrivateDnsVerificationResult,
 } from "../models/models_7";
 import {
-  deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
-  serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
+  de_StartVpcEndpointServicePrivateDnsVerificationCommand,
+  se_StartVpcEndpointServicePrivateDnsVerificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
+    return se_StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> {
-    return deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
+    return de_StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
   }
 
   // Start section: command_body_extra

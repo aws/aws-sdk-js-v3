@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetDevEndpointsRequest, BatchGetDevEndpointsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDevEndpointsCommand,
-  serializeAws_json1_1BatchGetDevEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetDevEndpointsCommand, se_BatchGetDevEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class BatchGetDevEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDevEndpointsCommand(input, context);
+    return se_BatchGetDevEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDevEndpointsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDevEndpointsCommand(output, context);
+    return de_BatchGetDevEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

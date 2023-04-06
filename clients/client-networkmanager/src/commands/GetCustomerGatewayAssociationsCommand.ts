@@ -16,8 +16,8 @@ import {
 import { GetCustomerGatewayAssociationsRequest, GetCustomerGatewayAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetCustomerGatewayAssociationsCommand,
-  serializeAws_restJson1GetCustomerGatewayAssociationsCommand,
+  de_GetCustomerGatewayAssociationsCommand,
+  se_GetCustomerGatewayAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     input: GetCustomerGatewayAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCustomerGatewayAssociationsCommand(input, context);
+    return se_GetCustomerGatewayAssociationsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCustomerGatewayAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetCustomerGatewayAssociationsCommand(output, context);
+    return de_GetCustomerGatewayAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -208,7 +208,10 @@ import {
 } from "../models/models_0";
 import { NimbleServiceException as __BaseException } from "../models/NimbleServiceException";
 
-export const serializeAws_restJson1AcceptEulasCommand = async (
+/**
+ * serializeAws_restJson1AcceptEulasCommand
+ */
+export const se_AcceptEulasCommand = async (
   input: AcceptEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -223,7 +226,7 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.eulaIds != null && { eulaIds: serializeAws_restJson1EulaIdList(input.eulaIds, context) }),
+    ...(input.eulaIds != null && { eulaIds: se_EulaIdList(input.eulaIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -236,7 +239,10 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateLaunchProfileCommand = async (
+/**
+ * serializeAws_restJson1CreateLaunchProfileCommand
+ */
+export const se_CreateLaunchProfileCommand = async (
   input: CreateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -252,23 +258,18 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description != null && { description: input.description }),
-    ...(input.ec2SubnetIds != null && {
-      ec2SubnetIds: serializeAws_restJson1EC2SubnetIdList(input.ec2SubnetIds, context),
-    }),
+    ...(input.ec2SubnetIds != null && { ec2SubnetIds: se_EC2SubnetIdList(input.ec2SubnetIds, context) }),
     ...(input.launchProfileProtocolVersions != null && {
-      launchProfileProtocolVersions: serializeAws_restJson1LaunchProfileProtocolVersionList(
-        input.launchProfileProtocolVersions,
-        context
-      ),
+      launchProfileProtocolVersions: se_LaunchProfileProtocolVersionList(input.launchProfileProtocolVersions, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.streamConfiguration != null && {
-      streamConfiguration: serializeAws_restJson1StreamConfigurationCreate(input.streamConfiguration, context),
+      streamConfiguration: se_StreamConfigurationCreate(input.streamConfiguration, context),
     }),
     ...(input.studioComponentIds != null && {
-      studioComponentIds: serializeAws_restJson1LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
+      studioComponentIds: se_LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
     }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -281,7 +282,10 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStreamingImageCommand = async (
+/**
+ * serializeAws_restJson1CreateStreamingImageCommand
+ */
+export const se_CreateStreamingImageCommand = async (
   input: CreateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -299,7 +303,7 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
     ...(input.description != null && { description: input.description }),
     ...(input.ec2ImageId != null && { ec2ImageId: input.ec2ImageId }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -312,7 +316,10 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStreamingSessionCommand = async (
+/**
+ * serializeAws_restJson1CreateStreamingSessionCommand
+ */
+export const se_CreateStreamingSessionCommand = async (
   input: CreateStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -331,7 +338,7 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
     ...(input.launchProfileId != null && { launchProfileId: input.launchProfileId }),
     ...(input.ownedBy != null && { ownedBy: input.ownedBy }),
     ...(input.streamingImageId != null && { streamingImageId: input.streamingImageId }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -344,7 +351,10 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
+/**
+ * serializeAws_restJson1CreateStreamingSessionStreamCommand
+ */
+export const se_CreateStreamingSessionStreamCommand = async (
   input: CreateStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -373,7 +383,10 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStudioCommand = async (
+/**
+ * serializeAws_restJson1CreateStudioCommand
+ */
+export const se_CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -388,13 +401,10 @@ export const serializeAws_restJson1CreateStudioCommand = async (
     ...(input.adminRoleArn != null && { adminRoleArn: input.adminRoleArn }),
     ...(input.displayName != null && { displayName: input.displayName }),
     ...(input.studioEncryptionConfiguration != null && {
-      studioEncryptionConfiguration: serializeAws_restJson1StudioEncryptionConfiguration(
-        input.studioEncryptionConfiguration,
-        context
-      ),
+      studioEncryptionConfiguration: se_StudioEncryptionConfiguration(input.studioEncryptionConfiguration, context),
     }),
     ...(input.studioName != null && { studioName: input.studioName }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
     ...(input.userRoleArn != null && { userRoleArn: input.userRoleArn }),
   });
   return new __HttpRequest({
@@ -408,7 +418,10 @@ export const serializeAws_restJson1CreateStudioCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStudioComponentCommand = async (
+/**
+ * serializeAws_restJson1CreateStudioComponentCommand
+ */
+export const se_CreateStudioComponentCommand = async (
   input: CreateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -424,31 +437,25 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.configuration != null && {
-      configuration: serializeAws_restJson1StudioComponentConfiguration(input.configuration, context),
+      configuration: se_StudioComponentConfiguration(input.configuration, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.ec2SecurityGroupIds != null && {
-      ec2SecurityGroupIds: serializeAws_restJson1StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
+      ec2SecurityGroupIds: se_StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
     }),
     ...(input.initializationScripts != null && {
-      initializationScripts: serializeAws_restJson1StudioComponentInitializationScriptList(
-        input.initializationScripts,
-        context
-      ),
+      initializationScripts: se_StudioComponentInitializationScriptList(input.initializationScripts, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
     ...(input.scriptParameters != null && {
-      scriptParameters: serializeAws_restJson1StudioComponentScriptParameterKeyValueList(
-        input.scriptParameters,
-        context
-      ),
+      scriptParameters: se_StudioComponentScriptParameterKeyValueList(input.scriptParameters, context),
     }),
     ...(input.secureInitializationRoleArn != null && {
       secureInitializationRoleArn: input.secureInitializationRoleArn,
     }),
     ...(input.subtype != null && { subtype: input.subtype }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
     ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
@@ -462,7 +469,10 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
+/**
+ * serializeAws_restJson1DeleteLaunchProfileCommand
+ */
+export const se_DeleteLaunchProfileCommand = async (
   input: DeleteLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -494,7 +504,10 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
+/**
+ * serializeAws_restJson1DeleteLaunchProfileMemberCommand
+ */
+export const se_DeleteLaunchProfileMemberCommand = async (
   input: DeleteLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -527,7 +540,10 @@ export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStreamingImageCommand = async (
+/**
+ * serializeAws_restJson1DeleteStreamingImageCommand
+ */
+export const se_DeleteStreamingImageCommand = async (
   input: DeleteStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -559,7 +575,10 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
+/**
+ * serializeAws_restJson1DeleteStreamingSessionCommand
+ */
+export const se_DeleteStreamingSessionCommand = async (
   input: DeleteStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -584,7 +603,10 @@ export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStudioCommand = async (
+/**
+ * serializeAws_restJson1DeleteStudioCommand
+ */
+export const se_DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -607,7 +629,10 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStudioComponentCommand = async (
+/**
+ * serializeAws_restJson1DeleteStudioComponentCommand
+ */
+export const se_DeleteStudioComponentCommand = async (
   input: DeleteStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -639,7 +664,10 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStudioMemberCommand = async (
+/**
+ * serializeAws_restJson1DeleteStudioMemberCommand
+ */
+export const se_DeleteStudioMemberCommand = async (
   input: DeleteStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -664,7 +692,10 @@ export const serializeAws_restJson1DeleteStudioMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEulaCommand = async (
+/**
+ * serializeAws_restJson1GetEulaCommand
+ */
+export const se_GetEulaCommand = async (
   input: GetEulaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -685,7 +716,10 @@ export const serializeAws_restJson1GetEulaCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLaunchProfileCommand = async (
+/**
+ * serializeAws_restJson1GetLaunchProfileCommand
+ */
+export const se_GetLaunchProfileCommand = async (
   input: GetLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -715,7 +749,10 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
+/**
+ * serializeAws_restJson1GetLaunchProfileDetailsCommand
+ */
+export const se_GetLaunchProfileDetailsCommand = async (
   input: GetLaunchProfileDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -745,7 +782,10 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async (
+/**
+ * serializeAws_restJson1GetLaunchProfileInitializationCommand
+ */
+export const se_GetLaunchProfileInitializationCommand = async (
   input: GetLaunchProfileInitializationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -784,7 +824,10 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   });
 };
 
-export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
+/**
+ * serializeAws_restJson1GetLaunchProfileMemberCommand
+ */
+export const se_GetLaunchProfileMemberCommand = async (
   input: GetLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -815,7 +858,10 @@ export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStreamingImageCommand = async (
+/**
+ * serializeAws_restJson1GetStreamingImageCommand
+ */
+export const se_GetStreamingImageCommand = async (
   input: GetStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -845,7 +891,10 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStreamingSessionCommand = async (
+/**
+ * serializeAws_restJson1GetStreamingSessionCommand
+ */
+export const se_GetStreamingSessionCommand = async (
   input: GetStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -868,7 +917,10 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStreamingSessionBackupCommand = async (
+/**
+ * serializeAws_restJson1GetStreamingSessionBackupCommand
+ */
+export const se_GetStreamingSessionBackupCommand = async (
   input: GetStreamingSessionBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -891,7 +943,10 @@ export const serializeAws_restJson1GetStreamingSessionBackupCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
+/**
+ * serializeAws_restJson1GetStreamingSessionStreamCommand
+ */
+export const se_GetStreamingSessionStreamCommand = async (
   input: GetStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -915,7 +970,10 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStudioCommand = async (
+/**
+ * serializeAws_restJson1GetStudioCommand
+ */
+export const se_GetStudioCommand = async (
   input: GetStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -936,7 +994,10 @@ export const serializeAws_restJson1GetStudioCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStudioComponentCommand = async (
+/**
+ * serializeAws_restJson1GetStudioComponentCommand
+ */
+export const se_GetStudioComponentCommand = async (
   input: GetStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -966,7 +1027,10 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStudioMemberCommand = async (
+/**
+ * serializeAws_restJson1GetStudioMemberCommand
+ */
+export const se_GetStudioMemberCommand = async (
   input: GetStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -989,7 +1053,10 @@ export const serializeAws_restJson1GetStudioMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
+/**
+ * serializeAws_restJson1ListEulaAcceptancesCommand
+ */
+export const se_ListEulaAcceptancesCommand = async (
   input: ListEulaAcceptancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1016,7 +1083,10 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEulasCommand = async (
+/**
+ * serializeAws_restJson1ListEulasCommand
+ */
+export const se_ListEulasCommand = async (
   input: ListEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1040,7 +1110,10 @@ export const serializeAws_restJson1ListEulasCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
+/**
+ * serializeAws_restJson1ListLaunchProfileMembersCommand
+ */
+export const se_ListLaunchProfileMembersCommand = async (
   input: ListLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1075,7 +1148,10 @@ export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLaunchProfilesCommand = async (
+/**
+ * serializeAws_restJson1ListLaunchProfilesCommand
+ */
+export const se_ListLaunchProfilesCommand = async (
   input: ListLaunchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1104,7 +1180,10 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStreamingImagesCommand = async (
+/**
+ * serializeAws_restJson1ListStreamingImagesCommand
+ */
+export const se_ListStreamingImagesCommand = async (
   input: ListStreamingImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1131,7 +1210,10 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+/**
+ * serializeAws_restJson1ListStreamingSessionBackupsCommand
+ */
+export const se_ListStreamingSessionBackupsCommand = async (
   input: ListStreamingSessionBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1158,7 +1240,10 @@ export const serializeAws_restJson1ListStreamingSessionBackupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStreamingSessionsCommand = async (
+/**
+ * serializeAws_restJson1ListStreamingSessionsCommand
+ */
+export const se_ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1187,7 +1272,10 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStudioComponentsCommand = async (
+/**
+ * serializeAws_restJson1ListStudioComponentsCommand
+ */
+export const se_ListStudioComponentsCommand = async (
   input: ListStudioComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1216,7 +1304,10 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStudioMembersCommand = async (
+/**
+ * serializeAws_restJson1ListStudioMembersCommand
+ */
+export const se_ListStudioMembersCommand = async (
   input: ListStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1242,7 +1333,10 @@ export const serializeAws_restJson1ListStudioMembersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStudiosCommand = async (
+/**
+ * serializeAws_restJson1ListStudiosCommand
+ */
+export const se_ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1265,7 +1359,10 @@ export const serializeAws_restJson1ListStudiosCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1286,7 +1383,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
+/**
+ * serializeAws_restJson1PutLaunchProfileMembersCommand
+ */
+export const se_PutLaunchProfileMembersCommand = async (
   input: PutLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1310,7 +1410,7 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.identityStoreId != null && { identityStoreId: input.identityStoreId }),
-    ...(input.members != null && { members: serializeAws_restJson1NewLaunchProfileMemberList(input.members, context) }),
+    ...(input.members != null && { members: se_NewLaunchProfileMemberList(input.members, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1323,7 +1423,10 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutStudioMembersCommand = async (
+/**
+ * serializeAws_restJson1PutStudioMembersCommand
+ */
+export const se_PutStudioMembersCommand = async (
   input: PutStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1338,7 +1441,7 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.identityStoreId != null && { identityStoreId: input.identityStoreId }),
-    ...(input.members != null && { members: serializeAws_restJson1NewStudioMemberList(input.members, context) }),
+    ...(input.members != null && { members: se_NewStudioMemberList(input.members, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1351,7 +1454,10 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartStreamingSessionCommand = async (
+/**
+ * serializeAws_restJson1StartStreamingSessionCommand
+ */
+export const se_StartStreamingSessionCommand = async (
   input: StartStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1380,7 +1486,10 @@ export const serializeAws_restJson1StartStreamingSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = async (
+/**
+ * serializeAws_restJson1StartStudioSSOConfigurationRepairCommand
+ */
+export const se_StartStudioSSOConfigurationRepairCommand = async (
   input: StartStudioSSOConfigurationRepairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1404,7 +1513,10 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
   });
 };
 
-export const serializeAws_restJson1StopStreamingSessionCommand = async (
+/**
+ * serializeAws_restJson1StopStreamingSessionCommand
+ */
+export const se_StopStreamingSessionCommand = async (
   input: StopStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1433,7 +1545,10 @@ export const serializeAws_restJson1StopStreamingSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1446,7 +1561,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1459,7 +1574,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1487,7 +1605,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
+/**
+ * serializeAws_restJson1UpdateLaunchProfileCommand
+ */
+export const se_UpdateLaunchProfileCommand = async (
   input: UpdateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1512,17 +1633,14 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
   body = JSON.stringify({
     ...(input.description != null && { description: input.description }),
     ...(input.launchProfileProtocolVersions != null && {
-      launchProfileProtocolVersions: serializeAws_restJson1LaunchProfileProtocolVersionList(
-        input.launchProfileProtocolVersions,
-        context
-      ),
+      launchProfileProtocolVersions: se_LaunchProfileProtocolVersionList(input.launchProfileProtocolVersions, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.streamConfiguration != null && {
-      streamConfiguration: serializeAws_restJson1StreamConfigurationCreate(input.streamConfiguration, context),
+      streamConfiguration: se_StreamConfigurationCreate(input.streamConfiguration, context),
     }),
     ...(input.studioComponentIds != null && {
-      studioComponentIds: serializeAws_restJson1LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
+      studioComponentIds: se_LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
     }),
   });
   return new __HttpRequest({
@@ -1536,7 +1654,10 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
+/**
+ * serializeAws_restJson1UpdateLaunchProfileMemberCommand
+ */
+export const se_UpdateLaunchProfileMemberCommand = async (
   input: UpdateLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1573,7 +1694,10 @@ export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateStreamingImageCommand = async (
+/**
+ * serializeAws_restJson1UpdateStreamingImageCommand
+ */
+export const se_UpdateStreamingImageCommand = async (
   input: UpdateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1610,7 +1734,10 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateStudioCommand = async (
+/**
+ * serializeAws_restJson1UpdateStudioCommand
+ */
+export const se_UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1639,7 +1766,10 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateStudioComponentCommand = async (
+/**
+ * serializeAws_restJson1UpdateStudioComponentCommand
+ */
+export const se_UpdateStudioComponentCommand = async (
   input: UpdateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1663,25 +1793,19 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.configuration != null && {
-      configuration: serializeAws_restJson1StudioComponentConfiguration(input.configuration, context),
+      configuration: se_StudioComponentConfiguration(input.configuration, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.ec2SecurityGroupIds != null && {
-      ec2SecurityGroupIds: serializeAws_restJson1StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
+      ec2SecurityGroupIds: se_StudioComponentSecurityGroupIdList(input.ec2SecurityGroupIds, context),
     }),
     ...(input.initializationScripts != null && {
-      initializationScripts: serializeAws_restJson1StudioComponentInitializationScriptList(
-        input.initializationScripts,
-        context
-      ),
+      initializationScripts: se_StudioComponentInitializationScriptList(input.initializationScripts, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
     ...(input.scriptParameters != null && {
-      scriptParameters: serializeAws_restJson1StudioComponentScriptParameterKeyValueList(
-        input.scriptParameters,
-        context
-      ),
+      scriptParameters: se_StudioComponentScriptParameterKeyValueList(input.scriptParameters, context),
     }),
     ...(input.secureInitializationRoleArn != null && {
       secureInitializationRoleArn: input.secureInitializationRoleArn,
@@ -1700,24 +1824,30 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AcceptEulasCommand = async (
+/**
+ * deserializeAws_restJson1AcceptEulasCommand
+ */
+export const de_AcceptEulasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptEulasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AcceptEulasCommandError(output, context);
+    return de_AcceptEulasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulaAcceptances != null) {
-    contents.eulaAcceptances = deserializeAws_restJson1EulaAcceptanceList(data.eulaAcceptances, context);
+    contents.eulaAcceptances = de_EulaAcceptanceList(data.eulaAcceptances, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AcceptEulasCommandError = async (
+/**
+ * deserializeAws_restJson1AcceptEulasCommandError
+ */
+const de_AcceptEulasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptEulasCommandOutput> => {
@@ -1729,25 +1859,25 @@ const deserializeAws_restJson1AcceptEulasCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1759,24 +1889,30 @@ const deserializeAws_restJson1AcceptEulasCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateLaunchProfileCommand = async (
+/**
+ * deserializeAws_restJson1CreateLaunchProfileCommand
+ */
+export const de_CreateLaunchProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLaunchProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLaunchProfileCommandError(output, context);
+    return de_CreateLaunchProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile != null) {
-    contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
+    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateLaunchProfileCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLaunchProfileCommandError
+ */
+const de_CreateLaunchProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLaunchProfileCommandOutput> => {
@@ -1788,25 +1924,25 @@ const deserializeAws_restJson1CreateLaunchProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1818,24 +1954,30 @@ const deserializeAws_restJson1CreateLaunchProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStreamingImageCommand = async (
+/**
+ * deserializeAws_restJson1CreateStreamingImageCommand
+ */
+export const de_CreateStreamingImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStreamingImageCommandError(output, context);
+    return de_CreateStreamingImageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage != null) {
-    contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
+    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStreamingImageCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStreamingImageCommandError
+ */
+const de_CreateStreamingImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingImageCommandOutput> => {
@@ -1847,25 +1989,25 @@ const deserializeAws_restJson1CreateStreamingImageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1877,24 +2019,30 @@ const deserializeAws_restJson1CreateStreamingImageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStreamingSessionCommand = async (
+/**
+ * deserializeAws_restJson1CreateStreamingSessionCommand
+ */
+export const de_CreateStreamingSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStreamingSessionCommandError(output, context);
+    return de_CreateStreamingSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session != null) {
-    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+    contents.session = de_StreamingSession(data.session, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStreamingSessionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStreamingSessionCommandError
+ */
+const de_CreateStreamingSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingSessionCommandOutput> => {
@@ -1906,25 +2054,25 @@ const deserializeAws_restJson1CreateStreamingSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1936,24 +2084,30 @@ const deserializeAws_restJson1CreateStreamingSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStreamingSessionStreamCommand = async (
+/**
+ * deserializeAws_restJson1CreateStreamingSessionStreamCommand
+ */
+export const de_CreateStreamingSessionStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingSessionStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStreamingSessionStreamCommandError(output, context);
+    return de_CreateStreamingSessionStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.stream != null) {
-    contents.stream = deserializeAws_restJson1StreamingSessionStream(data.stream, context);
+    contents.stream = de_StreamingSessionStream(data.stream, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStreamingSessionStreamCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStreamingSessionStreamCommandError
+ */
+const de_CreateStreamingSessionStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingSessionStreamCommandOutput> => {
@@ -1965,25 +2119,25 @@ const deserializeAws_restJson1CreateStreamingSessionStreamCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1995,24 +2149,30 @@ const deserializeAws_restJson1CreateStreamingSessionStreamCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStudioCommand = async (
+/**
+ * deserializeAws_restJson1CreateStudioCommand
+ */
+export const de_CreateStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStudioCommandError(output, context);
+    return de_CreateStudioCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio != null) {
-    contents.studio = deserializeAws_restJson1Studio(data.studio, context);
+    contents.studio = de_Studio(data.studio, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStudioCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStudioCommandError
+ */
+const de_CreateStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioCommandOutput> => {
@@ -2024,25 +2184,25 @@ const deserializeAws_restJson1CreateStudioCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2054,24 +2214,30 @@ const deserializeAws_restJson1CreateStudioCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStudioComponentCommand = async (
+/**
+ * deserializeAws_restJson1CreateStudioComponentCommand
+ */
+export const de_CreateStudioComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStudioComponentCommandError(output, context);
+    return de_CreateStudioComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent != null) {
-    contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
+    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStudioComponentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStudioComponentCommandError
+ */
+const de_CreateStudioComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStudioComponentCommandOutput> => {
@@ -2083,25 +2249,25 @@ const deserializeAws_restJson1CreateStudioComponentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2113,24 +2279,30 @@ const deserializeAws_restJson1CreateStudioComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteLaunchProfileCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchProfileCommand
+ */
+export const de_DeleteLaunchProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLaunchProfileCommandError(output, context);
+    return de_DeleteLaunchProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile != null) {
-    contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
+    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteLaunchProfileCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchProfileCommandError
+ */
+const de_DeleteLaunchProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchProfileCommandOutput> => {
@@ -2142,25 +2314,25 @@ const deserializeAws_restJson1DeleteLaunchProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2172,12 +2344,15 @@ const deserializeAws_restJson1DeleteLaunchProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchProfileMemberCommand
+ */
+export const de_DeleteLaunchProfileMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchProfileMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLaunchProfileMemberCommandError(output, context);
+    return de_DeleteLaunchProfileMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2186,7 +2361,10 @@ export const deserializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteLaunchProfileMemberCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchProfileMemberCommandError
+ */
+const de_DeleteLaunchProfileMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchProfileMemberCommandOutput> => {
@@ -2198,25 +2376,25 @@ const deserializeAws_restJson1DeleteLaunchProfileMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2228,24 +2406,30 @@ const deserializeAws_restJson1DeleteLaunchProfileMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStreamingImageCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStreamingImageCommand
+ */
+export const de_DeleteStreamingImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamingImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStreamingImageCommandError(output, context);
+    return de_DeleteStreamingImageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage != null) {
-    contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
+    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStreamingImageCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStreamingImageCommandError
+ */
+const de_DeleteStreamingImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamingImageCommandOutput> => {
@@ -2257,25 +2441,25 @@ const deserializeAws_restJson1DeleteStreamingImageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2287,24 +2471,30 @@ const deserializeAws_restJson1DeleteStreamingImageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStreamingSessionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStreamingSessionCommand
+ */
+export const de_DeleteStreamingSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamingSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStreamingSessionCommandError(output, context);
+    return de_DeleteStreamingSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session != null) {
-    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+    contents.session = de_StreamingSession(data.session, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStreamingSessionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStreamingSessionCommandError
+ */
+const de_DeleteStreamingSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamingSessionCommandOutput> => {
@@ -2316,25 +2506,25 @@ const deserializeAws_restJson1DeleteStreamingSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2346,24 +2536,30 @@ const deserializeAws_restJson1DeleteStreamingSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStudioCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStudioCommand
+ */
+export const de_DeleteStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStudioCommandError(output, context);
+    return de_DeleteStudioCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio != null) {
-    contents.studio = deserializeAws_restJson1Studio(data.studio, context);
+    contents.studio = de_Studio(data.studio, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStudioCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStudioCommandError
+ */
+const de_DeleteStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioCommandOutput> => {
@@ -2375,25 +2571,25 @@ const deserializeAws_restJson1DeleteStudioCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2405,24 +2601,30 @@ const deserializeAws_restJson1DeleteStudioCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStudioComponentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStudioComponentCommand
+ */
+export const de_DeleteStudioComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStudioComponentCommandError(output, context);
+    return de_DeleteStudioComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent != null) {
-    contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
+    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStudioComponentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStudioComponentCommandError
+ */
+const de_DeleteStudioComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioComponentCommandOutput> => {
@@ -2434,25 +2636,25 @@ const deserializeAws_restJson1DeleteStudioComponentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2464,12 +2666,15 @@ const deserializeAws_restJson1DeleteStudioComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStudioMemberCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStudioMemberCommand
+ */
+export const de_DeleteStudioMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStudioMemberCommandError(output, context);
+    return de_DeleteStudioMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2478,7 +2683,10 @@ export const deserializeAws_restJson1DeleteStudioMemberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStudioMemberCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStudioMemberCommandError
+ */
+const de_DeleteStudioMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStudioMemberCommandOutput> => {
@@ -2490,25 +2698,25 @@ const deserializeAws_restJson1DeleteStudioMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2520,24 +2728,30 @@ const deserializeAws_restJson1DeleteStudioMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEulaCommand = async (
+/**
+ * deserializeAws_restJson1GetEulaCommand
+ */
+export const de_GetEulaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEulaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEulaCommandError(output, context);
+    return de_GetEulaCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eula != null) {
-    contents.eula = deserializeAws_restJson1Eula(data.eula, context);
+    contents.eula = de_Eula(data.eula, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetEulaCommandError = async (
+/**
+ * deserializeAws_restJson1GetEulaCommandError
+ */
+const de_GetEulaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEulaCommandOutput> => {
@@ -2549,25 +2763,25 @@ const deserializeAws_restJson1GetEulaCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2579,24 +2793,30 @@ const deserializeAws_restJson1GetEulaCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetLaunchProfileCommand = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileCommand
+ */
+export const de_GetLaunchProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLaunchProfileCommandError(output, context);
+    return de_GetLaunchProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile != null) {
-    contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
+    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetLaunchProfileCommandError = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileCommandError
+ */
+const de_GetLaunchProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileCommandOutput> => {
@@ -2608,25 +2828,25 @@ const deserializeAws_restJson1GetLaunchProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2638,33 +2858,36 @@ const deserializeAws_restJson1GetLaunchProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetLaunchProfileDetailsCommand = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileDetailsCommand
+ */
+export const de_GetLaunchProfileDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLaunchProfileDetailsCommandError(output, context);
+    return de_GetLaunchProfileDetailsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile != null) {
-    contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
+    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
   }
   if (data.streamingImages != null) {
-    contents.streamingImages = deserializeAws_restJson1StreamingImageList(data.streamingImages, context);
+    contents.streamingImages = de_StreamingImageList(data.streamingImages, context);
   }
   if (data.studioComponentSummaries != null) {
-    contents.studioComponentSummaries = deserializeAws_restJson1StudioComponentSummaryList(
-      data.studioComponentSummaries,
-      context
-    );
+    contents.studioComponentSummaries = de_StudioComponentSummaryList(data.studioComponentSummaries, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetLaunchProfileDetailsCommandError = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileDetailsCommandError
+ */
+const de_GetLaunchProfileDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileDetailsCommandOutput> => {
@@ -2676,25 +2899,25 @@ const deserializeAws_restJson1GetLaunchProfileDetailsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2706,27 +2929,30 @@ const deserializeAws_restJson1GetLaunchProfileDetailsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetLaunchProfileInitializationCommand = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileInitializationCommand
+ */
+export const de_GetLaunchProfileInitializationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileInitializationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLaunchProfileInitializationCommandError(output, context);
+    return de_GetLaunchProfileInitializationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfileInitialization != null) {
-    contents.launchProfileInitialization = deserializeAws_restJson1LaunchProfileInitialization(
-      data.launchProfileInitialization,
-      context
-    );
+    contents.launchProfileInitialization = de_LaunchProfileInitialization(data.launchProfileInitialization, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetLaunchProfileInitializationCommandError = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileInitializationCommandError
+ */
+const de_GetLaunchProfileInitializationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileInitializationCommandOutput> => {
@@ -2738,25 +2964,25 @@ const deserializeAws_restJson1GetLaunchProfileInitializationCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2768,24 +2994,30 @@ const deserializeAws_restJson1GetLaunchProfileInitializationCommandError = async
   }
 };
 
-export const deserializeAws_restJson1GetLaunchProfileMemberCommand = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileMemberCommand
+ */
+export const de_GetLaunchProfileMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLaunchProfileMemberCommandError(output, context);
+    return de_GetLaunchProfileMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member != null) {
-    contents.member = deserializeAws_restJson1LaunchProfileMembership(data.member, context);
+    contents.member = de_LaunchProfileMembership(data.member, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetLaunchProfileMemberCommandError = async (
+/**
+ * deserializeAws_restJson1GetLaunchProfileMemberCommandError
+ */
+const de_GetLaunchProfileMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchProfileMemberCommandOutput> => {
@@ -2797,25 +3029,25 @@ const deserializeAws_restJson1GetLaunchProfileMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2827,24 +3059,30 @@ const deserializeAws_restJson1GetLaunchProfileMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStreamingImageCommand = async (
+/**
+ * deserializeAws_restJson1GetStreamingImageCommand
+ */
+export const de_GetStreamingImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStreamingImageCommandError(output, context);
+    return de_GetStreamingImageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage != null) {
-    contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
+    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStreamingImageCommandError = async (
+/**
+ * deserializeAws_restJson1GetStreamingImageCommandError
+ */
+const de_GetStreamingImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingImageCommandOutput> => {
@@ -2856,25 +3094,25 @@ const deserializeAws_restJson1GetStreamingImageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2886,24 +3124,30 @@ const deserializeAws_restJson1GetStreamingImageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStreamingSessionCommand = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionCommand
+ */
+export const de_GetStreamingSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStreamingSessionCommandError(output, context);
+    return de_GetStreamingSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session != null) {
-    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+    contents.session = de_StreamingSession(data.session, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStreamingSessionCommandError = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionCommandError
+ */
+const de_GetStreamingSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionCommandOutput> => {
@@ -2915,25 +3159,25 @@ const deserializeAws_restJson1GetStreamingSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2945,27 +3189,30 @@ const deserializeAws_restJson1GetStreamingSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStreamingSessionBackupCommand = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionBackupCommand
+ */
+export const de_GetStreamingSessionBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionBackupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStreamingSessionBackupCommandError(output, context);
+    return de_GetStreamingSessionBackupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingSessionBackup != null) {
-    contents.streamingSessionBackup = deserializeAws_restJson1StreamingSessionBackup(
-      data.streamingSessionBackup,
-      context
-    );
+    contents.streamingSessionBackup = de_StreamingSessionBackup(data.streamingSessionBackup, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStreamingSessionBackupCommandError = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionBackupCommandError
+ */
+const de_GetStreamingSessionBackupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionBackupCommandOutput> => {
@@ -2977,22 +3224,22 @@ const deserializeAws_restJson1GetStreamingSessionBackupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3004,24 +3251,30 @@ const deserializeAws_restJson1GetStreamingSessionBackupCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStreamingSessionStreamCommand = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionStreamCommand
+ */
+export const de_GetStreamingSessionStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStreamingSessionStreamCommandError(output, context);
+    return de_GetStreamingSessionStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.stream != null) {
-    contents.stream = deserializeAws_restJson1StreamingSessionStream(data.stream, context);
+    contents.stream = de_StreamingSessionStream(data.stream, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStreamingSessionStreamCommandError = async (
+/**
+ * deserializeAws_restJson1GetStreamingSessionStreamCommandError
+ */
+const de_GetStreamingSessionStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingSessionStreamCommandOutput> => {
@@ -3033,25 +3286,25 @@ const deserializeAws_restJson1GetStreamingSessionStreamCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3063,24 +3316,30 @@ const deserializeAws_restJson1GetStreamingSessionStreamCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStudioCommand = async (
+/**
+ * deserializeAws_restJson1GetStudioCommand
+ */
+export const de_GetStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStudioCommandError(output, context);
+    return de_GetStudioCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio != null) {
-    contents.studio = deserializeAws_restJson1Studio(data.studio, context);
+    contents.studio = de_Studio(data.studio, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStudioCommandError = async (
+/**
+ * deserializeAws_restJson1GetStudioCommandError
+ */
+const de_GetStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioCommandOutput> => {
@@ -3092,25 +3351,25 @@ const deserializeAws_restJson1GetStudioCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3122,24 +3381,30 @@ const deserializeAws_restJson1GetStudioCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStudioComponentCommand = async (
+/**
+ * deserializeAws_restJson1GetStudioComponentCommand
+ */
+export const de_GetStudioComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStudioComponentCommandError(output, context);
+    return de_GetStudioComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent != null) {
-    contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
+    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStudioComponentCommandError = async (
+/**
+ * deserializeAws_restJson1GetStudioComponentCommandError
+ */
+const de_GetStudioComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioComponentCommandOutput> => {
@@ -3151,25 +3416,25 @@ const deserializeAws_restJson1GetStudioComponentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3181,24 +3446,30 @@ const deserializeAws_restJson1GetStudioComponentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStudioMemberCommand = async (
+/**
+ * deserializeAws_restJson1GetStudioMemberCommand
+ */
+export const de_GetStudioMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStudioMemberCommandError(output, context);
+    return de_GetStudioMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member != null) {
-    contents.member = deserializeAws_restJson1StudioMembership(data.member, context);
+    contents.member = de_StudioMembership(data.member, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStudioMemberCommandError = async (
+/**
+ * deserializeAws_restJson1GetStudioMemberCommandError
+ */
+const de_GetStudioMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStudioMemberCommandOutput> => {
@@ -3210,25 +3481,25 @@ const deserializeAws_restJson1GetStudioMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3240,19 +3511,22 @@ const deserializeAws_restJson1GetStudioMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEulaAcceptancesCommand = async (
+/**
+ * deserializeAws_restJson1ListEulaAcceptancesCommand
+ */
+export const de_ListEulaAcceptancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEulaAcceptancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEulaAcceptancesCommandError(output, context);
+    return de_ListEulaAcceptancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulaAcceptances != null) {
-    contents.eulaAcceptances = deserializeAws_restJson1EulaAcceptanceList(data.eulaAcceptances, context);
+    contents.eulaAcceptances = de_EulaAcceptanceList(data.eulaAcceptances, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3260,7 +3534,10 @@ export const deserializeAws_restJson1ListEulaAcceptancesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEulaAcceptancesCommandError = async (
+/**
+ * deserializeAws_restJson1ListEulaAcceptancesCommandError
+ */
+const de_ListEulaAcceptancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEulaAcceptancesCommandOutput> => {
@@ -3272,25 +3549,25 @@ const deserializeAws_restJson1ListEulaAcceptancesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3302,19 +3579,22 @@ const deserializeAws_restJson1ListEulaAcceptancesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEulasCommand = async (
+/**
+ * deserializeAws_restJson1ListEulasCommand
+ */
+export const de_ListEulasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEulasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEulasCommandError(output, context);
+    return de_ListEulasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulas != null) {
-    contents.eulas = deserializeAws_restJson1EulaList(data.eulas, context);
+    contents.eulas = de_EulaList(data.eulas, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3322,7 +3602,10 @@ export const deserializeAws_restJson1ListEulasCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEulasCommandError = async (
+/**
+ * deserializeAws_restJson1ListEulasCommandError
+ */
+const de_ListEulasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEulasCommandOutput> => {
@@ -3334,25 +3617,25 @@ const deserializeAws_restJson1ListEulasCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3364,19 +3647,22 @@ const deserializeAws_restJson1ListEulasCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListLaunchProfileMembersCommand = async (
+/**
+ * deserializeAws_restJson1ListLaunchProfileMembersCommand
+ */
+export const de_ListLaunchProfileMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchProfileMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLaunchProfileMembersCommandError(output, context);
+    return de_ListLaunchProfileMembersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.members != null) {
-    contents.members = deserializeAws_restJson1LaunchProfileMembershipList(data.members, context);
+    contents.members = de_LaunchProfileMembershipList(data.members, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3384,7 +3670,10 @@ export const deserializeAws_restJson1ListLaunchProfileMembersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListLaunchProfileMembersCommandError = async (
+/**
+ * deserializeAws_restJson1ListLaunchProfileMembersCommandError
+ */
+const de_ListLaunchProfileMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchProfileMembersCommandOutput> => {
@@ -3396,25 +3685,25 @@ const deserializeAws_restJson1ListLaunchProfileMembersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3426,19 +3715,22 @@ const deserializeAws_restJson1ListLaunchProfileMembersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListLaunchProfilesCommand = async (
+/**
+ * deserializeAws_restJson1ListLaunchProfilesCommand
+ */
+export const de_ListLaunchProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLaunchProfilesCommandError(output, context);
+    return de_ListLaunchProfilesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfiles != null) {
-    contents.launchProfiles = deserializeAws_restJson1LaunchProfileList(data.launchProfiles, context);
+    contents.launchProfiles = de_LaunchProfileList(data.launchProfiles, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3446,7 +3738,10 @@ export const deserializeAws_restJson1ListLaunchProfilesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListLaunchProfilesCommandError = async (
+/**
+ * deserializeAws_restJson1ListLaunchProfilesCommandError
+ */
+const de_ListLaunchProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchProfilesCommandOutput> => {
@@ -3458,25 +3753,25 @@ const deserializeAws_restJson1ListLaunchProfilesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3488,12 +3783,15 @@ const deserializeAws_restJson1ListLaunchProfilesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStreamingImagesCommand = async (
+/**
+ * deserializeAws_restJson1ListStreamingImagesCommand
+ */
+export const de_ListStreamingImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingImagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStreamingImagesCommandError(output, context);
+    return de_ListStreamingImagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3503,12 +3801,15 @@ export const deserializeAws_restJson1ListStreamingImagesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.streamingImages != null) {
-    contents.streamingImages = deserializeAws_restJson1StreamingImageList(data.streamingImages, context);
+    contents.streamingImages = de_StreamingImageList(data.streamingImages, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListStreamingImagesCommandError = async (
+/**
+ * deserializeAws_restJson1ListStreamingImagesCommandError
+ */
+const de_ListStreamingImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingImagesCommandOutput> => {
@@ -3520,25 +3821,25 @@ const deserializeAws_restJson1ListStreamingImagesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3550,12 +3851,15 @@ const deserializeAws_restJson1ListStreamingImagesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+/**
+ * deserializeAws_restJson1ListStreamingSessionBackupsCommand
+ */
+export const de_ListStreamingSessionBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingSessionBackupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStreamingSessionBackupsCommandError(output, context);
+    return de_ListStreamingSessionBackupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3565,15 +3869,15 @@ export const deserializeAws_restJson1ListStreamingSessionBackupsCommand = async 
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.streamingSessionBackups != null) {
-    contents.streamingSessionBackups = deserializeAws_restJson1StreamingSessionBackupList(
-      data.streamingSessionBackups,
-      context
-    );
+    contents.streamingSessionBackups = de_StreamingSessionBackupList(data.streamingSessionBackups, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListStreamingSessionBackupsCommandError = async (
+/**
+ * deserializeAws_restJson1ListStreamingSessionBackupsCommandError
+ */
+const de_ListStreamingSessionBackupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingSessionBackupsCommandOutput> => {
@@ -3585,22 +3889,22 @@ const deserializeAws_restJson1ListStreamingSessionBackupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3612,12 +3916,15 @@ const deserializeAws_restJson1ListStreamingSessionBackupsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStreamingSessionsCommand = async (
+/**
+ * deserializeAws_restJson1ListStreamingSessionsCommand
+ */
+export const de_ListStreamingSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingSessionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStreamingSessionsCommandError(output, context);
+    return de_ListStreamingSessionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3627,12 +3934,15 @@ export const deserializeAws_restJson1ListStreamingSessionsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.sessions != null) {
-    contents.sessions = deserializeAws_restJson1StreamingSessionList(data.sessions, context);
+    contents.sessions = de_StreamingSessionList(data.sessions, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListStreamingSessionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListStreamingSessionsCommandError
+ */
+const de_ListStreamingSessionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingSessionsCommandOutput> => {
@@ -3644,25 +3954,25 @@ const deserializeAws_restJson1ListStreamingSessionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3674,12 +3984,15 @@ const deserializeAws_restJson1ListStreamingSessionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStudioComponentsCommand = async (
+/**
+ * deserializeAws_restJson1ListStudioComponentsCommand
+ */
+export const de_ListStudioComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStudioComponentsCommandError(output, context);
+    return de_ListStudioComponentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3689,12 +4002,15 @@ export const deserializeAws_restJson1ListStudioComponentsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.studioComponents != null) {
-    contents.studioComponents = deserializeAws_restJson1StudioComponentList(data.studioComponents, context);
+    contents.studioComponents = de_StudioComponentList(data.studioComponents, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListStudioComponentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListStudioComponentsCommandError
+ */
+const de_ListStudioComponentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioComponentsCommandOutput> => {
@@ -3706,25 +4022,25 @@ const deserializeAws_restJson1ListStudioComponentsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3736,19 +4052,22 @@ const deserializeAws_restJson1ListStudioComponentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStudioMembersCommand = async (
+/**
+ * deserializeAws_restJson1ListStudioMembersCommand
+ */
+export const de_ListStudioMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStudioMembersCommandError(output, context);
+    return de_ListStudioMembersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.members != null) {
-    contents.members = deserializeAws_restJson1StudioMembershipList(data.members, context);
+    contents.members = de_StudioMembershipList(data.members, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -3756,7 +4075,10 @@ export const deserializeAws_restJson1ListStudioMembersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListStudioMembersCommandError = async (
+/**
+ * deserializeAws_restJson1ListStudioMembersCommandError
+ */
+const de_ListStudioMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudioMembersCommandOutput> => {
@@ -3768,25 +4090,25 @@ const deserializeAws_restJson1ListStudioMembersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3798,12 +4120,15 @@ const deserializeAws_restJson1ListStudioMembersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListStudiosCommand = async (
+/**
+ * deserializeAws_restJson1ListStudiosCommand
+ */
+export const de_ListStudiosCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudiosCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStudiosCommandError(output, context);
+    return de_ListStudiosCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3813,12 +4138,15 @@ export const deserializeAws_restJson1ListStudiosCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.studios != null) {
-    contents.studios = deserializeAws_restJson1StudioList(data.studios, context);
+    contents.studios = de_StudioList(data.studios, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListStudiosCommandError = async (
+/**
+ * deserializeAws_restJson1ListStudiosCommandError
+ */
+const de_ListStudiosCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStudiosCommandOutput> => {
@@ -3830,25 +4158,25 @@ const deserializeAws_restJson1ListStudiosCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3860,24 +4188,30 @@ const deserializeAws_restJson1ListStudiosCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3889,25 +4223,25 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3919,12 +4253,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutLaunchProfileMembersCommand = async (
+/**
+ * deserializeAws_restJson1PutLaunchProfileMembersCommand
+ */
+export const de_PutLaunchProfileMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLaunchProfileMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutLaunchProfileMembersCommandError(output, context);
+    return de_PutLaunchProfileMembersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3933,7 +4270,10 @@ export const deserializeAws_restJson1PutLaunchProfileMembersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutLaunchProfileMembersCommandError = async (
+/**
+ * deserializeAws_restJson1PutLaunchProfileMembersCommandError
+ */
+const de_PutLaunchProfileMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLaunchProfileMembersCommandOutput> => {
@@ -3945,25 +4285,25 @@ const deserializeAws_restJson1PutLaunchProfileMembersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3975,12 +4315,15 @@ const deserializeAws_restJson1PutLaunchProfileMembersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutStudioMembersCommand = async (
+/**
+ * deserializeAws_restJson1PutStudioMembersCommand
+ */
+export const de_PutStudioMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutStudioMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutStudioMembersCommandError(output, context);
+    return de_PutStudioMembersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3989,7 +4332,10 @@ export const deserializeAws_restJson1PutStudioMembersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutStudioMembersCommandError = async (
+/**
+ * deserializeAws_restJson1PutStudioMembersCommandError
+ */
+const de_PutStudioMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutStudioMembersCommandOutput> => {
@@ -4001,25 +4347,25 @@ const deserializeAws_restJson1PutStudioMembersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4031,24 +4377,30 @@ const deserializeAws_restJson1PutStudioMembersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartStreamingSessionCommand = async (
+/**
+ * deserializeAws_restJson1StartStreamingSessionCommand
+ */
+export const de_StartStreamingSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStreamingSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartStreamingSessionCommandError(output, context);
+    return de_StartStreamingSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session != null) {
-    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+    contents.session = de_StreamingSession(data.session, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StartStreamingSessionCommandError = async (
+/**
+ * deserializeAws_restJson1StartStreamingSessionCommandError
+ */
+const de_StartStreamingSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStreamingSessionCommandOutput> => {
@@ -4060,25 +4412,25 @@ const deserializeAws_restJson1StartStreamingSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4090,24 +4442,30 @@ const deserializeAws_restJson1StartStreamingSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand = async (
+/**
+ * deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand
+ */
+export const de_StartStudioSSOConfigurationRepairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStudioSSOConfigurationRepairCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError(output, context);
+    return de_StartStudioSSOConfigurationRepairCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio != null) {
-    contents.studio = deserializeAws_restJson1Studio(data.studio, context);
+    contents.studio = de_Studio(data.studio, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError = async (
+/**
+ * deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError
+ */
+const de_StartStudioSSOConfigurationRepairCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStudioSSOConfigurationRepairCommandOutput> => {
@@ -4119,25 +4477,25 @@ const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4149,24 +4507,30 @@ const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError = as
   }
 };
 
-export const deserializeAws_restJson1StopStreamingSessionCommand = async (
+/**
+ * deserializeAws_restJson1StopStreamingSessionCommand
+ */
+export const de_StopStreamingSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamingSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopStreamingSessionCommandError(output, context);
+    return de_StopStreamingSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session != null) {
-    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+    contents.session = de_StreamingSession(data.session, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1StopStreamingSessionCommandError = async (
+/**
+ * deserializeAws_restJson1StopStreamingSessionCommandError
+ */
+const de_StopStreamingSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamingSessionCommandOutput> => {
@@ -4178,25 +4542,25 @@ const deserializeAws_restJson1StopStreamingSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4208,12 +4572,15 @@ const deserializeAws_restJson1StopStreamingSessionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4222,7 +4589,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -4234,25 +4604,25 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4264,12 +4634,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4278,7 +4651,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -4290,25 +4666,25 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4320,24 +4696,30 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateLaunchProfileCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchProfileCommand
+ */
+export const de_UpdateLaunchProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLaunchProfileCommandError(output, context);
+    return de_UpdateLaunchProfileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile != null) {
-    contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
+    contents.launchProfile = de_LaunchProfile(data.launchProfile, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateLaunchProfileCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchProfileCommandError
+ */
+const de_UpdateLaunchProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchProfileCommandOutput> => {
@@ -4349,25 +4731,25 @@ const deserializeAws_restJson1UpdateLaunchProfileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4379,24 +4761,30 @@ const deserializeAws_restJson1UpdateLaunchProfileCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchProfileMemberCommand
+ */
+export const de_UpdateLaunchProfileMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchProfileMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLaunchProfileMemberCommandError(output, context);
+    return de_UpdateLaunchProfileMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member != null) {
-    contents.member = deserializeAws_restJson1LaunchProfileMembership(data.member, context);
+    contents.member = de_LaunchProfileMembership(data.member, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateLaunchProfileMemberCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchProfileMemberCommandError
+ */
+const de_UpdateLaunchProfileMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchProfileMemberCommandOutput> => {
@@ -4408,25 +4796,25 @@ const deserializeAws_restJson1UpdateLaunchProfileMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4438,24 +4826,30 @@ const deserializeAws_restJson1UpdateLaunchProfileMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateStreamingImageCommand = async (
+/**
+ * deserializeAws_restJson1UpdateStreamingImageCommand
+ */
+export const de_UpdateStreamingImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamingImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateStreamingImageCommandError(output, context);
+    return de_UpdateStreamingImageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage != null) {
-    contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
+    contents.streamingImage = de_StreamingImage(data.streamingImage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateStreamingImageCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateStreamingImageCommandError
+ */
+const de_UpdateStreamingImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamingImageCommandOutput> => {
@@ -4467,25 +4861,25 @@ const deserializeAws_restJson1UpdateStreamingImageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4497,24 +4891,30 @@ const deserializeAws_restJson1UpdateStreamingImageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateStudioCommand = async (
+/**
+ * deserializeAws_restJson1UpdateStudioCommand
+ */
+export const de_UpdateStudioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateStudioCommandError(output, context);
+    return de_UpdateStudioCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio != null) {
-    contents.studio = deserializeAws_restJson1Studio(data.studio, context);
+    contents.studio = de_Studio(data.studio, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateStudioCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateStudioCommandError
+ */
+const de_UpdateStudioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioCommandOutput> => {
@@ -4526,25 +4926,25 @@ const deserializeAws_restJson1UpdateStudioCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4556,24 +4956,30 @@ const deserializeAws_restJson1UpdateStudioCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateStudioComponentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateStudioComponentCommand
+ */
+export const de_UpdateStudioComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateStudioComponentCommandError(output, context);
+    return de_UpdateStudioComponentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent != null) {
-    contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
+    contents.studioComponent = de_StudioComponent(data.studioComponent, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateStudioComponentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateStudioComponentCommandError
+ */
+const de_UpdateStudioComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStudioComponentCommandOutput> => {
@@ -4585,25 +4991,25 @@ const deserializeAws_restJson1UpdateStudioComponentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.nimble#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.nimble#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.nimble#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.nimble#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.nimble#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4616,7 +5022,10 @@ const deserializeAws_restJson1UpdateStudioComponentCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -4626,7 +5035,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4638,17 +5047,17 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.code != null) {
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4660,7 +5069,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
@@ -4670,7 +5082,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4682,7 +5094,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -4692,7 +5107,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4704,7 +5119,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -4714,7 +5132,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4726,17 +5144,17 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.code != null) {
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4748,17 +5166,17 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.code != null) {
     contents.code = __expectString(data.code);
   }
   if (data.context != null) {
-    contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
+    contents.context = de_ExceptionContext(data.context, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -4770,34 +5188,37 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ActiveDirectoryComputerAttribute = (
-  input: ActiveDirectoryComputerAttribute,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ActiveDirectoryComputerAttribute
+ */
+const se_ActiveDirectoryComputerAttribute = (input: ActiveDirectoryComputerAttribute, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1ActiveDirectoryComputerAttributeList = (
+/**
+ * serializeAws_restJson1ActiveDirectoryComputerAttributeList
+ */
+const se_ActiveDirectoryComputerAttributeList = (
   input: ActiveDirectoryComputerAttribute[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ActiveDirectoryComputerAttribute(entry, context);
+      return se_ActiveDirectoryComputerAttribute(entry, context);
     });
 };
 
-const serializeAws_restJson1ActiveDirectoryConfiguration = (
-  input: ActiveDirectoryConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ActiveDirectoryConfiguration
+ */
+const se_ActiveDirectoryConfiguration = (input: ActiveDirectoryConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.computerAttributes != null && {
-      computerAttributes: serializeAws_restJson1ActiveDirectoryComputerAttributeList(input.computerAttributes, context),
+      computerAttributes: se_ActiveDirectoryComputerAttributeList(input.computerAttributes, context),
     }),
     ...(input.directoryId != null && { directoryId: input.directoryId }),
     ...(input.organizationalUnitDistinguishedName != null && {
@@ -4806,17 +5227,20 @@ const serializeAws_restJson1ActiveDirectoryConfiguration = (
   };
 };
 
-const serializeAws_restJson1ComputeFarmConfiguration = (
-  input: ComputeFarmConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ComputeFarmConfiguration
+ */
+const se_ComputeFarmConfiguration = (input: ComputeFarmConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.activeDirectoryUser != null && { activeDirectoryUser: input.activeDirectoryUser }),
     ...(input.endpoint != null && { endpoint: input.endpoint }),
   };
 };
 
-const serializeAws_restJson1EC2SubnetIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EC2SubnetIdList
+ */
+const se_EC2SubnetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4824,7 +5248,10 @@ const serializeAws_restJson1EC2SubnetIdList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1EulaIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EulaIdList
+ */
+const se_EulaIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4832,7 +5259,10 @@ const serializeAws_restJson1EulaIdList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1LaunchProfileProtocolVersionList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LaunchProfileProtocolVersionList
+ */
+const se_LaunchProfileProtocolVersionList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4840,7 +5270,10 @@ const serializeAws_restJson1LaunchProfileProtocolVersionList = (input: string[],
     });
 };
 
-const serializeAws_restJson1LaunchProfileStudioComponentIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LaunchProfileStudioComponentIdList
+ */
+const se_LaunchProfileStudioComponentIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4848,62 +5281,71 @@ const serializeAws_restJson1LaunchProfileStudioComponentIdList = (input: string[
     });
 };
 
-const serializeAws_restJson1LicenseServiceConfiguration = (
-  input: LicenseServiceConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1LicenseServiceConfiguration
+ */
+const se_LicenseServiceConfiguration = (input: LicenseServiceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.endpoint != null && { endpoint: input.endpoint }),
   };
 };
 
-const serializeAws_restJson1NewLaunchProfileMember = (input: NewLaunchProfileMember, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NewLaunchProfileMember
+ */
+const se_NewLaunchProfileMember = (input: NewLaunchProfileMember, context: __SerdeContext): any => {
   return {
     ...(input.persona != null && { persona: input.persona }),
     ...(input.principalId != null && { principalId: input.principalId }),
   };
 };
 
-const serializeAws_restJson1NewLaunchProfileMemberList = (
-  input: NewLaunchProfileMember[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1NewLaunchProfileMemberList
+ */
+const se_NewLaunchProfileMemberList = (input: NewLaunchProfileMember[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1NewLaunchProfileMember(entry, context);
+      return se_NewLaunchProfileMember(entry, context);
     });
 };
 
-const serializeAws_restJson1NewStudioMember = (input: NewStudioMember, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NewStudioMember
+ */
+const se_NewStudioMember = (input: NewStudioMember, context: __SerdeContext): any => {
   return {
     ...(input.persona != null && { persona: input.persona }),
     ...(input.principalId != null && { principalId: input.principalId }),
   };
 };
 
-const serializeAws_restJson1NewStudioMemberList = (input: NewStudioMember[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NewStudioMemberList
+ */
+const se_NewStudioMemberList = (input: NewStudioMember[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1NewStudioMember(entry, context);
+      return se_NewStudioMember(entry, context);
     });
 };
 
-const serializeAws_restJson1ScriptParameterKeyValue = (
-  input: ScriptParameterKeyValue,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ScriptParameterKeyValue
+ */
+const se_ScriptParameterKeyValue = (input: ScriptParameterKeyValue, context: __SerdeContext): any => {
   return {
     ...(input.key != null && { key: input.key }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1SharedFileSystemConfiguration = (
-  input: SharedFileSystemConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SharedFileSystemConfiguration
+ */
+const se_SharedFileSystemConfiguration = (input: SharedFileSystemConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.endpoint != null && { endpoint: input.endpoint }),
     ...(input.fileSystemId != null && { fileSystemId: input.fileSystemId }),
@@ -4913,57 +5355,63 @@ const serializeAws_restJson1SharedFileSystemConfiguration = (
   };
 };
 
-const serializeAws_restJson1StreamConfigurationCreate = (
-  input: StreamConfigurationCreate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StreamConfigurationCreate
+ */
+const se_StreamConfigurationCreate = (input: StreamConfigurationCreate, context: __SerdeContext): any => {
   return {
     ...(input.automaticTerminationMode != null && { automaticTerminationMode: input.automaticTerminationMode }),
     ...(input.clipboardMode != null && { clipboardMode: input.clipboardMode }),
     ...(input.ec2InstanceTypes != null && {
-      ec2InstanceTypes: serializeAws_restJson1StreamingInstanceTypeList(input.ec2InstanceTypes, context),
+      ec2InstanceTypes: se_StreamingInstanceTypeList(input.ec2InstanceTypes, context),
     }),
     ...(input.maxSessionLengthInMinutes != null && { maxSessionLengthInMinutes: input.maxSessionLengthInMinutes }),
     ...(input.maxStoppedSessionLengthInMinutes != null && {
       maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
     }),
     ...(input.sessionBackup != null && {
-      sessionBackup: serializeAws_restJson1StreamConfigurationSessionBackup(input.sessionBackup, context),
+      sessionBackup: se_StreamConfigurationSessionBackup(input.sessionBackup, context),
     }),
     ...(input.sessionPersistenceMode != null && { sessionPersistenceMode: input.sessionPersistenceMode }),
     ...(input.sessionStorage != null && {
-      sessionStorage: serializeAws_restJson1StreamConfigurationSessionStorage(input.sessionStorage, context),
+      sessionStorage: se_StreamConfigurationSessionStorage(input.sessionStorage, context),
     }),
     ...(input.streamingImageIds != null && {
-      streamingImageIds: serializeAws_restJson1StreamingImageIdList(input.streamingImageIds, context),
+      streamingImageIds: se_StreamingImageIdList(input.streamingImageIds, context),
     }),
     ...(input.volumeConfiguration != null && {
-      volumeConfiguration: serializeAws_restJson1VolumeConfiguration(input.volumeConfiguration, context),
+      volumeConfiguration: se_VolumeConfiguration(input.volumeConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1StreamConfigurationSessionBackup = (
-  input: StreamConfigurationSessionBackup,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StreamConfigurationSessionBackup
+ */
+const se_StreamConfigurationSessionBackup = (input: StreamConfigurationSessionBackup, context: __SerdeContext): any => {
   return {
     ...(input.maxBackupsToRetain != null && { maxBackupsToRetain: input.maxBackupsToRetain }),
     ...(input.mode != null && { mode: input.mode }),
   };
 };
 
-const serializeAws_restJson1StreamConfigurationSessionStorage = (
+/**
+ * serializeAws_restJson1StreamConfigurationSessionStorage
+ */
+const se_StreamConfigurationSessionStorage = (
   input: StreamConfigurationSessionStorage,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.mode != null && { mode: serializeAws_restJson1StreamingSessionStorageModeList(input.mode, context) }),
-    ...(input.root != null && { root: serializeAws_restJson1StreamingSessionStorageRoot(input.root, context) }),
+    ...(input.mode != null && { mode: se_StreamingSessionStorageModeList(input.mode, context) }),
+    ...(input.root != null && { root: se_StreamingSessionStorageRoot(input.root, context) }),
   };
 };
 
-const serializeAws_restJson1StreamingImageIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StreamingImageIdList
+ */
+const se_StreamingImageIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4971,10 +5419,10 @@ const serializeAws_restJson1StreamingImageIdList = (input: string[], context: __
     });
 };
 
-const serializeAws_restJson1StreamingInstanceTypeList = (
-  input: (StreamingInstanceType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StreamingInstanceTypeList
+ */
+const se_StreamingInstanceTypeList = (input: (StreamingInstanceType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4982,7 +5430,10 @@ const serializeAws_restJson1StreamingInstanceTypeList = (
     });
 };
 
-const serializeAws_restJson1StreamingSessionStorageModeList = (
+/**
+ * serializeAws_restJson1StreamingSessionStorageModeList
+ */
+const se_StreamingSessionStorageModeList = (
   input: (StreamingSessionStorageMode | string)[],
   context: __SerdeContext
 ): any => {
@@ -4993,46 +5444,40 @@ const serializeAws_restJson1StreamingSessionStorageModeList = (
     });
 };
 
-const serializeAws_restJson1StreamingSessionStorageRoot = (
-  input: StreamingSessionStorageRoot,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StreamingSessionStorageRoot
+ */
+const se_StreamingSessionStorageRoot = (input: StreamingSessionStorageRoot, context: __SerdeContext): any => {
   return {
     ...(input.linux != null && { linux: input.linux }),
     ...(input.windows != null && { windows: input.windows }),
   };
 };
 
-const serializeAws_restJson1StudioComponentConfiguration = (
-  input: StudioComponentConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StudioComponentConfiguration
+ */
+const se_StudioComponentConfiguration = (input: StudioComponentConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.activeDirectoryConfiguration != null && {
-      activeDirectoryConfiguration: serializeAws_restJson1ActiveDirectoryConfiguration(
-        input.activeDirectoryConfiguration,
-        context
-      ),
+      activeDirectoryConfiguration: se_ActiveDirectoryConfiguration(input.activeDirectoryConfiguration, context),
     }),
     ...(input.computeFarmConfiguration != null && {
-      computeFarmConfiguration: serializeAws_restJson1ComputeFarmConfiguration(input.computeFarmConfiguration, context),
+      computeFarmConfiguration: se_ComputeFarmConfiguration(input.computeFarmConfiguration, context),
     }),
     ...(input.licenseServiceConfiguration != null && {
-      licenseServiceConfiguration: serializeAws_restJson1LicenseServiceConfiguration(
-        input.licenseServiceConfiguration,
-        context
-      ),
+      licenseServiceConfiguration: se_LicenseServiceConfiguration(input.licenseServiceConfiguration, context),
     }),
     ...(input.sharedFileSystemConfiguration != null && {
-      sharedFileSystemConfiguration: serializeAws_restJson1SharedFileSystemConfiguration(
-        input.sharedFileSystemConfiguration,
-        context
-      ),
+      sharedFileSystemConfiguration: se_SharedFileSystemConfiguration(input.sharedFileSystemConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1StudioComponentInitializationScript = (
+/**
+ * serializeAws_restJson1StudioComponentInitializationScript
+ */
+const se_StudioComponentInitializationScript = (
   input: StudioComponentInitializationScript,
   context: __SerdeContext
 ): any => {
@@ -5046,29 +5491,38 @@ const serializeAws_restJson1StudioComponentInitializationScript = (
   };
 };
 
-const serializeAws_restJson1StudioComponentInitializationScriptList = (
+/**
+ * serializeAws_restJson1StudioComponentInitializationScriptList
+ */
+const se_StudioComponentInitializationScriptList = (
   input: StudioComponentInitializationScript[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1StudioComponentInitializationScript(entry, context);
+      return se_StudioComponentInitializationScript(entry, context);
     });
 };
 
-const serializeAws_restJson1StudioComponentScriptParameterKeyValueList = (
+/**
+ * serializeAws_restJson1StudioComponentScriptParameterKeyValueList
+ */
+const se_StudioComponentScriptParameterKeyValueList = (
   input: ScriptParameterKeyValue[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ScriptParameterKeyValue(entry, context);
+      return se_ScriptParameterKeyValue(entry, context);
     });
 };
 
-const serializeAws_restJson1StudioComponentSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StudioComponentSecurityGroupIdList
+ */
+const se_StudioComponentSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5076,17 +5530,20 @@ const serializeAws_restJson1StudioComponentSecurityGroupIdList = (input: string[
     });
 };
 
-const serializeAws_restJson1StudioEncryptionConfiguration = (
-  input: StudioEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StudioEncryptionConfiguration
+ */
+const se_StudioEncryptionConfiguration = (input: StudioEncryptionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.keyArn != null && { keyArn: input.keyArn }),
     ...(input.keyType != null && { keyType: input.keyType }),
   };
 };
 
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tags
+ */
+const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5096,7 +5553,10 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const serializeAws_restJson1VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VolumeConfiguration
+ */
+const se_VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.iops != null && { iops: input.iops }),
     ...(input.size != null && { size: input.size }),
@@ -5104,7 +5564,10 @@ const serializeAws_restJson1VolumeConfiguration = (input: VolumeConfiguration, c
   };
 };
 
-const deserializeAws_restJson1ActiveDirectoryComputerAttribute = (
+/**
+ * deserializeAws_restJson1ActiveDirectoryComputerAttribute
+ */
+const de_ActiveDirectoryComputerAttribute = (
   output: any,
   context: __SerdeContext
 ): ActiveDirectoryComputerAttribute => {
@@ -5114,7 +5577,10 @@ const deserializeAws_restJson1ActiveDirectoryComputerAttribute = (
   } as any;
 };
 
-const deserializeAws_restJson1ActiveDirectoryComputerAttributeList = (
+/**
+ * deserializeAws_restJson1ActiveDirectoryComputerAttributeList
+ */
+const de_ActiveDirectoryComputerAttributeList = (
   output: any,
   context: __SerdeContext
 ): ActiveDirectoryComputerAttribute[] => {
@@ -5124,26 +5590,29 @@ const deserializeAws_restJson1ActiveDirectoryComputerAttributeList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ActiveDirectoryComputerAttribute(entry, context);
+      return de_ActiveDirectoryComputerAttribute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ActiveDirectoryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ActiveDirectoryConfiguration => {
+/**
+ * deserializeAws_restJson1ActiveDirectoryConfiguration
+ */
+const de_ActiveDirectoryConfiguration = (output: any, context: __SerdeContext): ActiveDirectoryConfiguration => {
   return {
     computerAttributes:
       output.computerAttributes != null
-        ? deserializeAws_restJson1ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
+        ? de_ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
         : undefined,
     directoryId: __expectString(output.directoryId),
     organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
   } as any;
 };
 
-const deserializeAws_restJson1ActiveDirectoryDnsIpAddressList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ActiveDirectoryDnsIpAddressList
+ */
+const de_ActiveDirectoryDnsIpAddressList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5155,17 +5624,20 @@ const deserializeAws_restJson1ActiveDirectoryDnsIpAddressList = (output: any, co
   return retVal;
 };
 
-const deserializeAws_restJson1ComputeFarmConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ComputeFarmConfiguration => {
+/**
+ * deserializeAws_restJson1ComputeFarmConfiguration
+ */
+const de_ComputeFarmConfiguration = (output: any, context: __SerdeContext): ComputeFarmConfiguration => {
   return {
     activeDirectoryUser: __expectString(output.activeDirectoryUser),
     endpoint: __expectString(output.endpoint),
   } as any;
 };
 
-const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1EC2SubnetIdList
+ */
+const de_EC2SubnetIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5177,7 +5649,10 @@ const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eula => {
+/**
+ * deserializeAws_restJson1Eula
+ */
+const de_Eula = (output: any, context: __SerdeContext): Eula => {
   return {
     content: __expectString(output.content),
     createdAt:
@@ -5189,7 +5664,10 @@ const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eul
   } as any;
 };
 
-const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
+/**
+ * deserializeAws_restJson1EulaAcceptance
+ */
+const de_EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
   return {
     acceptedAt:
       output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.acceptedAt)) : undefined,
@@ -5200,19 +5678,25 @@ const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1EulaAcceptanceList = (output: any, context: __SerdeContext): EulaAcceptance[] => {
+/**
+ * deserializeAws_restJson1EulaAcceptanceList
+ */
+const de_EulaAcceptanceList = (output: any, context: __SerdeContext): EulaAcceptance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EulaAcceptance(entry, context);
+      return de_EulaAcceptance(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EulaIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1EulaIdList
+ */
+const de_EulaIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5224,19 +5708,25 @@ const deserializeAws_restJson1EulaIdList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1EulaList = (output: any, context: __SerdeContext): Eula[] => {
+/**
+ * deserializeAws_restJson1EulaList
+ */
+const de_EulaList = (output: any, context: __SerdeContext): Eula[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Eula(entry, context);
+      return de_Eula(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1ExceptionContext
+ */
+const de_ExceptionContext = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5246,55 +5736,53 @@ const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeC
   }, {});
 };
 
-const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
+/**
+ * deserializeAws_restJson1LaunchProfile
+ */
+const de_LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
   return {
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
-    ec2SubnetIds:
-      output.ec2SubnetIds != null ? deserializeAws_restJson1EC2SubnetIdList(output.ec2SubnetIds, context) : undefined,
+    ec2SubnetIds: output.ec2SubnetIds != null ? de_EC2SubnetIdList(output.ec2SubnetIds, context) : undefined,
     launchProfileId: __expectString(output.launchProfileId),
     launchProfileProtocolVersions:
       output.launchProfileProtocolVersions != null
-        ? deserializeAws_restJson1LaunchProfileProtocolVersionList(output.launchProfileProtocolVersions, context)
+        ? de_LaunchProfileProtocolVersionList(output.launchProfileProtocolVersions, context)
         : undefined,
     name: __expectString(output.name),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
     streamConfiguration:
-      output.streamConfiguration != null
-        ? deserializeAws_restJson1StreamConfiguration(output.streamConfiguration, context)
-        : undefined,
+      output.streamConfiguration != null ? de_StreamConfiguration(output.streamConfiguration, context) : undefined,
     studioComponentIds:
       output.studioComponentIds != null
-        ? deserializeAws_restJson1LaunchProfileStudioComponentIdList(output.studioComponentIds, context)
+        ? de_LaunchProfileStudioComponentIdList(output.studioComponentIds, context)
         : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
     validationResults:
-      output.validationResults != null
-        ? deserializeAws_restJson1ValidationResults(output.validationResults, context)
-        : undefined,
+      output.validationResults != null ? de_ValidationResults(output.validationResults, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LaunchProfileInitialization = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileInitialization => {
+/**
+ * deserializeAws_restJson1LaunchProfileInitialization
+ */
+const de_LaunchProfileInitialization = (output: any, context: __SerdeContext): LaunchProfileInitialization => {
   return {
     activeDirectory:
       output.activeDirectory != null
-        ? deserializeAws_restJson1LaunchProfileInitializationActiveDirectory(output.activeDirectory, context)
+        ? de_LaunchProfileInitializationActiveDirectory(output.activeDirectory, context)
         : undefined,
     ec2SecurityGroupIds:
       output.ec2SecurityGroupIds != null
-        ? deserializeAws_restJson1LaunchProfileSecurityGroupIdList(output.ec2SecurityGroupIds, context)
+        ? de_LaunchProfileSecurityGroupIdList(output.ec2SecurityGroupIds, context)
         : undefined,
     launchProfileId: __expectString(output.launchProfileId),
     launchProfileProtocolVersion: __expectString(output.launchProfileProtocolVersion),
@@ -5303,37 +5791,41 @@ const deserializeAws_restJson1LaunchProfileInitialization = (
     platform: __expectString(output.platform),
     systemInitializationScripts:
       output.systemInitializationScripts != null
-        ? deserializeAws_restJson1LaunchProfileInitializationScriptList(output.systemInitializationScripts, context)
+        ? de_LaunchProfileInitializationScriptList(output.systemInitializationScripts, context)
         : undefined,
     userInitializationScripts:
       output.userInitializationScripts != null
-        ? deserializeAws_restJson1LaunchProfileInitializationScriptList(output.userInitializationScripts, context)
+        ? de_LaunchProfileInitializationScriptList(output.userInitializationScripts, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LaunchProfileInitializationActiveDirectory = (
+/**
+ * deserializeAws_restJson1LaunchProfileInitializationActiveDirectory
+ */
+const de_LaunchProfileInitializationActiveDirectory = (
   output: any,
   context: __SerdeContext
 ): LaunchProfileInitializationActiveDirectory => {
   return {
     computerAttributes:
       output.computerAttributes != null
-        ? deserializeAws_restJson1ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
+        ? de_ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
         : undefined,
     directoryId: __expectString(output.directoryId),
     directoryName: __expectString(output.directoryName),
     dnsIpAddresses:
-      output.dnsIpAddresses != null
-        ? deserializeAws_restJson1ActiveDirectoryDnsIpAddressList(output.dnsIpAddresses, context)
-        : undefined,
+      output.dnsIpAddresses != null ? de_ActiveDirectoryDnsIpAddressList(output.dnsIpAddresses, context) : undefined,
     organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
     studioComponentId: __expectString(output.studioComponentId),
     studioComponentName: __expectString(output.studioComponentName),
   } as any;
 };
 
-const deserializeAws_restJson1LaunchProfileInitializationScript = (
+/**
+ * deserializeAws_restJson1LaunchProfileInitializationScript
+ */
+const de_LaunchProfileInitializationScript = (
   output: any,
   context: __SerdeContext
 ): LaunchProfileInitializationScript => {
@@ -5346,7 +5838,10 @@ const deserializeAws_restJson1LaunchProfileInitializationScript = (
   } as any;
 };
 
-const deserializeAws_restJson1LaunchProfileInitializationScriptList = (
+/**
+ * deserializeAws_restJson1LaunchProfileInitializationScriptList
+ */
+const de_LaunchProfileInitializationScriptList = (
   output: any,
   context: __SerdeContext
 ): LaunchProfileInitializationScript[] => {
@@ -5356,27 +5851,30 @@ const deserializeAws_restJson1LaunchProfileInitializationScriptList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1LaunchProfileInitializationScript(entry, context);
+      return de_LaunchProfileInitializationScript(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LaunchProfileList = (output: any, context: __SerdeContext): LaunchProfile[] => {
+/**
+ * deserializeAws_restJson1LaunchProfileList
+ */
+const de_LaunchProfileList = (output: any, context: __SerdeContext): LaunchProfile[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1LaunchProfile(entry, context);
+      return de_LaunchProfile(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LaunchProfileMembership = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileMembership => {
+/**
+ * deserializeAws_restJson1LaunchProfileMembership
+ */
+const de_LaunchProfileMembership = (output: any, context: __SerdeContext): LaunchProfileMembership => {
   return {
     identityStoreId: __expectString(output.identityStoreId),
     persona: __expectString(output.persona),
@@ -5385,34 +5883,25 @@ const deserializeAws_restJson1LaunchProfileMembership = (
   } as any;
 };
 
-const deserializeAws_restJson1LaunchProfileMembershipList = (
-  output: any,
-  context: __SerdeContext
-): LaunchProfileMembership[] => {
+/**
+ * deserializeAws_restJson1LaunchProfileMembershipList
+ */
+const de_LaunchProfileMembershipList = (output: any, context: __SerdeContext): LaunchProfileMembership[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1LaunchProfileMembership(entry, context);
+      return de_LaunchProfileMembership(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LaunchProfileProtocolVersionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1LaunchProfileSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1LaunchProfileProtocolVersionList
+ */
+const de_LaunchProfileProtocolVersionList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5424,7 +5913,10 @@ const deserializeAws_restJson1LaunchProfileSecurityGroupIdList = (output: any, c
   return retVal;
 };
 
-const deserializeAws_restJson1LaunchProfileStudioComponentIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1LaunchProfileSecurityGroupIdList
+ */
+const de_LaunchProfileSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5436,29 +5928,44 @@ const deserializeAws_restJson1LaunchProfileStudioComponentIdList = (output: any,
   return retVal;
 };
 
-const deserializeAws_restJson1LicenseServiceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LicenseServiceConfiguration => {
+/**
+ * deserializeAws_restJson1LaunchProfileStudioComponentIdList
+ */
+const de_LaunchProfileStudioComponentIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LicenseServiceConfiguration
+ */
+const de_LicenseServiceConfiguration = (output: any, context: __SerdeContext): LicenseServiceConfiguration => {
   return {
     endpoint: __expectString(output.endpoint),
   } as any;
 };
 
-const deserializeAws_restJson1ScriptParameterKeyValue = (
-  output: any,
-  context: __SerdeContext
-): ScriptParameterKeyValue => {
+/**
+ * deserializeAws_restJson1ScriptParameterKeyValue
+ */
+const de_ScriptParameterKeyValue = (output: any, context: __SerdeContext): ScriptParameterKeyValue => {
   return {
     key: __expectString(output.key),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_restJson1SharedFileSystemConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SharedFileSystemConfiguration => {
+/**
+ * deserializeAws_restJson1SharedFileSystemConfiguration
+ */
+const de_SharedFileSystemConfiguration = (output: any, context: __SerdeContext): SharedFileSystemConfiguration => {
   return {
     endpoint: __expectString(output.endpoint),
     fileSystemId: __expectString(output.fileSystemId),
@@ -5468,37 +5975,33 @@ const deserializeAws_restJson1SharedFileSystemConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
+/**
+ * deserializeAws_restJson1StreamConfiguration
+ */
+const de_StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
   return {
     automaticTerminationMode: __expectString(output.automaticTerminationMode),
     clipboardMode: __expectString(output.clipboardMode),
     ec2InstanceTypes:
-      output.ec2InstanceTypes != null
-        ? deserializeAws_restJson1StreamingInstanceTypeList(output.ec2InstanceTypes, context)
-        : undefined,
+      output.ec2InstanceTypes != null ? de_StreamingInstanceTypeList(output.ec2InstanceTypes, context) : undefined,
     maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
     maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
     sessionBackup:
-      output.sessionBackup != null
-        ? deserializeAws_restJson1StreamConfigurationSessionBackup(output.sessionBackup, context)
-        : undefined,
+      output.sessionBackup != null ? de_StreamConfigurationSessionBackup(output.sessionBackup, context) : undefined,
     sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
     sessionStorage:
-      output.sessionStorage != null
-        ? deserializeAws_restJson1StreamConfigurationSessionStorage(output.sessionStorage, context)
-        : undefined,
+      output.sessionStorage != null ? de_StreamConfigurationSessionStorage(output.sessionStorage, context) : undefined,
     streamingImageIds:
-      output.streamingImageIds != null
-        ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
-        : undefined,
+      output.streamingImageIds != null ? de_StreamingImageIdList(output.streamingImageIds, context) : undefined,
     volumeConfiguration:
-      output.volumeConfiguration != null
-        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
-        : undefined,
+      output.volumeConfiguration != null ? de_VolumeConfiguration(output.volumeConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StreamConfigurationSessionBackup = (
+/**
+ * deserializeAws_restJson1StreamConfigurationSessionBackup
+ */
+const de_StreamConfigurationSessionBackup = (
   output: any,
   context: __SerdeContext
 ): StreamConfigurationSessionBackup => {
@@ -5508,27 +6011,32 @@ const deserializeAws_restJson1StreamConfigurationSessionBackup = (
   } as any;
 };
 
-const deserializeAws_restJson1StreamConfigurationSessionStorage = (
+/**
+ * deserializeAws_restJson1StreamConfigurationSessionStorage
+ */
+const de_StreamConfigurationSessionStorage = (
   output: any,
   context: __SerdeContext
 ): StreamConfigurationSessionStorage => {
   return {
-    mode:
-      output.mode != null ? deserializeAws_restJson1StreamingSessionStorageModeList(output.mode, context) : undefined,
-    root: output.root != null ? deserializeAws_restJson1StreamingSessionStorageRoot(output.root, context) : undefined,
+    mode: output.mode != null ? de_StreamingSessionStorageModeList(output.mode, context) : undefined,
+    root: output.root != null ? de_StreamingSessionStorageRoot(output.root, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StreamingImage = (output: any, context: __SerdeContext): StreamingImage => {
+/**
+ * deserializeAws_restJson1StreamingImage
+ */
+const de_StreamingImage = (output: any, context: __SerdeContext): StreamingImage => {
   return {
     arn: __expectString(output.arn),
     description: __expectString(output.description),
     ec2ImageId: __expectString(output.ec2ImageId),
     encryptionConfiguration:
       output.encryptionConfiguration != null
-        ? deserializeAws_restJson1StreamingImageEncryptionConfiguration(output.encryptionConfiguration, context)
+        ? de_StreamingImageEncryptionConfiguration(output.encryptionConfiguration, context)
         : undefined,
-    eulaIds: output.eulaIds != null ? deserializeAws_restJson1EulaIdList(output.eulaIds, context) : undefined,
+    eulaIds: output.eulaIds != null ? de_EulaIdList(output.eulaIds, context) : undefined,
     name: __expectString(output.name),
     owner: __expectString(output.owner),
     platform: __expectString(output.platform),
@@ -5536,11 +6044,14 @@ const deserializeAws_restJson1StreamingImage = (output: any, context: __SerdeCon
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
     streamingImageId: __expectString(output.streamingImageId),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StreamingImageEncryptionConfiguration = (
+/**
+ * deserializeAws_restJson1StreamingImageEncryptionConfiguration
+ */
+const de_StreamingImageEncryptionConfiguration = (
   output: any,
   context: __SerdeContext
 ): StreamingImageEncryptionConfiguration => {
@@ -5550,7 +6061,10 @@ const deserializeAws_restJson1StreamingImageEncryptionConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1StreamingImageIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StreamingImageIdList
+ */
+const de_StreamingImageIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5562,22 +6076,25 @@ const deserializeAws_restJson1StreamingImageIdList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingImageList = (output: any, context: __SerdeContext): StreamingImage[] => {
+/**
+ * deserializeAws_restJson1StreamingImageList
+ */
+const de_StreamingImageList = (output: any, context: __SerdeContext): StreamingImage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StreamingImage(entry, context);
+      return de_StreamingImage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingInstanceTypeList = (
-  output: any,
-  context: __SerdeContext
-): (StreamingInstanceType | string)[] => {
+/**
+ * deserializeAws_restJson1StreamingInstanceTypeList
+ */
+const de_StreamingInstanceTypeList = (output: any, context: __SerdeContext): (StreamingInstanceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5589,7 +6106,10 @@ const deserializeAws_restJson1StreamingInstanceTypeList = (
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
+/**
+ * deserializeAws_restJson1StreamingSession
+ */
+const de_StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
   return {
     arn: __expectString(output.arn),
     automaticTerminationMode: __expectString(output.automaticTerminationMode),
@@ -5615,24 +6135,22 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
       output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stoppedAt)) : undefined,
     stoppedBy: __expectString(output.stoppedBy),
     streamingImageId: __expectString(output.streamingImageId),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     terminateAt:
       output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.terminateAt)) : undefined,
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
     volumeConfiguration:
-      output.volumeConfiguration != null
-        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
-        : undefined,
+      output.volumeConfiguration != null ? de_VolumeConfiguration(output.volumeConfiguration, context) : undefined,
     volumeRetentionMode: __expectString(output.volumeRetentionMode),
   } as any;
 };
 
-const deserializeAws_restJson1StreamingSessionBackup = (
-  output: any,
-  context: __SerdeContext
-): StreamingSessionBackup => {
+/**
+ * deserializeAws_restJson1StreamingSessionBackup
+ */
+const de_StreamingSessionBackup = (output: any, context: __SerdeContext): StreamingSessionBackup => {
   return {
     arn: __expectString(output.arn),
     backupId: __expectString(output.backupId),
@@ -5644,38 +6162,44 @@ const deserializeAws_restJson1StreamingSessionBackup = (
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StreamingSessionBackupList = (
-  output: any,
-  context: __SerdeContext
-): StreamingSessionBackup[] => {
+/**
+ * deserializeAws_restJson1StreamingSessionBackupList
+ */
+const de_StreamingSessionBackupList = (output: any, context: __SerdeContext): StreamingSessionBackup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StreamingSessionBackup(entry, context);
+      return de_StreamingSessionBackup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingSessionList = (output: any, context: __SerdeContext): StreamingSession[] => {
+/**
+ * deserializeAws_restJson1StreamingSessionList
+ */
+const de_StreamingSessionList = (output: any, context: __SerdeContext): StreamingSession[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StreamingSession(entry, context);
+      return de_StreamingSession(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingSessionStorageModeList = (
+/**
+ * deserializeAws_restJson1StreamingSessionStorageModeList
+ */
+const de_StreamingSessionStorageModeList = (
   output: any,
   context: __SerdeContext
 ): (StreamingSessionStorageMode | string)[] => {
@@ -5690,20 +6214,20 @@ const deserializeAws_restJson1StreamingSessionStorageModeList = (
   return retVal;
 };
 
-const deserializeAws_restJson1StreamingSessionStorageRoot = (
-  output: any,
-  context: __SerdeContext
-): StreamingSessionStorageRoot => {
+/**
+ * deserializeAws_restJson1StreamingSessionStorageRoot
+ */
+const de_StreamingSessionStorageRoot = (output: any, context: __SerdeContext): StreamingSessionStorageRoot => {
   return {
     linux: __expectString(output.linux),
     windows: __expectString(output.windows),
   } as any;
 };
 
-const deserializeAws_restJson1StreamingSessionStream = (
-  output: any,
-  context: __SerdeContext
-): StreamingSessionStream => {
+/**
+ * deserializeAws_restJson1StreamingSessionStream
+ */
+const de_StreamingSessionStream = (output: any, context: __SerdeContext): StreamingSessionStream => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -5718,7 +6242,10 @@ const deserializeAws_restJson1StreamingSessionStream = (
   } as any;
 };
 
-const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): Studio => {
+/**
+ * deserializeAws_restJson1Studio
+ */
+const de_Studio = (output: any, context: __SerdeContext): Studio => {
   return {
     adminRoleArn: __expectString(output.adminRoleArn),
     arn: __expectString(output.arn),
@@ -5732,42 +6259,43 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
     statusMessage: __expectString(output.statusMessage),
     studioEncryptionConfiguration:
       output.studioEncryptionConfiguration != null
-        ? deserializeAws_restJson1StudioEncryptionConfiguration(output.studioEncryptionConfiguration, context)
+        ? de_StudioEncryptionConfiguration(output.studioEncryptionConfiguration, context)
         : undefined,
     studioId: __expectString(output.studioId),
     studioName: __expectString(output.studioName),
     studioUrl: __expectString(output.studioUrl),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     userRoleArn: __expectString(output.userRoleArn),
   } as any;
 };
 
-const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeContext): StudioComponent => {
+/**
+ * deserializeAws_restJson1StudioComponent
+ */
+const de_StudioComponent = (output: any, context: __SerdeContext): StudioComponent => {
   return {
     arn: __expectString(output.arn),
     configuration:
-      output.configuration != null
-        ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
-        : undefined,
+      output.configuration != null ? de_StudioComponentConfiguration(output.configuration, context) : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SecurityGroupIds:
       output.ec2SecurityGroupIds != null
-        ? deserializeAws_restJson1StudioComponentSecurityGroupIdList(output.ec2SecurityGroupIds, context)
+        ? de_StudioComponentSecurityGroupIdList(output.ec2SecurityGroupIds, context)
         : undefined,
     initializationScripts:
       output.initializationScripts != null
-        ? deserializeAws_restJson1StudioComponentInitializationScriptList(output.initializationScripts, context)
+        ? de_StudioComponentInitializationScriptList(output.initializationScripts, context)
         : undefined,
     name: __expectString(output.name),
     runtimeRoleArn: __expectString(output.runtimeRoleArn),
     scriptParameters:
       output.scriptParameters != null
-        ? deserializeAws_restJson1StudioComponentScriptParameterKeyValueList(output.scriptParameters, context)
+        ? de_StudioComponentScriptParameterKeyValueList(output.scriptParameters, context)
         : undefined,
     secureInitializationRoleArn: __expectString(output.secureInitializationRoleArn),
     state: __expectString(output.state),
@@ -5775,7 +6303,7 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
     statusMessage: __expectString(output.statusMessage),
     studioComponentId: __expectString(output.studioComponentId),
     subtype: __expectString(output.subtype),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
@@ -5783,31 +6311,34 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1StudioComponentConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StudioComponentConfiguration => {
+/**
+ * deserializeAws_restJson1StudioComponentConfiguration
+ */
+const de_StudioComponentConfiguration = (output: any, context: __SerdeContext): StudioComponentConfiguration => {
   return {
     activeDirectoryConfiguration:
       output.activeDirectoryConfiguration != null
-        ? deserializeAws_restJson1ActiveDirectoryConfiguration(output.activeDirectoryConfiguration, context)
+        ? de_ActiveDirectoryConfiguration(output.activeDirectoryConfiguration, context)
         : undefined,
     computeFarmConfiguration:
       output.computeFarmConfiguration != null
-        ? deserializeAws_restJson1ComputeFarmConfiguration(output.computeFarmConfiguration, context)
+        ? de_ComputeFarmConfiguration(output.computeFarmConfiguration, context)
         : undefined,
     licenseServiceConfiguration:
       output.licenseServiceConfiguration != null
-        ? deserializeAws_restJson1LicenseServiceConfiguration(output.licenseServiceConfiguration, context)
+        ? de_LicenseServiceConfiguration(output.licenseServiceConfiguration, context)
         : undefined,
     sharedFileSystemConfiguration:
       output.sharedFileSystemConfiguration != null
-        ? deserializeAws_restJson1SharedFileSystemConfiguration(output.sharedFileSystemConfiguration, context)
+        ? de_SharedFileSystemConfiguration(output.sharedFileSystemConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StudioComponentInitializationScript = (
+/**
+ * deserializeAws_restJson1StudioComponentInitializationScript
+ */
+const de_StudioComponentInitializationScript = (
   output: any,
   context: __SerdeContext
 ): StudioComponentInitializationScript => {
@@ -5819,7 +6350,10 @@ const deserializeAws_restJson1StudioComponentInitializationScript = (
   } as any;
 };
 
-const deserializeAws_restJson1StudioComponentInitializationScriptList = (
+/**
+ * deserializeAws_restJson1StudioComponentInitializationScriptList
+ */
+const de_StudioComponentInitializationScriptList = (
   output: any,
   context: __SerdeContext
 ): StudioComponentInitializationScript[] => {
@@ -5829,24 +6363,30 @@ const deserializeAws_restJson1StudioComponentInitializationScriptList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StudioComponentInitializationScript(entry, context);
+      return de_StudioComponentInitializationScript(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StudioComponentList = (output: any, context: __SerdeContext): StudioComponent[] => {
+/**
+ * deserializeAws_restJson1StudioComponentList
+ */
+const de_StudioComponentList = (output: any, context: __SerdeContext): StudioComponent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StudioComponent(entry, context);
+      return de_StudioComponent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StudioComponentScriptParameterKeyValueList = (
+/**
+ * deserializeAws_restJson1StudioComponentScriptParameterKeyValueList
+ */
+const de_StudioComponentScriptParameterKeyValueList = (
   output: any,
   context: __SerdeContext
 ): ScriptParameterKeyValue[] => {
@@ -5856,12 +6396,15 @@ const deserializeAws_restJson1StudioComponentScriptParameterKeyValueList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ScriptParameterKeyValue(entry, context);
+      return de_ScriptParameterKeyValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StudioComponentSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StudioComponentSecurityGroupIdList
+ */
+const de_StudioComponentSecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5873,10 +6416,10 @@ const deserializeAws_restJson1StudioComponentSecurityGroupIdList = (output: any,
   return retVal;
 };
 
-const deserializeAws_restJson1StudioComponentSummary = (
-  output: any,
-  context: __SerdeContext
-): StudioComponentSummary => {
+/**
+ * deserializeAws_restJson1StudioComponentSummary
+ */
+const de_StudioComponentSummary = (output: any, context: __SerdeContext): StudioComponentSummary => {
   return {
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -5892,44 +6435,50 @@ const deserializeAws_restJson1StudioComponentSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1StudioComponentSummaryList = (
-  output: any,
-  context: __SerdeContext
-): StudioComponentSummary[] => {
+/**
+ * deserializeAws_restJson1StudioComponentSummaryList
+ */
+const de_StudioComponentSummaryList = (output: any, context: __SerdeContext): StudioComponentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StudioComponentSummary(entry, context);
+      return de_StudioComponentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StudioEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StudioEncryptionConfiguration => {
+/**
+ * deserializeAws_restJson1StudioEncryptionConfiguration
+ */
+const de_StudioEncryptionConfiguration = (output: any, context: __SerdeContext): StudioEncryptionConfiguration => {
   return {
     keyArn: __expectString(output.keyArn),
     keyType: __expectString(output.keyType),
   } as any;
 };
 
-const deserializeAws_restJson1StudioList = (output: any, context: __SerdeContext): Studio[] => {
+/**
+ * deserializeAws_restJson1StudioList
+ */
+const de_StudioList = (output: any, context: __SerdeContext): Studio[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Studio(entry, context);
+      return de_Studio(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StudioMembership = (output: any, context: __SerdeContext): StudioMembership => {
+/**
+ * deserializeAws_restJson1StudioMembership
+ */
+const de_StudioMembership = (output: any, context: __SerdeContext): StudioMembership => {
   return {
     identityStoreId: __expectString(output.identityStoreId),
     persona: __expectString(output.persona),
@@ -5938,19 +6487,25 @@ const deserializeAws_restJson1StudioMembership = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1StudioMembershipList = (output: any, context: __SerdeContext): StudioMembership[] => {
+/**
+ * deserializeAws_restJson1StudioMembershipList
+ */
+const de_StudioMembershipList = (output: any, context: __SerdeContext): StudioMembership[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StudioMembership(entry, context);
+      return de_StudioMembership(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5960,7 +6515,10 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-const deserializeAws_restJson1ValidationResult = (output: any, context: __SerdeContext): ValidationResult => {
+/**
+ * deserializeAws_restJson1ValidationResult
+ */
+const de_ValidationResult = (output: any, context: __SerdeContext): ValidationResult => {
   return {
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
@@ -5969,19 +6527,25 @@ const deserializeAws_restJson1ValidationResult = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1ValidationResults = (output: any, context: __SerdeContext): ValidationResult[] => {
+/**
+ * deserializeAws_restJson1ValidationResults
+ */
+const de_ValidationResults = (output: any, context: __SerdeContext): ValidationResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ValidationResult(entry, context);
+      return de_ValidationResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
+/**
+ * deserializeAws_restJson1VolumeConfiguration
+ */
+const de_VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
   return {
     iops: __expectInt32(output.iops),
     size: __expectInt32(output.size),

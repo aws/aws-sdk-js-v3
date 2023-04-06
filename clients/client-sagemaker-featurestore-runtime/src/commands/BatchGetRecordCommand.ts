@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchGetRecordRequest, BatchGetRecordResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetRecordCommand,
-  serializeAws_restJson1BatchGetRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetRecordCommand, se_BatchGetRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -147,14 +144,14 @@ export class BatchGetRecordCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetRecordCommand(input, context);
+    return se_BatchGetRecordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetRecordCommandOutput> {
-    return deserializeAws_restJson1BatchGetRecordCommand(output, context);
+    return de_BatchGetRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

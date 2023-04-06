@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/models_4";
-import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
+import { de_DescribeSubnetsCommand, se_DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -166,14 +166,14 @@ export class DescribeSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSubnetsCommand(input, context);
+    return se_DescribeSubnetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetsCommandOutput> {
-    return deserializeAws_ec2DescribeSubnetsCommand(output, context);
+    return de_DescribeSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

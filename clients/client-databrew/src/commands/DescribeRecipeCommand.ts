@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecipeCommand,
-  serializeAws_restJson1DescribeRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRecipeCommand, se_DescribeRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeRecipeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecipeCommand(input, context);
+    return se_DescribeRecipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecipeCommandOutput> {
-    return deserializeAws_restJson1DescribeRecipeCommand(output, context);
+    return de_DescribeRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

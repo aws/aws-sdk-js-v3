@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateTrunkInterfaceRequest, AssociateTrunkInterfaceResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateTrunkInterfaceCommand,
-  serializeAws_ec2AssociateTrunkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateTrunkInterfaceCommand, se_AssociateTrunkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class AssociateTrunkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateTrunkInterfaceCommand(input, context);
+    return se_AssociateTrunkInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrunkInterfaceCommandOutput> {
-    return deserializeAws_ec2AssociateTrunkInterfaceCommand(output, context);
+    return de_AssociateTrunkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

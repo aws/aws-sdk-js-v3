@@ -18,10 +18,7 @@ import {
   UpdateStateMachineInputFilterSensitiveLog,
   UpdateStateMachineOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateStateMachineCommand,
-  serializeAws_json1_0UpdateStateMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateStateMachineCommand, se_UpdateStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -181,14 +178,14 @@ export class UpdateStateMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateStateMachineCommand(input, context);
+    return se_UpdateStateMachineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStateMachineCommandOutput> {
-    return deserializeAws_json1_0UpdateStateMachineCommand(output, context);
+    return de_UpdateStateMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

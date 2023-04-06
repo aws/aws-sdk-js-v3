@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchProfilesCommand,
-  serializeAws_json1_1SearchProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchProfilesCommand, se_SearchProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class SearchProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchProfilesCommand(input, context);
+    return se_SearchProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProfilesCommandOutput> {
-    return deserializeAws_json1_1SearchProfilesCommand(output, context);
+    return de_SearchProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

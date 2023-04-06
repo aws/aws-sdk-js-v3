@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { RebootInstanceRequest, RebootInstanceResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1RebootInstanceCommand,
-  serializeAws_json1_1RebootInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebootInstanceCommand, se_RebootInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class RebootInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootInstanceCommand(input, context);
+    return se_RebootInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootInstanceCommand(output, context);
+    return de_RebootInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

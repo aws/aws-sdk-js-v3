@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { GetContainerPolicyInput, GetContainerPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerPolicyCommand,
-  serializeAws_json1_1GetContainerPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetContainerPolicyCommand, se_GetContainerPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetContainerPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContainerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerPolicyCommand(input, context);
+    return se_GetContainerPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerPolicyCommandOutput> {
-    return deserializeAws_json1_1GetContainerPolicyCommand(output, context);
+    return de_GetContainerPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

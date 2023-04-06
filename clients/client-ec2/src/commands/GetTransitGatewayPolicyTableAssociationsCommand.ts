@@ -19,8 +19,8 @@ import {
   GetTransitGatewayPolicyTableAssociationsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand,
-  serializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand,
+  de_GetTransitGatewayPolicyTableAssociationsCommand,
+  se_GetTransitGatewayPolicyTableAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -146,7 +146,7 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<
     input: GetTransitGatewayPolicyTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand(input, context);
+    return se_GetTransitGatewayPolicyTableAssociationsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand(output, context);
+    return de_GetTransitGatewayPolicyTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteAccessControlConfigurationRequest, DeleteAccessControlConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteAccessControlConfigurationCommand,
-  serializeAws_json1_1DeleteAccessControlConfigurationCommand,
+  de_DeleteAccessControlConfigurationCommand,
+  se_DeleteAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     input: DeleteAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccessControlConfigurationCommand(input, context);
+    return se_DeleteAccessControlConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAccessControlConfigurationCommand(output, context);
+    return de_DeleteAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

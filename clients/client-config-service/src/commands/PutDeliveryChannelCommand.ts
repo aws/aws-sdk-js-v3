@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutDeliveryChannelRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutDeliveryChannelCommand,
-  serializeAws_json1_1PutDeliveryChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutDeliveryChannelCommand, se_PutDeliveryChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class PutDeliveryChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDeliveryChannelCommand(input, context);
+    return se_PutDeliveryChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDeliveryChannelCommandOutput> {
-    return deserializeAws_json1_1PutDeliveryChannelCommand(output, context);
+    return de_PutDeliveryChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

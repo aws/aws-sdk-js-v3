@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteConformancePackRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConformancePackCommand,
-  serializeAws_json1_1DeleteConformancePackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteConformancePackCommand, se_DeleteConformancePackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeleteConformancePackCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConformancePackCommand(input, context);
+    return se_DeleteConformancePackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConformancePackCommandOutput> {
-    return deserializeAws_json1_1DeleteConformancePackCommand(output, context);
+    return de_DeleteConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

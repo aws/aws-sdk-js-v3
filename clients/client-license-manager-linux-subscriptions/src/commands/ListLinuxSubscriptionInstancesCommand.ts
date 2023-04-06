@@ -20,8 +20,8 @@ import {
 } from "../LicenseManagerLinuxSubscriptionsClient";
 import { ListLinuxSubscriptionInstancesRequest, ListLinuxSubscriptionInstancesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand,
-  serializeAws_restJson1ListLinuxSubscriptionInstancesCommand,
+  de_ListLinuxSubscriptionInstancesCommand,
+  se_ListLinuxSubscriptionInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     input: ListLinuxSubscriptionInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLinuxSubscriptionInstancesCommand(input, context);
+    return se_ListLinuxSubscriptionInstancesCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLinuxSubscriptionInstancesCommandOutput> {
-    return deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand(output, context);
+    return de_ListLinuxSubscriptionInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

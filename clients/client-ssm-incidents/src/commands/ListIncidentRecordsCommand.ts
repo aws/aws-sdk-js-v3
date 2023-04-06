@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListIncidentRecordsInput, ListIncidentRecordsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIncidentRecordsCommand,
-  serializeAws_restJson1ListIncidentRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIncidentRecordsCommand, se_ListIncidentRecordsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -153,14 +150,14 @@ export class ListIncidentRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIncidentRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIncidentRecordsCommand(input, context);
+    return se_ListIncidentRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncidentRecordsCommandOutput> {
-    return deserializeAws_restJson1ListIncidentRecordsCommand(output, context);
+    return de_ListIncidentRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

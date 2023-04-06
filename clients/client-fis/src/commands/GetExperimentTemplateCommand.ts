@@ -15,10 +15,7 @@ import {
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { GetExperimentTemplateRequest, GetExperimentTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExperimentTemplateCommand,
-  serializeAws_restJson1GetExperimentTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetExperimentTemplateCommand, se_GetExperimentTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetExperimentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExperimentTemplateCommand(input, context);
+    return se_GetExperimentTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentTemplateCommandOutput> {
-    return deserializeAws_restJson1GetExperimentTemplateCommand(output, context);
+    return de_GetExperimentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

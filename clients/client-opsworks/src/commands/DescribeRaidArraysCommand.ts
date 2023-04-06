@@ -15,10 +15,7 @@ import {
 
 import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeRaidArraysCommand,
-  serializeAws_json1_1DescribeRaidArraysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRaidArraysCommand, se_DescribeRaidArraysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeRaidArraysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRaidArraysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRaidArraysCommand(input, context);
+    return se_DescribeRaidArraysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRaidArraysCommandOutput> {
-    return deserializeAws_json1_1DescribeRaidArraysCommand(output, context);
+    return de_DescribeRaidArraysCommand(output, context);
   }
 
   // Start section: command_body_extra

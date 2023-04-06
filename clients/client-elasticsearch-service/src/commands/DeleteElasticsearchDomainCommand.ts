@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { DeleteElasticsearchDomainRequest, DeleteElasticsearchDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteElasticsearchDomainCommand,
-  serializeAws_restJson1DeleteElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteElasticsearchDomainCommand, se_DeleteElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DeleteElasticsearchDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteElasticsearchDomainCommand(input, context);
+    return se_DeleteElasticsearchDomainCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1DeleteElasticsearchDomainCommand(output, context);
+    return de_DeleteElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

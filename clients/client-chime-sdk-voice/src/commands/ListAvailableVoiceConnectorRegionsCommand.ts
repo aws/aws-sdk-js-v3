@@ -16,8 +16,8 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { ListAvailableVoiceConnectorRegionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand,
-  serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand,
+  de_ListAvailableVoiceConnectorRegionsCommand,
+  se_ListAvailableVoiceConnectorRegionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
     input: ListAvailableVoiceConnectorRegionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand(input, context);
+    return se_ListAvailableVoiceConnectorRegionsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableVoiceConnectorRegionsCommandOutput> {
-    return deserializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand(output, context);
+    return de_ListAvailableVoiceConnectorRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

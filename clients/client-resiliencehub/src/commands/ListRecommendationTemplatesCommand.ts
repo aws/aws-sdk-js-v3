@@ -19,8 +19,8 @@ import {
   ListRecommendationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRecommendationTemplatesCommand,
-  serializeAws_restJson1ListRecommendationTemplatesCommand,
+  de_ListRecommendationTemplatesCommand,
+  se_ListRecommendationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -149,7 +149,7 @@ export class ListRecommendationTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecommendationTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationTemplatesCommand(input, context);
+    return se_ListRecommendationTemplatesCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class ListRecommendationTemplatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecommendationTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationTemplatesCommand(output, context);
+    return de_ListRecommendationTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

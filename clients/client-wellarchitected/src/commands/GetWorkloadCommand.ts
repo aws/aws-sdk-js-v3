@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWorkloadInput, GetWorkloadOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkloadCommand,
-  serializeAws_restJson1GetWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkloadCommand, se_GetWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetWorkloadCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkloadCommand(input, context);
+    return se_GetWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkloadCommandOutput> {
-    return deserializeAws_restJson1GetWorkloadCommand(output, context);
+    return de_GetWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

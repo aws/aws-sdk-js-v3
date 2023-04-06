@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { ImportPlaybackKeyPairRequest, ImportPlaybackKeyPairResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportPlaybackKeyPairCommand,
-  serializeAws_restJson1ImportPlaybackKeyPairCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportPlaybackKeyPairCommand, se_ImportPlaybackKeyPairCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ImportPlaybackKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportPlaybackKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportPlaybackKeyPairCommand(input, context);
+    return se_ImportPlaybackKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportPlaybackKeyPairCommandOutput> {
-    return deserializeAws_restJson1ImportPlaybackKeyPairCommand(output, context);
+    return de_ImportPlaybackKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

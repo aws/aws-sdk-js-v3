@@ -15,7 +15,7 @@ import {
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { GetTableRequest, GetTableResponse } from "../models/models_0";
-import { deserializeAws_json1_0GetTableCommand, serializeAws_json1_0GetTableCommand } from "../protocols/Aws_json1_0";
+import { de_GetTableCommand, se_GetTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class GetTableCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetTableCommand(input, context);
+    return se_GetTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
-    return deserializeAws_json1_0GetTableCommand(output, context);
+    return de_GetTableCommand(output, context);
   }
 
   // Start section: command_body_extra

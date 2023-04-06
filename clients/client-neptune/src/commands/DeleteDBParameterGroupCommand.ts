@@ -15,10 +15,7 @@ import {
 
 import { DeleteDBParameterGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBParameterGroupCommand,
-  serializeAws_queryDeleteDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBParameterGroupCommand, se_DeleteDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBParameterGroupCommand(input, context);
+    return se_DeleteDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBParameterGroupCommand(output, context);
+    return de_DeleteDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

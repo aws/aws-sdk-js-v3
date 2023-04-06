@@ -15,7 +15,7 @@ import {
 
 import { StopStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { deserializeAws_json1_1StopStackCommand, serializeAws_json1_1StopStackCommand } from "../protocols/Aws_json1_1";
+import { de_StopStackCommand, se_StopStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +126,14 @@ export class StopStackCommand extends $Command<
    * @internal
    */
   private serialize(input: StopStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStackCommand(input, context);
+    return se_StopStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackCommandOutput> {
-    return deserializeAws_json1_1StopStackCommand(output, context);
+    return de_StopStackCommand(output, context);
   }
 
   // Start section: command_body_extra

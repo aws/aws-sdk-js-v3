@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateReceiptRuleRequest, UpdateReceiptRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateReceiptRuleCommand,
-  serializeAws_queryUpdateReceiptRuleCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateReceiptRuleCommand, se_UpdateReceiptRuleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -224,14 +221,14 @@ export class UpdateReceiptRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateReceiptRuleCommand(input, context);
+    return se_UpdateReceiptRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReceiptRuleCommandOutput> {
-    return deserializeAws_queryUpdateReceiptRuleCommand(output, context);
+    return de_UpdateReceiptRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

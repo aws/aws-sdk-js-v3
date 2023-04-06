@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { ListServicesByNamespaceRequest, ListServicesByNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesByNamespaceCommand,
-  serializeAws_json1_1ListServicesByNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListServicesByNamespaceCommand, se_ListServicesByNamespaceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListServicesByNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServicesByNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesByNamespaceCommand(input, context);
+    return se_ListServicesByNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesByNamespaceCommandOutput> {
-    return deserializeAws_json1_1ListServicesByNamespaceCommand(output, context);
+    return de_ListServicesByNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteIdentityCommand,
-  serializeAws_queryDeleteIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteIdentityCommand, se_DeleteIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -133,14 +130,14 @@ export class DeleteIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteIdentityCommand(input, context);
+    return se_DeleteIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityCommandOutput> {
-    return deserializeAws_queryDeleteIdentityCommand(output, context);
+    return de_DeleteIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

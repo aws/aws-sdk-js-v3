@@ -15,7 +15,7 @@ import {
 
 import { ListHITsRequest, ListHITsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
+import { de_ListHITsCommand, se_ListHITsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +124,14 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
    * @internal
    */
   private serialize(input: ListHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHITsCommand(input, context);
+    return se_ListHITsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHITsCommandOutput> {
-    return deserializeAws_json1_1ListHITsCommand(output, context);
+    return de_ListHITsCommand(output, context);
   }
 
   // Start section: command_body_extra

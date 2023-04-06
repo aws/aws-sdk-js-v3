@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateServiceSpecificCredentialRequest } from "../models/models_1";
 import {
-  deserializeAws_queryUpdateServiceSpecificCredentialCommand,
-  serializeAws_queryUpdateServiceSpecificCredentialCommand,
+  de_UpdateServiceSpecificCredentialCommand,
+  se_UpdateServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -132,7 +132,7 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     input: UpdateServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServiceSpecificCredentialCommand(input, context);
+    return se_UpdateServiceSpecificCredentialCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryUpdateServiceSpecificCredentialCommand(output, context);
+    return de_UpdateServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

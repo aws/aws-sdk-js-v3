@@ -16,8 +16,8 @@ import {
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { PutAppInstanceRetentionSettingsRequest, PutAppInstanceRetentionSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand,
-  serializeAws_restJson1PutAppInstanceRetentionSettingsCommand,
+  de_PutAppInstanceRetentionSettingsCommand,
+  se_PutAppInstanceRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     input: PutAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAppInstanceRetentionSettingsCommand(input, context);
+    return se_PutAppInstanceRetentionSettingsCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppInstanceRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand(output, context);
+    return de_PutAppInstanceRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

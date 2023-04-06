@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifySubnetAttributeRequest } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySubnetAttributeCommand,
-  serializeAws_ec2ModifySubnetAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifySubnetAttributeCommand, se_ModifySubnetAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class ModifySubnetAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySubnetAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySubnetAttributeCommand(input, context);
+    return se_ModifySubnetAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySubnetAttributeCommandOutput> {
-    return deserializeAws_ec2ModifySubnetAttributeCommand(output, context);
+    return de_ModifySubnetAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListAssessmentControlInsightsByControlDomainResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand,
-  serializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand,
+  de_ListAssessmentControlInsightsByControlDomainCommand,
+  se_ListAssessmentControlInsightsByControlDomainCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class ListAssessmentControlInsightsByControlDomainCommand extends $Comman
     input: ListAssessmentControlInsightsByControlDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand(input, context);
+    return se_ListAssessmentControlInsightsByControlDomainCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class ListAssessmentControlInsightsByControlDomainCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentControlInsightsByControlDomainCommand(output, context);
+    return de_ListAssessmentControlInsightsByControlDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

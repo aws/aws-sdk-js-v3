@@ -15,8 +15,8 @@ import {
 
 import { UpdateEnvironmentAccountConnectionInput, UpdateEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0UpdateEnvironmentAccountConnectionCommand,
+  de_UpdateEnvironmentAccountConnectionCommand,
+  se_UpdateEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -148,7 +148,7 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command<
     input: UpdateEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnvironmentAccountConnectionCommand(input, context);
+    return se_UpdateEnvironmentAccountConnectionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0UpdateEnvironmentAccountConnectionCommand(output, context);
+    return de_UpdateEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

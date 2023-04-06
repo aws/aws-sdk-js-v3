@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteIpamResourceDiscoveryRequest, DeleteIpamResourceDiscoveryResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteIpamResourceDiscoveryCommand,
-  serializeAws_ec2DeleteIpamResourceDiscoveryCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteIpamResourceDiscoveryCommand, se_DeleteIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,7 +118,7 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIpamResourceDiscoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteIpamResourceDiscoveryCommand(input, context);
+    return se_DeleteIpamResourceDiscoveryCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIpamResourceDiscoveryCommandOutput> {
-    return deserializeAws_ec2DeleteIpamResourceDiscoveryCommand(output, context);
+    return de_DeleteIpamResourceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UpdateMediaStorageConfigurationInput, UpdateMediaStorageConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateMediaStorageConfigurationCommand,
-  serializeAws_restJson1UpdateMediaStorageConfigurationCommand,
+  de_UpdateMediaStorageConfigurationCommand,
+  se_UpdateMediaStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -176,7 +176,7 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
     input: UpdateMediaStorageConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMediaStorageConfigurationCommand(input, context);
+    return se_UpdateMediaStorageConfigurationCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMediaStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateMediaStorageConfigurationCommand(output, context);
+    return de_UpdateMediaStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

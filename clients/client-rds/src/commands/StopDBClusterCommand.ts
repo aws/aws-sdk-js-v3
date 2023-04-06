@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryStopDBClusterCommand,
-  serializeAws_queryStopDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -73,6 +70,32 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To stop a DB cluster
+ * ```javascript
+ * // The following example stops a DB cluster and its DB instances.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new StopDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1e",
+ *       "us-east-1b"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DatabaseName": "mydb"
+ *   }
+ * }
+ * *\/
+ * // example id: to-stop-a-db-cluster-1679701988603
+ * ```
  *
  */
 export class StopDBClusterCommand extends $Command<
@@ -136,14 +159,14 @@ export class StopDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBClusterCommand(input, context);
+    return se_StopDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return deserializeAws_queryStopDBClusterCommand(output, context);
+    return de_StopDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

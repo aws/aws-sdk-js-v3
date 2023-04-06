@@ -19,8 +19,8 @@ import {
   GetFieldLevelEncryptionProfileConfigResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand,
-  serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand,
+  de_GetFieldLevelEncryptionProfileConfigCommand,
+  se_GetFieldLevelEncryptionProfileConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -134,7 +134,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     input: GetFieldLevelEncryptionProfileConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(input, context);
+    return se_GetFieldLevelEncryptionProfileConfigCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(output, context);
+    return de_GetFieldLevelEncryptionProfileConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetFederationTokenCommand,
-  serializeAws_queryGetFederationTokenCommand,
-} from "../protocols/Aws_query";
+import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -282,14 +279,14 @@ export class GetFederationTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetFederationTokenCommand(input, context);
+    return se_GetFederationTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_queryGetFederationTokenCommand(output, context);
+    return de_GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

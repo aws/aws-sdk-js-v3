@@ -15,8 +15,8 @@ import {
 
 import { PutAppValidationConfigurationRequest, PutAppValidationConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutAppValidationConfigurationCommand,
-  serializeAws_json1_1PutAppValidationConfigurationCommand,
+  de_PutAppValidationConfigurationCommand,
+  se_PutAppValidationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -195,7 +195,7 @@ export class PutAppValidationConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAppValidationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppValidationConfigurationCommand(input, context);
+    return se_PutAppValidationConfigurationCommand(input, context);
   }
 
   /**
@@ -205,7 +205,7 @@ export class PutAppValidationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppValidationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppValidationConfigurationCommand(output, context);
+    return de_PutAppValidationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

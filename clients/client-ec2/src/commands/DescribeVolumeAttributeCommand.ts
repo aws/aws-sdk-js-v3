@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVolumeAttributeCommand,
-  serializeAws_ec2DescribeVolumeAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeVolumeAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVolumeAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumeAttributeCommand(input, context);
+    return se_DescribeVolumeAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeVolumeAttributeCommand(output, context);
+    return de_DescribeVolumeAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

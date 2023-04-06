@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPermissionVersionsRequest, ListPermissionVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPermissionVersionsCommand,
-  serializeAws_restJson1ListPermissionVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPermissionVersionsCommand, se_ListPermissionVersionsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -143,14 +140,14 @@ export class ListPermissionVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPermissionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPermissionVersionsCommand(input, context);
+    return se_ListPermissionVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListPermissionVersionsCommand(output, context);
+    return de_ListPermissionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

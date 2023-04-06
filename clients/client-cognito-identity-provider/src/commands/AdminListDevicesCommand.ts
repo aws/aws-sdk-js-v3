@@ -25,10 +25,7 @@ import {
   AdminListDevicesResponse,
   AdminListDevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminListDevicesCommand,
-  serializeAws_json1_1AdminListDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminListDevicesCommand, se_AdminListDevicesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class AdminListDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminListDevicesCommand(input, context);
+    return se_AdminListDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListDevicesCommandOutput> {
-    return deserializeAws_json1_1AdminListDevicesCommand(output, context);
+    return de_AdminListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

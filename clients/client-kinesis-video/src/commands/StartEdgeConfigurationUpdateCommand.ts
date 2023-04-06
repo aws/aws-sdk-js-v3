@@ -21,8 +21,8 @@ import {
   StartEdgeConfigurationUpdateOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartEdgeConfigurationUpdateCommand,
-  serializeAws_restJson1StartEdgeConfigurationUpdateCommand,
+  de_StartEdgeConfigurationUpdateCommand,
+  se_StartEdgeConfigurationUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -202,7 +202,7 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: StartEdgeConfigurationUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartEdgeConfigurationUpdateCommand(input, context);
+    return se_StartEdgeConfigurationUpdateCommand(input, context);
   }
 
   /**
@@ -212,7 +212,7 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartEdgeConfigurationUpdateCommandOutput> {
-    return deserializeAws_restJson1StartEdgeConfigurationUpdateCommand(output, context);
+    return de_StartEdgeConfigurationUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

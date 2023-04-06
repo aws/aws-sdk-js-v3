@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { Application, ApplicationFilterSensitiveLog, ArchiveApplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveApplicationCommand,
-  serializeAws_restJson1ArchiveApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ArchiveApplicationCommand, se_ArchiveApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ArchiveApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: ArchiveApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveApplicationCommand(input, context);
+    return se_ArchiveApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveApplicationCommandOutput> {
-    return deserializeAws_restJson1ArchiveApplicationCommand(output, context);
+    return de_ArchiveApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

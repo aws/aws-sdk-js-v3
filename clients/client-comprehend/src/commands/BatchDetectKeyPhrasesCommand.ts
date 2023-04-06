@@ -20,10 +20,7 @@ import {
   BatchDetectKeyPhrasesResponse,
   BatchDetectKeyPhrasesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectKeyPhrasesCommand,
-  serializeAws_json1_1BatchDetectKeyPhrasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectKeyPhrasesCommand, se_BatchDetectKeyPhrasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDetectKeyPhrasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectKeyPhrasesCommand(input, context);
+    return se_BatchDetectKeyPhrasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectKeyPhrasesCommandOutput> {
-    return deserializeAws_json1_1BatchDetectKeyPhrasesCommand(output, context);
+    return de_BatchDetectKeyPhrasesCommand(output, context);
   }
 
   // Start section: command_body_extra

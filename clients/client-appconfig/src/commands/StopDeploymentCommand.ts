@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { Deployment, StopDeploymentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopDeploymentCommand,
-  serializeAws_restJson1StopDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopDeploymentCommand, se_StopDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class StopDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopDeploymentCommand(input, context);
+    return se_StopDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDeploymentCommandOutput> {
-    return deserializeAws_restJson1StopDeploymentCommand(output, context);
+    return de_StopDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

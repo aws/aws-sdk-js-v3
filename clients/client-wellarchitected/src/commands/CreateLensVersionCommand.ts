@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateLensVersionInput, CreateLensVersionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLensVersionCommand,
-  serializeAws_restJson1CreateLensVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLensVersionCommand, se_CreateLensVersionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -150,14 +147,14 @@ export class CreateLensVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLensVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLensVersionCommand(input, context);
+    return se_CreateLensVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLensVersionCommandOutput> {
-    return deserializeAws_restJson1CreateLensVersionCommand(output, context);
+    return de_CreateLensVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

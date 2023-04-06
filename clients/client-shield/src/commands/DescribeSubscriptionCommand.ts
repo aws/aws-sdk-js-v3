@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSubscriptionRequest, DescribeSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSubscriptionCommand,
-  serializeAws_json1_1DescribeSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSubscriptionCommand, se_DescribeSubscriptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -124,14 +121,14 @@ export class DescribeSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscriptionCommand(input, context);
+    return se_DescribeSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscriptionCommand(output, context);
+    return de_DescribeSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

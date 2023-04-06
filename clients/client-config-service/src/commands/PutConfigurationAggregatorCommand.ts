@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConfigurationAggregatorCommand,
-  serializeAws_json1_1PutConfigurationAggregatorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutConfigurationAggregatorCommand, se_PutConfigurationAggregatorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -204,7 +201,7 @@ export class PutConfigurationAggregatorCommand extends $Command<
    * @internal
    */
   private serialize(input: PutConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConfigurationAggregatorCommand(input, context);
+    return se_PutConfigurationAggregatorCommand(input, context);
   }
 
   /**
@@ -214,7 +211,7 @@ export class PutConfigurationAggregatorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationAggregatorCommandOutput> {
-    return deserializeAws_json1_1PutConfigurationAggregatorCommand(output, context);
+    return de_PutConfigurationAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

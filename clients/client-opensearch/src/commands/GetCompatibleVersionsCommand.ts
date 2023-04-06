@@ -15,10 +15,7 @@ import {
 
 import { GetCompatibleVersionsRequest, GetCompatibleVersionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetCompatibleVersionsCommand,
-  serializeAws_restJson1GetCompatibleVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCompatibleVersionsCommand, se_GetCompatibleVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetCompatibleVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCompatibleVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleVersionsCommand(input, context);
+    return se_GetCompatibleVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCompatibleVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleVersionsCommand(output, context);
+    return de_GetCompatibleVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

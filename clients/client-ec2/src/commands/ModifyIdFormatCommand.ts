@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyIdFormatRequest } from "../models/models_6";
-import { deserializeAws_ec2ModifyIdFormatCommand, serializeAws_ec2ModifyIdFormatCommand } from "../protocols/Aws_ec2";
+import { de_ModifyIdFormatCommand, se_ModifyIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -141,14 +141,14 @@ export class ModifyIdFormatCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIdFormatCommand(input, context);
+    return se_ModifyIdFormatCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIdFormatCommandOutput> {
-    return deserializeAws_ec2ModifyIdFormatCommand(output, context);
+    return de_ModifyIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

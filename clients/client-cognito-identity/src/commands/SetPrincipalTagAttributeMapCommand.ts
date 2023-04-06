@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetPrincipalTagAttributeMapCommand,
-  serializeAws_json1_1SetPrincipalTagAttributeMapCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetPrincipalTagAttributeMapCommand, se_SetPrincipalTagAttributeMapCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
    * @internal
    */
   private serialize(input: SetPrincipalTagAttributeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetPrincipalTagAttributeMapCommand(input, context);
+    return se_SetPrincipalTagAttributeMapCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPrincipalTagAttributeMapCommandOutput> {
-    return deserializeAws_json1_1SetPrincipalTagAttributeMapCommand(output, context);
+    return de_SetPrincipalTagAttributeMapCommand(output, context);
   }
 
   // Start section: command_body_extra

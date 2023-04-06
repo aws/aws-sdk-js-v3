@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteEnvironmentConfigurationCommand,
-  serializeAws_queryDeleteEnvironmentConfigurationCommand,
+  de_DeleteEnvironmentConfigurationCommand,
+  se_DeleteEnvironmentConfigurationCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -141,7 +141,7 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     input: DeleteEnvironmentConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEnvironmentConfigurationCommand(input, context);
+    return se_DeleteEnvironmentConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(output, context);
+    return de_DeleteEnvironmentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

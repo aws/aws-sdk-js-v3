@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListAccessControlConfigurationsRequest, ListAccessControlConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAccessControlConfigurationsCommand,
-  serializeAws_json1_1ListAccessControlConfigurationsCommand,
+  de_ListAccessControlConfigurationsCommand,
+  se_ListAccessControlConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class ListAccessControlConfigurationsCommand extends $Command<
     input: ListAccessControlConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccessControlConfigurationsCommand(input, context);
+    return se_ListAccessControlConfigurationsCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class ListAccessControlConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccessControlConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListAccessControlConfigurationsCommand(output, context);
+    return de_ListAccessControlConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

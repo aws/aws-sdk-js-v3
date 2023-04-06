@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetObjectRetentionOutput, GetObjectRetentionRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectRetentionCommand,
-  serializeAws_restXmlGetObjectRetentionCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectRetentionCommand, se_GetObjectRetentionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -140,14 +137,14 @@ export class GetObjectRetentionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectRetentionCommand(input, context);
+    return se_GetObjectRetentionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectRetentionCommandOutput> {
-    return deserializeAws_restXmlGetObjectRetentionCommand(output, context);
+    return de_GetObjectRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

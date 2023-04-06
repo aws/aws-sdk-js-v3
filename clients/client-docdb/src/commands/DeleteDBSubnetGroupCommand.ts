@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBSubnetGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSubnetGroupCommand,
-  serializeAws_queryDeleteDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBSubnetGroupCommand, se_DeleteDBSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSubnetGroupCommand(input, context);
+    return se_DeleteDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSubnetGroupCommand(output, context);
+    return de_DeleteDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

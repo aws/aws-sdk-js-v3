@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeAutoScalingNotificationTypesAnswer } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeAutoScalingNotificationTypesCommand,
-  serializeAws_queryDescribeAutoScalingNotificationTypesCommand,
+  de_DescribeAutoScalingNotificationTypesCommand,
+  se_DescribeAutoScalingNotificationTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -147,7 +147,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     input: DescribeAutoScalingNotificationTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingNotificationTypesCommand(input, context);
+    return se_DescribeAutoScalingNotificationTypesCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(output, context);
+    return de_DescribeAutoScalingNotificationTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

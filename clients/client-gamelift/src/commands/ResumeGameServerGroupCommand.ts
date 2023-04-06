@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResumeGameServerGroupCommand,
-  serializeAws_json1_1ResumeGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ResumeGameServerGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResumeGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeGameServerGroupCommand(input, context);
+    return se_ResumeGameServerGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1ResumeGameServerGroupCommand(output, context);
+    return de_ResumeGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

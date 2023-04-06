@@ -15,8 +15,8 @@ import {
 
 import { DBClusterParameterGroupsMessage, DescribeDBClusterParameterGroupsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDBClusterParameterGroupsCommand,
-  serializeAws_queryDescribeDBClusterParameterGroupsCommand,
+  de_DescribeDBClusterParameterGroupsCommand,
+  se_DescribeDBClusterParameterGroupsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -81,15 +81,49 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *         existing DB parameter group.</p>
  *
  *
- * @example To list DB cluster parameter group settings
+ * @example To describe DB cluster parameter groups
  * ```javascript
- * // This example lists settings for the specified DB cluster parameter group.
- * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
- * };
+ * // The following example retrieves details for your DB cluster parameter groups.
+ * const input = {};
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-db-cluster-parameter-groups-cf9c6e66-664e-4f57-8e29-a9080abfc013
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroups": [
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-mysql5.7",
+ *       "DBClusterParameterGroupName": "default.aurora-mysql5.7",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "Default cluster parameter group for aurora-mysql5.7"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-postgresql9.6",
+ *       "DBClusterParameterGroupName": "default.aurora-postgresql9.6",
+ *       "DBParameterGroupFamily": "aurora-postgresql9.6",
+ *       "Description": "Default cluster parameter group for aurora-postgresql9.6"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora5.6",
+ *       "DBClusterParameterGroupName": "default.aurora5.6",
+ *       "DBParameterGroupFamily": "aurora5.6",
+ *       "Description": "Default cluster parameter group for aurora5.6"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpg",
+ *       "DBClusterParameterGroupName": "mydbclusterpg",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "My DB cluster parameter group"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpgcopy",
+ *       "DBClusterParameterGroupName": "mydbclusterpgcopy",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "Copy of mydbclusterpg parameter group"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-db-cluster-parameter-groups-1680213090883
  * ```
  *
  */
@@ -159,7 +193,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     input: DescribeDBClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParameterGroupsCommand(input, context);
+    return se_DescribeDBClusterParameterGroupsCommand(input, context);
   }
 
   /**
@@ -169,7 +203,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(output, context);
+    return de_DescribeDBClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

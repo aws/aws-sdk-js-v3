@@ -15,8 +15,8 @@ import {
 
 import { DescribeDataSharesForConsumerMessage, DescribeDataSharesForConsumerResult } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDataSharesForConsumerCommand,
-  serializeAws_queryDescribeDataSharesForConsumerCommand,
+  de_DescribeDataSharesForConsumerCommand,
+  se_DescribeDataSharesForConsumerCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -128,7 +128,7 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSharesForConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDataSharesForConsumerCommand(input, context);
+    return se_DescribeDataSharesForConsumerCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSharesForConsumerCommandOutput> {
-    return deserializeAws_queryDescribeDataSharesForConsumerCommand(output, context);
+    return de_DescribeDataSharesForConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

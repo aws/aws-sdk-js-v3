@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryStartDBClusterCommand,
-  serializeAws_queryStartDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class StartDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBClusterCommand(input, context);
+    return se_StartDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
-    return deserializeAws_queryStartDBClusterCommand(output, context);
+    return de_StartDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

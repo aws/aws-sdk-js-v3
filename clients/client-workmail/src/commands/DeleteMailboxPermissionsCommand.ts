@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMailboxPermissionsCommand,
-  serializeAws_json1_1DeleteMailboxPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMailboxPermissionsCommand, se_DeleteMailboxPermissionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -141,14 +138,14 @@ export class DeleteMailboxPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMailboxPermissionsCommand(input, context);
+    return se_DeleteMailboxPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1DeleteMailboxPermissionsCommand(output, context);
+    return de_DeleteMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

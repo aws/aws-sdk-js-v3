@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLunaClientCommand,
-  serializeAws_json1_1DeleteLunaClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLunaClientCommand, se_DeleteLunaClientCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteLunaClientCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLunaClientCommand(input, context);
+    return se_DeleteLunaClientCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLunaClientCommandOutput> {
-    return deserializeAws_json1_1DeleteLunaClientCommand(output, context);
+    return de_DeleteLunaClientCommand(output, context);
   }
 
   // Start section: command_body_extra

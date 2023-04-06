@@ -15,10 +15,7 @@ import {
 
 import { DeleteInAppTemplateRequest, DeleteInAppTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteInAppTemplateCommand,
-  serializeAws_restJson1DeleteInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInAppTemplateCommand, se_DeleteInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteInAppTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInAppTemplateCommand(input, context);
+    return se_DeleteInAppTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteInAppTemplateCommand(output, context);
+    return de_DeleteInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

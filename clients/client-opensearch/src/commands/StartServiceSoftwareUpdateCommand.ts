@@ -15,10 +15,7 @@ import {
 
 import { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1StartServiceSoftwareUpdateCommand,
-  serializeAws_restJson1StartServiceSoftwareUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartServiceSoftwareUpdateCommand, se_StartServiceSoftwareUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: StartServiceSoftwareUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartServiceSoftwareUpdateCommand(input, context);
+    return se_StartServiceSoftwareUpdateCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1StartServiceSoftwareUpdateCommand(output, context);
+    return de_StartServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

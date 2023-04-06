@@ -15,10 +15,7 @@ import {
 
 import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCreateDBParameterGroupCommand,
-  serializeAws_queryCreateDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBParameterGroupCommand, se_CreateDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBParameterGroupCommand(input, context);
+    return se_CreateDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBParameterGroupCommand(output, context);
+    return de_CreateDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

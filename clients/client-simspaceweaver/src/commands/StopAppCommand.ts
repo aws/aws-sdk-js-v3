@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopAppInput, StopAppOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopAppCommand,
-  serializeAws_restJson1StopAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopAppCommand, se_StopAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -135,14 +132,14 @@ export class StopAppCommand extends $Command<
    * @internal
    */
   private serialize(input: StopAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopAppCommand(input, context);
+    return se_StopAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAppCommandOutput> {
-    return deserializeAws_restJson1StopAppCommand(output, context);
+    return de_StopAppCommand(output, context);
   }
 
   // Start section: command_body_extra

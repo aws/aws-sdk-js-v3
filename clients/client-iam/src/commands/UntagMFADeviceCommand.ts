@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagMFADeviceRequest } from "../models/models_0";
-import {
-  deserializeAws_queryUntagMFADeviceCommand,
-  serializeAws_queryUntagMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { de_UntagMFADeviceCommand, se_UntagMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UntagMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagMFADeviceCommand(input, context);
+    return se_UntagMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagMFADeviceCommandOutput> {
-    return deserializeAws_queryUntagMFADeviceCommand(output, context);
+    return de_UntagMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

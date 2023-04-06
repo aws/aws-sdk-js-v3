@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTargetHealthCommand,
-  serializeAws_queryDescribeTargetHealthCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeTargetHealthCommand, se_DescribeTargetHealthCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -213,14 +210,14 @@ export class DescribeTargetHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTargetHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetHealthCommand(input, context);
+    return se_DescribeTargetHealthCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetHealthCommandOutput> {
-    return deserializeAws_queryDescribeTargetHealthCommand(output, context);
+    return de_DescribeTargetHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

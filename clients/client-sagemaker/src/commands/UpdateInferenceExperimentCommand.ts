@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateInferenceExperimentCommand,
-  serializeAws_json1_1UpdateInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateInferenceExperimentCommand, se_UpdateInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -170,7 +167,7 @@ export class UpdateInferenceExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInferenceExperimentCommand(input, context);
+    return se_UpdateInferenceExperimentCommand(input, context);
   }
 
   /**
@@ -180,7 +177,7 @@ export class UpdateInferenceExperimentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1UpdateInferenceExperimentCommand(output, context);
+    return de_UpdateInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

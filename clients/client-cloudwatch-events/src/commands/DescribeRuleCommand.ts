@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRuleCommand,
-  serializeAws_json1_1DescribeRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRuleCommand, se_DescribeRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRuleCommand(input, context);
+    return se_DescribeRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleCommandOutput> {
-    return deserializeAws_json1_1DescribeRuleCommand(output, context);
+    return de_DescribeRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { GetSubscriptionRequest, GetSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubscriptionCommand,
-  serializeAws_restJson1GetSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSubscriptionCommand, se_GetSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubscriptionCommand(input, context);
+    return se_GetSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriptionCommandOutput> {
-    return deserializeAws_restJson1GetSubscriptionCommand(output, context);
+    return de_GetSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

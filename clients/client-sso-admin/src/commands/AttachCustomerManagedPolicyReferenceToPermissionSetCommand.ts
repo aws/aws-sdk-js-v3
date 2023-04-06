@@ -18,8 +18,8 @@ import {
   AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
-  serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+  de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+  se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -167,7 +167,7 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input, context);
+    return se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> {
-    return deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand(output, context);
+    return de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

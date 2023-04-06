@@ -15,8 +15,8 @@ import {
 
 import { ListSecurityControlDefinitionsRequest, ListSecurityControlDefinitionsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1ListSecurityControlDefinitionsCommand,
-  serializeAws_restJson1ListSecurityControlDefinitionsCommand,
+  de_ListSecurityControlDefinitionsCommand,
+  se_ListSecurityControlDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -143,7 +143,7 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     input: ListSecurityControlDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityControlDefinitionsCommand(input, context);
+    return se_ListSecurityControlDefinitionsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityControlDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListSecurityControlDefinitionsCommand(output, context);
+    return de_ListSecurityControlDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

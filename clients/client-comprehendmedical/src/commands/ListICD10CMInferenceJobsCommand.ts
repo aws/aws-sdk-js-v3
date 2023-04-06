@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { ListICD10CMInferenceJobsRequest, ListICD10CMInferenceJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListICD10CMInferenceJobsCommand,
-  serializeAws_json1_1ListICD10CMInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListICD10CMInferenceJobsCommand, se_ListICD10CMInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListICD10CMInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListICD10CMInferenceJobsCommand(input, context);
+    return se_ListICD10CMInferenceJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListICD10CMInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListICD10CMInferenceJobsCommand(output, context);
+    return de_ListICD10CMInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

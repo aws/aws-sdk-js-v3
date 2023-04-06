@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateQueueOutboundCallerConfigRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
-  serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
+  de_UpdateQueueOutboundCallerConfigCommand,
+  se_UpdateQueueOutboundCallerConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     input: UpdateQueueOutboundCallerConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand(input, context);
+    return se_UpdateQueueOutboundCallerConfigCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQueueOutboundCallerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueOutboundCallerConfigCommand(output, context);
+    return de_UpdateQueueOutboundCallerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

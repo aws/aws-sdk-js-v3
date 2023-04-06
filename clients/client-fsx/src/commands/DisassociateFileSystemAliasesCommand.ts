@@ -16,8 +16,8 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DisassociateFileSystemAliasesRequest, DisassociateFileSystemAliasesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateFileSystemAliasesCommand,
-  serializeAws_json1_1DisassociateFileSystemAliasesCommand,
+  de_DisassociateFileSystemAliasesCommand,
+  se_DisassociateFileSystemAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFileSystemAliasesCommand(input, context);
+    return se_DisassociateFileSystemAliasesCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFileSystemAliasesCommandOutput> {
-    return deserializeAws_json1_1DisassociateFileSystemAliasesCommand(output, context);
+    return de_DisassociateFileSystemAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

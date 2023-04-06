@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutSigningProfileRequest, PutSigningProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSigningProfileCommand,
-  serializeAws_restJson1PutSigningProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSigningProfileCommand, se_PutSigningProfileCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -159,14 +156,14 @@ export class PutSigningProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSigningProfileCommand(input, context);
+    return se_PutSigningProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSigningProfileCommandOutput> {
-    return deserializeAws_restJson1PutSigningProfileCommand(output, context);
+    return de_PutSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

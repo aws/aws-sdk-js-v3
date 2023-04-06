@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePatchBaselinesRequest, DescribePatchBaselinesResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribePatchBaselinesCommand,
-  serializeAws_json1_1DescribePatchBaselinesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePatchBaselinesCommand, se_DescribePatchBaselinesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribePatchBaselinesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePatchBaselinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePatchBaselinesCommand(input, context);
+    return se_DescribePatchBaselinesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchBaselinesCommandOutput> {
-    return deserializeAws_json1_1DescribePatchBaselinesCommand(output, context);
+    return de_DescribePatchBaselinesCommand(output, context);
   }
 
   // Start section: command_body_extra

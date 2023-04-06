@@ -15,10 +15,7 @@ import {
 
 import { ListAccountsRequest, ListAccountsResponse, ListAccountsResponseFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListAccountsCommand,
-  serializeAws_json1_1ListAccountsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -307,14 +304,14 @@ export class ListAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountsCommand(input, context);
+    return se_ListAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
-    return deserializeAws_json1_1ListAccountsCommand(output, context);
+    return de_ListAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHubContentRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteHubContentCommand,
-  serializeAws_json1_1DeleteHubContentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteHubContentCommand, se_DeleteHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteHubContentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHubContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHubContentCommand(input, context);
+    return se_DeleteHubContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHubContentCommandOutput> {
-    return deserializeAws_json1_1DeleteHubContentCommand(output, context);
+    return de_DeleteHubContentCommand(output, context);
   }
 
   // Start section: command_body_extra

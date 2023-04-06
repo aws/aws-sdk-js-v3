@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDisksRequest, GetDisksResult } from "../models/models_1";
-import { deserializeAws_json1_1GetDisksCommand, serializeAws_json1_1GetDisksCommand } from "../protocols/Aws_json1_1";
+import { de_GetDisksCommand, se_GetDisksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +145,14 @@ export class GetDisksCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDisksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDisksCommand(input, context);
+    return se_GetDisksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDisksCommandOutput> {
-    return deserializeAws_json1_1GetDisksCommand(output, context);
+    return de_GetDisksCommand(output, context);
   }
 
   // Start section: command_body_extra

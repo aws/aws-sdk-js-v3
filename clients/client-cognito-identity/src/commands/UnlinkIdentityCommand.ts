@@ -15,10 +15,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { UnlinkIdentityInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UnlinkIdentityCommand,
-  serializeAws_json1_1UnlinkIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnlinkIdentityCommand, se_UnlinkIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class UnlinkIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: UnlinkIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnlinkIdentityCommand(input, context);
+    return se_UnlinkIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlinkIdentityCommandOutput> {
-    return deserializeAws_json1_1UnlinkIdentityCommand(output, context);
+    return de_UnlinkIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

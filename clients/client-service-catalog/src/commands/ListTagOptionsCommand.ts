@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTagOptionsInput, ListTagOptionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagOptionsCommand,
-  serializeAws_json1_1ListTagOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagOptionsCommand, se_ListTagOptionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListTagOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagOptionsCommand(input, context);
+    return se_ListTagOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagOptionsCommandOutput> {
-    return deserializeAws_json1_1ListTagOptionsCommand(output, context);
+    return de_ListTagOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

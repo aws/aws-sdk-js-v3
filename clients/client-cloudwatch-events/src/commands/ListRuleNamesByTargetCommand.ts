@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRuleNamesByTargetCommand,
-  serializeAws_json1_1ListRuleNamesByTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRuleNamesByTargetCommand, se_ListRuleNamesByTargetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListRuleNamesByTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRuleNamesByTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRuleNamesByTargetCommand(input, context);
+    return se_ListRuleNamesByTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleNamesByTargetCommandOutput> {
-    return deserializeAws_json1_1ListRuleNamesByTargetCommand(output, context);
+    return de_ListRuleNamesByTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
 import { DescribeAcceleratorTypesRequest, DescribeAcceleratorTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAcceleratorTypesCommand,
-  serializeAws_restJson1DescribeAcceleratorTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAcceleratorTypesCommand, se_DescribeAcceleratorTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeAcceleratorTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAcceleratorTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAcceleratorTypesCommand(input, context);
+    return se_DescribeAcceleratorTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAcceleratorTypesCommandOutput> {
-    return deserializeAws_restJson1DescribeAcceleratorTypesCommand(output, context);
+    return de_DescribeAcceleratorTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

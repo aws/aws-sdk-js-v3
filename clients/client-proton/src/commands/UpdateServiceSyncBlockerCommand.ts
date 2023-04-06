@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateServiceSyncBlockerInput, UpdateServiceSyncBlockerOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceSyncBlockerCommand,
-  serializeAws_json1_0UpdateServiceSyncBlockerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceSyncBlockerCommand, se_UpdateServiceSyncBlockerCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class UpdateServiceSyncBlockerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceSyncBlockerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceSyncBlockerCommand(input, context);
+    return se_UpdateServiceSyncBlockerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSyncBlockerCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceSyncBlockerCommand(output, context);
+    return de_UpdateServiceSyncBlockerCommand(output, context);
   }
 
   // Start section: command_body_extra

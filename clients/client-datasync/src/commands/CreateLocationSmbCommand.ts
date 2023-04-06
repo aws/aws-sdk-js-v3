@@ -19,10 +19,7 @@ import {
   CreateLocationSmbRequestFilterSensitiveLog,
   CreateLocationSmbResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationSmbCommand,
-  serializeAws_json1_1CreateLocationSmbCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationSmbCommand, se_CreateLocationSmbCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateLocationSmbCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationSmbCommand(input, context);
+    return se_CreateLocationSmbCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
-    return deserializeAws_json1_1CreateLocationSmbCommand(output, context);
+    return de_CreateLocationSmbCommand(output, context);
   }
 
   // Start section: command_body_extra

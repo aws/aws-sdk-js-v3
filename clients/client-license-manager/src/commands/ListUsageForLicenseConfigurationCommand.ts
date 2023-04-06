@@ -16,8 +16,8 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListUsageForLicenseConfigurationRequest, ListUsageForLicenseConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListUsageForLicenseConfigurationCommand,
-  serializeAws_json1_1ListUsageForLicenseConfigurationCommand,
+  de_ListUsageForLicenseConfigurationCommand,
+  se_ListUsageForLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     input: ListUsageForLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsageForLicenseConfigurationCommand(input, context);
+    return se_ListUsageForLicenseConfigurationCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUsageForLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1ListUsageForLicenseConfigurationCommand(output, context);
+    return de_ListUsageForLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

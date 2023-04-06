@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { AllowCustomRoutingTrafficRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1AllowCustomRoutingTrafficCommand,
-  serializeAws_json1_1AllowCustomRoutingTrafficCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AllowCustomRoutingTrafficCommand, se_AllowCustomRoutingTrafficCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
    * @internal
    */
   private serialize(input: AllowCustomRoutingTrafficCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllowCustomRoutingTrafficCommand(input, context);
+    return se_AllowCustomRoutingTrafficCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllowCustomRoutingTrafficCommandOutput> {
-    return deserializeAws_json1_1AllowCustomRoutingTrafficCommand(output, context);
+    return de_AllowCustomRoutingTrafficCommand(output, context);
   }
 
   // Start section: command_body_extra

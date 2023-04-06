@@ -15,8 +15,8 @@ import {
 
 import { DeleteNotificationSubscriptionRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteNotificationSubscriptionCommand,
-  serializeAws_restJson1DeleteNotificationSubscriptionCommand,
+  de_DeleteNotificationSubscriptionCommand,
+  se_DeleteNotificationSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
@@ -136,7 +136,7 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     input: DeleteNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNotificationSubscriptionCommand(input, context);
+    return se_DeleteNotificationSubscriptionCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteNotificationSubscriptionCommand(output, context);
+    return de_DeleteNotificationSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

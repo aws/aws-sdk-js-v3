@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssetModelPropertiesCommand,
-  serializeAws_restJson1ListAssetModelPropertiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAssetModelPropertiesCommand, se_ListAssetModelPropertiesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListAssetModelPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssetModelPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssetModelPropertiesCommand(input, context);
+    return se_ListAssetModelPropertiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelPropertiesCommandOutput> {
-    return deserializeAws_restJson1ListAssetModelPropertiesCommand(output, context);
+    return de_ListAssetModelPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

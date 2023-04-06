@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDataSourceCommand,
-  serializeAws_restJson1DescribeDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDataSourceCommand, se_DescribeDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -139,14 +136,14 @@ export class DescribeDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSourceCommand(input, context);
+    return se_DescribeDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSourceCommand(output, context);
+    return de_DescribeDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

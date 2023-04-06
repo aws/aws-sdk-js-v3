@@ -15,10 +15,7 @@ import {
 
 import { RegisterPackageVersionRequest, RegisterPackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1RegisterPackageVersionCommand,
-  serializeAws_restJson1RegisterPackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterPackageVersionCommand, se_RegisterPackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class RegisterPackageVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterPackageVersionCommand(input, context);
+    return se_RegisterPackageVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterPackageVersionCommandOutput> {
-    return deserializeAws_restJson1RegisterPackageVersionCommand(output, context);
+    return de_RegisterPackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

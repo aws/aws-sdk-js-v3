@@ -20,8 +20,8 @@ import {
   DescribeBudgetActionsForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetActionsForAccountCommand,
-  serializeAws_json1_1DescribeBudgetActionsForAccountCommand,
+  de_DescribeBudgetActionsForAccountCommand,
+  se_DescribeBudgetActionsForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
     input: DescribeBudgetActionsForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetActionsForAccountCommand(input, context);
+    return se_DescribeBudgetActionsForAccountCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetActionsForAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetActionsForAccountCommand(output, context);
+    return de_DescribeBudgetActionsForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

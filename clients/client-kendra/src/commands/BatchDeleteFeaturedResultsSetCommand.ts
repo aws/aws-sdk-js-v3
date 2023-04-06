@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { BatchDeleteFeaturedResultsSetRequest, BatchDeleteFeaturedResultsSetResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommand,
-  serializeAws_json1_1BatchDeleteFeaturedResultsSetCommand,
+  de_BatchDeleteFeaturedResultsSetCommand,
+  se_BatchDeleteFeaturedResultsSetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +147,7 @@ export class BatchDeleteFeaturedResultsSetCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteFeaturedResultsSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteFeaturedResultsSetCommand(input, context);
+    return se_BatchDeleteFeaturedResultsSetCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class BatchDeleteFeaturedResultsSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteFeaturedResultsSetCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommand(output, context);
+    return de_BatchDeleteFeaturedResultsSetCommand(output, context);
   }
 
   // Start section: command_body_extra

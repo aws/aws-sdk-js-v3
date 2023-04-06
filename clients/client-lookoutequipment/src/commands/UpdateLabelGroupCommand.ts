@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { UpdateLabelGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateLabelGroupCommand,
-  serializeAws_json1_0UpdateLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateLabelGroupCommand, se_UpdateLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateLabelGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateLabelGroupCommand(input, context);
+    return se_UpdateLabelGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLabelGroupCommandOutput> {
-    return deserializeAws_json1_0UpdateLabelGroupCommand(output, context);
+    return de_UpdateLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetDefaultCreditSpecificationCommand,
-  serializeAws_ec2GetDefaultCreditSpecificationCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetDefaultCreditSpecificationCommand, se_GetDefaultCreditSpecificationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDefaultCreditSpecificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetDefaultCreditSpecificationCommand(input, context);
+    return se_GetDefaultCreditSpecificationCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2GetDefaultCreditSpecificationCommand(output, context);
+    return de_GetDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

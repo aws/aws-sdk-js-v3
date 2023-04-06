@@ -18,8 +18,8 @@ import {
   CreateCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommand,
-  serializeAws_restJson1CreateCustomVerificationEmailTemplateCommand,
+  de_CreateCustomVerificationEmailTemplateCommand,
+  se_CreateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -153,7 +153,7 @@ export class CreateCustomVerificationEmailTemplateCommand extends $Command<
     input: CreateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomVerificationEmailTemplateCommand(input, context);
+    return se_CreateCustomVerificationEmailTemplateCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class CreateCustomVerificationEmailTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommand(output, context);
+    return de_CreateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

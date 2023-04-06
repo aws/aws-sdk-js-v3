@@ -21,10 +21,7 @@ import {
   CopyObjectRequest,
   CopyObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCopyObjectCommand,
-  serializeAws_restXmlCopyObjectCommand,
-} from "../protocols/Aws_restXml";
+import { de_CopyObjectCommand, se_CopyObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -406,14 +403,14 @@ export class CopyObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCopyObjectCommand(input, context);
+    return se_CopyObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyObjectCommandOutput> {
-    return deserializeAws_restXmlCopyObjectCommand(output, context);
+    return de_CopyObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

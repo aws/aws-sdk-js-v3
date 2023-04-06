@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDomainsCommand,
-  serializeAws_queryDescribeDomainsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDomainsCommand, se_DescribeDomainsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DescribeDomainsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDomainsCommand(input, context);
+    return se_DescribeDomainsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
-    return deserializeAws_queryDescribeDomainsCommand(output, context);
+    return de_DescribeDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

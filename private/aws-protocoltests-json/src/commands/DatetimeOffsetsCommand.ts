@@ -14,10 +14,7 @@ import {
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { DatetimeOffsetsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DatetimeOffsetsCommand,
-  serializeAws_json1_1DatetimeOffsetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DatetimeOffsetsCommand, se_DatetimeOffsetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -83,14 +80,14 @@ export class DatetimeOffsetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DatetimeOffsetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DatetimeOffsetsCommand(input, context);
+    return se_DatetimeOffsetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DatetimeOffsetsCommandOutput> {
-    return deserializeAws_json1_1DatetimeOffsetsCommand(output, context);
+    return de_DatetimeOffsetsCommand(output, context);
   }
 
   // Start section: command_body_extra

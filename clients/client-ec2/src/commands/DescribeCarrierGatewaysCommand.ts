@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeCarrierGatewaysRequest, DescribeCarrierGatewaysResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeCarrierGatewaysCommand,
-  serializeAws_ec2DescribeCarrierGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeCarrierGatewaysCommand, se_DescribeCarrierGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeCarrierGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCarrierGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeCarrierGatewaysCommand(input, context);
+    return se_DescribeCarrierGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCarrierGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeCarrierGatewaysCommand(output, context);
+    return de_DescribeCarrierGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -67,7 +67,10 @@ import {
   SimpleScalarPropertiesOutput,
 } from "../models/models_0";
 
-export const serializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
+/**
+ * serializeAws_json1_0EmptyInputAndEmptyOutputCommand
+ */
+export const se_EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -76,11 +79,14 @@ export const serializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
     "x-amz-target": "JsonRpc10.EmptyInputAndEmptyOutput",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0EmptyInputAndEmptyOutputInput(input, context));
+  body = JSON.stringify(se_EmptyInputAndEmptyOutputInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0EndpointOperationCommand = async (
+/**
+ * serializeAws_json1_0EndpointOperationCommand
+ */
+export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -99,7 +105,10 @@ export const serializeAws_json1_0EndpointOperationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
-export const serializeAws_json1_0EndpointWithHostLabelOperationCommand = async (
+/**
+ * serializeAws_json1_0EndpointWithHostLabelOperationCommand
+ */
+export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -108,7 +117,7 @@ export const serializeAws_json1_0EndpointWithHostLabelOperationCommand = async (
     "x-amz-target": "JsonRpc10.EndpointWithHostLabelOperation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0EndpointWithHostLabelOperationInput(input, context));
+  body = JSON.stringify(se_EndpointWithHostLabelOperationInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
@@ -123,7 +132,10 @@ export const serializeAws_json1_0EndpointWithHostLabelOperationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
-export const serializeAws_json1_0GreetingWithErrorsCommand = async (
+/**
+ * serializeAws_json1_0GreetingWithErrorsCommand
+ */
+export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -132,11 +144,14 @@ export const serializeAws_json1_0GreetingWithErrorsCommand = async (
     "x-amz-target": "JsonRpc10.GreetingWithErrors",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GreetingWithErrorsInput(input, context));
+  body = JSON.stringify(se_GreetingWithErrorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0HostWithPathOperationCommand = async (
+/**
+ * serializeAws_json1_0HostWithPathOperationCommand
+ */
+export const se_HostWithPathOperationCommand = async (
   input: HostWithPathOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,7 +163,10 @@ export const serializeAws_json1_0HostWithPathOperationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0JsonUnionsCommand = async (
+/**
+ * serializeAws_json1_0JsonUnionsCommand
+ */
+export const se_JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -157,11 +175,14 @@ export const serializeAws_json1_0JsonUnionsCommand = async (
     "x-amz-target": "JsonRpc10.JsonUnions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0JsonUnionsInput(input, context));
+  body = JSON.stringify(se_JsonUnionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0NoInputAndNoOutputCommand = async (
+/**
+ * serializeAws_json1_0NoInputAndNoOutputCommand
+ */
+export const se_NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -173,7 +194,10 @@ export const serializeAws_json1_0NoInputAndNoOutputCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0NoInputAndOutputCommand = async (
+/**
+ * serializeAws_json1_0NoInputAndOutputCommand
+ */
+export const se_NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -185,7 +209,10 @@ export const serializeAws_json1_0NoInputAndOutputCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0SimpleScalarPropertiesCommand = async (
+/**
+ * serializeAws_json1_0SimpleScalarPropertiesCommand
+ */
+export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -194,20 +221,23 @@ export const serializeAws_json1_0SimpleScalarPropertiesCommand = async (
     "x-amz-target": "JsonRpc10.SimpleScalarProperties",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SimpleScalarPropertiesInput(input, context));
+  body = JSON.stringify(se_SimpleScalarPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
+/**
+ * deserializeAws_json1_0EmptyInputAndEmptyOutputCommand
+ */
+export const de_EmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError(output, context);
+    return de_EmptyInputAndEmptyOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0EmptyInputAndEmptyOutputOutput(data, context);
+  contents = de_EmptyInputAndEmptyOutputOutput(data, context);
   const response: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -215,7 +245,10 @@ export const deserializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError = async (
+/**
+ * deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError
+ */
+const de_EmptyInputAndEmptyOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
@@ -233,12 +266,15 @@ const deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0EndpointOperationCommand = async (
+/**
+ * deserializeAws_json1_0EndpointOperationCommand
+ */
+export const de_EndpointOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0EndpointOperationCommandError(output, context);
+    return de_EndpointOperationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointOperationCommandOutput = {
@@ -247,7 +283,10 @@ export const deserializeAws_json1_0EndpointOperationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0EndpointOperationCommandError = async (
+/**
+ * deserializeAws_json1_0EndpointOperationCommandError
+ */
+const de_EndpointOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
@@ -265,12 +304,15 @@ const deserializeAws_json1_0EndpointOperationCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0EndpointWithHostLabelOperationCommand = async (
+/**
+ * deserializeAws_json1_0EndpointWithHostLabelOperationCommand
+ */
+export const de_EndpointWithHostLabelOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0EndpointWithHostLabelOperationCommandError(output, context);
+    return de_EndpointWithHostLabelOperationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointWithHostLabelOperationCommandOutput = {
@@ -279,7 +321,10 @@ export const deserializeAws_json1_0EndpointWithHostLabelOperationCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0EndpointWithHostLabelOperationCommandError = async (
+/**
+ * deserializeAws_json1_0EndpointWithHostLabelOperationCommandError
+ */
+const de_EndpointWithHostLabelOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
@@ -297,16 +342,19 @@ const deserializeAws_json1_0EndpointWithHostLabelOperationCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0GreetingWithErrorsCommand = async (
+/**
+ * deserializeAws_json1_0GreetingWithErrorsCommand
+ */
+export const de_GreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GreetingWithErrorsCommandError(output, context);
+    return de_GreetingWithErrorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GreetingWithErrorsOutput(data, context);
+  contents = de_GreetingWithErrorsOutput(data, context);
   const response: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -314,7 +362,10 @@ export const deserializeAws_json1_0GreetingWithErrorsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GreetingWithErrorsCommandError = async (
+/**
+ * deserializeAws_json1_0GreetingWithErrorsCommandError
+ */
+const de_GreetingWithErrorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
@@ -326,13 +377,13 @@ const deserializeAws_json1_0GreetingWithErrorsCommandError = async (
   switch (errorCode) {
     case "ComplexError":
     case "aws.protocoltests.json10#ComplexError":
-      throw await deserializeAws_json1_0ComplexErrorResponse(parsedOutput, context);
+      throw await de_ComplexErrorRes(parsedOutput, context);
     case "FooError":
     case "aws.protocoltests.json10#FooError":
-      throw await deserializeAws_json1_0FooErrorResponse(parsedOutput, context);
+      throw await de_FooErrorRes(parsedOutput, context);
     case "InvalidGreeting":
     case "aws.protocoltests.json10#InvalidGreeting":
-      throw await deserializeAws_json1_0InvalidGreetingResponse(parsedOutput, context);
+      throw await de_InvalidGreetingRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -344,12 +395,15 @@ const deserializeAws_json1_0GreetingWithErrorsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0HostWithPathOperationCommand = async (
+/**
+ * deserializeAws_json1_0HostWithPathOperationCommand
+ */
+export const de_HostWithPathOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HostWithPathOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0HostWithPathOperationCommandError(output, context);
+    return de_HostWithPathOperationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: HostWithPathOperationCommandOutput = {
@@ -358,7 +412,10 @@ export const deserializeAws_json1_0HostWithPathOperationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0HostWithPathOperationCommandError = async (
+/**
+ * deserializeAws_json1_0HostWithPathOperationCommandError
+ */
+const de_HostWithPathOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HostWithPathOperationCommandOutput> => {
@@ -376,16 +433,19 @@ const deserializeAws_json1_0HostWithPathOperationCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0JsonUnionsCommand = async (
+/**
+ * deserializeAws_json1_0JsonUnionsCommand
+ */
+export const de_JsonUnionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonUnionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0JsonUnionsCommandError(output, context);
+    return de_JsonUnionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0JsonUnionsOutput(data, context);
+  contents = de_JsonUnionsOutput(data, context);
   const response: JsonUnionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -393,7 +453,10 @@ export const deserializeAws_json1_0JsonUnionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0JsonUnionsCommandError = async (
+/**
+ * deserializeAws_json1_0JsonUnionsCommandError
+ */
+const de_JsonUnionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonUnionsCommandOutput> => {
@@ -411,12 +474,15 @@ const deserializeAws_json1_0JsonUnionsCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0NoInputAndNoOutputCommand = async (
+/**
+ * deserializeAws_json1_0NoInputAndNoOutputCommand
+ */
+export const de_NoInputAndNoOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0NoInputAndNoOutputCommandError(output, context);
+    return de_NoInputAndNoOutputCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: NoInputAndNoOutputCommandOutput = {
@@ -425,7 +491,10 @@ export const deserializeAws_json1_0NoInputAndNoOutputCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0NoInputAndNoOutputCommandError = async (
+/**
+ * deserializeAws_json1_0NoInputAndNoOutputCommandError
+ */
+const de_NoInputAndNoOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
@@ -443,16 +512,19 @@ const deserializeAws_json1_0NoInputAndNoOutputCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0NoInputAndOutputCommand = async (
+/**
+ * deserializeAws_json1_0NoInputAndOutputCommand
+ */
+export const de_NoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0NoInputAndOutputCommandError(output, context);
+    return de_NoInputAndOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0NoInputAndOutputOutput(data, context);
+  contents = de_NoInputAndOutputOutput(data, context);
   const response: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -460,7 +532,10 @@ export const deserializeAws_json1_0NoInputAndOutputCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0NoInputAndOutputCommandError = async (
+/**
+ * deserializeAws_json1_0NoInputAndOutputCommandError
+ */
+const de_NoInputAndOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
@@ -478,16 +553,19 @@ const deserializeAws_json1_0NoInputAndOutputCommandError = async (
   });
 };
 
-export const deserializeAws_json1_0SimpleScalarPropertiesCommand = async (
+/**
+ * deserializeAws_json1_0SimpleScalarPropertiesCommand
+ */
+export const de_SimpleScalarPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0SimpleScalarPropertiesCommandError(output, context);
+    return de_SimpleScalarPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SimpleScalarPropertiesOutput(data, context);
+  contents = de_SimpleScalarPropertiesOutput(data, context);
   const response: SimpleScalarPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -495,7 +573,10 @@ export const deserializeAws_json1_0SimpleScalarPropertiesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0SimpleScalarPropertiesCommandError = async (
+/**
+ * deserializeAws_json1_0SimpleScalarPropertiesCommandError
+ */
+const de_SimpleScalarPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
@@ -513,12 +594,12 @@ const deserializeAws_json1_0SimpleScalarPropertiesCommandError = async (
   });
 };
 
-const deserializeAws_json1_0ComplexErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ComplexError> => {
+/**
+ * deserializeAws_json1_0ComplexErrorRes
+ */
+const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ComplexError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ComplexError(body, context);
+  const deserialized: any = de_ComplexError(body, context);
   const exception = new ComplexError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -526,12 +607,12 @@ const deserializeAws_json1_0ComplexErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0FooErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<FooError> => {
+/**
+ * deserializeAws_json1_0FooErrorRes
+ */
+const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<FooError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0FooError(body, context);
+  const deserialized: any = de_FooError(body, context);
   const exception = new FooError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -539,12 +620,12 @@ const deserializeAws_json1_0FooErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidGreetingResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidGreeting> => {
+/**
+ * deserializeAws_json1_0InvalidGreetingRes
+ */
+const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidGreeting(body, context);
+  const deserialized: any = de_InvalidGreeting(body, context);
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -552,14 +633,17 @@ const deserializeAws_json1_0InvalidGreetingResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0EmptyInputAndEmptyOutputInput = (
-  input: EmptyInputAndEmptyOutputInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0EmptyInputAndEmptyOutputInput
+ */
+const se_EmptyInputAndEmptyOutputInput = (input: EmptyInputAndEmptyOutputInput, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0EndpointWithHostLabelOperationInput = (
+/**
+ * serializeAws_json1_0EndpointWithHostLabelOperationInput
+ */
+const se_EndpointWithHostLabelOperationInput = (
   input: EndpointWithHostLabelOperationInput,
   context: __SerdeContext
 ): any => {
@@ -568,51 +652,66 @@ const serializeAws_json1_0EndpointWithHostLabelOperationInput = (
   };
 };
 
-const serializeAws_json1_0GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GreetingWithErrorsInput
+ */
+const se_GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
   return {
     ...(input.greeting != null && { greeting: input.greeting }),
   };
 };
 
-const serializeAws_json1_0JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0JsonUnionsInput
+ */
+const se_JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.contents != null && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
+    ...(input.contents != null && { contents: se_MyUnion(input.contents, context) }),
   };
 };
 
-const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0MyUnion
+ */
+const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
   return MyUnion.visit(input, {
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     enumValue: (value) => ({ enumValue: value }),
     intEnumValue: (value) => ({ intEnumValue: value }),
-    listValue: (value) => ({ listValue: serializeAws_json1_0StringList(value, context) }),
-    mapValue: (value) => ({ mapValue: serializeAws_json1_0StringMap(value, context) }),
+    listValue: (value) => ({ listValue: se_StringList(value, context) }),
+    mapValue: (value) => ({ mapValue: se_StringMap(value, context) }),
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    structureValue: (value) => ({ structureValue: serializeAws_json1_0GreetingStruct(value, context) }),
+    structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
     timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0SimpleScalarPropertiesInput = (
-  input: SimpleScalarPropertiesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0SimpleScalarPropertiesInput
+ */
+const se_SimpleScalarPropertiesInput = (input: SimpleScalarPropertiesInput, context: __SerdeContext): any => {
   return {
     ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
   };
 };
 
-const serializeAws_json1_0GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GreetingStruct
+ */
+const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   return {
     ...(input.hi != null && { hi: input.hi }),
   };
 };
 
-const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -620,7 +719,10 @@ const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StringMap
+ */
+const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -630,53 +732,70 @@ const serializeAws_json1_0StringMap = (input: Record<string, string>, context: _
   }, {});
 };
 
-const deserializeAws_json1_0ComplexError = (output: any, context: __SerdeContext): ComplexError => {
+/**
+ * deserializeAws_json1_0ComplexError
+ */
+const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   return {
-    Nested: output.Nested != null ? deserializeAws_json1_0ComplexNestedErrorData(output.Nested, context) : undefined,
+    Nested: output.Nested != null ? de_ComplexNestedErrorData(output.Nested, context) : undefined,
     TopLevel: __expectString(output.TopLevel),
   } as any;
 };
 
-const deserializeAws_json1_0ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
+/**
+ * deserializeAws_json1_0ComplexNestedErrorData
+ */
+const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
     Foo: __expectString(output.Foo),
   } as any;
 };
 
-const deserializeAws_json1_0EmptyInputAndEmptyOutputOutput = (
-  output: any,
-  context: __SerdeContext
-): EmptyInputAndEmptyOutputOutput => {
+/**
+ * deserializeAws_json1_0EmptyInputAndEmptyOutputOutput
+ */
+const de_EmptyInputAndEmptyOutputOutput = (output: any, context: __SerdeContext): EmptyInputAndEmptyOutputOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0FooError = (output: any, context: __SerdeContext): FooError => {
+/**
+ * deserializeAws_json1_0FooError
+ */
+const de_FooError = (output: any, context: __SerdeContext): FooError => {
   return {} as any;
 };
 
-const deserializeAws_json1_0GreetingWithErrorsOutput = (
-  output: any,
-  context: __SerdeContext
-): GreetingWithErrorsOutput => {
+/**
+ * deserializeAws_json1_0GreetingWithErrorsOutput
+ */
+const de_GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
   return {
     greeting: __expectString(output.greeting),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
+/**
+ * deserializeAws_json1_0InvalidGreeting
+ */
+const de_InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
+/**
+ * deserializeAws_json1_0JsonUnionsOutput
+ */
+const de_JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
   return {
-    contents:
-      output.contents != null ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context) : undefined,
+    contents: output.contents != null ? de_MyUnion(__expectUnion(output.contents), context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): MyUnion => {
+/**
+ * deserializeAws_json1_0MyUnion
+ */
+const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   if (output.blobValue != null) {
     return {
       blobValue: context.base64Decoder(output.blobValue),
@@ -693,12 +812,12 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
   }
   if (output.listValue != null) {
     return {
-      listValue: deserializeAws_json1_0StringList(output.listValue, context),
+      listValue: de_StringList(output.listValue, context),
     };
   }
   if (output.mapValue != null) {
     return {
-      mapValue: deserializeAws_json1_0StringMap(output.mapValue, context),
+      mapValue: de_StringMap(output.mapValue, context),
     };
   }
   if (__expectInt32(output.numberValue) !== undefined) {
@@ -709,7 +828,7 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
   }
   if (output.structureValue != null) {
     return {
-      structureValue: deserializeAws_json1_0GreetingStruct(output.structureValue, context),
+      structureValue: de_GreetingStruct(output.structureValue, context),
     };
   }
   if (output.timestampValue != null) {
@@ -720,27 +839,36 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
+/**
+ * deserializeAws_json1_0NoInputAndOutputOutput
+ */
+const de_NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_0SimpleScalarPropertiesOutput = (
-  output: any,
-  context: __SerdeContext
-): SimpleScalarPropertiesOutput => {
+/**
+ * deserializeAws_json1_0SimpleScalarPropertiesOutput
+ */
+const de_SimpleScalarPropertiesOutput = (output: any, context: __SerdeContext): SimpleScalarPropertiesOutput => {
   return {
     doubleValue: __limitedParseDouble(output.doubleValue),
     floatValue: __limitedParseFloat32(output.floatValue),
   } as any;
 };
 
-const deserializeAws_json1_0GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
+/**
+ * deserializeAws_json1_0GreetingStruct
+ */
+const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
     hi: __expectString(output.hi),
   } as any;
 };
 
-const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -752,7 +880,10 @@ const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_0StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_0StringMap
+ */
+const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

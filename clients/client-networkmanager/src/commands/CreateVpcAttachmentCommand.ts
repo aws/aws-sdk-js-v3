@@ -15,10 +15,7 @@ import {
 
 import { CreateVpcAttachmentRequest, CreateVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateVpcAttachmentCommand,
-  serializeAws_restJson1CreateVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVpcAttachmentCommand, se_CreateVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateVpcAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVpcAttachmentCommand(input, context);
+    return se_CreateVpcAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1CreateVpcAttachmentCommand(output, context);
+    return de_CreateVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

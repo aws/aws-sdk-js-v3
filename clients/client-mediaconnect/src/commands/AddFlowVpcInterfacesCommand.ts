@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddFlowVpcInterfacesCommand,
-  serializeAws_restJson1AddFlowVpcInterfacesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddFlowVpcInterfacesCommand, se_AddFlowVpcInterfacesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class AddFlowVpcInterfacesCommand extends $Command<
    * @internal
    */
   private serialize(input: AddFlowVpcInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddFlowVpcInterfacesCommand(input, context);
+    return se_AddFlowVpcInterfacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowVpcInterfacesCommandOutput> {
-    return deserializeAws_restJson1AddFlowVpcInterfacesCommand(output, context);
+    return de_AddFlowVpcInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

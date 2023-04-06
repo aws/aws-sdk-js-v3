@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand,
-  serializeAws_restJson1DeleteDomainPermissionsPolicyCommand,
+  de_DeleteDomainPermissionsPolicyCommand,
+  se_DeleteDomainPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainPermissionsPolicyCommand(input, context);
+    return se_DeleteDomainPermissionsPolicyCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand(output, context);
+    return de_DeleteDomainPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificatesCommand,
-  serializeAws_json1_1DescribeCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCertificatesCommand, se_DescribeCertificatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class DescribeCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificatesCommand(input, context);
+    return se_DescribeCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificatesCommand(output, context);
+    return de_DescribeCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -47,7 +47,10 @@ import {
   UnsupportedDocumentEncodingException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteThingShadowCommand = async (
+/**
+ * serializeAws_restJson1DeleteThingShadowCommand
+ */
+export const se_DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -72,7 +75,10 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRetainedMessageCommand = async (
+/**
+ * serializeAws_restJson1GetRetainedMessageCommand
+ */
+export const se_GetRetainedMessageCommand = async (
   input: GetRetainedMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -92,7 +98,10 @@ export const serializeAws_restJson1GetRetainedMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetThingShadowCommand = async (
+/**
+ * serializeAws_restJson1GetThingShadowCommand
+ */
+export const se_GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -117,7 +126,10 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
+/**
+ * serializeAws_restJson1ListNamedShadowsForThingCommand
+ */
+export const se_ListNamedShadowsForThingCommand = async (
   input: ListNamedShadowsForThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -144,7 +156,10 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRetainedMessagesCommand = async (
+/**
+ * serializeAws_restJson1ListRetainedMessagesCommand
+ */
+export const se_ListRetainedMessagesCommand = async (
   input: ListRetainedMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -168,7 +183,10 @@ export const serializeAws_restJson1ListRetainedMessagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1PublishCommand = async (
+/**
+ * serializeAws_restJson1PublishCommand
+ */
+export const se_PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -207,7 +225,10 @@ export const serializeAws_restJson1PublishCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateThingShadowCommand = async (
+/**
+ * serializeAws_restJson1UpdateThingShadowCommand
+ */
+export const se_UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -237,12 +258,15 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteThingShadowCommand = async (
+/**
+ * deserializeAws_restJson1DeleteThingShadowCommand
+ */
+export const de_DeleteThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteThingShadowCommandError(output, context);
+    return de_DeleteThingShadowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -252,7 +276,10 @@ export const deserializeAws_restJson1DeleteThingShadowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteThingShadowCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteThingShadowCommandError
+ */
+const de_DeleteThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingShadowCommandOutput> => {
@@ -264,28 +291,28 @@ const deserializeAws_restJson1DeleteThingShadowCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentEncodingException":
     case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
-      throw await deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -297,12 +324,15 @@ const deserializeAws_restJson1DeleteThingShadowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRetainedMessageCommand = async (
+/**
+ * deserializeAws_restJson1GetRetainedMessageCommand
+ */
+export const de_GetRetainedMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRetainedMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRetainedMessageCommandError(output, context);
+    return de_GetRetainedMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -323,7 +353,10 @@ export const deserializeAws_restJson1GetRetainedMessageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRetainedMessageCommandError = async (
+/**
+ * deserializeAws_restJson1GetRetainedMessageCommandError
+ */
+const de_GetRetainedMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRetainedMessageCommandOutput> => {
@@ -335,25 +368,25 @@ const deserializeAws_restJson1GetRetainedMessageCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -365,12 +398,15 @@ const deserializeAws_restJson1GetRetainedMessageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetThingShadowCommand = async (
+/**
+ * deserializeAws_restJson1GetThingShadowCommand
+ */
+export const de_GetThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetThingShadowCommandError(output, context);
+    return de_GetThingShadowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -380,7 +416,10 @@ export const deserializeAws_restJson1GetThingShadowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetThingShadowCommandError = async (
+/**
+ * deserializeAws_restJson1GetThingShadowCommandError
+ */
+const de_GetThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThingShadowCommandOutput> => {
@@ -392,28 +431,28 @@ const deserializeAws_restJson1GetThingShadowCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentEncodingException":
     case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
-      throw await deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -425,12 +464,15 @@ const deserializeAws_restJson1GetThingShadowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
+/**
+ * deserializeAws_restJson1ListNamedShadowsForThingCommand
+ */
+export const de_ListNamedShadowsForThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamedShadowsForThingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListNamedShadowsForThingCommandError(output, context);
+    return de_ListNamedShadowsForThingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -440,7 +482,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.results != null) {
-    contents.results = deserializeAws_restJson1NamedShadowList(data.results, context);
+    contents.results = de_NamedShadowList(data.results, context);
   }
   if (data.timestamp != null) {
     contents.timestamp = __expectLong(data.timestamp);
@@ -448,7 +490,10 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListNamedShadowsForThingCommandError = async (
+/**
+ * deserializeAws_restJson1ListNamedShadowsForThingCommandError
+ */
+const de_ListNamedShadowsForThingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamedShadowsForThingCommandOutput> => {
@@ -460,25 +505,25 @@ const deserializeAws_restJson1ListNamedShadowsForThingCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -490,12 +535,15 @@ const deserializeAws_restJson1ListNamedShadowsForThingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListRetainedMessagesCommand = async (
+/**
+ * deserializeAws_restJson1ListRetainedMessagesCommand
+ */
+export const de_ListRetainedMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRetainedMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRetainedMessagesCommandError(output, context);
+    return de_ListRetainedMessagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -505,12 +553,15 @@ export const deserializeAws_restJson1ListRetainedMessagesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.retainedTopics != null) {
-    contents.retainedTopics = deserializeAws_restJson1RetainedMessageList(data.retainedTopics, context);
+    contents.retainedTopics = de_RetainedMessageList(data.retainedTopics, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListRetainedMessagesCommandError = async (
+/**
+ * deserializeAws_restJson1ListRetainedMessagesCommandError
+ */
+const de_ListRetainedMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRetainedMessagesCommandOutput> => {
@@ -522,22 +573,22 @@ const deserializeAws_restJson1ListRetainedMessagesCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -549,12 +600,15 @@ const deserializeAws_restJson1ListRetainedMessagesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PublishCommand = async (
+/**
+ * deserializeAws_restJson1PublishCommand
+ */
+export const de_PublishCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PublishCommandError(output, context);
+    return de_PublishCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -563,7 +617,10 @@ export const deserializeAws_restJson1PublishCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PublishCommandError = async (
+/**
+ * deserializeAws_restJson1PublishCommandError
+ */
+const de_PublishCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
@@ -575,19 +632,19 @@ const deserializeAws_restJson1PublishCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -599,12 +656,15 @@ const deserializeAws_restJson1PublishCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateThingShadowCommand = async (
+/**
+ * deserializeAws_restJson1UpdateThingShadowCommand
+ */
+export const de_UpdateThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateThingShadowCommandError(output, context);
+    return de_UpdateThingShadowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -614,7 +674,10 @@ export const deserializeAws_restJson1UpdateThingShadowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateThingShadowCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateThingShadowCommandError
+ */
+const de_UpdateThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingShadowCommandOutput> => {
@@ -626,31 +689,31 @@ const deserializeAws_restJson1UpdateThingShadowCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.iotdataplane#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "RequestEntityTooLargeException":
     case "com.amazonaws.iotdataplane#RequestEntityTooLargeException":
-      throw await deserializeAws_restJson1RequestEntityTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_RequestEntityTooLargeExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentEncodingException":
     case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
-      throw await deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -663,10 +726,10 @@ const deserializeAws_restJson1UpdateThingShadowCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -679,7 +742,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
@@ -695,7 +761,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
@@ -711,7 +780,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MethodNotAllowedExceptionRes
+ */
+const de_MethodNotAllowedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MethodNotAllowedException> => {
@@ -727,7 +799,10 @@ const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestEntityTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestEntityTooLargeExceptionRes
+ */
+const de_RequestEntityTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestEntityTooLargeException> => {
@@ -743,7 +818,10 @@ const deserializeAws_restJson1RequestEntityTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -759,7 +837,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -775,10 +856,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -791,7 +872,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
@@ -807,7 +891,10 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedDocumentEncodingExceptionRes
+ */
+const de_UnsupportedDocumentEncodingExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedDocumentEncodingException> => {
@@ -823,7 +910,10 @@ const deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse = asy
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1NamedShadowList
+ */
+const de_NamedShadowList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -835,25 +925,25 @@ const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1RetainedMessageList = (
-  output: any,
-  context: __SerdeContext
-): RetainedMessageSummary[] => {
+/**
+ * deserializeAws_restJson1RetainedMessageList
+ */
+const de_RetainedMessageList = (output: any, context: __SerdeContext): RetainedMessageSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1RetainedMessageSummary(entry, context);
+      return de_RetainedMessageSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RetainedMessageSummary = (
-  output: any,
-  context: __SerdeContext
-): RetainedMessageSummary => {
+/**
+ * deserializeAws_restJson1RetainedMessageSummary
+ */
+const de_RetainedMessageSummary = (output: any, context: __SerdeContext): RetainedMessageSummary => {
   return {
     lastModifiedTime: __expectLong(output.lastModifiedTime),
     payloadSize: __expectLong(output.payloadSize),

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteKeySigningKeyRequest, DeleteKeySigningKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteKeySigningKeyCommand,
-  serializeAws_restXmlDeleteKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteKeySigningKeyCommand, se_DeleteKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -150,14 +147,14 @@ export class DeleteKeySigningKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteKeySigningKeyCommand(input, context);
+    return se_DeleteKeySigningKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlDeleteKeySigningKeyCommand(output, context);
+    return de_DeleteKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

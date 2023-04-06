@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DatetimeOffsetsOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlDatetimeOffsetsCommand,
-  serializeAws_restXmlDatetimeOffsetsCommand,
-} from "../protocols/Aws_restXml";
+import { de_DatetimeOffsetsCommand, se_DatetimeOffsetsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class DatetimeOffsetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DatetimeOffsetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDatetimeOffsetsCommand(input, context);
+    return se_DatetimeOffsetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DatetimeOffsetsCommandOutput> {
-    return deserializeAws_restXmlDatetimeOffsetsCommand(output, context);
+    return de_DatetimeOffsetsCommand(output, context);
   }
 
   // Start section: command_body_extra

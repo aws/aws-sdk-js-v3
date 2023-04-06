@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteConfigurationSetCommand,
-  serializeAws_queryDeleteConfigurationSetCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -125,14 +122,14 @@ export class DeleteConfigurationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetCommand(input, context);
+    return se_DeleteConfigurationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetCommand(output, context);
+    return de_DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

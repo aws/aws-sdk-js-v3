@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GenerateCredentialReportResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGenerateCredentialReportCommand,
-  serializeAws_queryGenerateCredentialReportCommand,
-} from "../protocols/Aws_query";
+import { de_GenerateCredentialReportCommand, se_GenerateCredentialReportCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GenerateCredentialReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateCredentialReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateCredentialReportCommand(input, context);
+    return se_GenerateCredentialReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateCredentialReportCommandOutput> {
-    return deserializeAws_queryGenerateCredentialReportCommand(output, context);
+    return de_GenerateCredentialReportCommand(output, context);
   }
 
   // Start section: command_body_extra

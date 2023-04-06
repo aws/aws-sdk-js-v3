@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCompatibleImagesCommand,
-  serializeAws_json1_1ListCompatibleImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCompatibleImagesCommand, se_ListCompatibleImagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListCompatibleImagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCompatibleImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCompatibleImagesCommand(input, context);
+    return se_ListCompatibleImagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompatibleImagesCommandOutput> {
-    return deserializeAws_json1_1ListCompatibleImagesCommand(output, context);
+    return de_ListCompatibleImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

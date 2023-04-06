@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ArchiveCreationOutput, UploadArchiveInput, UploadArchiveInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UploadArchiveCommand,
-  serializeAws_restJson1UploadArchiveCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -201,14 +198,14 @@ export class UploadArchiveCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadArchiveCommand(input, context);
+    return se_UploadArchiveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadArchiveCommandOutput> {
-    return deserializeAws_restJson1UploadArchiveCommand(output, context);
+    return de_UploadArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

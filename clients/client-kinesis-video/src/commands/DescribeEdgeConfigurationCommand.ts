@@ -19,10 +19,7 @@ import {
   DescribeEdgeConfigurationOutput,
   DescribeEdgeConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeEdgeConfigurationCommand,
-  serializeAws_restJson1DescribeEdgeConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeEdgeConfigurationCommand, se_DescribeEdgeConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class DescribeEdgeConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEdgeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEdgeConfigurationCommand(input, context);
+    return se_DescribeEdgeConfigurationCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DescribeEdgeConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEdgeConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeEdgeConfigurationCommand(output, context);
+    return de_DescribeEdgeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

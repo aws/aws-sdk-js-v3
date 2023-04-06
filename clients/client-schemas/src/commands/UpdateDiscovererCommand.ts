@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDiscovererRequest, UpdateDiscovererResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDiscovererCommand,
-  serializeAws_restJson1UpdateDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDiscovererCommand, se_UpdateDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -134,14 +131,14 @@ export class UpdateDiscovererCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDiscovererCommand(input, context);
+    return se_UpdateDiscovererCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDiscovererCommandOutput> {
-    return deserializeAws_restJson1UpdateDiscovererCommand(output, context);
+    return de_UpdateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ResyncMFADeviceRequest } from "../models/models_0";
-import {
-  deserializeAws_queryResyncMFADeviceCommand,
-  serializeAws_queryResyncMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { de_ResyncMFADeviceCommand, se_ResyncMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ResyncMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: ResyncMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResyncMFADeviceCommand(input, context);
+    return se_ResyncMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResyncMFADeviceCommandOutput> {
-    return deserializeAws_queryResyncMFADeviceCommand(output, context);
+    return de_ResyncMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

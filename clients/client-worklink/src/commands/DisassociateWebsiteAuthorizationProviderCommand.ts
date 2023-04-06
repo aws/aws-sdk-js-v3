@@ -18,8 +18,8 @@ import {
   DisassociateWebsiteAuthorizationProviderResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand,
-  serializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand,
+  de_DisassociateWebsiteAuthorizationProviderCommand,
+  se_DisassociateWebsiteAuthorizationProviderCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -158,7 +158,7 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     input: DisassociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand(input, context);
+    return se_DisassociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
-    return deserializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand(output, context);
+    return de_DisassociateWebsiteAuthorizationProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

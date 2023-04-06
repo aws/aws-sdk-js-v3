@@ -15,8 +15,8 @@ import {
 
 import { DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateBudgetFromResourceCommand,
-  serializeAws_json1_1DisassociateBudgetFromResourceCommand,
+  de_DisassociateBudgetFromResourceCommand,
+  se_DisassociateBudgetFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -129,7 +129,7 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     input: DisassociateBudgetFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(input, context);
+    return se_DisassociateBudgetFromResourceCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateBudgetFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(output, context);
+    return de_DisassociateBudgetFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

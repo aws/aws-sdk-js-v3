@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { DescribeLogPatternRequest, DescribeLogPatternResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLogPatternCommand,
-  serializeAws_json1_1DescribeLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLogPatternCommand, se_DescribeLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeLogPatternCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLogPatternCommand(input, context);
+    return se_DescribeLogPatternCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogPatternCommandOutput> {
-    return deserializeAws_json1_1DescribeLogPatternCommand(output, context);
+    return de_DescribeLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

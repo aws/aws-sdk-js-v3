@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryListsInput } from "../models/models_0";
-import { deserializeAws_queryQueryListsCommand, serializeAws_queryQueryListsCommand } from "../protocols/Aws_query";
+import { de_QueryListsCommand, se_QueryListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -125,14 +125,14 @@ export class QueryListsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryQueryListsCommand(input, context);
+    return se_QueryListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryListsCommandOutput> {
-    return deserializeAws_queryQueryListsCommand(output, context);
+    return de_QueryListsCommand(output, context);
   }
 
   // Start section: command_body_extra

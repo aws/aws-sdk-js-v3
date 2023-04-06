@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateRouteRequest, CreateRouteResult } from "../models/models_2";
-import { deserializeAws_ec2CreateRouteCommand, serializeAws_ec2CreateRouteCommand } from "../protocols/Aws_ec2";
+import { de_CreateRouteCommand, se_CreateRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -163,14 +163,14 @@ export class CreateRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateRouteCommand(input, context);
+    return se_CreateRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
-    return deserializeAws_ec2CreateRouteCommand(output, context);
+    return de_CreateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

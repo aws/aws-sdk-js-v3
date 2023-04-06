@@ -16,8 +16,8 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetTemporaryGlueTableCredentialsRequest, GetTemporaryGlueTableCredentialsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
-  serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
+  de_GetTemporaryGlueTableCredentialsCommand,
+  se_GetTemporaryGlueTableCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     input: GetTemporaryGlueTableCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand(input, context);
+    return se_GetTemporaryGlueTableCredentialsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTemporaryGlueTableCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand(output, context);
+    return de_GetTemporaryGlueTableCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

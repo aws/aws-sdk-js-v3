@@ -19,8 +19,8 @@ import {
   DeregisterOrganizationAdminAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand,
-  serializeAws_restJson1DeregisterOrganizationAdminAccountCommand,
+  de_DeregisterOrganizationAdminAccountCommand,
+  se_DeregisterOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -201,7 +201,7 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     input: DeregisterOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterOrganizationAdminAccountCommand(input, context);
+    return se_DeregisterOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -211,7 +211,7 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand(output, context);
+    return de_DeregisterOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

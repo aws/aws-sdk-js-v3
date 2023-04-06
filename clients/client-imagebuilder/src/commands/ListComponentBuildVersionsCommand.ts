@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListComponentBuildVersionsCommand,
-  serializeAws_restJson1ListComponentBuildVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListComponentBuildVersionsCommand, se_ListComponentBuildVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,7 +153,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListComponentBuildVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListComponentBuildVersionsCommand(input, context);
+    return se_ListComponentBuildVersionsCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListComponentBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1ListComponentBuildVersionsCommand(output, context);
+    return de_ListComponentBuildVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

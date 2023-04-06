@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootWorkspacesCommand,
-  serializeAws_json1_1RebootWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebootWorkspacesCommand, se_RebootWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -130,14 +127,14 @@ export class RebootWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootWorkspacesCommand(input, context);
+    return se_RebootWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootWorkspacesCommandOutput> {
-    return deserializeAws_json1_1RebootWorkspacesCommand(output, context);
+    return de_RebootWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

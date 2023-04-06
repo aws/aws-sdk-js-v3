@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateCustomEntityTypeRequest, CreateCustomEntityTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomEntityTypeCommand,
-  serializeAws_json1_1CreateCustomEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCustomEntityTypeCommand, se_CreateCustomEntityTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateCustomEntityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomEntityTypeCommand(input, context);
+    return se_CreateCustomEntityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomEntityTypeCommandOutput> {
-    return deserializeAws_json1_1CreateCustomEntityTypeCommand(output, context);
+    return de_CreateCustomEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

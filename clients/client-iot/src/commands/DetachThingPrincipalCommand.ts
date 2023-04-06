@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DetachThingPrincipalCommand,
-  serializeAws_restJson1DetachThingPrincipalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DetachThingPrincipalCommand, se_DetachThingPrincipalCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DetachThingPrincipalCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachThingPrincipalCommand(input, context);
+    return se_DetachThingPrincipalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1DetachThingPrincipalCommand(output, context);
+    return de_DetachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

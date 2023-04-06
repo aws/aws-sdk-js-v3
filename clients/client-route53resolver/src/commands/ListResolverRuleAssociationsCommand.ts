@@ -15,8 +15,8 @@ import {
 
 import { ListResolverRuleAssociationsRequest, ListResolverRuleAssociationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResolverRuleAssociationsCommand,
-  serializeAws_json1_1ListResolverRuleAssociationsCommand,
+  de_ListResolverRuleAssociationsCommand,
+  se_ListResolverRuleAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -146,7 +146,7 @@ export class ListResolverRuleAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResolverRuleAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverRuleAssociationsCommand(input, context);
+    return se_ListResolverRuleAssociationsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverRuleAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListResolverRuleAssociationsCommand(output, context);
+    return de_ListResolverRuleAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

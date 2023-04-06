@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeContactFlowModuleRequest, DescribeContactFlowModuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeContactFlowModuleCommand,
-  serializeAws_restJson1DescribeContactFlowModuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeContactFlowModuleCommand, se_DescribeContactFlowModuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class DescribeContactFlowModuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeContactFlowModuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeContactFlowModuleCommand(input, context);
+    return se_DescribeContactFlowModuleCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class DescribeContactFlowModuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContactFlowModuleCommandOutput> {
-    return deserializeAws_restJson1DescribeContactFlowModuleCommand(output, context);
+    return de_DescribeContactFlowModuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetEventTypesRequest, GetEventTypesResult, GetEventTypesResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventTypesCommand,
-  serializeAws_json1_1GetEventTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetEventTypesCommand, se_GetEventTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetEventTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventTypesCommand(input, context);
+    return se_GetEventTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventTypesCommandOutput> {
-    return deserializeAws_json1_1GetEventTypesCommand(output, context);
+    return de_GetEventTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

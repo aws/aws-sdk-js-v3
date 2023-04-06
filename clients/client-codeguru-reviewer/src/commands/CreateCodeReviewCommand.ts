@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { CreateCodeReviewRequest, CreateCodeReviewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCodeReviewCommand,
-  serializeAws_restJson1CreateCodeReviewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCodeReviewCommand, se_CreateCodeReviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class CreateCodeReviewCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCodeReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCodeReviewCommand(input, context);
+    return se_CreateCodeReviewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeReviewCommandOutput> {
-    return deserializeAws_restJson1CreateCodeReviewCommand(output, context);
+    return de_CreateCodeReviewCommand(output, context);
   }
 
   // Start section: command_body_extra

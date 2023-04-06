@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { ListClustersV2Request, ListClustersV2Response } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClustersV2Command,
-  serializeAws_restJson1ListClustersV2Command,
-} from "../protocols/Aws_restJson1";
+import { de_ListClustersV2Command, se_ListClustersV2Command } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListClustersV2Command extends $Command<
    * @internal
    */
   private serialize(input: ListClustersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClustersV2Command(input, context);
+    return se_ListClustersV2Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersV2CommandOutput> {
-    return deserializeAws_restJson1ListClustersV2Command(output, context);
+    return de_ListClustersV2Command(output, context);
   }
 
   // Start section: command_body_extra

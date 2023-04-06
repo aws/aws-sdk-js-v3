@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { GetRegistryCatalogDataRequest, GetRegistryCatalogDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRegistryCatalogDataCommand,
-  serializeAws_json1_1GetRegistryCatalogDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRegistryCatalogDataCommand, se_GetRegistryCatalogDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class GetRegistryCatalogDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRegistryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryCatalogDataCommand(input, context);
+    return se_GetRegistryCatalogDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryCatalogDataCommandOutput> {
-    return deserializeAws_json1_1GetRegistryCatalogDataCommand(output, context);
+    return de_GetRegistryCatalogDataCommand(output, context);
   }
 
   // Start section: command_body_extra

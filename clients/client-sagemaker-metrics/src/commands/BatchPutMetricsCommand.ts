@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchPutMetricsRequest, BatchPutMetricsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutMetricsCommand,
-  serializeAws_restJson1BatchPutMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchPutMetricsCommand, se_BatchPutMetricsCommand } from "../protocols/Aws_restJson1";
 import { SageMakerMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerMetricsClient";
 
 /**
@@ -130,14 +127,14 @@ export class BatchPutMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchPutMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutMetricsCommand(input, context);
+    return se_BatchPutMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMetricsCommandOutput> {
-    return deserializeAws_restJson1BatchPutMetricsCommand(output, context);
+    return de_BatchPutMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

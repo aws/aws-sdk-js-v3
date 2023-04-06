@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeletePublicIpv4PoolCommand,
-  serializeAws_ec2DeletePublicIpv4PoolCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeletePublicIpv4PoolCommand, se_DeletePublicIpv4PoolCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DeletePublicIpv4PoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePublicIpv4PoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeletePublicIpv4PoolCommand(input, context);
+    return se_DeletePublicIpv4PoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicIpv4PoolCommandOutput> {
-    return deserializeAws_ec2DeletePublicIpv4PoolCommand(output, context);
+    return de_DeletePublicIpv4PoolCommand(output, context);
   }
 
   // Start section: command_body_extra

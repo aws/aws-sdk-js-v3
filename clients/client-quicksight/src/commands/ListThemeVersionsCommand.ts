@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListThemeVersionsCommand,
-  serializeAws_restJson1ListThemeVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListThemeVersionsCommand, se_ListThemeVersionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -150,14 +147,14 @@ export class ListThemeVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListThemeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThemeVersionsCommand(input, context);
+    return se_ListThemeVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemeVersionsCommandOutput> {
-    return deserializeAws_restJson1ListThemeVersionsCommand(output, context);
+    return de_ListThemeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

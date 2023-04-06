@@ -20,10 +20,7 @@ import {
   BatchDisassociateUserStackResult,
   BatchDisassociateUserStackResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDisassociateUserStackCommand,
-  serializeAws_json1_1BatchDisassociateUserStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDisassociateUserStackCommand, se_BatchDisassociateUserStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class BatchDisassociateUserStackCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDisassociateUserStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateUserStackCommand(input, context);
+    return se_BatchDisassociateUserStackCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class BatchDisassociateUserStackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateUserStackCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateUserStackCommand(output, context);
+    return de_BatchDisassociateUserStackCommand(output, context);
   }
 
   // Start section: command_body_extra

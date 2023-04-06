@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { StartImageScanRequest, StartImageScanResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartImageScanCommand,
-  serializeAws_json1_1StartImageScanCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartImageScanCommand, se_StartImageScanCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class StartImageScanCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImageScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartImageScanCommand(input, context);
+    return se_StartImageScanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImageScanCommandOutput> {
-    return deserializeAws_json1_1StartImageScanCommand(output, context);
+    return de_StartImageScanCommand(output, context);
   }
 
   // Start section: command_body_extra

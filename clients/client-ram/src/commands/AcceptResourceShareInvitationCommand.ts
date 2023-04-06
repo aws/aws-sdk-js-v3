@@ -15,8 +15,8 @@ import {
 
 import { AcceptResourceShareInvitationRequest, AcceptResourceShareInvitationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AcceptResourceShareInvitationCommand,
-  serializeAws_restJson1AcceptResourceShareInvitationCommand,
+  de_AcceptResourceShareInvitationCommand,
+  se_AcceptResourceShareInvitationCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -157,7 +157,7 @@ export class AcceptResourceShareInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptResourceShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptResourceShareInvitationCommand(input, context);
+    return se_AcceptResourceShareInvitationCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class AcceptResourceShareInvitationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptResourceShareInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptResourceShareInvitationCommand(output, context);
+    return de_AcceptResourceShareInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   ListChannelBansResponse,
   ListChannelBansResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListChannelBansCommand,
-  serializeAws_restJson1ListChannelBansCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelBansCommand, se_ListChannelBansCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class ListChannelBansCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChannelBansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelBansCommand(input, context);
+    return se_ListChannelBansCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelBansCommandOutput> {
-    return deserializeAws_restJson1ListChannelBansCommand(output, context);
+    return de_ListChannelBansCommand(output, context);
   }
 
   // Start section: command_body_extra

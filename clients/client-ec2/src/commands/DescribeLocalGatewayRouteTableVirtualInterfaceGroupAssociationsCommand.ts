@@ -19,8 +19,8 @@ import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
+  de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
+  se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input, context);
+    return se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(output, context);
+    return de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

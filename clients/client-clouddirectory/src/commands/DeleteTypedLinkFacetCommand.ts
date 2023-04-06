@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DeleteTypedLinkFacetRequest, DeleteTypedLinkFacetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTypedLinkFacetCommand,
-  serializeAws_restJson1DeleteTypedLinkFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTypedLinkFacetCommand, se_DeleteTypedLinkFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteTypedLinkFacetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTypedLinkFacetCommand(input, context);
+    return se_DeleteTypedLinkFacetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1DeleteTypedLinkFacetCommand(output, context);
+    return de_DeleteTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

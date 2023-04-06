@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { ListSkillsStoreSkillsByCategoryRequest, ListSkillsStoreSkillsByCategoryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand,
-  serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand,
+  de_ListSkillsStoreSkillsByCategoryCommand,
+  se_ListSkillsStoreSkillsByCategoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -127,7 +127,7 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     input: ListSkillsStoreSkillsByCategoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand(input, context);
+    return se_ListSkillsStoreSkillsByCategoryCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> {
-    return deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand(output, context);
+    return de_ListSkillsStoreSkillsByCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

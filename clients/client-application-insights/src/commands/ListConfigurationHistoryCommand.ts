@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConfigurationHistoryCommand,
-  serializeAws_json1_1ListConfigurationHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListConfigurationHistoryCommand, se_ListConfigurationHistoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ListConfigurationHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConfigurationHistoryCommand(input, context);
+    return se_ListConfigurationHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationHistoryCommandOutput> {
-    return deserializeAws_json1_1ListConfigurationHistoryCommand(output, context);
+    return de_ListConfigurationHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

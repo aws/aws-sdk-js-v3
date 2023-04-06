@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeEntitlementsRequest, DescribeEntitlementsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntitlementsCommand,
-  serializeAws_json1_1DescribeEntitlementsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEntitlementsCommand, se_DescribeEntitlementsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeEntitlementsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitlementsCommand(input, context);
+    return se_DescribeEntitlementsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntitlementsCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitlementsCommand(output, context);
+    return de_DescribeEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSafetyRuleRequest, UpdateSafetyRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSafetyRuleCommand,
-  serializeAws_restJson1UpdateSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSafetyRuleCommand, se_UpdateSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class UpdateSafetyRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSafetyRuleCommand(input, context);
+    return se_UpdateSafetyRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateSafetyRuleCommand(output, context);
+    return de_UpdateSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

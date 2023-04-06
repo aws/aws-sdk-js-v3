@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { ListProblemsRequest, ListProblemsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProblemsCommand,
-  serializeAws_json1_1ListProblemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListProblemsCommand, se_ListProblemsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListProblemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProblemsCommand(input, context);
+    return se_ListProblemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProblemsCommandOutput> {
-    return deserializeAws_json1_1ListProblemsCommand(output, context);
+    return de_ListProblemsCommand(output, context);
   }
 
   // Start section: command_body_extra

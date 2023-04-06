@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { ListPluginsRequest, ListPluginsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPluginsCommand,
-  serializeAws_restJson1ListPluginsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPluginsCommand, se_ListPluginsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListPluginsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPluginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPluginsCommand(input, context);
+    return se_ListPluginsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPluginsCommandOutput> {
-    return deserializeAws_restJson1ListPluginsCommand(output, context);
+    return de_ListPluginsCommand(output, context);
   }
 
   // Start section: command_body_extra

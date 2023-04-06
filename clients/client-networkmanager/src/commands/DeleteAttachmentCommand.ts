@@ -15,10 +15,7 @@ import {
 
 import { DeleteAttachmentRequest, DeleteAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteAttachmentCommand,
-  serializeAws_restJson1DeleteAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAttachmentCommand, se_DeleteAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAttachmentCommand(input, context);
+    return se_DeleteAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttachmentCommandOutput> {
-    return deserializeAws_restJson1DeleteAttachmentCommand(output, context);
+    return de_DeleteAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

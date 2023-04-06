@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveRoleFromDBClusterMessage } from "../models/models_1";
-import {
-  deserializeAws_queryRemoveRoleFromDBClusterCommand,
-  serializeAws_queryRemoveRoleFromDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveRoleFromDBClusterCommand, se_RemoveRoleFromDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -75,6 +72,18 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ *
+ * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
+ * ```javascript
+ * // The following example removes a role from a DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ * };
+ * const command = new RemoveRoleFromDBClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-disassociate-an-identity-and-access-management-iam-role-from-a-db-cluster-1680072359521
+ * ```
  *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<
@@ -140,14 +149,14 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveRoleFromDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromDBClusterCommand(input, context);
+    return se_RemoveRoleFromDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBClusterCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromDBClusterCommand(output, context);
+    return de_RemoveRoleFromDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

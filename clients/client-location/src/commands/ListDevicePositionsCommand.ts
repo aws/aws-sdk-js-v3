@@ -19,10 +19,7 @@ import {
   ListDevicePositionsResponse,
   ListDevicePositionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDevicePositionsCommand,
-  serializeAws_restJson1ListDevicePositionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDevicePositionsCommand, se_ListDevicePositionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListDevicePositionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDevicePositionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevicePositionsCommand(input, context);
+    return se_ListDevicePositionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePositionsCommandOutput> {
-    return deserializeAws_restJson1ListDevicePositionsCommand(output, context);
+    return de_ListDevicePositionsCommand(output, context);
   }
 
   // Start section: command_body_extra

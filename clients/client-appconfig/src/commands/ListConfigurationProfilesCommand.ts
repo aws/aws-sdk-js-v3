@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { ConfigurationProfiles, ListConfigurationProfilesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfigurationProfilesCommand,
-  serializeAws_restJson1ListConfigurationProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConfigurationProfilesCommand, se_ListConfigurationProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class ListConfigurationProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationProfilesCommand(input, context);
+    return se_ListConfigurationProfilesCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class ListConfigurationProfilesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationProfilesCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationProfilesCommand(output, context);
+    return de_ListConfigurationProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

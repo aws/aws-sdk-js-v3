@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeClassicLinkInstancesCommand,
-  serializeAws_ec2DescribeClassicLinkInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeClassicLinkInstancesCommand, se_DescribeClassicLinkInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClassicLinkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClassicLinkInstancesCommand(input, context);
+    return se_DescribeClassicLinkInstancesCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClassicLinkInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(output, context);
+    return de_DescribeClassicLinkInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

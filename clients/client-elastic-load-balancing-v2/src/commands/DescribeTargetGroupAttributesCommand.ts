@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeTargetGroupAttributesCommand,
-  serializeAws_queryDescribeTargetGroupAttributesCommand,
+  de_DescribeTargetGroupAttributesCommand,
+  se_DescribeTargetGroupAttributesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -183,7 +183,7 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetGroupAttributesCommand(input, context);
+    return se_DescribeTargetGroupAttributesCommand(input, context);
   }
 
   /**
@@ -193,7 +193,7 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryDescribeTargetGroupAttributesCommand(output, context);
+    return de_DescribeTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

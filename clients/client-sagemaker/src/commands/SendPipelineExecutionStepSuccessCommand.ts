@@ -15,8 +15,8 @@ import {
 
 import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_3";
 import {
-  deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
-  serializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
+  de_SendPipelineExecutionStepSuccessCommand,
+  se_SendPipelineExecutionStepSuccessCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -141,7 +141,7 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
     input: SendPipelineExecutionStepSuccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendPipelineExecutionStepSuccessCommand(input, context);
+    return se_SendPipelineExecutionStepSuccessCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendPipelineExecutionStepSuccessCommandOutput> {
-    return deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand(output, context);
+    return de_SendPipelineExecutionStepSuccessCommand(output, context);
   }
 
   // Start section: command_body_extra

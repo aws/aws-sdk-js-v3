@@ -15,8 +15,8 @@ import {
 
 import { RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1RemoveRegionsFromReplicationCommand,
-  serializeAws_json1_1RemoveRegionsFromReplicationCommand,
+  de_RemoveRegionsFromReplicationCommand,
+  se_RemoveRegionsFromReplicationCommand,
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
@@ -159,7 +159,7 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveRegionsFromReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveRegionsFromReplicationCommand(input, context);
+    return se_RemoveRegionsFromReplicationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveRegionsFromReplicationCommandOutput> {
-    return deserializeAws_json1_1RemoveRegionsFromReplicationCommand(output, context);
+    return de_RemoveRegionsFromReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

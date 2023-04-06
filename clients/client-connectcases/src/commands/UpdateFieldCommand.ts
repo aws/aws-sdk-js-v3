@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { UpdateFieldRequest, UpdateFieldResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFieldCommand,
-  serializeAws_restJson1UpdateFieldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFieldCommand, se_UpdateFieldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateFieldCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFieldCommand(input, context);
+    return se_UpdateFieldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFieldCommandOutput> {
-    return deserializeAws_restJson1UpdateFieldCommand(output, context);
+    return de_UpdateFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

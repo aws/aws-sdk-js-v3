@@ -21,8 +21,8 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetIdentityProviderByIdentifierCommand,
-  serializeAws_json1_1GetIdentityProviderByIdentifierCommand,
+  de_GetIdentityProviderByIdentifierCommand,
+  se_GetIdentityProviderByIdentifierCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     input: GetIdentityProviderByIdentifierCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdentityProviderByIdentifierCommand(input, context);
+    return se_GetIdentityProviderByIdentifierCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityProviderByIdentifierCommandOutput> {
-    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommand(output, context);
+    return de_GetIdentityProviderByIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

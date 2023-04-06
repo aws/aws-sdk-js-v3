@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateSlotRequest, CreateSlotResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateSlotCommand,
-  serializeAws_restJson1CreateSlotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSlotCommand, se_CreateSlotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -544,14 +541,14 @@ export class CreateSlotCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSlotCommand(input, context);
+    return se_CreateSlotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotCommandOutput> {
-    return deserializeAws_restJson1CreateSlotCommand(output, context);
+    return de_CreateSlotCommand(output, context);
   }
 
   // Start section: command_body_extra

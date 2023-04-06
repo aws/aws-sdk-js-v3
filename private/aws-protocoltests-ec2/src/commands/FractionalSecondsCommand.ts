@@ -14,10 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { FractionalSecondsOutput } from "../models/models_0";
-import {
-  deserializeAws_ec2FractionalSecondsCommand,
-  serializeAws_ec2FractionalSecondsCommand,
-} from "../protocols/Aws_ec2";
+import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -83,14 +80,14 @@ export class FractionalSecondsCommand extends $Command<
    * @internal
    */
   private serialize(input: FractionalSecondsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2FractionalSecondsCommand(input, context);
+    return se_FractionalSecondsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FractionalSecondsCommandOutput> {
-    return deserializeAws_ec2FractionalSecondsCommand(output, context);
+    return de_FractionalSecondsCommand(output, context);
   }
 
   // Start section: command_body_extra

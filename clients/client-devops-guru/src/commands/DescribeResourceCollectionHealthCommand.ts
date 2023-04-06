@@ -16,8 +16,8 @@ import {
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeResourceCollectionHealthRequest, DescribeResourceCollectionHealthResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeResourceCollectionHealthCommand,
-  serializeAws_restJson1DescribeResourceCollectionHealthCommand,
+  de_DescribeResourceCollectionHealthCommand,
+  se_DescribeResourceCollectionHealthCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
     input: DescribeResourceCollectionHealthCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResourceCollectionHealthCommand(input, context);
+    return se_DescribeResourceCollectionHealthCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourceCollectionHealthCommandOutput> {
-    return deserializeAws_restJson1DescribeResourceCollectionHealthCommand(output, context);
+    return de_DescribeResourceCollectionHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVerifiedAccessInstanceRequest, ModifyVerifiedAccessInstanceResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVerifiedAccessInstanceCommand,
-  serializeAws_ec2ModifyVerifiedAccessInstanceCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyVerifiedAccessInstanceCommand, se_ModifyVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVerifiedAccessInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessInstanceCommand(input, context);
+    return se_ModifyVerifiedAccessInstanceCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessInstanceCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessInstanceCommand(output, context);
+    return de_ModifyVerifiedAccessInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

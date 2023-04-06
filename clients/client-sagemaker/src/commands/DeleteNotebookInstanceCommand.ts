@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteNotebookInstanceInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteNotebookInstanceCommand,
-  serializeAws_json1_1DeleteNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNotebookInstanceCommand, se_DeleteNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,14 +123,14 @@ export class DeleteNotebookInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotebookInstanceCommand(input, context);
+    return se_DeleteNotebookInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteNotebookInstanceCommand(output, context);
+    return de_DeleteNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

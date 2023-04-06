@@ -19,8 +19,8 @@ import {
   CreateVpcEndpointServiceConfigurationResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand,
-  serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand,
+  de_CreateVpcEndpointServiceConfigurationCommand,
+  se_CreateVpcEndpointServiceConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -168,7 +168,7 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     input: CreateVpcEndpointServiceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(input, context);
+    return se_CreateVpcEndpointServiceConfigurationCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> {
-    return deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(output, context);
+    return de_CreateVpcEndpointServiceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

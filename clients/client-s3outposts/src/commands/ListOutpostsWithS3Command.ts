@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOutpostsWithS3Request, ListOutpostsWithS3Result } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOutpostsWithS3Command,
-  serializeAws_restJson1ListOutpostsWithS3Command,
-} from "../protocols/Aws_restJson1";
+import { de_ListOutpostsWithS3Command, se_ListOutpostsWithS3Command } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListOutpostsWithS3Command extends $Command<
    * @internal
    */
   private serialize(input: ListOutpostsWithS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutpostsWithS3Command(input, context);
+    return se_ListOutpostsWithS3Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsWithS3CommandOutput> {
-    return deserializeAws_restJson1ListOutpostsWithS3Command(output, context);
+    return de_ListOutpostsWithS3Command(output, context);
   }
 
   // Start section: command_body_extra

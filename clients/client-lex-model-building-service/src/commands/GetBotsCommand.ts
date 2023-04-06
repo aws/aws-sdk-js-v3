@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetBotsRequest, GetBotsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotsCommand,
-  serializeAws_restJson1GetBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBotsCommand, se_GetBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class GetBotsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotsCommand(input, context);
+    return se_GetBotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotsCommandOutput> {
-    return deserializeAws_restJson1GetBotsCommand(output, context);
+    return de_GetBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

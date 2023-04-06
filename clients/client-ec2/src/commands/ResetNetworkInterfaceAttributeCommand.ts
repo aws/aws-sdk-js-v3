@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ResetNetworkInterfaceAttributeRequest } from "../models/models_6";
 import {
-  deserializeAws_ec2ResetNetworkInterfaceAttributeCommand,
-  serializeAws_ec2ResetNetworkInterfaceAttributeCommand,
+  de_ResetNetworkInterfaceAttributeCommand,
+  se_ResetNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -125,7 +125,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     input: ResetNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetNetworkInterfaceAttributeCommand(input, context);
+    return se_ResetNetworkInterfaceAttributeCommand(input, context);
   }
 
   /**
@@ -135,7 +135,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(output, context);
+    return de_ResetNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

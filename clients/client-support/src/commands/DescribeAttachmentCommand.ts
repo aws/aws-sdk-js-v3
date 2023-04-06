@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAttachmentCommand,
-  serializeAws_json1_1DescribeAttachmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAttachmentCommand, se_DescribeAttachmentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -148,14 +145,14 @@ export class DescribeAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAttachmentCommand(input, context);
+    return se_DescribeAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttachmentCommandOutput> {
-    return deserializeAws_json1_1DescribeAttachmentCommand(output, context);
+    return de_DescribeAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

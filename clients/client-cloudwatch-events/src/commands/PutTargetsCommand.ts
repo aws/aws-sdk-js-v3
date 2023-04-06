@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { PutTargetsRequest, PutTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutTargetsCommand,
-  serializeAws_json1_1PutTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutTargetsCommand, se_PutTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -427,14 +424,14 @@ export class PutTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutTargetsCommand(input, context);
+    return se_PutTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTargetsCommandOutput> {
-    return deserializeAws_json1_1PutTargetsCommand(output, context);
+    return de_PutTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

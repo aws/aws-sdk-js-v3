@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteCachePolicyRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteCachePolicyCommand,
-  serializeAws_restXmlDeleteCachePolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteCachePolicyCommand, se_DeleteCachePolicyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteCachePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCachePolicyCommand(input, context);
+    return se_DeleteCachePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCachePolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteCachePolicyCommand(output, context);
+    return de_DeleteCachePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

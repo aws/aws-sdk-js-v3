@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeConnectionAliasesRequest, DescribeConnectionAliasesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionAliasesCommand,
-  serializeAws_json1_1DescribeConnectionAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConnectionAliasesCommand, se_DescribeConnectionAliasesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -136,7 +133,7 @@ export class DescribeConnectionAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectionAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionAliasesCommand(input, context);
+    return se_DescribeConnectionAliasesCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeConnectionAliasesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionAliasesCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionAliasesCommand(output, context);
+    return de_DescribeConnectionAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { BatchGetDocumentStatusRequest, BatchGetDocumentStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDocumentStatusCommand,
-  serializeAws_json1_1BatchGetDocumentStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetDocumentStatusCommand, se_BatchGetDocumentStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class BatchGetDocumentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetDocumentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDocumentStatusCommand(input, context);
+    return se_BatchGetDocumentStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDocumentStatusCommandOutput> {
-    return deserializeAws_json1_1BatchGetDocumentStatusCommand(output, context);
+    return de_BatchGetDocumentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

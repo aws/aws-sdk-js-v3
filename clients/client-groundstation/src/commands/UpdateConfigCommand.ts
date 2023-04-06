@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { ConfigIdResponse, UpdateConfigRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfigCommand,
-  serializeAws_restJson1UpdateConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConfigCommand, se_UpdateConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class UpdateConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigCommand(input, context);
+    return se_UpdateConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigCommand(output, context);
+    return de_UpdateConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetInAppMessagesRequest, GetInAppMessagesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetInAppMessagesCommand,
-  serializeAws_restJson1GetInAppMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInAppMessagesCommand, se_GetInAppMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetInAppMessagesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInAppMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInAppMessagesCommand(input, context);
+    return se_GetInAppMessagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInAppMessagesCommandOutput> {
-    return deserializeAws_restJson1GetInAppMessagesCommand(output, context);
+    return de_GetInAppMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

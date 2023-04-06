@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAppVersionResourcesRequest, ListAppVersionResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppVersionResourcesCommand,
-  serializeAws_restJson1ListAppVersionResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppVersionResourcesCommand, se_ListAppVersionResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -148,14 +145,14 @@ export class ListAppVersionResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppVersionResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppVersionResourcesCommand(input, context);
+    return se_ListAppVersionResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppVersionResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAppVersionResourcesCommand(output, context);
+    return de_ListAppVersionResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

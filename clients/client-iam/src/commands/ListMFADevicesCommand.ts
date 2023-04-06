@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListMFADevicesRequest, ListMFADevicesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListMFADevicesCommand,
-  serializeAws_queryListMFADevicesCommand,
-} from "../protocols/Aws_query";
+import { de_ListMFADevicesCommand, se_ListMFADevicesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListMFADevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListMFADevicesCommand(input, context);
+    return se_ListMFADevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMFADevicesCommandOutput> {
-    return deserializeAws_queryListMFADevicesCommand(output, context);
+    return de_ListMFADevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

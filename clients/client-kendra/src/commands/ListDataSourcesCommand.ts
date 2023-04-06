@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDataSourcesCommand,
-  serializeAws_json1_1ListDataSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListDataSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataSourcesCommand(input, context);
+    return se_ListDataSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourcesCommandOutput> {
-    return deserializeAws_json1_1ListDataSourcesCommand(output, context);
+    return de_ListDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

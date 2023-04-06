@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { ModifyReplicationGroupMessage, ModifyReplicationGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryModifyReplicationGroupCommand,
-  serializeAws_queryModifyReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyReplicationGroupCommand, se_ModifyReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -308,14 +305,14 @@ export class ModifyReplicationGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyReplicationGroupCommand(input, context);
+    return se_ModifyReplicationGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationGroupCommandOutput> {
-    return deserializeAws_queryModifyReplicationGroupCommand(output, context);
+    return de_ModifyReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

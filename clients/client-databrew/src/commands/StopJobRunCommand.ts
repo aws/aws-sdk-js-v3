@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { StopJobRunRequest, StopJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopJobRunCommand,
-  serializeAws_restJson1StopJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopJobRunCommand, se_StopJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class StopJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopJobRunCommand(input, context);
+    return se_StopJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobRunCommandOutput> {
-    return deserializeAws_restJson1StopJobRunCommand(output, context);
+    return de_StopJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyReplicationSubnetGroupCommand,
-  serializeAws_json1_1ModifyReplicationSubnetGroupCommand,
+  de_ModifyReplicationSubnetGroupCommand,
+  se_ModifyReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -167,7 +167,7 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationSubnetGroupCommand(input, context);
+    return se_ModifyReplicationSubnetGroupCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationSubnetGroupCommand(output, context);
+    return de_ModifyReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

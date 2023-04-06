@@ -20,8 +20,8 @@ import {
   ListExtensibleSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListExtensibleSourceServersCommand,
-  serializeAws_restJson1ListExtensibleSourceServersCommand,
+  de_ListExtensibleSourceServersCommand,
+  se_ListExtensibleSourceServersCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class ListExtensibleSourceServersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExtensibleSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensibleSourceServersCommand(input, context);
+    return se_ListExtensibleSourceServersCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class ListExtensibleSourceServersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExtensibleSourceServersCommandOutput> {
-    return deserializeAws_restJson1ListExtensibleSourceServersCommand(output, context);
+    return de_ListExtensibleSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

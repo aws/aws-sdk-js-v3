@@ -19,8 +19,8 @@ import {
   ModifyInstanceCapacityReservationAttributesResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,
-  serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,
+  de_ModifyInstanceCapacityReservationAttributesCommand,
+  se_ModifyInstanceCapacityReservationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     input: ModifyInstanceCapacityReservationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand(input, context);
+    return se_ModifyInstanceCapacityReservationAttributesCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand(output, context);
+    return de_ModifyInstanceCapacityReservationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

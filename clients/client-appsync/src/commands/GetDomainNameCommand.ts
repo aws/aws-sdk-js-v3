@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetDomainNameRequest, GetDomainNameResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainNameCommand,
-  serializeAws_restJson1GetDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDomainNameCommand, se_GetDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetDomainNameCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainNameCommand(input, context);
+    return se_GetDomainNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNameCommandOutput> {
-    return deserializeAws_restJson1GetDomainNameCommand(output, context);
+    return de_GetDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

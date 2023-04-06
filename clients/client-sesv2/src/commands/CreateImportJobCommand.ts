@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateImportJobRequest, CreateImportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateImportJobCommand,
-  serializeAws_restJson1CreateImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateImportJobCommand, se_CreateImportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -141,14 +138,14 @@ export class CreateImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateImportJobCommand(input, context);
+    return se_CreateImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImportJobCommandOutput> {
-    return deserializeAws_restJson1CreateImportJobCommand(output, context);
+    return de_CreateImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

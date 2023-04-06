@@ -20,8 +20,8 @@ import {
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0ListPoolOriginationIdentitiesCommand,
-  serializeAws_json1_0ListPoolOriginationIdentitiesCommand,
+  de_ListPoolOriginationIdentitiesCommand,
+  se_ListPoolOriginationIdentitiesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -156,7 +156,7 @@ export class ListPoolOriginationIdentitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPoolOriginationIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListPoolOriginationIdentitiesCommand(input, context);
+    return se_ListPoolOriginationIdentitiesCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class ListPoolOriginationIdentitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoolOriginationIdentitiesCommandOutput> {
-    return deserializeAws_json1_0ListPoolOriginationIdentitiesCommand(output, context);
+    return de_ListPoolOriginationIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

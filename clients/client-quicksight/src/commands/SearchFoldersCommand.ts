@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchFoldersRequest, SearchFoldersResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchFoldersCommand,
-  serializeAws_restJson1SearchFoldersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchFoldersCommand, se_SearchFoldersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -157,14 +154,14 @@ export class SearchFoldersCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchFoldersCommand(input, context);
+    return se_SearchFoldersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFoldersCommandOutput> {
-    return deserializeAws_restJson1SearchFoldersCommand(output, context);
+    return de_SearchFoldersCommand(output, context);
   }
 
   // Start section: command_body_extra

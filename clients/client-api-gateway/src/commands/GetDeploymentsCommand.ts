@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Deployments, GetDeploymentsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentsCommand,
-  serializeAws_restJson1GetDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeploymentsCommand, se_GetDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetDeploymentsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentsCommand(input, context);
+    return se_GetDeploymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentsCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentsCommand(output, context);
+    return de_GetDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { DeregisterAccountRequest, DeregisterAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterAccountCommand,
-  serializeAws_restJson1DeregisterAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterAccountCommand, se_DeregisterAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeregisterAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterAccountCommand(input, context);
+    return se_DeregisterAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterAccountCommandOutput> {
-    return deserializeAws_restJson1DeregisterAccountCommand(output, context);
+    return de_DeregisterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

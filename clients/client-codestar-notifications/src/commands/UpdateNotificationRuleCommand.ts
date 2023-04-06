@@ -23,10 +23,7 @@ import {
   UpdateNotificationRuleRequestFilterSensitiveLog,
   UpdateNotificationRuleResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNotificationRuleCommand,
-  serializeAws_restJson1UpdateNotificationRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNotificationRuleCommand, se_UpdateNotificationRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateNotificationRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNotificationRuleCommand(input, context);
+    return se_UpdateNotificationRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateNotificationRuleCommand(output, context);
+    return de_UpdateNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

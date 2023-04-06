@@ -20,10 +20,7 @@ import {
   InviteUsersResponse,
   InviteUsersResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1InviteUsersCommand,
-  serializeAws_restJson1InviteUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InviteUsersCommand, se_InviteUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class InviteUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: InviteUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InviteUsersCommand(input, context);
+    return se_InviteUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteUsersCommandOutput> {
-    return deserializeAws_restJson1InviteUsersCommand(output, context);
+    return de_InviteUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

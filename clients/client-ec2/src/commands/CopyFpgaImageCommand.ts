@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CopyFpgaImageRequest, CopyFpgaImageResult } from "../models/models_0";
-import { deserializeAws_ec2CopyFpgaImageCommand, serializeAws_ec2CopyFpgaImageCommand } from "../protocols/Aws_ec2";
+import { de_CopyFpgaImageCommand, se_CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -120,14 +120,14 @@ export class CopyFpgaImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CopyFpgaImageCommand(input, context);
+    return se_CopyFpgaImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyFpgaImageCommandOutput> {
-    return deserializeAws_ec2CopyFpgaImageCommand(output, context);
+    return de_CopyFpgaImageCommand(output, context);
   }
 
   // Start section: command_body_extra

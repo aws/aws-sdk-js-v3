@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1RedactConversationMessageCommand,
-  serializeAws_restJson1RedactConversationMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RedactConversationMessageCommand, se_RedactConversationMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class RedactConversationMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: RedactConversationMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RedactConversationMessageCommand(input, context);
+    return se_RedactConversationMessageCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class RedactConversationMessageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RedactConversationMessageCommandOutput> {
-    return deserializeAws_restJson1RedactConversationMessageCommand(output, context);
+    return de_RedactConversationMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

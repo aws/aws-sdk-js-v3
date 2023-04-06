@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateProjectVersionRequest, CreateProjectVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProjectVersionCommand,
-  serializeAws_json1_1CreateProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateProjectVersionCommand, se_CreateProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -218,14 +215,14 @@ export class CreateProjectVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProjectVersionCommand(input, context);
+    return se_CreateProjectVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectVersionCommandOutput> {
-    return deserializeAws_json1_1CreateProjectVersionCommand(output, context);
+    return de_CreateProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   StartContentUploadResponse,
   StartContentUploadResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartContentUploadCommand,
-  serializeAws_restJson1StartContentUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -137,14 +134,14 @@ export class StartContentUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartContentUploadCommand(input, context);
+    return se_StartContentUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return deserializeAws_restJson1StartContentUploadCommand(output, context);
+    return de_StartContentUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

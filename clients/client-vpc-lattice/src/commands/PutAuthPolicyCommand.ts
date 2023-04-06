@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAuthPolicyRequest, PutAuthPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAuthPolicyCommand,
-  serializeAws_restJson1PutAuthPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAuthPolicyCommand, se_PutAuthPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -136,14 +133,14 @@ export class PutAuthPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAuthPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAuthPolicyCommand(input, context);
+    return se_PutAuthPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAuthPolicyCommandOutput> {
-    return deserializeAws_restJson1PutAuthPolicyCommand(output, context);
+    return de_PutAuthPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

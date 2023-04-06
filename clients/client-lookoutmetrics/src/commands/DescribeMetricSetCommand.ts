@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { DescribeMetricSetRequest, DescribeMetricSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeMetricSetCommand,
-  serializeAws_restJson1DescribeMetricSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeMetricSetCommand, se_DescribeMetricSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeMetricSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMetricSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMetricSetCommand(input, context);
+    return se_DescribeMetricSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricSetCommandOutput> {
-    return deserializeAws_restJson1DescribeMetricSetCommand(output, context);
+    return de_DescribeMetricSetCommand(output, context);
   }
 
   // Start section: command_body_extra

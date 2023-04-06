@@ -15,8 +15,8 @@ import {
 
 import { ModifyWorkspaceAccessPropertiesRequest, ModifyWorkspaceAccessPropertiesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
-  serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
+  de_ModifyWorkspaceAccessPropertiesCommand,
+  se_ModifyWorkspaceAccessPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -143,7 +143,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     input: ModifyWorkspaceAccessPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(input, context);
+    return se_ModifyWorkspaceAccessPropertiesCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(output, context);
+    return de_ModifyWorkspaceAccessPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

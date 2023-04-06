@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreAddressToClassicCommand,
-  serializeAws_ec2RestoreAddressToClassicCommand,
-} from "../protocols/Aws_ec2";
+import { de_RestoreAddressToClassicCommand, se_RestoreAddressToClassicCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class RestoreAddressToClassicCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreAddressToClassicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreAddressToClassicCommand(input, context);
+    return se_RestoreAddressToClassicCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreAddressToClassicCommandOutput> {
-    return deserializeAws_ec2RestoreAddressToClassicCommand(output, context);
+    return de_RestoreAddressToClassicCommand(output, context);
   }
 
   // Start section: command_body_extra

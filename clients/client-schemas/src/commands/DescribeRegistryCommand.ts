@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRegistryCommand,
-  serializeAws_restJson1DescribeRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribeRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRegistryCommand(input, context);
+    return se_DescribeRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistryCommandOutput> {
-    return deserializeAws_restJson1DescribeRegistryCommand(output, context);
+    return de_DescribeRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

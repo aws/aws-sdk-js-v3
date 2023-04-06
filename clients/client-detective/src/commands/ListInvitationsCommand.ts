@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInvitationsCommand,
-  serializeAws_restJson1ListInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListInvitationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInvitationsCommand(input, context);
+    return se_ListInvitationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
-    return deserializeAws_restJson1ListInvitationsCommand(output, context);
+    return de_ListInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

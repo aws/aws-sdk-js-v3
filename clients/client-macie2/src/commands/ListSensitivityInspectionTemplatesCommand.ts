@@ -19,8 +19,8 @@ import {
   ListSensitivityInspectionTemplatesResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListSensitivityInspectionTemplatesCommand,
-  serializeAws_restJson1ListSensitivityInspectionTemplatesCommand,
+  de_ListSensitivityInspectionTemplatesCommand,
+  se_ListSensitivityInspectionTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class ListSensitivityInspectionTemplatesCommand extends $Command<
     input: ListSensitivityInspectionTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSensitivityInspectionTemplatesCommand(input, context);
+    return se_ListSensitivityInspectionTemplatesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListSensitivityInspectionTemplatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSensitivityInspectionTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListSensitivityInspectionTemplatesCommand(output, context);
+    return de_ListSensitivityInspectionTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

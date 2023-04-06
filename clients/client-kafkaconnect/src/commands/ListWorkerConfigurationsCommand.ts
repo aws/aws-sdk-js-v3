@@ -15,10 +15,7 @@ import {
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { ListWorkerConfigurationsRequest, ListWorkerConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkerConfigurationsCommand,
-  serializeAws_restJson1ListWorkerConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWorkerConfigurationsCommand, se_ListWorkerConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListWorkerConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWorkerConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkerConfigurationsCommand(input, context);
+    return se_ListWorkerConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListWorkerConfigurationsCommand(output, context);
+    return de_ListWorkerConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

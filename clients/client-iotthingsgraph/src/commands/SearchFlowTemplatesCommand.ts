@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { SearchFlowTemplatesRequest, SearchFlowTemplatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFlowTemplatesCommand,
-  serializeAws_json1_1SearchFlowTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchFlowTemplatesCommand, se_SearchFlowTemplatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class SearchFlowTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchFlowTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFlowTemplatesCommand(input, context);
+    return se_SearchFlowTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFlowTemplatesCommandOutput> {
-    return deserializeAws_json1_1SearchFlowTemplatesCommand(output, context);
+    return de_SearchFlowTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

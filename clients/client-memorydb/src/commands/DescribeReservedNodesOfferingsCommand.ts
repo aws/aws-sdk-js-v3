@@ -16,8 +16,8 @@ import {
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DescribeReservedNodesOfferingsRequest, DescribeReservedNodesOfferingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReservedNodesOfferingsCommand,
-  serializeAws_json1_1DescribeReservedNodesOfferingsCommand,
+  de_DescribeReservedNodesOfferingsCommand,
+  se_DescribeReservedNodesOfferingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     input: DescribeReservedNodesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReservedNodesOfferingsCommand(input, context);
+    return se_DescribeReservedNodesOfferingsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedNodesOfferingsCommandOutput> {
-    return deserializeAws_json1_1DescribeReservedNodesOfferingsCommand(output, context);
+    return de_DescribeReservedNodesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

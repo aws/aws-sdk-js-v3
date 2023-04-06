@@ -15,10 +15,7 @@ import {
 
 import { DeleteInboundConnectionRequest, DeleteInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DeleteInboundConnectionCommand,
-  serializeAws_restJson1DeleteInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInboundConnectionCommand, se_DeleteInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DeleteInboundConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInboundConnectionCommand(input, context);
+    return se_DeleteInboundConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1DeleteInboundConnectionCommand(output, context);
+    return de_DeleteInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

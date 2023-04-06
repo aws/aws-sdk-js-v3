@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateTerminationProtectionCommand,
-  serializeAws_queryUpdateTerminationProtectionCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateTerminationProtectionCommand, se_UpdateTerminationProtectionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class UpdateTerminationProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateTerminationProtectionCommand(input, context);
+    return se_UpdateTerminationProtectionCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class UpdateTerminationProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTerminationProtectionCommandOutput> {
-    return deserializeAws_queryUpdateTerminationProtectionCommand(output, context);
+    return de_UpdateTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

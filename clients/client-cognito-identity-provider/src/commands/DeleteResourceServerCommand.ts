@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DeleteResourceServerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceServerCommand,
-  serializeAws_json1_1DeleteResourceServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResourceServerCommand, se_DeleteResourceServerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteResourceServerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceServerCommand(input, context);
+    return se_DeleteResourceServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceServerCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceServerCommand(output, context);
+    return de_DeleteResourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

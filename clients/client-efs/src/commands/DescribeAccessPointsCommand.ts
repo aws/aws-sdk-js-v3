@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccessPointsCommand,
-  serializeAws_restJson1DescribeAccessPointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAccessPointsCommand, se_DescribeAccessPointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeAccessPointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccessPointsCommand(input, context);
+    return se_DescribeAccessPointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessPointsCommandOutput> {
-    return deserializeAws_restJson1DescribeAccessPointsCommand(output, context);
+    return de_DescribeAccessPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

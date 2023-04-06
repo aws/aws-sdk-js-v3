@@ -15,10 +15,7 @@ import {
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { UpdateZonalShiftRequest, ZonalShift } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateZonalShiftCommand,
-  serializeAws_restJson1UpdateZonalShiftCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateZonalShiftCommand, se_UpdateZonalShiftCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateZonalShiftCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateZonalShiftCommand(input, context);
+    return se_UpdateZonalShiftCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateZonalShiftCommandOutput> {
-    return deserializeAws_restJson1UpdateZonalShiftCommand(output, context);
+    return de_UpdateZonalShiftCommand(output, context);
   }
 
   // Start section: command_body_extra

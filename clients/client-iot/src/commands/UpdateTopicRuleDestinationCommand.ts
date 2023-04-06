@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateTopicRuleDestinationRequest, UpdateTopicRuleDestinationResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateTopicRuleDestinationCommand,
-  serializeAws_restJson1UpdateTopicRuleDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTopicRuleDestinationCommand, se_UpdateTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTopicRuleDestinationCommand(input, context);
+    return se_UpdateTopicRuleDestinationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateTopicRuleDestinationCommand(output, context);
+    return de_UpdateTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

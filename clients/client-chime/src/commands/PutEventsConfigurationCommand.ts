@@ -20,10 +20,7 @@ import {
   PutEventsConfigurationResponse,
   PutEventsConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutEventsConfigurationCommand,
-  serializeAws_restJson1PutEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutEventsConfigurationCommand, se_PutEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class PutEventsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEventsConfigurationCommand(input, context);
+    return se_PutEventsConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutEventsConfigurationCommand(output, context);
+    return de_PutEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

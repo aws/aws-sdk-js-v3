@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWorkforceRequest, DeleteWorkforceResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DeleteWorkforceCommand,
-  serializeAws_json1_1DeleteWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkforceCommand, se_DeleteWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteWorkforceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkforceCommand(input, context);
+    return se_DeleteWorkforceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkforceCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkforceCommand(output, context);
+    return de_DeleteWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateProvisionedProductInput, UpdateProvisionedProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProvisionedProductCommand,
-  serializeAws_json1_1UpdateProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProvisionedProductCommand, se_UpdateProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -165,14 +162,14 @@ export class UpdateProvisionedProductCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisionedProductCommand(input, context);
+    return se_UpdateProvisionedProductCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisionedProductCommand(output, context);
+    return de_UpdateProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

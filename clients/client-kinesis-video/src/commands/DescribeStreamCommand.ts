@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeStreamCommand,
-  serializeAws_restJson1DescribeStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeStreamCommand, se_DescribeStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStreamCommand(input, context);
+    return se_DescribeStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput> {
-    return deserializeAws_restJson1DescribeStreamCommand(output, context);
+    return de_DescribeStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeWarmPoolAnswer, DescribeWarmPoolType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeWarmPoolCommand,
-  serializeAws_queryDescribeWarmPoolCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeWarmPoolCommand, se_DescribeWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeWarmPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeWarmPoolCommand(input, context);
+    return se_DescribeWarmPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWarmPoolCommandOutput> {
-    return deserializeAws_queryDescribeWarmPoolCommand(output, context);
+    return de_DescribeWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

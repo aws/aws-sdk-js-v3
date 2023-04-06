@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateSubnetCidrReservationRequest, CreateSubnetCidrReservationResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateSubnetCidrReservationCommand,
-  serializeAws_ec2CreateSubnetCidrReservationCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateSubnetCidrReservationCommand, se_CreateSubnetCidrReservationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class CreateSubnetCidrReservationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSubnetCidrReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateSubnetCidrReservationCommand(input, context);
+    return se_CreateSubnetCidrReservationCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class CreateSubnetCidrReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubnetCidrReservationCommandOutput> {
-    return deserializeAws_ec2CreateSubnetCidrReservationCommand(output, context);
+    return de_CreateSubnetCidrReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

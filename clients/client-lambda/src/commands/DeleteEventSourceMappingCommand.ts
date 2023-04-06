@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventSourceMappingCommand,
-  serializeAws_restJson1DeleteEventSourceMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventSourceMappingCommand, se_DeleteEventSourceMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteEventSourceMappingCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventSourceMappingCommand(input, context);
+    return se_DeleteEventSourceMappingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1DeleteEventSourceMappingCommand(output, context);
+    return de_DeleteEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

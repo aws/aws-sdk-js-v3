@@ -19,10 +19,7 @@ import {
   UpdateRelationalDatabaseRequestFilterSensitiveLog,
   UpdateRelationalDatabaseResult,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateRelationalDatabaseCommand,
-  serializeAws_json1_1UpdateRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRelationalDatabaseCommand, se_UpdateRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class UpdateRelationalDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRelationalDatabaseCommand(input, context);
+    return se_UpdateRelationalDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseCommand(output, context);
+    return de_UpdateRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

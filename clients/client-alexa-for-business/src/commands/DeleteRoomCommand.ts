@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteRoomRequest, DeleteRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRoomCommand,
-  serializeAws_json1_1DeleteRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRoomCommand, se_DeleteRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DeleteRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRoomCommand(input, context);
+    return se_DeleteRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomCommandOutput> {
-    return deserializeAws_json1_1DeleteRoomCommand(output, context);
+    return de_DeleteRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

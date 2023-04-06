@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFleetAdvisorCollectorCommand,
-  serializeAws_json1_1CreateFleetAdvisorCollectorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFleetAdvisorCollectorCommand, se_CreateFleetAdvisorCollectorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFleetAdvisorCollectorCommand(input, context);
+    return se_CreateFleetAdvisorCollectorCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFleetAdvisorCollectorCommandOutput> {
-    return deserializeAws_json1_1CreateFleetAdvisorCollectorCommand(output, context);
+    return de_CreateFleetAdvisorCollectorCommand(output, context);
   }
 
   // Start section: command_body_extra

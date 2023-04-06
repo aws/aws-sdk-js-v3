@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSizeConstraintSetCommand,
-  serializeAws_json1_1UpdateSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSizeConstraintSetCommand, se_UpdateSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -324,14 +321,14 @@ export class UpdateSizeConstraintSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSizeConstraintSetCommand(input, context);
+    return se_UpdateSizeConstraintSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1UpdateSizeConstraintSetCommand(output, context);
+    return de_UpdateSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

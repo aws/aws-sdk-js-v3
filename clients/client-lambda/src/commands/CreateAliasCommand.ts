@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AliasConfiguration, CreateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAliasCommand,
-  serializeAws_restJson1CreateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_restJson1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

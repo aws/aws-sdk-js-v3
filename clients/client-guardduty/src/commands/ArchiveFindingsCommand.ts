@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveFindingsCommand,
-  serializeAws_restJson1ArchiveFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ArchiveFindingsCommand, se_ArchiveFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ArchiveFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ArchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveFindingsCommand(input, context);
+    return se_ArchiveFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveFindingsCommandOutput> {
-    return deserializeAws_restJson1ArchiveFindingsCommand(output, context);
+    return de_ArchiveFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

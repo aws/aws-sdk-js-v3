@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartTaskContactCommand,
-  serializeAws_restJson1StartTaskContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class StartTaskContactCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTaskContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTaskContactCommand(input, context);
+    return se_StartTaskContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskContactCommandOutput> {
-    return deserializeAws_restJson1StartTaskContactCommand(output, context);
+    return de_StartTaskContactCommand(output, context);
   }
 
   // Start section: command_body_extra

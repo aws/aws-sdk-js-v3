@@ -15,10 +15,7 @@ import {
 
 import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1DeleteLexiconCommand,
-  serializeAws_restJson1DeleteLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLexiconCommand, se_DeleteLexiconCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteLexiconCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLexiconCommand(input, context);
+    return se_DeleteLexiconCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLexiconCommandOutput> {
-    return deserializeAws_restJson1DeleteLexiconCommand(output, context);
+    return de_DeleteLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

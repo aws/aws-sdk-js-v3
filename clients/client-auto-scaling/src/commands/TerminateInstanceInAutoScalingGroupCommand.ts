@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/models_0";
 import {
-  deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
-  serializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
+  de_TerminateInstanceInAutoScalingGroupCommand,
+  se_TerminateInstanceInAutoScalingGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -155,7 +155,7 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     input: TerminateInstanceInAutoScalingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(input, context);
+    return se_TerminateInstanceInAutoScalingGroupCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand(output, context);
+    return de_TerminateInstanceInAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

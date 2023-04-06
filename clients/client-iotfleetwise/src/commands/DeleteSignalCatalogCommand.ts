@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DeleteSignalCatalogRequest, DeleteSignalCatalogResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteSignalCatalogCommand,
-  serializeAws_json1_0DeleteSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteSignalCatalogCommand, se_DeleteSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteSignalCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteSignalCatalogCommand(input, context);
+    return se_DeleteSignalCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0DeleteSignalCatalogCommand(output, context);
+    return de_DeleteSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

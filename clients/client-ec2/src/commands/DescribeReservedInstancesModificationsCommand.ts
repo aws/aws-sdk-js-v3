@@ -19,8 +19,8 @@ import {
   DescribeReservedInstancesModificationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeReservedInstancesModificationsCommand,
-  serializeAws_ec2DescribeReservedInstancesModificationsCommand,
+  de_DescribeReservedInstancesModificationsCommand,
+  se_DescribeReservedInstancesModificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     input: DescribeReservedInstancesModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReservedInstancesModificationsCommand(input, context);
+    return se_DescribeReservedInstancesModificationsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstancesModificationsCommandOutput> {
-    return deserializeAws_ec2DescribeReservedInstancesModificationsCommand(output, context);
+    return de_DescribeReservedInstancesModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

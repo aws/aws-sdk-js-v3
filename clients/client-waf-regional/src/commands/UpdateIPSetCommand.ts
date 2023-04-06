@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateIPSetCommand,
-  serializeAws_json1_1UpdateIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -336,14 +333,14 @@ export class UpdateIPSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIPSetCommand(input, context);
+    return se_UpdateIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
-    return deserializeAws_json1_1UpdateIPSetCommand(output, context);
+    return de_UpdateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

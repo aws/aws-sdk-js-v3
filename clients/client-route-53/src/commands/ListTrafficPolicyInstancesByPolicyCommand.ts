@@ -18,8 +18,8 @@ import {
   ListTrafficPolicyInstancesByPolicyResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand,
-  serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand,
+  de_ListTrafficPolicyInstancesByPolicyCommand,
+  se_ListTrafficPolicyInstancesByPolicyCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -153,7 +153,7 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     input: ListTrafficPolicyInstancesByPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(input, context);
+    return se_ListTrafficPolicyInstancesByPolicyCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(output, context);
+    return de_ListTrafficPolicyInstancesByPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

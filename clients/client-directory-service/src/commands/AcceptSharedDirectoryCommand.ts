@@ -19,10 +19,7 @@ import {
   AcceptSharedDirectoryResult,
   AcceptSharedDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptSharedDirectoryCommand,
-  serializeAws_json1_1AcceptSharedDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptSharedDirectoryCommand, se_AcceptSharedDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class AcceptSharedDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptSharedDirectoryCommand(input, context);
+    return se_AcceptSharedDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptSharedDirectoryCommandOutput> {
-    return deserializeAws_json1_1AcceptSharedDirectoryCommand(output, context);
+    return de_AcceptSharedDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1RegisterDefaultPatchBaselineCommand,
-  serializeAws_json1_1RegisterDefaultPatchBaselineCommand,
+  de_RegisterDefaultPatchBaselineCommand,
+  se_RegisterDefaultPatchBaselineCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -138,7 +138,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDefaultPatchBaselineCommand(input, context);
+    return se_RegisterDefaultPatchBaselineCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterDefaultPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1RegisterDefaultPatchBaselineCommand(output, context);
+    return de_RegisterDefaultPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

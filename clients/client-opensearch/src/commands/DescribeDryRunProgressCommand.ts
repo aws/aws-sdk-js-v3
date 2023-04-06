@@ -15,10 +15,7 @@ import {
 
 import { DescribeDryRunProgressRequest, DescribeDryRunProgressResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeDryRunProgressCommand,
-  serializeAws_restJson1DescribeDryRunProgressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDryRunProgressCommand, se_DescribeDryRunProgressCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeDryRunProgressCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDryRunProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDryRunProgressCommand(input, context);
+    return se_DescribeDryRunProgressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDryRunProgressCommandOutput> {
-    return deserializeAws_restJson1DescribeDryRunProgressCommand(output, context);
+    return de_DescribeDryRunProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

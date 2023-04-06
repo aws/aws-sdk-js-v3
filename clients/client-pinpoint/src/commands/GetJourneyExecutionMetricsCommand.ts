@@ -15,10 +15,7 @@ import {
 
 import { GetJourneyExecutionMetricsRequest, GetJourneyExecutionMetricsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetJourneyExecutionMetricsCommand,
-  serializeAws_restJson1GetJourneyExecutionMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJourneyExecutionMetricsCommand, se_GetJourneyExecutionMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJourneyExecutionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJourneyExecutionMetricsCommand(input, context);
+    return se_GetJourneyExecutionMetricsCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-    return deserializeAws_restJson1GetJourneyExecutionMetricsCommand(output, context);
+    return de_GetJourneyExecutionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

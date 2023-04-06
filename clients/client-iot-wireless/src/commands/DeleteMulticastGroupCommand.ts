@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteMulticastGroupRequest, DeleteMulticastGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMulticastGroupCommand,
-  serializeAws_restJson1DeleteMulticastGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteMulticastGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMulticastGroupCommand(input, context);
+    return se_DeleteMulticastGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMulticastGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteMulticastGroupCommand(output, context);
+    return de_DeleteMulticastGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

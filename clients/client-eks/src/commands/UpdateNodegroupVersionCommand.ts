@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNodegroupVersionCommand,
-  serializeAws_restJson1UpdateNodegroupVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNodegroupVersionCommand, se_UpdateNodegroupVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class UpdateNodegroupVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNodegroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNodegroupVersionCommand(input, context);
+    return se_UpdateNodegroupVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateNodegroupVersionCommand(output, context);
+    return de_UpdateNodegroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

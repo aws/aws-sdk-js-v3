@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteConfigurationRecorderRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConfigurationRecorderCommand,
-  serializeAws_json1_1DeleteConfigurationRecorderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteConfigurationRecorderCommand, se_DeleteConfigurationRecorderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DeleteConfigurationRecorderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConfigurationRecorderCommand(input, context);
+    return se_DeleteConfigurationRecorderCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DeleteConfigurationRecorderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1DeleteConfigurationRecorderCommand(output, context);
+    return de_DeleteConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

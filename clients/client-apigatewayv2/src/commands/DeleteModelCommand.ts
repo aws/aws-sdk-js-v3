@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteModelRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteModelCommand,
-  serializeAws_restJson1DeleteModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteModelCommand, se_DeleteModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DeleteModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteModelCommand(input, context);
+    return se_DeleteModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
-    return deserializeAws_restJson1DeleteModelCommand(output, context);
+    return de_DeleteModelCommand(output, context);
   }
 
   // Start section: command_body_extra

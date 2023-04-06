@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAddressRequest, CreateAddressResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAddressCommand,
-  serializeAws_json1_1CreateAddressCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAddressCommand, se_CreateAddressCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -170,14 +167,14 @@ export class CreateAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAddressCommand(input, context);
+    return se_CreateAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddressCommandOutput> {
-    return deserializeAws_json1_1CreateAddressCommand(output, context);
+    return de_CreateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

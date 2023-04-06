@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DisassociateDeviceFromRoomRequest, DisassociateDeviceFromRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDeviceFromRoomCommand,
-  serializeAws_json1_1DisassociateDeviceFromRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateDeviceFromRoomCommand, se_DisassociateDeviceFromRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,7 +125,7 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateDeviceFromRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDeviceFromRoomCommand(input, context);
+    return se_DisassociateDeviceFromRoomCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDeviceFromRoomCommandOutput> {
-    return deserializeAws_json1_1DisassociateDeviceFromRoomCommand(output, context);
+    return de_DisassociateDeviceFromRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

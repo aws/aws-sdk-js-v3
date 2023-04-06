@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { BatchPutPropertyValuesRequest, BatchPutPropertyValuesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutPropertyValuesCommand,
-  serializeAws_restJson1BatchPutPropertyValuesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchPutPropertyValuesCommand, se_BatchPutPropertyValuesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class BatchPutPropertyValuesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchPutPropertyValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutPropertyValuesCommand(input, context);
+    return se_BatchPutPropertyValuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutPropertyValuesCommandOutput> {
-    return deserializeAws_restJson1BatchPutPropertyValuesCommand(output, context);
+    return de_BatchPutPropertyValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

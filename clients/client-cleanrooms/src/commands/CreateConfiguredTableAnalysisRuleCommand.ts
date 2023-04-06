@@ -16,8 +16,8 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { CreateConfiguredTableAnalysisRuleInput, CreateConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand,
-  serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand,
+  de_CreateConfiguredTableAnalysisRuleCommand,
+  se_CreateConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -184,7 +184,7 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     input: CreateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand(input, context);
+    return se_CreateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
   /**
@@ -194,7 +194,7 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfiguredTableAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand(output, context);
+    return de_CreateConfiguredTableAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

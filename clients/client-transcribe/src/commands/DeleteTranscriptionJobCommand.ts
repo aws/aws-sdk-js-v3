@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTranscriptionJobRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTranscriptionJobCommand,
-  serializeAws_json1_1DeleteTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTranscriptionJobCommand, se_DeleteTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteTranscriptionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTranscriptionJobCommand(input, context);
+    return se_DeleteTranscriptionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1DeleteTranscriptionJobCommand(output, context);
+    return de_DeleteTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { PutAutoScalingPolicyInput, PutAutoScalingPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAutoScalingPolicyCommand,
-  serializeAws_json1_1PutAutoScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAutoScalingPolicyCommand, se_PutAutoScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class PutAutoScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAutoScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAutoScalingPolicyCommand(input, context);
+    return se_PutAutoScalingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAutoScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1PutAutoScalingPolicyCommand(output, context);
+    return de_PutAutoScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

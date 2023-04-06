@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetPublicAccessBlockCommand,
-  serializeAws_restXmlGetPublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetPublicAccessBlockCommand, se_GetPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -145,14 +142,14 @@ export class GetPublicAccessBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
+    return se_GetPublicAccessBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
+    return de_GetPublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

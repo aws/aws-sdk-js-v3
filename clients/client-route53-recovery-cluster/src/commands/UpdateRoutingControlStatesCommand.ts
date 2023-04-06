@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRoutingControlStatesRequest, UpdateRoutingControlStatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateRoutingControlStatesCommand,
-  serializeAws_json1_0UpdateRoutingControlStatesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateRoutingControlStatesCommand, se_UpdateRoutingControlStatesCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
@@ -189,7 +186,7 @@ export class UpdateRoutingControlStatesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRoutingControlStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateRoutingControlStatesCommand(input, context);
+    return se_UpdateRoutingControlStatesCommand(input, context);
   }
 
   /**
@@ -199,7 +196,7 @@ export class UpdateRoutingControlStatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingControlStatesCommandOutput> {
-    return deserializeAws_json1_0UpdateRoutingControlStatesCommand(output, context);
+    return de_UpdateRoutingControlStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

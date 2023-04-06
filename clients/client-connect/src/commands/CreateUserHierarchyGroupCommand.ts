@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateUserHierarchyGroupRequest, CreateUserHierarchyGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserHierarchyGroupCommand,
-  serializeAws_restJson1CreateUserHierarchyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateUserHierarchyGroupCommand, se_CreateUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateUserHierarchyGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserHierarchyGroupCommand(input, context);
+    return se_CreateUserHierarchyGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1CreateUserHierarchyGroupCommand(output, context);
+    return de_CreateUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

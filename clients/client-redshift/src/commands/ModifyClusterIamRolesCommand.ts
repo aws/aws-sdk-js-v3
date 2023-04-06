@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterIamRolesCommand,
-  serializeAws_queryModifyClusterIamRolesCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyClusterIamRolesCommand, se_ModifyClusterIamRolesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -138,14 +135,14 @@ export class ModifyClusterIamRolesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClusterIamRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterIamRolesCommand(input, context);
+    return se_ModifyClusterIamRolesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterIamRolesCommandOutput> {
-    return deserializeAws_queryModifyClusterIamRolesCommand(output, context);
+    return de_ModifyClusterIamRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

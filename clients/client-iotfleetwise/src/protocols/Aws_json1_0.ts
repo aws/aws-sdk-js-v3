@@ -293,7 +293,10 @@ import {
   VehicleSummary,
 } from "../models/models_0";
 
-export const serializeAws_json1_0AssociateVehicleFleetCommand = async (
+/**
+ * serializeAws_json1_0AssociateVehicleFleetCommand
+ */
+export const se_AssociateVehicleFleetCommand = async (
   input: AssociateVehicleFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -302,11 +305,14 @@ export const serializeAws_json1_0AssociateVehicleFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.AssociateVehicleFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0AssociateVehicleFleetRequest(input, context));
+  body = JSON.stringify(se_AssociateVehicleFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0BatchCreateVehicleCommand = async (
+/**
+ * serializeAws_json1_0BatchCreateVehicleCommand
+ */
+export const se_BatchCreateVehicleCommand = async (
   input: BatchCreateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -315,11 +321,14 @@ export const serializeAws_json1_0BatchCreateVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.BatchCreateVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0BatchCreateVehicleRequest(input, context));
+  body = JSON.stringify(se_BatchCreateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0BatchUpdateVehicleCommand = async (
+/**
+ * serializeAws_json1_0BatchUpdateVehicleCommand
+ */
+export const se_BatchUpdateVehicleCommand = async (
   input: BatchUpdateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -328,11 +337,14 @@ export const serializeAws_json1_0BatchUpdateVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.BatchUpdateVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0BatchUpdateVehicleRequest(input, context));
+  body = JSON.stringify(se_BatchUpdateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateCampaignCommand = async (
+/**
+ * serializeAws_json1_0CreateCampaignCommand
+ */
+export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -341,11 +353,14 @@ export const serializeAws_json1_0CreateCampaignCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateCampaign",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateCampaignRequest(input, context));
+  body = JSON.stringify(se_CreateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateDecoderManifestCommand = async (
+/**
+ * serializeAws_json1_0CreateDecoderManifestCommand
+ */
+export const se_CreateDecoderManifestCommand = async (
   input: CreateDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -354,11 +369,14 @@ export const serializeAws_json1_0CreateDecoderManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateDecoderManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateDecoderManifestRequest(input, context));
+  body = JSON.stringify(se_CreateDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateFleetCommand = async (
+/**
+ * serializeAws_json1_0CreateFleetCommand
+ */
+export const se_CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -367,11 +385,14 @@ export const serializeAws_json1_0CreateFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateFleetRequest(input, context));
+  body = JSON.stringify(se_CreateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateModelManifestCommand = async (
+/**
+ * serializeAws_json1_0CreateModelManifestCommand
+ */
+export const se_CreateModelManifestCommand = async (
   input: CreateModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -380,11 +401,14 @@ export const serializeAws_json1_0CreateModelManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateModelManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateModelManifestRequest(input, context));
+  body = JSON.stringify(se_CreateModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateSignalCatalogCommand = async (
+/**
+ * serializeAws_json1_0CreateSignalCatalogCommand
+ */
+export const se_CreateSignalCatalogCommand = async (
   input: CreateSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -393,11 +417,14 @@ export const serializeAws_json1_0CreateSignalCatalogCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateSignalCatalog",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateSignalCatalogRequest(input, context));
+  body = JSON.stringify(se_CreateSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateVehicleCommand = async (
+/**
+ * serializeAws_json1_0CreateVehicleCommand
+ */
+export const se_CreateVehicleCommand = async (
   input: CreateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -406,11 +433,14 @@ export const serializeAws_json1_0CreateVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.CreateVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateVehicleRequest(input, context));
+  body = JSON.stringify(se_CreateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteCampaignCommand = async (
+/**
+ * serializeAws_json1_0DeleteCampaignCommand
+ */
+export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -419,11 +449,14 @@ export const serializeAws_json1_0DeleteCampaignCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteCampaign",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteCampaignRequest(input, context));
+  body = JSON.stringify(se_DeleteCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteDecoderManifestCommand = async (
+/**
+ * serializeAws_json1_0DeleteDecoderManifestCommand
+ */
+export const se_DeleteDecoderManifestCommand = async (
   input: DeleteDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -432,11 +465,14 @@ export const serializeAws_json1_0DeleteDecoderManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteDecoderManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteDecoderManifestRequest(input, context));
+  body = JSON.stringify(se_DeleteDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteFleetCommand = async (
+/**
+ * serializeAws_json1_0DeleteFleetCommand
+ */
+export const se_DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -445,11 +481,14 @@ export const serializeAws_json1_0DeleteFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteFleetRequest(input, context));
+  body = JSON.stringify(se_DeleteFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteModelManifestCommand = async (
+/**
+ * serializeAws_json1_0DeleteModelManifestCommand
+ */
+export const se_DeleteModelManifestCommand = async (
   input: DeleteModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -458,11 +497,14 @@ export const serializeAws_json1_0DeleteModelManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteModelManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteModelManifestRequest(input, context));
+  body = JSON.stringify(se_DeleteModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteSignalCatalogCommand = async (
+/**
+ * serializeAws_json1_0DeleteSignalCatalogCommand
+ */
+export const se_DeleteSignalCatalogCommand = async (
   input: DeleteSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -471,11 +513,14 @@ export const serializeAws_json1_0DeleteSignalCatalogCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteSignalCatalog",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteSignalCatalogRequest(input, context));
+  body = JSON.stringify(se_DeleteSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteVehicleCommand = async (
+/**
+ * serializeAws_json1_0DeleteVehicleCommand
+ */
+export const se_DeleteVehicleCommand = async (
   input: DeleteVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -484,11 +529,14 @@ export const serializeAws_json1_0DeleteVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DeleteVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteVehicleRequest(input, context));
+  body = JSON.stringify(se_DeleteVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DisassociateVehicleFleetCommand = async (
+/**
+ * serializeAws_json1_0DisassociateVehicleFleetCommand
+ */
+export const se_DisassociateVehicleFleetCommand = async (
   input: DisassociateVehicleFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -497,11 +545,14 @@ export const serializeAws_json1_0DisassociateVehicleFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.DisassociateVehicleFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DisassociateVehicleFleetRequest(input, context));
+  body = JSON.stringify(se_DisassociateVehicleFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetCampaignCommand = async (
+/**
+ * serializeAws_json1_0GetCampaignCommand
+ */
+export const se_GetCampaignCommand = async (
   input: GetCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -510,11 +561,14 @@ export const serializeAws_json1_0GetCampaignCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetCampaign",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetCampaignRequest(input, context));
+  body = JSON.stringify(se_GetCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetDecoderManifestCommand = async (
+/**
+ * serializeAws_json1_0GetDecoderManifestCommand
+ */
+export const se_GetDecoderManifestCommand = async (
   input: GetDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -523,11 +577,14 @@ export const serializeAws_json1_0GetDecoderManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetDecoderManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetDecoderManifestRequest(input, context));
+  body = JSON.stringify(se_GetDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetFleetCommand = async (
+/**
+ * serializeAws_json1_0GetFleetCommand
+ */
+export const se_GetFleetCommand = async (
   input: GetFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -536,11 +593,14 @@ export const serializeAws_json1_0GetFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetFleetRequest(input, context));
+  body = JSON.stringify(se_GetFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetLoggingOptionsCommand = async (
+/**
+ * serializeAws_json1_0GetLoggingOptionsCommand
+ */
+export const se_GetLoggingOptionsCommand = async (
   input: GetLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -549,11 +609,14 @@ export const serializeAws_json1_0GetLoggingOptionsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetLoggingOptions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetLoggingOptionsRequest(input, context));
+  body = JSON.stringify(se_GetLoggingOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetModelManifestCommand = async (
+/**
+ * serializeAws_json1_0GetModelManifestCommand
+ */
+export const se_GetModelManifestCommand = async (
   input: GetModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -562,11 +625,14 @@ export const serializeAws_json1_0GetModelManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetModelManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetModelManifestRequest(input, context));
+  body = JSON.stringify(se_GetModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetRegisterAccountStatusCommand = async (
+/**
+ * serializeAws_json1_0GetRegisterAccountStatusCommand
+ */
+export const se_GetRegisterAccountStatusCommand = async (
   input: GetRegisterAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -575,11 +641,14 @@ export const serializeAws_json1_0GetRegisterAccountStatusCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetRegisterAccountStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetRegisterAccountStatusRequest(input, context));
+  body = JSON.stringify(se_GetRegisterAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetSignalCatalogCommand = async (
+/**
+ * serializeAws_json1_0GetSignalCatalogCommand
+ */
+export const se_GetSignalCatalogCommand = async (
   input: GetSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -588,11 +657,14 @@ export const serializeAws_json1_0GetSignalCatalogCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetSignalCatalog",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetSignalCatalogRequest(input, context));
+  body = JSON.stringify(se_GetSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetVehicleCommand = async (
+/**
+ * serializeAws_json1_0GetVehicleCommand
+ */
+export const se_GetVehicleCommand = async (
   input: GetVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -601,11 +673,14 @@ export const serializeAws_json1_0GetVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetVehicleRequest(input, context));
+  body = JSON.stringify(se_GetVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetVehicleStatusCommand = async (
+/**
+ * serializeAws_json1_0GetVehicleStatusCommand
+ */
+export const se_GetVehicleStatusCommand = async (
   input: GetVehicleStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -614,11 +689,14 @@ export const serializeAws_json1_0GetVehicleStatusCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.GetVehicleStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetVehicleStatusRequest(input, context));
+  body = JSON.stringify(se_GetVehicleStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ImportDecoderManifestCommand = async (
+/**
+ * serializeAws_json1_0ImportDecoderManifestCommand
+ */
+export const se_ImportDecoderManifestCommand = async (
   input: ImportDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -627,11 +705,14 @@ export const serializeAws_json1_0ImportDecoderManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ImportDecoderManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ImportDecoderManifestRequest(input, context));
+  body = JSON.stringify(se_ImportDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ImportSignalCatalogCommand = async (
+/**
+ * serializeAws_json1_0ImportSignalCatalogCommand
+ */
+export const se_ImportSignalCatalogCommand = async (
   input: ImportSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -640,11 +721,14 @@ export const serializeAws_json1_0ImportSignalCatalogCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ImportSignalCatalog",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ImportSignalCatalogRequest(input, context));
+  body = JSON.stringify(se_ImportSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListCampaignsCommand = async (
+/**
+ * serializeAws_json1_0ListCampaignsCommand
+ */
+export const se_ListCampaignsCommand = async (
   input: ListCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -653,11 +737,14 @@ export const serializeAws_json1_0ListCampaignsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListCampaigns",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListCampaignsRequest(input, context));
+  body = JSON.stringify(se_ListCampaignsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand = async (
+/**
+ * serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand
+ */
+export const se_ListDecoderManifestNetworkInterfacesCommand = async (
   input: ListDecoderManifestNetworkInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -666,11 +753,14 @@ export const serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand = a
     "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifestNetworkInterfaces",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListDecoderManifestNetworkInterfacesRequest(input, context));
+  body = JSON.stringify(se_ListDecoderManifestNetworkInterfacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListDecoderManifestsCommand = async (
+/**
+ * serializeAws_json1_0ListDecoderManifestsCommand
+ */
+export const se_ListDecoderManifestsCommand = async (
   input: ListDecoderManifestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -679,11 +769,14 @@ export const serializeAws_json1_0ListDecoderManifestsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifests",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListDecoderManifestsRequest(input, context));
+  body = JSON.stringify(se_ListDecoderManifestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListDecoderManifestSignalsCommand = async (
+/**
+ * serializeAws_json1_0ListDecoderManifestSignalsCommand
+ */
+export const se_ListDecoderManifestSignalsCommand = async (
   input: ListDecoderManifestSignalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -692,11 +785,14 @@ export const serializeAws_json1_0ListDecoderManifestSignalsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifestSignals",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListDecoderManifestSignalsRequest(input, context));
+  body = JSON.stringify(se_ListDecoderManifestSignalsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFleetsCommand = async (
+/**
+ * serializeAws_json1_0ListFleetsCommand
+ */
+export const se_ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -705,11 +801,14 @@ export const serializeAws_json1_0ListFleetsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListFleets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFleetsRequest(input, context));
+  body = JSON.stringify(se_ListFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFleetsForVehicleCommand = async (
+/**
+ * serializeAws_json1_0ListFleetsForVehicleCommand
+ */
+export const se_ListFleetsForVehicleCommand = async (
   input: ListFleetsForVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -718,11 +817,14 @@ export const serializeAws_json1_0ListFleetsForVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListFleetsForVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFleetsForVehicleRequest(input, context));
+  body = JSON.stringify(se_ListFleetsForVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListModelManifestNodesCommand = async (
+/**
+ * serializeAws_json1_0ListModelManifestNodesCommand
+ */
+export const se_ListModelManifestNodesCommand = async (
   input: ListModelManifestNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -731,11 +833,14 @@ export const serializeAws_json1_0ListModelManifestNodesCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListModelManifestNodes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListModelManifestNodesRequest(input, context));
+  body = JSON.stringify(se_ListModelManifestNodesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListModelManifestsCommand = async (
+/**
+ * serializeAws_json1_0ListModelManifestsCommand
+ */
+export const se_ListModelManifestsCommand = async (
   input: ListModelManifestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -744,11 +849,14 @@ export const serializeAws_json1_0ListModelManifestsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListModelManifests",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListModelManifestsRequest(input, context));
+  body = JSON.stringify(se_ListModelManifestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSignalCatalogNodesCommand = async (
+/**
+ * serializeAws_json1_0ListSignalCatalogNodesCommand
+ */
+export const se_ListSignalCatalogNodesCommand = async (
   input: ListSignalCatalogNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -757,11 +865,14 @@ export const serializeAws_json1_0ListSignalCatalogNodesCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListSignalCatalogNodes",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSignalCatalogNodesRequest(input, context));
+  body = JSON.stringify(se_ListSignalCatalogNodesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSignalCatalogsCommand = async (
+/**
+ * serializeAws_json1_0ListSignalCatalogsCommand
+ */
+export const se_ListSignalCatalogsCommand = async (
   input: ListSignalCatalogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -770,11 +881,14 @@ export const serializeAws_json1_0ListSignalCatalogsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListSignalCatalogs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSignalCatalogsRequest(input, context));
+  body = JSON.stringify(se_ListSignalCatalogsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,11 +897,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListVehiclesCommand = async (
+/**
+ * serializeAws_json1_0ListVehiclesCommand
+ */
+export const se_ListVehiclesCommand = async (
   input: ListVehiclesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -796,11 +913,14 @@ export const serializeAws_json1_0ListVehiclesCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListVehicles",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListVehiclesRequest(input, context));
+  body = JSON.stringify(se_ListVehiclesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListVehiclesInFleetCommand = async (
+/**
+ * serializeAws_json1_0ListVehiclesInFleetCommand
+ */
+export const se_ListVehiclesInFleetCommand = async (
   input: ListVehiclesInFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -809,11 +929,14 @@ export const serializeAws_json1_0ListVehiclesInFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.ListVehiclesInFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListVehiclesInFleetRequest(input, context));
+  body = JSON.stringify(se_ListVehiclesInFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PutLoggingOptionsCommand = async (
+/**
+ * serializeAws_json1_0PutLoggingOptionsCommand
+ */
+export const se_PutLoggingOptionsCommand = async (
   input: PutLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -822,11 +945,14 @@ export const serializeAws_json1_0PutLoggingOptionsCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.PutLoggingOptions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PutLoggingOptionsRequest(input, context));
+  body = JSON.stringify(se_PutLoggingOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0RegisterAccountCommand = async (
+/**
+ * serializeAws_json1_0RegisterAccountCommand
+ */
+export const se_RegisterAccountCommand = async (
   input: RegisterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -835,11 +961,14 @@ export const serializeAws_json1_0RegisterAccountCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.RegisterAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0RegisterAccountRequest(input, context));
+  body = JSON.stringify(se_RegisterAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -848,11 +977,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -861,11 +993,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateCampaignCommand = async (
+/**
+ * serializeAws_json1_0UpdateCampaignCommand
+ */
+export const se_UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -874,11 +1009,14 @@ export const serializeAws_json1_0UpdateCampaignCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateCampaign",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateCampaignRequest(input, context));
+  body = JSON.stringify(se_UpdateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateDecoderManifestCommand = async (
+/**
+ * serializeAws_json1_0UpdateDecoderManifestCommand
+ */
+export const se_UpdateDecoderManifestCommand = async (
   input: UpdateDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -887,11 +1025,14 @@ export const serializeAws_json1_0UpdateDecoderManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateDecoderManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateDecoderManifestRequest(input, context));
+  body = JSON.stringify(se_UpdateDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFleetCommand = async (
+/**
+ * serializeAws_json1_0UpdateFleetCommand
+ */
+export const se_UpdateFleetCommand = async (
   input: UpdateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -900,11 +1041,14 @@ export const serializeAws_json1_0UpdateFleetCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateFleet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFleetRequest(input, context));
+  body = JSON.stringify(se_UpdateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateModelManifestCommand = async (
+/**
+ * serializeAws_json1_0UpdateModelManifestCommand
+ */
+export const se_UpdateModelManifestCommand = async (
   input: UpdateModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -913,11 +1057,14 @@ export const serializeAws_json1_0UpdateModelManifestCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateModelManifest",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateModelManifestRequest(input, context));
+  body = JSON.stringify(se_UpdateModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateSignalCatalogCommand = async (
+/**
+ * serializeAws_json1_0UpdateSignalCatalogCommand
+ */
+export const se_UpdateSignalCatalogCommand = async (
   input: UpdateSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -926,11 +1073,14 @@ export const serializeAws_json1_0UpdateSignalCatalogCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateSignalCatalog",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateSignalCatalogRequest(input, context));
+  body = JSON.stringify(se_UpdateSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateVehicleCommand = async (
+/**
+ * serializeAws_json1_0UpdateVehicleCommand
+ */
+export const se_UpdateVehicleCommand = async (
   input: UpdateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -939,20 +1089,23 @@ export const serializeAws_json1_0UpdateVehicleCommand = async (
     "x-amz-target": "IoTAutobahnControlPlane.UpdateVehicle",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateVehicleRequest(input, context));
+  body = JSON.stringify(se_UpdateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0AssociateVehicleFleetCommand = async (
+/**
+ * deserializeAws_json1_0AssociateVehicleFleetCommand
+ */
+export const de_AssociateVehicleFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateVehicleFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0AssociateVehicleFleetCommandError(output, context);
+    return de_AssociateVehicleFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0AssociateVehicleFleetResponse(data, context);
+  contents = de_AssociateVehicleFleetResponse(data, context);
   const response: AssociateVehicleFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -960,7 +1113,10 @@ export const deserializeAws_json1_0AssociateVehicleFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0AssociateVehicleFleetCommandError = async (
+/**
+ * deserializeAws_json1_0AssociateVehicleFleetCommandError
+ */
+const de_AssociateVehicleFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateVehicleFleetCommandOutput> => {
@@ -972,19 +1128,19 @@ const deserializeAws_json1_0AssociateVehicleFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -996,16 +1152,19 @@ const deserializeAws_json1_0AssociateVehicleFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0BatchCreateVehicleCommand = async (
+/**
+ * deserializeAws_json1_0BatchCreateVehicleCommand
+ */
+export const de_BatchCreateVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0BatchCreateVehicleCommandError(output, context);
+    return de_BatchCreateVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchCreateVehicleResponse(data, context);
+  contents = de_BatchCreateVehicleResponse(data, context);
   const response: BatchCreateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1013,7 +1172,10 @@ export const deserializeAws_json1_0BatchCreateVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0BatchCreateVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0BatchCreateVehicleCommandError
+ */
+const de_BatchCreateVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateVehicleCommandOutput> => {
@@ -1025,19 +1187,19 @@ const deserializeAws_json1_0BatchCreateVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1049,16 +1211,19 @@ const deserializeAws_json1_0BatchCreateVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0BatchUpdateVehicleCommand = async (
+/**
+ * deserializeAws_json1_0BatchUpdateVehicleCommand
+ */
+export const de_BatchUpdateVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0BatchUpdateVehicleCommandError(output, context);
+    return de_BatchUpdateVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchUpdateVehicleResponse(data, context);
+  contents = de_BatchUpdateVehicleResponse(data, context);
   const response: BatchUpdateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1066,7 +1231,10 @@ export const deserializeAws_json1_0BatchUpdateVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0BatchUpdateVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0BatchUpdateVehicleCommandError
+ */
+const de_BatchUpdateVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateVehicleCommandOutput> => {
@@ -1078,16 +1246,16 @@ const deserializeAws_json1_0BatchUpdateVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1099,16 +1267,19 @@ const deserializeAws_json1_0BatchUpdateVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateCampaignCommand = async (
+/**
+ * deserializeAws_json1_0CreateCampaignCommand
+ */
+export const de_CreateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateCampaignCommandError(output, context);
+    return de_CreateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateCampaignResponse(data, context);
+  contents = de_CreateCampaignResponse(data, context);
   const response: CreateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1116,7 +1287,10 @@ export const deserializeAws_json1_0CreateCampaignCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateCampaignCommandError = async (
+/**
+ * deserializeAws_json1_0CreateCampaignCommandError
+ */
+const de_CreateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
@@ -1128,25 +1302,25 @@ const deserializeAws_json1_0CreateCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1158,16 +1332,19 @@ const deserializeAws_json1_0CreateCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateDecoderManifestCommand = async (
+/**
+ * deserializeAws_json1_0CreateDecoderManifestCommand
+ */
+export const de_CreateDecoderManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateDecoderManifestCommandError(output, context);
+    return de_CreateDecoderManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateDecoderManifestResponse(data, context);
+  contents = de_CreateDecoderManifestResponse(data, context);
   const response: CreateDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1175,7 +1352,10 @@ export const deserializeAws_json1_0CreateDecoderManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateDecoderManifestCommandError = async (
+/**
+ * deserializeAws_json1_0CreateDecoderManifestCommandError
+ */
+const de_CreateDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDecoderManifestCommandOutput> => {
@@ -1187,28 +1367,28 @@ const deserializeAws_json1_0CreateDecoderManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DecoderManifestValidationException":
     case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await deserializeAws_json1_0DecoderManifestValidationExceptionResponse(parsedOutput, context);
+      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1220,16 +1400,19 @@ const deserializeAws_json1_0CreateDecoderManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateFleetCommand = async (
+/**
+ * deserializeAws_json1_0CreateFleetCommand
+ */
+export const de_CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateFleetCommandError(output, context);
+    return de_CreateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateFleetResponse(data, context);
+  contents = de_CreateFleetResponse(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1237,7 +1420,10 @@ export const deserializeAws_json1_0CreateFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateFleetCommandError = async (
+/**
+ * deserializeAws_json1_0CreateFleetCommandError
+ */
+const de_CreateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
@@ -1249,25 +1435,25 @@ const deserializeAws_json1_0CreateFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1279,16 +1465,19 @@ const deserializeAws_json1_0CreateFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateModelManifestCommand = async (
+/**
+ * deserializeAws_json1_0CreateModelManifestCommand
+ */
+export const de_CreateModelManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateModelManifestCommandError(output, context);
+    return de_CreateModelManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateModelManifestResponse(data, context);
+  contents = de_CreateModelManifestResponse(data, context);
   const response: CreateModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1296,7 +1485,10 @@ export const deserializeAws_json1_0CreateModelManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateModelManifestCommandError = async (
+/**
+ * deserializeAws_json1_0CreateModelManifestCommandError
+ */
+const de_CreateModelManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelManifestCommandOutput> => {
@@ -1308,28 +1500,28 @@ const deserializeAws_json1_0CreateModelManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1341,16 +1533,19 @@ const deserializeAws_json1_0CreateModelManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateSignalCatalogCommand = async (
+/**
+ * deserializeAws_json1_0CreateSignalCatalogCommand
+ */
+export const de_CreateSignalCatalogCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateSignalCatalogCommandError(output, context);
+    return de_CreateSignalCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateSignalCatalogResponse(data, context);
+  contents = de_CreateSignalCatalogResponse(data, context);
   const response: CreateSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1358,7 +1553,10 @@ export const deserializeAws_json1_0CreateSignalCatalogCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateSignalCatalogCommandError = async (
+/**
+ * deserializeAws_json1_0CreateSignalCatalogCommandError
+ */
+const de_CreateSignalCatalogCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSignalCatalogCommandOutput> => {
@@ -1370,28 +1568,28 @@ const deserializeAws_json1_0CreateSignalCatalogCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidNodeException":
     case "com.amazonaws.iotfleetwise#InvalidNodeException":
-      throw await deserializeAws_json1_0InvalidNodeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNodeExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1403,16 +1601,19 @@ const deserializeAws_json1_0CreateSignalCatalogCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateVehicleCommand = async (
+/**
+ * deserializeAws_json1_0CreateVehicleCommand
+ */
+export const de_CreateVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateVehicleCommandError(output, context);
+    return de_CreateVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateVehicleResponse(data, context);
+  contents = de_CreateVehicleResponse(data, context);
   const response: CreateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1420,7 +1621,10 @@ export const deserializeAws_json1_0CreateVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0CreateVehicleCommandError
+ */
+const de_CreateVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVehicleCommandOutput> => {
@@ -1432,25 +1636,25 @@ const deserializeAws_json1_0CreateVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1462,16 +1666,19 @@ const deserializeAws_json1_0CreateVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteCampaignCommand = async (
+/**
+ * deserializeAws_json1_0DeleteCampaignCommand
+ */
+export const de_DeleteCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteCampaignCommandError(output, context);
+    return de_DeleteCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteCampaignResponse(data, context);
+  contents = de_DeleteCampaignResponse(data, context);
   const response: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1479,7 +1686,10 @@ export const deserializeAws_json1_0DeleteCampaignCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteCampaignCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteCampaignCommandError
+ */
+const de_DeleteCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
@@ -1491,19 +1701,19 @@ const deserializeAws_json1_0DeleteCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1515,16 +1725,19 @@ const deserializeAws_json1_0DeleteCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteDecoderManifestCommand = async (
+/**
+ * deserializeAws_json1_0DeleteDecoderManifestCommand
+ */
+export const de_DeleteDecoderManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteDecoderManifestCommandError(output, context);
+    return de_DeleteDecoderManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteDecoderManifestResponse(data, context);
+  contents = de_DeleteDecoderManifestResponse(data, context);
   const response: DeleteDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1532,7 +1745,10 @@ export const deserializeAws_json1_0DeleteDecoderManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteDecoderManifestCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteDecoderManifestCommandError
+ */
+const de_DeleteDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDecoderManifestCommandOutput> => {
@@ -1544,19 +1760,19 @@ const deserializeAws_json1_0DeleteDecoderManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1568,16 +1784,19 @@ const deserializeAws_json1_0DeleteDecoderManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteFleetCommand = async (
+/**
+ * deserializeAws_json1_0DeleteFleetCommand
+ */
+export const de_DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteFleetCommandError(output, context);
+    return de_DeleteFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteFleetResponse(data, context);
+  contents = de_DeleteFleetResponse(data, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1585,7 +1804,10 @@ export const deserializeAws_json1_0DeleteFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteFleetCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteFleetCommandError
+ */
+const de_DeleteFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
@@ -1597,16 +1819,16 @@ const deserializeAws_json1_0DeleteFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1618,16 +1840,19 @@ const deserializeAws_json1_0DeleteFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteModelManifestCommand = async (
+/**
+ * deserializeAws_json1_0DeleteModelManifestCommand
+ */
+export const de_DeleteModelManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteModelManifestCommandError(output, context);
+    return de_DeleteModelManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteModelManifestResponse(data, context);
+  contents = de_DeleteModelManifestResponse(data, context);
   const response: DeleteModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1635,7 +1860,10 @@ export const deserializeAws_json1_0DeleteModelManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteModelManifestCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteModelManifestCommandError
+ */
+const de_DeleteModelManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelManifestCommandOutput> => {
@@ -1647,19 +1875,19 @@ const deserializeAws_json1_0DeleteModelManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1671,16 +1899,19 @@ const deserializeAws_json1_0DeleteModelManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteSignalCatalogCommand = async (
+/**
+ * deserializeAws_json1_0DeleteSignalCatalogCommand
+ */
+export const de_DeleteSignalCatalogCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteSignalCatalogCommandError(output, context);
+    return de_DeleteSignalCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteSignalCatalogResponse(data, context);
+  contents = de_DeleteSignalCatalogResponse(data, context);
   const response: DeleteSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1688,7 +1919,10 @@ export const deserializeAws_json1_0DeleteSignalCatalogCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteSignalCatalogCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteSignalCatalogCommandError
+ */
+const de_DeleteSignalCatalogCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSignalCatalogCommandOutput> => {
@@ -1700,19 +1934,19 @@ const deserializeAws_json1_0DeleteSignalCatalogCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1724,16 +1958,19 @@ const deserializeAws_json1_0DeleteSignalCatalogCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteVehicleCommand = async (
+/**
+ * deserializeAws_json1_0DeleteVehicleCommand
+ */
+export const de_DeleteVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteVehicleCommandError(output, context);
+    return de_DeleteVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteVehicleResponse(data, context);
+  contents = de_DeleteVehicleResponse(data, context);
   const response: DeleteVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1741,7 +1978,10 @@ export const deserializeAws_json1_0DeleteVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteVehicleCommandError
+ */
+const de_DeleteVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVehicleCommandOutput> => {
@@ -1753,16 +1993,16 @@ const deserializeAws_json1_0DeleteVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1774,16 +2014,19 @@ const deserializeAws_json1_0DeleteVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DisassociateVehicleFleetCommand = async (
+/**
+ * deserializeAws_json1_0DisassociateVehicleFleetCommand
+ */
+export const de_DisassociateVehicleFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateVehicleFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DisassociateVehicleFleetCommandError(output, context);
+    return de_DisassociateVehicleFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DisassociateVehicleFleetResponse(data, context);
+  contents = de_DisassociateVehicleFleetResponse(data, context);
   const response: DisassociateVehicleFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1791,7 +2034,10 @@ export const deserializeAws_json1_0DisassociateVehicleFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DisassociateVehicleFleetCommandError = async (
+/**
+ * deserializeAws_json1_0DisassociateVehicleFleetCommandError
+ */
+const de_DisassociateVehicleFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateVehicleFleetCommandOutput> => {
@@ -1803,19 +2049,19 @@ const deserializeAws_json1_0DisassociateVehicleFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1827,16 +2073,19 @@ const deserializeAws_json1_0DisassociateVehicleFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetCampaignCommand = async (
+/**
+ * deserializeAws_json1_0GetCampaignCommand
+ */
+export const de_GetCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetCampaignCommandError(output, context);
+    return de_GetCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetCampaignResponse(data, context);
+  contents = de_GetCampaignResponse(data, context);
   const response: GetCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1844,7 +2093,10 @@ export const deserializeAws_json1_0GetCampaignCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetCampaignCommandError = async (
+/**
+ * deserializeAws_json1_0GetCampaignCommandError
+ */
+const de_GetCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
@@ -1856,19 +2108,19 @@ const deserializeAws_json1_0GetCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1880,16 +2132,19 @@ const deserializeAws_json1_0GetCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetDecoderManifestCommand = async (
+/**
+ * deserializeAws_json1_0GetDecoderManifestCommand
+ */
+export const de_GetDecoderManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetDecoderManifestCommandError(output, context);
+    return de_GetDecoderManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetDecoderManifestResponse(data, context);
+  contents = de_GetDecoderManifestResponse(data, context);
   const response: GetDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1897,7 +2152,10 @@ export const deserializeAws_json1_0GetDecoderManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetDecoderManifestCommandError = async (
+/**
+ * deserializeAws_json1_0GetDecoderManifestCommandError
+ */
+const de_GetDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDecoderManifestCommandOutput> => {
@@ -1909,19 +2167,19 @@ const deserializeAws_json1_0GetDecoderManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1933,16 +2191,19 @@ const deserializeAws_json1_0GetDecoderManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetFleetCommand = async (
+/**
+ * deserializeAws_json1_0GetFleetCommand
+ */
+export const de_GetFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetFleetCommandError(output, context);
+    return de_GetFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetFleetResponse(data, context);
+  contents = de_GetFleetResponse(data, context);
   const response: GetFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1950,7 +2211,10 @@ export const deserializeAws_json1_0GetFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetFleetCommandError = async (
+/**
+ * deserializeAws_json1_0GetFleetCommandError
+ */
+const de_GetFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFleetCommandOutput> => {
@@ -1962,19 +2226,19 @@ const deserializeAws_json1_0GetFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1986,16 +2250,19 @@ const deserializeAws_json1_0GetFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetLoggingOptionsCommand = async (
+/**
+ * deserializeAws_json1_0GetLoggingOptionsCommand
+ */
+export const de_GetLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetLoggingOptionsCommandError(output, context);
+    return de_GetLoggingOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetLoggingOptionsResponse(data, context);
+  contents = de_GetLoggingOptionsResponse(data, context);
   const response: GetLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2003,7 +2270,10 @@ export const deserializeAws_json1_0GetLoggingOptionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetLoggingOptionsCommandError = async (
+/**
+ * deserializeAws_json1_0GetLoggingOptionsCommandError
+ */
+const de_GetLoggingOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggingOptionsCommandOutput> => {
@@ -2015,13 +2285,13 @@ const deserializeAws_json1_0GetLoggingOptionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2033,16 +2303,19 @@ const deserializeAws_json1_0GetLoggingOptionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetModelManifestCommand = async (
+/**
+ * deserializeAws_json1_0GetModelManifestCommand
+ */
+export const de_GetModelManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetModelManifestCommandError(output, context);
+    return de_GetModelManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetModelManifestResponse(data, context);
+  contents = de_GetModelManifestResponse(data, context);
   const response: GetModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2050,7 +2323,10 @@ export const deserializeAws_json1_0GetModelManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetModelManifestCommandError = async (
+/**
+ * deserializeAws_json1_0GetModelManifestCommandError
+ */
+const de_GetModelManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelManifestCommandOutput> => {
@@ -2062,19 +2338,19 @@ const deserializeAws_json1_0GetModelManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2086,16 +2362,19 @@ const deserializeAws_json1_0GetModelManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetRegisterAccountStatusCommand = async (
+/**
+ * deserializeAws_json1_0GetRegisterAccountStatusCommand
+ */
+export const de_GetRegisterAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegisterAccountStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetRegisterAccountStatusCommandError(output, context);
+    return de_GetRegisterAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetRegisterAccountStatusResponse(data, context);
+  contents = de_GetRegisterAccountStatusResponse(data, context);
   const response: GetRegisterAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2103,7 +2382,10 @@ export const deserializeAws_json1_0GetRegisterAccountStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetRegisterAccountStatusCommandError = async (
+/**
+ * deserializeAws_json1_0GetRegisterAccountStatusCommandError
+ */
+const de_GetRegisterAccountStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegisterAccountStatusCommandOutput> => {
@@ -2115,19 +2397,19 @@ const deserializeAws_json1_0GetRegisterAccountStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2139,16 +2421,19 @@ const deserializeAws_json1_0GetRegisterAccountStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetSignalCatalogCommand = async (
+/**
+ * deserializeAws_json1_0GetSignalCatalogCommand
+ */
+export const de_GetSignalCatalogCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetSignalCatalogCommandError(output, context);
+    return de_GetSignalCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetSignalCatalogResponse(data, context);
+  contents = de_GetSignalCatalogResponse(data, context);
   const response: GetSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2156,7 +2441,10 @@ export const deserializeAws_json1_0GetSignalCatalogCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetSignalCatalogCommandError = async (
+/**
+ * deserializeAws_json1_0GetSignalCatalogCommandError
+ */
+const de_GetSignalCatalogCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSignalCatalogCommandOutput> => {
@@ -2168,19 +2456,19 @@ const deserializeAws_json1_0GetSignalCatalogCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2192,16 +2480,19 @@ const deserializeAws_json1_0GetSignalCatalogCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetVehicleCommand = async (
+/**
+ * deserializeAws_json1_0GetVehicleCommand
+ */
+export const de_GetVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetVehicleCommandError(output, context);
+    return de_GetVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetVehicleResponse(data, context);
+  contents = de_GetVehicleResponse(data, context);
   const response: GetVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2209,7 +2500,10 @@ export const deserializeAws_json1_0GetVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0GetVehicleCommandError
+ */
+const de_GetVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVehicleCommandOutput> => {
@@ -2221,19 +2515,19 @@ const deserializeAws_json1_0GetVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2245,16 +2539,19 @@ const deserializeAws_json1_0GetVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetVehicleStatusCommand = async (
+/**
+ * deserializeAws_json1_0GetVehicleStatusCommand
+ */
+export const de_GetVehicleStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVehicleStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetVehicleStatusCommandError(output, context);
+    return de_GetVehicleStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetVehicleStatusResponse(data, context);
+  contents = de_GetVehicleStatusResponse(data, context);
   const response: GetVehicleStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2262,7 +2559,10 @@ export const deserializeAws_json1_0GetVehicleStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetVehicleStatusCommandError = async (
+/**
+ * deserializeAws_json1_0GetVehicleStatusCommandError
+ */
+const de_GetVehicleStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVehicleStatusCommandOutput> => {
@@ -2274,19 +2574,19 @@ const deserializeAws_json1_0GetVehicleStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2298,16 +2598,19 @@ const deserializeAws_json1_0GetVehicleStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ImportDecoderManifestCommand = async (
+/**
+ * deserializeAws_json1_0ImportDecoderManifestCommand
+ */
+export const de_ImportDecoderManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ImportDecoderManifestCommandError(output, context);
+    return de_ImportDecoderManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ImportDecoderManifestResponse(data, context);
+  contents = de_ImportDecoderManifestResponse(data, context);
   const response: ImportDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2315,7 +2618,10 @@ export const deserializeAws_json1_0ImportDecoderManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ImportDecoderManifestCommandError = async (
+/**
+ * deserializeAws_json1_0ImportDecoderManifestCommandError
+ */
+const de_ImportDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportDecoderManifestCommandOutput> => {
@@ -2327,28 +2633,28 @@ const deserializeAws_json1_0ImportDecoderManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DecoderManifestValidationException":
     case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await deserializeAws_json1_0DecoderManifestValidationExceptionResponse(parsedOutput, context);
+      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2360,16 +2666,19 @@ const deserializeAws_json1_0ImportDecoderManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ImportSignalCatalogCommand = async (
+/**
+ * deserializeAws_json1_0ImportSignalCatalogCommand
+ */
+export const de_ImportSignalCatalogCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ImportSignalCatalogCommandError(output, context);
+    return de_ImportSignalCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ImportSignalCatalogResponse(data, context);
+  contents = de_ImportSignalCatalogResponse(data, context);
   const response: ImportSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2377,7 +2686,10 @@ export const deserializeAws_json1_0ImportSignalCatalogCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ImportSignalCatalogCommandError = async (
+/**
+ * deserializeAws_json1_0ImportSignalCatalogCommandError
+ */
+const de_ImportSignalCatalogCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSignalCatalogCommandOutput> => {
@@ -2389,28 +2701,28 @@ const deserializeAws_json1_0ImportSignalCatalogCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2422,16 +2734,19 @@ const deserializeAws_json1_0ImportSignalCatalogCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListCampaignsCommand = async (
+/**
+ * deserializeAws_json1_0ListCampaignsCommand
+ */
+export const de_ListCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListCampaignsCommandError(output, context);
+    return de_ListCampaignsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListCampaignsResponse(data, context);
+  contents = de_ListCampaignsResponse(data, context);
   const response: ListCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2439,7 +2754,10 @@ export const deserializeAws_json1_0ListCampaignsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListCampaignsCommandError = async (
+/**
+ * deserializeAws_json1_0ListCampaignsCommandError
+ */
+const de_ListCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
@@ -2451,16 +2769,16 @@ const deserializeAws_json1_0ListCampaignsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2472,16 +2790,19 @@ const deserializeAws_json1_0ListCampaignsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand
+ */
+export const de_ListDecoderManifestNetworkInterfacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError(output, context);
+    return de_ListDecoderManifestNetworkInterfacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListDecoderManifestNetworkInterfacesResponse(data, context);
+  contents = de_ListDecoderManifestNetworkInterfacesResponse(data, context);
   const response: ListDecoderManifestNetworkInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2489,7 +2810,10 @@ export const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError
+ */
+const de_ListDecoderManifestNetworkInterfacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> => {
@@ -2501,19 +2825,19 @@ const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2525,16 +2849,19 @@ const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError = a
   }
 };
 
-export const deserializeAws_json1_0ListDecoderManifestsCommand = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestsCommand
+ */
+export const de_ListDecoderManifestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListDecoderManifestsCommandError(output, context);
+    return de_ListDecoderManifestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListDecoderManifestsResponse(data, context);
+  contents = de_ListDecoderManifestsResponse(data, context);
   const response: ListDecoderManifestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2542,7 +2869,10 @@ export const deserializeAws_json1_0ListDecoderManifestsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListDecoderManifestsCommandError = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestsCommandError
+ */
+const de_ListDecoderManifestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestsCommandOutput> => {
@@ -2554,16 +2884,16 @@ const deserializeAws_json1_0ListDecoderManifestsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2575,16 +2905,19 @@ const deserializeAws_json1_0ListDecoderManifestsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListDecoderManifestSignalsCommand = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestSignalsCommand
+ */
+export const de_ListDecoderManifestSignalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestSignalsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListDecoderManifestSignalsCommandError(output, context);
+    return de_ListDecoderManifestSignalsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListDecoderManifestSignalsResponse(data, context);
+  contents = de_ListDecoderManifestSignalsResponse(data, context);
   const response: ListDecoderManifestSignalsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2592,7 +2925,10 @@ export const deserializeAws_json1_0ListDecoderManifestSignalsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListDecoderManifestSignalsCommandError = async (
+/**
+ * deserializeAws_json1_0ListDecoderManifestSignalsCommandError
+ */
+const de_ListDecoderManifestSignalsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDecoderManifestSignalsCommandOutput> => {
@@ -2604,19 +2940,19 @@ const deserializeAws_json1_0ListDecoderManifestSignalsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2628,16 +2964,19 @@ const deserializeAws_json1_0ListDecoderManifestSignalsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListFleetsCommand = async (
+/**
+ * deserializeAws_json1_0ListFleetsCommand
+ */
+export const de_ListFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFleetsCommandError(output, context);
+    return de_ListFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFleetsResponse(data, context);
+  contents = de_ListFleetsResponse(data, context);
   const response: ListFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2645,7 +2984,10 @@ export const deserializeAws_json1_0ListFleetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListFleetsCommandError = async (
+/**
+ * deserializeAws_json1_0ListFleetsCommandError
+ */
+const de_ListFleetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
@@ -2657,19 +2999,19 @@ const deserializeAws_json1_0ListFleetsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2681,16 +3023,19 @@ const deserializeAws_json1_0ListFleetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListFleetsForVehicleCommand = async (
+/**
+ * deserializeAws_json1_0ListFleetsForVehicleCommand
+ */
+export const de_ListFleetsForVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsForVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFleetsForVehicleCommandError(output, context);
+    return de_ListFleetsForVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFleetsForVehicleResponse(data, context);
+  contents = de_ListFleetsForVehicleResponse(data, context);
   const response: ListFleetsForVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2698,7 +3043,10 @@ export const deserializeAws_json1_0ListFleetsForVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListFleetsForVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0ListFleetsForVehicleCommandError
+ */
+const de_ListFleetsForVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsForVehicleCommandOutput> => {
@@ -2710,19 +3058,19 @@ const deserializeAws_json1_0ListFleetsForVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2734,16 +3082,19 @@ const deserializeAws_json1_0ListFleetsForVehicleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListModelManifestNodesCommand = async (
+/**
+ * deserializeAws_json1_0ListModelManifestNodesCommand
+ */
+export const de_ListModelManifestNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelManifestNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListModelManifestNodesCommandError(output, context);
+    return de_ListModelManifestNodesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListModelManifestNodesResponse(data, context);
+  contents = de_ListModelManifestNodesResponse(data, context);
   const response: ListModelManifestNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2751,7 +3102,10 @@ export const deserializeAws_json1_0ListModelManifestNodesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListModelManifestNodesCommandError = async (
+/**
+ * deserializeAws_json1_0ListModelManifestNodesCommandError
+ */
+const de_ListModelManifestNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelManifestNodesCommandOutput> => {
@@ -2763,22 +3117,22 @@ const deserializeAws_json1_0ListModelManifestNodesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2790,16 +3144,19 @@ const deserializeAws_json1_0ListModelManifestNodesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListModelManifestsCommand = async (
+/**
+ * deserializeAws_json1_0ListModelManifestsCommand
+ */
+export const de_ListModelManifestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelManifestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListModelManifestsCommandError(output, context);
+    return de_ListModelManifestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListModelManifestsResponse(data, context);
+  contents = de_ListModelManifestsResponse(data, context);
   const response: ListModelManifestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2807,7 +3164,10 @@ export const deserializeAws_json1_0ListModelManifestsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListModelManifestsCommandError = async (
+/**
+ * deserializeAws_json1_0ListModelManifestsCommandError
+ */
+const de_ListModelManifestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelManifestsCommandOutput> => {
@@ -2819,16 +3179,16 @@ const deserializeAws_json1_0ListModelManifestsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2840,16 +3200,19 @@ const deserializeAws_json1_0ListModelManifestsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListSignalCatalogNodesCommand = async (
+/**
+ * deserializeAws_json1_0ListSignalCatalogNodesCommand
+ */
+export const de_ListSignalCatalogNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalCatalogNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSignalCatalogNodesCommandError(output, context);
+    return de_ListSignalCatalogNodesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSignalCatalogNodesResponse(data, context);
+  contents = de_ListSignalCatalogNodesResponse(data, context);
   const response: ListSignalCatalogNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2857,7 +3220,10 @@ export const deserializeAws_json1_0ListSignalCatalogNodesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListSignalCatalogNodesCommandError = async (
+/**
+ * deserializeAws_json1_0ListSignalCatalogNodesCommandError
+ */
+const de_ListSignalCatalogNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalCatalogNodesCommandOutput> => {
@@ -2869,22 +3235,22 @@ const deserializeAws_json1_0ListSignalCatalogNodesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2896,16 +3262,19 @@ const deserializeAws_json1_0ListSignalCatalogNodesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListSignalCatalogsCommand = async (
+/**
+ * deserializeAws_json1_0ListSignalCatalogsCommand
+ */
+export const de_ListSignalCatalogsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalCatalogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSignalCatalogsCommandError(output, context);
+    return de_ListSignalCatalogsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSignalCatalogsResponse(data, context);
+  contents = de_ListSignalCatalogsResponse(data, context);
   const response: ListSignalCatalogsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2913,7 +3282,10 @@ export const deserializeAws_json1_0ListSignalCatalogsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListSignalCatalogsCommandError = async (
+/**
+ * deserializeAws_json1_0ListSignalCatalogsCommandError
+ */
+const de_ListSignalCatalogsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalCatalogsCommandOutput> => {
@@ -2925,16 +3297,16 @@ const deserializeAws_json1_0ListSignalCatalogsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2946,16 +3318,19 @@ const deserializeAws_json1_0ListSignalCatalogsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2963,7 +3338,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2975,19 +3353,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2999,16 +3377,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListVehiclesCommand = async (
+/**
+ * deserializeAws_json1_0ListVehiclesCommand
+ */
+export const de_ListVehiclesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVehiclesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListVehiclesCommandError(output, context);
+    return de_ListVehiclesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListVehiclesResponse(data, context);
+  contents = de_ListVehiclesResponse(data, context);
   const response: ListVehiclesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3016,7 +3397,10 @@ export const deserializeAws_json1_0ListVehiclesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListVehiclesCommandError = async (
+/**
+ * deserializeAws_json1_0ListVehiclesCommandError
+ */
+const de_ListVehiclesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVehiclesCommandOutput> => {
@@ -3028,16 +3412,16 @@ const deserializeAws_json1_0ListVehiclesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3049,16 +3433,19 @@ const deserializeAws_json1_0ListVehiclesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListVehiclesInFleetCommand = async (
+/**
+ * deserializeAws_json1_0ListVehiclesInFleetCommand
+ */
+export const de_ListVehiclesInFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVehiclesInFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListVehiclesInFleetCommandError(output, context);
+    return de_ListVehiclesInFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListVehiclesInFleetResponse(data, context);
+  contents = de_ListVehiclesInFleetResponse(data, context);
   const response: ListVehiclesInFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3066,7 +3453,10 @@ export const deserializeAws_json1_0ListVehiclesInFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListVehiclesInFleetCommandError = async (
+/**
+ * deserializeAws_json1_0ListVehiclesInFleetCommandError
+ */
+const de_ListVehiclesInFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVehiclesInFleetCommandOutput> => {
@@ -3078,19 +3468,19 @@ const deserializeAws_json1_0ListVehiclesInFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3102,16 +3492,19 @@ const deserializeAws_json1_0ListVehiclesInFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0PutLoggingOptionsCommand = async (
+/**
+ * deserializeAws_json1_0PutLoggingOptionsCommand
+ */
+export const de_PutLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PutLoggingOptionsCommandError(output, context);
+    return de_PutLoggingOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutLoggingOptionsResponse(data, context);
+  contents = de_PutLoggingOptionsResponse(data, context);
   const response: PutLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3119,7 +3512,10 @@ export const deserializeAws_json1_0PutLoggingOptionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0PutLoggingOptionsCommandError = async (
+/**
+ * deserializeAws_json1_0PutLoggingOptionsCommandError
+ */
+const de_PutLoggingOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
@@ -3131,22 +3527,22 @@ const deserializeAws_json1_0PutLoggingOptionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3158,16 +3554,19 @@ const deserializeAws_json1_0PutLoggingOptionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0RegisterAccountCommand = async (
+/**
+ * deserializeAws_json1_0RegisterAccountCommand
+ */
+export const de_RegisterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0RegisterAccountCommandError(output, context);
+    return de_RegisterAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RegisterAccountResponse(data, context);
+  contents = de_RegisterAccountResponse(data, context);
   const response: RegisterAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3175,7 +3574,10 @@ export const deserializeAws_json1_0RegisterAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0RegisterAccountCommandError = async (
+/**
+ * deserializeAws_json1_0RegisterAccountCommandError
+ */
+const de_RegisterAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAccountCommandOutput> => {
@@ -3187,22 +3589,22 @@ const deserializeAws_json1_0RegisterAccountCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3214,16 +3616,19 @@ const deserializeAws_json1_0RegisterAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3231,7 +3636,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3243,19 +3651,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3267,16 +3675,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3284,7 +3695,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3296,19 +3710,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3320,16 +3734,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateCampaignCommand = async (
+/**
+ * deserializeAws_json1_0UpdateCampaignCommand
+ */
+export const de_UpdateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateCampaignCommandError(output, context);
+    return de_UpdateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateCampaignResponse(data, context);
+  contents = de_UpdateCampaignResponse(data, context);
   const response: UpdateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3337,7 +3754,10 @@ export const deserializeAws_json1_0UpdateCampaignCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateCampaignCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateCampaignCommandError
+ */
+const de_UpdateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
@@ -3349,22 +3769,22 @@ const deserializeAws_json1_0UpdateCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3376,16 +3796,19 @@ const deserializeAws_json1_0UpdateCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateDecoderManifestCommand = async (
+/**
+ * deserializeAws_json1_0UpdateDecoderManifestCommand
+ */
+export const de_UpdateDecoderManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateDecoderManifestCommandError(output, context);
+    return de_UpdateDecoderManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateDecoderManifestResponse(data, context);
+  contents = de_UpdateDecoderManifestResponse(data, context);
   const response: UpdateDecoderManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3393,7 +3816,10 @@ export const deserializeAws_json1_0UpdateDecoderManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateDecoderManifestCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateDecoderManifestCommandError
+ */
+const de_UpdateDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDecoderManifestCommandOutput> => {
@@ -3405,28 +3831,28 @@ const deserializeAws_json1_0UpdateDecoderManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DecoderManifestValidationException":
     case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await deserializeAws_json1_0DecoderManifestValidationExceptionResponse(parsedOutput, context);
+      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3438,16 +3864,19 @@ const deserializeAws_json1_0UpdateDecoderManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateFleetCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFleetCommand
+ */
+export const de_UpdateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFleetCommandError(output, context);
+    return de_UpdateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFleetResponse(data, context);
+  contents = de_UpdateFleetResponse(data, context);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3455,7 +3884,10 @@ export const deserializeAws_json1_0UpdateFleetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateFleetCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFleetCommandError
+ */
+const de_UpdateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
@@ -3467,22 +3899,22 @@ const deserializeAws_json1_0UpdateFleetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3494,16 +3926,19 @@ const deserializeAws_json1_0UpdateFleetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateModelManifestCommand = async (
+/**
+ * deserializeAws_json1_0UpdateModelManifestCommand
+ */
+export const de_UpdateModelManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateModelManifestCommandError(output, context);
+    return de_UpdateModelManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateModelManifestResponse(data, context);
+  contents = de_UpdateModelManifestResponse(data, context);
   const response: UpdateModelManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3511,7 +3946,10 @@ export const deserializeAws_json1_0UpdateModelManifestCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateModelManifestCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateModelManifestCommandError
+ */
+const de_UpdateModelManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelManifestCommandOutput> => {
@@ -3523,25 +3961,25 @@ const deserializeAws_json1_0UpdateModelManifestCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3553,16 +3991,19 @@ const deserializeAws_json1_0UpdateModelManifestCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateSignalCatalogCommand = async (
+/**
+ * deserializeAws_json1_0UpdateSignalCatalogCommand
+ */
+export const de_UpdateSignalCatalogCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateSignalCatalogCommandError(output, context);
+    return de_UpdateSignalCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateSignalCatalogResponse(data, context);
+  contents = de_UpdateSignalCatalogResponse(data, context);
   const response: UpdateSignalCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3570,7 +4011,10 @@ export const deserializeAws_json1_0UpdateSignalCatalogCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateSignalCatalogCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateSignalCatalogCommandError
+ */
+const de_UpdateSignalCatalogCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSignalCatalogCommandOutput> => {
@@ -3582,31 +4026,31 @@ const deserializeAws_json1_0UpdateSignalCatalogCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidNodeException":
     case "com.amazonaws.iotfleetwise#InvalidNodeException":
-      throw await deserializeAws_json1_0InvalidNodeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNodeExceptionRes(parsedOutput, context);
     case "InvalidSignalsException":
     case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await deserializeAws_json1_0InvalidSignalsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3618,16 +4062,19 @@ const deserializeAws_json1_0UpdateSignalCatalogCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateVehicleCommand = async (
+/**
+ * deserializeAws_json1_0UpdateVehicleCommand
+ */
+export const de_UpdateVehicleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateVehicleCommandError(output, context);
+    return de_UpdateVehicleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateVehicleResponse(data, context);
+  contents = de_UpdateVehicleResponse(data, context);
   const response: UpdateVehicleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3635,7 +4082,10 @@ export const deserializeAws_json1_0UpdateVehicleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateVehicleCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateVehicleCommandError
+ */
+const de_UpdateVehicleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVehicleCommandOutput> => {
@@ -3647,22 +4097,22 @@ const deserializeAws_json1_0UpdateVehicleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3674,12 +4124,15 @@ const deserializeAws_json1_0UpdateVehicleCommandError = async (
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3687,12 +4140,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3700,12 +4153,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0DecoderManifestValidationExceptionResponse = async (
+/**
+ * deserializeAws_json1_0DecoderManifestValidationExceptionRes
+ */
+const de_DecoderManifestValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DecoderManifestValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0DecoderManifestValidationException(body, context);
+  const deserialized: any = de_DecoderManifestValidationException(body, context);
   const exception = new DecoderManifestValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3713,12 +4169,15 @@ const deserializeAws_json1_0DecoderManifestValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3726,12 +4185,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidNodeExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidNodeExceptionRes
+ */
+const de_InvalidNodeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidNodeException(body, context);
+  const deserialized: any = de_InvalidNodeException(body, context);
   const exception = new InvalidNodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3739,12 +4201,15 @@ const deserializeAws_json1_0InvalidNodeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidSignalsExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidSignalsExceptionRes
+ */
+const de_InvalidSignalsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSignalsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidSignalsException(body, context);
+  const deserialized: any = de_InvalidSignalsException(body, context);
   const exception = new InvalidSignalsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3752,12 +4217,15 @@ const deserializeAws_json1_0InvalidSignalsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3765,12 +4233,15 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3778,12 +4249,12 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3791,12 +4262,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3804,11 +4275,12 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0Actuator = (input: Actuator, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Actuator
+ */
+const se_Actuator = (input: Actuator, context: __SerdeContext): any => {
   return {
-    ...(input.allowedValues != null && {
-      allowedValues: serializeAws_json1_0listOfStrings(input.allowedValues, context),
-    }),
+    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
     ...(input.assignedValue != null && { assignedValue: input.assignedValue }),
     ...(input.dataType != null && { dataType: input.dataType }),
     ...(input.description != null && { description: input.description }),
@@ -3819,21 +4291,22 @@ const serializeAws_json1_0Actuator = (input: Actuator, context: __SerdeContext):
   };
 };
 
-const serializeAws_json1_0AssociateVehicleFleetRequest = (
-  input: AssociateVehicleFleetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0AssociateVehicleFleetRequest
+ */
+const se_AssociateVehicleFleetRequest = (input: AssociateVehicleFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.fleetId != null && { fleetId: input.fleetId }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0Attribute = (input: Attribute, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Attribute
+ */
+const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.allowedValues != null && {
-      allowedValues: serializeAws_json1_0listOfStrings(input.allowedValues, context),
-    }),
+    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
     ...(input.assignedValue != null && { assignedValue: input.assignedValue }),
     ...(input.dataType != null && { dataType: input.dataType }),
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
@@ -3845,7 +4318,10 @@ const serializeAws_json1_0Attribute = (input: Attribute, context: __SerdeContext
   };
 };
 
-const serializeAws_json1_0attributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0attributesMap
+ */
+const se_attributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3855,40 +4331,49 @@ const serializeAws_json1_0attributesMap = (input: Record<string, string>, contex
   }, {});
 };
 
-const serializeAws_json1_0BatchCreateVehicleRequest = (
-  input: BatchCreateVehicleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0BatchCreateVehicleRequest
+ */
+const se_BatchCreateVehicleRequest = (input: BatchCreateVehicleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.vehicles != null && { vehicles: serializeAws_json1_0createVehicleRequestItems(input.vehicles, context) }),
+    ...(input.vehicles != null && { vehicles: se_createVehicleRequestItems(input.vehicles, context) }),
   };
 };
 
-const serializeAws_json1_0BatchUpdateVehicleRequest = (
-  input: BatchUpdateVehicleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0BatchUpdateVehicleRequest
+ */
+const se_BatchUpdateVehicleRequest = (input: BatchUpdateVehicleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.vehicles != null && { vehicles: serializeAws_json1_0updateVehicleRequestItems(input.vehicles, context) }),
+    ...(input.vehicles != null && { vehicles: se_updateVehicleRequestItems(input.vehicles, context) }),
   };
 };
 
-const serializeAws_json1_0Branch = (input: Branch, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Branch
+ */
+const se_Branch = (input: Branch, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
   };
 };
 
-const serializeAws_json1_0CanDbcDefinition = (input: CanDbcDefinition, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CanDbcDefinition
+ */
+const se_CanDbcDefinition = (input: CanDbcDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.canDbcFiles != null && { canDbcFiles: serializeAws_json1_0NetworkFilesList(input.canDbcFiles, context) }),
+    ...(input.canDbcFiles != null && { canDbcFiles: se_NetworkFilesList(input.canDbcFiles, context) }),
     ...(input.networkInterface != null && { networkInterface: input.networkInterface }),
-    ...(input.signalsMap != null && { signalsMap: serializeAws_json1_0ModelSignalsMap(input.signalsMap, context) }),
+    ...(input.signalsMap != null && { signalsMap: se_ModelSignalsMap(input.signalsMap, context) }),
   };
 };
 
-const serializeAws_json1_0CanInterface = (input: CanInterface, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CanInterface
+ */
+const se_CanInterface = (input: CanInterface, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.protocolName != null && { protocolName: input.protocolName }),
@@ -3896,7 +4381,10 @@ const serializeAws_json1_0CanInterface = (input: CanInterface, context: __SerdeC
   };
 };
 
-const serializeAws_json1_0CanSignal = (input: CanSignal, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CanSignal
+ */
+const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
   return {
     ...(input.factor != null && { factor: __serializeFloat(input.factor) }),
     ...(input.isBigEndian != null && { isBigEndian: input.isBigEndian }),
@@ -3909,32 +4397,33 @@ const serializeAws_json1_0CanSignal = (input: CanSignal, context: __SerdeContext
   };
 };
 
-const serializeAws_json1_0CloudWatchLogDeliveryOptions = (
-  input: CloudWatchLogDeliveryOptions,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CloudWatchLogDeliveryOptions
+ */
+const se_CloudWatchLogDeliveryOptions = (input: CloudWatchLogDeliveryOptions, context: __SerdeContext): any => {
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logType != null && { logType: input.logType }),
   };
 };
 
-const serializeAws_json1_0CollectionScheme = (input: CollectionScheme, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CollectionScheme
+ */
+const se_CollectionScheme = (input: CollectionScheme, context: __SerdeContext): any => {
   return CollectionScheme.visit(input, {
     conditionBasedCollectionScheme: (value) => ({
-      conditionBasedCollectionScheme: serializeAws_json1_0ConditionBasedCollectionScheme(value, context),
+      conditionBasedCollectionScheme: se_ConditionBasedCollectionScheme(value, context),
     }),
-    timeBasedCollectionScheme: (value) => ({
-      timeBasedCollectionScheme: serializeAws_json1_0TimeBasedCollectionScheme(value, context),
-    }),
+    timeBasedCollectionScheme: (value) => ({ timeBasedCollectionScheme: se_TimeBasedCollectionScheme(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0ConditionBasedCollectionScheme = (
-  input: ConditionBasedCollectionScheme,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ConditionBasedCollectionScheme
+ */
+const se_ConditionBasedCollectionScheme = (input: ConditionBasedCollectionScheme, context: __SerdeContext): any => {
   return {
     ...(input.conditionLanguageVersion != null && { conditionLanguageVersion: input.conditionLanguageVersion }),
     ...(input.expression != null && { expression: input.expression }),
@@ -3943,14 +4432,15 @@ const serializeAws_json1_0ConditionBasedCollectionScheme = (
   };
 };
 
-const serializeAws_json1_0CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateCampaignRequest
+ */
+const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.collectionScheme != null && {
-      collectionScheme: serializeAws_json1_0CollectionScheme(input.collectionScheme, context),
-    }),
+    ...(input.collectionScheme != null && { collectionScheme: se_CollectionScheme(input.collectionScheme, context) }),
     ...(input.compression != null && { compression: input.compression }),
     ...(input.dataExtraDimensions != null && {
-      dataExtraDimensions: serializeAws_json1_0DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
+      dataExtraDimensions: se_DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.diagnosticsMode != null && { diagnosticsMode: input.diagnosticsMode }),
@@ -3962,104 +4452,111 @@ const serializeAws_json1_0CreateCampaignRequest = (input: CreateCampaignRequest,
     ...(input.priority != null && { priority: input.priority }),
     ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
     ...(input.signalsToCollect != null && {
-      signalsToCollect: serializeAws_json1_0SignalInformationList(input.signalsToCollect, context),
+      signalsToCollect: se_SignalInformationList(input.signalsToCollect, context),
     }),
     ...(input.spoolingMode != null && { spoolingMode: input.spoolingMode }),
     ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.targetArn != null && { targetArn: input.targetArn }),
   };
 };
 
-const serializeAws_json1_0CreateDecoderManifestRequest = (
-  input: CreateDecoderManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateDecoderManifestRequest
+ */
+const se_CreateDecoderManifestRequest = (input: CreateDecoderManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
     ...(input.name != null && { name: input.name }),
     ...(input.networkInterfaces != null && {
-      networkInterfaces: serializeAws_json1_0NetworkInterfaces(input.networkInterfaces, context),
+      networkInterfaces: se_NetworkInterfaces(input.networkInterfaces, context),
     }),
-    ...(input.signalDecoders != null && {
-      signalDecoders: serializeAws_json1_0SignalDecoders(input.signalDecoders, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.signalDecoders != null && { signalDecoders: se_SignalDecoders(input.signalDecoders, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateFleetRequest
+ */
+const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.fleetId != null && { fleetId: input.fleetId }),
     ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateModelManifestRequest = (
-  input: CreateModelManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateModelManifestRequest
+ */
+const se_CreateModelManifestRequest = (input: CreateModelManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.nodes != null && { nodes: serializeAws_json1_0listOfStrings(input.nodes, context) }),
+    ...(input.nodes != null && { nodes: se_listOfStrings(input.nodes, context) }),
     ...(input.signalCatalogArn != null && { signalCatalogArn: input.signalCatalogArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateSignalCatalogRequest = (
-  input: CreateSignalCatalogRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateSignalCatalogRequest
+ */
+const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.nodes != null && { nodes: serializeAws_json1_0Nodes(input.nodes, context) }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.nodes != null && { nodes: se_Nodes(input.nodes, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateVehicleRequest = (input: CreateVehicleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateVehicleRequest
+ */
+const se_CreateVehicleRequest = (input: CreateVehicleRequest, context: __SerdeContext): any => {
   return {
     ...(input.associationBehavior != null && { associationBehavior: input.associationBehavior }),
-    ...(input.attributes != null && { attributes: serializeAws_json1_0attributesMap(input.attributes, context) }),
+    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
     ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0CreateVehicleRequestItem = (
-  input: CreateVehicleRequestItem,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateVehicleRequestItem
+ */
+const se_CreateVehicleRequestItem = (input: CreateVehicleRequestItem, context: __SerdeContext): any => {
   return {
     ...(input.associationBehavior != null && { associationBehavior: input.associationBehavior }),
-    ...(input.attributes != null && { attributes: serializeAws_json1_0attributesMap(input.attributes, context) }),
+    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
     ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0createVehicleRequestItems = (
-  input: CreateVehicleRequestItem[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0createVehicleRequestItems
+ */
+const se_createVehicleRequestItems = (input: CreateVehicleRequestItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0CreateVehicleRequestItem(entry, context);
+      return se_CreateVehicleRequestItem(entry, context);
     });
 };
 
-const serializeAws_json1_0DataExtraDimensionNodePathList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DataExtraDimensionNodePathList
+ */
+const se_DataExtraDimensionNodePathList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4067,69 +4564,84 @@ const serializeAws_json1_0DataExtraDimensionNodePathList = (input: string[], con
     });
 };
 
-const serializeAws_json1_0DeleteCampaignRequest = (input: DeleteCampaignRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteCampaignRequest
+ */
+const se_DeleteCampaignRequest = (input: DeleteCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0DeleteDecoderManifestRequest = (
-  input: DeleteDecoderManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteDecoderManifestRequest
+ */
+const se_DeleteDecoderManifestRequest = (input: DeleteDecoderManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteFleetRequest
+ */
+const se_DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.fleetId != null && { fleetId: input.fleetId }),
   };
 };
 
-const serializeAws_json1_0DeleteModelManifestRequest = (
-  input: DeleteModelManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteModelManifestRequest
+ */
+const se_DeleteModelManifestRequest = (input: DeleteModelManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0DeleteSignalCatalogRequest = (
-  input: DeleteSignalCatalogRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteSignalCatalogRequest
+ */
+const se_DeleteSignalCatalogRequest = (input: DeleteSignalCatalogRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0DeleteVehicleRequest = (input: DeleteVehicleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteVehicleRequest
+ */
+const se_DeleteVehicleRequest = (input: DeleteVehicleRequest, context: __SerdeContext): any => {
   return {
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0DisassociateVehicleFleetRequest = (
-  input: DisassociateVehicleFleetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DisassociateVehicleFleetRequest
+ */
+const se_DisassociateVehicleFleetRequest = (input: DisassociateVehicleFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.fleetId != null && { fleetId: input.fleetId }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0FormattedVss = (input: FormattedVss, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0FormattedVss
+ */
+const se_FormattedVss = (input: FormattedVss, context: __SerdeContext): any => {
   return FormattedVss.visit(input, {
     vssJson: (value) => ({ vssJson: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0Fqns = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Fqns
+ */
+const se_Fqns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4137,60 +4649,78 @@ const serializeAws_json1_0Fqns = (input: string[], context: __SerdeContext): any
     });
 };
 
-const serializeAws_json1_0GetCampaignRequest = (input: GetCampaignRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetCampaignRequest
+ */
+const se_GetCampaignRequest = (input: GetCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0GetDecoderManifestRequest = (
-  input: GetDecoderManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetDecoderManifestRequest
+ */
+const se_GetDecoderManifestRequest = (input: GetDecoderManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0GetFleetRequest = (input: GetFleetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetFleetRequest
+ */
+const se_GetFleetRequest = (input: GetFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.fleetId != null && { fleetId: input.fleetId }),
   };
 };
 
-const serializeAws_json1_0GetLoggingOptionsRequest = (
-  input: GetLoggingOptionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetLoggingOptionsRequest
+ */
+const se_GetLoggingOptionsRequest = (input: GetLoggingOptionsRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0GetModelManifestRequest = (input: GetModelManifestRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetModelManifestRequest
+ */
+const se_GetModelManifestRequest = (input: GetModelManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0GetRegisterAccountStatusRequest = (
-  input: GetRegisterAccountStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetRegisterAccountStatusRequest
+ */
+const se_GetRegisterAccountStatusRequest = (input: GetRegisterAccountStatusRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0GetSignalCatalogRequest = (input: GetSignalCatalogRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetSignalCatalogRequest
+ */
+const se_GetSignalCatalogRequest = (input: GetSignalCatalogRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0GetVehicleRequest = (input: GetVehicleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetVehicleRequest
+ */
+const se_GetVehicleRequest = (input: GetVehicleRequest, context: __SerdeContext): any => {
   return {
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0GetVehicleStatusRequest = (input: GetVehicleStatusRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetVehicleStatusRequest
+ */
+const se_GetVehicleStatusRequest = (input: GetVehicleStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -4198,37 +4728,43 @@ const serializeAws_json1_0GetVehicleStatusRequest = (input: GetVehicleStatusRequ
   };
 };
 
-const serializeAws_json1_0IamResources = (input: IamResources, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0IamResources
+ */
+const se_IamResources = (input: IamResources, context: __SerdeContext): any => {
   return {
     ...(input.roleArn != null && { roleArn: input.roleArn }),
   };
 };
 
-const serializeAws_json1_0ImportDecoderManifestRequest = (
-  input: ImportDecoderManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ImportDecoderManifestRequest
+ */
+const se_ImportDecoderManifestRequest = (input: ImportDecoderManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.networkFileDefinitions != null && {
-      networkFileDefinitions: serializeAws_json1_0NetworkFileDefinitions(input.networkFileDefinitions, context),
+      networkFileDefinitions: se_NetworkFileDefinitions(input.networkFileDefinitions, context),
     }),
   };
 };
 
-const serializeAws_json1_0ImportSignalCatalogRequest = (
-  input: ImportSignalCatalogRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ImportSignalCatalogRequest
+ */
+const se_ImportSignalCatalogRequest = (input: ImportSignalCatalogRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.vss != null && { vss: serializeAws_json1_0FormattedVss(input.vss, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
+    ...(input.vss != null && { vss: se_FormattedVss(input.vss, context) }),
   };
 };
 
-const serializeAws_json1_0InterfaceIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0InterfaceIds
+ */
+const se_InterfaceIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4236,7 +4772,10 @@ const serializeAws_json1_0InterfaceIds = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_0ListCampaignsRequest = (input: ListCampaignsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListCampaignsRequest
+ */
+const se_ListCampaignsRequest = (input: ListCampaignsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -4244,7 +4783,10 @@ const serializeAws_json1_0ListCampaignsRequest = (input: ListCampaignsRequest, c
   };
 };
 
-const serializeAws_json1_0ListDecoderManifestNetworkInterfacesRequest = (
+/**
+ * serializeAws_json1_0ListDecoderManifestNetworkInterfacesRequest
+ */
+const se_ListDecoderManifestNetworkInterfacesRequest = (
   input: ListDecoderManifestNetworkInterfacesRequest,
   context: __SerdeContext
 ): any => {
@@ -4255,7 +4797,10 @@ const serializeAws_json1_0ListDecoderManifestNetworkInterfacesRequest = (
   };
 };
 
-const serializeAws_json1_0ListDecoderManifestSignalsRequest = (
+/**
+ * serializeAws_json1_0ListDecoderManifestSignalsRequest
+ */
+const se_ListDecoderManifestSignalsRequest = (
   input: ListDecoderManifestSignalsRequest,
   context: __SerdeContext
 ): any => {
@@ -4266,10 +4811,10 @@ const serializeAws_json1_0ListDecoderManifestSignalsRequest = (
   };
 };
 
-const serializeAws_json1_0ListDecoderManifestsRequest = (
-  input: ListDecoderManifestsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListDecoderManifestsRequest
+ */
+const se_ListDecoderManifestsRequest = (input: ListDecoderManifestsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
@@ -4277,10 +4822,10 @@ const serializeAws_json1_0ListDecoderManifestsRequest = (
   };
 };
 
-const serializeAws_json1_0ListFleetsForVehicleRequest = (
-  input: ListFleetsForVehicleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListFleetsForVehicleRequest
+ */
+const se_ListFleetsForVehicleRequest = (input: ListFleetsForVehicleRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -4288,17 +4833,20 @@ const serializeAws_json1_0ListFleetsForVehicleRequest = (
   };
 };
 
-const serializeAws_json1_0ListFleetsRequest = (input: ListFleetsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListFleetsRequest
+ */
+const se_ListFleetsRequest = (input: ListFleetsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_0ListModelManifestNodesRequest = (
-  input: ListModelManifestNodesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListModelManifestNodesRequest
+ */
+const se_ListModelManifestNodesRequest = (input: ListModelManifestNodesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.name != null && { name: input.name }),
@@ -4306,10 +4854,10 @@ const serializeAws_json1_0ListModelManifestNodesRequest = (
   };
 };
 
-const serializeAws_json1_0ListModelManifestsRequest = (
-  input: ListModelManifestsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListModelManifestsRequest
+ */
+const se_ListModelManifestsRequest = (input: ListModelManifestsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -4317,7 +4865,10 @@ const serializeAws_json1_0ListModelManifestsRequest = (
   };
 };
 
-const serializeAws_json1_0listOfStrings = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0listOfStrings
+ */
+const se_listOfStrings = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4325,10 +4876,10 @@ const serializeAws_json1_0listOfStrings = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_0ListSignalCatalogNodesRequest = (
-  input: ListSignalCatalogNodesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListSignalCatalogNodesRequest
+ */
+const se_ListSignalCatalogNodesRequest = (input: ListSignalCatalogNodesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.name != null && { name: input.name }),
@@ -4336,29 +4887,29 @@ const serializeAws_json1_0ListSignalCatalogNodesRequest = (
   };
 };
 
-const serializeAws_json1_0ListSignalCatalogsRequest = (
-  input: ListSignalCatalogsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListSignalCatalogsRequest
+ */
+const se_ListSignalCatalogsRequest = (input: ListSignalCatalogsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
-const serializeAws_json1_0ListVehiclesInFleetRequest = (
-  input: ListVehiclesInFleetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListVehiclesInFleetRequest
+ */
+const se_ListVehiclesInFleetRequest = (input: ListVehiclesInFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.fleetId != null && { fleetId: input.fleetId }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
@@ -4366,7 +4917,10 @@ const serializeAws_json1_0ListVehiclesInFleetRequest = (
   };
 };
 
-const serializeAws_json1_0ListVehiclesRequest = (input: ListVehiclesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListVehiclesRequest
+ */
+const se_ListVehiclesRequest = (input: ListVehiclesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
@@ -4374,7 +4928,10 @@ const serializeAws_json1_0ListVehiclesRequest = (input: ListVehiclesRequest, con
   };
 };
 
-const serializeAws_json1_0ModelSignalsMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ModelSignalsMap
+ */
+const se_ModelSignalsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4384,22 +4941,31 @@ const serializeAws_json1_0ModelSignalsMap = (input: Record<string, string>, cont
   }, {});
 };
 
-const serializeAws_json1_0NetworkFileDefinition = (input: NetworkFileDefinition, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkFileDefinition
+ */
+const se_NetworkFileDefinition = (input: NetworkFileDefinition, context: __SerdeContext): any => {
   return NetworkFileDefinition.visit(input, {
-    canDbc: (value) => ({ canDbc: serializeAws_json1_0CanDbcDefinition(value, context) }),
+    canDbc: (value) => ({ canDbc: se_CanDbcDefinition(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0NetworkFileDefinitions = (input: NetworkFileDefinition[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkFileDefinitions
+ */
+const se_NetworkFileDefinitions = (input: NetworkFileDefinition[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0NetworkFileDefinition(entry, context);
+      return se_NetworkFileDefinition(entry, context);
     });
 };
 
-const serializeAws_json1_0NetworkFilesList = (input: Uint8Array[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkFilesList
+ */
+const se_NetworkFilesList = (input: Uint8Array[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4407,34 +4973,46 @@ const serializeAws_json1_0NetworkFilesList = (input: Uint8Array[], context: __Se
     });
 };
 
-const serializeAws_json1_0NetworkInterface = (input: NetworkInterface, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkInterface
+ */
+const se_NetworkInterface = (input: NetworkInterface, context: __SerdeContext): any => {
   return {
-    ...(input.canInterface != null && { canInterface: serializeAws_json1_0CanInterface(input.canInterface, context) }),
+    ...(input.canInterface != null && { canInterface: se_CanInterface(input.canInterface, context) }),
     ...(input.interfaceId != null && { interfaceId: input.interfaceId }),
-    ...(input.obdInterface != null && { obdInterface: serializeAws_json1_0ObdInterface(input.obdInterface, context) }),
+    ...(input.obdInterface != null && { obdInterface: se_ObdInterface(input.obdInterface, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0NetworkInterfaces = (input: NetworkInterface[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkInterfaces
+ */
+const se_NetworkInterfaces = (input: NetworkInterface[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0NetworkInterface(entry, context);
+      return se_NetworkInterface(entry, context);
     });
 };
 
-const serializeAws_json1_0Node = (input: Node, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Node
+ */
+const se_Node = (input: Node, context: __SerdeContext): any => {
   return Node.visit(input, {
-    actuator: (value) => ({ actuator: serializeAws_json1_0Actuator(value, context) }),
-    attribute: (value) => ({ attribute: serializeAws_json1_0Attribute(value, context) }),
-    branch: (value) => ({ branch: serializeAws_json1_0Branch(value, context) }),
-    sensor: (value) => ({ sensor: serializeAws_json1_0Sensor(value, context) }),
+    actuator: (value) => ({ actuator: se_Actuator(value, context) }),
+    attribute: (value) => ({ attribute: se_Attribute(value, context) }),
+    branch: (value) => ({ branch: se_Branch(value, context) }),
+    sensor: (value) => ({ sensor: se_Sensor(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_0NodePaths = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NodePaths
+ */
+const se_NodePaths = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4442,15 +5020,21 @@ const serializeAws_json1_0NodePaths = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_json1_0Nodes = (input: Node[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Nodes
+ */
+const se_Nodes = (input: Node[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Node(entry, context);
+      return se_Node(entry, context);
     });
 };
 
-const serializeAws_json1_0ObdInterface = (input: ObdInterface, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ObdInterface
+ */
+const se_ObdInterface = (input: ObdInterface, context: __SerdeContext): any => {
   return {
     ...(input.dtcRequestIntervalSeconds != null && { dtcRequestIntervalSeconds: input.dtcRequestIntervalSeconds }),
     ...(input.hasTransmissionEcu != null && { hasTransmissionEcu: input.hasTransmissionEcu }),
@@ -4462,7 +5046,10 @@ const serializeAws_json1_0ObdInterface = (input: ObdInterface, context: __SerdeC
   };
 };
 
-const serializeAws_json1_0ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ObdSignal
+ */
+const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
   return {
     ...(input.bitMaskLength != null && { bitMaskLength: input.bitMaskLength }),
     ...(input.bitRightShift != null && { bitRightShift: input.bitRightShift }),
@@ -4476,31 +5063,35 @@ const serializeAws_json1_0ObdSignal = (input: ObdSignal, context: __SerdeContext
   };
 };
 
-const serializeAws_json1_0PutLoggingOptionsRequest = (
-  input: PutLoggingOptionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0PutLoggingOptionsRequest
+ */
+const se_PutLoggingOptionsRequest = (input: PutLoggingOptionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatchLogDelivery != null && {
-      cloudWatchLogDelivery: serializeAws_json1_0CloudWatchLogDeliveryOptions(input.cloudWatchLogDelivery, context),
+      cloudWatchLogDelivery: se_CloudWatchLogDeliveryOptions(input.cloudWatchLogDelivery, context),
     }),
   };
 };
 
-const serializeAws_json1_0RegisterAccountRequest = (input: RegisterAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0RegisterAccountRequest
+ */
+const se_RegisterAccountRequest = (input: RegisterAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.iamResources != null && { iamResources: serializeAws_json1_0IamResources(input.iamResources, context) }),
+    ...(input.iamResources != null && { iamResources: se_IamResources(input.iamResources, context) }),
     ...(input.timestreamResources != null && {
-      timestreamResources: serializeAws_json1_0TimestreamResources(input.timestreamResources, context),
+      timestreamResources: se_TimestreamResources(input.timestreamResources, context),
     }),
   };
 };
 
-const serializeAws_json1_0Sensor = (input: Sensor, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Sensor
+ */
+const se_Sensor = (input: Sensor, context: __SerdeContext): any => {
   return {
-    ...(input.allowedValues != null && {
-      allowedValues: serializeAws_json1_0listOfStrings(input.allowedValues, context),
-    }),
+    ...(input.allowedValues != null && { allowedValues: se_listOfStrings(input.allowedValues, context) }),
     ...(input.dataType != null && { dataType: input.dataType }),
     ...(input.description != null && { description: input.description }),
     ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
@@ -4510,25 +5101,34 @@ const serializeAws_json1_0Sensor = (input: Sensor, context: __SerdeContext): any
   };
 };
 
-const serializeAws_json1_0SignalDecoder = (input: SignalDecoder, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SignalDecoder
+ */
+const se_SignalDecoder = (input: SignalDecoder, context: __SerdeContext): any => {
   return {
-    ...(input.canSignal != null && { canSignal: serializeAws_json1_0CanSignal(input.canSignal, context) }),
+    ...(input.canSignal != null && { canSignal: se_CanSignal(input.canSignal, context) }),
     ...(input.fullyQualifiedName != null && { fullyQualifiedName: input.fullyQualifiedName }),
     ...(input.interfaceId != null && { interfaceId: input.interfaceId }),
-    ...(input.obdSignal != null && { obdSignal: serializeAws_json1_0ObdSignal(input.obdSignal, context) }),
+    ...(input.obdSignal != null && { obdSignal: se_ObdSignal(input.obdSignal, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0SignalDecoders = (input: SignalDecoder[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SignalDecoders
+ */
+const se_SignalDecoders = (input: SignalDecoder[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0SignalDecoder(entry, context);
+      return se_SignalDecoder(entry, context);
     });
 };
 
-const serializeAws_json1_0SignalInformation = (input: SignalInformation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SignalInformation
+ */
+const se_SignalInformation = (input: SignalInformation, context: __SerdeContext): any => {
   return {
     ...(input.maxSampleCount != null && { maxSampleCount: input.maxSampleCount }),
     ...(input.minimumSamplingIntervalMs != null && { minimumSamplingIntervalMs: input.minimumSamplingIntervalMs }),
@@ -4536,22 +5136,31 @@ const serializeAws_json1_0SignalInformation = (input: SignalInformation, context
   };
 };
 
-const serializeAws_json1_0SignalInformationList = (input: SignalInformation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SignalInformationList
+ */
+const se_SignalInformationList = (input: SignalInformation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0SignalInformation(entry, context);
+      return se_SignalInformation(entry, context);
     });
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4559,161 +5168,187 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0TimeBasedCollectionScheme = (
-  input: TimeBasedCollectionScheme,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0TimeBasedCollectionScheme
+ */
+const se_TimeBasedCollectionScheme = (input: TimeBasedCollectionScheme, context: __SerdeContext): any => {
   return {
     ...(input.periodMs != null && { periodMs: input.periodMs }),
   };
 };
 
-const serializeAws_json1_0TimestreamResources = (input: TimestreamResources, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TimestreamResources
+ */
+const se_TimestreamResources = (input: TimestreamResources, context: __SerdeContext): any => {
   return {
     ...(input.timestreamDatabaseName != null && { timestreamDatabaseName: input.timestreamDatabaseName }),
     ...(input.timestreamTableName != null && { timestreamTableName: input.timestreamTableName }),
   };
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateCampaignRequest
+ */
+const se_UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.action != null && { action: input.action }),
     ...(input.dataExtraDimensions != null && {
-      dataExtraDimensions: serializeAws_json1_0DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
+      dataExtraDimensions: se_DataExtraDimensionNodePathList(input.dataExtraDimensions, context),
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_0UpdateDecoderManifestRequest = (
-  input: UpdateDecoderManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateDecoderManifestRequest
+ */
+const se_UpdateDecoderManifestRequest = (input: UpdateDecoderManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
     ...(input.networkInterfacesToAdd != null && {
-      networkInterfacesToAdd: serializeAws_json1_0NetworkInterfaces(input.networkInterfacesToAdd, context),
+      networkInterfacesToAdd: se_NetworkInterfaces(input.networkInterfacesToAdd, context),
     }),
     ...(input.networkInterfacesToRemove != null && {
-      networkInterfacesToRemove: serializeAws_json1_0InterfaceIds(input.networkInterfacesToRemove, context),
+      networkInterfacesToRemove: se_InterfaceIds(input.networkInterfacesToRemove, context),
     }),
     ...(input.networkInterfacesToUpdate != null && {
-      networkInterfacesToUpdate: serializeAws_json1_0NetworkInterfaces(input.networkInterfacesToUpdate, context),
+      networkInterfacesToUpdate: se_NetworkInterfaces(input.networkInterfacesToUpdate, context),
     }),
     ...(input.signalDecodersToAdd != null && {
-      signalDecodersToAdd: serializeAws_json1_0SignalDecoders(input.signalDecodersToAdd, context),
+      signalDecodersToAdd: se_SignalDecoders(input.signalDecodersToAdd, context),
     }),
     ...(input.signalDecodersToRemove != null && {
-      signalDecodersToRemove: serializeAws_json1_0Fqns(input.signalDecodersToRemove, context),
+      signalDecodersToRemove: se_Fqns(input.signalDecodersToRemove, context),
     }),
     ...(input.signalDecodersToUpdate != null && {
-      signalDecodersToUpdate: serializeAws_json1_0SignalDecoders(input.signalDecodersToUpdate, context),
+      signalDecodersToUpdate: se_SignalDecoders(input.signalDecodersToUpdate, context),
     }),
     ...(input.status != null && { status: input.status }),
   };
 };
 
-const serializeAws_json1_0UpdateFleetRequest = (input: UpdateFleetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateFleetRequest
+ */
+const se_UpdateFleetRequest = (input: UpdateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.fleetId != null && { fleetId: input.fleetId }),
   };
 };
 
-const serializeAws_json1_0UpdateModelManifestRequest = (
-  input: UpdateModelManifestRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateModelManifestRequest
+ */
+const se_UpdateModelManifestRequest = (input: UpdateModelManifestRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.nodesToAdd != null && { nodesToAdd: serializeAws_json1_0NodePaths(input.nodesToAdd, context) }),
-    ...(input.nodesToRemove != null && { nodesToRemove: serializeAws_json1_0NodePaths(input.nodesToRemove, context) }),
+    ...(input.nodesToAdd != null && { nodesToAdd: se_NodePaths(input.nodesToAdd, context) }),
+    ...(input.nodesToRemove != null && { nodesToRemove: se_NodePaths(input.nodesToRemove, context) }),
     ...(input.status != null && { status: input.status }),
   };
 };
 
-const serializeAws_json1_0UpdateSignalCatalogRequest = (
-  input: UpdateSignalCatalogRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateSignalCatalogRequest
+ */
+const se_UpdateSignalCatalogRequest = (input: UpdateSignalCatalogRequest, context: __SerdeContext): any => {
   return {
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.nodesToAdd != null && { nodesToAdd: serializeAws_json1_0Nodes(input.nodesToAdd, context) }),
-    ...(input.nodesToRemove != null && { nodesToRemove: serializeAws_json1_0NodePaths(input.nodesToRemove, context) }),
-    ...(input.nodesToUpdate != null && { nodesToUpdate: serializeAws_json1_0Nodes(input.nodesToUpdate, context) }),
+    ...(input.nodesToAdd != null && { nodesToAdd: se_Nodes(input.nodesToAdd, context) }),
+    ...(input.nodesToRemove != null && { nodesToRemove: se_NodePaths(input.nodesToRemove, context) }),
+    ...(input.nodesToUpdate != null && { nodesToUpdate: se_Nodes(input.nodesToUpdate, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateVehicleRequest = (input: UpdateVehicleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateVehicleRequest
+ */
+const se_UpdateVehicleRequest = (input: UpdateVehicleRequest, context: __SerdeContext): any => {
   return {
     ...(input.attributeUpdateMode != null && { attributeUpdateMode: input.attributeUpdateMode }),
-    ...(input.attributes != null && { attributes: serializeAws_json1_0attributesMap(input.attributes, context) }),
+    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
     ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0UpdateVehicleRequestItem = (
-  input: UpdateVehicleRequestItem,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateVehicleRequestItem
+ */
+const se_UpdateVehicleRequestItem = (input: UpdateVehicleRequestItem, context: __SerdeContext): any => {
   return {
     ...(input.attributeUpdateMode != null && { attributeUpdateMode: input.attributeUpdateMode }),
-    ...(input.attributes != null && { attributes: serializeAws_json1_0attributesMap(input.attributes, context) }),
+    ...(input.attributes != null && { attributes: se_attributesMap(input.attributes, context) }),
     ...(input.decoderManifestArn != null && { decoderManifestArn: input.decoderManifestArn }),
     ...(input.modelManifestArn != null && { modelManifestArn: input.modelManifestArn }),
     ...(input.vehicleName != null && { vehicleName: input.vehicleName }),
   };
 };
 
-const serializeAws_json1_0updateVehicleRequestItems = (
-  input: UpdateVehicleRequestItem[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0updateVehicleRequestItems
+ */
+const se_updateVehicleRequestItems = (input: UpdateVehicleRequestItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0UpdateVehicleRequestItem(entry, context);
+      return se_UpdateVehicleRequestItem(entry, context);
     });
 };
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_0AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0Actuator = (output: any, context: __SerdeContext): Actuator => {
+/**
+ * deserializeAws_json1_0Actuator
+ */
+const de_Actuator = (output: any, context: __SerdeContext): Actuator => {
   return {
-    allowedValues:
-      output.allowedValues != null ? deserializeAws_json1_0listOfStrings(output.allowedValues, context) : undefined,
+    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
     assignedValue: __expectString(output.assignedValue),
     dataType: __expectString(output.dataType),
     description: __expectString(output.description),
@@ -4724,17 +5359,19 @@ const deserializeAws_json1_0Actuator = (output: any, context: __SerdeContext): A
   } as any;
 };
 
-const deserializeAws_json1_0AssociateVehicleFleetResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateVehicleFleetResponse => {
+/**
+ * deserializeAws_json1_0AssociateVehicleFleetResponse
+ */
+const de_AssociateVehicleFleetResponse = (output: any, context: __SerdeContext): AssociateVehicleFleetResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0Attribute = (output: any, context: __SerdeContext): Attribute => {
+/**
+ * deserializeAws_json1_0Attribute
+ */
+const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    allowedValues:
-      output.allowedValues != null ? deserializeAws_json1_0listOfStrings(output.allowedValues, context) : undefined,
+    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
     assignedValue: __expectString(output.assignedValue),
     dataType: __expectString(output.dataType),
     defaultValue: __expectString(output.defaultValue),
@@ -4746,7 +5383,10 @@ const deserializeAws_json1_0Attribute = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_0attributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_json1_0attributesMap
+ */
+const de_attributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4756,48 +5396,55 @@ const deserializeAws_json1_0attributesMap = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_json1_0BatchCreateVehicleResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateVehicleResponse => {
+/**
+ * deserializeAws_json1_0BatchCreateVehicleResponse
+ */
+const de_BatchCreateVehicleResponse = (output: any, context: __SerdeContext): BatchCreateVehicleResponse => {
   return {
-    errors: output.errors != null ? deserializeAws_json1_0createVehicleErrors(output.errors, context) : undefined,
-    vehicles:
-      output.vehicles != null ? deserializeAws_json1_0createVehicleResponses(output.vehicles, context) : undefined,
+    errors: output.errors != null ? de_createVehicleErrors(output.errors, context) : undefined,
+    vehicles: output.vehicles != null ? de_createVehicleResponses(output.vehicles, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0BatchUpdateVehicleResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchUpdateVehicleResponse => {
+/**
+ * deserializeAws_json1_0BatchUpdateVehicleResponse
+ */
+const de_BatchUpdateVehicleResponse = (output: any, context: __SerdeContext): BatchUpdateVehicleResponse => {
   return {
-    errors: output.errors != null ? deserializeAws_json1_0updateVehicleErrors(output.errors, context) : undefined,
-    vehicles:
-      output.vehicles != null ? deserializeAws_json1_0updateVehicleResponseItems(output.vehicles, context) : undefined,
+    errors: output.errors != null ? de_updateVehicleErrors(output.errors, context) : undefined,
+    vehicles: output.vehicles != null ? de_updateVehicleResponseItems(output.vehicles, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0Branch = (output: any, context: __SerdeContext): Branch => {
+/**
+ * deserializeAws_json1_0Branch
+ */
+const de_Branch = (output: any, context: __SerdeContext): Branch => {
   return {
     description: __expectString(output.description),
     fullyQualifiedName: __expectString(output.fullyQualifiedName),
   } as any;
 };
 
-const deserializeAws_json1_0campaignSummaries = (output: any, context: __SerdeContext): CampaignSummary[] => {
+/**
+ * deserializeAws_json1_0campaignSummaries
+ */
+const de_campaignSummaries = (output: any, context: __SerdeContext): CampaignSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CampaignSummary(entry, context);
+      return de_CampaignSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
+/**
+ * deserializeAws_json1_0CampaignSummary
+ */
+const de_CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -4816,7 +5463,10 @@ const deserializeAws_json1_0CampaignSummary = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_0CanInterface = (output: any, context: __SerdeContext): CanInterface => {
+/**
+ * deserializeAws_json1_0CanInterface
+ */
+const de_CanInterface = (output: any, context: __SerdeContext): CanInterface => {
   return {
     name: __expectString(output.name),
     protocolName: __expectString(output.protocolName),
@@ -4824,7 +5474,10 @@ const deserializeAws_json1_0CanInterface = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0CanSignal = (output: any, context: __SerdeContext): CanSignal => {
+/**
+ * deserializeAws_json1_0CanSignal
+ */
+const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
   return {
     factor: __limitedParseDouble(output.factor),
     isBigEndian: __expectBoolean(output.isBigEndian),
@@ -4837,40 +5490,37 @@ const deserializeAws_json1_0CanSignal = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_0CloudWatchLogDeliveryOptions = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLogDeliveryOptions => {
+/**
+ * deserializeAws_json1_0CloudWatchLogDeliveryOptions
+ */
+const de_CloudWatchLogDeliveryOptions = (output: any, context: __SerdeContext): CloudWatchLogDeliveryOptions => {
   return {
     logGroupName: __expectString(output.logGroupName),
     logType: __expectString(output.logType),
   } as any;
 };
 
-const deserializeAws_json1_0CollectionScheme = (output: any, context: __SerdeContext): CollectionScheme => {
+/**
+ * deserializeAws_json1_0CollectionScheme
+ */
+const de_CollectionScheme = (output: any, context: __SerdeContext): CollectionScheme => {
   if (output.conditionBasedCollectionScheme != null) {
     return {
-      conditionBasedCollectionScheme: deserializeAws_json1_0ConditionBasedCollectionScheme(
-        output.conditionBasedCollectionScheme,
-        context
-      ),
+      conditionBasedCollectionScheme: de_ConditionBasedCollectionScheme(output.conditionBasedCollectionScheme, context),
     };
   }
   if (output.timeBasedCollectionScheme != null) {
     return {
-      timeBasedCollectionScheme: deserializeAws_json1_0TimeBasedCollectionScheme(
-        output.timeBasedCollectionScheme,
-        context
-      ),
+      timeBasedCollectionScheme: de_TimeBasedCollectionScheme(output.timeBasedCollectionScheme, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0ConditionBasedCollectionScheme = (
-  output: any,
-  context: __SerdeContext
-): ConditionBasedCollectionScheme => {
+/**
+ * deserializeAws_json1_0ConditionBasedCollectionScheme
+ */
+const de_ConditionBasedCollectionScheme = (output: any, context: __SerdeContext): ConditionBasedCollectionScheme => {
   return {
     conditionLanguageVersion: __expectInt32(output.conditionLanguageVersion),
     expression: __expectString(output.expression),
@@ -4879,7 +5529,10 @@ const deserializeAws_json1_0ConditionBasedCollectionScheme = (
   } as any;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: __expectString(output.message),
     resource: __expectString(output.resource),
@@ -4887,51 +5540,60 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
+/**
+ * deserializeAws_json1_0CreateCampaignResponse
+ */
+const de_CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0CreateDecoderManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDecoderManifestResponse => {
+/**
+ * deserializeAws_json1_0CreateDecoderManifestResponse
+ */
+const de_CreateDecoderManifestResponse = (output: any, context: __SerdeContext): CreateDecoderManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0CreateFleetResponse = (output: any, context: __SerdeContext): CreateFleetResponse => {
+/**
+ * deserializeAws_json1_0CreateFleetResponse
+ */
+const de_CreateFleetResponse = (output: any, context: __SerdeContext): CreateFleetResponse => {
   return {
     arn: __expectString(output.arn),
     id: __expectString(output.id),
   } as any;
 };
 
-const deserializeAws_json1_0CreateModelManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateModelManifestResponse => {
+/**
+ * deserializeAws_json1_0CreateModelManifestResponse
+ */
+const de_CreateModelManifestResponse = (output: any, context: __SerdeContext): CreateModelManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0CreateSignalCatalogResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSignalCatalogResponse => {
+/**
+ * deserializeAws_json1_0CreateSignalCatalogResponse
+ */
+const de_CreateSignalCatalogResponse = (output: any, context: __SerdeContext): CreateSignalCatalogResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0CreateVehicleError = (output: any, context: __SerdeContext): CreateVehicleError => {
+/**
+ * deserializeAws_json1_0CreateVehicleError
+ */
+const de_CreateVehicleError = (output: any, context: __SerdeContext): CreateVehicleError => {
   return {
     code: __expectString(output.code),
     message: __expectString(output.message),
@@ -4939,19 +5601,25 @@ const deserializeAws_json1_0CreateVehicleError = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_0createVehicleErrors = (output: any, context: __SerdeContext): CreateVehicleError[] => {
+/**
+ * deserializeAws_json1_0createVehicleErrors
+ */
+const de_createVehicleErrors = (output: any, context: __SerdeContext): CreateVehicleError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CreateVehicleError(entry, context);
+      return de_CreateVehicleError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CreateVehicleResponse = (output: any, context: __SerdeContext): CreateVehicleResponse => {
+/**
+ * deserializeAws_json1_0CreateVehicleResponse
+ */
+const de_CreateVehicleResponse = (output: any, context: __SerdeContext): CreateVehicleResponse => {
   return {
     arn: __expectString(output.arn),
     thingArn: __expectString(output.thingArn),
@@ -4959,10 +5627,10 @@ const deserializeAws_json1_0CreateVehicleResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0CreateVehicleResponseItem = (
-  output: any,
-  context: __SerdeContext
-): CreateVehicleResponseItem => {
+/**
+ * deserializeAws_json1_0CreateVehicleResponseItem
+ */
+const de_CreateVehicleResponseItem = (output: any, context: __SerdeContext): CreateVehicleResponseItem => {
   return {
     arn: __expectString(output.arn),
     thingArn: __expectString(output.thingArn),
@@ -4970,22 +5638,25 @@ const deserializeAws_json1_0CreateVehicleResponseItem = (
   } as any;
 };
 
-const deserializeAws_json1_0createVehicleResponses = (
-  output: any,
-  context: __SerdeContext
-): CreateVehicleResponseItem[] => {
+/**
+ * deserializeAws_json1_0createVehicleResponses
+ */
+const de_createVehicleResponses = (output: any, context: __SerdeContext): CreateVehicleResponseItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CreateVehicleResponseItem(entry, context);
+      return de_CreateVehicleResponseItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DataExtraDimensionNodePathList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0DataExtraDimensionNodePathList
+ */
+const de_DataExtraDimensionNodePathList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4997,22 +5668,25 @@ const deserializeAws_json1_0DataExtraDimensionNodePathList = (output: any, conte
   return retVal;
 };
 
-const deserializeAws_json1_0decoderManifestSummaries = (
-  output: any,
-  context: __SerdeContext
-): DecoderManifestSummary[] => {
+/**
+ * deserializeAws_json1_0decoderManifestSummaries
+ */
+const de_decoderManifestSummaries = (output: any, context: __SerdeContext): DecoderManifestSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0DecoderManifestSummary(entry, context);
+      return de_DecoderManifestSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DecoderManifestSummary = (output: any, context: __SerdeContext): DecoderManifestSummary => {
+/**
+ * deserializeAws_json1_0DecoderManifestSummary
+ */
+const de_DecoderManifestSummary = (output: any, context: __SerdeContext): DecoderManifestSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5030,82 +5704,98 @@ const deserializeAws_json1_0DecoderManifestSummary = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0DecoderManifestValidationException = (
+/**
+ * deserializeAws_json1_0DecoderManifestValidationException
+ */
+const de_DecoderManifestValidationException = (
   output: any,
   context: __SerdeContext
 ): DecoderManifestValidationException => {
   return {
     invalidNetworkInterfaces:
       output.invalidNetworkInterfaces != null
-        ? deserializeAws_json1_0InvalidNetworkInterfaces(output.invalidNetworkInterfaces, context)
+        ? de_InvalidNetworkInterfaces(output.invalidNetworkInterfaces, context)
         : undefined,
     invalidSignals:
-      output.invalidSignals != null
-        ? deserializeAws_json1_0InvalidSignalDecoders(output.invalidSignals, context)
-        : undefined,
+      output.invalidSignals != null ? de_InvalidSignalDecoders(output.invalidSignals, context) : undefined,
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteCampaignResponse = (output: any, context: __SerdeContext): DeleteCampaignResponse => {
+/**
+ * deserializeAws_json1_0DeleteCampaignResponse
+ */
+const de_DeleteCampaignResponse = (output: any, context: __SerdeContext): DeleteCampaignResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteDecoderManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteDecoderManifestResponse => {
+/**
+ * deserializeAws_json1_0DeleteDecoderManifestResponse
+ */
+const de_DeleteDecoderManifestResponse = (output: any, context: __SerdeContext): DeleteDecoderManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteFleetResponse = (output: any, context: __SerdeContext): DeleteFleetResponse => {
+/**
+ * deserializeAws_json1_0DeleteFleetResponse
+ */
+const de_DeleteFleetResponse = (output: any, context: __SerdeContext): DeleteFleetResponse => {
   return {
     arn: __expectString(output.arn),
     id: __expectString(output.id),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteModelManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteModelManifestResponse => {
+/**
+ * deserializeAws_json1_0DeleteModelManifestResponse
+ */
+const de_DeleteModelManifestResponse = (output: any, context: __SerdeContext): DeleteModelManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteSignalCatalogResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSignalCatalogResponse => {
+/**
+ * deserializeAws_json1_0DeleteSignalCatalogResponse
+ */
+const de_DeleteSignalCatalogResponse = (output: any, context: __SerdeContext): DeleteSignalCatalogResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0DeleteVehicleResponse = (output: any, context: __SerdeContext): DeleteVehicleResponse => {
+/**
+ * deserializeAws_json1_0DeleteVehicleResponse
+ */
+const de_DeleteVehicleResponse = (output: any, context: __SerdeContext): DeleteVehicleResponse => {
   return {
     arn: __expectString(output.arn),
     vehicleName: __expectString(output.vehicleName),
   } as any;
 };
 
-const deserializeAws_json1_0DisassociateVehicleFleetResponse = (
+/**
+ * deserializeAws_json1_0DisassociateVehicleFleetResponse
+ */
+const de_DisassociateVehicleFleetResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateVehicleFleetResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0fleets = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0fleets
+ */
+const de_fleets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5117,19 +5807,25 @@ const deserializeAws_json1_0fleets = (output: any, context: __SerdeContext): str
   return retVal;
 };
 
-const deserializeAws_json1_0fleetSummaries = (output: any, context: __SerdeContext): FleetSummary[] => {
+/**
+ * deserializeAws_json1_0fleetSummaries
+ */
+const de_fleetSummaries = (output: any, context: __SerdeContext): FleetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0FleetSummary(entry, context);
+      return de_FleetSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
+/**
+ * deserializeAws_json1_0FleetSummary
+ */
+const de_FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5146,12 +5842,15 @@ const deserializeAws_json1_0FleetSummary = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0GetCampaignResponse = (output: any, context: __SerdeContext): GetCampaignResponse => {
+/**
+ * deserializeAws_json1_0GetCampaignResponse
+ */
+const de_GetCampaignResponse = (output: any, context: __SerdeContext): GetCampaignResponse => {
   return {
     arn: __expectString(output.arn),
     collectionScheme:
       output.collectionScheme != null
-        ? deserializeAws_json1_0CollectionScheme(__expectUnion(output.collectionScheme), context)
+        ? de_CollectionScheme(__expectUnion(output.collectionScheme), context)
         : undefined,
     compression: __expectString(output.compression),
     creationTime:
@@ -5160,7 +5859,7 @@ const deserializeAws_json1_0GetCampaignResponse = (output: any, context: __Serde
         : undefined,
     dataExtraDimensions:
       output.dataExtraDimensions != null
-        ? deserializeAws_json1_0DataExtraDimensionNodePathList(output.dataExtraDimensions, context)
+        ? de_DataExtraDimensionNodePathList(output.dataExtraDimensions, context)
         : undefined,
     description: __expectString(output.description),
     diagnosticsMode: __expectString(output.diagnosticsMode),
@@ -5175,9 +5874,7 @@ const deserializeAws_json1_0GetCampaignResponse = (output: any, context: __Serde
     priority: __expectInt32(output.priority),
     signalCatalogArn: __expectString(output.signalCatalogArn),
     signalsToCollect:
-      output.signalsToCollect != null
-        ? deserializeAws_json1_0SignalInformationList(output.signalsToCollect, context)
-        : undefined,
+      output.signalsToCollect != null ? de_SignalInformationList(output.signalsToCollect, context) : undefined,
     spoolingMode: __expectString(output.spoolingMode),
     startTime:
       output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
@@ -5186,10 +5883,10 @@ const deserializeAws_json1_0GetCampaignResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_0GetDecoderManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDecoderManifestResponse => {
+/**
+ * deserializeAws_json1_0GetDecoderManifestResponse
+ */
+const de_GetDecoderManifestResponse = (output: any, context: __SerdeContext): GetDecoderManifestResponse => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5207,7 +5904,10 @@ const deserializeAws_json1_0GetDecoderManifestResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0GetFleetResponse = (output: any, context: __SerdeContext): GetFleetResponse => {
+/**
+ * deserializeAws_json1_0GetFleetResponse
+ */
+const de_GetFleetResponse = (output: any, context: __SerdeContext): GetFleetResponse => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5224,22 +5924,22 @@ const deserializeAws_json1_0GetFleetResponse = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0GetLoggingOptionsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLoggingOptionsResponse => {
+/**
+ * deserializeAws_json1_0GetLoggingOptionsResponse
+ */
+const de_GetLoggingOptionsResponse = (output: any, context: __SerdeContext): GetLoggingOptionsResponse => {
   return {
     cloudWatchLogDelivery:
       output.cloudWatchLogDelivery != null
-        ? deserializeAws_json1_0CloudWatchLogDeliveryOptions(output.cloudWatchLogDelivery, context)
+        ? de_CloudWatchLogDeliveryOptions(output.cloudWatchLogDelivery, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetModelManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): GetModelManifestResponse => {
+/**
+ * deserializeAws_json1_0GetModelManifestResponse
+ */
+const de_GetModelManifestResponse = (output: any, context: __SerdeContext): GetModelManifestResponse => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5257,7 +5957,10 @@ const deserializeAws_json1_0GetModelManifestResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0GetRegisterAccountStatusResponse = (
+/**
+ * deserializeAws_json1_0GetRegisterAccountStatusResponse
+ */
+const de_GetRegisterAccountStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetRegisterAccountStatusResponse => {
@@ -5270,7 +5973,7 @@ const deserializeAws_json1_0GetRegisterAccountStatusResponse = (
     customerAccountId: __expectString(output.customerAccountId),
     iamRegistrationResponse:
       output.iamRegistrationResponse != null
-        ? deserializeAws_json1_0IamRegistrationResponse(output.iamRegistrationResponse, context)
+        ? de_IamRegistrationResponse(output.iamRegistrationResponse, context)
         : undefined,
     lastModificationTime:
       output.lastModificationTime != null
@@ -5278,15 +5981,15 @@ const deserializeAws_json1_0GetRegisterAccountStatusResponse = (
         : undefined,
     timestreamRegistrationResponse:
       output.timestreamRegistrationResponse != null
-        ? deserializeAws_json1_0TimestreamRegistrationResponse(output.timestreamRegistrationResponse, context)
+        ? de_TimestreamRegistrationResponse(output.timestreamRegistrationResponse, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetSignalCatalogResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSignalCatalogResponse => {
+/**
+ * deserializeAws_json1_0GetSignalCatalogResponse
+ */
+const de_GetSignalCatalogResponse = (output: any, context: __SerdeContext): GetSignalCatalogResponse => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5299,14 +6002,17 @@ const deserializeAws_json1_0GetSignalCatalogResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
         : undefined,
     name: __expectString(output.name),
-    nodeCounts: output.nodeCounts != null ? deserializeAws_json1_0NodeCounts(output.nodeCounts, context) : undefined,
+    nodeCounts: output.nodeCounts != null ? de_NodeCounts(output.nodeCounts, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetVehicleResponse = (output: any, context: __SerdeContext): GetVehicleResponse => {
+/**
+ * deserializeAws_json1_0GetVehicleResponse
+ */
+const de_GetVehicleResponse = (output: any, context: __SerdeContext): GetVehicleResponse => {
   return {
     arn: __expectString(output.arn),
-    attributes: output.attributes != null ? deserializeAws_json1_0attributesMap(output.attributes, context) : undefined,
+    attributes: output.attributes != null ? de_attributesMap(output.attributes, context) : undefined,
     creationTime:
       output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
@@ -5321,21 +6027,20 @@ const deserializeAws_json1_0GetVehicleResponse = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_0GetVehicleStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetVehicleStatusResponse => {
+/**
+ * deserializeAws_json1_0GetVehicleStatusResponse
+ */
+const de_GetVehicleStatusResponse = (output: any, context: __SerdeContext): GetVehicleStatusResponse => {
   return {
-    campaigns:
-      output.campaigns != null ? deserializeAws_json1_0VehicleStatusList(output.campaigns, context) : undefined,
+    campaigns: output.campaigns != null ? de_VehicleStatusList(output.campaigns, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0IamRegistrationResponse = (
-  output: any,
-  context: __SerdeContext
-): IamRegistrationResponse => {
+/**
+ * deserializeAws_json1_0IamRegistrationResponse
+ */
+const de_IamRegistrationResponse = (output: any, context: __SerdeContext): IamRegistrationResponse => {
   return {
     errorMessage: __expectString(output.errorMessage),
     registrationStatus: __expectString(output.registrationStatus),
@@ -5343,125 +6048,145 @@ const deserializeAws_json1_0IamRegistrationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0IamResources = (output: any, context: __SerdeContext): IamResources => {
+/**
+ * deserializeAws_json1_0IamResources
+ */
+const de_IamResources = (output: any, context: __SerdeContext): IamResources => {
   return {
     roleArn: __expectString(output.roleArn),
   } as any;
 };
 
-const deserializeAws_json1_0ImportDecoderManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportDecoderManifestResponse => {
+/**
+ * deserializeAws_json1_0ImportDecoderManifestResponse
+ */
+const de_ImportDecoderManifestResponse = (output: any, context: __SerdeContext): ImportDecoderManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0ImportSignalCatalogResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportSignalCatalogResponse => {
+/**
+ * deserializeAws_json1_0ImportSignalCatalogResponse
+ */
+const de_ImportSignalCatalogResponse = (output: any, context: __SerdeContext): ImportSignalCatalogResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     message: __expectString(output.message),
     retryAfterSeconds: __expectInt32(output.retryAfterSeconds),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidNetworkInterface = (
-  output: any,
-  context: __SerdeContext
-): InvalidNetworkInterface => {
+/**
+ * deserializeAws_json1_0InvalidNetworkInterface
+ */
+const de_InvalidNetworkInterface = (output: any, context: __SerdeContext): InvalidNetworkInterface => {
   return {
     interfaceId: __expectString(output.interfaceId),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidNetworkInterfaces = (
-  output: any,
-  context: __SerdeContext
-): InvalidNetworkInterface[] => {
+/**
+ * deserializeAws_json1_0InvalidNetworkInterfaces
+ */
+const de_InvalidNetworkInterfaces = (output: any, context: __SerdeContext): InvalidNetworkInterface[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0InvalidNetworkInterface(entry, context);
+      return de_InvalidNetworkInterface(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0InvalidNodeException = (output: any, context: __SerdeContext): InvalidNodeException => {
+/**
+ * deserializeAws_json1_0InvalidNodeException
+ */
+const de_InvalidNodeException = (output: any, context: __SerdeContext): InvalidNodeException => {
   return {
-    invalidNodes: output.invalidNodes != null ? deserializeAws_json1_0Nodes(output.invalidNodes, context) : undefined,
+    invalidNodes: output.invalidNodes != null ? de_Nodes(output.invalidNodes, context) : undefined,
     message: __expectString(output.message),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidSignal = (output: any, context: __SerdeContext): InvalidSignal => {
+/**
+ * deserializeAws_json1_0InvalidSignal
+ */
+const de_InvalidSignal = (output: any, context: __SerdeContext): InvalidSignal => {
   return {
     name: __expectString(output.name),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidSignalDecoder = (output: any, context: __SerdeContext): InvalidSignalDecoder => {
+/**
+ * deserializeAws_json1_0InvalidSignalDecoder
+ */
+const de_InvalidSignalDecoder = (output: any, context: __SerdeContext): InvalidSignalDecoder => {
   return {
     name: __expectString(output.name),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidSignalDecoders = (output: any, context: __SerdeContext): InvalidSignalDecoder[] => {
+/**
+ * deserializeAws_json1_0InvalidSignalDecoders
+ */
+const de_InvalidSignalDecoders = (output: any, context: __SerdeContext): InvalidSignalDecoder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0InvalidSignalDecoder(entry, context);
+      return de_InvalidSignalDecoder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0InvalidSignals = (output: any, context: __SerdeContext): InvalidSignal[] => {
+/**
+ * deserializeAws_json1_0InvalidSignals
+ */
+const de_InvalidSignals = (output: any, context: __SerdeContext): InvalidSignal[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0InvalidSignal(entry, context);
+      return de_InvalidSignal(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0InvalidSignalsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSignalsException => {
+/**
+ * deserializeAws_json1_0InvalidSignalsException
+ */
+const de_InvalidSignalsException = (output: any, context: __SerdeContext): InvalidSignalsException => {
   return {
-    invalidSignals:
-      output.invalidSignals != null ? deserializeAws_json1_0InvalidSignals(output.invalidSignals, context) : undefined,
+    invalidSignals: output.invalidSignals != null ? de_InvalidSignals(output.invalidSignals, context) : undefined,
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_0LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: __expectString(output.message),
     resourceId: __expectString(output.resourceId),
@@ -5469,91 +6194,98 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
+/**
+ * deserializeAws_json1_0ListCampaignsResponse
+ */
+const de_ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
   return {
     campaignSummaries:
-      output.campaignSummaries != null
-        ? deserializeAws_json1_0campaignSummaries(output.campaignSummaries, context)
-        : undefined,
+      output.campaignSummaries != null ? de_campaignSummaries(output.campaignSummaries, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListDecoderManifestNetworkInterfacesResponse = (
+/**
+ * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesResponse
+ */
+const de_ListDecoderManifestNetworkInterfacesResponse = (
   output: any,
   context: __SerdeContext
 ): ListDecoderManifestNetworkInterfacesResponse => {
   return {
     networkInterfaces:
-      output.networkInterfaces != null
-        ? deserializeAws_json1_0NetworkInterfaces(output.networkInterfaces, context)
-        : undefined,
+      output.networkInterfaces != null ? de_NetworkInterfaces(output.networkInterfaces, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListDecoderManifestSignalsResponse = (
+/**
+ * deserializeAws_json1_0ListDecoderManifestSignalsResponse
+ */
+const de_ListDecoderManifestSignalsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDecoderManifestSignalsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    signalDecoders:
-      output.signalDecoders != null ? deserializeAws_json1_0SignalDecoders(output.signalDecoders, context) : undefined,
+    signalDecoders: output.signalDecoders != null ? de_SignalDecoders(output.signalDecoders, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListDecoderManifestsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDecoderManifestsResponse => {
+/**
+ * deserializeAws_json1_0ListDecoderManifestsResponse
+ */
+const de_ListDecoderManifestsResponse = (output: any, context: __SerdeContext): ListDecoderManifestsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    summaries:
-      output.summaries != null ? deserializeAws_json1_0decoderManifestSummaries(output.summaries, context) : undefined,
+    summaries: output.summaries != null ? de_decoderManifestSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListFleetsForVehicleResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFleetsForVehicleResponse => {
+/**
+ * deserializeAws_json1_0ListFleetsForVehicleResponse
+ */
+const de_ListFleetsForVehicleResponse = (output: any, context: __SerdeContext): ListFleetsForVehicleResponse => {
   return {
-    fleets: output.fleets != null ? deserializeAws_json1_0fleets(output.fleets, context) : undefined,
+    fleets: output.fleets != null ? de_fleets(output.fleets, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListFleetsResponse = (output: any, context: __SerdeContext): ListFleetsResponse => {
+/**
+ * deserializeAws_json1_0ListFleetsResponse
+ */
+const de_ListFleetsResponse = (output: any, context: __SerdeContext): ListFleetsResponse => {
   return {
-    fleetSummaries:
-      output.fleetSummaries != null ? deserializeAws_json1_0fleetSummaries(output.fleetSummaries, context) : undefined,
+    fleetSummaries: output.fleetSummaries != null ? de_fleetSummaries(output.fleetSummaries, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListModelManifestNodesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListModelManifestNodesResponse => {
+/**
+ * deserializeAws_json1_0ListModelManifestNodesResponse
+ */
+const de_ListModelManifestNodesResponse = (output: any, context: __SerdeContext): ListModelManifestNodesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    nodes: output.nodes != null ? deserializeAws_json1_0Nodes(output.nodes, context) : undefined,
+    nodes: output.nodes != null ? de_Nodes(output.nodes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListModelManifestsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListModelManifestsResponse => {
+/**
+ * deserializeAws_json1_0ListModelManifestsResponse
+ */
+const de_ListModelManifestsResponse = (output: any, context: __SerdeContext): ListModelManifestsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    summaries:
-      output.summaries != null ? deserializeAws_json1_0modelManifestSummaries(output.summaries, context) : undefined,
+    summaries: output.summaries != null ? de_modelManifestSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0listOfStrings = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0listOfStrings
+ */
+const de_listOfStrings = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5565,69 +6297,75 @@ const deserializeAws_json1_0listOfStrings = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_0ListSignalCatalogNodesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSignalCatalogNodesResponse => {
+/**
+ * deserializeAws_json1_0ListSignalCatalogNodesResponse
+ */
+const de_ListSignalCatalogNodesResponse = (output: any, context: __SerdeContext): ListSignalCatalogNodesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    nodes: output.nodes != null ? deserializeAws_json1_0Nodes(output.nodes, context) : undefined,
+    nodes: output.nodes != null ? de_Nodes(output.nodes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListSignalCatalogsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSignalCatalogsResponse => {
+/**
+ * deserializeAws_json1_0ListSignalCatalogsResponse
+ */
+const de_ListSignalCatalogsResponse = (output: any, context: __SerdeContext): ListSignalCatalogsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    summaries:
-      output.summaries != null ? deserializeAws_json1_0signalCatalogSummaries(output.summaries, context) : undefined,
+    summaries: output.summaries != null ? de_signalCatalogSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListVehiclesInFleetResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVehiclesInFleetResponse => {
+/**
+ * deserializeAws_json1_0ListVehiclesInFleetResponse
+ */
+const de_ListVehiclesInFleetResponse = (output: any, context: __SerdeContext): ListVehiclesInFleetResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    vehicles: output.vehicles != null ? deserializeAws_json1_0vehicles(output.vehicles, context) : undefined,
+    vehicles: output.vehicles != null ? de_vehicles(output.vehicles, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListVehiclesResponse = (output: any, context: __SerdeContext): ListVehiclesResponse => {
+/**
+ * deserializeAws_json1_0ListVehiclesResponse
+ */
+const de_ListVehiclesResponse = (output: any, context: __SerdeContext): ListVehiclesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
     vehicleSummaries:
-      output.vehicleSummaries != null
-        ? deserializeAws_json1_0vehicleSummaries(output.vehicleSummaries, context)
-        : undefined,
+      output.vehicleSummaries != null ? de_vehicleSummaries(output.vehicleSummaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0modelManifestSummaries = (output: any, context: __SerdeContext): ModelManifestSummary[] => {
+/**
+ * deserializeAws_json1_0modelManifestSummaries
+ */
+const de_modelManifestSummaries = (output: any, context: __SerdeContext): ModelManifestSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ModelManifestSummary(entry, context);
+      return de_ModelManifestSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ModelManifestSummary = (output: any, context: __SerdeContext): ModelManifestSummary => {
+/**
+ * deserializeAws_json1_0ModelManifestSummary
+ */
+const de_ModelManifestSummary = (output: any, context: __SerdeContext): ModelManifestSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5645,54 +6383,64 @@ const deserializeAws_json1_0ModelManifestSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
+/**
+ * deserializeAws_json1_0NetworkInterface
+ */
+const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    canInterface:
-      output.canInterface != null ? deserializeAws_json1_0CanInterface(output.canInterface, context) : undefined,
+    canInterface: output.canInterface != null ? de_CanInterface(output.canInterface, context) : undefined,
     interfaceId: __expectString(output.interfaceId),
-    obdInterface:
-      output.obdInterface != null ? deserializeAws_json1_0ObdInterface(output.obdInterface, context) : undefined,
+    obdInterface: output.obdInterface != null ? de_ObdInterface(output.obdInterface, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
+/**
+ * deserializeAws_json1_0NetworkInterfaces
+ */
+const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0NetworkInterface(entry, context);
+      return de_NetworkInterface(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0Node = (output: any, context: __SerdeContext): Node => {
+/**
+ * deserializeAws_json1_0Node
+ */
+const de_Node = (output: any, context: __SerdeContext): Node => {
   if (output.actuator != null) {
     return {
-      actuator: deserializeAws_json1_0Actuator(output.actuator, context),
+      actuator: de_Actuator(output.actuator, context),
     };
   }
   if (output.attribute != null) {
     return {
-      attribute: deserializeAws_json1_0Attribute(output.attribute, context),
+      attribute: de_Attribute(output.attribute, context),
     };
   }
   if (output.branch != null) {
     return {
-      branch: deserializeAws_json1_0Branch(output.branch, context),
+      branch: de_Branch(output.branch, context),
     };
   }
   if (output.sensor != null) {
     return {
-      sensor: deserializeAws_json1_0Sensor(output.sensor, context),
+      sensor: de_Sensor(output.sensor, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0NodeCounts = (output: any, context: __SerdeContext): NodeCounts => {
+/**
+ * deserializeAws_json1_0NodeCounts
+ */
+const de_NodeCounts = (output: any, context: __SerdeContext): NodeCounts => {
   return {
     totalActuators: __expectInt32(output.totalActuators),
     totalAttributes: __expectInt32(output.totalAttributes),
@@ -5702,19 +6450,25 @@ const deserializeAws_json1_0NodeCounts = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_0Nodes = (output: any, context: __SerdeContext): Node[] => {
+/**
+ * deserializeAws_json1_0Nodes
+ */
+const de_Nodes = (output: any, context: __SerdeContext): Node[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Node(__expectUnion(entry), context);
+      return de_Node(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ObdInterface = (output: any, context: __SerdeContext): ObdInterface => {
+/**
+ * deserializeAws_json1_0ObdInterface
+ */
+const de_ObdInterface = (output: any, context: __SerdeContext): ObdInterface => {
   return {
     dtcRequestIntervalSeconds: __expectInt32(output.dtcRequestIntervalSeconds),
     hasTransmissionEcu: __expectBoolean(output.hasTransmissionEcu),
@@ -5726,7 +6480,10 @@ const deserializeAws_json1_0ObdInterface = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
+/**
+ * deserializeAws_json1_0ObdSignal
+ */
+const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
   return {
     bitMaskLength: __expectInt32(output.bitMaskLength),
     bitRightShift: __expectInt32(output.bitRightShift),
@@ -5740,40 +6497,37 @@ const deserializeAws_json1_0ObdSignal = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_0PutLoggingOptionsResponse = (
-  output: any,
-  context: __SerdeContext
-): PutLoggingOptionsResponse => {
+/**
+ * deserializeAws_json1_0PutLoggingOptionsResponse
+ */
+const de_PutLoggingOptionsResponse = (output: any, context: __SerdeContext): PutLoggingOptionsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0RegisterAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterAccountResponse => {
+/**
+ * deserializeAws_json1_0RegisterAccountResponse
+ */
+const de_RegisterAccountResponse = (output: any, context: __SerdeContext): RegisterAccountResponse => {
   return {
     creationTime:
       output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
-    iamResources:
-      output.iamResources != null ? deserializeAws_json1_0IamResources(output.iamResources, context) : undefined,
+    iamResources: output.iamResources != null ? de_IamResources(output.iamResources, context) : undefined,
     lastModificationTime:
       output.lastModificationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModificationTime)))
         : undefined,
     registerAccountStatus: __expectString(output.registerAccountStatus),
     timestreamResources:
-      output.timestreamResources != null
-        ? deserializeAws_json1_0TimestreamResources(output.timestreamResources, context)
-        : undefined,
+      output.timestreamResources != null ? de_TimestreamResources(output.timestreamResources, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
     resourceId: __expectString(output.resourceId),
@@ -5781,10 +6535,12 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_0Sensor = (output: any, context: __SerdeContext): Sensor => {
+/**
+ * deserializeAws_json1_0Sensor
+ */
+const de_Sensor = (output: any, context: __SerdeContext): Sensor => {
   return {
-    allowedValues:
-      output.allowedValues != null ? deserializeAws_json1_0listOfStrings(output.allowedValues, context) : undefined,
+    allowedValues: output.allowedValues != null ? de_listOfStrings(output.allowedValues, context) : undefined,
     dataType: __expectString(output.dataType),
     description: __expectString(output.description),
     fullyQualifiedName: __expectString(output.fullyQualifiedName),
@@ -5794,19 +6550,25 @@ const deserializeAws_json1_0Sensor = (output: any, context: __SerdeContext): Sen
   } as any;
 };
 
-const deserializeAws_json1_0signalCatalogSummaries = (output: any, context: __SerdeContext): SignalCatalogSummary[] => {
+/**
+ * deserializeAws_json1_0signalCatalogSummaries
+ */
+const de_signalCatalogSummaries = (output: any, context: __SerdeContext): SignalCatalogSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SignalCatalogSummary(entry, context);
+      return de_SignalCatalogSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SignalCatalogSummary = (output: any, context: __SerdeContext): SignalCatalogSummary => {
+/**
+ * deserializeAws_json1_0SignalCatalogSummary
+ */
+const de_SignalCatalogSummary = (output: any, context: __SerdeContext): SignalCatalogSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:
@@ -5821,29 +6583,38 @@ const deserializeAws_json1_0SignalCatalogSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0SignalDecoder = (output: any, context: __SerdeContext): SignalDecoder => {
+/**
+ * deserializeAws_json1_0SignalDecoder
+ */
+const de_SignalDecoder = (output: any, context: __SerdeContext): SignalDecoder => {
   return {
-    canSignal: output.canSignal != null ? deserializeAws_json1_0CanSignal(output.canSignal, context) : undefined,
+    canSignal: output.canSignal != null ? de_CanSignal(output.canSignal, context) : undefined,
     fullyQualifiedName: __expectString(output.fullyQualifiedName),
     interfaceId: __expectString(output.interfaceId),
-    obdSignal: output.obdSignal != null ? deserializeAws_json1_0ObdSignal(output.obdSignal, context) : undefined,
+    obdSignal: output.obdSignal != null ? de_ObdSignal(output.obdSignal, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[] => {
+/**
+ * deserializeAws_json1_0SignalDecoders
+ */
+const de_SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SignalDecoder(entry, context);
+      return de_SignalDecoder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SignalInformation = (output: any, context: __SerdeContext): SignalInformation => {
+/**
+ * deserializeAws_json1_0SignalInformation
+ */
+const de_SignalInformation = (output: any, context: __SerdeContext): SignalInformation => {
   return {
     maxSampleCount: __expectLong(output.maxSampleCount),
     minimumSamplingIntervalMs: __expectLong(output.minimumSamplingIntervalMs),
@@ -5851,42 +6622,57 @@ const deserializeAws_json1_0SignalInformation = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0SignalInformationList = (output: any, context: __SerdeContext): SignalInformation[] => {
+/**
+ * deserializeAws_json1_0SignalInformationList
+ */
+const de_SignalInformationList = (output: any, context: __SerdeContext): SignalInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SignalInformation(entry, context);
+      return de_SignalInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_0ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     message: __expectString(output.message),
     quotaCode: __expectString(output.quotaCode),
@@ -5895,19 +6681,19 @@ const deserializeAws_json1_0ThrottlingException = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_0TimeBasedCollectionScheme = (
-  output: any,
-  context: __SerdeContext
-): TimeBasedCollectionScheme => {
+/**
+ * deserializeAws_json1_0TimeBasedCollectionScheme
+ */
+const de_TimeBasedCollectionScheme = (output: any, context: __SerdeContext): TimeBasedCollectionScheme => {
   return {
     periodMs: __expectLong(output.periodMs),
   } as any;
 };
 
-const deserializeAws_json1_0TimestreamRegistrationResponse = (
-  output: any,
-  context: __SerdeContext
-): TimestreamRegistrationResponse => {
+/**
+ * deserializeAws_json1_0TimestreamRegistrationResponse
+ */
+const de_TimestreamRegistrationResponse = (output: any, context: __SerdeContext): TimestreamRegistrationResponse => {
   return {
     errorMessage: __expectString(output.errorMessage),
     registrationStatus: __expectString(output.registrationStatus),
@@ -5918,18 +6704,27 @@ const deserializeAws_json1_0TimestreamRegistrationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0TimestreamResources = (output: any, context: __SerdeContext): TimestreamResources => {
+/**
+ * deserializeAws_json1_0TimestreamResources
+ */
+const de_TimestreamResources = (output: any, context: __SerdeContext): TimestreamResources => {
   return {
     timestreamDatabaseName: __expectString(output.timestreamDatabaseName),
     timestreamTableName: __expectString(output.timestreamTableName),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
+/**
+ * deserializeAws_json1_0UpdateCampaignResponse
+ */
+const de_UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
@@ -5937,44 +6732,50 @@ const deserializeAws_json1_0UpdateCampaignResponse = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0UpdateDecoderManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDecoderManifestResponse => {
+/**
+ * deserializeAws_json1_0UpdateDecoderManifestResponse
+ */
+const de_UpdateDecoderManifestResponse = (output: any, context: __SerdeContext): UpdateDecoderManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0UpdateFleetResponse = (output: any, context: __SerdeContext): UpdateFleetResponse => {
+/**
+ * deserializeAws_json1_0UpdateFleetResponse
+ */
+const de_UpdateFleetResponse = (output: any, context: __SerdeContext): UpdateFleetResponse => {
   return {
     arn: __expectString(output.arn),
     id: __expectString(output.id),
   } as any;
 };
 
-const deserializeAws_json1_0UpdateModelManifestResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateModelManifestResponse => {
+/**
+ * deserializeAws_json1_0UpdateModelManifestResponse
+ */
+const de_UpdateModelManifestResponse = (output: any, context: __SerdeContext): UpdateModelManifestResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0UpdateSignalCatalogResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSignalCatalogResponse => {
+/**
+ * deserializeAws_json1_0UpdateSignalCatalogResponse
+ */
+const de_UpdateSignalCatalogResponse = (output: any, context: __SerdeContext): UpdateSignalCatalogResponse => {
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0UpdateVehicleError = (output: any, context: __SerdeContext): UpdateVehicleError => {
+/**
+ * deserializeAws_json1_0UpdateVehicleError
+ */
+const de_UpdateVehicleError = (output: any, context: __SerdeContext): UpdateVehicleError => {
   return {
     code: __expectInt32(output.code),
     message: __expectString(output.message),
@@ -5982,87 +6783,96 @@ const deserializeAws_json1_0UpdateVehicleError = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_0updateVehicleErrors = (output: any, context: __SerdeContext): UpdateVehicleError[] => {
+/**
+ * deserializeAws_json1_0updateVehicleErrors
+ */
+const de_updateVehicleErrors = (output: any, context: __SerdeContext): UpdateVehicleError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0UpdateVehicleError(entry, context);
+      return de_UpdateVehicleError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0UpdateVehicleResponse = (output: any, context: __SerdeContext): UpdateVehicleResponse => {
+/**
+ * deserializeAws_json1_0UpdateVehicleResponse
+ */
+const de_UpdateVehicleResponse = (output: any, context: __SerdeContext): UpdateVehicleResponse => {
   return {
     arn: __expectString(output.arn),
     vehicleName: __expectString(output.vehicleName),
   } as any;
 };
 
-const deserializeAws_json1_0UpdateVehicleResponseItem = (
-  output: any,
-  context: __SerdeContext
-): UpdateVehicleResponseItem => {
+/**
+ * deserializeAws_json1_0UpdateVehicleResponseItem
+ */
+const de_UpdateVehicleResponseItem = (output: any, context: __SerdeContext): UpdateVehicleResponseItem => {
   return {
     arn: __expectString(output.arn),
     vehicleName: __expectString(output.vehicleName),
   } as any;
 };
 
-const deserializeAws_json1_0updateVehicleResponseItems = (
-  output: any,
-  context: __SerdeContext
-): UpdateVehicleResponseItem[] => {
+/**
+ * deserializeAws_json1_0updateVehicleResponseItems
+ */
+const de_updateVehicleResponseItems = (output: any, context: __SerdeContext): UpdateVehicleResponseItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0UpdateVehicleResponseItem(entry, context);
+      return de_UpdateVehicleResponseItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    fieldList:
-      output.fieldList != null
-        ? deserializeAws_json1_0ValidationExceptionFieldList(output.fieldList, context)
-        : undefined,
+    fieldList: output.fieldList != null ? de_ValidationExceptionFieldList(output.fieldList, context) : undefined,
     message: __expectString(output.message),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_json1_0ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
+/**
+ * deserializeAws_json1_0ValidationExceptionField
+ */
+const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
   return {
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_0ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
+/**
+ * deserializeAws_json1_0ValidationExceptionFieldList
+ */
+const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ValidationExceptionField(entry, context);
+      return de_ValidationExceptionField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0vehicles = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0vehicles
+ */
+const de_vehicles = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6074,7 +6884,10 @@ const deserializeAws_json1_0vehicles = (output: any, context: __SerdeContext): s
   return retVal;
 };
 
-const deserializeAws_json1_0VehicleStatus = (output: any, context: __SerdeContext): VehicleStatus => {
+/**
+ * deserializeAws_json1_0VehicleStatus
+ */
+const de_VehicleStatus = (output: any, context: __SerdeContext): VehicleStatus => {
   return {
     campaignName: __expectString(output.campaignName),
     status: __expectString(output.status),
@@ -6082,31 +6895,40 @@ const deserializeAws_json1_0VehicleStatus = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_0VehicleStatusList = (output: any, context: __SerdeContext): VehicleStatus[] => {
+/**
+ * deserializeAws_json1_0VehicleStatusList
+ */
+const de_VehicleStatusList = (output: any, context: __SerdeContext): VehicleStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VehicleStatus(entry, context);
+      return de_VehicleStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0vehicleSummaries = (output: any, context: __SerdeContext): VehicleSummary[] => {
+/**
+ * deserializeAws_json1_0vehicleSummaries
+ */
+const de_vehicleSummaries = (output: any, context: __SerdeContext): VehicleSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VehicleSummary(entry, context);
+      return de_VehicleSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VehicleSummary = (output: any, context: __SerdeContext): VehicleSummary => {
+/**
+ * deserializeAws_json1_0VehicleSummary
+ */
+const de_VehicleSummary = (output: any, context: __SerdeContext): VehicleSummary => {
   return {
     arn: __expectString(output.arn),
     creationTime:

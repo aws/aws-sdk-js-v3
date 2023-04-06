@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
-  serializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RefreshTrustedAdvisorCheckCommand, se_RefreshTrustedAdvisorCheckCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -148,7 +145,7 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
    * @internal
    */
   private serialize(input: RefreshTrustedAdvisorCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(input, context);
+    return se_RefreshTrustedAdvisorCheckCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput> {
-    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(output, context);
+    return de_RefreshTrustedAdvisorCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

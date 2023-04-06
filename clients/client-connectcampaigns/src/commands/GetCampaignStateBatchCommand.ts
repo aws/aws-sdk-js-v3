@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { GetCampaignStateBatchRequest, GetCampaignStateBatchResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCampaignStateBatchCommand,
-  serializeAws_restJson1GetCampaignStateBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignStateBatchCommand, se_GetCampaignStateBatchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetCampaignStateBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCampaignStateBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignStateBatchCommand(input, context);
+    return se_GetCampaignStateBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignStateBatchCommandOutput> {
-    return deserializeAws_restJson1GetCampaignStateBatchCommand(output, context);
+    return de_GetCampaignStateBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

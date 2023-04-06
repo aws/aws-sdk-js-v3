@@ -15,10 +15,7 @@ import {
 
 import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeletePushTemplateCommand,
-  serializeAws_restJson1DeletePushTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePushTemplateCommand, se_DeletePushTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeletePushTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePushTemplateCommand(input, context);
+    return se_DeletePushTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePushTemplateCommandOutput> {
-    return deserializeAws_restJson1DeletePushTemplateCommand(output, context);
+    return de_DeletePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

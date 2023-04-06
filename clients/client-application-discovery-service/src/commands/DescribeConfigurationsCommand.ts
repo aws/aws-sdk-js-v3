@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { DescribeConfigurationsRequest, DescribeConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConfigurationsCommand,
-  serializeAws_json1_1DescribeConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConfigurationsCommand, se_DescribeConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class DescribeConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationsCommand(input, context);
+    return se_DescribeConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationsCommand(output, context);
+    return de_DescribeConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

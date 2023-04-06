@@ -15,10 +15,7 @@ import {
 
 import { EnableAWSServiceAccessRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1EnableAWSServiceAccessCommand,
-  serializeAws_json1_1EnableAWSServiceAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableAWSServiceAccessCommand, se_EnableAWSServiceAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -469,14 +466,14 @@ export class EnableAWSServiceAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableAWSServiceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableAWSServiceAccessCommand(input, context);
+    return se_EnableAWSServiceAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAWSServiceAccessCommandOutput> {
-    return deserializeAws_json1_1EnableAWSServiceAccessCommand(output, context);
+    return de_EnableAWSServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

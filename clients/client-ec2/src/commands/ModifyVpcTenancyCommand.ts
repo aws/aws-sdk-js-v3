@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpcTenancyCommand,
-  serializeAws_ec2ModifyVpcTenancyCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyVpcTenancyCommand, se_ModifyVpcTenancyCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ModifyVpcTenancyCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVpcTenancyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcTenancyCommand(input, context);
+    return se_ModifyVpcTenancyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpcTenancyCommandOutput> {
-    return deserializeAws_ec2ModifyVpcTenancyCommand(output, context);
+    return de_ModifyVpcTenancyCommand(output, context);
   }
 
   // Start section: command_body_extra

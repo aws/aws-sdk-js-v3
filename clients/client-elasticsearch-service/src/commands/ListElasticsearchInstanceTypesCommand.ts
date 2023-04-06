@@ -20,8 +20,8 @@ import {
 } from "../ElasticsearchServiceClient";
 import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
-  serializeAws_restJson1ListElasticsearchInstanceTypesCommand,
+  de_ListElasticsearchInstanceTypesCommand,
+  se_ListElasticsearchInstanceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(input, context);
+    return se_ListElasticsearchInstanceTypesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1ListElasticsearchInstanceTypesCommand(output, context);
+    return de_ListElasticsearchInstanceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

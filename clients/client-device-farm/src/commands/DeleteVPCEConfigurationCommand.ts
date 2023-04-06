@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVPCEConfigurationCommand,
-  serializeAws_json1_1DeleteVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteVPCEConfigurationCommand, se_DeleteVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteVPCEConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVPCEConfigurationCommand(input, context);
+    return se_DeleteVPCEConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteVPCEConfigurationCommand(output, context);
+    return de_DeleteVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

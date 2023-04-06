@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
-  serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
+  de_DeleteRepositoryPermissionsPolicyCommand,
+  se_DeleteRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -165,7 +165,7 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     input: DeleteRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand(input, context);
+    return se_DeleteRepositoryPermissionsPolicyCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRepositoryPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand(output, context);
+    return de_DeleteRepositoryPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

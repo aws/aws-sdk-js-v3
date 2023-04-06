@@ -16,8 +16,8 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { DescribeMediaStorageConfigurationInput, DescribeMediaStorageConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMediaStorageConfigurationCommand,
-  serializeAws_restJson1DescribeMediaStorageConfigurationCommand,
+  de_DescribeMediaStorageConfigurationCommand,
+  se_DescribeMediaStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     input: DescribeMediaStorageConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMediaStorageConfigurationCommand(input, context);
+    return se_DescribeMediaStorageConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMediaStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeMediaStorageConfigurationCommand(output, context);
+    return de_DescribeMediaStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

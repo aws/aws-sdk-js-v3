@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSolNetworkPackagesInput, ListSolNetworkPackagesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolNetworkPackagesCommand,
-  serializeAws_restJson1ListSolNetworkPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSolNetworkPackagesCommand, se_ListSolNetworkPackagesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListSolNetworkPackagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSolNetworkPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolNetworkPackagesCommand(input, context);
+    return se_ListSolNetworkPackagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkPackagesCommandOutput> {
-    return deserializeAws_restJson1ListSolNetworkPackagesCommand(output, context);
+    return de_ListSolNetworkPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

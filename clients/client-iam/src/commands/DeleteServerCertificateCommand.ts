@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServerCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteServerCertificateCommand,
-  serializeAws_queryDeleteServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteServerCertificateCommand, se_DeleteServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteServerCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServerCertificateCommand(input, context);
+    return se_DeleteServerCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCertificateCommandOutput> {
-    return deserializeAws_queryDeleteServerCertificateCommand(output, context);
+    return de_DeleteServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

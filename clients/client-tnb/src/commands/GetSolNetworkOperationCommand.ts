@@ -18,10 +18,7 @@ import {
   GetSolNetworkOperationOutput,
   GetSolNetworkOperationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolNetworkOperationCommand,
-  serializeAws_restJson1GetSolNetworkOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSolNetworkOperationCommand, se_GetSolNetworkOperationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -140,14 +137,14 @@ export class GetSolNetworkOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSolNetworkOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolNetworkOperationCommand(input, context);
+    return se_GetSolNetworkOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolNetworkOperationCommandOutput> {
-    return deserializeAws_restJson1GetSolNetworkOperationCommand(output, context);
+    return de_GetSolNetworkOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

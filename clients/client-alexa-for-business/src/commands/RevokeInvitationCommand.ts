@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeInvitationCommand,
-  serializeAws_json1_1RevokeInvitationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RevokeInvitationCommand, se_RevokeInvitationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class RevokeInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeInvitationCommand(input, context);
+    return se_RevokeInvitationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeInvitationCommandOutput> {
-    return deserializeAws_json1_1RevokeInvitationCommand(output, context);
+    return de_RevokeInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

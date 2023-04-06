@@ -19,8 +19,8 @@ import {
   ListBulkDeploymentDetailedReportsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
-  serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
+  de_ListBulkDeploymentDetailedReportsCommand,
+  se_ListBulkDeploymentDetailedReportsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -133,7 +133,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     input: ListBulkDeploymentDetailedReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(input, context);
+    return se_ListBulkDeploymentDetailedReportsCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> {
-    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(output, context);
+    return de_ListBulkDeploymentDetailedReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetStaticIpsRequest, GetStaticIpsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetStaticIpsCommand,
-  serializeAws_json1_1GetStaticIpsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetStaticIpsCommand, se_GetStaticIpsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetStaticIpsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStaticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStaticIpsCommand(input, context);
+    return se_GetStaticIpsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStaticIpsCommandOutput> {
-    return deserializeAws_json1_1GetStaticIpsCommand(output, context);
+    return de_GetStaticIpsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateCertificateFromCsrRequest, CreateCertificateFromCsrResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCertificateFromCsrCommand,
-  serializeAws_restJson1CreateCertificateFromCsrCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCertificateFromCsrCommand, se_CreateCertificateFromCsrCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class CreateCertificateFromCsrCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCertificateFromCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCertificateFromCsrCommand(input, context);
+    return se_CreateCertificateFromCsrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateFromCsrCommandOutput> {
-    return deserializeAws_restJson1CreateCertificateFromCsrCommand(output, context);
+    return de_CreateCertificateFromCsrCommand(output, context);
   }
 
   // Start section: command_body_extra

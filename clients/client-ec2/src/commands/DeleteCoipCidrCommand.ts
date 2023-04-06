@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteCoipCidrRequest, DeleteCoipCidrResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteCoipCidrCommand, serializeAws_ec2DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
+import { de_DeleteCoipCidrCommand, se_DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +121,14 @@ export class DeleteCoipCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteCoipCidrCommand(input, context);
+    return se_DeleteCoipCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipCidrCommandOutput> {
-    return deserializeAws_ec2DeleteCoipCidrCommand(output, context);
+    return de_DeleteCoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DescribeQuerySuggestionsBlockListResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
+  de_DescribeQuerySuggestionsBlockListCommand,
+  se_DescribeQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     input: DescribeQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(input, context);
+    return se_DescribeQuerySuggestionsBlockListCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(output, context);
+    return de_DescribeQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

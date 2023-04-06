@@ -19,10 +19,7 @@ import {
   UpdateFunctionRequestFilterSensitiveLog,
   UpdateFunctionResult,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateFunctionCommand,
-  serializeAws_restXmlUpdateFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateFunctionCommand, se_UpdateFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateFunctionCommand(input, context);
+    return se_UpdateFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCommandOutput> {
-    return deserializeAws_restXmlUpdateFunctionCommand(output, context);
+    return de_UpdateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

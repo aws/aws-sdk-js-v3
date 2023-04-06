@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagServerCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_queryTagServerCertificateCommand,
-  serializeAws_queryTagServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_TagServerCertificateCommand, se_TagServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -193,14 +190,14 @@ export class TagServerCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: TagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagServerCertificateCommand(input, context);
+    return se_TagServerCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagServerCertificateCommandOutput> {
-    return deserializeAws_queryTagServerCertificateCommand(output, context);
+    return de_TagServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListKeyPhrasesDetectionJobsRequest, ListKeyPhrasesDetectionJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand,
-  serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListKeyPhrasesDetectionJobsCommand, se_ListKeyPhrasesDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListKeyPhrasesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(input, context);
+    return se_ListKeyPhrasesDetectionJobsCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(output, context);
+    return de_ListKeyPhrasesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

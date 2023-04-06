@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateThingTypeRequest, CreateThingTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThingTypeCommand,
-  serializeAws_restJson1CreateThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateThingTypeCommand, se_CreateThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateThingTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThingTypeCommand(input, context);
+    return se_CreateThingTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingTypeCommandOutput> {
-    return deserializeAws_restJson1CreateThingTypeCommand(output, context);
+    return de_CreateThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

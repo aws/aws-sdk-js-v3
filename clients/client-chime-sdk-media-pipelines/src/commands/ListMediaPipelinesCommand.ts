@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { ListMediaPipelinesRequest, ListMediaPipelinesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMediaPipelinesCommand,
-  serializeAws_restJson1ListMediaPipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMediaPipelinesCommand, se_ListMediaPipelinesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListMediaPipelinesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMediaPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMediaPipelinesCommand(input, context);
+    return se_ListMediaPipelinesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMediaPipelinesCommandOutput> {
-    return deserializeAws_restJson1ListMediaPipelinesCommand(output, context);
+    return de_ListMediaPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

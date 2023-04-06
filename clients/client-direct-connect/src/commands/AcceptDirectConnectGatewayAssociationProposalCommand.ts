@@ -19,8 +19,8 @@ import {
   AcceptDirectConnectGatewayAssociationProposalResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,
+  de_AcceptDirectConnectGatewayAssociationProposalCommand,
+  se_AcceptDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(input, context);
+    return se_AcceptDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(output, context);
+    return de_AcceptDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

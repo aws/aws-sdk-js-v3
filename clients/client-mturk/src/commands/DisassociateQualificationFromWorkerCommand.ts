@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1DisassociateQualificationFromWorkerCommand,
-  serializeAws_json1_1DisassociateQualificationFromWorkerCommand,
+  de_DisassociateQualificationFromWorkerCommand,
+  se_DisassociateQualificationFromWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     input: DisassociateQualificationFromWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(input, context);
+    return se_DisassociateQualificationFromWorkerCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> {
-    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(output, context);
+    return de_DisassociateQualificationFromWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

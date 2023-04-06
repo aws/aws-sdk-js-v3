@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { RegisterCertificateWithoutCARequest, RegisterCertificateWithoutCAResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1RegisterCertificateWithoutCACommand,
-  serializeAws_restJson1RegisterCertificateWithoutCACommand,
+  de_RegisterCertificateWithoutCACommand,
+  se_RegisterCertificateWithoutCACommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class RegisterCertificateWithoutCACommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterCertificateWithoutCACommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterCertificateWithoutCACommand(input, context);
+    return se_RegisterCertificateWithoutCACommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterCertificateWithoutCACommandOutput> {
-    return deserializeAws_restJson1RegisterCertificateWithoutCACommand(output, context);
+    return de_RegisterCertificateWithoutCACommand(output, context);
   }
 
   // Start section: command_body_extra

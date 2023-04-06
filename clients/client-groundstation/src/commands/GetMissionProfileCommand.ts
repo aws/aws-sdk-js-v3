@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { GetMissionProfileRequest, GetMissionProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMissionProfileCommand,
-  serializeAws_restJson1GetMissionProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMissionProfileCommand, se_GetMissionProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetMissionProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMissionProfileCommand(input, context);
+    return se_GetMissionProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMissionProfileCommandOutput> {
-    return deserializeAws_restJson1GetMissionProfileCommand(output, context);
+    return de_GetMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

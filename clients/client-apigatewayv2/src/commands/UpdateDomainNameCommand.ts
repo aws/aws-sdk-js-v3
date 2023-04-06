@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainNameCommand,
-  serializeAws_restJson1UpdateDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDomainNameCommand, se_UpdateDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateDomainNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainNameCommand(input, context);
+    return se_UpdateDomainNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
+    return de_UpdateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

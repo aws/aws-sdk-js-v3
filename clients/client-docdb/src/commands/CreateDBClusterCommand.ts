@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterCommand,
-  serializeAws_queryCreateDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -209,14 +206,14 @@ export class CreateDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterCommand(input, context);
+    return se_CreateDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
-    return deserializeAws_queryCreateDBClusterCommand(output, context);
+    return de_CreateDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

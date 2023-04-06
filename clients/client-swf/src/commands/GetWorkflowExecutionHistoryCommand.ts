@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWorkflowExecutionHistoryInput, History } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetWorkflowExecutionHistoryCommand,
-  serializeAws_json1_0GetWorkflowExecutionHistoryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetWorkflowExecutionHistoryCommand, se_GetWorkflowExecutionHistoryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -162,7 +159,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkflowExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(input, context);
+    return se_GetWorkflowExecutionHistoryCommand(input, context);
   }
 
   /**
@@ -172,7 +169,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> {
-    return deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(output, context);
+    return de_GetWorkflowExecutionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

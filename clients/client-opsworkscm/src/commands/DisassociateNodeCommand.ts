@@ -19,10 +19,7 @@ import {
   DisassociateNodeResponse,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DisassociateNodeCommand,
-  serializeAws_json1_1DisassociateNodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateNodeCommand, se_DisassociateNodeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DisassociateNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateNodeCommand(input, context);
+    return se_DisassociateNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateNodeCommandOutput> {
-    return deserializeAws_json1_1DisassociateNodeCommand(output, context);
+    return de_DisassociateNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

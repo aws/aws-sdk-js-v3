@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGatewayGroupCommand,
-  serializeAws_json1_1GetGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetGatewayGroupCommand, se_GetGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class GetGatewayGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGatewayGroupCommand(input, context);
+    return se_GetGatewayGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1GetGatewayGroupCommand(output, context);
+    return de_GetGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

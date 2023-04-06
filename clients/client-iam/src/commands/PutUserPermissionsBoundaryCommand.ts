@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutUserPermissionsBoundaryRequest } from "../models/models_0";
-import {
-  deserializeAws_queryPutUserPermissionsBoundaryCommand,
-  serializeAws_queryPutUserPermissionsBoundaryCommand,
-} from "../protocols/Aws_query";
+import { de_PutUserPermissionsBoundaryCommand, se_PutUserPermissionsBoundaryCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
    * @internal
    */
   private serialize(input: PutUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutUserPermissionsBoundaryCommand(input, context);
+    return se_PutUserPermissionsBoundaryCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryPutUserPermissionsBoundaryCommand(output, context);
+    return de_PutUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

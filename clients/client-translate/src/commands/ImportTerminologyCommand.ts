@@ -18,10 +18,7 @@ import {
   ImportTerminologyRequestFilterSensitiveLog,
   ImportTerminologyResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportTerminologyCommand,
-  serializeAws_json1_1ImportTerminologyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportTerminologyCommand, se_ImportTerminologyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -170,14 +167,14 @@ export class ImportTerminologyCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportTerminologyCommand(input, context);
+    return se_ImportTerminologyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportTerminologyCommandOutput> {
-    return deserializeAws_json1_1ImportTerminologyCommand(output, context);
+    return de_ImportTerminologyCommand(output, context);
   }
 
   // Start section: command_body_extra

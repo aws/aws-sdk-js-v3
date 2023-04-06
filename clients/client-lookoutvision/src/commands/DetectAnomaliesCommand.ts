@@ -19,10 +19,7 @@ import {
   DetectAnomaliesRequestFilterSensitiveLog,
   DetectAnomaliesResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DetectAnomaliesCommand,
-  serializeAws_restJson1DetectAnomaliesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DetectAnomaliesCommand, se_DetectAnomaliesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class DetectAnomaliesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetectAnomaliesCommand(input, context);
+    return se_DetectAnomaliesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectAnomaliesCommandOutput> {
-    return deserializeAws_restJson1DetectAnomaliesCommand(output, context);
+    return de_DetectAnomaliesCommand(output, context);
   }
 
   // Start section: command_body_extra

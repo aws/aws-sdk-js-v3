@@ -19,8 +19,8 @@ import {
   GetThirdPartyFirewallAssociationStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
-  serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
+  de_GetThirdPartyFirewallAssociationStatusCommand,
+  se_GetThirdPartyFirewallAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     input: GetThirdPartyFirewallAssociationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand(input, context);
+    return se_GetThirdPartyFirewallAssociationStatusCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand(output, context);
+    return de_GetThirdPartyFirewallAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

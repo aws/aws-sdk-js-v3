@@ -19,8 +19,8 @@ import {
   DescribeVerifiedAccessTrustProvidersResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand,
-  serializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand,
+  de_DescribeVerifiedAccessTrustProvidersCommand,
+  se_DescribeVerifiedAccessTrustProvidersCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
     input: DescribeVerifiedAccessTrustProvidersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand(input, context);
+    return se_DescribeVerifiedAccessTrustProvidersCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand(output, context);
+    return de_DescribeVerifiedAccessTrustProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

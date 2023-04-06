@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterVersionsCommand,
-  serializeAws_queryDescribeClusterVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterVersionsCommand, se_DescribeClusterVersionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -128,14 +125,14 @@ export class DescribeClusterVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterVersionsCommand(input, context);
+    return se_DescribeClusterVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterVersionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterVersionsCommand(output, context);
+    return de_DescribeClusterVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStorageVirtualMachineCommand,
-  serializeAws_json1_1DeleteStorageVirtualMachineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStorageVirtualMachineCommand, se_DeleteStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStorageVirtualMachineCommand(input, context);
+    return se_DeleteStorageVirtualMachineCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStorageVirtualMachineCommandOutput> {
-    return deserializeAws_json1_1DeleteStorageVirtualMachineCommand(output, context);
+    return de_DeleteStorageVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

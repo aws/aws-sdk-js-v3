@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListOpenWorkflowExecutionsCommand,
-  serializeAws_json1_0ListOpenWorkflowExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListOpenWorkflowExecutionsCommand, se_ListOpenWorkflowExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -190,7 +187,7 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOpenWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListOpenWorkflowExecutionsCommand(input, context);
+    return se_ListOpenWorkflowExecutionsCommand(input, context);
   }
 
   /**
@@ -200,7 +197,7 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListOpenWorkflowExecutionsCommand(output, context);
+    return de_ListOpenWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

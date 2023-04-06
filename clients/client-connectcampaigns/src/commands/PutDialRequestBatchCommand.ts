@@ -19,10 +19,7 @@ import {
   PutDialRequestBatchRequestFilterSensitiveLog,
   PutDialRequestBatchResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDialRequestBatchCommand,
-  serializeAws_restJson1PutDialRequestBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDialRequestBatchCommand, se_PutDialRequestBatchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class PutDialRequestBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDialRequestBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDialRequestBatchCommand(input, context);
+    return se_PutDialRequestBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDialRequestBatchCommandOutput> {
-    return deserializeAws_restJson1PutDialRequestBatchCommand(output, context);
+    return de_PutDialRequestBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

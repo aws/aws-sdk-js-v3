@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetQueryExecutionCommand,
-  serializeAws_json1_1BatchGetQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetQueryExecutionCommand, se_BatchGetQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class BatchGetQueryExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetQueryExecutionCommand(input, context);
+    return se_BatchGetQueryExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1BatchGetQueryExecutionCommand(output, context);
+    return de_BatchGetQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

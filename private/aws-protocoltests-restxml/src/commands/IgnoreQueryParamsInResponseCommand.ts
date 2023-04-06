@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlIgnoreQueryParamsInResponseCommand,
-  serializeAws_restXmlIgnoreQueryParamsInResponseCommand,
-} from "../protocols/Aws_restXml";
+import { de_IgnoreQueryParamsInResponseCommand, se_IgnoreQueryParamsInResponseCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -107,7 +104,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: IgnoreQueryParamsInResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlIgnoreQueryParamsInResponseCommand(input, context);
+    return se_IgnoreQueryParamsInResponseCommand(input, context);
   }
 
   /**
@@ -117,7 +114,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
-    return deserializeAws_restXmlIgnoreQueryParamsInResponseCommand(output, context);
+    return de_IgnoreQueryParamsInResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

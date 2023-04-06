@@ -31,7 +31,10 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1GetEntitlementsCommand = async (
+/**
+ * serializeAws_json1_1GetEntitlementsCommand
+ */
+export const se_GetEntitlementsCommand = async (
   input: GetEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -40,20 +43,23 @@ export const serializeAws_json1_1GetEntitlementsCommand = async (
     "x-amz-target": "AWSMPEntitlementService.GetEntitlements",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetEntitlementsRequest(input, context));
+  body = JSON.stringify(se_GetEntitlementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1GetEntitlementsCommand = async (
+/**
+ * deserializeAws_json1_1GetEntitlementsCommand
+ */
+export const de_GetEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntitlementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetEntitlementsCommandError(output, context);
+    return de_GetEntitlementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEntitlementsResult(data, context);
+  contents = de_GetEntitlementsResult(data, context);
   const response: GetEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -61,7 +67,10 @@ export const deserializeAws_json1_1GetEntitlementsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetEntitlementsCommandError = async (
+/**
+ * deserializeAws_json1_1GetEntitlementsCommandError
+ */
+const de_GetEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntitlementsCommandOutput> => {
@@ -73,13 +82,13 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplaceentitlementservice#InternalServiceErrorException":
-      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.marketplaceentitlementservice#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplaceentitlementservice#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -91,12 +100,15 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
   }
 };
 
-const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(body, context);
+  const deserialized: any = de_InternalServiceErrorException(body, context);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -104,12 +116,15 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -117,12 +132,12 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -130,7 +145,10 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterValueList
+ */
+const se_FilterValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -138,29 +156,38 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1GetEntitlementFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetEntitlementFilters
+ */
+const se_GetEntitlementFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [GetEntitlementFilterName | string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = serializeAws_json1_1FilterValueList(value, context);
+      acc[key] = se_FilterValueList(value, context);
       return acc;
     },
     {}
   );
 };
 
-const serializeAws_json1_1GetEntitlementsRequest = (input: GetEntitlementsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetEntitlementsRequest
+ */
+const se_GetEntitlementsRequest = (input: GetEntitlementsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != null && { Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context) }),
+    ...(input.Filter != null && { Filter: se_GetEntitlementFilters(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
   };
 };
 
-const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
+/**
+ * deserializeAws_json1_1Entitlement
+ */
+const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
     CustomerIdentifier: __expectString(output.CustomerIdentifier),
     Dimension: __expectString(output.Dimension),
@@ -169,23 +196,29 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     ProductCode: __expectString(output.ProductCode),
-    Value: output.Value != null ? deserializeAws_json1_1EntitlementValue(output.Value, context) : undefined,
+    Value: output.Value != null ? de_EntitlementValue(output.Value, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
+/**
+ * deserializeAws_json1_1EntitlementList
+ */
+const de_EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Entitlement(entry, context);
+      return de_Entitlement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
+/**
+ * deserializeAws_json1_1EntitlementValue
+ */
+const de_EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
   return {
     BooleanValue: __expectBoolean(output.BooleanValue),
     DoubleValue: __limitedParseDouble(output.DoubleValue),
@@ -194,33 +227,38 @@ const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
+/**
+ * deserializeAws_json1_1GetEntitlementsResult
+ */
+const de_GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
   return {
-    Entitlements:
-      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
+    Entitlements: output.Entitlements != null ? de_EntitlementList(output.Entitlements, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceErrorException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceErrorException => {
+/**
+ * deserializeAws_json1_1InternalServiceErrorException
+ */
+const de_InternalServiceErrorException = (output: any, context: __SerdeContext): InternalServiceErrorException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     message: __expectString(output.message),
   } as any;

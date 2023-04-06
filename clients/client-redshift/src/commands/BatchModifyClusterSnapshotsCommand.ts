@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchModifyClusterSnapshotsMessage, BatchModifyClusterSnapshotsOutputMessage } from "../models/models_0";
-import {
-  deserializeAws_queryBatchModifyClusterSnapshotsCommand,
-  serializeAws_queryBatchModifyClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_BatchModifyClusterSnapshotsCommand, se_BatchModifyClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -134,7 +131,7 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchModifyClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchModifyClusterSnapshotsCommand(input, context);
+    return se_BatchModifyClusterSnapshotsCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchModifyClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchModifyClusterSnapshotsCommand(output, context);
+    return de_BatchModifyClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

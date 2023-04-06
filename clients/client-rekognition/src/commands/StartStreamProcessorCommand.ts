@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartStreamProcessorRequest, StartStreamProcessorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartStreamProcessorCommand,
-  serializeAws_json1_1StartStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartStreamProcessorCommand, se_StartStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -155,14 +152,14 @@ export class StartStreamProcessorCommand extends $Command<
    * @internal
    */
   private serialize(input: StartStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStreamProcessorCommand(input, context);
+    return se_StartStreamProcessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1StartStreamProcessorCommand(output, context);
+    return de_StartStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

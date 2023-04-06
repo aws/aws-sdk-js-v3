@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateTrialComponentRequest, DisassociateTrialComponentResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DisassociateTrialComponentCommand,
-  serializeAws_json1_1DisassociateTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateTrialComponentCommand, se_DisassociateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,7 +126,7 @@ export class DisassociateTrialComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTrialComponentCommand(input, context);
+    return se_DisassociateTrialComponentCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class DisassociateTrialComponentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DisassociateTrialComponentCommand(output, context);
+    return de_DisassociateTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

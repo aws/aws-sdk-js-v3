@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { StartJobRequest, StartJobResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartJobCommand,
-  serializeAws_restJson1StartJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartJobCommand, se_StartJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class StartJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartJobCommand(input, context);
+    return se_StartJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobCommandOutput> {
-    return deserializeAws_restJson1StartJobCommand(output, context);
+    return de_StartJobCommand(output, context);
   }
 
   // Start section: command_body_extra

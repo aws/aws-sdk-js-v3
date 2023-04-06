@@ -15,10 +15,7 @@ import {
 
 import { UpdateApnsVoipChannelRequest, UpdateApnsVoipChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApnsVoipChannelCommand,
-  serializeAws_restJson1UpdateApnsVoipChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApnsVoipChannelCommand, se_UpdateApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateApnsVoipChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsVoipChannelCommand(input, context);
+    return se_UpdateApnsVoipChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsVoipChannelCommand(output, context);
+    return de_UpdateApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

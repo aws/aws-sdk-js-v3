@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyDomainDkimCommand,
-  serializeAws_queryVerifyDomainDkimCommand,
-} from "../protocols/Aws_query";
+import { de_VerifyDomainDkimCommand, se_VerifyDomainDkimCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -178,14 +175,14 @@ export class VerifyDomainDkimCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyDomainDkimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyDomainDkimCommand(input, context);
+    return se_VerifyDomainDkimCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyDomainDkimCommandOutput> {
-    return deserializeAws_queryVerifyDomainDkimCommand(output, context);
+    return de_VerifyDomainDkimCommand(output, context);
   }
 
   // Start section: command_body_extra

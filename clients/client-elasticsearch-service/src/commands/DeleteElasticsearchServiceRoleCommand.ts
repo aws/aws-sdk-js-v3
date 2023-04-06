@@ -19,8 +19,8 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import {
-  deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
-  serializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
+  de_DeleteElasticsearchServiceRoleCommand,
+  se_DeleteElasticsearchServiceRoleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -133,7 +133,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     input: DeleteElasticsearchServiceRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteElasticsearchServiceRoleCommand(input, context);
+    return se_DeleteElasticsearchServiceRoleCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
-    return deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand(output, context);
+    return de_DeleteElasticsearchServiceRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartExecutionInput, StartExecutionInputFilterSensitiveLog, StartExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartExecutionCommand,
-  serializeAws_json1_0StartExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartExecutionCommand, se_StartExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -166,14 +163,14 @@ export class StartExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartExecutionCommand(input, context);
+    return se_StartExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExecutionCommandOutput> {
-    return deserializeAws_json1_0StartExecutionCommand(output, context);
+    return de_StartExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

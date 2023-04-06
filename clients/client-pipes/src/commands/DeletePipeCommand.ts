@@ -15,10 +15,7 @@ import {
 
 import { DeletePipeRequest, DeletePipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1DeletePipeCommand,
-  serializeAws_restJson1DeletePipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePipeCommand, se_DeletePipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeletePipeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePipeCommand(input, context);
+    return se_DeletePipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipeCommandOutput> {
-    return deserializeAws_restJson1DeletePipeCommand(output, context);
+    return de_DeletePipeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateReceiptFilterRequest, CreateReceiptFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateReceiptFilterCommand,
-  serializeAws_queryCreateReceiptFilterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateReceiptFilterCommand, se_CreateReceiptFilterCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateReceiptFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateReceiptFilterCommand(input, context);
+    return se_CreateReceiptFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptFilterCommandOutput> {
-    return deserializeAws_queryCreateReceiptFilterCommand(output, context);
+    return de_CreateReceiptFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

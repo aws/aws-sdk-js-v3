@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBSecurityStrategyCommand,
-  serializeAws_json1_1UpdateSMBSecurityStrategyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSMBSecurityStrategyCommand, se_UpdateSMBSecurityStrategyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -136,7 +133,7 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSMBSecurityStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBSecurityStrategyCommand(input, context);
+    return se_UpdateSMBSecurityStrategyCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(output, context);
+    return de_UpdateSMBSecurityStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

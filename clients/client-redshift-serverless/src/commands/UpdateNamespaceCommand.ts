@@ -19,10 +19,7 @@ import {
   UpdateNamespaceResponse,
   UpdateNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNamespaceCommand,
-  serializeAws_json1_1UpdateNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNamespaceCommand, se_UpdateNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -153,14 +150,14 @@ export class UpdateNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNamespaceCommand(input, context);
+    return se_UpdateNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNamespaceCommandOutput> {
-    return deserializeAws_json1_1UpdateNamespaceCommand(output, context);
+    return de_UpdateNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

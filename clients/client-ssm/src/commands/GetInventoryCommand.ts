@@ -15,10 +15,7 @@ import {
 
 import { GetInventoryResult } from "../models/models_1";
 import { GetInventoryRequest } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetInventoryCommand,
-  serializeAws_json1_1GetInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInventoryCommand, se_GetInventoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -189,14 +186,14 @@ export class GetInventoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInventoryCommand(input, context);
+    return se_GetInventoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInventoryCommandOutput> {
-    return deserializeAws_json1_1GetInventoryCommand(output, context);
+    return de_GetInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

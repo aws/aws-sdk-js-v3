@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { UpdateFunctionDefinitionRequest, UpdateFunctionDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionDefinitionCommand,
-  serializeAws_restJson1UpdateFunctionDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFunctionDefinitionCommand, se_UpdateFunctionDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class UpdateFunctionDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionDefinitionCommand(input, context);
+    return se_UpdateFunctionDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionDefinitionCommand(output, context);
+    return de_UpdateFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

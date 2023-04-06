@@ -16,8 +16,8 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
-  serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
+  de_DescribeHealthServiceStatusForOrganizationCommand,
+  se_DescribeHealthServiceStatusForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     input: DescribeHealthServiceStatusForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(input, context);
+    return se_DescribeHealthServiceStatusForOrganizationCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(output, context);
+    return de_DescribeHealthServiceStatusForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetSiteInput, GetSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetSiteCommand,
-  serializeAws_restJson1GetSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSiteCommand, se_GetSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
    * @internal
    */
   private serialize(input: GetSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteCommand(input, context);
+    return se_GetSiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteCommandOutput> {
-    return deserializeAws_restJson1GetSiteCommand(output, context);
+    return de_GetSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

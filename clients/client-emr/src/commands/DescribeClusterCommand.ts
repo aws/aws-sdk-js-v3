@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DescribeClusterInput, DescribeClusterOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClusterCommand,
-  serializeAws_json1_1DescribeClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClusterCommand(input, context);
+    return se_DescribeClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
-    return deserializeAws_json1_1DescribeClusterCommand(output, context);
+    return de_DescribeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCertificatesCommand,
-  serializeAws_queryDescribeCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeCertificatesCommand, se_DescribeCertificatesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -76,16 +73,56 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  *         existing certificate.</p>
  *
  *
- * @example To list certificates
+ * @example To describe certificates
  * ```javascript
- * // This example lists up to 20 certificates for the specified certificate identifier.
- * const input = {
- *   "CertificateIdentifier": "rds-ca-2015",
- *   "MaxRecords": 20
- * };
+ * // The following example retrieves the details of the certificate associated with the user's default region.
+ * const input = {};
  * const command = new DescribeCertificatesCommand(input);
- * await client.send(command);
- * // example id: describe-certificates-9d71a70d-7908-4444-b43f-321d842c62dc
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificates": [
+ *     {
+ *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-ecc384-g1",
+ *       "CertificateIdentifier": "rds-ca-ecc384-g1",
+ *       "CertificateType": "CA",
+ *       "CustomerOverride": false,
+ *       "Thumbprint": "24a97b91cbe86911190576c35c36aab4fEXAMPLE",
+ *       "ValidFrom": "2021-05-25T22:41:55+00:00",
+ *       "ValidTill": "2121-05-25T23:41:55+00:00"
+ *     },
+ *     {
+ *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-rsa4096-g1",
+ *       "CertificateIdentifier": "rds-ca-rsa4096-g1",
+ *       "CertificateType": "CA",
+ *       "CustomerOverride": false,
+ *       "Thumbprint": "9da6fa7fd2ec09c569a400d876b01b0c1EXAMPLE",
+ *       "ValidFrom": "2021-05-25T22:38:35+00:00",
+ *       "ValidTill": "2121-05-25T23:38:35+00:00"
+ *     },
+ *     {
+ *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-rsa2048-g1",
+ *       "CertificateIdentifier": "rds-ca-rsa2048-g1",
+ *       "CertificateType": "CA",
+ *       "CustomerOverride": true,
+ *       "CustomerOverrideValidTill": "2061-05-25T23:34:57+00:00",
+ *       "Thumbprint": "2fa77ef894d983ba9d37ad699c84ab0f6EXAMPLE",
+ *       "ValidFrom": "2021-05-25T22:34:57+00:00",
+ *       "ValidTill": "2061-05-25T23:34:57+00:00"
+ *     },
+ *     {
+ *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-2019",
+ *       "CertificateIdentifier": "rds-ca-2019",
+ *       "CertificateType": "CA",
+ *       "CustomerOverride": false,
+ *       "Thumbprint": "f0ed823ed14447bab557fdf3e49274669EXAMPLE",
+ *       "ValidFrom": "2019-09-19T18:16:53+00:00",
+ *       "ValidTill": "2024-08-22T17:08:50+00:00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-certificates-1680211777663
  * ```
  *
  */
@@ -152,14 +189,14 @@ export class DescribeCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCertificatesCommand(input, context);
+    return se_DescribeCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeCertificatesCommand(output, context);
+    return de_DescribeCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

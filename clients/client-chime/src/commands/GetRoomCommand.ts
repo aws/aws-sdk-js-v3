@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetRoomRequest, GetRoomResponse, GetRoomResponseFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetRoomCommand,
-  serializeAws_restJson1GetRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRoomCommand, se_GetRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
    * @internal
    */
   private serialize(input: GetRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRoomCommand(input, context);
+    return se_GetRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
-    return deserializeAws_restJson1GetRoomCommand(output, context);
+    return de_GetRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

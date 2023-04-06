@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListSharedProjectsInput, ListSharedProjectsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSharedProjectsCommand,
-  serializeAws_json1_1ListSharedProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSharedProjectsCommand, se_ListSharedProjectsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListSharedProjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSharedProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSharedProjectsCommand(input, context);
+    return se_ListSharedProjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedProjectsCommandOutput> {
-    return deserializeAws_json1_1ListSharedProjectsCommand(output, context);
+    return de_ListSharedProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

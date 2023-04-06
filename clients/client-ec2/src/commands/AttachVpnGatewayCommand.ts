@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachVpnGatewayRequest, AttachVpnGatewayResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AttachVpnGatewayCommand,
-  serializeAws_ec2AttachVpnGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_AttachVpnGatewayCommand, se_AttachVpnGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class AttachVpnGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVpnGatewayCommand(input, context);
+    return se_AttachVpnGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVpnGatewayCommandOutput> {
-    return deserializeAws_ec2AttachVpnGatewayCommand(output, context);
+    return de_AttachVpnGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

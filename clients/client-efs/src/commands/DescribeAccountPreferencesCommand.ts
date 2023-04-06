@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeAccountPreferencesRequest, DescribeAccountPreferencesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccountPreferencesCommand,
-  serializeAws_restJson1DescribeAccountPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAccountPreferencesCommand, se_DescribeAccountPreferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class DescribeAccountPreferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountPreferencesCommand(input, context);
+    return se_DescribeAccountPreferencesCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class DescribeAccountPreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountPreferencesCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountPreferencesCommand(output, context);
+    return de_DescribeAccountPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

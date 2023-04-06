@@ -19,8 +19,8 @@ import {
   AssociateMulticastGroupWithFuotaTaskResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand,
-  serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand,
+  de_AssociateMulticastGroupWithFuotaTaskCommand,
+  se_AssociateMulticastGroupWithFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     input: AssociateMulticastGroupWithFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand(input, context);
+    return se_AssociateMulticastGroupWithFuotaTaskCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand(output, context);
+    return de_AssociateMulticastGroupWithFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

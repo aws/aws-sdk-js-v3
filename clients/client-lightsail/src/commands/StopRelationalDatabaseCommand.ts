@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StopRelationalDatabaseCommand,
-  serializeAws_json1_1StopRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopRelationalDatabaseCommand, se_StopRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class StopRelationalDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: StopRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRelationalDatabaseCommand(input, context);
+    return se_StopRelationalDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StopRelationalDatabaseCommand(output, context);
+    return de_StopRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

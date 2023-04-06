@@ -19,10 +19,7 @@ import {
   DeleteBudgetActionResponse,
   DeleteBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBudgetActionCommand,
-  serializeAws_json1_1DeleteBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBudgetActionCommand, se_DeleteBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteBudgetActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBudgetActionCommand(input, context);
+    return se_DeleteBudgetActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBudgetActionCommandOutput> {
-    return deserializeAws_json1_1DeleteBudgetActionCommand(output, context);
+    return de_DeleteBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubmitTaskStateChangeCommand,
-  serializeAws_json1_1SubmitTaskStateChangeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SubmitTaskStateChangeCommand, se_SubmitTaskStateChangeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -178,14 +175,14 @@ export class SubmitTaskStateChangeCommand extends $Command<
    * @internal
    */
   private serialize(input: SubmitTaskStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitTaskStateChangeCommand(input, context);
+    return se_SubmitTaskStateChangeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitTaskStateChangeCommandOutput> {
-    return deserializeAws_json1_1SubmitTaskStateChangeCommand(output, context);
+    return de_SubmitTaskStateChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

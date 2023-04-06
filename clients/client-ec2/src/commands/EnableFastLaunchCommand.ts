@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { EnableFastLaunchRequest, EnableFastLaunchResult } from "../models/models_5";
-import {
-  deserializeAws_ec2EnableFastLaunchCommand,
-  serializeAws_ec2EnableFastLaunchCommand,
-} from "../protocols/Aws_ec2";
+import { de_EnableFastLaunchCommand, se_EnableFastLaunchCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class EnableFastLaunchCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableFastLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableFastLaunchCommand(input, context);
+    return se_EnableFastLaunchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableFastLaunchCommandOutput> {
-    return deserializeAws_ec2EnableFastLaunchCommand(output, context);
+    return de_EnableFastLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

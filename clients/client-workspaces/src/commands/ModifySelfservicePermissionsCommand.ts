@@ -15,8 +15,8 @@ import {
 
 import { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifySelfservicePermissionsCommand,
-  serializeAws_json1_1ModifySelfservicePermissionsCommand,
+  de_ModifySelfservicePermissionsCommand,
+  se_ModifySelfservicePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -139,7 +139,7 @@ export class ModifySelfservicePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySelfservicePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifySelfservicePermissionsCommand(input, context);
+    return se_ModifySelfservicePermissionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class ModifySelfservicePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifySelfservicePermissionsCommandOutput> {
-    return deserializeAws_json1_1ModifySelfservicePermissionsCommand(output, context);
+    return de_ModifySelfservicePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { UpdateEmailChannelRequest, UpdateEmailChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateEmailChannelCommand,
-  serializeAws_restJson1UpdateEmailChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEmailChannelCommand, se_UpdateEmailChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateEmailChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailChannelCommand(input, context);
+    return se_UpdateEmailChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailChannelCommand(output, context);
+    return de_UpdateEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -24,10 +24,7 @@ import {
   AdminUpdateUserAttributesRequestFilterSensitiveLog,
   AdminUpdateUserAttributesResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminUpdateUserAttributesCommand,
-  serializeAws_json1_1AdminUpdateUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminUpdateUserAttributesCommand, se_AdminUpdateUserAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -218,7 +215,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminUpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUpdateUserAttributesCommand(input, context);
+    return se_AdminUpdateUserAttributesCommand(input, context);
   }
 
   /**
@@ -228,7 +225,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(output, context);
+    return de_AdminUpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

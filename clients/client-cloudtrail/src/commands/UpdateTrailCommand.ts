@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { UpdateTrailRequest, UpdateTrailResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTrailCommand,
-  serializeAws_json1_1UpdateTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTrailCommand, se_UpdateTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -309,14 +306,14 @@ export class UpdateTrailCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrailCommand(input, context);
+    return se_UpdateTrailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrailCommandOutput> {
-    return deserializeAws_json1_1UpdateTrailCommand(output, context);
+    return de_UpdateTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

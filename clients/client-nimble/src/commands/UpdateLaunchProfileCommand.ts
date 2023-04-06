@@ -20,10 +20,7 @@ import {
   UpdateLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateLaunchProfileCommand,
-  serializeAws_restJson1UpdateLaunchProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchProfileCommand, se_UpdateLaunchProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class UpdateLaunchProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchProfileCommand(input, context);
+    return se_UpdateLaunchProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchProfileCommand(output, context);
+    return de_UpdateLaunchProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

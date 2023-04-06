@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
-  deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
-  serializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
+  de_AllocatePublicVirtualInterfaceCommand,
+  se_AllocatePublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -161,7 +161,7 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     input: AllocatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(input, context);
+    return se_AllocatePublicVirtualInterfaceCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(output, context);
+    return de_AllocatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

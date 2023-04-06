@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { PutProfileObjectRequest, PutProfileObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutProfileObjectCommand,
-  serializeAws_restJson1PutProfileObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutProfileObjectCommand, se_PutProfileObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutProfileObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: PutProfileObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutProfileObjectCommand(input, context);
+    return se_PutProfileObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProfileObjectCommandOutput> {
-    return deserializeAws_restJson1PutProfileObjectCommand(output, context);
+    return de_PutProfileObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

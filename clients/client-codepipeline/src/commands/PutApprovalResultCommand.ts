@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutApprovalResultCommand,
-  serializeAws_json1_1PutApprovalResultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutApprovalResultCommand, se_PutApprovalResultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutApprovalResultCommand extends $Command<
    * @internal
    */
   private serialize(input: PutApprovalResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutApprovalResultCommand(input, context);
+    return se_PutApprovalResultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApprovalResultCommandOutput> {
-    return deserializeAws_json1_1PutApprovalResultCommand(output, context);
+    return de_PutApprovalResultCommand(output, context);
   }
 
   // Start section: command_body_extra

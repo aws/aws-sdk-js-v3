@@ -17,8 +17,8 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import { StartInputDeviceMaintenanceWindowRequest } from "../models/models_1";
 import { StartInputDeviceMaintenanceWindowResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
-  serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
+  de_StartInputDeviceMaintenanceWindowCommand,
+  se_StartInputDeviceMaintenanceWindowCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     input: StartInputDeviceMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand(input, context);
+    return se_StartInputDeviceMaintenanceWindowCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> {
-    return deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand(output, context);
+    return de_StartInputDeviceMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

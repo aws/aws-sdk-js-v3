@@ -16,8 +16,8 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteVoiceConnectorEmergencyCallingConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
-  serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
+    return se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
+    return de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

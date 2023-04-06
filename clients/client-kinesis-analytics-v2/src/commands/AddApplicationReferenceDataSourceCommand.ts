@@ -23,8 +23,8 @@ import {
   AddApplicationReferenceDataSourceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationReferenceDataSourceCommand,
-  serializeAws_json1_1AddApplicationReferenceDataSourceCommand,
+  de_AddApplicationReferenceDataSourceCommand,
+  se_AddApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -184,7 +184,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     input: AddApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationReferenceDataSourceCommand(input, context);
+    return se_AddApplicationReferenceDataSourceCommand(input, context);
   }
 
   /**
@@ -194,7 +194,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> {
-    return deserializeAws_json1_1AddApplicationReferenceDataSourceCommand(output, context);
+    return de_AddApplicationReferenceDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

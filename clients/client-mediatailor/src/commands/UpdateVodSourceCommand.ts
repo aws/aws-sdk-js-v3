@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { UpdateVodSourceRequest, UpdateVodSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVodSourceCommand,
-  serializeAws_restJson1UpdateVodSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVodSourceCommand, se_UpdateVodSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateVodSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVodSourceCommand(input, context);
+    return se_UpdateVodSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVodSourceCommandOutput> {
-    return deserializeAws_restJson1UpdateVodSourceCommand(output, context);
+    return de_UpdateVodSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

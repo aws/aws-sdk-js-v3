@@ -20,10 +20,7 @@ import {
   BatchCreateAttendeeResponse,
   BatchCreateAttendeeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchCreateAttendeeCommand,
-  serializeAws_restJson1BatchCreateAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchCreateAttendeeCommand, se_BatchCreateAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class BatchCreateAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchCreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateAttendeeCommand(input, context);
+    return se_BatchCreateAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1BatchCreateAttendeeCommand(output, context);
+    return de_BatchCreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

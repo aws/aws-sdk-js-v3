@@ -15,10 +15,7 @@ import {
 
 import { AssociateConnectPeerRequest, AssociateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AssociateConnectPeerCommand,
-  serializeAws_restJson1AssociateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateConnectPeerCommand, se_AssociateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class AssociateConnectPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateConnectPeerCommand(input, context);
+    return se_AssociateConnectPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1AssociateConnectPeerCommand(output, context);
+    return de_AssociateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResponsePlanInput, GetResponsePlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResponsePlanCommand,
-  serializeAws_restJson1GetResponsePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResponsePlanCommand, se_GetResponsePlanCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetResponsePlanCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResponsePlanCommand(input, context);
+    return se_GetResponsePlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResponsePlanCommandOutput> {
-    return deserializeAws_restJson1GetResponsePlanCommand(output, context);
+    return de_GetResponsePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

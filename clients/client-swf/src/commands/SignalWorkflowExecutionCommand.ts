@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SignalWorkflowExecutionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0SignalWorkflowExecutionCommand,
-  serializeAws_json1_0SignalWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SignalWorkflowExecutionCommand, se_SignalWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -168,14 +165,14 @@ export class SignalWorkflowExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: SignalWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SignalWorkflowExecutionCommand(input, context);
+    return se_SignalWorkflowExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignalWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0SignalWorkflowExecutionCommand(output, context);
+    return de_SignalWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand,
-  serializeAws_json1_1UpdateSqlInjectionMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSqlInjectionMatchSetCommand, se_UpdateSqlInjectionMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -308,7 +305,7 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSqlInjectionMatchSetCommand(input, context);
+    return se_UpdateSqlInjectionMatchSetCommand(input, context);
   }
 
   /**
@@ -318,7 +315,7 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand(output, context);
+    return de_UpdateSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

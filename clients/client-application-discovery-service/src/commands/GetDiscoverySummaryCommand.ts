@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDiscoverySummaryCommand,
-  serializeAws_json1_1GetDiscoverySummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDiscoverySummaryCommand, se_GetDiscoverySummaryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetDiscoverySummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDiscoverySummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiscoverySummaryCommand(input, context);
+    return se_GetDiscoverySummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiscoverySummaryCommandOutput> {
-    return deserializeAws_json1_1GetDiscoverySummaryCommand(output, context);
+    return de_GetDiscoverySummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

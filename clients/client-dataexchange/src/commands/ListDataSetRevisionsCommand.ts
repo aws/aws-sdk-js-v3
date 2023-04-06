@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSetRevisionsCommand,
-  serializeAws_restJson1ListDataSetRevisionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataSetRevisionsCommand, se_ListDataSetRevisionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListDataSetRevisionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataSetRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetRevisionsCommand(input, context);
+    return se_ListDataSetRevisionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetRevisionsCommandOutput> {
-    return deserializeAws_restJson1ListDataSetRevisionsCommand(output, context);
+    return de_ListDataSetRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

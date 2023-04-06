@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAppValidationOutputRequest, GetAppValidationOutputResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAppValidationOutputCommand,
-  serializeAws_json1_1GetAppValidationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAppValidationOutputCommand, se_GetAppValidationOutputCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -136,14 +133,14 @@ export class GetAppValidationOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAppValidationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppValidationOutputCommand(input, context);
+    return se_GetAppValidationOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppValidationOutputCommandOutput> {
-    return deserializeAws_json1_1GetAppValidationOutputCommand(output, context);
+    return de_GetAppValidationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

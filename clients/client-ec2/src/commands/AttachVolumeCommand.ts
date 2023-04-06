@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
-import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
+import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -164,14 +164,14 @@ export class AttachVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVolumeCommand(input, context);
+    return se_AttachVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
-    return deserializeAws_ec2AttachVolumeCommand(output, context);
+    return de_AttachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

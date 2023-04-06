@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListTagsOfResourceCommand,
-  serializeAws_json1_0ListTagsOfResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListTagsOfResourceCommand, se_ListTagsOfResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListTagsOfResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsOfResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListTagsOfResourceCommand(input, context);
+    return se_ListTagsOfResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsOfResourceCommandOutput> {
-    return deserializeAws_json1_0ListTagsOfResourceCommand(output, context);
+    return de_ListTagsOfResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

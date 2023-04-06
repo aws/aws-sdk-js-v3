@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDRTAccessCommand,
-  serializeAws_json1_1DescribeDRTAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDRTAccessCommand, se_DescribeDRTAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -124,14 +121,14 @@ export class DescribeDRTAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDRTAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDRTAccessCommand(input, context);
+    return se_DescribeDRTAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDRTAccessCommandOutput> {
-    return deserializeAws_json1_1DescribeDRTAccessCommand(output, context);
+    return de_DescribeDRTAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkInsightsPathCommand,
-  serializeAws_ec2DeleteNetworkInsightsPathCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteNetworkInsightsPathCommand, se_DeleteNetworkInsightsPathCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,7 +118,7 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNetworkInsightsPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsPathCommand(input, context);
+    return se_DeleteNetworkInsightsPathCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsPathCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsPathCommand(output, context);
+    return de_DeleteNetworkInsightsPathCommand(output, context);
   }
 
   // Start section: command_body_extra

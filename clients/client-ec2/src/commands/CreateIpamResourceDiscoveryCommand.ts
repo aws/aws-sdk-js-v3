@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateIpamResourceDiscoveryRequest, CreateIpamResourceDiscoveryResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateIpamResourceDiscoveryCommand,
-  serializeAws_ec2CreateIpamResourceDiscoveryCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateIpamResourceDiscoveryCommand, se_CreateIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class CreateIpamResourceDiscoveryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIpamResourceDiscoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateIpamResourceDiscoveryCommand(input, context);
+    return se_CreateIpamResourceDiscoveryCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class CreateIpamResourceDiscoveryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIpamResourceDiscoveryCommandOutput> {
-    return deserializeAws_ec2CreateIpamResourceDiscoveryCommand(output, context);
+    return de_CreateIpamResourceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

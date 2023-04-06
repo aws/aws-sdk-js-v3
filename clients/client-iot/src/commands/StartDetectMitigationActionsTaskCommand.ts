@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { StartDetectMitigationActionsTaskRequest, StartDetectMitigationActionsTaskResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1StartDetectMitigationActionsTaskCommand,
-  serializeAws_restJson1StartDetectMitigationActionsTaskCommand,
+  de_StartDetectMitigationActionsTaskCommand,
+  se_StartDetectMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class StartDetectMitigationActionsTaskCommand extends $Command<
     input: StartDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDetectMitigationActionsTaskCommand(input, context);
+    return se_StartDetectMitigationActionsTaskCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class StartDetectMitigationActionsTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDetectMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1StartDetectMitigationActionsTaskCommand(output, context);
+    return de_StartDetectMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

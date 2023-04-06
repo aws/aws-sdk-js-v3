@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RestoreDocumentVersionsRequest, RestoreDocumentVersionsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RestoreDocumentVersionsCommand,
-  serializeAws_restJson1RestoreDocumentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RestoreDocumentVersionsCommand, se_RestoreDocumentVersionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -147,14 +144,14 @@ export class RestoreDocumentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RestoreDocumentVersionsCommand(input, context);
+    return se_RestoreDocumentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDocumentVersionsCommandOutput> {
-    return deserializeAws_restJson1RestoreDocumentVersionsCommand(output, context);
+    return de_RestoreDocumentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

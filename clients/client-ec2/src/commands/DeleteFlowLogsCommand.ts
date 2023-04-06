@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
+import { de_DeleteFlowLogsCommand, se_DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -120,14 +120,14 @@ export class DeleteFlowLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteFlowLogsCommand(input, context);
+    return se_DeleteFlowLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowLogsCommandOutput> {
-    return deserializeAws_ec2DeleteFlowLogsCommand(output, context);
+    return de_DeleteFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

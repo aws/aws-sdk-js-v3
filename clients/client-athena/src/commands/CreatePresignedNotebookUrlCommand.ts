@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreatePresignedNotebookUrlRequest, CreatePresignedNotebookUrlResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePresignedNotebookUrlCommand,
-  serializeAws_json1_1CreatePresignedNotebookUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePresignedNotebookUrlCommand, se_CreatePresignedNotebookUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePresignedNotebookUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedNotebookUrlCommand(input, context);
+    return se_CreatePresignedNotebookUrlCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePresignedNotebookUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedNotebookUrlCommand(output, context);
+    return de_CreatePresignedNotebookUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

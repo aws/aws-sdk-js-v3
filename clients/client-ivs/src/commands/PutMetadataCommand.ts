@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { PutMetadataRequest, PutMetadataRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutMetadataCommand,
-  serializeAws_restJson1PutMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutMetadataCommand, se_PutMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class PutMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMetadataCommand(input, context);
+    return se_PutMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetadataCommandOutput> {
-    return deserializeAws_restJson1PutMetadataCommand(output, context);
+    return de_PutMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

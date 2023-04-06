@@ -19,10 +19,7 @@ import {
   CreateKeysAndCertificateResponse,
   CreateKeysAndCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateKeysAndCertificateCommand,
-  serializeAws_restJson1CreateKeysAndCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateKeysAndCertificateCommand, se_CreateKeysAndCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class CreateKeysAndCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateKeysAndCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateKeysAndCertificateCommand(input, context);
+    return se_CreateKeysAndCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeysAndCertificateCommandOutput> {
-    return deserializeAws_restJson1CreateKeysAndCertificateCommand(output, context);
+    return de_CreateKeysAndCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand,
-  serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand,
+  de_GetTransitGatewayConnectPeerAssociationsCommand,
+  se_GetTransitGatewayConnectPeerAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
     input: GetTransitGatewayConnectPeerAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand(input, context);
+    return se_GetTransitGatewayConnectPeerAssociationsCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand(output, context);
+    return de_GetTransitGatewayConnectPeerAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

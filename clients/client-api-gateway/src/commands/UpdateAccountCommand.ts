@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Account, UpdateAccountRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAccountCommand,
-  serializeAws_restJson1UpdateAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAccountCommand, se_UpdateAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountCommand(input, context);
+    return se_UpdateAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountCommand(output, context);
+    return de_UpdateAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

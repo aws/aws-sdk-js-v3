@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociateBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateBotCommand,
-  serializeAws_restJson1DisassociateBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateBotCommand, se_DisassociateBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DisassociateBotCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateBotCommand(input, context);
+    return se_DisassociateBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateBotCommandOutput> {
-    return deserializeAws_restJson1DisassociateBotCommand(output, context);
+    return de_DisassociateBotCommand(output, context);
   }
 
   // Start section: command_body_extra

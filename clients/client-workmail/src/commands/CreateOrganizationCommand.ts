@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOrganizationCommand,
-  serializeAws_json1_1CreateOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOrganizationCommand, se_CreateOrganizationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOrganizationCommand(input, context);
+    return se_CreateOrganizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationCommandOutput> {
-    return deserializeAws_json1_1CreateOrganizationCommand(output, context);
+    return de_CreateOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

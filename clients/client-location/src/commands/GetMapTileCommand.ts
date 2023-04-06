@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { GetMapTileRequest, GetMapTileRequestFilterSensitiveLog, GetMapTileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMapTileCommand,
-  serializeAws_restJson1GetMapTileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMapTileCommand, se_GetMapTileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetMapTileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMapTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMapTileCommand(input, context);
+    return se_GetMapTileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapTileCommandOutput> {
-    return deserializeAws_restJson1GetMapTileCommand(output, context);
+    return de_GetMapTileCommand(output, context);
   }
 
   // Start section: command_body_extra

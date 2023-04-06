@@ -15,8 +15,8 @@ import {
 
 import { DisassociateNetworkSettingsRequest, DisassociateNetworkSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateNetworkSettingsCommand,
-  serializeAws_restJson1DisassociateNetworkSettingsCommand,
+  de_DisassociateNetworkSettingsCommand,
+  se_DisassociateNetworkSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -137,7 +137,7 @@ export class DisassociateNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateNetworkSettingsCommand(input, context);
+    return se_DisassociateNetworkSettingsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DisassociateNetworkSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateNetworkSettingsCommand(output, context);
+    return de_DisassociateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

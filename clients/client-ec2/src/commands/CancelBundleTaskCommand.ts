@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelBundleTaskCommand,
-  serializeAws_ec2CancelBundleTaskCommand,
-} from "../protocols/Aws_ec2";
+import { de_CancelBundleTaskCommand, se_CancelBundleTaskCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class CancelBundleTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelBundleTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelBundleTaskCommand(input, context);
+    return se_CancelBundleTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBundleTaskCommandOutput> {
-    return deserializeAws_ec2CancelBundleTaskCommand(output, context);
+    return de_CancelBundleTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

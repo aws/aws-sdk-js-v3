@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { UpdateSlotRequest, UpdateSlotResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateSlotCommand,
-  serializeAws_restJson1UpdateSlotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSlotCommand, se_UpdateSlotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -541,14 +538,14 @@ export class UpdateSlotCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSlotCommand(input, context);
+    return se_UpdateSlotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSlotCommandOutput> {
-    return deserializeAws_restJson1UpdateSlotCommand(output, context);
+    return de_UpdateSlotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { PutAlertManagerDefinitionRequest, PutAlertManagerDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAlertManagerDefinitionCommand,
-  serializeAws_restJson1PutAlertManagerDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAlertManagerDefinitionCommand, se_PutAlertManagerDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class PutAlertManagerDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAlertManagerDefinitionCommand(input, context);
+    return se_PutAlertManagerDefinitionCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class PutAlertManagerDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1PutAlertManagerDefinitionCommand(output, context);
+    return de_PutAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

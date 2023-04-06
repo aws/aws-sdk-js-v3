@@ -15,10 +15,7 @@ import {
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { DeleteTableRequest, DeleteTableResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTableCommand,
-  serializeAws_json1_0DeleteTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteTableCommand, se_DeleteTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTableCommand(input, context);
+    return se_DeleteTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
-    return deserializeAws_json1_0DeleteTableCommand(output, context);
+    return de_DeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

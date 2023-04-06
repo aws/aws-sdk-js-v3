@@ -15,8 +15,8 @@ import {
 
 import { DeleteSimulationApplicationRequest, DeleteSimulationApplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSimulationApplicationCommand,
-  serializeAws_restJson1DeleteSimulationApplicationCommand,
+  de_DeleteSimulationApplicationCommand,
+  se_DeleteSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -133,7 +133,7 @@ export class DeleteSimulationApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSimulationApplicationCommand(input, context);
+    return se_DeleteSimulationApplicationCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class DeleteSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteSimulationApplicationCommand(output, context);
+    return de_DeleteSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

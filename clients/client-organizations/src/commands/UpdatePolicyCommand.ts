@@ -15,10 +15,7 @@ import {
 
 import { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1UpdatePolicyCommand,
-  serializeAws_json1_1UpdatePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePolicyCommand, se_UpdatePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -526,14 +523,14 @@ export class UpdatePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePolicyCommand(input, context);
+    return se_UpdatePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePolicyCommandOutput> {
-    return deserializeAws_json1_1UpdatePolicyCommand(output, context);
+    return de_UpdatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

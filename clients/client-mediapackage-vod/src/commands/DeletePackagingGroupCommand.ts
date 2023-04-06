@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePackagingGroupCommand,
-  serializeAws_restJson1DeletePackagingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePackagingGroupCommand, se_DeletePackagingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeletePackagingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePackagingGroupCommand(input, context);
+    return se_DeletePackagingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1DeletePackagingGroupCommand(output, context);
+    return de_DeletePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

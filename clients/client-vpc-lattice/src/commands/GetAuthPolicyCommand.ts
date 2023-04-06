@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAuthPolicyRequest, GetAuthPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAuthPolicyCommand,
-  serializeAws_restJson1GetAuthPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAuthPolicyCommand, se_GetAuthPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetAuthPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAuthPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAuthPolicyCommand(input, context);
+    return se_GetAuthPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthPolicyCommandOutput> {
-    return deserializeAws_restJson1GetAuthPolicyCommand(output, context);
+    return de_GetAuthPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

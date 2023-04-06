@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { GetAccountConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccountConfigurationCommand,
-  serializeAws_json1_1GetAccountConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccountConfigurationCommand, se_GetAccountConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class GetAccountConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountConfigurationCommand(input, context);
+    return se_GetAccountConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAccountConfigurationCommand(output, context);
+    return de_GetAccountConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

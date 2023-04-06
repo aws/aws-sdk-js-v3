@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
-  serializeAws_restJson1GetDASHStreamingSessionURLCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDASHStreamingSessionURLCommand, se_GetDASHStreamingSessionURLCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -323,7 +320,7 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDASHStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDASHStreamingSessionURLCommand(input, context);
+    return se_GetDASHStreamingSessionURLCommand(input, context);
   }
 
   /**
@@ -333,7 +330,7 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1GetDASHStreamingSessionURLCommand(output, context);
+    return de_GetDASHStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

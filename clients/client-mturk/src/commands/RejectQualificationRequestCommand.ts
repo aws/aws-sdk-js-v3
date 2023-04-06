@@ -15,10 +15,7 @@ import {
 
 import { RejectQualificationRequestRequest, RejectQualificationRequestResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1RejectQualificationRequestCommand,
-  serializeAws_json1_1RejectQualificationRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectQualificationRequestCommand, se_RejectQualificationRequestCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class RejectQualificationRequestCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectQualificationRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectQualificationRequestCommand(input, context);
+    return se_RejectQualificationRequestCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class RejectQualificationRequestCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectQualificationRequestCommandOutput> {
-    return deserializeAws_json1_1RejectQualificationRequestCommand(output, context);
+    return de_RejectQualificationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

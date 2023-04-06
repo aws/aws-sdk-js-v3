@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GenerateTemplateRequest, GenerateTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateTemplateCommand,
-  serializeAws_json1_1GenerateTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateTemplateCommand, se_GenerateTemplateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -138,14 +135,14 @@ export class GenerateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateTemplateCommand(input, context);
+    return se_GenerateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateTemplateCommandOutput> {
-    return deserializeAws_json1_1GenerateTemplateCommand(output, context);
+    return de_GenerateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

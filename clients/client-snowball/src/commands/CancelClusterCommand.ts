@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelClusterCommand,
-  serializeAws_json1_1CancelClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelClusterCommand, se_CancelClusterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -143,14 +140,14 @@ export class CancelClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelClusterCommand(input, context);
+    return se_CancelClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelClusterCommandOutput> {
-    return deserializeAws_json1_1CancelClusterCommand(output, context);
+    return de_CancelClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

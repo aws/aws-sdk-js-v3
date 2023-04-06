@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateCidrCollectionRequest, CreateCidrCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateCidrCollectionCommand,
-  serializeAws_restXmlCreateCidrCollectionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateCidrCollectionCommand, se_CreateCidrCollectionCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -136,14 +133,14 @@ export class CreateCidrCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateCidrCollectionCommand(input, context);
+    return se_CreateCidrCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCidrCollectionCommandOutput> {
-    return deserializeAws_restXmlCreateCidrCollectionCommand(output, context);
+    return de_CreateCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CreateApplicationInstanceRequest, CreateApplicationInstanceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreateApplicationInstanceCommand,
-  serializeAws_restJson1CreateApplicationInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApplicationInstanceCommand, se_CreateApplicationInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class CreateApplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationInstanceCommand(input, context);
+    return se_CreateApplicationInstanceCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class CreateApplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationInstanceCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationInstanceCommand(output, context);
+    return de_CreateApplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

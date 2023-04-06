@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DetachRolePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDetachRolePolicyCommand,
-  serializeAws_queryDetachRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_DetachRolePolicyCommand, se_DetachRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DetachRolePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachRolePolicyCommand(input, context);
+    return se_DetachRolePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachRolePolicyCommandOutput> {
-    return deserializeAws_queryDetachRolePolicyCommand(output, context);
+    return de_DetachRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

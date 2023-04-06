@@ -19,10 +19,7 @@ import {
   ListPartnerAccountsResponse,
   ListPartnerAccountsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPartnerAccountsCommand,
-  serializeAws_restJson1ListPartnerAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPartnerAccountsCommand, se_ListPartnerAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListPartnerAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPartnerAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartnerAccountsCommand(input, context);
+    return se_ListPartnerAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartnerAccountsCommandOutput> {
-    return deserializeAws_restJson1ListPartnerAccountsCommand(output, context);
+    return de_ListPartnerAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

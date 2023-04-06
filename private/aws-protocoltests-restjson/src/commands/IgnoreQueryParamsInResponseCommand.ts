@@ -14,8 +14,8 @@ import {
 
 import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1IgnoreQueryParamsInResponseCommand,
-  serializeAws_restJson1IgnoreQueryParamsInResponseCommand,
+  de_IgnoreQueryParamsInResponseCommand,
+  se_IgnoreQueryParamsInResponseCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -107,7 +107,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: IgnoreQueryParamsInResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1IgnoreQueryParamsInResponseCommand(input, context);
+    return se_IgnoreQueryParamsInResponseCommand(input, context);
   }
 
   /**
@@ -117,7 +117,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
-    return deserializeAws_restJson1IgnoreQueryParamsInResponseCommand(output, context);
+    return de_IgnoreQueryParamsInResponseCommand(output, context);
   }
 
   // Start section: command_body_extra
